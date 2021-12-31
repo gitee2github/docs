@@ -36,7 +36,6 @@ headless: true
     -   [Process Management]({{< relref "./docs/Administration/process-management.md" >}})
     -   [Configuring the Network]({{< relref "./docs/Administration/configuring-the-network.md" >}})
     -   [Managing Hard Disks Through LVM]({{< relref "./docs/Administration/managing-hard-disks-through-lvm.md" >}})
-    -   [Using the KAE]({{< relref "./docs/Administration/using-the-kae.md" >}})
     -   [Configuring Services]({{< relref "./docs/Administration/configuring-services.md" >}})
         -   [Configuring the Repo Server]({{< relref "./docs/Administration/configuring-the-repo-server.md" >}})
         -   [Configuring the FTP Server]({{< relref "./docs/Administration/configuring-the-ftp-server.md" >}})
