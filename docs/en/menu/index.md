@@ -70,7 +70,7 @@ headless: true
         -   [vmtop]({{< relref "./docs/Virtualization/vmtop.md" >}})
         -   [LibcarePlus]({{< relref "./docs/Virtualization/LibcarePlus.md" >}})
     -   [Appendix]({{< relref "./docs/Virtualization/appendix.md" >}})
--   [StratoVirt Virtualization User Guide]({{< relref "./docs/Virtualization/StratoVrit_guidence.md" >}})
+-   [StratoVirt Virtualization User Guide]({{< relref "./docs/StratoVirt/StratoVrit_guidence.md" >}})
     -   [Introduction to StratoVirt]({{< relref "./docs/StratoVirt/StratoVirt_intoduction.md" >}})
     -   [Installing StratoVirt]({{< relref "./docs/StratoVirt/Install_StratoVirt.md" >}})
     -   [Preparing the Environment]({{< relref "./docs/StratoVirt/Prepare_env.md" >}})
