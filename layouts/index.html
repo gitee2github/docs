@@ -13,6 +13,9 @@
             </div>
             <ul>
                 <li><i class="icon-tick" ></i>{{i18n "version_selection"}}</li>
+                {{ if ne .Site.LanguageCode "ru"}}
+                <li><a href="{{ i18n "know_92_1"}}">21.03 LTS SP3</a></li>
+                {{ end }}
                 <li><a href="{{ i18n "know_93_1"}}">21.09</a></li>
                 {{ if ne .Site.LanguageCode "ru"}}
                 <li><a href="{{ i18n "know_94_1"}}">20.03 LTS SP2</a></li>
@@ -182,6 +185,11 @@
                     <div>
                         <a href="{{ i18n "know_93_1"}}">21.09</a>
                     </div>
+                    {{ if ne .Site.LanguageCode "ru"}}
+                    <div>
+                        <a href="{{ i18n "know_92_1"}}">20.03 LTS SP3</a>
+                    </div>
+                    {{ end }}
                 </div>
             </div>
             <h3>{{ i18n "hot_document" }}</h3>
