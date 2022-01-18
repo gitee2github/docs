@@ -1,7 +1,6 @@
 # 容器镜像构建
 
-<!-- TOC -->
-
+* [概述](#概述)
 * [安装](#安装)
     * [环境准备](#环境准备)
         * [安装isula-build](#安装isula-build)
@@ -28,19 +27,20 @@
     * [logout: 退出远端镜像仓库](#logout-退出远端镜像仓库)
     * [version: 版本查询](#version-版本查询)
     * [manifest: manifest列表管理（实验特性）](#manifest-manifest列表管理)
-    * [create: manifest列表创建](#create-manifest列表创建)
-    * [annotate: manifest列表更新](#annotate-manifest列表更新)
-    * [inspect: manifest列表查询](#inspect-manifest列表查询)
-    * [push: 将manifest列表推送到远程仓库](#push-将manifest列表推送到远程仓库)
+        * [create: manifest列表创建](#create-manifest列表创建)
+        * [annotate: manifest列表更新](#annotate-manifest列表更新)
+        * [inspect: manifest列表查询](#inspect-manifest列表查询)
+        * [push: 将manifest列表推送到远程仓库](#push-将manifest列表推送到远程仓库)
 * [直接集成容器引擎](#直接集成容器引擎)
     * [与iSulad集成](#与isulad集成)
     * [与Docker集成](#与docker集成)
+* [使用注意事项](#使用注意事项)
+    * [约束和限制](#约束和限制)
+    * [与“docker build”差异](#与docker-build差异)
 * [附录](#附录)
     * [命令行参数说明](#命令行参数说明)
     * [通信矩阵](#通信矩阵)
     * [文件与权限](#文件与权限)
-
-<!-- /TOC -->
 
 ## 概述
 
@@ -50,9 +50,9 @@ isula-build采用服务端/客户端模式，其中，isula-build为客户端，
 
 ![isula-build architecure](./figures/isula-build_arch.png)
 
-说明：
-
-- isula-build当前仅支持Docker镜像。
+> ![](./public_sys-resources/icon-note.gif) **说明：**
+>
+> - isula-build当前支持OCI镜像格式（[OCI Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md)）以及Docker镜像格式（[Image Manifest Version 2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/)）。通过命令`export ISULABUILD_CLI_EXPERIMENTAL=enabled开启实验特性以支持OCI镜像格式。不开启实验特性时，isula-build默认采用Docker镜像格式；当开启实验特性后，将默认采用OCI镜像格式。
 
 ## 安装
 
@@ -68,8 +68,6 @@ isula-build采用服务端/客户端模式，其中，isula-build为客户端，
 
 使用isula-build构建容器镜像，需要先安装以下软件包。
 
-
-
 **（推荐）方法一：使用yum安装**
 
 1. 配置openEuler yum源。
@@ -79,8 +77,6 @@ isula-build采用服务端/客户端模式，其中，isula-build为客户端，
    ```
    sudo yum install -y isula-build
    ```
-
-
 
 **方法二：使用rpm包安装**
 
@@ -94,8 +90,9 @@ isula-build采用服务端/客户端模式，其中，isula-build为客户端，
    sudo rpm -ivh /home/isula-build-*.rpm
    ```
 
-> **说明：** 
-> 安装完成后，需要手工启动isula-build服务。启动请参见"管理服务"。
+> ![](./public_sys-resources/icon-note.gif) **说明：**
+>
+> - 安装完成后，需要手工启动isula-build服务。启动请参见"管理服务"。
 
 ## 配置与管理服务
 
@@ -115,6 +112,7 @@ isula-build采用服务端/客户端模式，其中，isula-build为客户端，
 | data_root | 必选     | 设置本地持久化目录                | 本地持久化目录路径，例如/var/lib/isula-build/   |
 | runtime   | 可选     | 设置runtime种类，目前仅支持runc   | runc                                            |
 | group     | 可选     | 设置本地套接字isula_build.sock文件属组使得加入该组的非特权用户可以操作isula-build | isula |
+| experimental | 可选     | 设置是否开启实验特性                                         | true：开启实验特性；false：关闭实验特性         |
 
 
 - /etc/isula-build/storage.toml: 本地持久化存储的配置文件，包含所使用的存储驱动的配置。
@@ -137,21 +135,20 @@ isula-build采用服务端/客户端模式，其中，isula-build为客户端，
 
 - /etc/isula-build/policy.json：镜像pull/push策略文件。注：当前不支持对其进行配置
 
-> ![](./public_sys-resources/icon-note.gif) **说明：** 
+> ![](./public_sys-resources/icon-note.gif) **说明：**
 >
 > - isula-build 支持最大 1MiB 的上述配置文件。
 > - isula-build 不支持将持久化工作目录 dataroot 配置在内存盘上，比如 tmpfs。
 > - isula-build 目前仅支持使用overlay2为底层 graphdriver。
-> - 在设置--group参数前，需保证本地OS已经创建了对应的用户组，且非特权用户已经加入该组。重启isula-builder之后即可使该非特权用户使用isula-build功能。同时，为了保持权限一致性，isula-build的配置文件目录/etc/isula-build的数组也会被设置为--group指定的组。
-
-
+> - 在设置--group参数前，需保证本地OS已经创建了对应的用户组，且非特权用户已经加入该组。重启isula-builder之后即可使该非特权用户使用isula-build功能。同时，为了保持权限一致性，isula-build的配置文件目录/etc/isula-build的属组也会被设置为--group指定的组。
 
 ### 管理服务
 
 目前 openEuler 采用 systemd 管理软件服务，isula-build 软件包已经自带了 systemd 的服务文件，用户安装完 isula-build 软件包之后可以直接通过 systemd 工具对它进行服务启停等操作。用户同样可以手动启动 isula-build 服务端软件。需要注意的是，同一个节点上不可以同时启动多个 isula-build 服务端软件。
 
->![](./public_sys-resources/icon-note.gif) **说明：** 
->同一个节点上不可以同时启动多个 isula-build 服务端软件。
+>![](./public_sys-resources/icon-note.gif) **说明：**
+>
+> - 同一个节点上不可以同时启动多个 isula-build 服务端软件。
 
 #### 通过 systemd 管理（推荐方式）
 
@@ -192,9 +189,11 @@ sudo systemctl daemon-reload
 - --storage-driver：底层存储驱动类型。
 - --storage-opt: 底层存储驱动配置。
 - --group: 设置本地套接字isula_build.sock文件属组使得加入该组的非特权用户可以操作isula-build，默认为“isula”。
+- --experimental: 是否开启实验特性，默认为false。
 
->![](./public_sys-resources/icon-note.gif) **说明：** 
->当命令行启动参数中传递了与配置文件相同的配置选项时，优先使用命令行参数启动。
+>![](./public_sys-resources/icon-note.gif) **说明：**
+>
+> - 当命令行启动参数中传递了与配置文件相同的配置选项时，优先使用命令行参数启动。
 
 启动 isula-build 服务。例如指定本地持久化路径/var/lib/isula-build，且不开启调试的参考命令如下：
 
@@ -218,10 +217,9 @@ sudo yum install -y docker-runc
 sudo yum install -y docker-engine
 ```
 
->![](./public_sys-resources/icon-note.gif) **说明：** 
->用户需保证OCI runtime(runc)可执行文件的安全性，避免被恶意替换。
-
-
+>![](./public_sys-resources/icon-note.gif) **说明：**
+>
+> - 用户需保证OCI runtime（runc）可执行文件的安全性，避免被恶意替换。
 
 ### 总体说明
 
@@ -241,15 +239,14 @@ isula-build 客户端提供了一系列命令用于构建和管理容器镜像�
 - login，登录远端容器镜像仓库。
 - logout，退出远端容器镜像仓库。
 - version，查看isula-build和isula-builder的版本号。
+- manifest（实验特性），管理manifest列表。
 
->![](./public_sys-resources/icon-note.gif) **说明：** 
->isula-build completion 和 isula-builder completion 命令用于生成bash命令补全脚本。该命令为命令行框架隐式提供，不会显示在help信息中。
-
-
+>![](./public_sys-resources/icon-note.gif) **说明：**
+>
+> - isula-build completion 和 isula-builder completion 命令用于生成bash命令补全脚本。该命令为命令行框架隐式提供，不会显示在help信息中。
+> - isula-build客户端不包含配置文件，当用户需要使用isula-build实验特性时，需要在客户端通过命令`export ISULABUILD_CLI_EXPERIMENTAL=enabled`配置环境变量ISULABUILD_CLI_EXPERIMENTAL来开启实验特性。
 
 以下按照上述维度依次详细介绍这些命令行指令的使用。
-
-
 
 
 ### ctr-img: 容器镜像管理
@@ -274,6 +271,7 @@ isula-build ctr-img build [flags]
 - --build-static：KeyValue值，构建二进制一致性。目前包含如下Key值：
    - build-time：string，使用固定时间戳来构建容器镜像；时间戳格式为“YYYY-MM-DD HH-MM-SS”。
 - -f, --filename：string，Dockerfile的路径，不指定则是使用当前路径的Dockerfile文件。
+- --format： string, 设置构建镜像的镜像格式：oci | docker（需开启实验特性选项）。
 - --iidfile：string，输出 image ID 到本地文件。
 - -o, --output：string，镜像导出的方式和路径。
 - --proxy：布尔值，继承主机侧环境的proxy环境变量（默认为true）。
@@ -298,7 +296,8 @@ STEP  1: FROM busybox
 Getting image source signatures
 Copying blob sha256:8f52abd3da461b2c0c11fda7a1b53413f1a92320eb96525ddf92c0b5cde781ad
 Copying config sha256:e4db68de4ff27c2adfea0c54bbb73a61a42f5b667c326de4d7d5b19ab71c6a3b
-Writing manifest to image destinationStoring signatures
+Writing manifest to image destination
+Storing signatures
 STEP  2: ARG foo
 STEP  3: ADD ${foo}.txt .
 STEP  4: RUN cat ${foo}.txt
@@ -338,6 +337,16 @@ Build success with image id: 39b62a3342eed40b41a1bcd9cd455d77466550dfa0f0109af7a
 
   以此方式，同一环境多次构建出来的容器镜像和镜像ID均会保持一致。
 
+**\--format**
+开始实验特性后该选项可用，默认为OCI镜像格式。可以手动指定镜像格式进行构建，例如，下面分别为构建OCI镜像格式以及Docker镜像格式镜像的命令。
+  ```sh
+  $ export ISULABUILD_CLI_EXPERIMENTAL=enabled; sudo isula-build ctr-img build -f Dockerfile --format oci .
+  ```
+
+  ```sh
+  $ export ISULABUILD_CLI_EXPERIMENTAL=enabled; sudo isula-build ctr-img build -f Dockerfile --format docker .
+  ```
+
 **\--iidfile**
 
 将构建的镜像ID输出到文件，用法：
@@ -359,8 +368,6 @@ $ cat testfile
 76cbeed38a8e716e22b68988a76410eaf83327963c3b29ff648296d5cd15ce7b
   ```
 
-
-
 **\-o, --output**
 
 目前 -o, --output 支持如下形式：
@@ -372,12 +379,17 @@ $ cat testfile
   - isula-build client端需要将构建成功的镜像暂存成 `/var/tmp/isula-build-tmp-%v.tar` 再导入至 iSulad，用户需要保证 `/var/tmp/` 目录有足够磁盘空间
 
 - `docker-daemon:image:tag`：将构建成功的镜像直接推送到 Docker daemon。比如：`-o docker-daemon:busybox:latest`。同时需要注意如下约束：
-- isula-build 和 docker 必须在同一个节点上
+  - isula-build 和 docker 必须在同一个节点上
   - tag必须配置
-  
-- `docker://registry.example.com/repository:tag`：将构建成功的镜像直接推送到远端镜像仓库。比如：`-o docker://localhost:5000/library/busybox:latest`。
 
-- `docker-archive:<path>/<filename>:image:tag`：将构建成功的镜像以Docker image的格式保存至本地。比如：`-o docker-archive:/root/image.tar:busybox:latest`。
+- `docker://registry.example.com/repository:tag`：将构建成功的镜像以Docker镜像格式直接推送到远端镜像仓库。比如：`-o docker://localhost:5000/library/busybox:latest`。
+
+- `docker-archive:<path>/<filename>:image:tag`：将构建成功的镜像以Docker镜像格式保存至本地。比如：`-o docker-archive:/root/image.tar:busybox:latest`。
+
+打开实验特性之后，可以启用相应OCI镜像的构建：
+- `oci://registry.example.com/repository:tag`：将构建成功的镜像以OCI镜像格式直接推送到远端镜像仓库（远程镜像仓库须支持OCI镜像格式）。比如：`-o oci://localhost:5000/library/busybox:latest`。
+
+- `oci-archive:<path>/<filename>:image:tag`：将构建成功的镜像以OCI镜像的格式保存至本地。比如：`-o oci-archive:/root/image.tar:busybox:latest`。
 
 除去各个flags之外，build子命令的命令行最后还会接收一个argument，该argument类型是string，意义为context，即该Dockerfile构建环境的上下文。该参数默认值为isula-build被执行的当前路径。该路径会影响 .dockerignore 和 Dockerfile的ADD/COPY指令 所检索的路径。
 
@@ -407,14 +419,14 @@ isula-build ctr-img build --cap-add ${CAP}
 $ sudo isula-build ctr-img build --cap-add CAP_SYS_ADMIN --cap-add CAP_SYS_PTRACE -f Dockerfile
 ```
 
-> **说明：**
+> ![](./public_sys-resources/icon-note.gif) **说明：**
 >
 > - isula-build最大支持并发构建100个容器镜像。
 > - isula-build支持Dockerfile最大为1MiB。
 > - isula-build支持 .dockerignore 最大为 1MiB。
 > - 用户需保证Dockerfile文件的权限为仅当前用户可读写，避免别的用户进行篡改。
 > - 构建时，RUN指令会启动容器在容器内进行构建，目前 isula-build 仅支持使用主机网络。
-> - isula-build 导出的镜像压缩格式，目前仅支持tar.gz格式。
+> - isula-build 导出的镜像压缩格式，目前仅支持tar格式。
 > - isula-build 在每一个镜像构建stage完成后做一次提交，而不是每执行 Dockerfile的一行就提交一次。
 > - isula-build 暂不支持构建缓存。
 > - isula-build 仅在构建RUN指令时会启动构建容器。
@@ -423,9 +435,7 @@ $ sudo isula-build ctr-img build --cap-add CAP_SYS_ADMIN --cap-add CAP_SYS_PTRAC
 > - isula-build 的stage name最长可为64个字符。
 > - isula-build 暂不支持对单次Dockerfile的构建进行资源限制。如有资源限制需求，可通过对 isula-builder 服务端配置资源限额的方式进行限制。
 > - isula-build 目前不支持Dockerfile里的ADD指令提供的数据来源是远端url。
-> - isula-build 使用docker-archive类型导出的本地tar包未经压缩。如有需求，用户可以手动进行压缩。
-
-
+> - isula-build 使用docker-archive以及oci-archive类型导出的本地tar包未经压缩。如有需求，用户可以手动进行压缩。
 
 #### image: 查看本地持久化构建镜像
 
@@ -433,21 +443,21 @@ $ sudo isula-build ctr-img build --cap-add CAP_SYS_ADMIN --cap-add CAP_SYS_PTRAC
 
 ```sh
 $ sudo isula-build ctr-img images
-----------------------------------------------  -----------  -----------------  --------------------------  ------------ 
-REPOSITORY                                      TAG          IMAGE ID           CREATED                     SIZE
-----------------------------------------------  -----------  -----------------  --------------------------  ------------ 
-localhost:5000/library/alpine                   latest       a24bb4013296       2020-20-19 19:59:197        5.85 MB 
-<none>                                          <none>       39b62a3342ee       2020-20-38 38:66:387        1.45 MB
-----------------------------------------------  -----------  -----------------  --------------------------  ------------
+---------------------------------------  -----------  -----------------  ------------------------  ------------
+REPOSITORY                               TAG          IMAGE ID           CREATED                   SIZE
+---------------------------------------  -----------  -----------------  ------------------------  ------------
+localhost:5000/library/alpine            latest       a24bb4013296       2022-01-17 10:02:19       5.85 MB
+<none>                                   <none>       39b62a3342ee       2022-01-17 10:01:12       1.45 MB
+---------------------------------------  -----------  -----------------  ------------------------  ------------
 ```
 
-**说明**：通过`isula-build ctr-img images`查看的镜像大小与`docker images`的显示上有一定差异。这是因为统计镜像大小时，isula-build是直接计算每层tar包大小之和，而docker是通过解压tar遍历diff目录计算文件大小之和，因此存在统计上的差异。
-
-
+> ![](./public_sys-resources/icon-note.gif) **说明：**
+>
+> - 通过`isula-build ctr-img images`查看的镜像大小与`docker images`的显示上有一定差异。这是因为统计镜像大小时，isula-build是直接计算每层tar包大小之和，而docker是通过解压tar遍历diff目录计算文件大小之和，因此存在统计上的差异。
 
 #### import: 导入容器基础镜像
 
-openEuler会随版本发布一个容器基础镜像，比如openEuler-docker.x86_64.tar.xz。可以通过`ctr-img import`指令将它导入到 isula-build。
+可以通过`ctr-img import`指令将rootfs形式的tar文件导入到isula-build中。
 
 命令原型如下：
 
@@ -458,20 +468,24 @@ isula-build ctr-img import [flags]
 使用举例：
 
 ```sh
-$ sudo isula-build ctr-img import ./openEuler-docker.x86_64.tar.xz openeuler:20.03-lts-sp2
-Import success with image id: "aac8223a40e9c37558477671c4d66692c8ee5d37b28d947e10010911dd0549d8"
+$ sudo isula-build ctr-img import busybox.tar mybusybox:latest
+Getting image source signatures
+Copying blob sha256:7b8667757578df68ec57bfc9fb7754801ec87df7de389a24a26a7bf2ebc04d8d
+Copying config sha256:173b3cf612f8e1dc34e78772fcf190559533a3b04743287a32d549e3c7d1c1d1
+Writing manifest to image destination
+Storing signatures
+Import success with image id: "173b3cf612f8e1dc34e78772fcf190559533a3b04743287a32d549e3c7d1c1d1"
 $ sudo isula-build ctr-img images
----------------  ------------------  -----------------  ------------------------  -----------
- REPOSITORY       TAG                 IMAGE ID           CREATED                   SIZE
----------------  ------------------  -----------------  ------------------------  -----------
- openeuler        20.03-lts-sp2       c9f72758f224       2021-03-30 10:57:39       210 MB
----------------  ------------------  -----------------  ------------------------  -----------
+---------------------------------------  -----------  -----------------  ------------------------  ------------
+REPOSITORY                               TAG          IMAGE ID           CREATED                   SIZE
+---------------------------------------  -----------  -----------------  ------------------------  ------------
+mybusybox                                latest       173b3cf612f8       2022-01-12 16:02:31       1.47 MB
+---------------------------------------  -----------  -----------------  ------------------------  ------------
 ```
 
->![](./public_sys-resources/icon-note.gif) **说明：** 
->isula-build 支持导入最大1GiB的容器基础镜像。
-
-
+>![](./public_sys-resources/icon-note.gif) **说明：**
+>
+> - isula-build 支持导入最大1GiB的容器基础镜像。
 
 #### load: 导入层叠镜像
 
@@ -490,7 +504,8 @@ isula-build ctr-img load [flags]
 使用举例如下：
 
 ```sh
-$ sudo isula-build ctr-img load -i ubuntu.tarGetting image source signatures
+$ sudo isula-build ctr-img load -i ubuntu.tar
+Getting image source signatures
 Copying blob sha256:cf612f747e0fbcc1674f88712b7bc1cd8b91cf0be8f9e9771235169f139d507c
 Copying blob sha256:f934e33a54a60630267df295a5c232ceb15b2938ebb0476364192b1537449093
 Copying blob sha256:943edb549a8300092a714190dfe633341c0ffb483784c4fdfe884b9019f6a0b4
@@ -511,12 +526,10 @@ Storing signatures
 Loaded image as c07ddb44daa97e9e8d2d68316b296cc9343ab5f3d2babc5e6e03b80cd580478e
 ```
 
->![](./public_sys-resources/icon-note.gif) **说明：** 
+>![](./public_sys-resources/icon-note.gif) **说明：**
 >
->- isula-build load命令仅支持导入包含单个层叠镜像的镜像压缩文件。
->- isula-build 支持导入最大50G的容器层叠镜像。
-
-
+> - isula-build 支持导入最大50G的容器层叠镜像。
+> - isula-build 会自动识别容器层叠镜像的格式并进行导入。
 
 #### rm: 删除本地持久化镜像
 
@@ -539,8 +552,6 @@ Deleted: sha256:78731c1dde25361f539555edaf8f0b24132085b7cab6ecb90de63d72fa00c01d
 Deleted: sha256:eeba1bfe9fca569a894d525ed291bdaef389d28a88c288914c1a9db7261ad12c
 ```
 
-
-
 #### save: 导出层叠镜像
 
 可通过save命令导出层叠镜像到本地磁盘。命令原型如下：
@@ -548,6 +559,11 @@ Deleted: sha256:eeba1bfe9fca569a894d525ed291bdaef389d28a88c288914c1a9db7261ad12c
 ```
 isula-build ctr-img save [REPOSITORY:TAG]|imageID -o xx.tar
 ```
+
+目前支持的 flags 为：
+
+- -f, --format：导出层叠镜像的镜像格式：oci | docker（需开启实验特性选项）
+- -o, --output：本地tar包路径
 
 以下示例通过 `image/tag` 的形式将镜像进行导出：
 
@@ -577,7 +593,7 @@ Storing signatures
 Save success with image: 21c3e96ac411
 ```
 
-以下示例导出多个镜像到同一个tarball：
+以下示例导出多个镜像到同一个tar包：
 ```sh
 $ sudo isula-build ctr-img save busybox:latest nginx:latest -o all.tar
 Getting image source signatures
@@ -586,7 +602,8 @@ Copying blob sha256:29f11c413898c5aad8ed89ad5446e89e439e8cfa217cbb404ef2dbd6e1e8
 Copying blob sha256:af5bd3938f60ece203cd76358d8bde91968e56491daf3030f6415f103de26820
 Copying config sha256:b8efb18f159bd948486f18bd8940b56fd2298b438229f5bd2bcf4cedcf037448
 Writing manifest to image destination
-Storing signaturesGetting image source signatures
+Storing signatures
+Getting image source signatures
 Copying blob sha256:e2d6930974a28887b15367769d9666116027c411b7e6c4025f7c850df1e45038
 Copying config sha256:a33de3c85292c9e65681c2e19b8298d12087749b71a504a23c576090891eedd6
 Writing manifest to image destination
@@ -594,10 +611,10 @@ Storing signatures
 Save success with image: [busybox:latest nginx:latest]
 ```
 
->![](./public_sys-resources/icon-note.gif) **说明：** 
+>![](./public_sys-resources/icon-note.gif) **说明：**
 >
->- save 导出的镜像默认格式为未压缩的tar格式，如有需求，用户可以再save之后手动压缩。
->- 在导出镜像时，需要写明镜像的完整性，格式为IMAGE_NAME:IMAGE_TAG。
+> - save 导出的镜像默认格式为未压缩的tar格式，如有需求，用户可以再save之后手动压缩。
+> - 在使用镜像名导出镜像时，需要给出完整的镜像名格式：REPOSITORY:TAG。
 
 
 #### tag: 给本地持久化镜像打标签
@@ -612,19 +629,19 @@ isula-build ctr-img tag <imageID>/<imageName> busybox:latest
 
 ```sh
 $ sudo isula-build ctr-img images
-----------------------------------------------  -----------  -----------------  --------------------------  ------------ 
-REPOSITORY                                      TAG          IMAGE ID           CREATED                     SIZE
-----------------------------------------------  -----------  -----------------  --------------------------  ------------
-alpine                                         latest       a24bb4013296       2020-05-29 21:19:46         5.85 MB
-----------------------------------------------  -----------  -----------------  --------------------------  ------------
+---------------------------------------  -----------  -----------------  --------------------------  ------------
+REPOSITORY                               TAG          IMAGE ID           CREATED                     SIZE
+---------------------------------------  -----------  -----------------  --------------------------  ------------
+alpine                                   latest       a24bb4013296       2020-05-29 21:19:46         5.85 MB
+---------------------------------------  -----------  -----------------  --------------------------  ------------
 $ sudo isula-build ctr-img tag a24bb4013296 alpine:v1
 $ sudo isula-build ctr-img images
-----------------------------------------------  -----------  -----------------  --------------------------  ------------
-REPOSITORY                                      TAG          IMAGE ID           CREATED                     SIZE
-----------------------------------------------  -----------  -----------------  --------------------------  ------------
-alpine                                           latest       a24bb4013296       2020-05-29 21:19:46         5.85 MB
-alpine                                           v1           a24bb4013296       2020-05-29 21:19:46         5.85 MB
-----------------------------------------------  -----------  -----------------  --------------------------  ------------
+---------------------------------------  -----------  -----------------  ------------------------  ------------
+REPOSITORY                               TAG          IMAGE ID           CREATED                   SIZE
+---------------------------------------  -----------  -----------------  ------------------------  ------------
+alpine                                   latest       a24bb4013296       2020-05-29 21:19:46       5.85 MB
+alpine                                   v1           a24bb4013296       2020-05-29 21:19:46       5.85 MB
+---------------------------------------  -----------  -----------------  ------------------------  ------------
 ```
 
 #### pull: 拉取镜像到本地
@@ -655,6 +672,10 @@ Pull success with image: example-registry/library/alpine:latest
 isula-build ctr-img push REPOSITORY[:TAG]
 ```
 
+目前支持的 flags 为：
+
+- -f, --format：推送的镜像格式：oci｜docker（需开启实验特性选项）
+
 使用示例：
 
 ```sh
@@ -667,9 +688,9 @@ Storing signatures
 Push success with image: example-registry/library/mybusybox:latest
 ```
 
->![](./public_sys-resources/icon-note.gif) **说明：** 
+>![](./public_sys-resources/icon-note.gif) **说明：**
 >
->- 推送镜像时，需要先登录对应的镜像仓库。
+> - 推送镜像时，需要先登录对应的镜像仓库。
 
 
 ### info: 查看运行环境与系统信息
@@ -689,24 +710,24 @@ Push success with image: example-registry/library/mybusybox:latest
 
 ```sh
 $ sudo isula-build info -HV
-   General:  
-     MemTotal:     7.63 GB  
-     MemFree:      757 MB  
-     SwapTotal:    8.3 GB  
-     SwapFree:     8.25 GB  
-     OCI Runtime:  runc  
-     DataRoot:     /var/lib/isula-build/  
-     RunRoot:      /var/run/isula-build/  
-     Builders:     0  
+   General:
+     MemTotal:     7.63 GB
+     MemFree:      757 MB
+     SwapTotal:    8.3 GB
+     SwapFree:     8.25 GB
+     OCI Runtime:  runc
+     DataRoot:     /var/lib/isula-build/
+     RunRoot:      /var/run/isula-build/
+     Builders:     0
      Goroutines:   12
-   Store:  
-     Storage Driver:     overlay  
+   Store:
+     Storage Driver:     overlay
      Backing Filesystem: extfs
-   Registry:  
-     Search Registries:   
+   Registry:
+     Search Registries:
        oepkgs.net
-     Insecure Registries:    
-       localhost:5000    
+     Insecure Registries:
+       localhost:5000
        oepkgs.net
    Runtime:
 	 MemSys:           68.4 MB
@@ -728,8 +749,8 @@ $ sudo isula-build info -HV
 目前支持的flag有：
 
 ```
- Flags:  
-   -p, --password-stdin    Read password from stdin  
+ Flags:
+   -p, --password-stdin    Read password from stdin
    -u, --username string   Username to access registry
 ```
 
@@ -759,14 +780,14 @@ $ sudo isula-build info -HV
 目前支持的flag有：
 
 ```
- Flags:  
+ Flags:
    -a, --all   Logout all registries
 ```
 
 使用示例如下：
 
 ```sh
- $ sudo isula-build logout -a  
+ $ sudo isula-build logout -a
    Removed authentications
 ```
 
@@ -777,7 +798,7 @@ $ sudo isula-build info -HV
 ```sh
  $ sudo isula-build version
  Client:
-   Version:       0.9.5-6
+   Version:       0.9.5
    Go Version:    go1.15.7
    Git Commit:    b82408f
    Built:         Tue Mar 30 11:08:00 2021
@@ -790,10 +811,11 @@ $ sudo isula-build info -HV
    Built:         Mon Apr 12 20:30:31 2021
    OS/Arch:       linux/amd64
 ```
+
 ### manifest: manifest列表管理
 
 manifest列表包含不同系统架构对应的镜像信息，通过使用manifest列表，用户可以在不同的架构中使用相同的manifest（例如openeuler:latest）获取对应架构的镜像，manifest包含create、annotate、inspect和push子命令。
-> **说明：**
+> ![](./public_sys-resources/icon-note.gif) **说明：**
 >
 > - manifest为实验特性，使用时需开启客户端和服务端的实验选项，方式详见客户端总体说明和配置服务章节。
 
@@ -912,7 +934,8 @@ REPOSITORY                     TAG        IMAGE ID             CREATED          
 busybox                        2.0        2d414a5cad6d         2020-08-01 06:41:36  5.577 MB
 ```
 
-> ![](./public_sys-resources/icon-note.gif) **说明：** 
+> ![](./public_sys-resources/icon-note.gif) **说明：**
+>
 > - 要求isula-build和iSulad在同一节点。
 > - 直接导出镜像到iSulad时，isula-build client端需要将构建成功的镜像暂存成 `/var/lib/isula-build/tmp/[buildid]/isula-build-tmp-%v.tar` 再导入至 iSulad，用户需要保证 /var/lib/isula-build/tmp/ 目录有足够磁盘空间；同时如果在导出过程中 isula-build client进程被KILL或Ctrl+C终止，需要依赖用户手动清理 `/var/lib/isula-build/tmp/[buildid]/isula-build-tmp-%v.tar` 文件。
 
@@ -938,8 +961,34 @@ busybox                                             2.0                 2d414a5c
 >
 > - 要求isula-build和Docker在同一节点。
 
-## 附录
+## 使用注意事项
+本章节主要介绍在使用isula-build构建镜像时相关的约束和限制，以及与docker build的差异。
 
+### 约束和限制
+1. 当导出镜像到[`iSulad`](https://gitee.com/openeuler/iSulad/blob/master/README.md)时，镜像必须指明tag。
+2. 因为isula-builder运行`RUN`指令时，需要调用系统中的oci 运行时（如`runc`），用户需要保证该运行时的安全性，不受篡改。
+3. `DataRoot`不能设置在内存盘上（tmpfs）。
+4. `Overlay2`是目前isula-builder唯一支持的存储驱动。
+5. `Docker`镜像是目前唯一支持的镜像格式，未来即将支持`oci`格式镜像。
+6. `Dockerfile`文件权限强烈建议设置为**0600**以防止恶意篡改。
+7. `RUN`命令中目前只支持主机侧网络（host network）。
+8. 当导出镜像到本地tar包时，目前只支持保存为`tar`格式。
+9. 当使用`import`功能导入基础镜像时，最大支持**1G**。
+
+### 与“docker build”差异
+`isula-build`兼容[Docker镜像格式规范](https://docs.docker.com/engine/reference/builder)，但仍然和`docker build`存在一些差异：
+1. 支持镜像压缩，即对每个`stage`进行提交而非每一行。
+2. 目前不支持构建缓存。
+3. 只有`RUN`指令会运行容器进行构建。
+4. 目前不支持查询镜像构建历史。
+5. `Stage`名称可以用数字开头。
+6. `Stage`名称最大长度为64。
+7. `ADD`命令不支持远端URL格式。
+8. 暂不支持对单次构建进行资源限额，可采取对isula-builder配置资源限额的方式进行限制。
+9. 统计镜像大小时，isula-build是直接计算每层tar包大小之和，而docker是通过解压tar遍历diff目录计算文件大小之和，因此通过`isula-build ctr-img images`查看的镜像大小与`docker images`的显示上有一定差异。
+10. 操作时的镜像名称需要明确，格式为IMAGE_NAME:IMAGE_TAG。例如 busybox:latest, 其中latest不可省略。
+
+## 附录
 
 ### 命令行参数说明
 
@@ -950,6 +999,7 @@ busybox                                             2.0                 2d414a5c
 | ctr-img build | --build-arg    | string列表，构建过程中需要用到的变量                         |
 |               | --build-static | KV值，构建二进制一致性。目前包含如下K值：- build-time：string，使用固定时间戳来构建容器镜像；时间戳格式为“YYYY-MM-DD HH-MM-SS” |
 |               | -f, --filename | string，Dockerfile的路径，不指定则是使用当前路径的Dockerfile文件 |
+|               | --format       | string，设置构建镜像的镜像格式：oci｜docker（需开启实验特性选项）|
 |               | --iidfile      | string，输出 image ID 到本地文件                             |
 |               | -o, --output   | string，镜像导出的方式和路径                                 |
 |               | --proxy        | 布尔值，继承主机侧环境的proxy环境变量（默认为true）          |
@@ -962,31 +1012,47 @@ busybox                                             2.0                 2d414a5c
 | ------------ | ----------- | --------------------------------- |
 | ctr-img load | -i, --input | string，需要导入的本地tar包的路径 |
 
-**表3** ctr-img rm 命令参数列表
+**表3** ctr-img push 命令参数列表
+
+| **命令**     | **参数**    | **说明**                          |
+| ------------ | ----------- | --------------------------------- |
+| ctr-img push | -f, --format | string，推送的镜像格式：oci｜docker（需开启实验特性选项）|
+
+**表4** ctr-img rm 命令参数列表
 
 | **命令**   | **参数**    | **说明**                                      |
 | ---------- | ----------- | --------------------------------------------- |
 | ctr-img rm | -a, --all   | 布尔值，删除所有本地持久化存储的镜像          |
 |            | -p, --prune | 布尔值，删除所有没有tag的本地持久化存储的镜像 |
 
-**表4** ctr-img save 命令参数列表
+**表5** ctr-img save 命令参数列表
 
 | **命令**     | **参数**     | **说明**                           |
 | ------------ | ------------ | ---------------------------------- |
 | ctr-img save | -o, --output | string，镜像导出后在本地的存储路径 |
+|              | -f, --format | string，导出层叠镜像的镜像格式：oci｜docker（需开启实验特性选项）|
 
-**表5** login 命令参数列表
+**表6** login 命令参数列表
 
 | **命令** | **参数**             | **说明**                                                |
 | -------- | -------------------- | ------------------------------------------------------- |
 | login    | -p, --password-stdin | 布尔值，是否通过stdin读入密码；或采用交互式界面输入密码 |
 |          | -u, --username       | string，登陆镜像仓库所使用的用户名                      |
 
-**表6** logout 命令参数列表
+**表7** logout 命令参数列表
 
 | **命令** | **参数**  | **说明**                             |
 | -------- | --------- | ------------------------------------ |
 | logout   | -a, --all | 布尔值，是否登出所有已登陆的镜像仓库 |
+
+**表8** manifest annotate命令参数列表
+
+| **命令**          | **说明**      | **参数**                                   |
+| ----------------- | ------------- | ------------------------------------------ |
+| manifest annotate | --arch        | string，重写镜像适用架构                   |
+|                   | --os          | string，重写镜像适用系统                   |
+|                   | --os-features | string列表，指定镜像需要的OS特性，很少使用 |
+|                   | --variant     | string，指定列表中记录镜像的变量           |
 
 ### 通信矩阵
 
@@ -1000,7 +1066,7 @@ isula-build两个组件进程之间通过unix socket套接字文件进行通信�
 
 | **文件路径**                                | **文件/文件夹权限** | **说明**                                                     |
 | ------------------------------------------- | ------------------- | ------------------------------------------------------------ |
-| /usr/bin/isula-build                        | 551                 | 命令行工具二进制文件。                                       |
+| /usr/bin/isula-build                        | 550                 | 命令行工具二进制文件。                                       |
 | /usr/bin/isula-builder                      | 550                 | 服务端isula-builder进程二进制文件。                          |
 | /usr/lib/systemd/system/isula-build.service | 640                 | systemd配置文件，用于管理isula-build服务。                   |
 | /etc/isula-build                            | 650                 | isula-builder 配置文件根目录                                 |
@@ -1008,10 +1074,8 @@ isula-build两个组件进程之间通过unix socket套接字文件进行通信�
 | /etc/isula-build/policy.json                | 600                 | 签名验证策略文件的语法文件。                                 |
 | /etc/isula-build/registries.toml            | 600                 | 针对各个镜像仓库的配置文件，含可用的镜像仓库列表、镜像仓库黑名单。 |
 | /etc/isula-build/storage.toml               | 600                 | 本地持久化存储的配置文件，包含所使用的存储驱动的配置。       |
-| /etc/isula-build/isula-build.pub            | 444                 | 非对称加密公钥文件                                           |
+| /etc/isula-build/isula-build.pub            | 400                 | 非对称加密公钥文件                                           |
 | /var/run/isula_build.sock                   | 660                 | 服务端isula-builder的本地套接字。                            |
 | /var/lib/isula-build                        | 700                 | 本地持久化目录。                                             |
 | /var/run/isula-build                        | 700                 | 本地运行时目录。                                             |
 | /var/lib/isula-build/tmp/[buildid]/isula-build-tmp-*.tar              | 644                 | 镜像导出至iSulad时的本地暂存目录。                           |
-
-   
