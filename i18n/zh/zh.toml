@@ -116,7 +116,11 @@ other = "下一篇"
 [evaluate]
 other = "评价"
 
+[back]
+other = "返回顶部"
 
+[questionnaire]
+other = "有奖捉虫"
 
 #search page
 

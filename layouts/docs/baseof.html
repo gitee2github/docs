@@ -7,6 +7,9 @@
   <link href="{{ "css/pcfooter.css"  | relURL }}?t={{ mul 1000 (time now).Unix }}" rel="stylesheet" type="text/css">
 
   <body>
+    <div class="feedback">
+      <img src="/img/detail/feedback.png" title="问题反馈" alt="">
+  </div>
     <div id="all">
       <header>
         {{ partial "nav.html" . }}
@@ -99,7 +102,7 @@
         <div class="atom">
           <img src="/img/common/atom.png" alt="">
           <p>{{ i18n "atom" }}</p>
-      </div>
+        </div>
         <div>
             <img src="/img/common/footerLogo.png" alt="footerLogo.png" />
             <p>{{ .Site.Params.email }}</p>
