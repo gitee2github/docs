@@ -1,23 +1,32 @@
 <div id="title-evaluate">
     <div class="title">
-        
+
     </div>
-    <div class="evaluate">
-        <span>{{ i18n "evaluate" }}</span>
-        <i key="1">
-            <div></div>
-        </i>
-        <i key="2">
-            <div></div>
-        </i>
-        <i key="3">
-            <div></div>
-        </i>
-        <i key="4">
-            <div></div>
-        </i>
-        <i key="5">
-            <div></div>
-        </i>
+    <div class="alert">
+        <form action="">
+            <div class="icon-close"></div>
+            <div class="tip-box"></div>
+            <h2 class="title-h2">有奖捉虫</h2>
+            <h3 class="title-h3">“有虫”文档片段</h3>
+            <textarea class="main-input" maxlength="500" rows="5"  placeholder= "点击输入将“有虫”文档复制，粘贴到此处。"></textarea>
+            <h3 class="title-h3">请问本文档在哪些方面做的不好（多选）</h3>
+            <ul class="checkbox-list">
+                <li class="checkbox-item"><input type="checkbox" id="q-5-1" value="A1"><label class="label" for="q-5-1">描述晦涩、语言不顺畅，无法让我了解所写特性、原理、使用场景，以及给我带来价值</label></li>
+                <li class="checkbox-item"><input type="checkbox" id="q-5-2" value="A2"><label class="label" for="q-5-2">基本无法指导我完成相关任务，比如安装、配置、部署等</label></li>
+                <li class="checkbox-item"><input type="checkbox" id="q-5-3" value="A3"><label class="label" for="q-5-3">存在太多错别字、超链接失效、表格中含有空单元格等低级错误</label></li>
+                <li class="checkbox-item"><input type="checkbox" id="q-5-4" value="A4"><label class="label" for="q-5-4">内容冗杂，语言组织不够精炼</label></li>
+                <li class="checkbox-item"><input type="checkbox" id="q-5-5" value="A5"><label class="label" for="q-5-5">描述太简单，希望可以有更详细的介绍</label></li>
+                <li class="checkbox-item"><input type="checkbox" id="q-5-6" value="A6"><label class="label" for="q-5-6">排版不美观，影响阅读</label></li>
+                <li class="checkbox-item"><input type="checkbox" id="q-5-7" value="A7"><label class="label" for="q-5-7">结构不清晰或查找困难，无法找到我想要的资料</label></li>
+                <li class="checkbox-item"><input type="checkbox" id="q-5-8" value="A8"><label class="label" for="q-5-8">其他</label></li>
+            </ul>
+            <div class="btn-submit ">前往抽奖</div>
+        </form>
     </div>
+    <div class="right-nav">
+        <div class="nav-item"></div>
+        <div class="nav-item"><a href="#top">{{ i18n "back" }}</a></div>
+        <div class="nav-item question">{{ i18n "questionnaire" }}</div>
+    </div>
+
 </div>

@@ -109,9 +109,35 @@ $(function($) {
     }).mouseleave(function () {
         $("#title-evaluate .evaluate").find("i").find("div").hide();
     });
-
+    $('.question').click(function (e) {
+        e.stopPropagation()
+        $('.alert').slideToggle(500); 
+        return false;
+    });
+   $('.alert .icon-close').on('click',function(e) {
+        e.stopPropagation()
+        $('.question').click()
+   })
+   $('.btn-submit').on('click',function() {
+       let questionValue = $('.main-input').val().trim();
+       let checkedArr = $(".alert input[type='checkbox']:checked");
+       if(!questionValue) {
+           $('.main-input').focus()
+           tipShow('请输入“有虫”片段')
+       } else if (checkedArr.length===0) {
+        tipShow('请至少选择一个缺点')
+       } else {
+        let q5Value = '';
+        checkedArr.each(function (){
+            q5Value+=`${this.value},`
+        })
+        let link = window.location.href;
+        link = link.replace('#top','')
+        q5Value = q5Value.substr(0, q5Value.length - 1)
+        window.open(`https://wj.qq.com/s2/9414165/1ad3?Q3=${link}&Q4=${questionValue}&Q5=${q5Value}`)
+       }
+   })
     getTreeLink();
-    
 });
 
 function getTreeLink() {
@@ -129,3 +155,54 @@ function getTreeLink() {
         }
     },500);
 }
+
+function tipShow (value) {
+    $('.tip-box').text(value).slideToggle(500);
+    setTimeout(function () {
+     $('.tip-box').slideUp('slow')
+    },3000)
+}
+
+window.onload = function(){
+    function selectText(){
+        if(document.selection){ 
+            return document.selection.createRange().text;
+        }
+        else{  
+            return window.getSelection().toString();
+        }
+    }
+    var oP = document.querySelector('#content');
+    var oDiv = document.querySelector('.feedback');
+    oP.onmouseup = function(ev){
+        var ev = ev || window.event;
+        var left = ev.clientX;
+        var top = ev.clientY;
+        let select = selectText().trim()
+        if(select.length>0){
+            setTimeout(function(){
+                oDiv.style.display = 'block';
+                oDiv.style.left = left + 'px';
+                oDiv.style.top = top + 'px';
+            },100);
+        }
+        else{
+            oDiv.style.display = 'none';
+        }
+    };
+    
+    oP.onclick = function(ev){
+        var ev = ev || window.event;
+        ev.cancelBubble = true;
+    };
+    document.onclick = function(){
+        oDiv.style.display = 'none';
+    };
+ 
+    oDiv.onclick = function(e){
+        e.stopPropagation()
+        $('.main-input')[0].value = selectText().trim()
+        $('.question').click()
+    };
+};
+

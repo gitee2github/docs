@@ -113,6 +113,15 @@ other = "Next"
 [evaluate]
 other = "Rating"
 
+[back]
+other = "返回顶部"
+
+[evaluatebox]
+other = ""
+
+[questionnaire]
+other = "有奖捉虫"
+
 #search page
 
 [result_1]
