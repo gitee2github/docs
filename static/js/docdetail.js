@@ -119,7 +119,7 @@ $(function($) {
         $('.question').click()
    })
    $('.btn-submit').on('click',function() {
-       let questionValue = $('.main-input').val().trim();
+       let questionValue = encodeURIComponent($('.main-input').val().trim());
        let checkedArr = $(".alert input[type='checkbox']:checked");
        if(!questionValue) {
            $('.main-input').focus()
@@ -131,8 +131,7 @@ $(function($) {
         checkedArr.each(function (){
             q5Value+=`${this.value},`
         })
-        let link = window.location.href;
-        link = link.replace('#top','')
+        let link = encodeURIComponent(window.location.href);
         q5Value = q5Value.substr(0, q5Value.length - 1)
         window.open(`https://wj.qq.com/s2/9414165/1ad3?Q3=${link}&Q4=${questionValue}&Q5=${q5Value}`)
        }

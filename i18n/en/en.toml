@@ -93,7 +93,7 @@ other = "/en/docs/20.03_LTS/docs/Releasenotes/terms-of-use.html"
 other = "openEuler is an open source project incubated and operated by the OpenAtom Foundation."
 
 [copy_right]
-other = "Copyright © 2021 openEuler. All rights reserved."
+other = "Copyright © 2022 openEuler. All rights reserved."
 
 [attention]
 other = "WeChat Subscription"
@@ -116,8 +116,6 @@ other = "Rating"
 [back]
 other = "返回顶部"
 
-[evaluatebox]
-other = ""
 
 [questionnaire]
 other = "有奖捉虫"
