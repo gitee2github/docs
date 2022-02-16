@@ -2,6 +2,7 @@ $(function($) {
     var keyword = "";
     $(".baseof_mask").click(function (e) {
         $(".baseof_mask").css('display','none');
+        $('.alert').css('display','none')
         $("#result-container").css("display","none");
     });
 
