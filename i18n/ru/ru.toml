@@ -73,6 +73,75 @@ other = "Далее"
 [evaluate]
 other = "Оценка"
 
+[issue_1]
+other = "文档存在风险与错误"
+
+[issue_2]
+other = "内容描述不清晰"
+
+[issue_3]
+other = "内容获取有困难"
+
+[issue_4]
+other = "示例代码有错误"
+
+[issue_5]
+other = "内容有缺失"
+
+[issue_title]
+other = "有奖捉虫"
+
+[issue_part]
+other = "“有虫”文档片段"
+
+[issue_reason]
+other = "存在的问题"
+
+[satisfaction]
+other = "您对文档的总体满意度"
+
+[low_score]
+other = "非常不满意"
+
+[high_score]
+other = "非常满意"
+
+[join_reason]
+other = "请问是什么原因让您参与到这个问题中"
+
+[own_job]
+other = "本职工作"
+
+[job_wanted]
+other = "求职"
+
+[technology]
+other = "技术兴趣"
+
+[study]
+other = "学习"
+
+[email]
+other = "您的邮箱"
+
+[text_email]
+other = "我们可能针对您提出的问题，向您发送邮件反馈进行方案。如有获奖信息，也会通过此方式通知您。"
+
+[privacy_text]
+other = "您理解并同意，您填写并提交的内容，即视为您已充分阅读并同意openEuler的"
+
+[privacy_link]
+other = "隐私声明"
+
+[btn_submit]
+other = "创Issue赢奖品"
+
+[back]
+other = "返回顶部"
+
+[questionnaire]
+other = "有奖捉虫"
+
 #search page
 
 [result_1]

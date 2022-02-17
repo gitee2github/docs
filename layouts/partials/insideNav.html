@@ -5,22 +5,91 @@
     <div class="alert">
         <form action="">
             <div class="icon-close"></div>
-            <div class="tip-box"></div>
-            <h2 class="title-h2">有奖捉虫</h2>
-            <h3 class="title-h3">“有虫”文档片段</h3>
-            <textarea class="main-input" maxlength="500" rows="5"  placeholder= "点击输入将“有虫”文档复制，粘贴到此处。"></textarea>
-            <h3 class="title-h3">请问本文档在哪些方面做的不好（多选）</h3>
+            <h2 class="title-h2">{{ i18n "issue_title" }}</h2>
+            <h3 class="title-h3">{{ i18n "issue_part" }}</h3>
+            <textarea class="main-input first-input" maxlength="500" rows="5" placeholder="点击输入将“有虫”文档复制，粘贴到此处。"></textarea>
+            <h3 class="title-h3">{{ i18n "issue_reason" }}</h3>
+            <div class="evaluates">
+                <div class="issue" key="1">
+                    <span>{{ i18n "issue_1" }}</span>
+                    <div class="issue-detail">
+                        <p>拼写，格式，无效链接等错误</p>
+                        <p>技术原理、功能、规格等描述和软件不一致，存在错误</p>
+                        <p>原理图、架构图等存在错误</p>
+                        <p>版本号不匹配：文档版本或内容描述和实际软件不一致</p>
+                        <p>对重要数据或系统存在风险的操作，缺少安全提示</p>
+                        <p>排版不美观，影响阅读</p>
+                    </div>
+                </div>
+                <div class="issue" key="2">
+                    <span>{{ i18n "issue_2" }}</span>
+                    <div class="issue-detail">
+                        <p>关键步骤错误或缺失，无法指导用户完成任务，比如安装、配置、部署等</p>
+                        <p>缺少必要的前提条件、注意事项等</p>
+                    </div>
+                </div>
+                <div class="issue" key="3">
+                    <span>{{ i18n "issue_3" }}</span>
+                    <div class="issue-detail">
+                        <p>描述存在歧义</p>
+                        <p>图形、表格、文字等晦涩难懂</p>
+                        <p>逻辑不清晰，该分类、分项、分步骤的没有给出</p>
+                    </div>
+                </div>
+                <div class="issue" key="4">
+                    <span>{{ i18n "issue_4" }}</span>
+                    <div class="issue-detail">
+                        <p>命令、命令参数等错误；命令无法执行或无法完成对应功能</p>
+                    </div>
+                </div>
+                <div class="issue" key="5">
+                    <span>{{ i18n "issue_5" }}</span>
+                    <div class="issue-detail">
+                        <p>很难通过搜索引擎，openEuler官网，相关博客找到所需内容</p>
+                    </div>
+                </div>
+            </div>
+            <textarea class="issue-reason main-input" maxlength="500" rows="5"
+                placeholder="点击输入详细问题描述，以帮助我们快速定位问题。"></textarea>
+            <h3 class="title-h3">{{ i18n "satisfaction" }}</h3>
+            <div class="satisfaction">
+                <div class="low-score">{{ i18n "low_score" }}</div>
+                <div class="score-box">
+                </div>
+                <div class="high-score">{{ i18n "high_score" }}</div>
+            </div>
+            <h3 class="title-h3">{{ i18n "join_reason" }}</h3>
             <ul class="checkbox-list">
-                <li class="checkbox-item"><input type="checkbox" id="q-5-1" value="A1"><label class="label" for="q-5-1">描述晦涩、语言不顺畅，无法让我了解所写特性、原理、使用场景，以及给我带来价值</label></li>
-                <li class="checkbox-item"><input type="checkbox" id="q-5-2" value="A2"><label class="label" for="q-5-2">基本无法指导我完成相关任务，比如安装、配置、部署等</label></li>
-                <li class="checkbox-item"><input type="checkbox" id="q-5-3" value="A3"><label class="label" for="q-5-3">存在太多错别字、超链接失效、表格中含有空单元格等低级错误</label></li>
-                <li class="checkbox-item"><input type="checkbox" id="q-5-4" value="A4"><label class="label" for="q-5-4">内容冗杂，语言组织不够精炼</label></li>
-                <li class="checkbox-item"><input type="checkbox" id="q-5-5" value="A5"><label class="label" for="q-5-5">描述太简单，希望可以有更详细的介绍</label></li>
-                <li class="checkbox-item"><input type="checkbox" id="q-5-6" value="A6"><label class="label" for="q-5-6">排版不美观，影响阅读</label></li>
-                <li class="checkbox-item"><input type="checkbox" id="q-5-7" value="A7"><label class="label" for="q-5-7">结构不清晰或查找困难，无法找到我想要的资料</label></li>
-                <li class="checkbox-item"><input type="checkbox" id="q-5-8" value="A8"><label class="label" for="q-5-8">其他</label></li>
+                <li class="checkbox-item"><input type="radio" id="q-5-1" name="join_reason" value="A1"><label
+                        class="label" for="q-5-1">{{ i18n "own_job" }}</label></li>
+                <li class="checkbox-item"><input type="radio" id="q-5-2" name="join_reason" value="A2"><label
+                        class="label" for="q-5-2">{{ i18n "job_wanted" }}</label></li>
+                <li class="checkbox-item"><input type="radio" id="q-5-3" name="join_reason" value="A3"><label
+                        class="label" for="q-5-3">{{ i18n "technology" }}</label></li>
+                <li class="checkbox-item"><input type="radio" id="q-5-4" name="join_reason" value="A4"><label
+                        class="label" for="q-5-4">{{ i18n "study" }}</label></li>
             </ul>
-            <div class="btn-submit ">前往抽奖</div>
+            <h3 class="title-h3">{{ i18n "email" }}</h3>
+            <div class="email">
+                <p class="text-email">
+                    {{ i18n "text_email" }}
+                </p>
+                <input type="text" placeholder="点击输入您的邮箱" class="email-input">
+            </div>
+            <div class="privacy-box">
+                <div class="checkbox-item">
+                    <input type="radio" id="privacy" name="privacy">
+                    <label class="label" for="privacy">{{ i18n "privacy_text" }}<a
+                            href="https://www.openeuler.org/zh/other/privacy/" target="_blank">{{ i18n "privacy_link"
+                            }}</a>
+                    </label>
+                </div>
+            </div>
+            <div class="btn-submit"><span>{{ i18n "btn_submit" }}</span>
+                <div class="submit-tip">
+                    根据您的反馈，会自动生成Issue模板。您只需点击按钮，将模板内容粘贴到新建Issue描述即可。我们对成功提交反馈issue的用户，会根据积分排名发放奖品。
+                </div>
+            </div>
         </form>
     </div>
     <div class="right-nav">
