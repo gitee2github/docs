@@ -1,5 +1,8 @@
 
 $(function ($) {
+    if (lang !== 'zh') {
+        $('#title-evaluate').css('display', 'none')
+    }
     var isEvaluate = false;
     var urlArr = (window.location.pathname).split("/");
     var isAdd1 = $("#markdown>ul").first().find("li").children().is("ul");
@@ -165,14 +168,16 @@ $(function ($) {
             let postData = {
                 bugDocFragment: questionValue,
                 existProblem: checkedArr,
-                problemDetail:feedback,
+                problemDetail: feedback,
                 comprehensiveSatisfication: parseInt(satisfaction.attr('key')),
                 participateReason: joinReason.next()[0].innerHTML,
                 email: email,
             }
+            $("#title-evaluate").css('z-index', '1000');
+            $(".baseof_mask img").css('display', 'inline-block');
             $.ajax({
                 type: "POST",
-                url: '/omapi/token/apply',
+                url: 'https://omapi.osinfra.cn/token/apply',
                 data: JSON.stringify(loginData),
                 contentType: "application/json; charset=utf-8",
                 datatype: "json",
@@ -195,18 +200,28 @@ $(function ($) {
                             copyNode.select();
                             document.execCommand("Copy");
                             copyNode.remove();
-                            if (JSON.parse(data).code === 200) {
-                                window.open('https://gitee.com/openeuler/docs/issues/new?issue%5Bassignee_id%5D=0&issue%5Bmilestone_id%5D=0')
-                            } else {
-                                console.log(JSON.parse(data));
+                            try {
+                                if (JSON.parse(data).code === 200) {
+                                    window.open('https://gitee.com/openeuler/docs/issues/new?issue%5Bassignee_id%5D=0&issue%5Bmilestone_id%5D=0')
+                                } else {
+                                    console.log(JSON.parse(data));
+                                }
+                            } catch (error) {
+                                console.log(error);
                             }
+                            $("#title-evaluate").css('z-index', '1003');
+                            $("#title-evaluate img").css('display', 'none');
                         },
                         error: function (err) {
+                            $("#title-evaluate").css('z-index', '1003');
+                            $("#title-evaluate img").css('display', 'none');
                             console.log(JSON.parse(err));
                         }
                     })
                 },
                 error: function (err) {
+                    $("#title-evaluate").css('z-index', '1003');
+                    $("#title-evaluate img").css('display', 'none');
                     console.log(JSON.parse(err));
                 },
             });
@@ -228,11 +243,19 @@ $(function ($) {
         template
     )
     $('.evaluates .issue').on('click', function () {
+        let oldValue = $('.issue-reason').val()
+        let text = `\n${this.childNodes[1].innerHTML}:\n`
+        let itemtext = text +
+            $(this).find('.issue-detail').text().replace(/\s+/ig, "").replaceAll("；", '\n').replaceAll("●", '');
+        text = oldValue + itemtext
         if ($(this).hasClass("active-border")) {
+            text = text.replaceAll(itemtext.trim(), '')
             $(this).removeClass("active-border");
         } else {
             $(this).addClass("active-border");
         }
+        text = text.trim();
+        text.length === 0 ? $('.issue-reason').val('') : $('.issue-reason').val(`${text}\n`)
     })
     $('.satisfaction .score').on('click', function () {
         $(this).addClass('active');
@@ -243,9 +266,11 @@ $(function ($) {
         if ($radio.data('checked')) {
             $radio.prop('checked', false);
             $radio.data('checked', false);
+            $('.submit-tip').css('display', 'none')
         } else {
             $radio.prop('checked', true);
             $radio.data('checked', true);
+            $('.submit-tip').css('display', 'block')
         }
     });
     getTreeLink();
@@ -287,46 +312,47 @@ function tipShow(value, index) {
 }
 
 window.onload = function () {
-    function selectText() {
-        if (document.selection) {
-            return document.selection.createRange().text;
+    if (lang === 'zh') {
+        function selectText() {
+            if (document.selection) {
+                return document.selection.createRange().text;
+            }
+            else {
+                return window.getSelection().toString();
+            }
         }
-        else {
-            return window.getSelection().toString();
-        }
-    }
-    let content = document.querySelector('#content');
-    let feedback = document.querySelector('.feedback');
-    content.onmouseup = function (event) {
-        let ev = event || window.event;
-        let left = ev.clientX;
-        let top = ev.clientY;
-        let select = selectText().trim()
-        if (select.length > 0) {
-            setTimeout(function () {
-                feedback.style.display = 'block';
-                feedback.style.left = left + 'px';
-                feedback.style.top = top + 'px';
-            }, 100);
-        }
-        else {
+        let content = document.querySelector('#content');
+        let feedback = document.querySelector('.feedback');
+        content.onmouseup = function (event) {
+            let ev = event || window.event;
+            let left = ev.clientX;
+            let top = ev.clientY;
+            let select = selectText().trim()
+            if (select.length > 0) {
+                setTimeout(function () {
+                    feedback.style.display = 'block';
+                    feedback.style.left = left + 'px';
+                    feedback.style.top = top + 'px';
+                }, 100);
+            }
+            else {
+                feedback.style.display = 'none';
+            }
+        };
+        content.onclick = function (ev) {
+            var ev = ev || window.event;
+            ev.cancelBubble = true;
+        };
+        document.onclick = function () {
             feedback.style.display = 'none';
-        }
-    };
+        };
 
-    content.onclick = function (ev) {
-        var ev = ev || window.event;
-        ev.cancelBubble = true;
-    };
-    document.onclick = function () {
-        feedback.style.display = 'none';
-    };
-
-    feedback.onclick = function (e) {
-        e.stopPropagation()
-        $('.main-input')[0].value = selectText().trim()
-        $('.question').click()
-    };
+        feedback.onclick = function (e) {
+            e.stopPropagation()
+            $('.main-input')[0].value = selectText().trim()
+            $('.question').click()
+        };
+    }
 };
 
 function issueTemplate(data) {
@@ -336,12 +362,12 @@ function issueTemplate(data) {
 
 2. 【"有虫"文档片段】
 
-> ${data.bugDocFragment}
+> ${data.bugDocFragment.replace(/(\r\n|\r|\n)+/g, '$1')}
 
 3. 【存在的问题】
 
 - ${data.existProblem.join('、')}
-> ${data.problemDetail}
+> ${data.problemDetail.replace(/(\r\n|\r|\n)+/g, '$1')}
 
 4. 【预期结果】
 - 请填写预期结果`
