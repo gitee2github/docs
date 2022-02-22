@@ -126,7 +126,7 @@ other = "内容描述不清晰"
 other = "内容获取有困难"
 
 [issue_4]
-other = "示例代码有错误"
+other = "示例代码错误"
 
 [issue_5]
 other = "内容有缺失"
