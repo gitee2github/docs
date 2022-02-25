@@ -234,9 +234,9 @@ $(function ($) {
     let template = ''
     for (let i = 1; i <= 10; i++) {
         let rank = '';
-        if (i <= 3) {
+        if (i <= 6) {
             rank = '失望'
-        } else if (i > 3 && i <= 7) {
+        } else if (i > 6 && i <= 8) {
             rank = '一般'
         } else {
             rank = '满意'
