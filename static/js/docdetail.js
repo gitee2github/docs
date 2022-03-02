@@ -206,7 +206,7 @@ $(function ($) {
                                     $('.submit-tip').css('display', 'none')
                                     $('.issue').removeClass('active-border')
                                     $('.score').removeClass('active')
-                                    window.open('https://gitee.com/openeuler/docs/issues/new?issue%5Bassignee_id%5D=0&issue%5Bmilestone_id%5D=0')
+                                    window.open('https://gitee.com/openeuler/docs/issues/new?issue%5Bassignee_id%5D=0&issue%5Bmilestone_id%5D=0&title=有奖捉虫（issue模板已生成至剪切板，将模板内容粘贴至下方文本框即可）')
                                 } else {
                                     console.log(JSON.parse(data));
                                 }
