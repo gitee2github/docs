@@ -535,7 +535,13 @@
     border: 1px solid #002FA7;
 }
 
-
+.btn-submit {
+    position: relative;
+}
+.textarea-box p{
+    color: #4e4f53;
+    text-align: right;
+}
 .alert .issue .issue-detail,
 .btn-submit .submit-tip{
     display: none;
@@ -563,8 +569,55 @@
     padding: 10px 15px;
     font-size: 16px;
     line-height: 25px;
-    width: 300px;
+    width: 280px;
 }
+.login-tip {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    border-radius: 5px;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    font-size: 18px;
+    left: 110%;
+    width: 200px;
+    color: #3d3c3c;
+}
+.login-tip::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(115deg,#4fcf70,#fad648,#a767e5,#12bcfe,#44ce7b);
+    background-size: 50% 100%;
+    animation: rainbowSlide 8s linear infinite;
+}
+
+@keyframes rainbowSlide {
+    100% {
+        background-position: -400% 0;
+    }
+}
+
+.main-tip {
+    flex: 1;
+    display: flex;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+    position: relative;
+    height: 30px;
+    border-radius: 3px;
+    line-height: 30px;
+    background-color: black;
+    color: white;
+}
+
 
 .issue-detail::before,
 .issue-detail::after,

@@ -7,7 +7,10 @@
             <div class="icon-close"></div>
             <h2 class="title-h2">{{ i18n "issue_title" }}</h2>
             <h3 class="title-h3">{{ i18n "issue_part" }}</h3>
-            <textarea class="main-input first-input" maxlength="1000" placeholder="点击输入将“有虫”文档复制，粘贴到此处。"></textarea>
+            <div class="textarea-box">
+                <textarea class="main-input first-input" maxlength="500" placeholder="点击输入将“有虫”文档复制，粘贴到此处。"></textarea>
+                <p><span id="text-count">0</span>/500</p>
+            </div>
             <h3 class="title-h3">{{ i18n "issue_reason" }}</h3>
             <div class="evaluates">
                 <div class="issue" key="1">
@@ -45,12 +48,15 @@
                 <div class="issue" key="5">
                     <span>{{ i18n "issue_5" }}</span>
                     <div class="issue-detail">
-                       <p>● 关键步骤错误或缺失，无法指导用户完成任务，比如安装、配置、部署等；</p>
-                       <p>● 缺少必要的前提条件、注意事项等；</p>
+                        <p>● 关键步骤错误或缺失，无法指导用户完成任务，比如安装、配置、部署等；</p>
+                        <p>● 缺少必要的前提条件、注意事项等；</p>
                     </div>
                 </div>
             </div>
-            <textarea class="issue-reason main-input" maxlength="1000" placeholder="点击输入详细问题描述，以帮助我们快速定位问题。"></textarea>
+            <div class="textarea-box">
+                <textarea class="issue-reason main-input" maxlength="500" placeholder="点击输入详细问题描述，以帮助我们快速定位问题。"></textarea>
+                <p><span id="text-count-tow">0</span>/500</p>
+            </div>
             <h3 class="title-h3">{{ i18n "satisfaction" }}</h3>
             <div class="satisfaction">
                 <div class="low-score">{{ i18n "low_score" }}</div>
@@ -86,8 +92,13 @@
                 </div>
             </div>
             <div class="btn-submit"><span>{{ i18n "btn_submit" }}</span>
+                <div class="login-tip">
+                    <div class="main-tip">
+                        需保持gitee在登录状态
+                    </div>
+                </div>
                 <div class="submit-tip">
-                    根据您的反馈，会自动生成Issue模板。您只需点击按钮，将模板内容粘贴到新建Issue描述即可。
+                    根据您的反馈，会自动生成issue模板。您只需点击按钮，创建issue即可。
                 </div>
             </div>
         </form>
