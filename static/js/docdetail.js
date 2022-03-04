@@ -143,8 +143,6 @@ $(function ($) {
         if (!questionValue) {
             $('.first-input').focus()
             tipShow('请输入“有虫”片段', 0)
-        } else if (checkedArr.length === 0) {
-            tipShow('请选择存在的问题', 1)
         } else if (!feedback) {
             $('.issue-reason').focus()
             tipShow('请输入问题描述', 1)
@@ -193,20 +191,11 @@ $(function ($) {
                             token: token
                         },
                         success: function (data) {
-                            let copyNode = $("<textarea></textarea>");
-                            $('body').append(copyNode);
                             postData.link = window.location.href
-                            copyNode.val(issueTemplate(postData))
-                            copyNode.select();
-                            document.execCommand("Copy");
-                            copyNode.remove();
+                            let body = encodeURIComponent(issueTemplate(postData))
                             try {
                                 if (JSON.parse(data).code === 200) {
-                                    document.querySelector('form').reset()
-                                    $('.submit-tip').css('display', 'none')
-                                    $('.issue').removeClass('active-border')
-                                    $('.score').removeClass('active')
-                                    window.open('https://gitee.com/openeuler/docs/issues/new?issue%5Bassignee_id%5D=0&issue%5Bmilestone_id%5D=0&title=有奖捉虫（issue模板已生成至剪切板，将模板内容粘贴至下方文本框即可）')
+                                    window.open(`https://gitee.com/openeuler/docs/issues/new?issue%5Bassignee_id%5D=0&issue%5Bmilestone_id%5D=0&title=有奖捉虫&description=${body}`)
                                 } else {
                                     console.log(JSON.parse(data));
                                 }
@@ -259,22 +248,51 @@ $(function ($) {
             $(this).addClass("active-border");
         }
         text = text.trim();
-        text.length === 0 ? $('.issue-reason').val('') : $('.issue-reason').val(`${text}\n`)
+        let count = "";
+        if (text.trim().length > 500) {
+            $(".issue-reason").val(text.trim().substring(0, 500));
+        } else if (text.length === 0) {
+            $('.issue-reason').val('')
+        } else {
+            $('.issue-reason').val(`${text.trim()}\n`)
+        }
+        count = $(".issue-reason").val().length;
+        $("#text-count-tow").text(count);
     })
     $('.satisfaction .score').on('click', function () {
         $(this).addClass('active');
         $(this).siblings(".score").removeClass('active');
     })
+    $(".first-input").on("input propertychange", function () {
+        let _val = $(this).val();
+        let count = "";
+        if (_val.length > 500) {
+            $(this).val(_val.substring(0, 500));
+        }
+        count = $(this).val().length;
+        $("#text-count").text(count);
+    });
+    $(".issue-reason").on("input propertychange", function () {
+        _val = $(this).val(),
+            count = "";
+        if (_val.length > 500) {
+            $(this).val(_val.substring(0, 500));
+        }
+        count = $(this).val().length;
+        $("#text-count-tow").text(count);
+    });
     $('#privacy').click(function () {
         let $radio = $(this);
         if ($radio.data('checked')) {
             $radio.prop('checked', false);
             $radio.data('checked', false);
             $('.submit-tip').css('display', 'none')
+            $('.login-tip').css('display', 'none')
         } else {
             $radio.prop('checked', true);
             $radio.data('checked', true);
             $('.submit-tip').css('display', 'block')
+            $('.login-tip').css('display', 'block')
         }
     });
     getTreeLink();
@@ -353,13 +371,23 @@ window.onload = function () {
 
         feedback.onclick = function (e) {
             e.stopPropagation()
-            $('.main-input')[0].value = selectText().trim()
+            let count = "";
+            if (selectText().trim().length > 500) {
+                $(".first-input").val(selectText().trim().substring(0, 500));
+            } else {
+                $('.first-input').val(selectText().trim())
+
+            }
+            count = 500 - $(".first-input").val().length;
+            $("#text-count").text(count);
             $('.question').click()
         };
     }
 };
 
 function issueTemplate(data) {
+    let Problem = ''
+    data.existProblem.length == 0 ? '': Problem = `- ${data.existProblem.join('、')}`
     return `1. 【文档链接】
 
 > ${data.link}
@@ -370,7 +398,7 @@ function issueTemplate(data) {
 
 3. 【存在的问题】
 
-- ${data.existProblem.join('、')}
+${Problem}
 > ${data.problemDetail.replace(/(\r\n|\r|\n)+/g, '$1')}
 
 4. 【预期结果】
