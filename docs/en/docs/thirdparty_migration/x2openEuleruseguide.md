@@ -1,476 +1,1686 @@
-# **x2openEuler User Guide**
+# x2openEuler User Guide
+
+<!-- TOC -->
+
+- [x2openEuler User Guide](#x2openeuler-user-guide)
+  - [About this Document](#about-this-document)
+    - [Introduction](#introduction)
+    - [Intended Audience](#intended-audience)
+    - [Symbol Conventions](#symbol-conventions)
+    - [Command Format Conventions](#command-format-conventions)
+    - [Change History](#change-history)
+  - [Disclaimer](#disclaimer)
+  - [Overview](#overview)
+  - [Installation](#installation)
+    - [Environment Requirements](#environment-requirements)
+    - [Obtaining the Software Package](#obtaining-the-software-package)
+    - [Digital Signature Verification](#digital-signature-verification)
+    - [Installation](#installation-1)
+    - [Verification](#verification)
+    - [Uninstallation](#uninstallation)
+  - [Feature Guide](#feature-guide)
+    - [Software Assessment](#software-assessment)
+    - [Environment Configuration Collection and Assessment](#environment-configuration-collection-and-assessment)
+    - [Hardware assessment](#hardware-assessment)
+  - [Common Operations](#common-operations)
+    - [Viewing Command Parameter Description](#viewing-command-parameter-description)
+    - [Viewing the x2openEuler Version Information Using CLI Commands](#viewing-the-x2openeuler-version-information-using-cli-commands)
+    - [Viewing the Assessment Report Using CLI Commands](#viewing-the-assessment-report-using-cli-commands)
+    - [Configuring the Yum Source for the OS](#configuring-the-yum-source-for-the-os)
+    - [Querying OS Version Information](#querying-os-version-information)
+  - [FAQ](#faq)
+    - [Page Not Properly Displayed When Viewing Assessment Reports](#page-not-properly-displayed-when-viewing-assessment-reports)
+    - [Installation Fails Due to Missing Dependency Packages](#installation-fails-due-to-missing-dependency-packages)
+  - [Appendixes](#appendixes)
+    - [Related Links](#related-links)
+    - [Terminology](#terminology)
+    - [Abbreviations](#abbreviations)
+
+<!-- /TOC -->
+
+## About this Document
+
+### Introduction
+
+This document describes how to obtain the x2openEuler installation package and how to install and use the tool.
+
+### Intended Audience
+
+This document is intended for:
+
+-   openEuler OS users
+-   Kunpeng developers
+-   Kunpeng platform software users
+-   Independent software vendor (ISV) developers
+
+### Symbol Conventions
+
+The symbols that may be found in this guide are defined as follows:
+
+<a name="table2622507016410"></a>
+<table><thead align="left"><tr id="row1530720816410"><th class="cellrowborder" valign="top" width="20.580000000000002%" id="mcps1.1.3.1.1"><p id="p6450074116410"><a name="p6450074116410"></a><a name="p6450074116410"></a><strong id="b2136615816410"><a name="b2136615816410"></a><a name="b2136615816410"></a>Symbol</strong></p>
+</th>
+<th class="cellrowborder" valign="top" width="79.42%" id="mcps1.1.3.1.2"><p id="p5435366816410"><a name="p5435366816410"></a><a name="p5435366816410"></a><strong id="b5941558116410"><a name="b5941558116410"></a><a name="b5941558116410"></a>Description</strong></p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="row1372280416410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p3734547016410"><a name="p3734547016410"></a><a name="p3734547016410"></a><a name="image2670064316410"></a><a name="image2670064316410"></a><span><img class="" id="image2670064316410" height="25.270000000000003" width="67.83" src="figures/zh-cn_image_0000001177899070.png"></span></p>
+</td>
+<td class="cellrowborder" valign="top" width="79.42%" headers="mcps1.1.3.1.2 "><p id="p1757432116410"><a name="p1757432116410"></a><a name="p1757432116410"></a>Indicates a hazard with a high level of risk which, if not avoided, will result in death or serious injury.</p>
+</td>
+</tr>
+<tr id="row466863216410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p1432579516410"><a name="p1432579516410"></a><a name="p1432579516410"></a><a name="image4895582316410"></a><a name="image4895582316410"></a><span><img class="" id="image4895582316410" height="25.270000000000003" width="67.83" src="figures/zh-cn_image_0000001223297257.png"></span></p>
+</td>
+<td class="cellrowborder" valign="top" width="79.42%" headers="mcps1.1.3.1.2 "><p id="p959197916410"><a name="p959197916410"></a><a name="p959197916410"></a>Indicates a hazard with a medium level of risk which, if not avoided, could result in death or serious injury.</p>
+</td>
+</tr>
+<tr id="row123863216410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p1232579516410"><a name="p1232579516410"></a><a name="p1232579516410"></a><a name="image1235582316410"></a><a name="image1235582316410"></a><span><img class="" id="image1235582316410" height="25.270000000000003" width="67.83" src="figures/zh-cn_image_0000001223418819.png"></span></p>
+</td>
+<td class="cellrowborder" valign="top" width="79.42%" headers="mcps1.1.3.1.2 "><p id="p123197916410"><a name="p123197916410"></a><a name="p123197916410"></a>Indicates a hazard with a low level of risk which, if not avoided, could result in minor or moderate injury.</p>
+</td>
+</tr>
+<tr id="row5786682116410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p2204984716410"><a name="p2204984716410"></a><a name="p2204984716410"></a><a name="image4504446716410"></a><a name="image4504446716410"></a><span><img class="" id="image4504446716410" height="25.270000000000003" width="67.83" src="figures/zh-cn_image_0000001223498761.png"></span></p>
+</td>
+<td class="cellrowborder" valign="top" width="79.42%" headers="mcps1.1.3.1.2 "><p id="p4388861916410"><a name="p4388861916410"></a><a name="p4388861916410"></a>Indicates a potentially hazardous situation which, if not avoided, could result in equipment damage, data loss, performance deterioration, or unanticipated results.</p>
+<p id="p1238861916410"><a name="p1238861916410"></a><a name="p1238861916410"></a>NOTICE is used to address practices not related to personal injury.</p>
+</td>
+</tr>
+<tr id="row2856923116410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p5555360116410"><a name="p5555360116410"></a><a name="p5555360116410"></a><a name="image799324016410"></a><a name="image799324016410"></a><span><img class="" id="image799324016410" height="25.270000000000003" width="67.83" src="figures/zh-cn_image_0000001178217588.png"></span></p>
+</td>
+<td class="cellrowborder" valign="top" width="79.42%" headers="mcps1.1.3.1.2 "><p id="p4612588116410"><a name="p4612588116410"></a><a name="p4612588116410"></a>Supplements the important information in the main text.</p>
+<p id="p1232588116410"><a name="p1232588116410"></a><a name="p1232588116410"></a>NOTE is used to address information not related to personal injury, equipment damage, and environment deterioration.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+### Command Format Conventions
+
+<a name="table57396167"></a>
+<table><thead align="left"><tr id="row54460779"><th class="cellrowborder" valign="top" width="30%" id="mcps1.1.3.1.1"><p id="p49246997"><a name="p49246997"></a><a name="p49246997"></a>Format</p>
+</th>
+<th class="cellrowborder" valign="top" width="70%" id="mcps1.1.3.1.2"><p id="p29583811"><a name="p29583811"></a><a name="p29583811"></a>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="row47478494"><td class="cellrowborder" valign="top" width="30%" headers="mcps1.1.3.1.1 "><p id="p20552781"><a name="p20552781"></a><a name="p20552781"></a><strong id="b50757304"><a name="b50757304"></a><a name="b50757304"></a> Boldface</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="70%" headers="mcps1.1.3.1.2 "><p id="p17700929"><a name="p17700929"></a><a name="p17700929"></a>Command keywords which must be reserved exactly are in <strong id="b25090633"><a name="b25090633"></a><a name="b25090633"></a>boldface</strong>.</p>
+</td>
+</tr>
+<tr id="row24489106"><td class="cellrowborder" valign="top" width="30%" headers="mcps1.1.3.1.1 "><p id="p37460564"><a name="p37460564"></a><a name="p37460564"></a><a name="i1600758"></a><a name="i1600758"></a>Italic</p>
+</td>
+<td class="cellrowborder" valign="top" width="70%" headers="mcps1.1.3.1.2 "><p id="p62552612"><a name="p62552612"></a><a name="p62552612"></a> Command parameters which must be replaced by specific values in an actual command, are in italics.</p>
+</td>
+</tr>
+<tr id="row26102601"><td class="cellrowborder" valign="top" width="30%" headers="mcps1.1.3.1.1 "><p id="p33935949"><a name="p33935949"></a><a name="p33935949"></a>[ ]</p>
+</td>
+<td class="cellrowborder" valign="top" width="70%" headers="mcps1.1.3.1.2 "><p id="p64457312"><a name="p64457312"></a><a name="p64457312"></a>Items in square brackets [ ] are optional.</p>
+</td>
+</tr>
+<tr id="row43244904"><td class="cellrowborder" valign="top" width="30%" headers="mcps1.1.3.1.1 "><p id="p13176344"><a name="p13176344"></a><a name="p13176344"></a>{ x | y | ... }</p>
+</td>
+<td class="cellrowborder" valign="top" width="70%" headers="mcps1.1.3.1.2 "><p id="p60650924"><a name="p60650924"></a><a name="p60650924"></a>Indicates that one option is selected from two or more options.</p>
+</td>
+</tr>
+<tr id="row8987407"><td class="cellrowborder" valign="top" width="30%" headers="mcps1.1.3.1.1 "><p id="p56891381"><a name="p56891381"></a><a name="p56891381"></a>[ x | y | ... ]</p>
+</td>
+<td class="cellrowborder" valign="top" width="70%" headers="mcps1.1.3.1.2 "><p id="p44799155"><a name="p44799155"></a><a name="p44799155"></a>Indicates that one or no option is selected from two or more options.</p>
+</td>
+</tr>
+<tr id="row539219"><td class="cellrowborder" valign="top" width="30%" headers="mcps1.1.3.1.1 "><p id="p43676810"><a name="p43676810"></a><a name="p43676810"></a>{ x | y | ... }*</p>
+</td>
+<td class="cellrowborder" valign="top" width="70%" headers="mcps1.1.3.1.2 "><p id="p48160684"><a name="p48160684"></a><a name="p48160684"></a>Indicates that multiple options are selected from two or more options. At least one option must be selected, and at most all options can be selected.</p>
+</td>
+</tr>
+<tr id="row30792978"><td class="cellrowborder" valign="top" width="30%" headers="mcps1.1.3.1.1 "><p id="p11203266"><a name="p11203266"></a><a name="p11203266"></a>[ x | y | ... ]*</p>
+</td>
+<td class="cellrowborder" valign="top" width="70%" headers="mcps1.1.3.1.2 "><p id="p35049363"><a name="p35049363"></a><a name="p35049363"></a>Indicates that multiple options are selected or none is selected from two or more options.</p>
+</td>
+</tr>
+<tr id="row47008815"><td class="cellrowborder" valign="top" width="30%" headers="mcps1.1.3.1.1 "><p id="p49617684"><a name="p49617684"></a><a name="p49617684"></a>&amp;&lt;1-n&gt;</p>
+</td>
+<td class="cellrowborder" valign="top" width="70%" headers="mcps1.1.3.1.2 "><p id="p59609453"><a name="p59609453"></a><a name="p59609453"></a>Indicates that the parameter before the & symbol can be repeated for 1~n times.</p>
+</td>
+</tr>
+<tr id="row66723033"><td class="cellrowborder" valign="top" width="30%" headers="mcps1.1.3.1.1 "><p id="p35856572"><a name="p35856572"></a><a name="p35856572"></a>#</p>
+</td>
+<td class="cellrowborder" valign="top" width="70%" headers="mcps1.1.3.1.2 "><p id="p18701191"><a name="p18701191"></a><a name="p18701191"></a>Comment lines start with #.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+### Change History
+
+<a name="table1557726816410"></a>
+<table><thead align="left"><tr id="row2942532716410"><th class="cellrowborder" valign="top" width="20.72%" id="mcps1.1.4.1.1"><p id="p3778275416410"><a name="p3778275416410"></a><a name="p3778275416410"></a><strong id="b5687322716410"><a name="b5687322716410"></a><a name="b5687322716410"></a>Issue</strong></p>
+</th>
+<th class="cellrowborder" valign="top" width="26.119999999999997%" id="mcps1.1.4.1.2"><p id="p5627845516410"><a name="p5627845516410"></a><a name="p5627845516410"></a><strong id="b5800814916410"><a name="b5800814916410"></a><a name="b5800814916410"></a>Date</strong></p>
+</th>
+<th class="cellrowborder" valign="top" width="53.16%" id="mcps1.1.4.1.3"><p id="p2382284816410"><a name="p2382284816410"></a><a name="p2382284816410"></a><strong id="b3316380216410"><a name="b3316380216410"></a><a name="b3316380216410"></a>Change Description</strong></p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="row5947359616410"><td class="cellrowborder" valign="top" width="20.72%" headers="mcps1.1.4.1.1 "><p id="p2149706016410"><a name="p2149706016410"></a><a name="p2149706016410"></a>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.119999999999997%" headers="mcps1.1.4.1.2 "><p id="p648803616410"><a name="p648803616410"></a><a name="p648803616410"></a>2021-12-30</p>
+</td>
+<td class="cellrowborder" valign="top" width="53.16%" headers="mcps1.1.4.1.3 "><p id="p1946537916410"><a name="p1946537916410"></a><a name="p1946537916410"></a>The issue is the first official release.</p>
+</td>
+</tr>
+</tbody>
+</table>
 
 ## Disclaimer
 
-Updated on: October 28, 2021
-
-```
-To prevent impact on services in the production environment, it is recommended that you use this tool in a non-production environment.
-Before uploading and viewing the source code, ensure that you are the source code owner or have obtained full authorization and consent from the source code owner.
-No individual or organization shall use the source code for any purpose without the authorization of the source code owner. Huawei is not liable for any consequences and bears no legal liabilities. Huawei reserves the right to pursue legal actions if necessary.
-No individual or organization shall spread the source code without the authorization of the source code owner. Huawei is not liable for any consequences and bears no legal liabilities. Huawei reserves the right to pursue legal actions if necessary.
-The source code and related information, such as the porting report, precheck report, and porting suggestions, are for reference only and do not have legal effect or constitute specific guidelines or legal suggestions of any kind.
-Unless otherwise specified in laws and regulations or contracts, Huawei does not make any express or implied statement or warranty on the porting suggestions or related content, or make any warranty or commitment on the marketability, satisfaction, non-infringement, or applicability of the porting suggestions or related content for specific purposes.
-You shall bear all risks arising from your use of the porting suggestions and related content. Huawei is not liable for any damage or loss of any nature in any case.
-If you click OK, the source code will be uploaded to the working directory of the current server for source code scan and analysis. This tool does not use the source code for any other purposes. Users who log in to the same server using other user names do not have the permission to view the code in your working directory.
-```
-
-## 0. Introduction
-
-x2openEuler assesses software porting from CentOS 7.6 (CentOS 8.2 and CentOS 6.8) to openEuler 20.03 LTS SP1, covering software, configurations, and hardware. The tool analyzes the dependent RPM packages to be introduced and the function prototypes in the dependent RPM packages to be modified, helping users analyze the modification impact, identify system configuration differences, and check whether related hardware is in the compatibility list.
-
-**Function:** Analyzes the software packages to be ported (currently, binary executable files and dynamic shared object (SO) libraries are supported), searches for the directly dependent source code, and analyzes the differences in dependent RPM packages, SO libraries contained in the RPM packages, and code provided by the SO libraries, and provides porting suggestions.
-
-**Application scenarios:** When a user's software packages are ported to openEuler 20.03 LTS SP1, x2openEuler analyzes the dependent RPM packages to be introduced and the specific functions in the dependent RPM package to be modified, and provides modification suggestions.
-
-**Precautions:** x2openEuler invokes binary file check commands such as `readelf` to query dynamic link library (DLL) information for more accurate analysis of software package dependencies. However, the tool will never peer into users' private data.
-
-## 1. Operating Environment
-
-### 1.1. Dependent Components
-
-| Component| Description| How to Obtain|
-| ------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| CentOS  | x2openEuler operating environment, where the target software packages (binary executable files and dynamic SO libraries) run. Only CentOS 7.6 and CentOS 8.2 are supported.| The Linux environment is prepared by the user.|
-| python3 | Python 3.7| Run the `python3 --version` command to query the version. If the command does not exist, install Python 3. If the version does not match, install the matching version. For details about how to install Python in CentOS 6.8, see chapter 7.|
-| jar     | Used to decompress JAR files.| If the command does not exist, run the `yum search openjdk-devel` command to search for and install a proper version (later than or equal to 1.7), for example, **java-1.8.0-openjdk-devel**.|
-| sqlite  | v3.7.17 or later| Built in the system.|
-| redis   | v4.0.11 or later| Run `yum install redis`. If a message is displayed indicating that no software package is available, run `yum install epel-release` first.|
-
-### 1.2. Required Resources
-
-Ensure that the specifications of the VM or physical machine are **greater than or equal to 2 CPUs and 8 GB memory**. Before running x2openEuler analysis, you are advised to restart the VM to ensure that the available memory is sufficient. It is recommended that **at least 20 GB** (depending on the number of RPM packages to be scanned) of drive space be available in the directory where x2openEuler is located.
-
-| Analysis Item| CPU Usage| Running Duration| Output File Size|
-| -------------------- | --------------- | ----------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| Analyzing a single RPM package| 2 cores, 100% peak CPU usage| 2 to 15 minutes to scan an RPM package| The drive space occupied temporarily by intermediate files depends on the size of the software to be scanned. An HTML UI output file is about 1 MB to 5 MB.|
-| Analyzing a collection of single binary packages| 2 cores, 100% peak CPU usage| 10 minutes to scan a collection of single binary packages (depending on the total scan duration of RPM packages)| An HTML UI output file is about 1 MB to 5 MB.|
-| Collecting and analyzing user configuration information| 2 cores, 100% peak CPU usage| 1 to 5 minutes to collect configuration information| About 200 MB drive space is occupied temporarily by intermediate files. An HTML UI output file is about 1 MB to 5 MB.|
-
-### 1.3. Network Requirements
-
-x2openEuler can **run offline** without network connection, except when installing required components.
-
-## 2. Software Directory Structure
-
-The following lists only the main (user-related) directory structure.
-```
-├── config
-│   └── conf.ini      // Software configuration file
-├── README.md       // Software user guide
-├── requirement.txt   //Software dependencies
-├── update          // x2openEuler update directory (empty by default)
-├── sqlite         // Database
-├── log             // Log directory
-├── output          // Location of the tool report and data output (empty by default)
-├── data           // Directory for storing temporary intermediate files
-├── sha256sum.txt  // Checksum value of the data file
-├── Version        // Tool version
-└── x2openEuler.pyc  // Software entry file
-```
-
-## 3. Major Functions
-
-x2openEuler scans and assesses application software, environment configurations, and hardware configurations.
-
-### 3.1. Application Scan and Assessment
-
-1. Scans and assesses the RPM packages of the software to be ported from CentOS 7.6 (CentOS 8.2 and CentOS 6.8).
-2. Scans and assesses the binary packages of the software to be ported from CentOS 7.6 (CentOS 8.2 and CentOS 6.8).
-3. Scans and assesses TAR, GZIP, ZIP, JAR, PY, and PYC files to be ported from CentOS 7.6 (CentOS 8.2 and CentOS 6.8).
-
-### 3.2. User Environment Data Collection and Assessment
-
-Collects user environment data and generates JSON files. The following items can be collected.
-| No.| Item| Interface Category| JSON File|
-| ---- | ----------------------------- | --------------------- | -------------------------- |
-| 1    | Hardware configurations| x86/AArch64/card information| hardware_configure.json    |
-| 2    | Configuration interfaces| Kernel startup parameter| kernel_startup_param.json  |
-| 3    | Kernel option configurations| Static information| kernel_configure.json      |
-| 4    | System configurations (sysctl/proc/sys)| Dynamic information| system_configure.json      |
-| 5    | Environment variables| PATH variable information| path.json                  |
-| 6    | Services| System service| system_service.json        |
-| 7    | Processes| Dynamic information| proc.json                  |
-| 8    | Ports| Dynamic information| port.json                  |
-| 9    | Command interfaces| Linux command| linux_command.json         |
-| 10   | System calls| System call interface| syscall_interface.json     |
-| 11   | Device driver interfaces| User-mode device interface| device_interface.json      |
-> The collected data is saved in JSON files to the specified folder for further analysis. In addition, the hardware compatibility is assessed and an HTML report is provided.
-
-## 4. Download, Installation, and Deployment
-
-### 4.1. Tool Download and Integrity Verification
-
-1. The software downloaded from [Huawei Support](https://support.huawei.com/supportindex/index) contains the PGPVerify link, which provides the **KEYS.txt**, **KEYS4096.txt**, **OpenPGP Signature Verification Guide.pdf**, and **VerificationTools.zip** files.
-2. Verify the integrity of the downloaded software package according to **OpenPGP Signature Verification Guide.pdf**.
-
-### 4.2. Common User Account Creation
-
-Before using the x2openEuler tool, you are advised to create a common user account (if the **root** user is used, skip this section) and run the tool using the new account. The following uses **<user>** as an example user name. To ensure that a common user account can collect all configurations, privilege escalation is required for some commands. Run the following command as the **root** user to open the **/etc/sudoers** file:
-
-```bash
-visudo
-```
-
-Add the following content after the **## Allow root to run any commands anywhere** comment:
-```
-## Allow root to run any commands anywhere
-<user> ALL=(root) NOPASSWD: /bin/cat /boot/grub2/grub.cfg
-<user> ALL=(root) NOPASSWD: /usr/sbin/lspci -nvvv
-<user> ALL=(root) NOPASSWD: /usr/sbin/lspci -xxx
-<user> ALL=(root) NOPASSWD: /bin/netstat -npl
-<user> ALL=(root) NOPASSWD: /usr/sbin/sysctl -a
-<user> ALL=(root) NOPASSWD: /usr/sbin/dmidecode -t bios -t system -t baseboard -t chassis -t processor -t memory -t cache -t connector -t slot
-```
-Save the settings and exit.
-
-### 4.3. Software Installation
-
-Decompress the TAR file. (**The decompression and subsequent scan and analysis must be performed using the same user.**)
-```
-tar -xpf x2openEuler.tar.gz
-```
-
-#### 4.3.1. Built-in Dependency Installation
-
-After decompressing the TAR file, go to the root directory and run the following command to install the dependencies required by the software.
-Assume that the directory for decompression is **/home/<user>/x2openEuler/**.
-
-```
-pip3 install -r requirement.txt
-```
-x2openEuler 2.0 and later support multi-system scan and use Redis to manage multi-system static resource files. Before using this tool, install the Redis database online using Yum.
-
-```
-yum install redis
-```
-
-Start Redis.
-```
-systemctl start redis
-```
-
-#### 4.3.2. Initialization
-- Redis database initialization
-
-
-Before using the tool for the first time, configure the Redis settings.
-Run the `python3 x2openEuler.pyc redis-db -init` command and enter the IP address, port number, database index (0-16), and password of the Redis database in sequence. The tool encrypts the password.
-
-The following is an example of the settings:
-
-Please enter the IP address of redis: 127.0.0.1
-
-Please enter the port of redis: 6379
-
-Please enter the database index of redis(from 0 to 16): 0
-
-Please enter the password of redis: 
-
-
-If the Redis password is not set or is empty, press **Enter**.
-
-- Environment check
-
-
-During the environment check, x2openEuler will call some system commands. Ensure that the packages on which those commands depend have been installed in the system.
-| No.| Required Command| Installation Command|
-| ---- | --------- | ---------------------- |
-| 1    | netstat   | yum install net-tools  |
-| 2    | lspci     | yum install pciutils   |
-| 3    | systemctl | yum install systemd    |
-| 4    | dmidecode | yum install dmidecode  |
-| 5    | lscpu     | yum install util-linux |
-| 6    | bzip2     | yum install bzip2      |
-
-- Resource package import
-
-
-Resource packages of multiple systems are required for multi-system scan. For example, to import the static resource package **source_centos7.6-openEuler20.03-LTS-SP1.tar.gz**, run the following command.
-
-Command:
-
-```
-python3 x2openEuler.pyc init <source>
-```
-
-Example:
-
-```
-python3 x2openEuler.pyc init source_centos7.6-openEuler20.03-LTS-SP1.tar.gz
-```
-
-> To assess software porting from CentOS 8.2 to openEuler 20.03 LTS SP1, you need to obtain and import the required static resource package. For example, if the resource package is **source_centos8.2-openEuler20.03-LTS-SP1.tar.gz**, run the `python3 x2openEuler.pyc init source_centos8.2-openEuler20.03-LTS-SP1.tar.gz` command to import the package.
-
-The subsequent commands can be executed only after x2openEuler is initialized. Otherwise, the following error message is displayed:
-
-```
-Please execute "python3 x2openeuler.pyc init" first to complete the environment check
-```
-
-### 4.4. Software Configuration
-
-#### 4.4.1. Main Configuration File
-
-The software configuration file is **/home/<user>/x2openEuler/config/conf.ini**. Generally, you can retain the default settings.
-
-#### 4.4.2. Configuration File for Collecting User Environment Data
-The configuration file for collecting user environment data is **/home/<user>/x2openEuler/config/parser/beat.json**. For details about the default collection items, see section 3.2. You are advised *not** to modify the settings unless necessary.
-**Currently, three types of data collection are supported.**
-
-- `globs`: collects information from the files specified with the Linux wildcard `*`.
-- `files`: collects information from specified files.
-- `commands`: executes specified commands.
-
-**Field description:**
-
-- `glob/command/file` (mandatory): indicates the files to be collected or the commands to be executed.
-- `symbolic_name` (mandatory): indicates the ID of a collection item.
-- `log_type` (mandatory): specifies the parser for the collection item. The value can be `config` (key-value pair), `log`, `table`, `list` (file list), and `content` (raw content). If there are multiple content blocks, you need to specify the same number of parsers in a list, for example, `['log', 'config']`.
-- `regex_pattern`: indicates the regular expression specified for parsing the collection item. For details about the syntax, see the Grok regular expression. If no regular expression is specified, the matched regular expression is searched from the regular expression library. If there are multiple content blocks, the data type must be list.
-- `multiline_begin_list`: indicates that the data type is list. It is used together with `log_type` when multiple `log_type` values are specified to extract multiple blocks of content. The main functions of this field are as follows:
-   - When `log_type` is `log`, it specifies the start of multiple lines of logs for match.
-   - When partial content is to be extracted, if the `head` field exists, it specifies the start of the content for match in the content block, and `head` indicates the key of the content block. If the `head` field does not exist, it indicates the key of the content block for match.
-
-- `multiline_end_list`: used together with `multiline_begin_list`. If its value matches with the start of a new content block, the extracted content is `[begin, end-1]`. If no matching item is found, the extracted content is `[begin, end]`.
-- `head`: The data type is list. It is used together with `multiline_begin\end_list`, indicating the key of the specified content block.
-- `content_type`: indicates the type of the collection item. The `beat.json` file provided by the software prevails. You can modify it as required.
-
-## 5. Usage Instructions
-
-You can run `--help | -h` to view the help information.
-```
-python3 x2openEuler.pyc [--help | -h]
-python3 x2openEuler.pyc <subcommand> --help | -h
-```
-
-- Subcommands: scan | conf-collect | conf-analyse | update | init
-
-### 5.1. Software Assessment
-
-x2openEuler can scan only a single application, and requires the read permission on the scanned files.
-
-The `scan` command is used with the following options:
-
-- `-os_name`: indicates the original OS. The default value is `centos7.6`.
-- `-target_os_name`: indicates the target OS. The default value is `openEuler20.03-LTS-SP1`.
-- `-arch`: indicates the system architecture. The default value is `x86_64`. (**Note**: Currently, CentOS 6.8 supports only the x86_64 architecture.)
-- `-single`: indicates a single application with multiple packages. Enter a directory that contains multiple RPM packages.
-- `-batch`: indicates batch scan. Enter a directory that contains multiple binary files.
-
-#### 5.1.1. Single Application Scan and Assessment
-
-Go to the **/home/<user>/x2openEuler/** directory.
-```
-python3 x2openEuler.pyc scan [-arch {x86_64,aarch64}] [-os_name OS_NAME] [-target_os_name TARGET_OS_NAME] <file>
-```
-- `arch`: The value can be `x86_64` or `aarch64`. The default value is `x86_64`.
-- `os_name`: indicates the original OS. The default value is `centos7.6`.
-- `target_os_name`: indicates the target OS. The default value is `openEuler20.03-LTS-SP1`.
-- `file`: indicates the directory or a single RPM package to be scanned. Currently, TAR, ZIP, GZIP, JAR, PY, and PYC files can be directly scanned.
-
-Examples:
-
-1) Scan the Git software for assessing compatibility from CentOS 8.2 to openEuler 20.03 LTS SP1.
-```
-python3 x2openEuler.pyc scan ../git-2.27.0-1.el8.x86_64.rpm -os_name centos8.2
-```
-
-2) Scan the **/home/<user>/app** directory as an application that is to be ported from CentOS 7.6 to openEuler 20.03 LTS SP1 on AArch64.
-```
-python3 x2openEuler.pyc scan -arch aarch64 /home/<user>/app
-```
-
-3) To scan a single binary file, place the binary file in an empty directory, and scan the directory as described in 2.
-
-#### 5.1.2. Multi-Package Application Scan and Assessment
-
-**Function:** Generate a report for a piece of software that contains multiple software packages (only RPM packages or both RPM and tar.gz packages).
-
-Go to the **/home/<user>/x2openEuler/** directory and run the following command:
-```
-python3 x2openEuler.pyc scan -single [-arch {x86_64,aarch64}] [-os_name OS_NAME] [-target_os_name TARGET_OS_NAME] <directory>
-```
-- `single`: indicates a single application with multiple packages.
-- `directory`: indicates the directory to be scanned. (Nested directories are not supported.)
-- For details about the rest options, see the above description.
-
-Example:
-
-Scan multiple packages of a single application in the **/home/<user>/app** directory:
-```
-python3 x2openEuler.pyc scan -single /home/<user>/app
-```
-
-#### 5.1.3. Batch Binary File Scan
-
-Go to the **/home/<user>/x2openEuler/* directory and run the following command:
-```
-python3 x2openEuler.pyc scan -batch [-arch {x86_64,aarch64}] [-os_name OS_NAME] [-target_os_name TARGET_OS_NAME] <directory>
-```
-- `batch`: batch scans binary files.
-- `directory`: indicates the directory to be scanned. (Nested directories are not supported.)
-- For details about the rest options, see the above description.
-
-Example:
-
-Batch scan the binary files in the `/home/<user>/app` directory.
-```
-python3 x2openEuler.pyc scan -batch /home/<user>/app
-```
-
-#### 5.1.4. Assessment Report Generation and Viewing
-
-The assessment report is in HTML format and needs to be opened using a browser (Google Chrome is recommended because errors may occur in Internet Explorer). The report is saved in the following directory:
-```
-...
-...
-The report are saved: /xxx/x2openEuler/output/git-2.27.0-20210603224155.html
-```
-
-**The report are saved:** _path_to_the_HTML_report_
-
-### 5.2. Environment Configuration Collection and Assessment
-
-#### 5.2.1.  User Environment Data Collection and Assessment
-
-x2openEuler can automatically identify the architecture of the current server environment and collect configuration information from the user environment for analysis and assessment.
-1. Collecting and analyzing local environment information
-2. Collecting data without analyzing it and exporting the collected data package
-3. Importing other user environment information data packages collected by x2openEuler for analysis
-
-#### 5.2.2. Environment Information Analysis
-
-Generally, you can run the following command to analyze and assess the local environment information:
-```
-python3 x2openEuler.pyc conf-analyse [-os_name OS_NAME] [-target_os_name TARGET_OS_NAME] [-local]
-```
-- `conf-analyse`: indicates the configuration analysis function.
-- `os_name`: indicates the original OS. The default value is `centos7.6`.
-- `target_os_name`: indicates the target OS. The default value is `openEuler20.03-LTS-SP1`.
-- `local`: indicates that the data to be analyzed is the data generated by local scan. If `local` or `load` is not specified, the default action is performed.
-
-Example:
-
-Analyze the data generated during local scan.
-```
-python3 x2openEuler.pyc conf-analyse -local
-Or
-python3 x2openEuler.pyc conf-analyse
-```
-
-**Note:** During the analysis, message **No such file or directory** may be output. This is normal during configuration information collection.
-
-#### 5.2.3. Environment Information Collection and Export
-
-If you only need to collect information without analyzing it, run the following command:
-```
-python3 x2openEuler.pyc conf-collect 
-```
-- `conf-collect`: indicates the configuration collection function.
-The output path is the **output** folder in the software root directory. As shown in the following, the resource package is in the **sysconf-timestamp.tar.gz** format.
-```
-The system configs are saved: /root/x2openEuler/output/sysconf-20210603213537.tar.gz
-```
-
-#### 5.2.4. Environment Information Import and Analysis
-
-If you want to import the environment information resource package collected by the previous function for analysis, run the following command:
-```
-python3 x2openEuler.pyc conf-analyse -load <resource_package_path> [-arch {x86_64,aarch64}]
-```
-- `conf-analyse`: indicates the configuration analysis function.
-- `load`: imports the tar.gz configuration resource package to be analyzed. This option and the `local` option are mutually exclusive.
-- `arch`: The value can be `x86_64` or `aarch64`. The default value is `x86_64`.
-
-Example:
-
-```
-[x2openEuler]# python3 x2openEuler.pyc conf-analyse -load ./output/sysconf-20210603213537.tar.gz 
-The report are saved: /xx/x2openEuler/output/hw-compat-report-20210603214256.html
-The report are saved: /xx/x2openEuler/output/conf_info_report-20210603214256.html
-```
-
-#### 5.2.5. Environment Information Report Generation and Viewing
-
-**This step must be performed on the CentOS system.**
-
-After `conf-analyse` is executed, x2openEuler generates environment information reports.
-The assessment report is in HTML format and needs to be opened using a browser (Google Chrome is recommended because errors may occur in Internet Explorer). The reports are saved in the following directories:
-
-- `The report is saved:` _path_to_the_HTML_report_
-- `conf_info_report-xxx:` _path_to_the_HTML report_of_the_configuration_information_. It provides the configuration compatibility information between the current OS and openEuler 20.03 LTS SP1.
-```
-The report are saved: /root/x2openEuler/output/conf_info_report-20210603214855.html
-```
-
-### 5.3. Hardware Configuration Assessment
-
-#### 5.3.1. Environment Information Report Generation and Viewing
-
-**You are advised to perform this step on a physical machine.**
-
-After `hardware-analyse` is executed, x2openEuler generates environment information reports.
-The assessment report is in HTML format and needs to be opened using a browser. The reports are saved in the following directories:
-
-- `The report is saved:` _path_to_the_HTML_report_
-- `hw_compat_report-xxx:` _path_to_the_HTML_report_of_the_hardware_card_information_. It provides the card compatibility information.
-
-```
-The report are saved: /root/x2openEuler/output/hw_compat_report-20210603214855.html
-```
-
-### 5.4. Software Update
-
-x2openEuler supports offline data update, which is used to upgrade the x2openEuler database offline and extend functions.
-
-#### 5.4.1. Data File Preparation
-
-Obtain the following two files from the official website:
-- **xxx.tar.gz**: software upgrade package.
-- **license**: the **license** text file corresponding to the `xxx.tar.gz` update package, used to verify the integrity.
-Copy the preceding two files to the **/opt/x2openEuler/update** directory.
-```
-[x2openEuler/update]# ls -l
-total 49M
--rw-r--r--. 1 root root 49M Jun  1 20:20 update.tar.gz
--rw-r--r--. 1 root root  98 Jun  1 20:31 license
-```
-**Note:** The directory contains **only** the update package and the required license file. If multiple updates are required, clear the **update** directory before each update, and then place the new update package and the required license file in the directory.
-
-#### 5.4.2. Software Update
-
-After placing the preceding files in the **update** directory, run the following command in the root directory of x2openEuler:
-```
-python3 x2openEuler.pyc update
-```
-A successful update is as follows:
-```
-[x2openEuler]# python3 x2openEuler.pyc update
-Decompressing ...
-Processing ...
-Update data successfully!
-```
-
-#### 5.4.3. Errors That May Occur During Software Update
-
-If any file is missing or redundant files exist in the **update** directory, the following error is reported. In this case, delete the redundant files or add the missing file.
-```
-Necessary file missing, please check and try again!
-Please delete any unnecessary files from update
-```
-
-If the update package does not match the license in the **update** directory, the following error is reported. Check whether the update package and license are obtained from the official website.
-```
-Verification failed for resource data file, please check and try again!
-```
-
-## 6. Software Uninstallation and Environment Cleanup
-
-After viewing and backing up the reports, delete the created user account **<user>** and clear the temporary data directory **/home/<user>/x2openEuler/**.
-
-## 7. Troubleshooting
-
-### 7.1. Page Not Properly Displayed
-
-You are advised to use Google Chrome because incompatibility issues may occur in Internet Explorer.
+-   To prevent impact on services in the production environment, it is recommended that you use this tool in a non-production environment.
+-   Before uploading and viewing the source code, ensure that you are the source code owner or have obtained full authorization and consent from the source code owner.
+-   No individual or organization shall use the source code for any purpose without the authorization of the source code owner. Huawei is not liable for any consequences and bears no legal liabilities. Huawei reserves the right to pursue legal actions if necessary.
+-   No individual or organization shall spread the source code without the authorization of the source code owner. Huawei is not liable for any consequences and bears no legal liabilities. Huawei reserves the right to pursue legal actions if necessary.
+-   The source code and related assessment reports are for reference only and do not have legal effect or constitute specific guidelines or legal suggestions of any kind.
+-   Unless otherwise specified in laws and regulations or contracts, Huawei does not make any express or implied statement or warranty on the assessment suggestions or related content, or make any warranty or commitment on the marketability, satisfaction, non-infringement, or applicability of the assessment suggestions or related content for specific purposes.
+-   You shall bear all risks arising from your use of the assessment suggestions and related content. Huawei is not liable for any damage or loss of any nature in any case.
+-   If you click **OK**, the source code will be uploaded to the working directory of the current server for source code scan and analysis. This tool does not use the source code for any other purposes. Users who log in to the same server using other user names do not have the permission to view the code in your working directory.
+
+
+## Overview
+
+The x2openEuler porting assessment tool is a lightweight end-to-end tool provided for developers to perform software porting analysis for openEuler. It supports software assessment, configuration collection and assessment, and hardware assessment. The x2openEuler plug-in functions as a client to invoke the server tool to scan and analyze the software to be ported. It provides professional code porting guidance to greatly simplify the process of porting applications from CentOS to openEuler. Before porting software from CentOS to openEuler, you can use this tool to analyze the software portability and estimate porting workload. It addresses the problems of heavy workload, low accuracy, and poor overall efficiency in manual analysis.
+
+x2openEuler has two editions: lightweight and full-scale. The lightweight x2openEuler supports only configuration collection and assessment, and hardware assessment. The full-scale x2openEuler supports all features.
+
+The x2openEuler tool has the following features:
+
+-   Software assessment
+
+    Scans and assesses rpm, tar, zip, gzip, jar, py, pyc, sh, and bin packages by identifying the list of software packages on which the applications depend, and generates an assessment report in the HTML format.
+
+-   Environment configuration collection and assessment
+
+    Collects user environment data and generates JSON files. Collects information about hardware configurations, configuration interfaces, kernel option configuration parameters, system configuration parameters (**sysctl**, **proc**, and **sys**), environment variables, services, processes, ports, command interfaces, system call items, and device driver interfaces. Analyzes and assesses the configuration information.
+
+-   Hardware assessment
+
+    Check whether the entire system (x86/aarch64) and plug-in cards (RAID/NIC/FC/IB/GPU/SSD/TPM) in the running environment are in the openEuler compatibility list.
+
+
+## Installation
+
+
+### Environment Requirements
+
+>![](public_sys-resources/icon-note.gif) **NOTE**
+>This tool applies only to development and testing environments.
+
+#### Physical Machine Specifications
+
+x2openEuler can be installed and run on physical machines. [Table 1](#zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_table38928044) lists the requirements for physical machines.
+
+**Table 1**  Hardware requirements
+
+<a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_table38928044"></a>
+<table><thead align="left"><tr id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_row49314056"><th class="cellrowborder" valign="top" width="16.43%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p35015599"><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p35015599"></a><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p35015599"></a> Hardware Type</p>
+</th>
+<th class="cellrowborder" valign="top" width="83.57%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p17691262"><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p17691262"></a><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p17691262"></a> Requirements</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_row23706142"><td class="cellrowborder" valign="top" width="16.43%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p41149367"><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p41149367"></a><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p41149367"></a> Server</p>
+</td>
+<td class="cellrowborder" valign="top" width="83.57%" headers="mcps1.2.3.1.2 "><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_ul51741352182814"></a><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_ul51741352182814"></a><ul id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_ul51741352182814"><li>x86 server</li><li>Server based on the Kunpeng 916 or Kunpeng 920 processor</li></ul>
+</td>
+</tr>
+<tr id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_row1254216504409"><td class="cellrowborder" valign="top" width="16.43%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_p12542145015401"><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_p12542145015401"></a><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_p12542145015401"></a>CPU</p>
+</td>
+<td class="cellrowborder" valign="top" width="83.57%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_p175426505409"><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_p175426505409"></a><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_p175426505409"></a> At least 2 cores</p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_row339035314405"><td class="cellrowborder" valign="top" width="16.43%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_p13390125318409"><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_p13390125318409"></a><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_p13390125318409"></a> Memory</p>
+</td>
+<td class="cellrowborder" valign="top" width="83.57%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_p193901753184012"><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_p193901753184012"></a><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_p193901753184012"></a>At least 8 GB of available memory space</p>
+</td>
+</tr>
+<tr id="row1950145145212"><td class="cellrowborder" valign="top" width="16.43%" headers="mcps1.2.3.1.1 "><p id="p767617616525"><a name="p767617616525"></a><a name="p767617616525"></a>Hard drive</p>
+</td>
+<td class="cellrowborder" valign="top" width="83.57%" headers="mcps1.2.3.1.2 "><p id="p8676460520"><a name="p8676460520"></a><a name="p8676460520"></a>20 GB or larger</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Virtual Machine Specifications
+
+x2openEuler can be installed on a VM. [Table 2](#table19116152811393) lists the VM requirements.
+
+**Table 2**  VM requirements
+
+<a name="table19116152811393"></a>
+<table><thead align="left"><tr id="row141161128133913"><th class="cellrowborder" valign="top" width="16.43%" id="mcps1.2.3.1.1"><p id="p17116132815394"><a name="p17116132815394"></a><a name="p17116132815394"></a> Hardware Type</p>
+</th>
+<th class="cellrowborder" valign="top" width="83.57%" id="mcps1.2.3.1.2"><p id="p9116182811394"><a name="p9116182811394"></a><a name="p9116182811394"></a> Requirements</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="row1116132811397"><td class="cellrowborder" valign="top" width="16.43%" headers="mcps1.2.3.1.1 "><p id="p111160281398"><a name="p111160281398"></a><a name="p111160281398"></a> Architecture</p>
+</td>
+<td class="cellrowborder" valign="top" width="83.57%" headers="mcps1.2.3.1.2 "><p id="p12421174216461"><a name="p12421174216461"></a><a name="p12421174216461"></a>AArch64 or x86_64</p>
+</td>
+</tr>
+<tr id="row1111610288391"><td class="cellrowborder" valign="top" width="16.43%" headers="mcps1.2.3.1.1 "><p id="p11116142803911"><a name="p11116142803911"></a><a name="p11116142803911"></a>CPU</p>
+</td>
+<td class="cellrowborder" valign="top" width="83.57%" headers="mcps1.2.3.1.2 "><p id="p811672883917"><a name="p811672883917"></a><a name="p811672883917"></a> At least 2 cores</p>
+</td>
+</tr>
+<tr id="row111682813396"><td class="cellrowborder" valign="top" width="16.43%" headers="mcps1.2.3.1.1 "><p id="p111161828143911"><a name="p111161828143911"></a><a name="p111161828143911"></a> Memory</p>
+</td>
+<td class="cellrowborder" valign="top" width="83.57%" headers="mcps1.2.3.1.2 "><p id="p611652811393"><a name="p611652811393"></a><a name="p611652811393"></a>At least 8 GB of available memory space</p>
+</td>
+</tr>
+<tr id="row812652017504"><td class="cellrowborder" valign="top" width="16.43%" headers="mcps1.2.3.1.1 "><p id="p1312672075016"><a name="p1312672075016"></a><a name="p1312672075016"></a> Hard drive</p>
+</td>
+<td class="cellrowborder" valign="top" width="83.57%" headers="mcps1.2.3.1.2 "><p id="p13126152014502"><a name="p13126152014502"></a><a name="p13126152014502"></a>20 GB or larger</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Source OS Requirements
+
+[Table 3](#table10913153312812) lists the OS requirements of the running environment.
+
+**Table 3** Source OS requirements
+
+<a name="table10913153312812"></a>
+<table><thead align="left"><tr id="row591343318286"><th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.1"><p id="p2913193362819"><a name="p2913193362819"></a><a name="p2913193362819"></a> OS</p>
+</th>
+<th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.2"><p id="p491333310281"><a name="p491333310281"></a><a name="p491333310281"></a> Version</p>
+</th>
+<th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.3"><p id="p49131333142819"><a name="p49131333142819"></a><a name="p49131333142819"></a> OS Image File Name</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="row1091314333287"><td class="cellrowborder" rowspan="5" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p169139335286"><a name="p169139335286"></a><a name="p169139335286"></a>CentOS</p>
+<p id="p20962184912117"><a name="p20962184912117"></a><a name="p20962184912117"></a></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p191333332811"><a name="p191333332811"></a><a name="p191333332811"></a>6.8</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p109131533162810"><a name="p109131533162810"></a><a name="p109131533162810"></a>x86_64: <a href="https://vault.centos.org/6.8/isos/x86_64/CentOS-6.8-x86_64-bin-DVD1.iso" target="_blank" rel="noopener noreferrer">CentOS-6.8-x86_64-bin-DVD1.iso</a></p>
+</td>
+</tr>
+<tr id="row1191323312286"><td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.4.1.1 "><p id="p15913933192812"><a name="p15913933192812"></a><a name="p15913933192812"></a>7.6</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1091343372814"><a name="p1091343372814"></a><a name="p1091343372814"></a>x86_64: <a href="https://vault.centos.org/7.6.1810/isos/x86_64/CentOS-7-x86_64-Everything-1810.iso" target="_blank" rel="noopener noreferrer">CentOS-7-x86_64-Everything-1810.iso</a></p>
+</td>
+</tr>
+<tr id="row85491652181211"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p95491852121215"><a name="p95491852121215"></a><a name="p95491852121215"></a>aarch: <a href="https://vault.centos.org/altarch/7.6.1810/isos/aarch64/CentOS-7-aarch64-Everything-1810.iso" target="_blank" rel="noopener noreferrer">CentOS-7-aarch64-Everything-1810.iso</a></p>
+</td>
+</tr>
+<tr id="row69133332289"><td class="cellrowborder" rowspan="2" valign="top" headers="mcps1.2.4.1.1 "><p id="p69139337287"><a name="p69139337287"></a><a name="p69139337287"></a>8.2</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1991333312281"><a name="p1991333312281"></a><a name="p1991333312281"></a>x86_64: <a href="https://vault.centos.org/8.2.2004/isos/x86_64/CentOS-8.2.2004-x86_64-dvd1.iso" target="_blank" rel="noopener noreferrer">CentOS-8.2.2004-x86_64-dvd1.iso</a></p>
+</td>
+</tr>
+<tr id="row29622497214"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p13962154911212"><a name="p13962154911212"></a><a name="p13962154911212"></a>aarch: <a href="https://vault.centos.org/8.2.2004/isos/aarch64/CentOS-8.2.2004-aarch64-dvd1.iso" target="_blank" rel="noopener noreferrer">CentOS-8.2.2004-aarch64-dvd1.iso</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+
+>![](public_sys-resources/icon-note.gif) **NOTE**
+>If the server cannot access the network or the Yum source of the OS has been modified, an OS image file is required for installing dependency packages during the tool installation. For details about the required OS image file, see [Table 3](#table10913153312812). Obtain the image file of the corresponding OS version.
+
+#### Target OS Requirements
+
+[Table 4](#table7664131873211) lists the requirements for the target OS.
+
+**Table 4**  Target OS requirements
+
+<a name="table7664131873211"></a>
+<table><thead align="left"><tr id="row76649182329"><th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.1"><p id="p20664161812328"><a name="p20664161812328"></a><a name="p20664161812328"></a> OS</p>
+</th>
+<th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.2"><p id="p566471863217"><a name="p566471863217"></a><a name="p566471863217"></a> Version</p>
+</th>
+<th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.3"><p id="p16664161873219"><a name="p16664161873219"></a><a name="p16664161873219"></a> OS Image File Name</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="row7664918123213"><td class="cellrowborder" rowspan="2" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p5664151813326"><a name="p5664151813326"></a><a name="p5664151813326"></a>openEuler</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p106645188326"><a name="p106645188326"></a><a name="p106645188326"></a>20.03 LTS SP1</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p13664141810328"><a name="p13664141810328"></a><a name="p13664141810328"></a>x86_64: <a href="https://repo.openeuler.org/openEuler-20.03-LTS-SP1/ISO/x86_64/openEuler-20.03-LTS-SP1-everything-x86_64-dvd.iso" target="_blank" rel="noopener noreferrer">openEuler-20.03-LTS-SP1-everything-x86_64-dvd.iso</a></p>
+</td>
+</tr>
+<tr id="row8624654182312"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p1962505452311"><a name="p1962505452311"></a><a name="p1962505452311"></a>aarch: <a href="https://repo.openeuler.org/openEuler-20.03-LTS-SP1/ISO/aarch64/openEuler-20.03-LTS-SP1-everything-aarch64-dvd.iso" target="_blank" rel="noopener noreferrer">openEuler-20.03-LTS-SP1-everything-aarch64-dvd.iso</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+
+#### Dependencies
+
+[Table 5](#zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_table1537445116472) lists the dependencies that will be installed during the x2openEuler installation.
+
+**Table 5**  Dependencies
+
+<a name="table134317232714"></a>
+<table><thead align="left"><tr id="row543102315720"><th class="cellrowborder" valign="top" width="32.72327232723272%" id="mcps1.2.4.1.1"><p id="p44312231711"><a name="p44312231711"></a><a name="p44312231711"></a> Edition</p>
+</th>
+<th class="cellrowborder" valign="top" width="33.943394339433944%" id="mcps1.2.4.1.2"><p id="p6439231279"><a name="p6439231279"></a><a name="p6439231279"></a> Component</p>
+</th>
+<th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.3"><p id="p1543122319711"><a name="p1543122319711"></a><a name="p1543122319711"></a> Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="row15191121914453"><td class="cellrowborder" rowspan="18" valign="top" width="32.72327232723272%" headers="mcps1.2.4.1.1 "><p id="p124315231074"><a name="p124315231074"></a><a name="p124315231074"></a> Lightweight x2openEuler</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.943394339433944%" headers="mcps1.2.4.1.2 "><p id="p319261919456"><a name="p319261919456"></a><a name="p319261919456"></a>bzip2</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p919241917456"><a name="p919241917456"></a><a name="p919241917456"></a> Decompression tool.</p>
+</td>
+</tr>
+<tr id="row1448212334445"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p748333316444"><a name="p748333316444"></a><a name="p748333316444"></a>bzip2-devel</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p10483113319443"><a name="p10483113319443"></a><a name="p10483113319443"></a> Decompression tool.</p>
+</td>
+</tr>
+<tr id="row15635945133610"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p663544553614"><a name="p663544553614"></a><a name="p663544553614"></a>cmake</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p166352454363"><a name="p166352454363"></a><a name="p166352454363"></a> Automatic build tool.</p>
+</td>
+</tr>
+<tr id="row1580182418547"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p480142419543"><a name="p480142419543"></a><a name="p480142419543"></a>dmidecode</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p2080142413545"><a name="p2080142413545"></a><a name="p2080142413545"></a> Tool package for querying hardware information.</p>
+</td>
+</tr>
+<tr id="row21713234462"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p1717182311467"><a name="p1717182311467"></a><a name="p1717182311467"></a>gcc</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1217117239469"><a name="p1217117239469"></a><a name="p1217117239469"></a>C/C++ compiler.</p>
+</td>
+</tr>
+<tr id="row38756281027"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p143133019216"><a name="p143133019216"></a><a name="p143133019216"></a>git</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p38761828623"><a name="p38761828623"></a><a name="p38761828623"></a> Version control tool.</p>
+</td>
+</tr>
+<tr id="row2568135944617"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p13569145934619"><a name="p13569145934619"></a><a name="p13569145934619"></a>libxml2</p>
+</td>s
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p15569195918467"><a name="p15569195918467"></a><a name="p15569195918467"></a>XML parsing function library.</p>
+</td>
+</tr>
+<tr id="row7954203310476"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p20954173311472"><a name="p20954173311472"></a><a name="p20954173311472"></a>libxml2-devel</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p19541633174713"><a name="p19541633174713"></a><a name="p19541633174713"></a>XML parsing function library.</p>
+</td>
+</tr>
+<tr id="row4248181014916"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p324871064918"><a name="p324871064918"></a><a name="p324871064918"></a>libxslt</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p14618193764912"><a name="p14618193764912"></a><a name="p14618193764912"></a>XML parsing library.</p>
+</td>
+</tr>
+<tr id="row197932317492"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p149791023174912"><a name="p149791023174912"></a><a name="p149791023174912"></a>libxslt-devel</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p873093884916"><a name="p873093884916"></a><a name="p873093884916"></a>XML parsing library.</p>
+</td>
+</tr>
+<tr id="row1993151465312"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p3942149539"><a name="p3942149539"></a><a name="p3942149539"></a>net-tools</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p8941214105319"><a name="p8941214105319"></a><a name="p8941214105319"></a> Network command toolbox.</p>
+</td>
+</tr>
+<tr id="row62688594494"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p19268145915497"><a name="p19268145915497"></a><a name="p19268145915497"></a>python3</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p156721116512"><a name="p156721116512"></a><a name="p156721116512"></a>Python development and running environment. The version must be 3.7 or later.</p>
+</td>
+</tr>
+<tr id="row1480544513516"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p12806194518515"><a name="p12806194518515"></a><a name="p12806194518515"></a>pciutils</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p580664514518"><a name="p580664514518"></a><a name="p580664514518"></a>Portable library for accessing the PCI bus configuration register.</p>
+</td>
+</tr>
+<tr id="row3433234714"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p6431723673"><a name="p6431723673"></a><a name="p6431723673"></a>redis</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p14901931781"><a name="p14901931781"></a><a name="p14901931781"></a> Database. The recommended version is 4.0.11 or later.</p>
+</td>
+</tr>
+<tr id="row158947251319"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p7894425103116"><a name="p7894425103116"></a><a name="p7894425103116"></a>sqlite</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p14645134418319"><a name="p14645134418319"></a><a name="p14645134418319"></a> Database. The version must be 3.7.17 or later.</p>
+<div class="note" id="note1216095293115"><a name="note1216095293115"></a><a name="note1216095293115"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p16160175263118"><a name="p16160175263118"></a><a name="p16160175263118"></a> For CentOS 6.8, the SQLite database integrated by the x2openEuler tool is used.</p>
+</div></div>
+</td>
+</tr>
+<tr id="row511802965814"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p5118182995815"><a name="p5118182995815"></a><a name="p5118182995815"></a>util-linux</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1211862945814"><a name="p1211862945814"></a><a name="p1211862945814"></a>Standard software suite of Linux.</p>
+</td>
+</tr>
+<tr id="row11473432005"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p1114816438013"><a name="p1114816438013"></a><a name="p1114816438013"></a>zlib</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p121488431706"><a name="p121488431706"></a><a name="p121488431706"></a> Decompression tool.</p>
+</td>
+</tr>
+<tr id="row2511155707"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p36331355204"><a name="p36331355204"></a><a name="p36331355204"></a>zlib-devel</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p155145518015"><a name="p155145518015"></a><a name="p155145518015"></a> Decompression tool.</p>
+</td>
+</tr>
+<tr id="row106271317111411"><td class="cellrowborder" rowspan="28" valign="top" width="32.72327232723272%" headers="mcps1.2.4.1.1 "><p id="p55131015101115"><a name="p55131015101115"></a><a name="p55131015101115"></a> Full-scale x2openEuler</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.943394339433944%" headers="mcps1.2.4.1.2 "><p id="p56272017121413"><a name="p56272017121413"></a><a name="p56272017121413"></a>bzip2</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p1762713174142"><a name="p1762713174142"></a><a name="p1762713174142"></a> Decompression tool.</p>
+</td>
+</tr>
+<tr id="row18411317224"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p351931229"><a name="p351931229"></a><a name="p351931229"></a>bzip2-devel</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p10514314223"><a name="p10514314223"></a><a name="p10514314223"></a> Decompression tool.</p>
+</td>
+</tr>
+<tr id="row1035810381755"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p9359113815519"><a name="p9359113815519"></a><a name="p9359113815519"></a>cmake</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p133591738858"><a name="p133591738858"></a><a name="p133591738858"></a> Automatic build tool.</p>
+</td>
+</tr>
+<tr id="row1832913589143"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p14329858161414"><a name="p14329858161414"></a><a name="p14329858161414"></a>dmidecode</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1329358141418"><a name="p1329358141418"></a><a name="p1329358141418"></a>Tool package for querying hardware information.</p>
+</td>
+</tr>
+<tr id="row195051021151617"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p4505152141612"><a name="p4505152141612"></a><a name="p4505152141612"></a>gcc</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p5505132161616"><a name="p5505132161616"></a><a name="p5505132161616"></a>C/C++ compiler.</p>
+</td>
+</tr>
+<tr id="row9138184392214"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p141381043202219"><a name="p141381043202219"></a><a name="p141381043202219"></a>git</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p131381443172211"><a name="p131381443172211"></a><a name="p131381443172211"></a> Version control tool.</p>
+</td>
+</tr>
+<tr id="row10253537115"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p4253163111111"><a name="p4253163111111"></a><a name="p4253163111111"></a>libxml2</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p152531235119"><a name="p152531235119"></a><a name="p152531235119"></a>XML parsing function library.</p>
+</td>
+</tr>
+<tr id="row85135155115"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p1151317150113"><a name="p1151317150113"></a><a name="p1151317150113"></a>libxml2-devel</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p165139158117"><a name="p165139158117"></a><a name="p165139158117"></a>XML parsing function library.</p>
+</td>
+</tr>
+<tr id="row1455035122"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p955133181214"><a name="p955133181214"></a><a name="p955133181214"></a>libxslt</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p755934128"><a name="p755934128"></a><a name="p755934128"></a>XML parsing library.</p>
+</td>
+</tr>
+<tr id="row14334191515120"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p933461517121"><a name="p933461517121"></a><a name="p933461517121"></a>libxslt-devel</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p533421581220"><a name="p533421581220"></a><a name="p533421581220"></a>XML parsing library.</p>
+</td>
+</tr>
+<tr id="row12721552111815"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p62721352181819"><a name="p62721352181819"></a><a name="p62721352181819"></a>libffi</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1272411511912"><a name="p1272411511912"></a><a name="p1272411511912"></a>Dependency package for compiling Python software.</p>
+</td>
+</tr>
+<tr id="row960719881913"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p176071881191"><a name="p176071881191"></a><a name="p176071881191"></a>libffi-devel</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1576773361917"><a name="p1576773361917"></a><a name="p1576773361917"></a>Dependency package for compiling Python software.</p>
+</td>
+</tr>
+<tr id="row98714484130"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p03001649181315"><a name="p03001649181315"></a><a name="p03001649181315"></a>net-tools</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p6871548151312"><a name="p6871548151312"></a><a name="p6871548151312"></a> Network command toolbox.</p>
+</td>
+</tr>
+<tr id="row16343948096"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p77522055391"><a name="p77522055391"></a><a name="p77522055391"></a>java-1.8.0-openjdk</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p53449481895"><a name="p53449481895"></a><a name="p53449481895"></a>Java software development kit.</p>
+</td>
+</tr>
+<tr id="row381417534915"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p19814125311918"><a name="p19814125311918"></a><a name="p19814125311918"></a>java-1.8.0-openjdk-devel</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1881415531912"><a name="p1881415531912"></a><a name="p1881415531912"></a>Java software development kit.</p>
+</td>
+</tr>
+<tr id="row42899517918"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p182891851597"><a name="p182891851597"></a><a name="p182891851597"></a>java-1.8.0-openjdk-headless</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p62891551493"><a name="p62891551493"></a><a name="p62891551493"></a>Java software development kit.</p>
+</td>
+</tr>
+<tr id="row827915781611"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p727920578160"><a name="p727920578160"></a><a name="p727920578160"></a>openssl</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1127935715163"><a name="p1127935715163"></a><a name="p1127935715163"></a>Dependency package for compiling Python software.</p>
+</td>
+</tr>
+<tr id="row2088690121712"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p9886130141711"><a name="p9886130141711"></a><a name="p9886130141711"></a>openssl-devel</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p48866061713"><a name="p48866061713"></a><a name="p48866061713"></a>Dependency package for compiling Python software.</p>
+</td>
+</tr>
+<tr id="row1015525512612"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p215511551615"><a name="p215511551615"></a><a name="p215511551615"></a>python3</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p17155145519620"><a name="p17155145519620"></a><a name="p17155145519620"></a> Automatic build tool.</p>
+</td>
+</tr>
+<tr id="row2834198201314"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p13834208151317"><a name="p13834208151317"></a><a name="p13834208151317"></a>pciutils</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1834168121317"><a name="p1834168121317"></a><a name="p1834168121317"></a>Portable library for accessing the PCI bus configuration register.</p>
+</td>
+</tr>
+<tr id="row19455572916"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p204685718917"><a name="p204685718917"></a><a name="p204685718917"></a>redis</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p15930195311714"><a name="p15930195311714"></a><a name="p15930195311714"></a> Database. The recommended version is 4.0.11 or later.</p>
+</td>
+</tr>
+<tr id="row2071617380109"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p11717203821014"><a name="p11717203821014"></a><a name="p11717203821014"></a>rpm-build</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1971773818106"><a name="p1971773818106"></a><a name="p1971773818106"></a>RPM package build and management tool.</p>
+</td>
+</tr>
+<tr id="row79560318419"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p1695783118410"><a name="p1695783118410"></a><a name="p1695783118410"></a>sqlite</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p932314515418"><a name="p932314515418"></a><a name="p932314515418"></a> Database. The version must be 3.7.17 or later.</p>
+<div class="note" id="note132312511445"><a name="note132312511445"></a><a name="note132312511445"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p103231351846"><a name="p103231351846"></a><a name="p103231351846"></a>For CentOS 6.8, the SQLite database integrated by the x2openEuler tool is used.</p>
+</div></div>
+</td>
+</tr>
+<tr id="row156471821122315"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p7647321182316"><a name="p7647321182316"></a><a name="p7647321182316"></a>tcl</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p12356930182314"><a name="p12356930182314"></a><a name="p12356930182314"></a>Dependency package for compiling SQLite.</p>
+</td>
+</tr>
+<tr id="row11177173920208"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p1733744019203"><a name="p1733744019203"></a><a name="p1733744019203"></a>sqlite-devel</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1717710393202"><a name="p1717710393202"></a><a name="p1717710393202"></a>Dependency package for accessing SQLite data.</p>
+</td>
+</tr>
+<tr id="row183060366151"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p530633614151"><a name="p530633614151"></a><a name="p530633614151"></a>util-linux</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p123061336151515"><a name="p123061336151515"></a><a name="p123061336151515"></a>Standard software suite of Linux.</p>
+</td>
+</tr>
+<tr id="row478811574152"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p137893572155"><a name="p137893572155"></a><a name="p137893572155"></a>zlib</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p0789125717159"><a name="p0789125717159"></a><a name="p0789125717159"></a> Decompression tool.</p>
+</td>
+</tr>
+<tr id="row5544122122114"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p4544112262111"><a name="p4544112262111"></a><a name="p4544112262111"></a>zlib-devel</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p35441722102111"><a name="p35441722102111"></a><a name="p35441722102111"></a> Decompression tool.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+### Obtaining the Software Package
+
+[Table 6](#zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_table960911505409) lists the software packages used for the installation.
+
+**Table 6** Tool installation packages
+
+<a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_table960911505409"></a>
+<table><thead align="left"><tr id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_row66102503401"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.4.1.1"><p id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p86102050194016"><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p86102050194016"></a><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p86102050194016"></a>Package Name</p>
+</th>
+<th class="cellrowborder" valign="top" width="20%" id="mcps1.2.4.1.2"><p id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p106105501402"><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p106105501402"></a><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p106105501402"></a> Package Description</p>
+</th>
+<th class="cellrowborder" valign="top" width="30%" id="mcps1.2.4.1.3"><p id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p16610125024012"><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p16610125024012"></a><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p16610125024012"></a>How to Obtain</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_row1561155054014"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.4.1.1 "><p id="p55021148172513"><a name="p55021148172513"></a><a name="p55021148172513"></a>x2openEuler-x.x-x.noarch.rpm</p>
+</td>
+<td class="cellrowborder" valign="top" width="20%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p2611195014406"><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p2611195014406"></a><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p2611195014406"></a>Full-scale <span id="text13523152262720"><a name="text13523152262720"></a><a name="text13523152262720"></a>x2openEuler</span> installation package</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="30%" headers="mcps1.2.4.1.3 "><a name="ul14693194665314"></a><a name="ul14693194665314"></a><ul id="ul14693194665314"><li> Enterprise users: log in to the <a href="https://support.huawei.com/enterprise/zh/kunpeng-computing/openeuler-pid-250840395/software" target="_blank" rel="noopener noreferrer">openEuler software download page</a> to obtain the software package. </li><li>Carrier users: log in to the <a href="https://support.huawei.com/carrier/productNewOffering?col=product&amp;path=PBI1-21430725/PBI1-21430756/PBI1-21431670/PBI1-251366796/PBI1-250840395&amp;resTab=SW" target="_blank" rel="noopener noreferrer">openEuler software download page</a> to obtain the software package.</li></ul>
+</td>
+</tr>
+<tr id="row17423162851118"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p142311288115"><a name="p142311288115"></a><a name="p142311288115"></a>x2openEuler-collect-x.x-x.noarch.rpm</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p5424128181120"><a name="p5424128181120"></a><a name="p5424128181120"></a> Lightweight x2openEuler installation package</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+>![](public_sys-resources/icon-note.gif) **NOTE**
+>*x.x-x* in the software package name indicates the version.
+
+### Digital Signature Verification
+
+To prevent a software package from being maliciously tampered with during transmission or storage, download the corresponding digital signature file for integrity verification when downloading the software package.
+
+After the software package is downloaded from the Huawei Support website, verify its PGP digital signature. For details, see OpenPGP Signature Verification Guide. If the verification fails, do not use the software package, and contact Huawei technical support engineers.
+
+Before using a software package for installation or upgrade, verify its digital signature based on the preceding operations to ensure that the software package is not tampered with.
+
+Carrier customers: [http://support.huawei.com/carrier/digitalSignatureAction](http://support.huawei.com/carrier/digitalSignatureAction).
+
+Enterprise customers: [https://support.huawei.com/enterprise/zh/tool/pgp-verify-TL1000000054](https://support.huawei.com/enterprise/zh/tool/pgp-verify-TL1000000054).
+
+### Installation
+
+#### Prerequisites
+
+-   An x86 server or a Kunpeng server powered by 916 or 920 processors is available.
+-   The OS has been installed. For details about the OS version requirements, see [Table 3](#table10913153312812).
+-   An SSH remote login tool, such as Xshell, MobaXterm, and PuTTY, is installed.
+
+#### Procedure
+
+>![](public_sys-resources/icon-notice.gif) **NOTICE**
+>-   Before installing x2openEuler, ensure that the network connection is normal. If the OS cannot access the network, configure the Yum source by referring to [Configuring the Yum Source for the OS](#configuring-the-yum-source-for-the-os).
+
+This section uses CentOS (x86_64) as an example to describe how to install the full-scale x2openEuler tool. The method also applies to the lightweight x2openEuler installation and installation in other OSs.
+
+1.  Use an SSH tool to remotely log in to the CentOS CLI as the **root** user.
+2.  Run the following command to install the dependencies of x2openEuler:
+
+    ```
+    yum install -y bzip2 bzip2-devel gcc git java java-devel libffi-devel libxml2-devel libxslt libxslt-devel net-tools openssl-devel pciutils rpm-build sqlite-devel tcl zlib-devel
+    ```
+
+3.  Install the Redis database.
+
+    >![](public_sys-resources/icon-note.gif) **NOTE**
+    >Perform this step only when the full-scale x2openEuler tool is installed.
+
+    ```
+    yum install -y redis
+    ```
+
+    If **No package redis available** is displayed in the command output, the Yum repository does not contain the Redis software package and the Redis database fails to be installed. Download the Redis installation package that matches the actual environment from [https://pkgs.org/download/redis](https://pkgs.org/download/redis). Run the following command to install the Redis database. In the command, **redis-3.2.12-2.el7.aarch64.rpm** is only an example. Replace it with the name of the downloaded Redis installation package.
+
+    ```
+    rpm -ivh redis-3.2.12-2.el7.aarch64.rpm
+    ```
+
+4.  Use an SSH remote login tool to copy the x2openEuler installation package obtained in [Obtaining the Software Package](#obtaining-the-software-package) to any path.
+5.  Run the following command to go to the directory where the x2openEuler installation package is stored:
+
+    ```
+    cd PATH
+    ```
+
+6.  Run the following command to install x2openEuler. In the command, **x2openEuler-x.x-x.noarch.rpm** indicates the name of the x2openEuler installation package. Replace it with the actual name.
+
+    >![](public_sys-resources/icon-notice.gif) **NOTICE**
+    >x2openEuler can be used only by the **x2openEuler** user. Therefore, the **x2openEuler** user is automatically created during the x2openEuler installation. If the **x2openEuler** user already exists in the system, ensure that the **x2openEuler** user has the permissions to use x2openEuler before installing the tool. Otherwise, the tool may fail to run properly.
+
+    ```
+    rpm -ivh x2openEuler-x.x-x.noarch.rpm
+    ```
+
+    After the installation is complete, the user-related directories are as follows:
+
+    ```
+    /var/log/x2openEuler         # Directory for storing tool log files
+    /var/log/aparser             # Directory for storing the log files of the configuration collector.
+    /opt/x2openEuler/output      # Default report output directory
+    /opt/x2openEuler/update      # Configuration file update directory (used to store update packages and corresponding license files)
+    /etc/x2openEuler/config      # Directory for storing static configuration files
+    /etc/x2openEuler/sqlite      # Directory for storing database files
+    /usr/local/x2openEuler       # Directory for storing program files
+    ```
+
+    >![](public_sys-resources/icon-note.gif) **NOTE**
+    >During the installation, if the message **error: Failed dependencies:** is displayed, the dependency packages are missing. Rectify the fault by referring to [Installation Fails Due to Missing Dependency Packages](#installation-fails-due-to-missing-dependency-packages).
+
+7.  Set the password and permissions for the **x2openEuler** user.
+    1.  Set the password for the **x2openEuler** user.
+
+        ```
+        passwd x2openEuler
+        ```
+
+        >![](public_sys-resources/icon-note.gif) **NOTE**
+        >Password for logging in as the user. The password must meet the following complexity requirements:
+        >-   Contains 8 to 32 characters.
+        >-   Contains at least two types of the following characters: uppercase letters, lowercase letters, digits, and special characters (\`\~!@\#$%^&\*\(\)-\_=+\\|\[\{\}\];:'",<.\>/?).
+        >-   Cannot contain any space.
+        >-   Cannot be the same as the user name.
+
+    2.  Run the following command to open the **/etc/sudoers** file to edit the user permissions:
+
+        ```
+        visudo
+        ```
+
+        >![](public_sys-resources/icon-note.gif) **NOTE**
+        >The x2openEuler tool needs to collect configuration data as comprehensively as possible. Therefore, the **x2openEuler** user requires privilege escalation to execute some commands.
+
+        In the **/etc/sudoers** file, append the following content after **## Allow root to run any commands anywhere** to allow the user to run the configuration collection command:
+
+        ```
+        ## Allow root to run any commands anywhere
+        x2openEuler ALL=(root) NOPASSWD: /bin/cat /boot/grub2/grub.cfg 
+        x2openEuler ALL=(root) NOPASSWD: /usr/sbin/lspci -nvvv 
+        x2openEuler ALL=(root) NOPASSWD: /usr/sbin/lspci -xxx 
+        x2openEuler ALL=(root) NOPASSWD: /bin/netstat -npl 
+        x2openEuler ALL=(root) NOPASSWD: /usr/sbin/sysctl -a 
+        x2openEuler ALL=(root) NOPASSWD: /usr/sbin/dmidecode -t bios -t system -t baseboard -t chassis -t processor -t memory -t cache -t connector -t slot 
+        ```
+
+        After the configuration file is modified, press **Esc**, type **:wq!**, and press **Enter** to save the settings and exit.
+
+8.  Run the following command to switch to the **x2openEuler** user and the home directory **/home/x2openEuler** of the **x2openEuler** user:
+
+    >![](public_sys-resources/icon-notice.gif) **NOTICE**
+    >The x2openEuler tool can be used only by the **x2openEuler** user. Before using the tool, switch to the **x2openEuler** user and change the working directory to the home directory of the **x2openEuler** user.
+
+    ```
+    su - x2openEuler
+    ```
+
+9.  Initialize the Redis database.
+
+    >![](public_sys-resources/icon-note.gif) **NOTE**
+    >-   Perform this step only when the full-scale x2openEuler tool is installed.
+    >-   When you use the x2openEuler tool for the first time, you need to initialize the Redis database. Otherwise, the following error message will be displayed when you run the x2openEuler tool command, and the x2openEuler tool cannot be used.
+    >    ```
+    >    Please execute "x2openeuler init" first to complete the environment check
+    >    ```
+
+    1.  Run the following command, and enter the IP address, port number, index number (0-16), and password of the Redis database. The local database is used as an example.
+
+        ```
+        x2openEuler redis-db -init
+        ```
+
+        ```
+        Please enter the IP address of redis: 127.0.0.1
+        Please enter the port of redis: 6379
+        Please enter the database index of redis(from 0 to 16): 0
+        Please enter the password of redis:
+        ```
+
+        >![](public_sys-resources/icon-note.gif) **NOTE**
+        >If the Redis password is not set or is empty, press **Enter**.
+
+    2.  Run the following command to import the resource package to the Redis database. The following uses the default resource package used when the x2openEuler tool is installed as an example.
+
+        ```
+        x2openEuler init /opt/x2openEuler/source_centos7.6-openEuler20.03-LTS-SP1.tar.gz
+        ```
+### Verification
+
+
+1.  Use an SSH tool to remotely log in to the CentOS CLI.
+2.  Run the following command to switch to the **x2openEuler** user:
+
+    ```
+    su - x2openEuler
+    ```
+
+3.  Run the following command to check the tool version:
+
+    ```
+    x2openEuler -v
+    ```
+
+    If the following information is displayed, the installation is successful. In the command output, **x.x.x** indicates the version.
+
+    ```
+    x2openEuler x.x.x
+    ```
+
+
+### Uninstallation
+
+#### Prerequisites
+No tasks are running.
+
+#### Procedure
+1.  Use an SSH tool to remotely log in to the CLI as the **root** user.
+2.  Run the following command to uninstall the x2openEuler tool:
+
+    **rpm -e x2openEuler**
+
+    >![](public_sys-resources/icon-note.gif) **NOTE**
+    >-   If a task is running, you need to stop the task or wait until the task is complete. Otherwise, the tasks that are running will be stopped.
+    >-   After the uninstallation is complete, delete the **x2openEuler** user to ensure system security.
+
+
+## Feature Guide
+
+### Software Assessment
+
+#### Description
+
+Software porting assessment helps users assess the porting from CentOS 6.8, 7.6, and 8.2 to openEuler 20.03 LTS SP1.
+
+#### Execution
+
+##### Scanning Application Packages Using CLI Commands
+
+
+###### Prerequisites
+
+>![](public_sys-resources/icon-notice.gif) **NOTICE**
+>The x2openEuler tool can be used only by the **x2openEuler** user. Before using the tool, switch to the **x2openEuler** user and change the working directory to the home directory of the **x2openEuler** user.
+
+Use an SSH remote login tool to log in as the **x2openEuler** user.
+
+###### Description
+
+Scans and analyzes a single application or multiple applications to assess the feasibility of porting applications from the source OS to the target OS.
+
+###### Format
+
+```
+x2openEuler scan [-arch ARCH] [-os_name OS_NAME] [-target_os_name TARGET_OS_NAME] {filename | directoryname}
+x2openEuler scan -batch [-arch ARCH] [-os_name OS_NAME] [-target_os_name TARGET_OS_NAME] directoryname
+```
+
+###### Parameter Description
+**Table 7**  Parameter description
+
+<a name="table421011513314"></a>
+<table><thead align="left"><tr id="row1621012510312"><th class="cellrowborder" valign="top" width="15.261526152615263%" id="mcps1.2.4.1.1"><p id="p15210858312"><a name="p15210858312"></a><a name="p15210858312"></a> Parameter</p>
+</th>
+<th class="cellrowborder" valign="top" width="21.81218121812181%" id="mcps1.2.4.1.2"><p id="p132108516313"><a name="p132108516313"></a><a name="p132108516313"></a> Variable</p>
+</th>
+<th class="cellrowborder" valign="top" width="62.926292629262925%" id="mcps1.2.4.1.3"><p id="p22102056316"><a name="p22102056316"></a><a name="p22102056316"></a> Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="row330238104613"><td class="cellrowborder" valign="top" width="15.261526152615263%" headers="mcps1.2.4.1.1 "><p id="p16301538184620"><a name="p16301538184620"></a><a name="p16301538184620"></a>-batch</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.81218121812181%" headers="mcps1.2.4.1.2 "><p id="p83023810462"><a name="p83023810462"></a><a name="p83023810462"></a>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p530538174613"><a name="p530538174613"></a><a name="p530538174613"></a> Specifies the multi-application scenario. If this parameter is not set, the single-application scenario is specified.</p>
+</td>
+</tr>
+<tr id="row62101551332"><td class="cellrowborder" valign="top" width="15.261526152615263%" headers="mcps1.2.4.1.1 "><p id="p62103516318"><a name="p62103516318"></a><a name="p62103516318"></a>-arch</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.81218121812181%" headers="mcps1.2.4.1.2 "><p id="p202321225102811"><a name="p202321225102811"></a><a name="p202321225102811"></a><em id="i112431328285"><a name="i112431328285"></a><a name="i112431328285"></a>ARCH</em></p>
+</td>
+<td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p91841624162717"><a name="p91841624162717"></a><a name="p91841624162717"></a> OS architecture.</p>
+<p id="p12837258273"><a name="p12837258273"></a><a name="p12837258273"></a> This parameter is optional.</p>
+<p id="p162101151436"><a name="p162101151436"></a><a name="p162101151436"></a> The value can be <strong>x86_64</strong> or <strong>aarch64</strong>. The default value is <strong>x86_64</strong>.</p>
+<p id="p17551655202710"><a name="p17551655202710"></a><a name="p17551655202710"></a>For example, <code>-arch x86_64</code> indicates the x86_64 architecture.</p>
+</td>
+</tr>
+<tr id="row690019042610"><td class="cellrowborder" valign="top" width="15.261526152615263%" headers="mcps1.2.4.1.1 "><p id="p890019032611"><a name="p890019032611"></a><a name="p890019032611"></a>-os_name</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.81218121812181%" headers="mcps1.2.4.1.2 "><p id="p15900120142610"><a name="p15900120142610"></a><a name="p15900120142610"></a><em id="i19905411643"><a name="i19905411643"></a><a name="i19905411643"></a>OS_NAME</em></p>
+</td>
+<td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p1390080162616"><a name="p1390080162616"></a><a name="p1390080162616"></a>Source OS.</p>
+<p id="p14988138318"><a name="p14988138318"></a><a name="p14988138318"></a> This parameter is optional.</p>
+<p id="p1289403083211"><a name="p1289403083211"></a><a name="p1289403083211"></a>The default value is <span id="ph63171531814"><a name="ph63171531814"></a><a name="ph63171531814"></a><strong>centos7.6</strong>.</span></p>
+<p id="p75576463326"><a name="p75576463326"></a><a name="p75576463326"></a>For example, <code>-os_name centos8.2</code> indicates that the source OS is<span id="ph11584612394"><a name="ph11584612394"></a><a name="ph11584612394"></a>CentOS 8.2.</span></p>
+<div class="note" id="note158951390342"><a name="note158951390342"></a><a name="note158951390342"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p1897203963415"><a name="p1897203963415"></a><a name="p1897203963415"></a>Currently, the source OS can be Cent<span id="ph7838524993"><a name="ph7838524993"></a><a name="ph7838524993"></a>OS</span> 6.8, Cent<span id="ph16181133393"><a name="ph16181133393"></a><a name="ph16181133393"></a>OS</span> 7.6, or Cent<span id="ph878812361997"><a name="ph878812361997"></a><a name="ph878812361997"></a>OS</span> 8.2.</p>
+</div></div>
+</td>
+</tr>
+<tr id="row19758183352914"><td class="cellrowborder" valign="top" width="15.261526152615263%" headers="mcps1.2.4.1.1 "><p id="p1759193322913"><a name="p1759193322913"></a><a name="p1759193322913"></a>-target_os_name</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.81218121812181%" headers="mcps1.2.4.1.2 "><p id="p1975973319294"><a name="p1975973319294"></a><a name="p1975973319294"></a><em id="i16662164517418"><a name="i16662164517418"></a><a name="i16662164517418"></a>TARGET_OS_NAME</em></p>
+</td>
+<td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p119912324358"><a name="p119912324358"></a><a name="p119912324358"></a> Target OS.</p>
+<p id="p7199153263519"><a name="p7199153263519"></a><a name="p7199153263519"></a>This parameter is optional.</p>
+<p id="p16199932103511"><a name="p16199932103511"></a><a name="p16199932103511"></a>The default value is <strong>openEuler20.03-LTS-SP1</strong>.</p>
+<p id="p191991232193516"><a name="p191991232193516"></a><a name="p191991232193516"></a>For example, <code>-target_os_name openEuler20.03-LTS-SP1</code> indicates that the target OS is openEuler20.03-LTS-SP1.</p>
+<div class="note" id="note2199123219352"><a name="note2199123219352"></a><a name="note2199123219352"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p219913211354"><a name="p219913211354"></a><a name="p219913211354"></a>Currently, the target OS can be openEuler20.03-LTS-SP1.</p>
+</div></div>
+</td>
+</tr>
+<tr id="row134675363290"><td class="cellrowborder" valign="top" width="15.261526152615263%" headers="mcps1.2.4.1.1 "><p id="p946718362296"><a name="p946718362296"></a><a name="p946718362296"></a>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.81218121812181%" headers="mcps1.2.4.1.2 "><p id="p846793602917"><a name="p846793602917"></a><a name="p846793602917"></a><em id="i58587371541"><a name="i58587371541"></a><a name="i58587371541"></a>filename</em></p>
+</td>
+<td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p14484155393614"><a name="p14484155393614"></a><a name="p14484155393614"></a>Application package to be scanned.</p>
+<p id="p14841053173619"><a name="p14841053173619"></a><a name="p14841053173619"></a>This parameter is mandatory.</p>
+<p id="p19484353113619"><a name="p19484353113619"></a><a name="p19484353113619"></a>For example, <code>x2openEuler scan file_name_version.rpm</code> indicates that <strong>file_name_version.rpm</strong> is scanned.</p>
+<div class="note" id="note748435310369"><a name="note748435310369"></a><a name="note748435310369"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p15484185353618"><a name="p15484185353618"></a><a name="p15484185353618"></a>Currently, the rpm, tar, zip, gzip, jar, py, pyc, sh, and bin files can be scanned.</p>
+</div></div>
+</td>
+</tr>
+<tr id="row813345218548"><td class="cellrowborder" valign="top" width="15.261526152615263%" headers="mcps1.2.4.1.1 "><p id="p5133165235411"><a name="p5133165235411"></a><a name="p5133165235411"></a>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.81218121812181%" headers="mcps1.2.4.1.2 "><p id="p813305245410"><a name="p813305245410"></a><a name="p813305245410"></a><em id="i1693235811541"><a name="i1693235811541"></a><a name="i1693235811541"></a>directoryname</em></p>
+</td>
+<td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p4614194025613"><a name="p4614194025613"></a><a name="p4614194025613"></a>Directory of the application package to be scanned.</p>
+<p id="p813316525541"><a name="p813316525541"></a><a name="p813316525541"></a>This parameter is mandatory.</p>
+<p id="p13766942185614"><a name="p13766942185614"></a><a name="p13766942185614"></a>For example, <code>x2openEuler scan directory1</code> indicates that the single application package in <strong>directory1</strong> is scanned.</p>
+<p id="p1482310455710"><a name="p1482310455710"></a><a name="p1482310455710"></a>For example, <code>x2openEuler batch scan directory2</code> indicates that multiple application packages in <strong>directory2</strong> are scanned.</p>
+<div class="note" id="note276837195719"><a name="note276837195719"></a><a name="note276837195719"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p2076337205712"><a name="p2076337205712"></a><a name="p2076337205712"></a> Only single-level directories are supported.</p>
+</div></div>
+</td>
+</tr>
+</tbody>
+</table>
+
+###### Example
+
+The following describes how to assess the **wpa_supplicant-2.6-1.el7.x86_64.rpm** application package and generate the software assessment report. Select the required parameters and replace the package name with the software package or directory to be scanned based on the site requirements.
+
+```
+ x2openEuler scan wpa_supplicant-2.6-1.el7.x86_64.rpm 
+```
+
+The command output is as follows:
+
+```
+2021-11-30 09:12:01,222 - INFO - x2openEuler scan /home/x2openEuler/wpa_supplicant-2.6-12.el7.x86_64.rpm -os_name centos7.6 -target_os_name openEuler20.03-LTS-SP1 -arch x86_64
+2021-11-30 09:12:01,224 - INFO - Start unpacking package wpa_supplicant-2.6-12.el7.x86_64.rpm
+2021-11-30 09:12:01,768 - INFO - Decompression completed
+2021-11-30 09:12:01,768 - INFO - Start scanning so...
+2021-11-30 09:12:06,046 - INFO - Start scanning dependencies...
+2021-11-30 09:12:09,089 - INFO - Start scanning C/C++ interfaces...
+2021-11-30 09:12:26,422 - INFO - Start scanning Jar interfaces...
+2021-11-30 09:12:26,423 - WARNING - No jars found
+2021-11-30 09:12:27,851 - INFO - Start scanning Python imcenport's package...
+2021-11-30 09:12:35,942 - INFO - Start generating HTML report...
+2021-11-30 09:12:35,960 - INFO - Generate Success! The results are saved: /opt/x2openEuler/output/wpa_supplicant-2.6-12.el7.x86_64-20211130091235.html
+```
+
+In the command output, **/opt/x2openEuler/output/wpa_supplicant-2.6-12.el7.x86_64-20211130091235.html** is the assessment report file.
+
+
+### Environment Configuration Collection and Assessment
+
+
+
+#### Description
+
+The configuration collection and assessment function helps users automatically identify the current server environment architecture and collects configuration information from the user environment for assessment and analysis.
+
+
+#### Execution
+
+
+##### Collecting Configuration and Hardware Information Using CLI Commands
+
+###### Prerequisites
+
+>![](public_sys-resources/icon-notice.gif) **NOTICE**
+>The x2openEuler tool can be used only by the **x2openEuler** user. Before using the tool, switch to the **x2openEuler** user and change the working directory to the home directory of the **x2openEuler** user.
+
+Use an SSH remote login tool to log in as the **x2openEuler** user.
+
+###### Description
+Collects the configuration and hardware information of the current environment.
+
+###### Format
+
+```
+x2openEuler conf-collect
+```
+
+###### Example
+
+The following uses the collection of the current environment configuration information as an example. No additional parameters are set. Determine whether to collect environment configuration information based on the site requirements.
+
+```
+x2openEuler conf-collect 
+```
+
+The command output is as follows:
+
+```
+2021-11-30 09:13:39,172 - INFO - x2openEuler conf-collect
+2021-11-30 09:13:39,173 INFO manager/get_param_config/179: Parameter configuration file loaded.
+2021-11-30 09:13:39,197 INFO manager/get_regex_config/218: Regex pattern compiled.
+2021-11-30 09:13:39,197 INFO manager/load_parsers/233: All builtin parsers loaded.
+2021-11-30 09:13:39,198 INFO manager/load_parsers/236: All custom parsers loaded.
+2021-11-30 09:13:39,622 INFO time_utils/wrapper/21: 0.42s taken for running function [get_data]
+2021-11-30 09:13:39,644 WARNING list/parse_content/47: no data in ls_usr_bin
+2021-11-30 09:13:39,646 WARNING list/parse_content/47: no data in ls_usr_sbin
+2021-11-30 09:13:39,720 INFO time_utils/wrapper/21: 0.10s taken for running function [get_parsed_content]
+2021-11-30 09:13:39,720 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_6glzc3gv_/run/c0132d4a-517a-11ec-af45-000c296b94c0/sysconf/kernel_startup_param.json.
+2021-11-30 09:13:39,721 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_6glzc3gv_/run/c0132d4a-517a-11ec-af45-000c296b94c0/sysconf/syscall_interface.json.
+2021-11-30 09:13:39,721 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_6glzc3gv_/run/c0132d4a-517a-11ec-af45-000c296b94c0/sysconf/path.json.
+2021-11-30 09:13:39,722 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_6glzc3gv_/run/c0132d4a-517a-11ec-af45-000c296b94c0/sysconf/port.json.
+2021-11-30 09:13:39,722 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_6glzc3gv_/run/c0132d4a-517a-11ec-af45-000c296b94c0/sysconf/device_interface.json.
+2021-11-30 09:13:39,722 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_6glzc3gv_/run/c0132d4a-517a-11ec-af45-000c296b94c0/sysconf/linux_command.json.
+2021-11-30 09:13:39,730 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_6glzc3gv_/run/c0132d4a-517a-11ec-af45-000c296b94c0/sysconf/hardware_configure.json.
+2021-11-30 09:13:39,732 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_6glzc3gv_/run/c0132d4a-517a-11ec-af45-000c296b94c0/sysconf/proc.json.
+2021-11-30 09:13:39,734 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_6glzc3gv_/run/c0132d4a-517a-11ec-af45-000c296b94c0/sysconf/system_configure.json.
+2021-11-30 09:13:39,736 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_6glzc3gv_/run/c0132d4a-517a-11ec-af45-000c296b94c0/sysconf/system_service.json.
+2021-11-30 09:13:39,746 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_6glzc3gv_/run/c0132d4a-517a-11ec-af45-000c296b94c0/sysconf/kernel_configure.json.
+2021-11-30 09:13:39,784 - INFO - The system configs are saved: /opt/x2openEuler/output/sysconf-20211130091339.tar.gz
+```
+
+In the command output, **/opt/x2openEuler/output/sysconf-20211130091339.tar.gz** is the collected information package. The JSON files in the information package are described as follows:
+
+-   kernel_startup_param.json: configuration interfaces and kernel startup parameters
+-   syscall_interface.json: system call interfaces
+-   path.json: *PATH* environment variable information
+-   port.json: port information, which is dynamic
+-   device_interface.json: device driver interfaces to provided device interfaces in user mode
+-   linux_command.json: Linux command interfaces
+-   hardware_configure.json: hardware configuration information of the x86 or AArch64 system and the plug-in cards
+-   proc.json: process information, which is dynamic
+-   system_configure.json: system configuration parameters (**sysctl**, **proc**, and **sys**), which is dynamic
+-   system_service.json: system service
+-   kernel_configure.json: kernel option configuration parameter information, which is static
+
+##### Analyzing Configuration Information Using CLI Commands
+
+###### Prerequisites
+
+>![](public_sys-resources/icon-notice.gif) **NOTICE**
+>The x2openEuler tool can be used only by the **x2openEuler** user. Before using the tool, switch to the **x2openEuler** user and change the working directory to the home directory of the **x2openEuler** user.
+
+Use an SSH remote login tool to log in as the **x2openEuler** user.
+
+###### Description
+
+Analyzes and assesses the configuration information scanned locally or imported externally.
+
+###### Format
+
+```
+x2openEuler conf-analyse [-os_name OS_NAME][-target_os_name TARGET_OS_NAME] [-local | -load LOAD [-arch ARCH]]
+```
+
+###### Parameter Description
+
+**Table 8**  Parameter description
+
+<a name="table421011513314"></a>
+<table><thead align="left"><tr id="row1621012510312"><th class="cellrowborder" valign="top" width="15.261526152615263%" id="mcps1.2.4.1.1"><p id="p15210858312"><a name="p15210858312"></a><a name="p15210858312"></a> Parameter</p>
+</th>
+<th class="cellrowborder" valign="top" width="21.81218121812181%" id="mcps1.2.4.1.2"><p id="p132108516313"><a name="p132108516313"></a><a name="p132108516313"></a> Variable</p>
+</th>
+<th class="cellrowborder" valign="top" width="62.926292629262925%" id="mcps1.2.4.1.3"><p id="p22102056316"><a name="p22102056316"></a><a name="p22102056316"></a> Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="row690019042610"><td class="cellrowborder" valign="top" width="15.261526152615263%" headers="mcps1.2.4.1.1 "><p id="p890019032611"><a name="p890019032611"></a><a name="p890019032611"></a>-os_name</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.81218121812181%" headers="mcps1.2.4.1.2 "><p id="p15900120142610"><a name="p15900120142610"></a><a name="p15900120142610"></a><em id="i1394918261946"><a name="i1394918261946"></a><a name="i1394918261946"></a>OS_NAME</em></p>
+</td>
+<td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p1390080162616"><a name="p1390080162616"></a><a name="p1390080162616"></a>Source OS.</p>
+<p id="p14988138318"><a name="p14988138318"></a><a name="p14988138318"></a> This parameter is optional.</p>
+<p id="p1289403083211"><a name="p1289403083211"></a><a name="p1289403083211"></a>The default value is <span id="ph151630421141"><a name="ph151630421141"></a><a name="ph151630421141"></a><strong>centos7.6</strong>.</span></p>
+<p id="p75576463326"><a name="p75576463326"></a><a name="p75576463326"></a>For example, <code>-os_name centos8.2</code></span> indicates that the source OS is<span id="ph1195155911148"><a name="ph1195155911148"></a><a name="ph1195155911148"></a> CentOS 8.2.</span></p>
+<div class="note" id="note158951390342"><a name="note158951390342"></a><a name="note158951390342"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p1897203963415"><a name="p1897203963415"></a><a name="p1897203963415"></a>Currently, the source OS can be CentOS 6.8, CentOS 7.6, or CentOS 8.2.</p>
+</div></div>
+</td>
+</tr>
+<tr id="row19758183352914"><td class="cellrowborder" valign="top" width="15.261526152615263%" headers="mcps1.2.4.1.1 "><p id="p1759193322913"><a name="p1759193322913"></a><a name="p1759193322913"></a>-target_os_name</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.81218121812181%" headers="mcps1.2.4.1.2 "><p id="p1975973319294"><a name="p1975973319294"></a><a name="p1975973319294"></a><em id="i7166153010414"><a name="i7166153010414"></a><a name="i7166153010414"></a>TARGET_OS_NAME</em></p>
+</td>
+<td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p119912324358"><a name="p119912324358"></a><a name="p119912324358"></a> Target OS.</p>
+<p id="p7199153263519"><a name="p7199153263519"></a><a name="p7199153263519"></a>This parameter is optional.</p>
+<p id="p16199932103511"><a name="p16199932103511"></a><a name="p16199932103511"></a>The default value is <strong>openEuler20.03-LTS-SP1</strong>.</p>
+<p id="p191991232193516"><a name="p191991232193516"></a><a name="p191991232193516"></a>For example, <code>-target_os_name openEuler20.03-LTS-SP1</code> indicates that the target OS is openEuler20.03-LTS-SP1.</p>
+<div class="note" id="note2199123219352"><a name="note2199123219352"></a><a name="note2199123219352"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p219913211354"><a name="p219913211354"></a><a name="p219913211354"></a>Currently, the target OS can be openEuler20.03-LTS-SP1.</p>
+</div></div>
+</td>
+</tr>
+<tr id="row134675363290"><td class="cellrowborder" valign="top" width="15.261526152615263%" headers="mcps1.2.4.1.1 "><p id="p946718362296"><a name="p946718362296"></a><a name="p946718362296"></a>-local</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.81218121812181%" headers="mcps1.2.4.1.2 "><p id="p122261457164219"><a name="p122261457164219"></a><a name="p122261457164219"></a>-</p>
+</td>
+<td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p14484155393614"><a name="p14484155393614"></a><a name="p14484155393614"></a> Indicates that the data to be analyzed is the data generated by local scanning.</p>
+<p id="p14841053173619"><a name="p14841053173619"></a><a name="p14841053173619"></a>This parameter is optional.</p>
+<p id="p135351812212"><a name="p135351812212"></a><a name="p135351812212"></a>The default value is <strong>-local</strong>.</p>
+<p id="p95571549821"><a name="p95571549821"></a><a name="p95571549821"></a>For example,</p>
+<p id="p19484353113619"><a name="p19484353113619"></a><a name="p19484353113619"></a> <code>x2openEuler conf-analyse</code> indicates that the data to be analyzed is the data generated by local scan.</p>
+</td>
+</tr>
+<tr id="row1686612510407"><td class="cellrowborder" valign="top" width="15.261526152615263%" headers="mcps1.2.4.1.1 "><p id="p686610517408"><a name="p686610517408"></a><a name="p686610517408"></a>-load</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.81218121812181%" headers="mcps1.2.4.1.2 "><p id="p1286695164010"><a name="p1286695164010"></a><a name="p1286695164010"></a><em id="i122232537424"><a name="i122232537424"></a><a name="i122232537424"></a>LOAD</em></p>
+</td>
+<td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p1482322142015"><a name="p1482322142015"></a><a name="p1482322142015"></a> Indicates that the data to be analyzed is the data imported externally.</p>
+<p id="p4824152162010"><a name="p4824152162010"></a><a name="p4824152162010"></a>For example,</p>
+<p id="p78241211202"><a name="p78241211202"></a><a name="p78241211202"></a> <code>x2openEuler conf-analyse -load <em id="i138241721172015"><a name="i138241721172015"></a><a name="i138241721172015"></a>file_Name</em>.tar.gz</code> indicates that the data to be analyzed is the data imported externally.</p>
+<div class="note" id="note1782462113208"><a name="note1782462113208"></a><a name="note1782462113208"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p9824172114202"><a name="p9824172114202"></a><a name="p9824172114202"></a>The data imported externally must be collected by the configuration collection and assessment function and packaged into a tar.gz file.</p>
+</div></div>
+</td>
+</tr>
+<tr id="row12773185424318"><td class="cellrowborder" valign="top" width="15.261526152615263%" headers="mcps1.2.4.1.1 "><p id="p17774754114314"><a name="p17774754114314"></a><a name="p17774754114314"></a>-arch</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.81218121812181%" headers="mcps1.2.4.1.2 "><p id="p977411541436"><a name="p977411541436"></a><a name="p977411541436"></a><em id="i12766150448"><a name="i12766150448"></a><a name="i12766150448"></a>ARCH</em></p>
+</td>
+<td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p91841624162717"><a name="p91841624162717"></a><a name="p91841624162717"></a> OS architecture.</p>
+<p id="p12837258273"><a name="p12837258273"></a><a name="p12837258273"></a> This parameter is optional.</p>
+<p id="p162101151436"><a name="p162101151436"></a><a name="p162101151436"></a> The value can be <strong>x86_64</strong> or <strong>aarch64</strong>. The default value is <strong>x86_64</strong>.</p>
+<p id="p17551655202710"><a name="p17551655202710"></a><a name="p17551655202710"></a>For example, <code>-arch x86_64</code> indicates the x86_64 architecture.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+###### Example
+
+The following uses the **sysconf-20211130091339.tar.gz** configuration information file imported from an external system as an example. Select the required parameters based on the site requirements and replace the file name with the imported file to be assessed.
+
+```
+ x2openEuler conf-analyse -load /opt/x2openEuler/output/sysconf-20211130091339.tar.gz 
+```
+
+The command output is as follows:
+
+```
+2021-11-30 09:24:13,191 - INFO - x2openEuler conf-analyse -load /opt/x2openEuler/output/sysconf-20211130091339.tar.gz -os_name centos7.6 -target_os_name openEuler20.03-LTS-SP1 -arch x86_64 
+2021-11-30 09:24:14,052 - INFO - Producing report...
+2021-11-30 09:24:14,053 - INFO - Generate Success! The results are saved: /opt/x2openEuler/output/conf_info_report-20211130092414.html
+```
+
+In the command output, **/opt/x2openEuler/output/conf_info_report-20211130092414.html** is the assessment report file.
+
+
+### Hardware assessment
+
+#### Description
+>![](public_sys-resources/icon-notice.gif) **NOTICE**
+>It is recommended that hardware assessment tasks be performed on physical machines. If hardware information analysis is performed on VMs, no analysis report can be generated.
+
+The hardware assessment function allows you to analyze and assess hardware information in the user environment.
+
+#### Execution
+
+
+
+##### Analyzing Hardware Information Using CLI Commands
+
+###### Prerequisites
+
+>![](public_sys-resources/icon-notice.gif) **NOTICE**
+>The x2openEuler tool can be used only by the **x2openEuler** user. Before using the tool, switch to the **x2openEuler** user and change the working directory to the home directory of the **x2openEuler** user.
+
+Use an SSH remote login tool to log in as the **x2openEuler** user.
+
+###### Description
+
+Assesses the compatibility of hardware resources scanned locally or imported externally.
+
+###### Format
+```
+x2openEuler hardware-analyse [-local | -load LOAD]
+```
+
+###### Parameter Description
+
+**Table 9**  Parameter description
+
+<a name="table421011513314"></a>
+<table><thead align="left"><tr id="row1621012510312"><th class="cellrowborder" valign="top" width="15.221522152215222%" id="mcps1.2.4.1.1"><p id="p15210858312"><a name="p15210858312"></a><a name="p15210858312"></a>Parameter</p>
+</th>
+<th class="cellrowborder" valign="top" width="21.852185218521853%" id="mcps1.2.4.1.2"><p id="p132108516313"><a name="p132108516313"></a><a name="p132108516313"></a>Variable</p>
+</th>
+<th class="cellrowborder" valign="top" width="62.926292629262925%" id="mcps1.2.4.1.3"><p id="p22102056316"><a name="p22102056316"></a><a name="p22102056316"></a> Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="row134675363290"><td class="cellrowborder" valign="top" width="15.221522152215222%" headers="mcps1.2.4.1.1 "><p id="p946718362296"><a name="p946718362296"></a><a name="p946718362296"></a>-local</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.852185218521853%" headers="mcps1.2.4.1.2 "><p id="p1490863752818"><a name="p1490863752818"></a><a name="p1490863752818"></a><em id="i13514114020597"><a name="i13514114020597"></a><a name="i13514114020597"></a>-</em></p>
+</td>
+<td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p14484155393614"><a name="p14484155393614"></a><a name="p14484155393614"></a> Indicates that the data to be analyzed is the data generated by local scanning.</p>
+<p id="p14841053173619"><a name="p14841053173619"></a><a name="p14841053173619"></a>This parameter is optional.</p>
+<p id="p6152159121914"><a name="p6152159121914"></a><a name="p6152159121914"></a>The default value is <strong>-local</strong>.</p>
+<p id="p95571549821"><a name="p95571549821"></a><a name="p95571549821"></a>For example,</p>
+<p id="p19484353113619"><a name="p19484353113619"></a><a name="p19484353113619"></a> <code>x2openEuler conf-analyse</code> indicates that the data to be analyzed is the data generated by local scan.</p>
+</td>
+</tr>
+<tr id="row13829202742818"><td class="cellrowborder" valign="top" width="15.221522152215222%" headers="mcps1.2.4.1.1 "><p id="p5830827162812"><a name="p5830827162812"></a><a name="p5830827162812"></a>-load</p>
+</td>
+<td class="cellrowborder" valign="top" width="21.852185218521853%" headers="mcps1.2.4.1.2 "><p id="p783012752816"><a name="p783012752816"></a><a name="p783012752816"></a><em id="i10309175702814"><a name="i10309175702814"></a><a name="i10309175702814"></a>LOAD</em></p>
+</td>
+<td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p8830172792810"><a name="p8830172792810"></a><a name="p8830172792810"></a>Indicates that the data to be analyzed is the data imported externally.</p>
+<p id="p224218516166"><a name="p224218516166"></a><a name="p224218516166"></a>For example,</p>
+<p id="p224275131615"><a name="p224275131615"></a><a name="p224275131615"></a> <code>x2openEuler conf-analyse -load <em id="i112424517167"><a name="i112424517167"></a><a name="i112424517167"></a>file_Name</em>.tar.gz</code> indicates that the data to be analyzed is the data imported externally.</p>
+<div class="note" id="note182421151181612"><a name="note182421151181612"></a><a name="note182421151181612"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p424245110165"><a name="p424245110165"></a><a name="p424245110165"></a>The data imported externally must be collected by the configuration collection and assessment function and packaged into a tar.gz file.</p>
+</div></div>
+</td>
+</tr>
+</tbody>
+</table>
+
+###### Example
+
+The following uses local hardware resource information as an example. You can choose to analyze local hardware resource information or import external hardware information based on the site requirements.
+
+```
+ x2openEuler hardware-analyse 
+```
+
+The command output is as follows:
+
+```
+2021-11-30 09:41:20,865 - INFO - Log save directory: /var/log/x2openEuler
+2021-11-30 09:41:20,887 - INFO - x2openEuler hardware-analyse
+2021-11-30 09:41:20,888 INFO manager/get_param_config/179: Parameter configuration file loaded.
+2021-11-30 09:41:20,905 INFO manager/get_regex_config/218: Regex pattern compiled.
+2021-11-30 09:41:20,905 INFO manager/load_parsers/233: All builtin parsers loaded.
+2021-11-30 09:41:20,905 INFO manager/load_parsers/236: All custom parsers loaded.
+2021-11-30 09:41:21,254 INFO time_utils/wrapper/21: 0.35s taken for running function [get_data]
+2021-11-30 09:41:21,269 WARNING list/parse_content/47: no data in ls_dev
+2021-11-30 09:41:21,377 INFO time_utils/wrapper/21: 0.12s taken for running function [get_parsed_content]
+2021-11-30 09:41:21,377 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_18ambppj_/run/9e81f536-517e-11ec-ae65-a01c8dfeddfa/sysconf/kernel_startup_param.json.
+2021-11-30 09:41:21,378 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_18ambppj_/run/9e81f536-517e-11ec-ae65-a01c8dfeddfa/sysconf/syscall_interface.json.
+2021-11-30 09:41:21,378 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_18ambppj_/run/9e81f536-517e-11ec-ae65-a01c8dfeddfa/sysconf/path.json.
+2021-11-30 09:41:21,379 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_18ambppj_/run/9e81f536-517e-11ec-ae65-a01c8dfeddfa/sysconf/port.json.
+2021-11-30 09:41:21,379 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_18ambppj_/run/9e81f536-517e-11ec-ae65-a01c8dfeddfa/sysconf/device_interface.json.
+2021-11-30 09:41:21,380 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_18ambppj_/run/9e81f536-517e-11ec-ae65-a01c8dfeddfa/sysconf/linux_command.json.
+2021-11-30 09:41:21,387 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_18ambppj_/run/9e81f536-517e-11ec-ae65-a01c8dfeddfa/sysconf/hardware_configure.json.
+2021-11-30 09:41:21,396 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_18ambppj_/run/9e81f536-517e-11ec-ae65-a01c8dfeddfa/sysconf/proc.json.
+2021-11-30 09:41:21,404 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_18ambppj_/run/9e81f536-517e-11ec-ae65-a01c8dfeddfa/sysconf/system_configure.json.
+2021-11-30 09:41:21,408 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_18ambppj_/run/9e81f536-517e-11ec-ae65-a01c8dfeddfa/sysconf/system_service.json.
+2021-11-30 09:41:21,412 INFO manager/write_res/135: write to /opt/x2openEuler/_tmp_18ambppj_/run/9e81f536-517e-11ec-ae65-a01c8dfeddfa/sysconf/kernel_configure.json.
+2021-11-30 09:41:21,426 - INFO - Producing report...
+2021-11-30 09:41:21,427 - INFO - Generate Success! The results are saved: /opt/x2openEuler/output/hw_compat_report-20211130094121.html
+```
+
+In the command output, **/opt/x2openEuler/output/hw_compat_report-20211130094121.html** is the assessment report file.
+
+## Common Operations
+
+### Viewing Command Parameter Description
+
+>![](public_sys-resources/icon-notice.gif) **NOTICE**
+>Currently, The x2openEuler tool can be used only by the **x2openEuler** user. Before using the tool, switch to the **x2openEuler** user.
+
+#### Prerequisites
+The **x2openEuler** user has been created.
+
+The x2openEuler tool has been installed.
+
+#### Procedure
+1.  Use an SSH remote connection tool to log in to the server as the **x2openEuler** user.
+2.  Run the following command to query the parameter description of all commands:
+
+    ```
+    x2openEuler -h
+    ```
+
+    The following description information is displayed:
+
+    ```
+    usage: x2openEuler [-h] [-v]
+                           {scan,conf-collect,conf-analyse,hardware-analyse,update,init,redis-db}
+                           ...
+    
+    x2openEuler tool chain
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -v, --version         Display version
+    
+    subcommands:
+      subcommand parser
+    
+      {scan,conf-collect,conf-analyse,hardware-analyse,update,init,redis-db}
+        scan                migration assessment tool
+        conf-collect        aparser tool
+        conf-analyse        analyse system configures and generate report
+        hardware-analyse    analyse system hardware and generate report
+        update              update data
+        init                init config libraries and environment check
+        redis-db            Redis database configuration initialization and update
+    
+    ```
+
+### Viewing the x2openEuler Version Information Using CLI Commands
+
+
+#### Description
+
+Checks the version of the installed x2openEuler tool.
+
+#### Format
+
+```
+x2openEuler -v
+```
+
+>![](public_sys-resources/icon-note.gif) **NOTE:**
+>Replace **/opt/x2openEuler** with the actual tool installation directory.
+
+#### Example
+
+Check the version of the installed x2openEuler by running the following command:
+
+```
+x2openEuler -v
+```
+
+In the command output, **x.x.x** indicates the version.
+
+```
+x2openEuler x.x.x
+```
+
+### Viewing the Assessment Report Using CLI Commands
+
+#### Prerequisites
+
+The assessment has been completed and the assessment report has been generated.
+
+#### Procedure
+
+1.  Use an SSH remote connection tool to log in to the server as the **x2openEuler** user.
+2.  Run the following command to go to the assessment report directory:
+
+    ```
+    cd /opt/x2openEuler/output
+    ```
+
+3.  Use a file transfer tool to download the assessment report to the local PC and view the report in a browser.
+
+    The name formats of the assessment reports are as follows:
+
+    -   *yyy-xxx*: software assessment report, where *yyy* indicates the name of the software assessed and *xxx* indicates the assessment time.
+    -   **conf_info_report-**_xxx_: configuration assessment report, where *xxx* indicates the assessment time.
+    -   **hw_compat_report-**_xxx_: hardware assessment report, where *xxx* indicates the assessment time.
+
+    >![](public_sys-resources/icon-note.gif) **NOTE:**
+    >Internet Explorer may fail to display the assessment report properly. You are advised to use Chrome to view the downloaded HTML assessment report.
+
+
+
+### Configuring the Yum Source for the OS
+
+>![](public_sys-resources/icon-notice.gif) **NOTICE**
+>If the OS environment can access the Internet and the default Yum source of the OS is available, skip this section.
+
+The following describes how to configure the Yum source on CentOS 7.6. The procedure for configuring the Yum source on other OSs is the same.
+
+1.  Download the CentOS image file **CentOS-7-x86_64-Everything-1810.iso** from the CentOS official website.
+2.  Use an SSH remote login tool to upload the CentOS 7.6 image to the **/root** directory.
+3.  Use an SSH remote login tool to log in to the CentOS CLI.
+4.  Run the following command to mount the CentOS 7.6 ISO image to a local directory:
+
+    ```
+    mount /root/CentOS-7-x86_64-Everything-1810.iso /media -o loop
+    ```
+
+    >![](public_sys-resources/icon-notice.gif) **NOTICE**
+    >After the OS is rebooted, mount the file again.
+
+5.  Back up the original Yum source. In the `mv` command, replace *path* with the actual backup directory.
+
+    ```
+    cd /etc/yum.repos.d/    // Go to the Yum source configuration directory.
+    mv ./* path             // Back up the original Yum source configuration.
+    ```
+
+6.  Configure the Yum source.
+    1.  Open the **media.repo** file.
+
+        ```
+        vi /etc/yum.repos.d/media.repo
+        ```
+
+    2.  Press **i** to enter the edit mode and add the following information to the **media.repo** file:
+
+        ```
+        [InstallMedia]
+        name=CentOS7.6
+        metadata_expire=-1
+        gpgcheck=0
+        cost=500
+        baseurl=file:///media
+        enabled=1
+        ```
+
+    3.  Press **Esc**, type **:wq**, and press **Enter** to save the change and exit.
+
+7.  Run the following commands to update the local cache information of the Yum source:
+
+    ```
+    yum clean all
+    yum makecache
+    ```
+
+
+### Querying OS Version Information
+
+Run the `uname -r` command to query the CPU hardware architecture. The tool supports only x86 servers or servers powered by Kunpeng 916 or 920 processors.
+
+Query the OS version information.
+
+-   If you do not know the OS type, try the following commands one by one to check the OS version:
+
+    >![](public_sys-resources/icon-note.gif) **NOTE:**
+    >According to [Table 10](#zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_table16951181710103), the commands for version information on the compatible OSs are:
+
+    -   cat /etc/os-release
+    -   cat /etc/issue
+    -   cat /etc/redhat-release
+    -   nkvers
+
+-   If you are sure about the OS type, you can run the corresponding command listed in [Table 10](#zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_table16951181710103) to query the release version.
+
+**Table 10** Commands for querying the OS versions
+
+<a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_table16951181710103"></a>
+<table><thead align="left"><tr id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_row1995161771012"><th class="cellrowborder" valign="top" width="24.45244524452445%" id="mcps1.2.4.1.1"><p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p5951101714100"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p5951101714100"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p5951101714100"></a>Compatible OS</p>
+</th>
+<th class="cellrowborder" valign="top" width="20.3020302030203%" id="mcps1.2.4.1.2"><p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p29511917151013"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p29511917151013"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p29511917151013"></a> Command</p>
+</th>
+<th class="cellrowborder" valign="top" width="55.24552455245525%" id="mcps1.2.4.1.3"><p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p1495141712108"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p1495141712108"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p1495141712108"></a>OS Full Name</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_row1795116173109"><td class="cellrowborder" valign="top" width="24.45244524452445%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p16951917201018"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p16951917201018"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p16951917201018"></a>CentOS 7.6/8.2</p>
+</td>
+<td class="cellrowborder" valign="top" width="20.3020302030203%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p18309616171214"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p18309616171214"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p18309616171214"></a>cat /etc/redhat-release</p>
+</td>
+<td class="cellrowborder" valign="top" width="55.24552455245525%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p15267101144"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p15267101144"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p15267101144"></a>CentOS 7.6: CentOS Linux release 7.6.1810 (AltArch)</p>
+<p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p7974111610154"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p7974111610154"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p7974111610154"></a>CentOS 8.2: CentOS Linux release 8.2.2001 (Core)</p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_row69521817141010"><td class="cellrowborder" valign="top" width="24.45244524452445%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p2569967358"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p2569967358"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p2569967358"></a>openEuler 20.03 SP1</p>
+</td>
+<td class="cellrowborder" valign="top" width="20.3020302030203%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p153810249255"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p153810249255"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p153810249255"></a>cat /etc/os-release</p>
+</td>
+<td class="cellrowborder" valign="top" width="55.24552455245525%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p109251723162010"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p109251723162010"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p109251723162010"></a>openEuler 20.03 SP1: openEuler release 20.03 (LTS-SP1)</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+## FAQ
+
+
+### Page Not Properly Displayed When Viewing Assessment Reports
+
+
+#### Symptom
+When you view the downloaded HTML assessment report, the page is not displayed properly.
+
+![](figures/zh-cn_image_0000001229168603.png)
+
+#### Possible Cause
+
+Internet Explorer is incompatible with the assessment report page. As a result, the assessment report is not properly displayed.
+
+#### Solution
+
+You are advised to use Chrome to view the downloaded HTML assessment report.
+
+
+
+### Installation Fails Due to Missing Dependency Packages
+
+#### Symptom
+
+During the installation of x2openEuler, some dependency packages may be missing. As a result, the installation is interrupted and fails. If the following information is displayed, one or more dependency packages are missing:
+
+**Figure 1**  Command output when dependency packages are missing<a name="fig6891110151519"></a>  
+![](figures/dependency.png "Command output when dependency packages are missing")
+
+#### Possible Cause
+
+The software package required for installing x2openEuler is not installed in the OS.
+
+#### Solution
+
+1.  Determine the names of the dependency packages required, for example, **bzip2** and **bzip2-devel**, based on the error information displayed during installation.
+2.  Configure the Yum source by referring to [Configuring the Yum Source for the OS](#configuring-the-yum-source-for-the-os).
+3.  Run the following command to install the dependency packages:
+
+    ```
+    yum install -y bzip2 bzip2-devel
+    ```
+
+
+## Appendixes
+
+### Related Links
+
+**Table 11** Related links
+
+<a name="table1656344955412"></a>
+<table><thead align="left"><tr id="row1856304918547"><th class="cellrowborder" valign="top" width="36.19%" id="mcps1.2.3.1.1"><p id="p9563154911541"><a name="p9563154911541"></a><a name="p9563154911541"></a> Website</p>
+</th>
+<th class="cellrowborder" valign="top" width="63.81%" id="mcps1.2.3.1.2"><p id="p356384917540"><a name="p356384917540"></a><a name="p356384917540"></a> Link</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="row1920775885710"><td class="cellrowborder" valign="top" width="36.19%" headers="mcps1.2.3.1.1 "><p id="p15207258125710"><a name="p15207258125710"></a><a name="p15207258125710"></a>openEuler Community</p>
+</td>
+<td class="cellrowborder" valign="top" width="63.81%" headers="mcps1.2.3.1.2 "><p id="p220725816577"><a name="p220725816577"></a><a name="p220725816577"></a>https://www.openeuler.org/en/</p>
+</td>
+</tr>
+<tr id="row1456313494548"><td class="cellrowborder" valign="top" width="36.19%" headers="mcps1.2.3.1.1 "><p id="p1856364975417"><a name="p1856364975417"></a><a name="p1856364975417"></a>openEuler Development Resources</p>
+</td>
+<td class="cellrowborder" valign="top" width="63.81%" headers="mcps1.2.3.1.2 "><p id="p3563149105411"><a name="p3563149105411"></a><a name="p3563149105411"></a>https://www.hikunpeng.com/developer/openEuler</p>
+</td>
+</tr>
+<tr id="row72318611015"><td class="cellrowborder" valign="top" width="36.19%" headers="mcps1.2.3.1.1 "><p id="p11243691014"><a name="p11243691014"></a><a name="p11243691014"></a>openEuler Repo</p>
+</td>
+<td class="cellrowborder" valign="top" width="63.81%" headers="mcps1.2.3.1.2 "><p id="p7241617104"><a name="p7241617104"></a><a name="p7241617104"></a>https://repo.openeuler.org/openEuler-20.03-LTS/ISO/</p>
+</td>
+</tr>
+<tr id="row20826955016"><td class="cellrowborder" valign="top" width="36.19%" headers="mcps1.2.3.1.1 "><p id="p3901102010016"><a name="p3901102010016"></a><a name="p3901102010016"></a>openEuler oec-application Project Communication</p>
+</td>
+<td class="cellrowborder" valign="top" width="63.81%" headers="mcps1.2.3.1.2 "><p id="p1882755906"><a name="p1882755906"></a><a name="p1882755906"></a>https://gitee.com/openeuler/oec-application</p>
+</td>
+</tr>
+<tr id="row178821330135618"><td class="cellrowborder" valign="top" width="36.19%" headers="mcps1.2.3.1.1 "><p id="p088312305566"><a name="p088312305566"></a><a name="p088312305566"></a> Huawei Mirrors Repository</p>
+</td>
+<td class="cellrowborder" valign="top" width="63.81%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0308075319_p1162181375914"><a name="zh-cn_topic_0308075319_p1162181375914"></a><a name="zh-cn_topic_0308075319_p1162181375914"></a>https://mirrors.huaweicloud.com/repository/conf/CentOS-AltArch-7.repo</p>
+<p id="zh-cn_topic_0308075319_p14621713185911"><a name="zh-cn_topic_0308075319_p14621713185911"></a><a name="zh-cn_topic_0308075319_p14621713185911"></a>https://mirrors.huaweicloud.com/epel/7/$basearch</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+### Terminology
+<a name="zh-cn_topic_0229761957_zh-cn_topic_0195271714_table1000233"></a>
+<table><tbody><tr id="zh-cn_topic_0229761957_row1364614118328"><td class="cellrowborder" style="border:none" colspan="2" valign="top"><p id="zh-cn_topic_0229761957_p964611163212"><a name="zh-cn_topic_0229761957_p964611163212"></a><a name="zh-cn_topic_0229761957_p964611163212"></a><strong id="b1810417544345"><a name="b1810417544345"></a><a name="b1810417544345"></a>P</strong></p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0229761957_row24341820123119"><td class="cellrowborder" style="border:none" valign="top" width="18.12%"><p id="zh-cn_topic_0229761957_p843452017312"><a name="zh-cn_topic_0229761957_p843452017312"></a><a name="zh-cn_topic_0229761957_p843452017312"></a> Plug-in card</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="81.88%"><p id="zh-cn_topic_0229761957_p6434102073119"><a name="zh-cn_topic_0229761957_p6434102073119"></a><a name="zh-cn_topic_0229761957_p6434102073119"></a> A card device installed on a board.</p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0229761957_zh-cn_topic_0195271714_row53083271"><td class="nocellnorowborder" style="border:none" valign="top" width="18.12%"><p id="zh-cn_topic_0229761957_zh-cn_topic_0195271714_p0682199193114"><a name="zh-cn_topic_0229761957_zh-cn_topic_0195271714_p0682199193114"></a><a name="zh-cn_topic_0229761957_zh-cn_topic_0195271714_p0682199193114"></a> Physical machine</p>
+</td>
+<td class="cell-norowborder" style="border:none" valign="top" width="81.88%"><p id="zh-cn_topic_0229761957_zh-cn_topic_0195271714_p1668213913313"><a name="zh-cn_topic_0229761957_zh-cn_topic_0195271714_p1668213913313"></a><a name="zh-cn_topic_0229761957_zh-cn_topic_0195271714_p1668213913313"></a>Different from the host machine, a physical machine is a computer running a common OS or a bare metal device where no OS is deployed.</p>
+</td>
+</tr>
+<tr id="row189631351114215"><td class="cellrowborder" style="border:none" colspan="2" valign="top"><p id="p09631851154214"><a name="p09631851154214"></a><a name="p09631851154214"></a><strong id="b8427194944317"><a name="b8427194944317"></a><a name="b8427194944317"></a>S</strong></p>
+</td>
+</tr>
+<tr id="row6870055184219"><td class="cellrowborder" style="border:none" valign="top" width="18.12%"><p id="p787025584215"><a name="p787025584215"></a><a name="p787025584215"></a> Server</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="81.88%"><p id="p28701855104216"><a name="p28701855104216"></a><a name="p28701855104216"></a> A server is a computer that provides services for clients on a network.</p>
+</td>
+</tr>
+<tr id="row915212143920"><td class="cellrowborder" style="border:none" valign="top" width="18.12%"><p id="p1152162193917"><a name="p1152162193917"></a><a name="p1152162193917"></a><strong id="b1644821814394"><a name="b1644821814394"></a><a name="b1644821814394"></a>V</strong></p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="81.88%">&nbsp;&nbsp;</td>
+</tr>
+<tr id="row1539717512399"><td class="cellrowborder" style="border:none" valign="top" width="18.12%"><p id="p53979513394"><a name="p53979513394"></a><a name="p53979513394"></a> Virtual machine</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="81.88%"><p id="p173979510394"><a name="p173979510394"></a><a name="p173979510394"></a>A piece of software that simulates a computer. It creates an environment between the computer platform and end users, who can perform operations on the software within that environment.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+### Abbreviations
+
+<a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_table166084911276"></a>
+<table><tbody><tr id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_row13429252131613"><td class="cell-norowborder" style="border:none" colspan="3" valign="top"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p15986185513165"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p15986185513165"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p15986185513165"></a><strong id="b1768811243719"><a name="b1768811243719"></a><a name="b1768811243719"></a>B</strong></p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_row1761104992719"><td class="nocellnorowborder" style="border:none" valign="top" width="10.03684856992455%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p19611949172720"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p19611949172720"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p19611949172720"></a>BIN</p>
+</td>
+<td class="nocellnorowborder" style="border:none" valign="top" width="18.108440077206527%"><p id="p098315269241"><a name="p098315269241"></a><a name="p098315269241"></a>Binary</p>
+</td>
+<td class="cell-norowborder" style="border:none" valign="top" width="71.85471135286893%"><p id="p18982152617242"><a name="p18982152617242"></a><a name="p18982152617242"></a>A binary file format.</p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_row62511248469"><td class="cellrowborder" style="border:none" colspan="3" valign="top"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p72511142463"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p72511142463"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p72511142463"></a><strong id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b46600822316"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b46600822316"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b46600822316"></a>G</strong></p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_row16131104616"><td class="cellrowborder" style="border:none" valign="top" width="10.03684856992455%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p4115110464"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p4115110464"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p4115110464"></a>GZIP</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="18.108440077206527%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p21191114612"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p21191114612"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p21191114612"></a>GNU ZIP</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="71.85471135286893%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p2110154611"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p2110154611"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p2110154611"></a>A compressed file format.</p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_row5708175710451"><td class="cellrowborder" style="border:none" colspan="3" valign="top"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p19708155794518"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p19708155794518"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p19708155794518"></a><strong id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b4156101822315"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b4156101822315"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b4156101822315"></a>J</strong></p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_row1657385304516"><td class="cellrowborder" style="border:none" valign="top" width="10.03684856992455%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p15573165334519"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p15573165334519"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p15573165334519"></a>JAR</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="18.108440077206527%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p057313535456"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p057313535456"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p057313535456"></a>Java Archive</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="71.85471135286893%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p457325304514"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p457325304514"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p457325304514"></a>A Java software package format.</p>
+</td>
+</tr>
+<tr id="row10395151413201"><td class="cellrowborder" style="border:none" colspan="3" valign="top"><p id="p1872411252202"><a name="p1872411252202"></a><a name="p1872411252202"></a><strong id="b1509193115207"><a name="b1509193115207"></a><a name="b1509193115207"></a>P</strong></p>
+</td>
+</tr>
+<tr id="row1511141813205"><td class="cellrowborder" style="border:none" valign="top" width="10.03684856992455%"><p id="p411115184203"><a name="p411115184203"></a><a name="p411115184203"></a>PY</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="18.108440077206527%"><p id="p10111181814206"><a name="p10111181814206"></a><a name="p10111181814206"></a>-</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="71.85471135286893%"><p id="p10111918192017"><a name="p10111918192017"></a><a name="p10111918192017"></a> A Python script file format.</p>
+</td>
+</tr>
+<tr id="row39131339182014"><td class="cellrowborder" style="border:none" valign="top" width="10.03684856992455%"><p id="p189131839102011"><a name="p189131839102011"></a><a name="p189131839102011"></a>PYC</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="18.108440077206527%"><p id="p0913203972011"><a name="p0913203972011"></a><a name="p0913203972011"></a>-</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="71.85471135286893%"><p id="p139131439192014"><a name="p139131439192014"></a><a name="p139131439192014"></a>A binary file format.</p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_row1570342184715"><td class="cellrowborder" style="border:none" colspan="3" valign="top"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p137031427475"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p137031427475"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p137031427475"></a><strong id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b588532714235"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b588532714235"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b588532714235"></a>R</strong></p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_row19755359104619"><td class="cellrowborder" style="border:none" valign="top" width="10.03684856992455%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p2755105964613"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p2755105964613"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p2755105964613"></a>RPM</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="18.108440077206527%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p1375525924616"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p1375525924616"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p1375525924616"></a>RHEL Package Manager</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="71.85471135286893%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p6755155994612"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p6755155994612"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p6755155994612"></a>A Linux software package format.</p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_row1137775612468"><td class="cellrowborder" style="border:none" colspan="3" valign="top"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p1337711567461"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p1337711567461"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p1337711567461"></a><strong id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b20954194082312"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b20954194082312"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b20954194082312"></a>T</strong></p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_row750735264619"><td class="cellrowborder" style="border:none" valign="top" width="10.03684856992455%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p2507952114616"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p2507952114616"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p2507952114616"></a>TAR</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="18.108440077206527%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p1750717527460"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p1750717527460"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p1750717527460"></a>-</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="71.85471135286893%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p2507652134614"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p2507652134614"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p2507652134614"></a>A Linux software package format.</p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_row16927635485"><td class="cellrowborder" style="border:none" colspan="3" valign="top"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p1292711311482"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p1292711311482"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p1292711311482"></a><strong id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b48293142417"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b48293142417"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_b48293142417"></a>Z</strong></p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_row5486102485"><td class="cellrowborder" style="border:none" valign="top" width="10.03684856992455%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p194862005485"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p194862005485"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p194862005485"></a>ZIP</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="18.108440077206527%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p124863054819"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p124863054819"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p124863054819"></a>-</p>
+</td>
+<td class="cellrowborder" style="border:none" valign="top" width="71.85471135286893%"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p174861301487"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p174861301487"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p174861301487"></a>A compressed file format</p>
+</td>
+</tr>
+</tbody>
+</table>
