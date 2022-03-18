@@ -87,8 +87,6 @@ headless: true
         -   [Application Scenarios]({{< relref "./docs/Container/application-scenarios.md" >}})
             -   [Container Management]({{< relref "./docs/Container/container-management.md" >}})
             -   [Interconnection with the CNI Network]({{< relref "./docs/Container/interconnection-with-the-cni-network.md" >}})
-})
-            -   [Container Resource Management]({{< relref "./docs/Container/container-resource-management.md" >}})
             -   [Privileged Container]({{< relref "./docs/Container/privileged-container.md" >}})
             -   [CRI]({{< relref "./docs/Container/cri.md" >}})
             -   [Image Management]({{< relref "./docs/Container/image-management.md" >}})
