@@ -2,27 +2,27 @@
 
 <!-- TOC -->
 
-- [OpenStack-Wallaby Deployment Guide](#openstack-wallaby-Deployment Guide)
-  - [OpenStack Overview](#openstack-Introduction)
-  - [Agreement] (#Agreement)
-  - [Preparing the Environment](#Preparing the Environment)
-    - [Environment Configuration](#Environment Configuration)
-    - [Installing SQL Database](#Installing -sql-database)
-    - [Installing RabbitMQ](#Installing RabbitMQ)
-    - [Installing Memcached](#Installing Memcached-memcached)
-  - [Installing OpenStack](#Installing OpenStack)
-    - [Keystone Installation](#keystone-Installation)
-    - [Glance Installation](#glance-Installation)
-    - [Placement Installation](#placement Installation)
-    - [Nova Installation](#nova-Installation)
-    - [Neutron Installation](#neutron-Installation)
-    - [Cinder Installation](#cinder-Installation)
-    - [Horizon Installation](#horizon-Installation)
-    - [Tempest Installation](#tempest-Installation)
-    - [Ironic Installation](#ironic-Installation)
-    - [Kolla Installation](#kolla-Installation)
-    - [Trove Installation](#trove-Installation)
-    - [Swift Installation](#swift-Installation)
+- [OpenStack-Wallaby Deployment Guide](#openstack-wallaby-deployment-guide)
+  - [OpenStack](#openstack)
+  - [Conventions](#conventions)
+  - [Preparing the Environment](#preparing-the-environment)
+    - [Environment Configuration](#environment-configuration)
+    - [Installing the SQL Database](#installing-the-sql-database)
+    - [Installing RabbitMQ](#installing-rabbitmq)
+    - [Installing Memcached](#installing-memcached)
+  - [Installing OpenStack](#installing-openstack)
+    - [Installing Keystone](#installing-keystone)
+    - [Installing Glance](#installing-glance)
+    - [Installing Placement](#installing-placement)
+    - [Installing Nova](#installing-nova)
+    - [Installing Neutron](#installing-neutron)
+    - [Installing Cinder](#installing-cinder)
+    - [Installing Horizon](#installing-horizon)
+    - [Installing Tempest](#installing-tempest)
+    - [Installing Ironic](#installing-ironic)
+    - [Installing Kolla](#installing-kolla)
+    - [Installing Trove](#installing-trove)
+    - [Installing Swift](#installing-swift)
     <!-- /TOC -->
 
 ## OpenStack
@@ -35,21 +35,21 @@ The official source of openEuler 21.09 now supports OpenStack Wallaby. You can c
 
 ## Conventions
 
-OpenStack supports multiple deployment modes. This document includes two deployment modes: `All in One` and `Distributed`. The conventions are as follows:
+OpenStack supports multiple deployment modes. This document includes two deployment modes: **All in One** and **Distributed**. The conventions are as follows:
 
-`ALL in One` mode:
+**All in One** mode:
 
 ```text
 Ignores all possible suffixes.
 ```
 
-`Distributed` mode:
+**Distributed** mode:
 
 ```text
-A suffix of `(CTL)` indicates that the configuration or command applies only to the `control node`.
-A suffix of `(CPT)` indicates that the configuration or command applies only to the `compute node`.
-A suffix of `(STG)` indicates that the configuration or command applies only to the `storage node`.
-In other cases, the configuration or command applies to both the `control node` and `compute node`.
+A suffix of (CTL) indicates that the configuration or command applies only to the control node.
+A suffix of (CPT) indicates that the configuration or command applies only to the compute node.
+A suffix of (STG) indicates that the configuration or command applies only to the storage node.
+In other cases, the configuration or command applies to both the control node and compute node.
 ```
 
 ***Note***
@@ -102,7 +102,7 @@ The services involved in the preceding conventions are as follows:
     hostnamectl set-hostname compute                                                               (CPT)
     ```
 
-    Assuming the IP address of the controller node is `10.0.0.11` and the IP address of the compute node (if any) is `10.0.0.12`, add the following information to the `/etc/hosts` file:
+    Assuming the IP address of the controller node is **10.0.0.11** and the IP address of the compute node (if any) is **10.0.0.12**, add the following information to the **/etc/hosts** file:
 
     ```shell
     10.0.0.11   controller
@@ -117,7 +117,7 @@ The services involved in the preceding conventions are as follows:
     yum install mariadb mariadb-server python3-PyMySQL
     ```
 
-2. Run the following command to create and edit the `/etc/my.cnf.d/openstack.cnf` file:
+2. Run the following command to create and edit the **/etc/my.cnf.d/openstack.cnf** file:
 
     ```shell
     vim /etc/my.cnf.d/openstack.cnf
@@ -175,9 +175,9 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **Replace `RABBIT_PASS` to set the password for the openstack user.**
+    **Replace *RABBIT_PASS* to set the password for the openstack user.**
 
-4. Run the following command to set the permission of the openstack user to allow the user to perform configuration, write, and read operations:
+4. Run the following command to set the permission of the **openstack** user to allow the user to perform configuration, write, and read operations:
 
     ```shell
     rabbitmqctl set_permissions openstack ".*" ".*" ".*"
@@ -191,7 +191,7 @@ The services involved in the preceding conventions are as follows:
     yum install memcached python3-memcached
     ```
 
-2. Open the `/etc/sysconfig/memcached` file in insert mode.
+2. Open the **/etc/sysconfig/memcached** file in insert mode.
 
     ```shell
     vim /etc/sysconfig/memcached
@@ -208,7 +208,7 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **After the service is started, you can run `memcached-tool controller stats` to ensure that the service is started properly and available. You can replace `controller` with the management IP address of the controller node.**
+    **After the service is started, you can run `memcached-tool controller stats` to ensure that the service is started properly and available. You can replace **controller** with the management IP address of the controller node.**
 
 ## Installing OpenStack
 
@@ -229,7 +229,7 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **Replace `KEYSTONE_DBPASS` to set the password for the keystone database.**
+    **Replace *KEYSTONE_DBPASS* to set the password for the keystone database.**
 
 2. Install the software package:
 
@@ -257,7 +257,7 @@ The services involved in the preceding conventions are as follows:
 
     ***Note:***
 
-    **Replace `KEYSTONE_DBPASS` with the password of the keystone database.**
+    **Replace *KEYSTONE_DBPASS* with the password of the keystone database.**
 
 4. Synchronize the database:
 
@@ -284,7 +284,7 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **Replace `ADMIN_PASS` to set the password for the admin user.**
+    **Replace *ADMIN_PASS* to set the password for the admin user.**
 
 7. Configure the Apache HTTP server:
 
@@ -300,10 +300,10 @@ The services involved in the preceding conventions are as follows:
 
     ***Description***
 
-    Configure `ServerName` to use the control node.
+    Configure **ServerName** to use the control node.
 
     ***Note***
-    **If the `ServerName` item does not exist, create it.
+    **If the ServerName item does not exist, create it.
 
 8. Start the Apache HTTP service:
 
@@ -329,9 +329,9 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **Replace `ADMIN_PASS` with the password of the admin user.**
+    **Replace *ADMIN_PASS* with the password of the admin user.**
 
-10. Create domains, projects, users, and roles in sequence.The python3-openstackclient must be installed first:
+10. Create domains, projects, users, and roles in sequence. python3-openstackclient must be installed first:
 
     ```shell
     yum install python3-openstackclient
@@ -343,7 +343,7 @@ The services involved in the preceding conventions are as follows:
     source ~/.admin-openrc
     ```
 
-    Create the project `service`. The domain `default` has been created during keystone-manage bootstrap.
+    Create the project **service**. The domain **default** has been created during keystone-manage bootstrap.
 
     ```shell
     openstack domain create --description "An Example Domain" example
@@ -353,7 +353,7 @@ The services involved in the preceding conventions are as follows:
     openstack project create --domain default --description "Service Project" service
     ```
 
-    Create the (non-admin) project `myproject`, user `myuser`, and role `myrole`, and add the role `myrole` to `myproject` and `myuser`.
+    Create the (non-admin) project **myproject**, user **myuser**, and role **myrole**, and add the role **myrole** to **myproject** and **myuser**.
 
     ```shell
     openstack project create --domain default --description "Demo Project" myproject
@@ -364,7 +364,7 @@ The services involved in the preceding conventions are as follows:
 
 11. Perform the verification.
 
-    Cancel the temporary environment variables `OS_AUTH_URL` and `OS_PASSWORD`.
+    Cancel the temporary environment variables **OS_AUTH_URL** and **OS_PASSWORD**.
 
     ```shell
     source ~/.admin-openrc
@@ -406,7 +406,7 @@ The services involved in the preceding conventions are as follows:
 
     ***Note:***
 
-    **Replace `GLANCE_DBPASS` to set the password for the glance database.**
+    **Replace *GLANCE_DBPASS* to set the password for the glance database.**
 
     Create the service credential:
 
@@ -470,9 +470,9 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **Replace `GLANCE_DBPASS` with the password of the glance database.**
+    **Replace *GLANCE_DBPASS* with the password of the glance database.**
 
-    **Replace `GLANCE_PASS` with the password of user glance.**
+    **Replace *GLANCE_PASS* with the password of user glance.**
 
 4. Synchronize the database:
 
@@ -499,7 +499,7 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **If the Kunpeng architecture is used in your environment, download the image of the AArch64 version. the Image cirros-0.5.2-aarch64-disk.img has been tested.**
+    **If the Kunpeng architecture is used in your environment, download the image of the AArch64 version. the cirros-0.5.2-aarch64-disk.img image file has been tested.**
 
     Upload the image to the image service:
 
@@ -534,7 +534,7 @@ The services involved in the preceding conventions are as follows:
 
     **Note**:
 
-    **Replace `PLACEMENT_DBPASS` to set the password for the placement database.**
+    **Replace *PLACEMENT_DBPASS* to set the password for the placement database.**
 
     ```shell
     source admin-openrc
@@ -550,7 +550,7 @@ The services involved in the preceding conventions are as follows:
     openstack service create --name placement --description "Placement API" placement
     ```
 
-    Create API endpoints of the Placement service.
+    Create API endpoints of the **placement** service.
 
     ```shell
     openstack endpoint create --region RegionOne placement public http://controller:8778
@@ -654,7 +654,7 @@ The services involved in the preceding conventions are as follows:
 
     **Note**:
 
-    **Replace `NOVA_DBPASS` to set the password for the nova database.**
+    **Replace *NOVA_DBPASS* to set the password for the nova database.**
 
     ```shell
     source ~/.admin-openrc                                                                         (CTL)
@@ -786,19 +786,19 @@ The services involved in the preceding conventions are as follows:
 
     **Note**:
 
-    **Replace `RABBIT_PASS` with the password of the openstack user in RabbitMQ.**
+    **Replace *RABBIT_PASS* with the password of the openstack user in RabbitMQ.**
 
-    **Set `my_ip` to the management IP address of the controller node.**
+    **Set *my_ip* to the management IP address of the controller node.**
 
-    **Replace `NOVA_DBPASS` with the password of the nova database.**
+    **Replace *NOVA_DBPASS* with the password of the nova database.**
 
-    **Replace `NOVA_PASS` with the password of the nova user.**
+    **Replace *NOVA_PASS* with the password of the nova user.**
 
-    **Replace `PLACEMENT_PASS` with the password of the placement user.**
+    **Replace *PLACEMENT_PASS* with the password of the placement user.**
 
-    **Replace `NEUTRON_PASS` with the password of the neutron user.**
+    **Replace *NEUTRON_PASS* with the password of the neutron user.**
 
-    **Replace `METADATA_SECRET` with a proper metadata agent secret.**
+    **Replace *METADATA_SECRET* with a proper metadata agent secret.**
 
     Others
 
@@ -976,7 +976,7 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **Replace `NEUTRON_DBPASS` to set the password for the neutron database.**
+    **Replace *NEUTRON_DBPASS* to set the password for the neutron database.**
 
     ```shell
     source ~/.admin-openrc                                                                         (CTL)
@@ -1068,13 +1068,13 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **Replace `NEUTRON_DBPASS` with the password of the neutron database.**
+    **Replace *NEUTRON_DBPASS* with the password of the neutron database.**
 
-    **Replace `RABBIT_PASS` with the password of the openstack user in RabbitMQ.**
+    **Replace *RABBIT_PASS* with the password of the openstack user in RabbitMQ.**
 
-    **Replace `NEUTRON_PASS` with the password of the neutron user.**
+    **Replace *NEUTRON_PASS* with the password of the neutron user.**
 
-    **Replace `NOVA_PASS` with the password of the nova user.**
+    **Replace *NOVA_PASS* with the password of the nova user.**
 
     Configure the ML2 plugin:
 
@@ -1145,9 +1145,9 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **Replace `PROVIDER_INTERFACE_NAME` with the physical network interface.**
+    **Replace *PROVIDER_INTERFACE_NAME* with the physical network interface.**
 
-    **Replace `OVERLAY_INTERFACE_IP_ADDRESS` with the management IP address of the controller node.**
+    **Replace *OVERLAY_INTERFACE_IP_ADDRESS* with the management IP address of the controller node.**
 
     Configure the Layer-3 agent:
 
@@ -1193,7 +1193,7 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **Replace `METADATA_SECRET` with a proper metadata agent secret.**
+    **Replace *METADATA_SECRET* with a proper metadata agent secret.**
 
 4. Configure Nova:
 
@@ -1219,9 +1219,9 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **Replace `NEUTRON_PASS` with the password of the neutron user.**
+    **Replace *NEUTRON_PASS* with the password of the neutron user.**
 
-    **Replace `METADATA_SECRET` with a proper metadata agent secret.**
+    **Replace *METADATA_SECRET* with a proper metadata agent secret.**
 
 5. Synchronize the database:
 
@@ -1277,7 +1277,7 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **Replace `CINDER_DBPASS` to set the password for the cinder database.**
+    **Replace *CINDER_DBPASS* to set the password for the cinder database.**
 
     ```shell
     source ~/.admin-openrc
@@ -1392,15 +1392,15 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **Replace `CINDER_DBPASS` with the password of the cinder database.**
+    **Replace *CINDER_DBPASS* with the password of the cinder database.**
 
-    **Replace `RABBIT_PASS` with the password of the openstack user in RabbitMQ.**
+    **Replace *RABBIT_PASS* with the password of the openstack user in RabbitMQ.**
 
-    **Set `my_ip` to the management IP address of the controller node.**
+    **Set *my_ip* to the management IP address of the controller node.**
 
-    **Replace `CINDER_PASS` with the password of the cinder user.**
+    **Replace *CINDER_PASS* with the password of the cinder user.**
 
-    **Replace `HOST:PATH` with the host IP address and the shared path of the NFS.**
+    **Replace *HOST:PATH* with the host IP address and the shared path of the NFS.**
 
 6. Synchronize the database:
 
@@ -1504,7 +1504,7 @@ The services involved in the preceding conventions are as follows:
 
     ***Note***
 
-    **Replace `HOSTIP` with the management plane IP address of the controller node.**
+    **Replace *HOSTIP* with the management plane IP address of the controller node.**
 
 ### Installing Tempest
 
@@ -2059,7 +2059,7 @@ Ironic is the bare metal service of OpenStack. If you need to deploy bare metal 
             yum install git
             ```
     
-            `DIB` depends on the `semanage` command. Therefore, check whether the `semanage --help` command is available before creating an image. If the system displays a message indicating that the command is unavailable, install the command:
+            **DIB** depends on the `semanage` command. Therefore, check whether the `semanage --help` command is available before creating an image. If the system displays a message indicating that the command is unavailable, install the command:
     
             ```shell
             # Check which package needs to be installed.
@@ -2079,7 +2079,7 @@ Ironic is the bare metal service of OpenStack. If you need to deploy bare metal 
 
    2. Create the image.
 
-        For `arm` architecture, add the following information:
+        For Arm architecture, add the following information:
         ```shell
         export ARCH=aarch64
         ```
@@ -2249,9 +2249,9 @@ Trove is the database service of OpenStack. If you need to use the database serv
    openstack service create --name trove
                             --description "Database service" database
    ```
-   **Description:** Replace `TROVE_PASSWORD` with the password of the `trove` user.
+   **Description:** Replace *TROVE_PASSWORD* with the password of the **trove** user.
 
-   2. Create the **Database** service access entry
+   1. Create the **Database** service access entry
 
    ```shell
    openstack endpoint create --region RegionOne database public http://controller:8779/v1.0/%\(tenant_id\)s
@@ -2264,7 +2264,7 @@ Trove is the database service of OpenStack. If you need to use the database serv
    ```shell script
    yum install openstack-trove python-troveclient
    ```
-   2. Configure `trove.conf`:
+   1. Configure **trove.conf**:
    ```shell script
    vim /etc/trove/trove.conf
    
@@ -2322,14 +2322,14 @@ Trove is the database service of OpenStack. If you need to use the database serv
    tcp_ports = 5432
    ```
    **Description:**
-   - In the `[Default]` section, set `bind_host` to the IP address of the node where Trove is deployed.
-   - `nova_compute_url` and `cinder_url` are endpoints created by Nova and Cinder in Keystone.
-   - `nova_proxy_XXX` is a user who can access the Nova service. In the preceding example, the `admin` user is used.
-   - `transport_url` is the `RabbitMQ` connection information, and `RABBIT_PASS` is the RabbitMQ password.
-   - In the `[database]` section, `connection` is the information of the database created for Trove in MySQL.
-   - Replace `TROVE_PASS` in the Trove user information with the password of the **trove** user.
+   - In the **[Default]** section, set **bind_host** to the IP address of the node where Trove is deployed.
+   - **nova_compute_url** and **cinder_url** are endpoints created by Nova and Cinder in Keystone.
+   - **nova_proxy_XXX** is a user who can access the Nova service. In the preceding example, the **admin** user is used.
+   - **transport_url** is the **RabbitMQ** connection information, and **RABBIT_PASS** is the RabbitMQ password.
+   - In the **[database]** section, **connection** is the information of the database created for Trove in MySQL.
+   - Replace **TROVE_PASS** in the Trove user information with the password of the **trove** user.
 
-   5. Configure `trove-guestagent.conf`:
+   1. Configure **trove-guestagent.conf**:
    ```shell script
    vim /etc/trove/trove-guestagent.conf
    
@@ -2357,14 +2357,14 @@ Trove is the database service of OpenStack. If you need to use the database serv
    docker_image = your-registry/your-repo/mysql
    backup_docker_image = your-registry/your-repo/db-backup-mysql:1.1.0
    ```
-   ** Description:** `guestagent` is an independent component in Trove and needs to be pre-built into the virtual machine image created by Trove using Nova.
+   **Description:** **guestagent** is an independent component in Trove and needs to be pre-built into the virtual machine image created by Trove using Nova.
    After the database instance is created, the guestagent process is started to report heartbeat messages to the Trove through the message queue (RabbitMQ).
    Therefore, you need to configure the user name and password of the RabbitMQ.
-   ** Since Victoria, Trove uses a unified image to run different types of databases. The database service runs in the Docker container of the Guest VM.**
-   - `transport_url` is the `RabbitMQ` connection information, and `RABBIT_PASS` is the RabbitMQ password.
-   - Replace `TROVE_PASS` in the Trove user information with the password of the **trove** user.
+   **Since Victoria, Trove uses a unified image to run different types of databases. The database service runs in the Docker container of the Guest VM.**
+   - **transport_url** is the **RabbitMQ** connection information, and **RABBIT_PASS** is the RabbitMQ password.
+   - Replace **TROVE_PASS** in the Trove user information with the password of the **trove** user.
 
-   6. Generate the `Trove` database table.
+   1. Generate the **Trove** database table.
    ```shell script
    su -s /bin/sh -c "trove-manage db_sync" trove
    ```
@@ -2375,7 +2375,7 @@ Trove is the database service of OpenStack. If you need to use the database serv
    openstack-trove-taskmanager.service \
    openstack-trove-conductor.service 
    ```
-   2. Start the service:
+   1. Start the service:
    ```shell script
    systemctl start openstack-trove-api.service \
    openstack-trove-taskmanager.service \
@@ -2493,7 +2493,7 @@ Swift provides a scalable and highly available distributed object storage servic
     read only = False
     lock file = /var/lock/object.lock
     ```
-    **Replace `MANAGEMENT_INTERFACE_IP_ADDRESS` with the management network IP address of the storage node.**
+    **Replace *MANAGEMENT_INTERFACE_IP_ADDRESS* with the management network IP address of the storage node.**
 
     Start the rsyncd service and configure it to start upon system startup.
 
@@ -2528,13 +2528,13 @@ Swift provides a scalable and highly available distributed object storage servic
    
 6. Create the account ring. (CTL)
 
-    Switch to the `/etc/swift` directory:
+    Switch to the **/etc/swift** directory:
 
     ```shell
     cd /etc/swift
     ```
     
-    Create the basic `account.builder` file:
+    Create the basic **account.builder** file:
     
     ```shell
     swift-ring-builder account.builder create 10 1 1
@@ -2546,7 +2546,7 @@ Swift provides a scalable and highly available distributed object storage servic
     swift-ring-builder account.builder add --region 1 --zone 1 --ip STORAGE_NODE_MANAGEMENT_INTERFACE_IP_ADDRESS --port 6202  --device DEVICE_NAME --weight DEVICE_WEIGHT
     ```
     
-    **Replace `STORAGE_NODE_MANAGEMENT_INTERFACE_IP_ADDRESS` with the management network IP address of the storage node. Replace `DEVICE_NAME` with the name of the storage device on the same storage node.**
+    **Replace *STORAGE_NODE_MANAGEMENT_INTERFACE_IP_ADDRESS* with the management network IP address of the storage node. Replace *DEVICE_NAME* with the name of the storage device on the same storage node.**
     
     ***Note***
     **Repeat this command to each storage device on each storage node.**
@@ -2565,9 +2565,9 @@ Swift provides a scalable and highly available distributed object storage servic
     
 7. Create the container ring. (CTL)
    
-    Switch to the `/etc/swift` directory:
+    Switch to the **/etc/swift** directory:
     
-    Create the basic `container.builder` file:
+    Create the basic **container.builder** file:
     
     ```shell
        swift-ring-builder container.builder create 10 1 1
@@ -2582,7 +2582,7 @@ Swift provides a scalable and highly available distributed object storage servic
     
     ```
     
-    **Replace `STORAGE_NODE_MANAGEMENT_INTERFACE_IP_ADDRESS` with the management network IP address of the storage node. Replace `DEVICE_NAME` with the name of the storage device on the same storage node.**
+    **Replace *STORAGE_NODE_MANAGEMENT_INTERFACE_IP_ADDRESS* with the management network IP address of the storage node. Replace *DEVICE_NAME* with the name of the storage device on the same storage node.**
     
     ***Note***
     **Repeat this command to every storage devices on every storage nodes.**
@@ -2596,14 +2596,14 @@ Swift provides a scalable and highly available distributed object storage servic
     Rebalance the ring:
     
     ```shell
-    swift-ring-builder account.builder rebalance
+    swift-ring-builder container.builder rebalance
     ```
     
 8. Create the object ring. (CTL)
    
-    Switch to the `/etc/swift` directory:
+    Switch to the **/etc/swift** directory:
     
-    Create the basic `object.builder` file:
+    Create the basic **object.builder** file:
     
        ```shell
        swift-ring-builder object.builder create 10 1 1
@@ -2617,7 +2617,7 @@ Swift provides a scalable and highly available distributed object storage servic
       --device DEVICE_NAME --weight 100
     ```
     
-    **Replace `STORAGE_NODE_MANAGEMENT_INTERFACE_IP_ADDRESS` with the management network IP address of the storage node. Replace `DEVICE_NAME` with the name of the storage device on the same storage node.**
+    **Replace *STORAGE_NODE_MANAGEMENT_INTERFACE_IP_ADDRESS* with the management network IP address of the storage node. Replace *DEVICE_NAME* with the name of the storage device on the same storage node.**
     
     ***Note***
     **Repeat this command to every storage devices on every storage nodes.**
@@ -2631,18 +2631,18 @@ Swift provides a scalable and highly available distributed object storage servic
     Rebalance the ring:
     
     ```shell
-    swift-ring-builder account.builder rebalance
+    swift-ring-builder object.builder rebalance
     ```
 
     Distribute ring configuration files:
 
-    Copy `account.ring.gz`, `container.ring.gz`, and `object.ring.gz` to the `/etc/swift` directory on each storage node and any additional nodes running the proxy service.
+    Copy **account.ring.gz**, **container.ring.gz**, and **object.ring.gz** to the **/etc/swift** directory on each storage node and any additional nodes running the proxy service.
     
     
     
 9.  Complete the installation.
    
-    Edit the `/etc/swift/swift.conf` file:
+    Edit the **/etc/swift/swift.conf** file:
     
     ``` shell
     [swift-hash]
@@ -2656,7 +2656,7 @@ Swift provides a scalable and highly available distributed object storage servic
     
     **Replace test-hash with a unique value.**
     
-    Copy the `swift.conf` file to the `/etc/swift` directory on each storage node and any additional nodes running the proxy service.
+    Copy the **swift.conf** file to the **/etc/swift** directory on each storage node and any additional nodes running the proxy service.
     
     Ensure correct ownership of the configuration directory on all nodes:
     

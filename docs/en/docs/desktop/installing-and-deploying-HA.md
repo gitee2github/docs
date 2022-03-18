@@ -5,61 +5,61 @@ This chapter describes how to install and deploy an HA cluster.
 <!-- TOC -->
 - [Installing and Deploying HA](#installing-and-deploying-ha)
   - [Installation and Deployment](#installation-and-deployment)
-    - [Modifying the Host Name and the /etc/hosts File](#modifying-the-host-name-and-the-etchosts-file)
-    - [Configuring the Yum Source](#-configure-the-yum-source)
+    - [Modifying the Host Name and the **/etc/hosts** File](#modifying-the-host-name-and-the-etchosts-file)
+    - [Configuring the Yum Repository](#configuring-the-yum-repository)
     - [Installing the HA Software Package Components](#installing-the-ha-software-package-components)
     - [Setting the hacluster User Password](#setting-the-hacluster-user-password)
-    - [Modifying the `/etc/corosync/corosync.conf` File](#modify-the-etccorosynccorosyncconf-file)
+    - [Modifying the **/etc/corosync/corosync.conf** File](#modifying-the-etccorosynccorosyncconf-file)
     - [Managing the Services](#managing-the-services)
-      - [Disabling the Firewall](#disabling-the-firewall)
-      - [Managing the pcs Service](#managing-the-pcs-service)
-      - [Managing the Pacemaker Service](#managing-the-pacemaker-service)
-      - [Managing the Corosync Service](#managing-the-corosync-service)
+      - [Disabling the firewall.](#disabling-the-firewall)
+      - [Managing the pcs service](#managing-the-pcs-service)
+      - [Managing the Pacemaker service](#managing-the-pacemaker-service)
+      - [Managing the Corosync service](#managing-the-corosync-service)
     - [Performing Node Authentication](#performing-node-authentication)
     - [Accessing the Front-End Management Platform](#accessing-the-front-end-management-platform)
     <!-- /TOC -->
 
 ## Installation and Deployment
--  Prepare the environment: At least two physical machines or VMs with openEuler 21.09 installed are required. (This section uses two physical machines or VMs as an example.) For details about how to install openEuler 21.09, see the openEuler 21.09 Installation Guide.
+-  Prepare the environment: At least two physical machines or VMs with openEuler 21.09 installed are required. (This section uses two physical machines or VMs as an example.) For details about how to install openEuler 21.09, see the *openEuler 21.09 Installation Guide*.
 
-### Modifying the Host Name and the /etc/hosts File
+### Modifying the Host Name and the **/etc/hosts** File
 -  ** Note: You need to perform the following operations on both hosts. The following takes one host as an example.**
 
-Before using the HA software, ensure that all host names have been changed and written into the /etc/hosts file.
+Before using the HA software, ensure that all host names have been changed and written into the **/etc/hosts** file.
 -   Run the following command to change the host name:
 ```
 # hostnamectl set-hostname ha1
 ```
 
--   Edit the `/etc/hosts` file and write the following fields:
+-   Edit the **/etc/hosts** file and write the following fields:
 ```
 172.30.30.65 ha1
 172.30.30.66 ha2
 ```
 
 ### Configuring the Yum Repository
-After the system is successfully installed, the Yum source is configured by default. The file location is stored in the `/etc/yum.repos.d/openEuler.repo` file. The HA software package uses the following sources:
+After the system is successfully installed, the Yum source is configured by default. The file location is stored in the **/etc/yum.repos.d/openEuler.repo** file. The HA software package uses the following sources:
 ```
 [OS]
 name=OS
-baseurl=http://repo.openeuler.org/openEuler-21.09-LTS-SP2/OS/$basearch/
+baseurl=http://repo.openeuler.org/openEuler-21.09/OS/$basearch/
 enabled=1
 gpgcheck=1
-gpgkey=http://repo.openeuler.org/openEuler-21.09-LTS-SP2/OS/$basearch/RPM-GPG-KEY-openEuler
+gpgkey=http://repo.openeuler.org/openEuler-21.09/OS/$basearch/RPM-GPG-KEY-openEuler
 
 [everything]
 name=everything
-baseurl=http://repo.openeuler.org/openEuler-21.09-LTS-SP2/everything/$basearch/
+baseurl=http://repo.openeuler.org/openEuler-21.09/everything/$basearch/
 enabled=1
 gpgcheck=1
-gpgkey=http://repo.openeuler.org/openEuler-21.09-LTS-SP2/everything/$basearch/RPM-GPG-KEY-openEuler
+gpgkey=http://repo.openeuler.org/openEuler-21.09/everything/$basearch/RPM-GPG-KEY-openEuler
 
 [EPOL]
 name=EPOL
-baseurl=http://repo.openeuler.org/openEuler-21.09-LTS-SP2/EPOL/$basearch/
+baseurl=http://repo.openeuler.org/openEuler-21.09/EPOL/$basearch/
 enabled=1
 gpgcheck=1
-gpgkey=http://repo.openeuler.org/openEuler-21.09-LTS-SP2/OS/$basearch/RPM-GPG-KEY-openEuler
+gpgkey=http://repo.openeuler.org/openEuler-21.09/OS/$basearch/RPM-GPG-KEY-openEuler
 ```
 
 ### Installing the HA Software Package Components
@@ -72,7 +72,7 @@ gpgkey=http://repo.openeuler.org/openEuler-21.09-LTS-SP2/OS/$basearch/RPM-GPG-KE
 # passwd hacluster
 ```
 
-### Modifying the `/etc/corosync/corosync.conf` File
+### Modifying the **/etc/corosync/corosync.conf** File
 ```
 totem {
         version: 2
@@ -172,12 +172,12 @@ The service is started successfully if the following information is displayed:
 ```
 
 ### Accessing the Front-End Management Platform
-After the preceding services are started, open the browser (Chrome or Firefox is recommended) and enter `https://localhost:2224` in the navigation bar.
+After the preceding services are started, open the browser (Chrome or Firefox is recommended) and enter **https://localhost:2224** in the navigation bar.
 -  This page is the native management platform.
 
 ![](./figures/HA-login.png)
 
-For details about how to install the management platform newly developed by the community, see `https://gitee.com/openeuler/ha-api/blob/master/docs/build.md`.
+For details about how to install the management platform newly developed by the community, see https://gitee.com/openeuler/ha-api/blob/master/docs/build.md.
 -  The following is the management platform newly developed by the community.
 
 ![](./figures/HA-api.png)
