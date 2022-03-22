@@ -169,7 +169,6 @@ headless: true
     -   [KubeEdge Usage Guide]({{< relref "./docs/KubeEdge/kubeedge-usage-guide.md" >}})
     -   [KubeEdge Deployment Guide]({{< relref "./docs/KubeEdge/kubeedge-deployment-guide.md" >}})
 -   [Third-Party Software Porting Guide]({{< relref "./docs/thirdparty_migration/thidrparty.md" >}})
-    -   [OpenStack-Victoria Deployment Guide]({{< relref "./docs/thirdparty_migration/OpenStack-Victoria.md" >}})
     -   [OpenStack-Wallaby Deployment Guide]({{< relref "./docs/thirdparty_migration/OpenStack-Wallaby.md" >}})
     -   [HA User Guide]({{< relref "./docs/desktop/ha.md" >}})
         -   [Instaling and Deploying an HA Cluster]({{< relref "./docs/desktop/installha.md" >}})
