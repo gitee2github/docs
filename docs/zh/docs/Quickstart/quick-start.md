@@ -97,19 +97,16 @@
 
 
 ## 获取安装源
-
 请按以下步骤获取openEuler的发布包和校验文件：
 
 1.  登录[openEuler社区](https://openeuler.org)网站。
-2.  单击“下载”。
-3.  单击“获取ISO：”后面的“Link”，显示版本列表。
-4.  单击“openEuler-21.09”，进入openEuler 21.09版本下载列表。
-5.  单击“ISO”，进入ISO下载列表。
+2.  单击“下载”下的“ISO”标签。进入版本下载页面
+3.  找到openEuler 21.09卡片。
+4.  单击“获取ISO”，进入openEuler 21.09版本下载列表。
     -   aarch64：AArch64架构的ISO。
     -   x86\_64：x86\_64架构的ISO。
     -   source：openEuler源码ISO。
-
-6.  根据实际待安装环境的架构选择需要下载的openEuler的发布包和校验文件。
+5.  根据实际待安装环境的架构选择需要下载的openEuler的发布包和校验文件。
     -   若为AArch64架构。
         1.  单击“aarch64”。
         2.  单击“openEuler-21.09-aarch64-dvd.iso”，将openEuler发布包下载到本地。
