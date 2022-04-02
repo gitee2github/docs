@@ -491,6 +491,12 @@
     text-align: center;
 }
 
+.alert .title-h2 .help-icon {
+    width: 24px;
+    position: relative;
+    top: -4px;
+}
+
 .alert .title-h3 {
     position: relative;
     display: inline-block;
