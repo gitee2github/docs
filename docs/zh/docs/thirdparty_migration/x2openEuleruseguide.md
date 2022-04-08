@@ -226,6 +226,7 @@
 >-   /usr/sbin/dmidecode -t bios -t system -t baseboard -t chassis -t processor -t memory -t cache -t connector -t slot
 >-   /usr/sbin/dmidecode -s system-product-name
 >-   /bin/cat /boot/efi/EFI/centos/grub.cfg
+>
 >工具会分析系统信息，收集系统配置项，用于进行配置分析。对应的文件配置如下：
 >-   /boot/grub2/grub.cfg
 >-   /etc/default/grub
@@ -577,7 +578,7 @@ x2openEuler自动安装的依赖组件如[表5](#table134317232714)所示。
 </td>
 <td class="cellrowborder" valign="top" width="20%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p2611195014406"><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p2611195014406"></a><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p2611195014406"></a><span id="text13523152262720"><a name="text13523152262720"></a><a name="text13523152262720"></a>x2openEuler</span>软件安装包</p>
 </td>
-<td class="cellrowborder" valign="top" width="20%" headers="mcps1.2.4.1.3 "><a name="ul14693194665314"></a><a name="ul14693194665314"></a><ul id="ul14693194665314"><a href="https://repo.oepkgs.net/openEuler/rpm/openEuler-20.03-LTS-SP1/contrib/x2openEuler/noarch/" target="_blank" rel="noopener noreferrer">oepkgs社区</a>获取软件包</ul>
+<td class="cellrowborder" valign="top" width="20%" headers="mcps1.2.4.1.3 "><a name="ul14693194665314"></a><a name="ul14693194665314"></a><ul id="ul14693194665314"><a href="https://repo.oepkgs.net/openEuler/rpm/openEuler-20.03-LTS-SP1/contrib/x2openEuler/" target="_blank" rel="noopener noreferrer">oepkgs社区</a>获取软件包</ul>
 </td>
 </tr>
 </tbody>
@@ -794,7 +795,7 @@ x2openEuler自动安装的依赖组件如[表5](#table134317232714)所示。
     在Visual Studio Code扩展菜单中搜索“x2openEuler”，单击“安装”。（或在Visual Studio Code应用商店中安装）。
 
 -   在oepkgs社区网站下载x2openEuler扩展安装包进行安装。
-    1.  <a name="li8791113918435"></a>在[oepkgs社区](https://repo.oepkgs.net/openEuler/rpm/openEuler-20.03-LTS-SP1/contrib/x2openEuler/noarch/)下载x2openEuler扩展安装包。
+    1.  <a name="li8791113918435"></a>在[oepkgs社区](https://repo.oepkgs.net/openEuler/rpm/openEuler-20.03-LTS-SP1/contrib/x2openEuler/)下载x2openEuler扩展安装包。
 
     2.  打开本地PC上的Visual Studio Code，在左侧菜单栏中单击扩展图标。
     3.  在更多选项中单击“从VSIX安装...”，选择已下载的x2openEuler扩展安装包，单击“安装”。
