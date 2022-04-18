@@ -1,37 +1,57 @@
 # x2openEuler User Guide
-
 <!-- TOC -->
-
 - [x2openEuler User Guide](#x2openeuler-user-guide)
   - [About this Document](#about-this-document)
-    - [Introduction](#introduction)
-    - [Intended Audience](#intended-audience)
-    - [Symbol Conventions](#symbol-conventions)
-    - [Command Format Conventions](#command-format-conventions)
-    - [Change History](#change-history)
   - [Disclaimer](#disclaimer)
   - [Overview](#overview)
   - [Installation](#installation)
-    - [Environment Requirements](#environment-requirements)
-    - [Obtaining the Software Package](#obtaining-the-software-package)
-    - [Digital Signature Verification](#digital-signature-verification)
-    - [Installation](#installation-1)
-    - [Verification](#verification)
-    - [Uninstallation](#uninstallation)
+    - [Installing x2openEuler](#installing-x2openeuler)
+      - [Environment Requirements](#environment-requirements)
+      - [Obtaining the Software Package](#obtaining-the-software-package)
+      - [Performing the Installation](#performing-the-installation)
+      - [Verification](#verification)
+      - [Uninstallation](#uninstallation)
+    - [Installing the x2openEuler Extension](#installing-the-x2openeuler-extension)
   - [Feature Guide](#feature-guide)
-    - [Software Assessment](#software-assessment)
-    - [Environment Configuration Collection and Assessment](#environment-configuration-collection-and-assessment)
-    - [Hardware assessment](#hardware-assessment)
+    - [Using x2openeuler Through the Extension](#using-x2openeuler-through-the-extension)
+      - [Configuring the Remote Server](#configuring-the-remote-server)
+      - [Remote Server Management](#remote-server-management)
+      - [Software Assessment](#software-assessment)
+        - [Description](#description)
+        - [Execution](#execution)
+      - [Configuration Collection and Assessment](#configuration-collection-and-assessment)
+        - [Description](#information_assessment)
+        - [Execution](#information_assessment_1)
+      - [Hardware Assessment](#hardware-assessment)
+        - [Description](#DeviceConfig)
+        - [Execution](#DeviceConfig_1)
+    - [Using x2openEuler through CLI](#using-x2openeuler-through-cli)
+      - [Software Assessment](#SoftwareEvaluation)
+        - [Description](#SoftwareEvaluation_1)
+        - [Execution](#SoftwareEvaluation_2)
+          - [Scanning Application Packages Using CLI](#scanning-application-packages-using-cli)
+      - [Environment Configuration Collection and Assessment](#ConfigurationCollection)
+        - [Description](#ConfigurationCollection_1)
+        - [Execution](#ConfigurationCollection_2)
+          - [Collecting Configuration and Hardware Information Using CLI Commands](#collecting-configuration-and-hardware-information-using-cli-commands)
+          - [Analyzing Configuration Information Using CLI Commands](#analyzing-configuration-information-using-cli-commands)
+      - [Hardware assessment](#HardwareEvaluation)
+        - [Description](#HardwareEvaluation_1)
+        - [Execution](#HardwareEvaluation_2)
+          - [Analyzing Hardware Information Using CLI Commands](#analyzing-hardware-information-using-cli-commands)
   - [Common Operations](#common-operations)
     - [Viewing Command Parameter Description](#viewing-command-parameter-description)
     - [Viewing the x2openEuler Version Information Using CLI Commands](#viewing-the-x2openeuler-version-information-using-cli-commands)
     - [Viewing the Assessment Report Using CLI Commands](#viewing-the-assessment-report-using-cli-commands)
     - [Configuring the Yum Source for the OS](#configuring-the-yum-source-for-the-os)
     - [Querying OS Version Information](#querying-os-version-information)
+    - [Configuring the Timeout Interval](#configuring-the-timeout-interval)
+    - [Feedback](#feedback)
   - [FAQ](#faq)
     - [Page Not Properly Displayed When Viewing Assessment Reports](#page-not-properly-displayed-when-viewing-assessment-reports)
     - [Installation Fails Due to Missing Dependency Packages](#installation-fails-due-to-missing-dependency-packages)
   - [Appendixes](#appendixes)
+    - [Running Environment Data Usage Description](#running-environment-data-usage-description)
     - [Related Links](#related-links)
     - [Terminology](#terminology)
     - [Abbreviations](#abbreviations)
@@ -42,16 +62,14 @@
 
 ### Introduction
 
-This document describes how to obtain the x2openEuler installation package and how to install and use the tool.
+This document describes how to obtain the x2openEuler installation package, how to install and use the tool, and the UI and features of x2openEuler.
 
 ### Intended Audience
 
 This document is intended for:
 
 -   openEuler OS users
--   Kunpeng developers
--   Kunpeng platform software users
--   Independent software vendor (ISV) developers
+-   Software developers
 
 ### Symbol Conventions
 
@@ -162,9 +180,23 @@ The symbols that may be found in this guide are defined as follows:
 </th>
 </tr>
 </thead>
-<tbody><tr id="row5947359616410"><td class="cellrowborder" valign="top" width="20.72%" headers="mcps1.1.4.1.1 "><p id="p2149706016410"><a name="p2149706016410"></a><a name="p2149706016410"></a>01</p>
+<tbody><tr id="row159705521204"><td class="cellrowborder" valign="top" width="20.72%" headers="mcps1.1.4.1.1 "><p id="p69701752202020"><a name="p69701752202020"></a><a name="p69701752202020"></a>03</p>
 </td>
-<td class="cellrowborder" valign="top" width="26.119999999999997%" headers="mcps1.1.4.1.2 "><p id="p648803616410"><a name="p648803616410"></a><a name="p648803616410"></a>2021-12-30</p>
+<td class="cellrowborder" valign="top" width="26.119999999999997%" headers="mcps1.1.4.1.2 "><p id="p139701152142013"><a name="p139701152142013"></a><a name="p139701152142013"></a>2022-03-30</p>
+</td>
+<td class="cellrowborder" valign="top" width="53.16%" headers="mcps1.1.4.1.3 "><p id="p11970952112019"><a name="p11970952112019"></a><a name="p11970952112019"></a>The issue is the third official release.</p>
+</td>
+</tr>
+<tr id="row17666133462019"><td class="cellrowborder" valign="top" width="20.72%" headers="mcps1.1.4.1.1 "><p id="p1966693414204"><a name="p1966693414204"></a><a name="p1966693414204"></a>02</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.119999999999997%" headers="mcps1.1.4.1.2 "><p id="p38071244142011"><a name="p38071244142011"></a><a name="p38071244142011"></a>2022-01-21</p>
+</td>
+<td class="cellrowborder" valign="top" width="53.16%" headers="mcps1.1.4.1.3 "><p id="p1807174422011"><a name="p1807174422011"></a><a name="p1807174422011"></a>The issue is the second official release.</p>
+</td>
+</tr>
+<tr id="row5947359616410"><td class="cellrowborder" valign="top" width="20.72%" headers="mcps1.1.4.1.1 "><p id="p2149706016410"><a name="p2149706016410"></a><a name="p2149706016410"></a>01</p>
+</td>
+<td class="cellrowborder" valign="top" width="26.119999999999997%" headers="mcps1.1.4.1.2 "><p id="p648803616410"><a name="p648803616410"></a><a name="p648803616410"></a>2021-12-31</p>
 </td>
 <td class="cellrowborder" valign="top" width="53.16%" headers="mcps1.1.4.1.3 "><p id="p1946537916410"><a name="p1946537916410"></a><a name="p1946537916410"></a>The issue is the first official release.</p>
 </td>
@@ -174,21 +206,39 @@ The symbols that may be found in this guide are defined as follows:
 
 ## Disclaimer
 
+>![](public_sys-resources/icon-notice.gif) **NOTICE:** 
+> This tool escalates the privileges of the following commands for the hardware assessment and configuration analysis purposes:
+>-   /bin/cat /boot/grub2/grub.cfg
+>-   /usr/sbin/lspci -nvvv
+>-   /usr/sbin/lspci -xxx
+>-   /bin/netstat -npl
+>-   /usr/sbin/sysctl -a
+>-   /usr/sbin/dmidecode -t bios -t system -t baseboard -t chassis -t processor -t memory -t cache -t connector -t slot
+>-   /usr/sbin/dmidecode -s system-product-name
+>-   /bin/cat /boot/efi/EFI/centos/grub.cfg
+>
+> This tool analyzes the system information and collect system configurations from the following files for the configuration analysis purpose:
+>-   /boot/grub2/grub.cfg
+>-   /etc/default/grub
+>-   /usr/include/asm/unistd\_64.h
+>-   /etc/fstab
+>-   /etc/profile
+>-   /etc/sysctl.conf
+>-   /boot/conifg-\*
+
 -   To prevent impact on services in the production environment, it is recommended that you use this tool in a non-production environment.
--   Before uploading and viewing the source code, ensure that you are the source code owner or have obtained full authorization and consent from the source code owner.
--   No individual or organization shall use the source code for any purpose without the authorization of the source code owner. Huawei is not liable for any consequences and bears no legal liabilities. Huawei reserves the right to pursue legal actions if necessary.
--   No individual or organization shall spread the source code without the authorization of the source code owner. Huawei is not liable for any consequences and bears no legal liabilities. Huawei reserves the right to pursue legal actions if necessary.
--   The source code and related assessment reports are for reference only and do not have legal effect or constitute specific guidelines or legal suggestions of any kind.
--   Unless otherwise specified in laws and regulations or contracts, Huawei does not make any express or implied statement or warranty on the assessment suggestions or related content, or make any warranty or commitment on the marketability, satisfaction, non-infringement, or applicability of the assessment suggestions or related content for specific purposes.
--   You shall bear all risks arising from your use of the assessment suggestions and related content. Huawei is not liable for any damage or loss of any nature in any case.
--   If you click **OK**, the source code will be uploaded to the working directory of the current server for source code scan and analysis. This tool does not use the source code for any other purposes. Users who log in to the same server using other user names do not have the permission to view the code in your working directory.
+-   Before uploading the source code or software package, ensure that you are the owner of the source code or software package or have obtained full authorization and consent from the owner of the source code or software package.
+-   No individual or organization shall use the source code for any purpose without the authorization of the source code owner. 
+-   No individual or organization shall spread the source code or software package without the authorization of the owner of the source code or software package. 
+-   The assessment reports are for reference only and do not have legal effect or constitute specific guidelines or legal suggestions of any kind.
+-   You shall bear all risks arising from your use of the assessment suggestions and related content. 
+-   The source code or software package will be uploaded to the working directory of the current server for compatibility assessment. This tool does not use the source code or software package for any other purposes. Users who log in to the same server using other user names do not have the permission to view the files in your working directory.
+-   If the software package contain JAR packages, this tool decompiles the JAR packages for compatibility assessment and analysis. This tool does not use the JAR packages for any other purposes.
 
 
 ## Overview
 
-The x2openEuler porting assessment tool is a lightweight end-to-end tool provided for developers to perform software porting analysis for openEuler. It supports software assessment, configuration collection and assessment, and hardware assessment. The x2openEuler plug-in functions as a client to invoke the server tool to scan and analyze the software to be ported. It provides professional code porting guidance to greatly simplify the process of porting applications from CentOS to openEuler. Before porting software from CentOS to openEuler, you can use this tool to analyze the software portability and estimate porting workload. It addresses the problems of heavy workload, low accuracy, and poor overall efficiency in manual analysis.
-
-x2openEuler has two editions: lightweight and full-scale. The lightweight x2openEuler supports only configuration collection and assessment, and hardware assessment. The full-scale x2openEuler supports all features.
+The x2openEuler migration assessment tool is a lightweight end-to-end tool provided for developers based on Visual Studio Code to perform software migration analysis for openEuler. It supports software assessment, configuration collection and assessment, and hardware assessment. The x2openEuler plug-in functions as a client to invoke the server tool to scan and analyze the software to be migrated. It provides professional code migration guidance to greatly simplify the process of migrating applications from CentOS to openEuler. Before migrating software from CentOS to openEuler, you can use this tool to analyze the software portability and estimate migration workload. It addresses the problems of heavy workload, low accuracy, and poor overall efficiency in manual analysis.
 
 The x2openEuler tool has the following features:
 
@@ -202,24 +252,24 @@ The x2openEuler tool has the following features:
 
 -   Hardware assessment
 
-    Check whether the entire system (x86/aarch64) and plug-in cards (RAID/NIC/FC/IB/GPU/SSD/TPM) in the running environment are in the openEuler compatibility list.
+    Check whether the entire system (x86/AArch64) and plug-in cards (RAID/NIC/FC/IB/GPU/SSD/TPM) in the running environment are in the openEuler compatibility list.
 
 
 ## Installation
+### Installing x2openEuler
 
-
-### Environment Requirements
+#### Environment Requirements
 
 >![](public_sys-resources/icon-note.gif) **NOTE**
 >This tool applies only to development and testing environments.
 
-#### Physical Machine Specifications
+##### Physical Machine Specifications
 
 x2openEuler can be installed and run on physical machines. [Table 1](#zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_table38928044) lists the requirements for physical machines.
 
 **Table 1**  Hardware requirements
 
-<a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_table38928044"></a>
+<a id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_table38928044"></a>
 <table><thead align="left"><tr id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_row49314056"><th class="cellrowborder" valign="top" width="16.43%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p35015599"><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p35015599"></a><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p35015599"></a> Hardware Type</p>
 </th>
 <th class="cellrowborder" valign="top" width="83.57%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p17691262"><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p17691262"></a><a name="zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p17691262"></a> Requirements</p>
@@ -249,13 +299,13 @@ x2openEuler can be installed and run on physical machines. [Table 1](#zh-cn_topi
 </tbody>
 </table>
 
-#### Virtual Machine Specifications
+##### Virtual Machine Specifications
 
 x2openEuler can be installed on a VM. [Table 2](#table19116152811393) lists the VM requirements.
 
 **Table 2**  VM requirements
 
-<a name="table19116152811393"></a>
+<a id="table19116152811393"></a>
 <table><thead align="left"><tr id="row141161128133913"><th class="cellrowborder" valign="top" width="16.43%" id="mcps1.2.3.1.1"><p id="p17116132815394"><a name="p17116132815394"></a><a name="p17116132815394"></a> Hardware Type</p>
 </th>
 <th class="cellrowborder" valign="top" width="83.57%" id="mcps1.2.3.1.2"><p id="p9116182811394"><a name="p9116182811394"></a><a name="p9116182811394"></a> Requirements</p>
@@ -285,13 +335,13 @@ x2openEuler can be installed on a VM. [Table 2](#table19116152811393) lists the 
 </tbody>
 </table>
 
-#### Source OS Requirements
+##### Source OS Requirements
 
 [Table 3](#table10913153312812) lists the OS requirements of the running environment.
 
 **Table 3** Source OS requirements
 
-<a name="table10913153312812"></a>
+<a id="table10913153312812"></a>
 <table><thead align="left"><tr id="row591343318286"><th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.1"><p id="p2913193362819"><a name="p2913193362819"></a><a name="p2913193362819"></a> OS</p>
 </th>
 <th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.2"><p id="p491333310281"><a name="p491333310281"></a><a name="p491333310281"></a> Version</p>
@@ -330,13 +380,13 @@ x2openEuler can be installed on a VM. [Table 2](#table19116152811393) lists the 
 >![](public_sys-resources/icon-note.gif) **NOTE**
 >If the server cannot access the network or the Yum source of the OS has been modified, an OS image file is required for installing dependency packages during the tool installation. For details about the required OS image file, see [Table 3](#table10913153312812). Obtain the image file of the corresponding OS version.
 
-#### Target OS Requirements
+##### Target OS Requirements
 
 [Table 4](#table7664131873211) lists the requirements for the target OS.
 
 **Table 4**  Target OS requirements
 
-<a name="table7664131873211"></a>
+<a id="table7664131873211"></a>
 <table><thead align="left"><tr id="row76649182329"><th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.1"><p id="p20664161812328"><a name="p20664161812328"></a><a name="p20664161812328"></a> OS</p>
 </th>
 <th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.2"><p id="p566471863217"><a name="p566471863217"></a><a name="p566471863217"></a> Version</p>
@@ -358,118 +408,24 @@ x2openEuler can be installed on a VM. [Table 2](#table19116152811393) lists the 
 </tbody>
 </table>
 
-#### Dependencies
+##### Dependencies
 
-[Table 5](#zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_table1537445116472) lists the dependencies that will be installed during the x2openEuler installation.
+[Table 5](#table134317232714) lists the dependencies that will be installed during the x2openEuler installation.
 
 **Table 5**  Dependencies
 
-<a name="table134317232714"></a>
-<table><thead align="left"><tr id="row543102315720"><th class="cellrowborder" valign="top" width="32.72327232723272%" id="mcps1.2.4.1.1"><p id="p44312231711"><a name="p44312231711"></a><a name="p44312231711"></a> Edition</p>
+<a id="table134317232714"></a>
+<table><thead align="left"><tr id="row543102315720"><th class="cellrowborder" valign="top" width="32.803280328032805%" id="mcps1.2.4.1.1"><p id="p44312231711"><a name="p44312231711"></a><a name="p44312231711"></a>Edition</p>
 </th>
-<th class="cellrowborder" valign="top" width="33.943394339433944%" id="mcps1.2.4.1.2"><p id="p6439231279"><a name="p6439231279"></a><a name="p6439231279"></a> Component</p>
+<th class="cellrowborder" valign="top" width="33.863386338633866%" id="mcps1.2.4.1.2"><p id="p6439231279"><a name="p6439231279"></a><a name="p6439231279"></a>Component</p>
 </th>
 <th class="cellrowborder" valign="top" width="33.33333333333333%" id="mcps1.2.4.1.3"><p id="p1543122319711"><a name="p1543122319711"></a><a name="p1543122319711"></a> Description</p>
 </th>
 </tr>
 </thead>
-<tbody><tr id="row15191121914453"><td class="cellrowborder" rowspan="18" valign="top" width="32.72327232723272%" headers="mcps1.2.4.1.1 "><p id="p124315231074"><a name="p124315231074"></a><a name="p124315231074"></a> Lightweight x2openEuler</p>
+<tbody><tr id="row106271317111411"><td class="cellrowborder" rowspan="24" valign="top" width="32.803280328032805%" headers="mcps1.2.4.1.1 "><p id="p55131015101115"><a name="p55131015101115"></a><a name="p55131015101115"></a>x2openEuler</p>
 </td>
-<td class="cellrowborder" valign="top" width="33.943394339433944%" headers="mcps1.2.4.1.2 "><p id="p319261919456"><a name="p319261919456"></a><a name="p319261919456"></a>bzip2</p>
-</td>
-<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p919241917456"><a name="p919241917456"></a><a name="p919241917456"></a> Decompression tool.</p>
-</td>
-</tr>
-<tr id="row1448212334445"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p748333316444"><a name="p748333316444"></a><a name="p748333316444"></a>bzip2-devel</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p10483113319443"><a name="p10483113319443"></a><a name="p10483113319443"></a> Decompression tool.</p>
-</td>
-</tr>
-<tr id="row15635945133610"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p663544553614"><a name="p663544553614"></a><a name="p663544553614"></a>cmake</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p166352454363"><a name="p166352454363"></a><a name="p166352454363"></a> Automatic build tool.</p>
-</td>
-</tr>
-<tr id="row1580182418547"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p480142419543"><a name="p480142419543"></a><a name="p480142419543"></a>dmidecode</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p2080142413545"><a name="p2080142413545"></a><a name="p2080142413545"></a> Tool package for querying hardware information.</p>
-</td>
-</tr>
-<tr id="row21713234462"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p1717182311467"><a name="p1717182311467"></a><a name="p1717182311467"></a>gcc</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1217117239469"><a name="p1217117239469"></a><a name="p1217117239469"></a>C/C++ compiler.</p>
-</td>
-</tr>
-<tr id="row38756281027"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p143133019216"><a name="p143133019216"></a><a name="p143133019216"></a>git</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p38761828623"><a name="p38761828623"></a><a name="p38761828623"></a> Version control tool.</p>
-</td>
-</tr>
-<tr id="row2568135944617"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p13569145934619"><a name="p13569145934619"></a><a name="p13569145934619"></a>libxml2</p>
-</td>s
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p15569195918467"><a name="p15569195918467"></a><a name="p15569195918467"></a>XML parsing function library.</p>
-</td>
-</tr>
-<tr id="row7954203310476"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p20954173311472"><a name="p20954173311472"></a><a name="p20954173311472"></a>libxml2-devel</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p19541633174713"><a name="p19541633174713"></a><a name="p19541633174713"></a>XML parsing function library.</p>
-</td>
-</tr>
-<tr id="row4248181014916"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p324871064918"><a name="p324871064918"></a><a name="p324871064918"></a>libxslt</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p14618193764912"><a name="p14618193764912"></a><a name="p14618193764912"></a>XML parsing library.</p>
-</td>
-</tr>
-<tr id="row197932317492"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p149791023174912"><a name="p149791023174912"></a><a name="p149791023174912"></a>libxslt-devel</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p873093884916"><a name="p873093884916"></a><a name="p873093884916"></a>XML parsing library.</p>
-</td>
-</tr>
-<tr id="row1993151465312"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p3942149539"><a name="p3942149539"></a><a name="p3942149539"></a>net-tools</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p8941214105319"><a name="p8941214105319"></a><a name="p8941214105319"></a> Network command toolbox.</p>
-</td>
-</tr>
-<tr id="row62688594494"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p19268145915497"><a name="p19268145915497"></a><a name="p19268145915497"></a>python3</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p156721116512"><a name="p156721116512"></a><a name="p156721116512"></a>Python development and running environment. The version must be 3.7 or later.</p>
-</td>
-</tr>
-<tr id="row1480544513516"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p12806194518515"><a name="p12806194518515"></a><a name="p12806194518515"></a>pciutils</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p580664514518"><a name="p580664514518"></a><a name="p580664514518"></a>Portable library for accessing the PCI bus configuration register.</p>
-</td>
-</tr>
-<tr id="row3433234714"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p6431723673"><a name="p6431723673"></a><a name="p6431723673"></a>redis</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p14901931781"><a name="p14901931781"></a><a name="p14901931781"></a> Database. The recommended version is 4.0.11 or later.</p>
-</td>
-</tr>
-<tr id="row158947251319"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p7894425103116"><a name="p7894425103116"></a><a name="p7894425103116"></a>sqlite</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p14645134418319"><a name="p14645134418319"></a><a name="p14645134418319"></a> Database. The version must be 3.7.17 or later.</p>
-<div class="note" id="note1216095293115"><a name="note1216095293115"></a><a name="note1216095293115"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p16160175263118"><a name="p16160175263118"></a><a name="p16160175263118"></a> For CentOS 6.8, the SQLite database integrated by the x2openEuler tool is used.</p>
-</div></div>
-</td>
-</tr>
-<tr id="row511802965814"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p5118182995815"><a name="p5118182995815"></a><a name="p5118182995815"></a>util-linux</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1211862945814"><a name="p1211862945814"></a><a name="p1211862945814"></a>Standard software suite of Linux.</p>
-</td>
-</tr>
-<tr id="row11473432005"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p1114816438013"><a name="p1114816438013"></a><a name="p1114816438013"></a>zlib</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p121488431706"><a name="p121488431706"></a><a name="p121488431706"></a> Decompression tool.</p>
-</td>
-</tr>
-<tr id="row2511155707"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p36331355204"><a name="p36331355204"></a><a name="p36331355204"></a>zlib-devel</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p155145518015"><a name="p155145518015"></a><a name="p155145518015"></a> Decompression tool.</p>
-</td>
-</tr>
-<tr id="row106271317111411"><td class="cellrowborder" rowspan="28" valign="top" width="32.72327232723272%" headers="mcps1.2.4.1.1 "><p id="p55131015101115"><a name="p55131015101115"></a><a name="p55131015101115"></a> Full-scale x2openEuler</p>
-</td>
-<td class="cellrowborder" valign="top" width="33.943394339433944%" headers="mcps1.2.4.1.2 "><p id="p56272017121413"><a name="p56272017121413"></a><a name="p56272017121413"></a>bzip2</p>
+<td class="cellrowborder" valign="top" width="33.863386338633866%" headers="mcps1.2.4.1.2 "><p id="p56272017121413"><a name="p56272017121413"></a><a name="p56272017121413"></a>bzip2</p>
 </td>
 <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p1762713174142"><a name="p1762713174142"></a><a name="p1762713174142"></a> Decompression tool.</p>
 </td>
@@ -487,16 +443,6 @@ x2openEuler can be installed on a VM. [Table 2](#table19116152811393) lists the 
 <tr id="row1832913589143"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p14329858161414"><a name="p14329858161414"></a><a name="p14329858161414"></a>dmidecode</p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1329358141418"><a name="p1329358141418"></a><a name="p1329358141418"></a>Tool package for querying hardware information.</p>
-</td>
-</tr>
-<tr id="row195051021151617"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p4505152141612"><a name="p4505152141612"></a><a name="p4505152141612"></a>gcc</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p5505132161616"><a name="p5505132161616"></a><a name="p5505132161616"></a>C/C++ compiler.</p>
-</td>
-</tr>
-<tr id="row9138184392214"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p141381043202219"><a name="p141381043202219"></a><a name="p141381043202219"></a>git</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p131381443172211"><a name="p131381443172211"></a><a name="p131381443172211"></a> Version control tool.</p>
 </td>
 </tr>
 <tr id="row10253537115"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p4253163111111"><a name="p4253163111111"></a><a name="p4253163111111"></a>libxml2</p>
@@ -569,11 +515,6 @@ x2openEuler can be installed on a VM. [Table 2](#table19116152811393) lists the 
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1834168121317"><a name="p1834168121317"></a><a name="p1834168121317"></a>Portable library for accessing the PCI bus configuration register.</p>
 </td>
 </tr>
-<tr id="row19455572916"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p204685718917"><a name="p204685718917"></a><a name="p204685718917"></a>redis</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p15930195311714"><a name="p15930195311714"></a><a name="p15930195311714"></a> Database. The recommended version is 4.0.11 or later.</p>
-</td>
-</tr>
 <tr id="row2071617380109"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p11717203821014"><a name="p11717203821014"></a><a name="p11717203821014"></a>rpm-build</p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p1971773818106"><a name="p1971773818106"></a><a name="p1971773818106"></a>RPM package build and management tool.</p>
@@ -584,11 +525,6 @@ x2openEuler can be installed on a VM. [Table 2](#table19116152811393) lists the 
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p932314515418"><a name="p932314515418"></a><a name="p932314515418"></a> Database. The version must be 3.7.17 or later.</p>
 <div class="note" id="note132312511445"><a name="note132312511445"></a><a name="note132312511445"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p103231351846"><a name="p103231351846"></a><a name="p103231351846"></a>For CentOS 6.8, the SQLite database integrated by the x2openEuler tool is used.</p>
 </div></div>
-</td>
-</tr>
-<tr id="row156471821122315"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p7647321182316"><a name="p7647321182316"></a><a name="p7647321182316"></a>tcl</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p12356930182314"><a name="p12356930182314"></a><a name="p12356930182314"></a>Dependency package for compiling SQLite.</p>
 </td>
 </tr>
 <tr id="row11177173920208"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p1733744019203"><a name="p1733744019203"></a><a name="p1733744019203"></a>sqlite-devel</p>
@@ -614,13 +550,13 @@ x2openEuler can be installed on a VM. [Table 2](#table19116152811393) lists the 
 </tbody>
 </table>
 
-### Obtaining the Software Package
+#### Obtaining the Software Package
 
 [Table 6](#zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_table960911505409) lists the software packages used for the installation.
 
 **Table 6** Tool installation packages
 
-<a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_table960911505409"></a>
+<a id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_table960911505409"></a>
 <table><thead align="left"><tr id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_row66102503401"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.4.1.1"><p id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p86102050194016"><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p86102050194016"></a><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p86102050194016"></a>Package Name</p>
 </th>
 <th class="cellrowborder" valign="top" width="20%" id="mcps1.2.4.1.2"><p id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p106105501402"><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p106105501402"></a><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p106105501402"></a> Package Description</p>
@@ -629,16 +565,12 @@ x2openEuler can be installed on a VM. [Table 2](#table19116152811393) lists the 
 </th>
 </tr>
 </thead>
-<tbody><tr id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_row1561155054014"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.4.1.1 "><p id="p55021148172513"><a name="p55021148172513"></a><a name="p55021148172513"></a>x2openEuler-x.x-x.noarch.rpm</p>
+<tbody><tr id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_row1561155054014"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.4.1.1 "><p id="p55021148172513"><a name="p55021148172513"></a><a name="p55021148172513"></a>x2openEuler-x.x-x.aarch64.rpm</p>
+<p id="p135420127383"><a name="p135420127383"></a><a name="p135420127383"></a>x2openEuler-x.x-x.x86_64.rpm</p>
 </td>
-<td class="cellrowborder" valign="top" width="20%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p2611195014406"><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p2611195014406"></a><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p2611195014406"></a>Full-scale <span id="text13523152262720"><a name="text13523152262720"></a><a name="text13523152262720"></a>x2openEuler</span> installation package</p>
+<td class="cellrowborder" valign="top" width="20%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p2611195014406"><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p2611195014406"></a><a name="zh-cn_topic_0000001161818615_zh-cn_topic_0255418563_zh-cn_topic_0190602888_p2611195014406"></a><span id="text13523152262720"><a name="text13523152262720"></a><a name="text13523152262720"></a>x2openEuler</span> installation package</p>
 </td>
-<td class="cellrowborder" rowspan="2" valign="top" width="30%" headers="mcps1.2.4.1.3 "><a name="ul14693194665314"></a><a name="ul14693194665314"></a><ul id="ul14693194665314"><li> Enterprise users: log in to the <a href="https://support.huawei.com/enterprise/zh/kunpeng-computing/openeuler-pid-250840395/software" target="_blank" rel="noopener noreferrer">openEuler software download page</a> to obtain the software package. </li><li>Carrier users: log in to the <a href="https://support.huawei.com/carrier/productNewOffering?col=product&amp;path=PBI1-21430725/PBI1-21430756/PBI1-21431670/PBI1-251366796/PBI1-250840395&amp;resTab=SW" target="_blank" rel="noopener noreferrer">openEuler software download page</a> to obtain the software package.</li></ul>
-</td>
-</tr>
-<tr id="row17423162851118"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p142311288115"><a name="p142311288115"></a><a name="p142311288115"></a>x2openEuler-collect-x.x-x.noarch.rpm</p>
-</td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p5424128181120"><a name="p5424128181120"></a><a name="p5424128181120"></a> Lightweight x2openEuler installation package</p>
+<td class="cellrowborder" valign="top" width="20%" headers="mcps1.2.4.1.3 "><a name="ul14693194665314"></a><a name="ul14693194665314"></a><ul id="ul14693194665314"><a href="https://repo.oepkgs.net/openEuler/rpm/openEuler-20.03-LTS-SP1/contrib/x2openEuler/" target="_blank" rel="noopener noreferrer">The oepkgs community</a></ul>
 </td>
 </tr>
 </tbody>
@@ -647,69 +579,44 @@ x2openEuler can be installed on a VM. [Table 2](#table19116152811393) lists the 
 >![](public_sys-resources/icon-note.gif) **NOTE**
 >*x.x-x* in the software package name indicates the version.
 
-### Digital Signature Verification
+#### Performing the Installation
 
-To prevent a software package from being maliciously tampered with during transmission or storage, download the corresponding digital signature file for integrity verification when downloading the software package.
-
-After the software package is downloaded from the Huawei Support website, verify its PGP digital signature. For details, see OpenPGP Signature Verification Guide. If the verification fails, do not use the software package, and contact Huawei technical support engineers.
-
-Before using a software package for installation or upgrade, verify its digital signature based on the preceding operations to ensure that the software package is not tampered with.
-
-Carrier customers: [http://support.huawei.com/carrier/digitalSignatureAction](http://support.huawei.com/carrier/digitalSignatureAction).
-
-Enterprise customers: [https://support.huawei.com/enterprise/zh/tool/pgp-verify-TL1000000054](https://support.huawei.com/enterprise/zh/tool/pgp-verify-TL1000000054).
-
-### Installation
-
-#### Prerequisites
+##### Prerequisites
 
 -   An x86 server or a Kunpeng server powered by 916 or 920 processors is available.
 -   The OS has been installed. For details about the OS version requirements, see [Table 3](#table10913153312812).
 -   An SSH remote login tool, such as Xshell, MobaXterm, and PuTTY, is installed.
 
-#### Procedure
+##### Procedure
 
 >![](public_sys-resources/icon-notice.gif) **NOTICE**
 >-   Before installing x2openEuler, ensure that the network connection is normal. If the OS cannot access the network, configure the Yum source by referring to [Configuring the Yum Source for the OS](#configuring-the-yum-source-for-the-os).
+>-   Before reinstalling x2openEuler, uninstall x2openEuler of other versions.
 
-This section uses CentOS (x86_64) as an example to describe how to install the full-scale x2openEuler tool. The method also applies to the lightweight x2openEuler installation and installation in other OSs.
+This section uses CentOS (x86_64) as an example to describe how to install the x2openEuler tool using the following methods:
 
-1.  Use an SSH tool to remotely log in to the CentOS CLI as the **root** user.
-2.  Run the following command to install the dependencies of x2openEuler:
+###### Manually Downloading and Installing x2openEuler on the Server
 
+1.  Use an SSH tool to remotely log in to the CentOS CLI as a common user.
+2.  Run the following command to switch to the **root** user.
     ```
-    yum install -y bzip2 bzip2-devel gcc git java java-devel libffi-devel libxml2-devel libxslt libxslt-devel net-tools openssl-devel pciutils rpm-build sqlite-devel tcl zlib-devel
-    ```
-
-3.  Install the Redis database.
-
-    >![](public_sys-resources/icon-note.gif) **NOTE**
-    >Perform this step only when the full-scale x2openEuler tool is installed.
-
-    ```
-    yum install -y redis
+    su - root
     ```
 
-    If **No package redis available** is displayed in the command output, the Yum repository does not contain the Redis software package and the Redis database fails to be installed. Download the Redis installation package that matches the actual environment from [https://pkgs.org/download/redis](https://pkgs.org/download/redis). Run the following command to install the Redis database. In the command, **redis-3.2.12-2.el7.aarch64.rpm** is only an example. Replace it with the name of the downloaded Redis installation package.
-
-    ```
-    rpm -ivh redis-3.2.12-2.el7.aarch64.rpm
-    ```
-
-4.  Use an SSH remote login tool to copy the x2openEuler installation package obtained in [Obtaining the Software Package](#obtaining-the-software-package) to any path.
-5.  Run the following command to go to the directory where the x2openEuler installation package is stored:
+3.  Use an SSH remote login tool to copy the x2openEuler installation package obtained in [Obtaining the Software Package](#obtaining-the-software-package) to any path.
+4.  Run the following command to go to the directory where the x2openEuler installation package is stored:
 
     ```
     cd PATH
     ```
 
-6.  Run the following command to install x2openEuler. In the command, **x2openEuler-x.x-x.noarch.rpm** indicates the name of the x2openEuler installation package. Replace it with the actual name.
+5.  Run the following command to install x2openEuler. In the command, **x2openEuler-x.x-x.x86\_64.rpm** indicates the name of the x2openEuler installation package. Replace it with the actual name.
 
     >![](public_sys-resources/icon-notice.gif) **NOTICE**
     >x2openEuler can be used only by the **x2openEuler** user. Therefore, the **x2openEuler** user is automatically created during the x2openEuler installation. If the **x2openEuler** user already exists in the system, ensure that the **x2openEuler** user has the permissions to use x2openEuler before installing the tool. Otherwise, the tool may fail to run properly.
 
     ```
-    rpm -ivh x2openEuler-x.x-x.noarch.rpm
+    yum install x2openEuler-x.x-x.x86_64.rpm
     ```
 
     After the installation is complete, the user-related directories are as follows:
@@ -722,49 +629,26 @@ This section uses CentOS (x86_64) as an example to describe how to install the f
     /etc/x2openEuler/config      # Directory for storing static configuration files
     /etc/x2openEuler/sqlite      # Directory for storing database files
     /usr/local/x2openEuler       # Directory for storing program files
+    /opt/x2openEuler/source      # Directory for storing compatibility data files
     ```
 
     >![](public_sys-resources/icon-note.gif) **NOTE**
     >During the installation, if the message **error: Failed dependencies:** is displayed, the dependency packages are missing. Rectify the fault by referring to [Installation Fails Due to Missing Dependency Packages](#installation-fails-due-to-missing-dependency-packages).
 
-7.  Set the password and permissions for the **x2openEuler** user.
-    1.  Set the password for the **x2openEuler** user.
-
+6.  Set the password for the **x2openEuler** user.
         ```
         passwd x2openEuler
         ```
 
-        >![](public_sys-resources/icon-note.gif) **NOTE**
+        >![](public_sys-resources/icon-note.gif) NOTE:
         >Password for logging in as the user. The password must meet the following complexity requirements:
         >-   Contains 8 to 32 characters.
         >-   Contains at least two types of the following characters: uppercase letters, lowercase letters, digits, and special characters (\`\~!@\#$%^&\*\(\)-\_=+\\|\[\{\}\];:'",<.\>/?).
         >-   Cannot contain any space.
         >-   Cannot be the same as the user name.
 
-    2.  Run the following command to open the **/etc/sudoers** file to edit the user permissions:
 
-        ```
-        visudo
-        ```
-
-        >![](public_sys-resources/icon-note.gif) **NOTE**
-        >The x2openEuler tool needs to collect configuration data as comprehensively as possible. Therefore, the **x2openEuler** user requires privilege escalation to execute some commands.
-
-        In the **/etc/sudoers** file, append the following content after **## Allow root to run any commands anywhere** to allow the user to run the configuration collection command:
-
-        ```
-        ## Allow root to run any commands anywhere
-        x2openEuler ALL=(root) NOPASSWD: /bin/cat /boot/grub2/grub.cfg 
-        x2openEuler ALL=(root) NOPASSWD: /usr/sbin/lspci -nvvv 
-        x2openEuler ALL=(root) NOPASSWD: /usr/sbin/lspci -xxx 
-        x2openEuler ALL=(root) NOPASSWD: /bin/netstat -npl 
-        x2openEuler ALL=(root) NOPASSWD: /usr/sbin/sysctl -a 
-        x2openEuler ALL=(root) NOPASSWD: /usr/sbin/dmidecode -t bios -t system -t baseboard -t chassis -t processor -t memory -t cache -t connector -t slot 
-        ```
-
-        After the configuration file is modified, press **Esc**, type **:wq!**, and press **Enter** to save the settings and exit.
-
-8.  Run the following command to switch to the **x2openEuler** user and the home directory **/home/x2openEuler** of the **x2openEuler** user:
+7.  Run the following command to switch to the **x2openEuler** user and the home directory **/home/x2openEuler** of the **x2openEuler** user:
 
     >![](public_sys-resources/icon-notice.gif) **NOTICE**
     >The x2openEuler tool can be used only by the **x2openEuler** user. Before using the tool, switch to the **x2openEuler** user and change the working directory to the home directory of the **x2openEuler** user.
@@ -773,38 +657,72 @@ This section uses CentOS (x86_64) as an example to describe how to install the f
     su - x2openEuler
     ```
 
-9.  Initialize the Redis database.
+###### Using the x2openEuler Extension for One-click Installation
+1.  After [Installing the x2openEuler Extension](#installing-the-x2openeuler-extension) Click ![](figures/zh-cn_image_0000001256338397.png). Read and accept the disclaimer. The **Configuration Guide** page of the x2openEuler extension is displayed. Choose **Deploying x2openEuler**. The tool deployment page is displayed.
 
-    >![](public_sys-resources/icon-note.gif) **NOTE**
-    >-   Perform this step only when the full-scale x2openEuler tool is installed.
-    >-   When you use the x2openEuler tool for the first time, you need to initialize the Redis database. Otherwise, the following error message will be displayed when you run the x2openEuler tool command, and the x2openEuler tool cannot be used.
-    >    ```
-    >    Please execute "x2openeuler init" first to complete the environment check
-    >    ```
+    **Figure 1**  Configuration guide page<a id="fig18564682219"></a> 
+    ![](figures/configuration-guide-page.png)
 
-    1.  Run the following command, and enter the IP address, port number, index number (0-16), and password of the Redis database. The local database is used as an example.
+2.  On the tool deployment page, configure tool deployment parameters to install x2openEuler. For details about the parameters, see [Table 7](#table689465815346).
 
-        ```
-        x2openEuler redis-db -init
-        ```
+    **Figure 2**Tool deployment page <a id="fig136096478334"></a> 
+    ![](figures/tool-deployment-page.png)
 
-        ```
-        Please enter the IP address of redis: 127.0.0.1
-        Please enter the port of redis: 6379
-        Please enter the database index of redis(from 0 to 16): 0
-        Please enter the password of redis:
-        ```
+    **Table 7** Deployment parameters
 
-        >![](public_sys-resources/icon-note.gif) **NOTE**
-        >If the Redis password is not set or is empty, press **Enter**.
+    <a id="table689465815346"></a>
+    <table><thead align="left"><tr id="row1789445813411"><th class="cellrowborder" valign="top" width="24.08%" id="mcps1.2.3.1.1"><p id="p2894195820342"><a name="p2894195820342"></a><a name="p2894195820342"></a> Parameter</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="75.92%" id="mcps1.2.3.1.2"><p id="p68943582343"><a name="p68943582343"></a><a name="p68943582343"></a> Description</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="row1289405863417"><td class="cellrowborder" valign="top" width="24.08%" headers="mcps1.2.3.1.1 "><p id="p689413585348"><a name="p689413585348"></a><a name="p689413585348"></a> Server IP Address</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="75.92%" headers="mcps1.2.3.1.2 "><p id="p289475810348"><a name="p289475810348"></a><a name="p289475810348"></a> IP address of the target server where x2openEuler is to be deployed.</p>
+    </td>
+    </tr>
+    <tr id="row6894558123415"><td class="cellrowborder" valign="top" width="24.08%" headers="mcps1.2.3.1.1 "><p id="p178943589343"><a name="p178943589343"></a><a name="p178943589343"></a>SSH Port</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="75.92%" headers="mcps1.2.3.1.2 "><p id="p7894115819349"><a name="p7894115819349"></a><a name="p7894115819349"></a>SSH port used to log in to the target server. The default value is 22.</p>
+    </td>
+    </tr>
+    <tr id="row20894135820344"><td class="cellrowborder" valign="top" width="24.08%" headers="mcps1.2.3.1.1 "><p id="p148943583346"><a name="p148943583346"></a><a name="p148943583346"></a>SSH User Name</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="75.92%" headers="mcps1.2.3.1.2 "><p id="p7894125803420"><a name="p7894125803420"></a><a name="p7894125803420"></a>Logging in to the target server as the <strong>root</strong> user is required to deploy x2openEuler. The value of this parameter must be <strong>root</strong>.</p>
+    <div class="note" id="note1866716712453"><a name="note1866716712453"></a><a name="note1866716712453"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p2066710754518"><a name="p2066710754518"></a><a name="p2066710754518"></a> User <strong>root</strong> has all permissions. After the tool is deployed, you are advised to forbid user <strong>root</strong> to log in to the system using SSH to ensure the security of the running environment.</p>
+    </div></div>
+    </td>
+    </tr>
+    <tr id="row08941158173419"><td class="cellrowborder" valign="top" width="24.08%" headers="mcps1.2.3.1.1 "><p id="p11894135843416"><a name="p11894135843416"></a><a name="p11894135843416"></a>SSH Password</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="75.92%" headers="mcps1.2.3.1.2 "><p id="p6894558103415"><a name="p6894558103415"></a><a name="p6894558103415"></a> Password of the <strong>root</strong> user for logging in to the target server to deploy the tool.</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
 
-    2.  Run the following command to import the resource package to the Redis database. The following uses the default resource package used when the x2openEuler tool is installed as an example.
+3.  After you click **Deploy**, the **Preparing for Installation** page is displayed. Set the password for the **x2openEuler** user. If the target server is not connected to the Internet, upload the x2openEuler installation package. Click **Next** to deploy the tool.
 
-        ```
-        x2openEuler init /opt/x2openEuler/source_centos7.6-openEuler20.03-LTS-SP1.tar.gz
-        ```
-### Verification
+    **Figure 3** Preparing for installation<a id="fig05381329135314"></a> 
+    ![](figures/preparing-for-installation.png)
 
+    >![](public_sys-resources/icon-note.gif) **NOTE:**
+    >The password must meet the following complexity requirements:
+    >-   Contains 8 to 32 characters.
+    >-   Contains at least two types of the following characters: uppercase letters, lowercase letters, digits, and special characters (\`\~!@\#$%^&\*\(\)-\_=+\\|\[\{\}\];:'",<.\>/?).
+    >-   Cannot contain any space.
+    >-   Cannot be the same as the user name.
+
+4.  After the tool is installed, the message **x2openEuler is deployed successfully** is displayed. Click **Configure Remote Server** and configure the server by referring to [Configuring Remote Servers](#configuring-remote-servers). If the tool fails to be deployed, deploy the tool again by referring to the information in the output at the bottom of VS Code.
+
+#### Verification
+
+##### Verifying the Installation Through Extension
+
+Log in to the x2openEuler extension page by referring to [Using x2openeuler Through the Extension](#using-x2openeuler-through-the-extension). If the login is successful, x2openEuler is installed.
+
+##### Verifying the Installation Through CLI
 
 1.  Use an SSH tool to remotely log in to the CentOS CLI.
 2.  Run the following command to switch to the **x2openEuler** user:
@@ -826,12 +744,13 @@ This section uses CentOS (x86_64) as an example to describe how to install the f
     ```
 
 
-### Uninstallation
+#### Uninstallation
 
-#### Prerequisites
+##### Prerequisites<a name="zh-cn_topic_0000001115258840_zh-cn_topic_0228242372_zh-cn_topic_0190602892_section19751229183511"></a>
 No tasks are running.
 
-#### Procedure
+##### Procedure<a name="zh-cn_topic_0000001115258840_zh-cn_topic_0228242372_zh-cn_topic_0190602892_section1963172611259"></a>
+
 1.  Use an SSH tool to remotely log in to the CLI as the **root** user.
 2.  Run the following command to uninstall the x2openEuler tool:
 
@@ -842,41 +761,492 @@ No tasks are running.
     >-   After the uninstallation is complete, delete the **x2openEuler** user to ensure system security.
 
 
+### Installing the x2openEuler Extension
+
+#### Environment Requirements
+
+The current version has been verified on the following OSs:
+
+-   Windows 10
+-   macOS 10.0 x86
+-   macOS 10.0 ARM
+
+#### Installation Methods
+>![](public_sys-resources/icon-note.gif) **NOTE:**
+>This extension is compatible with the latest VS Code.
+
+You can install the tool using either of the following methods:
+
+-   Install the extension from the Visual Studio Code Marketplace.
+
+    In the **Extensions** menu of Visual Studio Code, search for **x2openEuler** and click **Install**.
+
+-   Download the x2openEuler extension installation package from the oepkgs community website and install it.
+    1.  <a name="li8791113918435"></a> Download the x2openEuler extension installation package from the [oepkgs community](https://repo.oepkgs.net/openEuler/rpm/openEuler-20.03-LTS-SP1/contrib/x2openEuler/).
+
+    2.  Open VS Code on your local PC and click the **Extensions** icon in the primary side bar.
+    3.  In the **Views and More Actions** list, click **Install from VSIX**. Select the downloaded x2openEuler installation package and click **Install**.
+
+        After the installation is complete, choose ![](figures/zh-cn_image_0000001256107401.png) from the primary side bar to open the x2openEuler extension.
+
+
+
+
 ## Feature Guide
 
-### Software Assessment
+>![](public_sys-resources/icon-notice.gif) **NOTICE:**
+>-   If a user is idle for a long time after logging in to the server, security risks may exist. You are advised to perform the steps in [Configuring the Timeout Interval](#configuring-the-timeout-interval) on the server to improve system security.
+>-   You are not advised to use multiple clients to operate the x2openEuler tool on the same remote server at the same time.
+>-   When different clients upload files with the same name to the same remote server, the older file is overwritten.
 
-#### Description
+### Using x2openeuler Through the Extension
+ 
+#### Configuring the Remote Server
 
-Software porting assessment helps users assess the porting from CentOS 6.8, 7.6, and 8.2 to openEuler 20.03 LTS SP1.
+##### Prerequisites
 
-#### Execution
+The x2openEuler tool and x2openEuler extension have been installed.
 
-##### Scanning Application Packages Using CLI Commands
+##### Procedure
 
+1.  Click ![](figures/zh-cn_image_0000001211667460.png) in the primary side bar of VS Code to open the x2openEuler extension.
+2.  In the primary side bar, click **Configure Remote Server**. The page shown in [Figure 1](#zh-cn_topic_0303172996_zh-cn_topic_0301201532_fig15306105118267) is displayed. [Table 8](#zh-cn_topic_0303172992_zh-cn_topic_0301071780_table1357716326151) describes the parameters.
+
+    **Figure 4**  Configuring the remote server<a id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_fig15306105118267"></a>  
+    ![](figures/configuring-the-remote-server.png)
+
+    **Table 8** Parameters for configuring the remote server
+
+    <a id="zh-cn_topic_0303172992_zh-cn_topic_0301071780_table1357716326151"></a>
+    <table><thead align="left"><tr id="zh-cn_topic_0303172992_zh-cn_topic_0301071780_row205771932111515"><th class="cellrowborder" valign="top" width="24%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p1357713241519"><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p1357713241519"></a><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p1357713241519"></a> Parameter</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="76%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p0577232191520"><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p0577232191520"></a><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p0577232191520"></a> Description</p>
+    </th>
+    </tr>
+    <tbody><tr id="zh-cn_topic_0303172992_zh-cn_topic_0301071780_row25781532161513"><td class="cellrowborder" valign="top" width="24%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p55781932131514"><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p55781932131514"></a><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p55781932131514"></a> Server IP Address</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="76%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p12578732141510"><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p12578732141510"></a><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p12578732141510"></a>IP address of the remote server where x2openEuler is successfully deployed.</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0303172992_zh-cn_topic_0301071780_row957814326154"><td class="cellrowborder" valign="top" width="24%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p1257883211520"><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p1257883211520"></a><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p1257883211520"></a>SSH Port</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="76%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p191432022192511"><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p191432022192511"></a><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p191432022192511"></a>SSH port set during the tool installation.</p>
+    <div class="note" id="zh-cn_topic_0303172992_zh-cn_topic_0301071780_note17100172632511"><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_note17100172632511"></a><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_note17100172632511"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p1510072642512"><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p1510072642512"></a><a name="zh-cn_topic_0303172992_zh-cn_topic_0301071780_p1510072642512"></a> If the firewall on the server is enabled, ensure that the SSH port (<strong>22</strong> by default) has been enabled on the firewall before using x2openEuler.</p>
+    </div></div>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0303172992_row82481366213"><td class="cellrowborder" valign="top" width="24%" headers="mcps1.2.3.1.1 "><p id="p8722101917387"><a name="p8722101917387"></a><a name="p8722101917387"></a>SSH User Name</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="76%" headers="mcps1.2.3.1.2 "><p id="p317810436378"><a name="p317810436378"></a><a name="p317810436378"></a>SSH user name (<strong>x2openEuler</strong>) set during the tool installation.</p>
+    </td>
+    </tr>
+    <tr id="row12312324113819"><td class="cellrowborder" valign="top" width="24%" headers="mcps1.2.3.1.1 "><p id="p331292416389"><a name="p331292416389"></a><a name="p331292416389"></a>SSH Password</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="76%" headers="mcps1.2.3.1.2 "><p id="p203128247387"><a name="p203128247387"></a><a name="p203128247387"></a>Password of the SSH user (<strong>x2openEuler</strong>) set during the tool installation.</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+3.  Set the parameters based on the site requirements and click **Start Configuration**.
+
+    After the configuration is successful, the **x2openEuler Wizard** page is displayed, as shown in [Figure 5](#zh-cn_topic_0303172996_zh-cn_topic_0301201532_fig162740213572). In **x2openEuler Wizard**, you can create an assessment task immediately.
+
+    **Figure 5**  x2openEuler Wizard <a id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_fig162740213572"></a> 
+    ![](figures/x2openEuler-Wizard.png)
+
+#### Remote Server Management
+
+##### Prerequisites
+
+-   The x2openEuler extension has been installed.
+-   The remote server has been configured.
+
+##### Procedure
+
+1.  In the primary side bar of VS Code, select **Remote Server Management**. You can click ![](figures/zh-cn_image_0000001256703819.png) for [Configuring Remote Servers](#configuring-remote-servers).
+
+    **Figure 6** Remote Server Management<a id="fig6482251121820"></a> 
+    ![](figures/remote-server-management.png)
+
+2.  In the primary side bar of VS Code, select **Remote Server Management**. You can click ![](figures/zh-cn_image_0000001212304184.png) to clear the saved servers. In the dialog box that is displayed in the lower right corner, click **OK** to clear the saved servers.
+
+    **Figure 7** Clearing the saved servers <a id="fig5228134851419"></a> 
+    ![](figures/clearing-the-saved-servers.png)
+
+3.  In the primary side bar of VS Code, select **Remote Server Management**. You can click ![](figures/zh-cn_image_0000001256708211.png) to expand the saved server list. Select a saved server record, click ![](figures/zh-cn_image_0000001212149342.png) to clear the saved server, or click ![](figures/zh-cn_image_0000001212149298.png) to edit the server.
+
+#### Software Assessment
+
+##### Description
+
+Software migration assessment helps users assess the migrating from CentOS 6.8, 7.6, and 8.2 to openEuler 20.03 LTS SP1.
+
+##### Execution
 
 ###### Prerequisites
+
+The x2openEuler extension has been installed and the remote server has been configured.
+
+The x2openEuler tool has been installed.
+
+###### Procedure
+
+1.  In the primary side bar, select **Software Assessment** and click ![](figures/create-task-icon.png) to create a task.
+2.  In the analysis task creation area, select **Single Application** or **Multiple Applications** and set the following parameters:
+
+    >![](public_sys-resources/icon-note.gif) **NOTE:**
+    >**Single Application** and **Multiple Applications** are mutually exclusive. Select either of them based on the site requirements.
+
+    **Figure 8** Creating a software assessment task<a id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_fig15306105118267"></a> 
+    ![](figures/creating-software-assessment-task.png)
+
+    **Table 9** Parameters for creating a software assessment task
+
+    <a id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_table1342162861919"></a>
+    <table><thead align="left"><tr id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_row1342122820197"><th class="cellrowborder" valign="top" width="25.81%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p53433283196"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p53433283196"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p53433283196"></a> Parameter</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="74.19%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1634342821915"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1634342821915"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1634342821915"></a> Description</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_row113435282199"><td class="cellrowborder" valign="top" width="25.81%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p133431628131916"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p133431628131916"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p133431628131916"></a> Software Type</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="74.19%" headers="mcps1.2.3.1.2 "><a name="ul17227257459"></a><a name="ul17227257459"></a><ul id="ul17227257459"><li> Single Application: Assesses the rpm/tar/zip/gzip/jar/py/pyc/sh/bin software package. </li><li>Multiple Applications: Assesses multiple binary files in a directory, and generates an assessment report for each binary file</li></ul>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_row1352711322206"><td class="cellrowborder" valign="top" width="25.81%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p125272032152011"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p125272032152011"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p125272032152011"></a>Software Package Path</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="74.19%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p052720327206"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p052720327206"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p052720327206"></a> Click <strong>Upload</strong> to upload the software package.</p>
+    <div class="note" id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_note8722162652217"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_note8722162652217"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_note8722162652217"></a><span class="notetitle"> Note: In the </span><div class="notebody"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284246214_ul01971525134213"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284246214_ul01971525134213"></a><ul id="zh-cn_topic_0303172996_zh-cn_topic_0284246214_ul01971525134213"><li> In the Multiple Application mode, you can only upload a folder containing multiple binary files. </li><li>Only one software package can be uploaded at a time. The size of the software package must be less than or equal to 2 GB, and the size of the decompressed software file must be less than or equal to half of the remaining drive space. </li><li>The rpm/tar/zip/gzip/jar/py/pyc/sh/bin software packages are supported. </li></ul>
+    </div></div>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_row143431228141912"><td class="cellrowborder" valign="top" width="25.81%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p5343112851919"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p5343112851919"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p5343112851919"></a> Source OS</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="74.19%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p15343192813190"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p15343192813190"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p15343192813190"></a> Select the source OS. Available options:</p>
+    <a name="ul1360149175511"></a><a name="ul1360149175511"></a><ul id="ul1360149175511"><li>CentOS 6.8</li><li>CentOS 7.6</li><li>CentOS 8.2</li></ul>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_row163441028151920"><td class="cellrowborder" valign="top" width="25.81%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p93441628191913"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p93441628191913"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p93441628191913"></a> Target OS</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="74.19%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1434432815197"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1434432815197"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1434432815197"></a> Select the target OS. Available options:</p>
+    <p id="p7533121420569"><a name="p7533121420569"></a><a name="p7533121420569"></a>openEuler 20.03-LTS-SP1</p>
+    </td>
+    </tr>
+    <tr id="row52112218588"><td class="cellrowborder" valign="top" width="25.81%" headers="mcps1.2.3.1.1 "><p id="p22115221587"><a name="p22115221587"></a><a name="p22115221587"></a> System Architecture</p>
+    </td>
+    The <td class="cellrowborder" valign="top" width="74.19%" headers="mcps1.2.3.1.2 "><p id="p92142285818"><a name="p92142285818"></a><a name="p92142285818"></a> Select the system architecture. Available options:</p>
+    <a name="ul198673985812"></a><a name="ul198673985812"></a><ul id="ul198673985812"><li>x86_64</li><li>aarch64</li></ul>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+3.  Click **Start Assessment** to generate an assessment report.
+
+    After the assessment is complete, the assessment report details page is displayed, as shown in [Figure 9](#zh-cn_topic_0303172996_fig1916475495217). For details about the parameters, see [Table 10](#zh-cn_topic_0303172996_zh-cn_topic_0301201532_table102746212572).
+
+    >![](public_sys-resources/icon-note.gif) **NOTE:**
+    >-   During the task execution, you can click **Cancel Assessment** to cancel the assessment task.
+    >-   In the analysis report list, you can click the report name of a specified analysis task to view the analysis report.
+    >-   The name of the analysis report consists of the name of the scanned software package and the time when the report is generated.
+
+    **Figure 9** Software assessment report<a id="zh-cn_topic_0303172996_fig1916475495217"></a> 
+    ![](figures/software-assessment-report.png)
+
+    **Table 10** Parameters in the software assessment report
+
+    <a id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_table102746212572"></a>
+    <table><thead align="left"><tr id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_row171675241281"><th class="cellrowborder" valign="top" width="24.09%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a> Parameter</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="75.91%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a> Description</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_row8321944141610"><td class="cellrowborder" valign="top" width="24.09%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p19321044131618"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p19321044131618"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p19321044131618"></a> Assessment Result</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="75.91%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1232194421610"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1232194421610"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1232194421610"></a> Displays the assessment task information, such as the assessed software name, source OS, target OS, system architecture, and assessment result.</p>
+    </td>
+    </tr>
+    <tr id="row199271743191916"><td class="cellrowborder" valign="top" width="24.09%" headers="mcps1.2.3.1.1 "><p id="p17928943151914"><a name="p17928943151914"></a><a name="p17928943151914"></a> Suggested Operation</p>
+    </td>
+    The <td class="cellrowborder" valign="top" width="75.91%" headers="mcps1.2.3.1.2 "><p id="p102412211204"><a name="p102412211204"></a><a name="p102412211204"></a> Provides solutions based on the compatibility result in the assessment report.</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_row4141183071214"><td class="cellrowborder" valign="top" width="24.09%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1514418300123"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1514418300123"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1514418300123"></a> Dependency Package Compatibility</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="75.91%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1972516235213"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1972516235213"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1972516235213"></a> Displays the direct dependencies required for software installation and the RPM packages corresponding to the dependency files on each OS.</p>
+    <a name="ul128786216505"></a><a name="ul128786216505"></a><ul id="ul128786216505"><li>If the names and the versions of the RPM dependency package on the OSs are the same, <strong id="b158505286164"><a name="b158505286164"></a><a name="b158505286164"></a>Version is not changed</strong> is displayed.</li><li>If the versions of the RPM dependency package on the OSs are not the same, <strong id="b4550174319266"><a name="b4550174319266"></a><a name="b4550174319266"></a>Version is changed</strong> is displayed.</li><li>If the names of the RPM dependency package on the OSs are not the same, but the interface is not changed, <strong id="b18719201102816"><a name="b18719201102816"></a><a name="b18719201102816"></a>Package name is changed</strong> is displayed.</li><li>If the RPM package is missing on the target OS, <strong id="b8591917122810"><a name="b8591917122810"></a><a name="b8591917122810"></a>Missing</strong> is displayed.</li><li>If the RPM package is missing on the source OS, or the interface is changed, <strong id="b1323592572814"><a name="b1323592572814"></a><a name="b1323592572814"></a>Needs to be checked</strong> is displayed.</li><li>If the RPM package is missing on both source and target OSs, the package is placed in other, and <strong id="b6143192612919"><a name="b6143192612919"></a><a name="b6143192612919"></a>Needs to be checked</strong> is displayed.</li></ul>
+    </td>
+    </tr>
+    <tr id="row19363134015510"><td class="cellrowborder" valign="top" width="24.09%" headers="mcps1.2.3.1.1 "><p id="p93635405511"><a name="p93635405511"></a><a name="p93635405511"></a> Interface Compatibility (C/C++)</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="75.91%" headers="mcps1.2.3.1.2 "><a name="ul17593171015716"></a><a name="ul17593171015716"></a><ul id="ul17593171015716"><li> Invoked Function: Name of the function invoked in the assessed software. </li><li>Invoked Interface Program: Program that is invoked by a different external interface in the assessed software. </li><li>Results:<a name="ul1219994015015"></a><a name="ul1219994015015"></a><ul id="ul1219994015015"><li>Removed: Indicates a missing interface. </li><li>Changed: Indicates a changed input parameter, return value, or implementation of the function.</li></ul>
+    </li><li>In the expanded details:<a name="ul3678201912312"></a><a name="ul3678201912312"></a><ul id="ul3678201912312"><li> OS: Indicates the name of the OS for the migration assessment. </li><li>Function Name: Representation of the interface. </li><li>File Name: Name of the file where the external interface is located. </li><li>Dependency Package: External .so library where the interface is located. </li><li>Interface Differences: Changes of the external interface. If an interface has been removed, this item is left blank. </li></ul>
+    </li></ul>
+    </td>
+    </tr>
+    <tr id="row1161611412259"><td class="cellrowborder" valign="top" width="24.09%" headers="mcps1.2.3.1.1 "><p id="p66172452511"><a name="p66172452511"></a><a name="p66172452511"></a> Interface Compatibility (JDK)</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="75.91%" headers="mcps1.2.3.1.2 "><p id="p1461718417253"><a name="p1461718417253"></a><a name="p1461718417253"></a> Changes of the JDK interface invoked in the JAR package of the minimum JDK that meets the running environment requirements on the source OS.</p>
+    <a name="ul180521153612"></a><a name="ul180521153612"></a><ul id="ul180521153612"><li>openEuler JDK: Minimum JDK version that meets the JAR package running environment requirements on openEuler. </li><li>Object build JDK: JDK version corresponding to the scanned JAR package. </li><li>JAR Package Name: Name of the JAR package scanned. </li><li>Method Name: Name of the method whose interface is changed. </li><li>Function Signature: Signature of the function whose interface is changed. </li><li>Package Name: Name of the package (packageName+className) where the method with a changed interface is located. </li><li>Difference: Interface difference. </li></ul>
+    </td>
+    </tr>
+    <tr id="row647911561358"><td class="cellrowborder" valign="top" width="24.09%" headers="mcps1.2.3.1.1 "><p id="p4346301760"><a name="p4346301760"></a><a name="p4346301760"></a> Interface Compatibility (Java)</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="75.91%" headers="mcps1.2.3.1.2 "><p id="p1479956654"><a name="p1479956654"></a><a name="p1479956654"></a>JAR interface differences describe the changes of the interfaces of the current JAR packages on the target OS.</p>
+    <a name="ul118954081110"></a><a name="ul118954081110"></a><ul id="ul118954081110"><li> Invoked JAR package: Name of the JAR package that is invoked. </li><li>RPM Package: RPM package to which the current JAR package belongs. </li><li>In the expanded details, <a name="ul1615774151116"></a><a name="ul1615774151116"></a><ul id="ul1615774151116"><li><strong>centos7.6 Methods</strong> indicates the name of the interface from CentOS 7.6 that is incompatible with openEuler. <li>Package: JAR package to which the incompatible interface belongs. </li><li>Class: Class to which the incompatible interface belongs. </li><li>openEuler20.03-LTS-SP1 Change: Changes of incompatible interface on openEuler20.03-LTS-SP1. The changes include method removal, returned parameters, method signatures, method modifiers, and exceptions. </li></ul>
+    </li></ul>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+4.  On the **Create Task** page, you can download or delete the software assessment reports from the **Historical Reports** area on the right.
+
+    >![](public_sys-resources/icon-note.gif) **NOTE:**
+    >The assessment reports are stored in the **/opt/x2openEuler/output/** directory in the running environment. If you delete an assessment report from the historical reports on the page, the assessment report will not be completely deleted. To completely delete an assessment report, delete the file in the running environment.
+
+
+#### Configuration Collection and Assessment
+##### <span id ="information_assessment">Description</span>
+
+The configuration collection and assessment function helps users automatically identify the current server environment architecture and collects configuration information from the user environment for assessment and analysis.
+
+##### <span id ="information_assessment_1">Execution</span>
+
+###### Prerequisites
+
+The x2openEuler extension has been installed and the remote server has been configured.
+
+The x2openEuler tool has been installed.
+
+###### Procedure
+
+1.  In the primary side bar, choose **Configuration Collection and Assessment** and click![](figures/create-task-icon-0.png) to create a task.
+2.  In the assessment task creation area, select **Assessment** or **Collection** and set the following parameters:
+
+    >![](public_sys-resources/icon-note.gif) **NOTE:**
+    >-   **Assessment** and **Collection** are Mutually exclusive. Select either of them as required.
+    >-   The **Assessment** function can be used to assess the configuration information of the current server environment or analyze the environment of other servers using **Externally imported**.
+
+    **Figure 10** Creating a configuration collection and assessment task <a id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_fig15306105118267"></a> 
+    ![](figures/creating-configuration-collection-and-assessment-task.png)
+
+    **Table 11** Parameters for creating a configuration collection and assessment task
+
+    <a id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_table1342162861919"></a>
+    <table><thead align="left"><tr id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_row1342122820197"><th class="cellrowborder" valign="top" width="25.81%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p53433283196"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p53433283196"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p53433283196"></a> Parameter</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="74.19%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1634342821915"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1634342821915"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1634342821915"></a> Description</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_row113435282199"><td class="cellrowborder" valign="top" width="25.81%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p133431628131916"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p133431628131916"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p133431628131916"></a> Task Type</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="74.19%" headers="mcps1.2.3.1.2 "><a name="ul17227257459"></a><a name="ul17227257459"></a><ul id="ul17227257459"><li> Assessment: Automatically identifies and assesses the current server environment architecture and configuration information. </li><li>Collection: Collects configuration and hardware information about the current server. </li></ul>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_row1352711322206"><td class="cellrowborder" valign="top" width="25.81%" headers="mcps1.2.3.1.1 "><p id="p1232083718193"><a name="p1232083718193"></a><a name="p1232083718193"></a> Configuration Information Source</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="74.19%" headers="mcps1.2.3.1.2 "><a name="ul9818175261915"></a><a name="ul9818175261915"></a><ul id="ul9818175261915"><li> Local: Scans and collects configuration information about the current server environment. </li><li>Externally Imported: Allows you to upload the information collected using <strong>Configuration and Assessment</strong> in the tar.gz format. <div class="note" id="note1347151022115"><a name="note1347151022115"></a><a name="note1347151022115"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p14350111010218"><a name="p14350111010218"></a><a name="p14350111010218"></a> Path of external configuration information is not supported.</p>
+    </div></div>
+    </li></ul>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_row143431228141912"><td class="cellrowborder" valign="top" width="25.81%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p5343112851919"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p5343112851919"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p5343112851919"></a> Source OS</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="74.19%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p15343192813190"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p15343192813190"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p15343192813190"></a> Select the source OS. Available options:</p>
+    <a name="ul1360149175511"></a><a name="ul1360149175511"></a><ul id="ul1360149175511"><li>CentOS 6.8</li><li>CentOS 7.6</li><li>CentOS 8.2</li></ul>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_row163441028151920"><td class="cellrowborder" valign="top" width="25.81%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p93441628191913"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p93441628191913"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p93441628191913"></a> Target OS</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="74.19%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1434432815197"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1434432815197"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1434432815197"></a> Select the target OS. Available options:</p>
+    <p id="p7533121420569"><a name="p7533121420569"></a><a name="p7533121420569"></a>openEuler 20.03-LTS-SP1</p>
+    </td>
+    </tr>
+    <tr id="row52112218588"><td class="cellrowborder" valign="top" width="25.81%" headers="mcps1.2.3.1.1 "><p id="p22115221587"><a name="p22115221587"></a><a name="p22115221587"></a> System Architecture</p>
+    </td>
+    The <td class="cellrowborder" valign="top" width="74.19%" headers="mcps1.2.3.1.2 "><p id="p92142285818"><a name="p92142285818"></a><a name="p92142285818"></a> Select the system architecture. Available options:</p>
+    <a name="ul198673985812"></a><a name="ul198673985812"></a><ul id="ul198673985812"><li>x86_64</li><li>aarch64</li></ul>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+3.  Click **Start Assessment** to generate an assessment report.
+
+    After the assessment is complete, the assessment report details page is displayed, as shown in [Figure 11](#zh-cn_topic_0303172996_fig1916475495217). For details about the parameters, see [Table 12](#zh-cn_topic_0303172996_zh-cn_topic_0301201532_table102746212572).
+
+    >![](public_sys-resources/icon-note.gif) **NOTE:**
+    >-   During the task execution, you can click **Cancel Assessment** to cancel the assessment task.
+    >-   In the analysis report list, you can click the report name of a specified analysis task to view the analysis report.
+
+    **Figure 11** Configuration collection and assessment report <a id="zh-cn_topic_0303172996_fig1916475495217"></a> 
+    ![](figures/configuration-collection-and-assessment-report.png)
+
+    **Table 12** Parameters in the configuration collection and assessment report
+
+    <a id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_table102746212572"></a>
+    <table><thead align="left"><tr id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_row171675241281"><th class="cellrowborder" valign="top" width="24.09%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a> Parameter</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="75.91%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a> Description</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_row8321944141610"><td class="cellrowborder" valign="top" width="24.09%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p19321044131618"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p19321044131618"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p19321044131618"></a> Assessment Result</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="75.91%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1232194421610"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1232194421610"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1232194421610"></a> Displays the architecture information and migration description of the assessed OS.</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_row4141183071214"><td class="cellrowborder" valign="top" width="24.09%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1514418300123"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1514418300123"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1514418300123"></a> System Static Configurations</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="75.91%" headers="mcps1.2.3.1.2 "><p id="p1013323616182"><a name="p1013323616182"></a><a name="p1013323616182"></a> Comparison results of kernel configurations, kernel startup parameters, memory page sizes, kernel parameters, and mounting parameters.</p>
+    <div class="note" id="note1015916432513"><a name="note1015916432513"></a><a name="note1015916432513"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p161597432519"><a name="p161597432519"></a><a name="p161597432519"></a> If the preceding information changes, <strong id="b78863741715"><a name="b78863741715"></a><a name="b78863741715"></a>Needs to be checked</strong> is displayed. You need to check the corresponding configurations manually. If the information is not changed, <strong id="b14187204018170"><a name="b14187204018170"></a><a name="b14187204018170"></a>Not changed</strong> is displayed.</p>
+    </div></div>
+    </td>
+    </tr>
+    <tr id="row19363134015510"><td class="cellrowborder" valign="top" width="24.09%" headers="mcps1.2.3.1.1 "><p id="p93635405511"><a name="p93635405511"></a><a name="p93635405511"></a> System Dynamic Configurations</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="75.91%" headers="mcps1.2.3.1.2 "><p id="p7363164020515"><a name="p7363164020515"></a><a name="p7363164020515"></a> Comparison results of system configurations and system services.</p>
+    <div class="note" id="note1746191112253"><a name="note1746191112253"></a><a name="note1746191112253"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p8746411172520"><a name="p8746411172520"></a><a name="p8746411172520"></a>If the preceding comparison information changes, <strong>Needs to be checked</strong> is displayed. You need to check the corresponding configurations manually. If the information is not changed, <strong id="b1049474419173"><a name="b1049474419173"></a><a name="b1049474419173"></a>Not changed</strong> is displayed.</p>
+    </div></div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+    On the **Create Task** page, you can download or delete the configuration assessment reports from the **Historical Reports** area on the right.
+
+    >![](public_sys-resources/icon-note.gif) **NOTE:**
+    >The assessment reports are stored in the **/opt/x2openEuler/output/** directory in the running environment. If you delete an assessment report from the historical reports on the page, the assessment report will not be completely deleted. To completely delete an assessment report, delete the file in the running environment.
+
+#### Hardware Assessment
+
+##### <span id="DeviceConfig">Description</span>
+The hardware assessment function allows you to analyze and assess hardware information in the user environment.
+
+>![](public_sys-resources/icon-note.gif) **NOTE:**
+>Hardware assessment tasks can be performed only on physical machines.
+
+##### <span id="DeviceConfig_1">Execution</span>
+###### Prerequisites
+
+The x2openEuler extension has been installed and the remote server has been configured.
+
+The x2openEuler tool has been installed.
+
+###### Procedure
+
+1.  In the primary side bar, choose **Hardware Assessment** and click![](figures/create-task-icon-1.png) to create a task.
+2.  In the analysis task creation area, select **Local** or **Externally Imported** and set the following parameters:
+
+    >![](public_sys-resources/icon-note.gif) **NOTE:**
+    >-   **Local** and **Externally Imported** are mutually exclusive. Select either of them as required.
+    >-   It is recommended that hardware assessment tasks be performed on physical machines.
+
+    **Figure 12** Creating a hardware assessment task <a id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_fig15306105118267"></a> 
+    ![](figures/creating-hardware-assessment-task.png)
+
+    **Table 13** Parameters for creating a hardware assessment task
+
+    <a id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_table1342162861919"></a>
+    <table><thead align="left"><tr id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_row1342122820197"><th class="cellrowborder" valign="top" width="25.81%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p53433283196"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p53433283196"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p53433283196"></a> Parameter</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="74.19%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1634342821915"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1634342821915"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1634342821915"></a> Description</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_row113435282199"><td class="cellrowborder" valign="top" width="25.81%" headers="mcps1.2.3.1.1 "><p id="p20653144143517"><a name="p20653144143517"></a><a name="p20653144143517"></a> Hardware Information Source</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="74.19%" headers="mcps1.2.3.1.2 "><a name="ul17227257459"></a><a name="ul17227257459"></a><ul id="ul17227257459"><li> <strong>Local</strong>: Scans and collects hardware information about the current server environment. </li><li><strong>Externally Imported</strong>: Allows you to upload the information collected using Hardware Assessment in the tar.gz format. <div class="note" id="note1347151022115"><a name="note1347151022115"></a><a name="note1347151022115"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p14350111010218"><a name="p14350111010218"></a><a name="p14350111010218"></a> Path of external hardware information is not supported.</p>
+    </div></div>
+    </li></ul>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_row163441028151920"><td class="cellrowborder" valign="top" width="25.81%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p93441628191913"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p93441628191913"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p93441628191913"></a> Target OS</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="74.19%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1434432815197"><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1434432815197"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_p1434432815197"></a>Select the target OS. Available options:</p>
+    <p id="p7533121420569"><a name="p7533121420569"></a><a name="p7533121420569"></a>openEuler20.03-LTS-SP1</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+3.  Click **Start Assessment** to generate an assessment report.
+
+    After the assessment is complete, the assessment report details page is displayed, as shown in [Figure 13](#zh-cn_topic_0303172996_fig1916475495217). For details about the parameters, see [Table 14](#zh-cn_topic_0303172996_zh-cn_topic_0301201532_table102746212572).
+
+    >![](public_sys-resources/icon-note.gif) **NOTE:**
+    >-   During the task execution, you can click **Cancel Assessment** to cancel the assessment task.
+    >-   In the analysis report list, you can click the report name of a specified analysis task to view the analysis report.
+
+    **Figure 13** Hardware assessment report<a id="zh-cn_topic_0303172996_fig1916475495217"></a> 
+    ![](figures/hardware-assessment-report.png)
+
+    **Table 14** Parameters in the hardware assessment report
+
+    <a id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_table102746212572"></a>
+    <table><thead align="left"><tr id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_row171675241281"><th class="cellrowborder" valign="top" width="24.09%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a> Parameter</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="75.91%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a> Description</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_row8321944141610"><td class="cellrowborder" valign="top" width="24.09%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p19321044131618"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p19321044131618"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p19321044131618"></a> Assessment Result</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="75.91%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1232194421610"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1232194421610"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1232194421610"></a> Displays the OS, basic system, CPU, and device compatibility information in the assessed environment.</p>
+    </td>
+    </tr>
+    <tr id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_row4141183071214"><td class="cellrowborder" valign="top" width="24.09%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1514418300123"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1514418300123"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1514418300123"></a>Compatibility of Device with openEuler 20.03 LTS SP1</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="75.91%" headers="mcps1.2.3.1.2 "><p id="p2014862381310"><a name="p2014862381310"></a><a name="p2014862381310"></a> A device is compatible only when vendorID, deviceID, svID, and ssID are the same as those in the compatibility list. If the field information is not completely the same, the device is <strong>To be confirmed</strong>.</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+    On the **Create Task** page, you can download or delete the hardware assessment reports from the **Historical Reports** area on the right.
+
+    >![](public_sys-resources/icon-note.gif) **NOTE:**
+    >The assessment reports are stored in the **/opt/x2openEuler/output/** directory in the running environment. If you delete an assessment report from the historical reports on the page, the assessment report will not be completely deleted. To completely delete an assessment report, delete the file in the running environment.
+
+### Using x2openEuler through CLI
+#### <span id="SoftwareEvaluation">Software Assessment</span>
+
+##### <span id="SoftwareEvaluation_1">Description</span>
+
+Software migration assessment helps users assess the migrating from CentOS 6.8, 7.6, and 8.2 to openEuler 20.03 LTS SP1.
+
+##### <span id="SoftwareEvaluation_2">Execution</span>
+  
+
+###### Scanning Application Packages Using CLI
+
+Prerequisites
 
 >![](public_sys-resources/icon-notice.gif) **NOTICE**
 >The x2openEuler tool can be used only by the **x2openEuler** user. Before using the tool, switch to the **x2openEuler** user and change the working directory to the home directory of the **x2openEuler** user.
 
 Use an SSH remote login tool to log in as the **x2openEuler** user.
 
-###### Description
+Description
 
-Scans and analyzes a single application or multiple applications to assess the feasibility of porting applications from the source OS to the target OS.
+Scans and analyzes a single application or multiple applications to assess the feasibility of migrating applications from the source OS to the target OS.
 
-###### Format
+Format
 
 ```
 x2openEuler scan [-arch ARCH] [-os_name OS_NAME] [-target_os_name TARGET_OS_NAME] {filename | directoryname}
 x2openEuler scan -batch [-arch ARCH] [-os_name OS_NAME] [-target_os_name TARGET_OS_NAME] directoryname
 ```
 
-###### Parameter Description
-**Table 7**  Parameter description
+Parameter Description
+**Table 15**  Parameter description
 
-<a name="table421011513314"></a>
+<a id="table421011513314"></a>
 <table><thead align="left"><tr id="row1621012510312"><th class="cellrowborder" valign="top" width="15.261526152615263%" id="mcps1.2.4.1.1"><p id="p15210858312"><a name="p15210858312"></a><a name="p15210858312"></a> Parameter</p>
 </th>
 <th class="cellrowborder" valign="top" width="21.81218121812181%" id="mcps1.2.4.1.2"><p id="p132108516313"><a name="p132108516313"></a><a name="p132108516313"></a> Variable</p>
@@ -908,9 +1278,9 @@ x2openEuler scan -batch [-arch ARCH] [-os_name OS_NAME] [-target_os_name TARGET_
 </td>
 <td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p1390080162616"><a name="p1390080162616"></a><a name="p1390080162616"></a>Source OS.</p>
 <p id="p14988138318"><a name="p14988138318"></a><a name="p14988138318"></a> This parameter is optional.</p>
-<p id="p1289403083211"><a name="p1289403083211"></a><a name="p1289403083211"></a>The default value is <span id="ph63171531814"><a name="ph63171531814"></a><a name="ph63171531814"></a><strong>centos7.6</strong>.</span></p>
-<p id="p75576463326"><a name="p75576463326"></a><a name="p75576463326"></a>For example, <code>-os_name centos8.2</code> indicates that the source OS is<span id="ph11584612394"><a name="ph11584612394"></a><a name="ph11584612394"></a>CentOS 8.2.</span></p>
-<div class="note" id="note158951390342"><a name="note158951390342"></a><a name="note158951390342"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p1897203963415"><a name="p1897203963415"></a><a name="p1897203963415"></a>Currently, the source OS can be Cent<span id="ph7838524993"><a name="ph7838524993"></a><a name="ph7838524993"></a>OS</span> 6.8, Cent<span id="ph16181133393"><a name="ph16181133393"></a><a name="ph16181133393"></a>OS</span> 7.6, or Cent<span id="ph878812361997"><a name="ph878812361997"></a><a name="ph878812361997"></a>OS</span> 8.2.</p>
+<p id="p1289403083211"><a name="p1289403083211"></a><a name="p1289403083211"></a>The default value is centos7.6</p>
+<p id="p75576463326"><a name="p75576463326"></a><a name="p75576463326"></a>For example, <code>-os_name centos8.2</code> indicates that the source OS is CentOS 8.2.</p>
+<div class="note" id="note158951390342"><a name="note158951390342"></a><a name="note158951390342"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p1897203963415"><a name="p1897203963415"></a><a name="p1897203963415"></a>Currently, the source OS can be CentOS 6.8, CentOS 7.6, or CentOS 8.2.</p>
 </div></div>
 </td>
 </tr>
@@ -944,7 +1314,7 @@ x2openEuler scan -batch [-arch ARCH] [-os_name OS_NAME] [-target_os_name TARGET_
 <td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p4614194025613"><a name="p4614194025613"></a><a name="p4614194025613"></a>Directory of the application package to be scanned.</p>
 <p id="p813316525541"><a name="p813316525541"></a><a name="p813316525541"></a>This parameter is mandatory.</p>
 <p id="p13766942185614"><a name="p13766942185614"></a><a name="p13766942185614"></a>For example, <code>x2openEuler scan directory1</code> indicates that the single application package in <strong>directory1</strong> is scanned.</p>
-<p id="p1482310455710"><a name="p1482310455710"></a><a name="p1482310455710"></a>For example, <code>x2openEuler batch scan directory2</code> indicates that multiple application packages in <strong>directory2</strong> are scanned.</p>
+<p id="p1482310455710"><a name="p1482310455710"></a><a name="p1482310455710"></a>For example, <code>x2openEuler scan -batch directory2</code> indicates that the single application package in <strong>directory2</strong> is scanned.</p>
 <div class="note" id="note276837195719"><a name="note276837195719"></a><a name="note276837195719"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p2076337205712"><a name="p2076337205712"></a><a name="p2076337205712"></a> Only single-level directories are supported.</p>
 </div></div>
 </td>
@@ -952,7 +1322,7 @@ x2openEuler scan -batch [-arch ARCH] [-os_name OS_NAME] [-target_os_name TARGET_
 </tbody>
 </table>
 
-###### Example
+Example
 
 The following describes how to assess the **wpa_supplicant-2.6-1.el7.x86_64.rpm** application package and generate the software assessment report. Select the required parameters and replace the package name with the software package or directory to be scanned based on the site requirements.
 
@@ -978,25 +1348,31 @@ The command output is as follows:
 
 In the command output, **/opt/x2openEuler/output/wpa_supplicant-2.6-12.el7.x86_64-20211130091235.html** is the assessment report file.
 
+>![](public_sys-resources/icon-note.gif) **NOTE:** 
+>Software compatibility assessment report displays dependency package compatibility, C/C++ interface compatibility, JDK interface compatibility, and Java interface compatibility.
+>-   Dependency package compatibility: shows the direct dependency of a software package. If the result is not 100%, the software package cannot be directly installed.
+>-   Interface compatibility: shows the changes of the invocation of other software packages, dynamic libraries, and system interfaces by a software. If the result is not 100%, exception may occur when a function is invoked.
+>You are advised to manually review the results. The suggested priority is: openEuler packages \> packages recompiled on openEuler\> CentOS packages.
 
-### Environment Configuration Collection and Assessment
+#### <span id="ConfigurationCollection">Environment Configuration Collection and Assessment</span>
 
 
 
-#### Description
+##### <span id="ConfigurationCollection_1">Description</span>
 
 The configuration collection and assessment function helps users automatically identify the current server environment architecture and collects configuration information from the user environment for assessment and analysis.
 
 
-#### Execution
+##### <span id="ConfigurationCollection_2">Execution</span>
 
 
-##### Collecting Configuration and Hardware Information Using CLI Commands
+###### Collecting Configuration and Hardware Information Using CLI Commands
 
-###### Prerequisites
+Prerequisites
 
 >![](public_sys-resources/icon-notice.gif) **NOTICE**
->The x2openEuler tool can be used only by the **x2openEuler** user. Before using the tool, switch to the **x2openEuler** user and change the working directory to the home directory of the **x2openEuler** user.
+>-   The x2openEuler tool can be used only by the **x2openEuler** user. Before using the tool, switch to the **x2openEuler** user and change the working directory to the home directory of the **x2openEuler** user.
+>-   You need to enter the password of the **x2openEuler** user for multiple times when using this function.
 
 Use an SSH remote login tool to log in as the **x2openEuler** user.
 
@@ -1051,34 +1427,35 @@ In the command output, **/opt/x2openEuler/output/sysconf-20211130091339.tar.gz**
 -   port.json: port information, which is dynamic
 -   device_interface.json: device driver interfaces to provided device interfaces in user mode
 -   linux_command.json: Linux command interfaces
--   hardware_configure.json: hardware configuration information of the x86 or AArch64 system and the plug-in cards
+-   hardware_configure.json: hardware configuration information of the x86 or AArch64 devices
 -   proc.json: process information, which is dynamic
 -   system_configure.json: system configuration parameters (**sysctl**, **proc**, and **sys**), which is dynamic
 -   system_service.json: system service
 -   kernel_configure.json: kernel option configuration parameter information, which is static
 
-##### Analyzing Configuration Information Using CLI Commands
+###### Analyzing Configuration Information Using CLI Commands
 
-###### Prerequisites
+Prerequisites
 
 >![](public_sys-resources/icon-notice.gif) **NOTICE**
->The x2openEuler tool can be used only by the **x2openEuler** user. Before using the tool, switch to the **x2openEuler** user and change the working directory to the home directory of the **x2openEuler** user.
+>-   The x2openEuler tool can be used only by the **x2openEuler** user. Before using the tool, switch to the **x2openEuler** user and change the working directory to the home directory of the **x2openEuler** user.
+>-   You need to enter the password of the **x2openEuler** user for multiple times when using this function.
 
 Use an SSH remote login tool to log in as the **x2openEuler** user.
 
-###### Description
+Description
 
 Analyzes and assesses the configuration information scanned locally or imported externally.
 
-###### Format
+Format
 
 ```
 x2openEuler conf-analyse [-os_name OS_NAME][-target_os_name TARGET_OS_NAME] [-local | -load LOAD [-arch ARCH]]
 ```
 
-###### Parameter Description
+Parameter Description
 
-**Table 8**  Parameter description
+**Table 16**  Parameter description
 
 <a name="table421011513314"></a>
 <table><thead align="left"><tr id="row1621012510312"><th class="cellrowborder" valign="top" width="15.261526152615263%" id="mcps1.2.4.1.1"><p id="p15210858312"><a name="p15210858312"></a><a name="p15210858312"></a> Parameter</p>
@@ -1095,8 +1472,8 @@ x2openEuler conf-analyse [-os_name OS_NAME][-target_os_name TARGET_OS_NAME] [-lo
 </td>
 <td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p1390080162616"><a name="p1390080162616"></a><a name="p1390080162616"></a>Source OS.</p>
 <p id="p14988138318"><a name="p14988138318"></a><a name="p14988138318"></a> This parameter is optional.</p>
-<p id="p1289403083211"><a name="p1289403083211"></a><a name="p1289403083211"></a>The default value is <span id="ph151630421141"><a name="ph151630421141"></a><a name="ph151630421141"></a><strong>centos7.6</strong>.</span></p>
-<p id="p75576463326"><a name="p75576463326"></a><a name="p75576463326"></a>For example, <code>-os_name centos8.2</code></span> indicates that the source OS is<span id="ph1195155911148"><a name="ph1195155911148"></a><a name="ph1195155911148"></a> CentOS 8.2.</span></p>
+<p id="p1289403083211"><a name="p1289403083211"></a><a name="p1289403083211"></a>The default value is centos7.6</p>
+<p id="p75576463326"><a name="p75576463326"></a><a name="p75576463326"></a>For example, <code>-os_name centos8.2</code> indicates that the source OS is CentOS 8.2.</p>
 <div class="note" id="note158951390342"><a name="note158951390342"></a><a name="note158951390342"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p1897203963415"><a name="p1897203963415"></a><a name="p1897203963415"></a>Currently, the source OS can be CentOS 6.8, CentOS 7.6, or CentOS 8.2.</p>
 </div></div>
 </td>
@@ -1148,7 +1525,7 @@ x2openEuler conf-analyse [-os_name OS_NAME][-target_os_name TARGET_OS_NAME] [-lo
 </tbody>
 </table>
 
-###### Example
+Example
 
 The following uses the **sysconf-20211130091339.tar.gz** configuration information file imported from an external system as an example. Select the required parameters based on the site requirements and replace the file name with the imported file to be assessed.
 
@@ -1167,39 +1544,40 @@ The command output is as follows:
 In the command output, **/opt/x2openEuler/output/conf_info_report-20211130092414.html** is the assessment report file.
 
 
-### Hardware assessment
+#### <span id="HardwareEvaluation">Hardware assessment</span>
 
-#### Description
+##### <span id="HardwareEvaluation_1">Description</span>
 >![](public_sys-resources/icon-notice.gif) **NOTICE**
->It is recommended that hardware assessment tasks be performed on physical machines. If hardware information analysis is performed on VMs, no analysis report can be generated.
+>-   It is recommended that hardware assessment tasks be performed on physical machines. If hardware information analysis is performed on VMs, no analysis report can be generated.
+>-   You need to enter the password of the **x2openEuler** user for multiple times when using this function.
 
 The hardware assessment function allows you to analyze and assess hardware information in the user environment.
 
-#### Execution
+##### <span id="HardwareEvaluation_2">Execution</span>
 
 
 
-##### Analyzing Hardware Information Using CLI Commands
+###### Analyzing Hardware Information Using CLI Commands
 
-###### Prerequisites
+Prerequisites
 
 >![](public_sys-resources/icon-notice.gif) **NOTICE**
 >The x2openEuler tool can be used only by the **x2openEuler** user. Before using the tool, switch to the **x2openEuler** user and change the working directory to the home directory of the **x2openEuler** user.
 
 Use an SSH remote login tool to log in as the **x2openEuler** user.
 
-###### Description
+Description
 
 Assesses the compatibility of hardware resources scanned locally or imported externally.
 
-###### Format
+Format
 ```
 x2openEuler hardware-analyse [-local | -load LOAD]
 ```
 
-###### Parameter Description
+Parameter Description
 
-**Table 9**  Parameter description
+**Table 17**  Parameter description
 
 <a name="table421011513314"></a>
 <table><thead align="left"><tr id="row1621012510312"><th class="cellrowborder" valign="top" width="15.221522152215222%" id="mcps1.2.4.1.1"><p id="p15210858312"><a name="p15210858312"></a><a name="p15210858312"></a>Parameter</p>
@@ -1235,7 +1613,7 @@ x2openEuler hardware-analyse [-local | -load LOAD]
 </tbody>
 </table>
 
-###### Example
+Example
 
 The following uses local hardware resource information as an example. You can choose to analyze local hardware resource information or import external hardware information based on the site requirements.
 
@@ -1273,18 +1651,19 @@ The command output is as follows:
 In the command output, **/opt/x2openEuler/output/hw_compat_report-20211130094121.html** is the assessment report file.
 
 ## Common Operations
-
 ### Viewing Command Parameter Description
 
 >![](public_sys-resources/icon-notice.gif) **NOTICE**
 >Currently, The x2openEuler tool can be used only by the **x2openEuler** user. Before using the tool, switch to the **x2openEuler** user.
 
 #### Prerequisites
+
 The **x2openEuler** user has been created.
 
 The x2openEuler tool has been installed.
 
 #### Procedure
+
 1.  Use an SSH remote connection tool to log in to the server as the **x2openEuler** user.
 2.  Run the following command to query the parameter description of all commands:
 
@@ -1296,7 +1675,7 @@ The x2openEuler tool has been installed.
 
     ```
     usage: x2openEuler [-h] [-v]
-                           {scan,conf-collect,conf-analyse,hardware-analyse,update,init,redis-db}
+                           {scan,conf-collect,conf-analyse,hardware-analyse,update}
                            ...
     
     x2openEuler tool chain
@@ -1308,7 +1687,7 @@ The x2openEuler tool has been installed.
     subcommands:
       subcommand parser
     
-      {scan,conf-collect,conf-analyse,hardware-analyse,update,init,redis-db}
+      {scan,conf-collect,conf-analyse,hardware-analyse,update}
         scan                migration assessment tool
         conf-collect        aparser tool
         conf-analyse        analyse system configures and generate report
@@ -1318,6 +1697,7 @@ The x2openEuler tool has been installed.
         redis-db            Redis database configuration initialization and update
     
     ```
+
 
 ### Viewing the x2openEuler Version Information Using CLI Commands
 
@@ -1348,7 +1728,6 @@ In the command output, **x.x.x** indicates the version.
 ```
 x2openEuler x.x.x
 ```
-
 ### Viewing the Assessment Report Using CLI Commands
 
 #### Prerequisites
@@ -1410,7 +1789,7 @@ The following describes how to configure the Yum source on CentOS 7.6. The proce
         vi /etc/yum.repos.d/media.repo
         ```
 
-    2.  Press **i** to enter the edit mode and add the following information to the **media.repo** file:
+    2.  Press **I** to enter the insert mode and add the following information to the **media.repo** file:
 
         ```
         [InstallMedia]
@@ -1441,18 +1820,18 @@ Query the OS version information.
 -   If you do not know the OS type, try the following commands one by one to check the OS version:
 
     >![](public_sys-resources/icon-note.gif) **NOTE:**
-    >According to [Table 10](#zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_table16951181710103), the commands for version information on the compatible OSs are:
+    >According to [Table 18](#zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_table16951181710103), the commands for version information on the compatible OSs are:
 
     -   cat /etc/os-release
     -   cat /etc/issue
     -   cat /etc/redhat-release
     -   nkvers
 
--   If you are sure about the OS type, you can run the corresponding command listed in [Table 10](#zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_table16951181710103) to query the release version.
+-   If you are sure about the OS type, you can run the corresponding command listed in [Table 18](#zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_table16951181710103) to query the release version.
 
-**Table 10** Commands for querying the OS versions
+**Table 18** Commands for querying the OS versions
 
-<a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_table16951181710103"></a>
+<a id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_table16951181710103"></a>
 <table><thead align="left"><tr id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_row1995161771012"><th class="cellrowborder" valign="top" width="24.45244524452445%" id="mcps1.2.4.1.1"><p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p5951101714100"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p5951101714100"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p5951101714100"></a>Compatible OS</p>
 </th>
 <th class="cellrowborder" valign="top" width="20.3020302030203%" id="mcps1.2.4.1.2"><p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p29511917151013"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p29511917151013"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p29511917151013"></a> Command</p>
@@ -1473,11 +1852,50 @@ Query the OS version information.
 </td>
 <td class="cellrowborder" valign="top" width="20.3020302030203%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p153810249255"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p153810249255"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p153810249255"></a>cat /etc/os-release</p>
 </td>
-<td class="cellrowborder" valign="top" width="55.24552455245525%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p109251723162010"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p109251723162010"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p109251723162010"></a>openEuler 20.03 SP1: openEuler release 20.03 (LTS-SP1)</p>
+<td class="cellrowborder" valign="top" width="55.24552455245525%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p1354914112256"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p1354914112256"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p1354914112256"></a></p>
+<p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p109251723162010"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p109251723162010"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p109251723162010"></a>openEuler 20.03 SP1: openEuler release 20.03 (LTS-SP1)</p>
+<p id="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p3884183962020"><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p3884183962020"></a><a name="zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_p3884183962020"></a></p>
 </td>
 </tr>
 </tbody>
 </table>
+
+### Configuring the Timeout Interval
+
+#### Prerequisites
+
+-   The x2openEuler tool and x2openEuler extension have been installed.
+
+#### Procedure
+
+1.  Use an SSH tool to remotely log in to the CentOS CLI as a common user.
+2.  Run the following command to switch to the **root** user.
+
+    ```
+    su - root
+    ```
+
+3.  Open the SSH configuration file **/etc/ssh/sshd\_config**.
+
+    ```
+    vi /etc/ssh/sshd_config
+    ```
+
+    Set the following parameters:
+
+    ```
+    TCPKeepAlive yes
+    ClientAliveInterval 60
+    ClientAliveCountMax 5
+    ```
+
+    After the modification is complete, Press **Esc**, type **:wq**, and press **Enter** to save the change and exit.
+
+4.  Restart the SSH service.
+
+### Feedback
+
+If you have any suggestions on the x2openEuler tool and extension, submit an issue at https://gitee.com/openeuler/oec-application/issues.
 
 ## FAQ
 
@@ -1488,7 +1906,7 @@ Query the OS version information.
 #### Symptom
 When you view the downloaded HTML assessment report, the page is not displayed properly.
 
-![](figures/zh-cn_image_0000001229168603.png)
+![](figures/zh-cn_image_0000001256227455.png)
 
 #### Possible Cause
 
@@ -1506,8 +1924,8 @@ You are advised to use Chrome to view the downloaded HTML assessment report.
 
 During the installation of x2openEuler, some dependency packages may be missing. As a result, the installation is interrupted and fails. If the following information is displayed, one or more dependency packages are missing:
 
-**Figure 1**  Command output when dependency packages are missing<a name="fig6891110151519"></a>  
-![](figures/dependency.png "Command output when dependency packages are missing")
+**Figure 14**  Command output when dependency packages are missing<a name="fig6891110151519"></a>  
+![](figures/dependency.png)
 
 #### Possible Cause
 
@@ -1526,11 +1944,66 @@ The software package required for installing x2openEuler is not installed in the
 
 ## Appendixes
 
+
+
+### Running Environment Data Usage Description
+
+#### Precautions
+The data usage scenarios of x2openEuler is listed in [Table 19](#table5582131519592). Take measures to protect your data accordingly.
+
+#### Running Environment Data Usage Scenarios
+
+**Table 19**  Data Usage Description
+
+<a id="table5582131519592"></a>
+<table><thead align="left"><tr id="row19582171535915"><th class="cellrowborder" valign="top" width="14.6985301469853%" id="mcps1.2.8.1.1"><p id="p14582121518596"><a name="p14582121518596"></a><a name="p14582121518596"></a>Scenario or Function That Collects Data</p>
+</th>
+<th class="cellrowborder" valign="top" width="31.096890310968906%" id="mcps1.2.8.1.2"><p id="p10846103513116"><a name="p10846103513116"></a><a name="p10846103513116"></a>Command or File Used for Data Collection</p>
+</th>
+<th class="cellrowborder" valign="top" width="6.979302069793021%" id="mcps1.2.8.1.3"><p id="p9851719124514"><a name="p9851719124514"></a><a name="p9851719124514"></a>Data Collection Necessity</p>
+</th>
+<th class="cellrowborder" valign="top" width="7.179282071792821%" id="mcps1.2.8.1.4"><p id="p181626618460"><a name="p181626618460"></a><a name="p181626618460"></a>Extra Data Collected</p>
+</th>
+<th class="cellrowborder" valign="top" width="14.378562143785622%" id="mcps1.2.8.1.5"><p id="p1858210155597"><a name="p1858210155597"></a><a name="p1858210155597"></a>Purpose</p>
+</th>
+<th class="cellrowborder" valign="top" width="11.538846115388461%" id="mcps1.2.8.1.6"><p id="p55825152595"><a name="p55825152595"></a><a name="p55825152595"></a>Data Storage and Protection Measures</p>
+</th>
+<th class="cellrowborder" valign="top" width="14.128587141285873%" id="mcps1.2.8.1.7"><p id="p11582131511595"><a name="p11582131511595"></a><a name="p11582131511595"></a>Data Removing</p>
+</th>
+</tr>
+</thead>
+<tbody><tr id="row2058214154598"><td class="cellrowborder" rowspan="2" valign="top" width="14.6985301469853%" headers="mcps1.2.8.1.1 "><a name="ul187572817495"></a><a name="ul187572817495"></a><ul id="ul187572817495"><li>Configuration and hardware information collection</li><li>Configuration information difference analysis</li><li>Hardware compatibility assessment</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="31.096890310968906%" headers="mcps1.2.8.1.2 "><a name="ul199307145106"></a><a name="ul199307145106"></a><ul id="ul199307145106"><li>/bin/cat /boot/grub2/grub.cfg</li><li>/usr/sbin/lspci -nvvv</li><li>/usr/sbin/lspci -xxx</li><li>/bin/netstat -npl</li><li>/usr/sbin/sysctl -a</li><li>/usr/sbin/dmidecode -t bios -t system -t baseboard -t chassis -t processor -t memory -t cache -t connector -t slot</li><li>/usr/sbin/dmidecode -s system-product-name</li><li>/bin/cat /boot/efi/EFI/centos/grub.cfg</li></ul>
+</td>
+<td class="cellrowborder" valign="top" width="6.979302069793021%" headers="mcps1.2.8.1.3 "><p id="p785116194452"><a name="p785116194452"></a><a name="p785116194452"></a>Necessary</p>
+</td>
+<td class="cellrowborder" valign="top" width="7.179282071792821%" headers="mcps1.2.8.1.4 "><p id="p20162963462"><a name="p20162963462"></a><a name="p20162963462"></a>None</p>
+</td>
+<td class="cellrowborder" valign="top" width="14.378562143785622%" headers="mcps1.2.8.1.5 "><p id="p13605012145413"><a name="p13605012145413"></a><a name="p13605012145413"></a>For hardware compatibility assessment and configuration information difference analysis.</p>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="11.538846115388461%" headers="mcps1.2.8.1.6 "><a name="ul4726811425"></a><a name="ul4726811425"></a><ul id="ul4726811425"><li>Data collected for hardware compatibility assessment is stored in the memory and is not stored persistently.</li><li>Data collected for configuration and hardware information collection is stored in files whose owner and owner group is <strong>x2openEuler</strong>. Other users cannot access the files. You can download the files using an IDE and save them secure.</li></ul>
+</td>
+<td class="cellrowborder" rowspan="2" valign="top" width="14.128587141285873%" headers="mcps1.2.8.1.7 "><a name="ul1193584016294"></a><a name="ul1193584016294"></a><ul id="ul1193584016294"><li>The x2openEuler user can delete data files saved for configuration and hardware information collection in the <span class="filepath" id="zh-cn_topic_0000001255987443_filepath16903015141915"><a name="zh-cn_topic_0000001255987443_filepath16903015141915"></a><a name="zh-cn_topic_0000001255987443_filepath16903015141915"></a><strong>/opt/x2openEuler/output/</strong></span> directory.</li><li>When the x2openEuler tool is uninstalled, the files saved for configuration and hardware information collection in the <span class="filepath" id="filepath924210143016"><a name="filepath924210143016"></a><a name="filepath924210143016"></a><strong>/opt/x2openEuler/output/</strong></span> directory are completely deleted.</li></ul>
+</td>
+</tr>
+<tr id="row2058215156593"><td class="cellrowborder" valign="top" headers="mcps1.2.8.1.1 "><a name="ul143341119191010"></a><a name="ul143341119191010"></a><ul id="ul143341119191010"><li>/boot/grub2/grub.cfg</li><li>/etc/default/grub</li><li>/usr/include/asm/unistd_64.h</li><li>/etc/fstab</li><li>/etc/profile</li><li>/etc/sysctl.conf</li><li>/boot/conifg-*</li></ul>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.8.1.2 "><p id="p385161916455"><a name="p385161916455"></a><a name="p385161916455"></a>Necessary</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.8.1.3 "><p id="p6162116174611"><a name="p6162116174611"></a><a name="p6162116174611"></a>None</p>
+</td>
+<td class="cellrowborder" valign="top" headers="mcps1.2.8.1.4 "><p id="p17192918185414"><a name="p17192918185414"></a><a name="p17192918185414"></a>For configuration difference analysis.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
 ### Related Links
 
-**Table 11** Related links
+**Table 20** Related links
 
-<a name="table1656344955412"></a>
+<a id="table1656344955412"></a>
 <table><thead align="left"><tr id="row1856304918547"><th class="cellrowborder" valign="top" width="36.19%" id="mcps1.2.3.1.1"><p id="p9563154911541"><a name="p9563154911541"></a><a name="p9563154911541"></a> Website</p>
 </th>
 <th class="cellrowborder" valign="top" width="63.81%" id="mcps1.2.3.1.2"><p id="p356384917540"><a name="p356384917540"></a><a name="p356384917540"></a> Link</p>
