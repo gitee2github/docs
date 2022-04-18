@@ -621,6 +621,9 @@ The official Yum source of openEuler 21.03 supports the Openstack Victoria versi
    enabled_apis = osapi_compute,metadata
    transport_url = rabbit://openstack:RABBIT_PASS@controller:5672/
    my_ip = 10.0.0.11
+   compute_driver = libvirt.LibvirtDriver
+   instances_path = /var/lib/nova/instances/
+   log_dir = /var/log/nova
    [api_database]
    # ...
    connection = mysql+pymysql://nova:NOVA_DBPASS@controller/nova_api
