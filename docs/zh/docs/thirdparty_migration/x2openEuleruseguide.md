@@ -1605,7 +1605,7 @@ x2openEuler hardware-analyse [-local | -load LOAD]
 <p id="p14841053173619"><a name="p14841053173619"></a><a name="p14841053173619"></a>可选参数</p>
 <p id="p6152159121914"><a name="p6152159121914"></a><a name="p6152159121914"></a>默认参数为-local</p>
 <p id="p95571549821"><a name="p95571549821"></a><a name="p95571549821"></a>例如</p>
-<p id="p19484353113619"><a name="p19484353113619"></a><a name="p19484353113619"></a>"x2openEuler conf-analyse"       #选择分析数据为本地生成数据</p>
+<p id="p19484353113619"><a name="p19484353113619"></a><a name="p19484353113619"></a>"x2openEuler hardware-analyse"       #选择分析数据为本地生成数据</p>
 </td>
 </tr>
 <tr id="row13829202742818"><td class="cellrowborder" valign="top" width="15.221522152215222%" headers="mcps1.2.4.1.1 "><p id="p5830827162812"><a name="p5830827162812"></a><a name="p5830827162812"></a>-load</p>
@@ -1614,7 +1614,7 @@ x2openEuler hardware-analyse [-local | -load LOAD]
 </td>
 <td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p8830172792810"><a name="p8830172792810"></a><a name="p8830172792810"></a>指定分析的数据为外部导入数据。</p>
 <p id="p224218516166"><a name="p224218516166"></a><a name="p224218516166"></a>例如</p>
-<p id="p224275131615"><a name="p224275131615"></a><a name="p224275131615"></a>"x2openEuler conf-analyse -load <em id="i112424517167"><a name="i112424517167"></a><a name="i112424517167"></a>file_Name</em>.tar.gz"      #选择分析数据为外部导入数据</p>
+<p id="p224275131615"><a name="p224275131615"></a><a name="p224275131615"></a>"x2openEuler hardware-analyse -load <em id="i112424517167"><a name="i112424517167"></a><a name="i112424517167"></a>file_Name</em>.tar.gz"      #选择分析数据为外部导入数据</p>
 <div class="note" id="note182421151181612"><a name="note182421151181612"></a><a name="note182421151181612"></a><span class="notetitle"> 说明： </span><div class="notebody"><p id="p424245110165"><a name="p424245110165"></a><a name="p424245110165"></a>外部导入数据必须为tar.gz文件且必须为配置收集与评估功能收集的数据。</p>
 </div></div>
 </td>
@@ -1815,7 +1815,7 @@ x2openEuler x.x.x
 
 ### 查询操作系统的版本信息
 
-执行**uname -r**命令查询cpu硬件架构，工具只支持x86或者基于鲲鹏916/920的服务器。
+执行**uname -a**命令查询cpu硬件架构，工具只支持x86或者基于鲲鹏916/920的服务器。
 
 查询操作系统的版本信息。
 
