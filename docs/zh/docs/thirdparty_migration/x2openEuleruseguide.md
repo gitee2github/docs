@@ -788,22 +788,12 @@ x2openEuler自动安装的依赖组件如[表5](#table134317232714)所示。
 >![](public_sys-resources/icon-note.gif) **说明：** 
 >该插件兼容VS Code最新版本。
 
-安装方式有以下两种：
 
--   在Visual Studio Code应用商店安装x2openEuler插件
+
+在Visual Studio Code应用商店安装x2openEuler插件
 
     在Visual Studio Code扩展菜单中搜索“x2openEuler”，单击“安装”。（或在Visual Studio Code应用商店中安装）。
-
--   在oepkgs社区网站下载x2openEuler扩展安装包进行安装。
-    1.  <a name="li8791113918435"></a>在[oepkgs社区](https://repo.oepkgs.net/openEuler/rpm/openEuler-20.03-LTS-SP1/contrib/x2openEuler/)下载x2openEuler扩展安装包。
-
-    2.  打开本地PC上的Visual Studio Code，在左侧菜单栏中单击扩展图标。
-    3.  在更多选项中单击“从VSIX安装...”，选择已下载的x2openEuler扩展安装包，单击“安装”。
-
-        安装完成后，在左侧菜单栏中单击![](figures/zh-cn_image_0000001256107401.png)打开x2openEuler工具。
-
-
-
+    安装完成后，在左侧菜单栏中单击![](figures/zh-cn_image_0000001256107401.png)打开x2openEuler工具。
 
 ## 特性指南
 
