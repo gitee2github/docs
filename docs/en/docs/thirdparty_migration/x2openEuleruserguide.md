@@ -252,7 +252,7 @@ The x2openEuler tool has the following features:
 
 -   Hardware assessment
 
-    Check whether the entire system (x86/AArch64) and plug-in cards (RAID/NIC/FC/IB/GPU/SSD/TPM) in the running environment are in the openEuler compatibility list.
+    Checks whether the entire system (x86/AArch64) and plug-in cards (RAID/NIC/FC/IB/GPU/SSD/TPM) in the running environment are in the openEuler compatibility list.
 
 
 ## Installation
@@ -775,22 +775,11 @@ The current version has been verified on the following OSs:
 >![](public_sys-resources/icon-note.gif) **NOTE:**
 >This extension is compatible with the latest VS Code.
 
-You can install the tool using either of the following methods:
+##### Installing the Extension from Visual Studio Code Marketplace
 
--   Install the extension from the Visual Studio Code Marketplace.
+In the **Extensions** menu of Visual Studio Code, search for **x2openEuler** and click **Install**.
 
-    In the **Extensions** menu of Visual Studio Code, search for **x2openEuler** and click **Install**.
-
--   Download the x2openEuler extension installation package from the oepkgs community website and install it.
-    1.  <a name="li8791113918435"></a> Download the x2openEuler extension installation package from the [oepkgs community](https://repo.oepkgs.net/openEuler/rpm/openEuler-20.03-LTS-SP1/contrib/x2openEuler/).
-
-    2.  Open VS Code on your local PC and click the **Extensions** icon in the primary side bar.
-    3.  In the **Views and More Actions** list, click **Install from VSIX**. Select the downloaded x2openEuler installation package and click **Install**.
-
-        After the installation is complete, choose ![](figures/zh-cn_image_0000001256107401.png) from the primary side bar to open the x2openEuler extension.
-
-
-
+After the installation is complete, choose ![](figures/zh-cn_image_0000001256107401.png) from the primary side bar to open the x2openEuler extension.
 
 ## Feature Guide
 
@@ -1605,7 +1594,7 @@ Parameter Description
 </td>
 <td class="cellrowborder" valign="top" width="62.926292629262925%" headers="mcps1.2.4.1.3 "><p id="p8830172792810"><a name="p8830172792810"></a><a name="p8830172792810"></a>Indicates that the data to be analyzed is the data imported externally.</p>
 <p id="p224218516166"><a name="p224218516166"></a><a name="p224218516166"></a>For example,</p>
-<p id="p224275131615"><a name="p224275131615"></a><a name="p224275131615"></a> <code>x2openEuler conf-analyse -load <em id="i112424517167"><a name="i112424517167"></a><a name="i112424517167"></a>file_Name</em>.tar.gz</code> indicates that the data to be analyzed is the data imported externally.</p>
+<p id="p224275131615"><a name="p224275131615"></a><a name="p224275131615"></a> <code>x2openEuler hardware-analyse -load <em id="i112424517167"><a name="i112424517167"></a><a name="i112424517167"></a>file_Name</em>.tar.gz</code> indicates that the data to be analyzed is the data imported externally.</p>
 <div class="note" id="note182421151181612"><a name="note182421151181612"></a><a name="note182421151181612"></a><span class="notetitle"> Note: </span><div class="notebody"><p id="p424245110165"><a name="p424245110165"></a><a name="p424245110165"></a>The data imported externally must be collected by the configuration collection and assessment function and packaged into a tar.gz file.</p>
 </div></div>
 </td>
@@ -1813,7 +1802,7 @@ The following describes how to configure the Yum source on CentOS 7.6. The proce
 
 ### Querying OS Version Information
 
-Run the `uname -r` command to query the CPU hardware architecture. The tool supports only x86 servers or servers powered by Kunpeng 916 or 920 processors.
+Run the `uname -a` command to query the CPU hardware architecture. The tool supports only x86 servers or servers powered by Kunpeng 916 or 920 processors.
 
 Query the OS version information.
 
