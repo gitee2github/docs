@@ -790,10 +790,10 @@ x2openEuler自动安装的依赖组件如[表5](#table134317232714)所示。
 
 
 
-在Visual Studio Code应用商店安装x2openEuler插件
+##### 在Visual Studio Code应用商店安装x2openEuler插件
 
-    在Visual Studio Code扩展菜单中搜索“x2openEuler”，单击“安装”。（或在Visual Studio Code应用商店中安装）。
-    安装完成后，在左侧菜单栏中单击![](figures/zh-cn_image_0000001256107401.png)打开x2openEuler工具。
+在Visual Studio Code扩展菜单中搜索“x2openEuler”，单击“安装”。（或在Visual Studio Code应用商店中安装）。<br>
+安装完成后，在左侧菜单栏中单击![](figures/zh-cn_image_0000001256107401.png)打开x2openEuler工具。
 
 ## 特性指南
 
