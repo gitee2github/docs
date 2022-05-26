@@ -148,7 +148,7 @@ Table 1 List of resolved issues
 | [I49N22](https://gitee.com/open_euler/dashboard?issue_id=I49N22) | [21.09-RC3] [web] After addition and deletion are performed on the fault diagnosis page, the data cannot be updated in real time. You need to manually update the data. |
 | [I49N36](https://gitee.com/open_euler/dashboard?issue_id=I49N36) | [21.09-RC3] [web] When an exception detection rule is updated (that is, the rule name remains the same but the content is different), a message is displayed, indicating that no rule is imported. |
 | [I49N41](https://gitee.com/open_euler/dashboard?issue_id=I49N41) | [21.09-RC3] [web] The host ID is displayed as the host name on the fault diagnosis page. |
-| [I49N4U](https://gitee.com/open_euler/dashboard?issue_id=I49N4U) | [21.09-RC3] [web] The deletion on the fault diagnosis page does not take effect. It is recommended that the "Delete" button be replaced with the "Delete Report" button. |
+| [I49N4U](https://gitee.com/open_euler/dashboard?issue_id=I49N4U) | [21.09-RC3] [web] The deletion on the fault diagnosis page does not take effect. It is recommended that the **Delete** button be replaced with the **Delete Report** button. |
 | [I49N69](https://gitee.com/open_euler/dashboard?issue_id=I49N69) | [21.09-RC3] [web] If no data is displayed on the fault diagnosis report, a data error message is displayed. |
 | [I49N6X](https://gitee.com/open_euler/dashboard?issue_id=I49N6X) | [21.09-RC3] [web] The function of deleting a single report on the fault diagnosis report does not take effect. |
 | [I49N8Z](https://gitee.com/open_euler/dashboard?issue_id=I49N8Z) | [21.09-RC3] [web] When a fault tree is added for fault diagnosis, the imported fault tree file fails to be verified. |
