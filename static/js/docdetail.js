@@ -208,7 +208,7 @@ $(function ($) {
                         error: function (err) {
                             $("#title-evaluate").css('z-index', '1003');
                             $("#title-evaluate img").css('display', 'none');
-                            console.log(JSON.parse(err));
+                            console.log(err);
                         }
                     })
                 },
@@ -237,15 +237,25 @@ $(function ($) {
     )
     $('.evaluates .issue').on('click', function () {
         let oldValue = $('.issue-reason').val()
-        let text = `\n${this.childNodes[1].innerHTML}:\n`
+        let text = `\n${this.childNodes[1].innerHTML}:\n`;
+        let preTag = null;
+        if ($('.active-border').length) {
+           preTag = `\n${$('.active-border')[0].childNodes[1].innerHTML}:\n`
+        }
         let itemtext = text +
             $(this).find('.issue-detail').text().replace(/\s+/ig, "").replaceAll("；", '\n').replaceAll("●", '');
-        text = oldValue + itemtext
+        let preText = null;
+        if ($('.active-border').length) {
+            preText = preTag +
+                $('.active-border .issue-detail').text().replace(/\s+/ig, "").replaceAll("；", '\n').replaceAll("●", '');
+        }
+        text = oldValue + itemtext;
         if ($(this).hasClass("active-border")) {
             text = text.replaceAll(itemtext.trim(), '')
             $(this).removeClass("active-border");
         } else {
-            $(this).addClass("active-border");
+            preText ? text = text.replaceAll(preText.trim(), ''):'';
+            $(this).addClass('active-border').siblings().removeClass('active-border');
         }
         text = text.trim();
         let count = "";
@@ -349,17 +359,16 @@ window.onload = function () {
             let ev = event || window.event;
             let left = ev.clientX;
             let top = ev.clientY;
-            let select = selectText().trim()
-            if (select.length > 0) {
-                setTimeout(function () {
+            let select = selectText().trim();
+            setTimeout(function () {
+                if (select.length > 0 && window.getSelection()&&window.getSelection().type === 'Range') {
                     feedback.style.display = 'block';
                     feedback.style.left = left + 'px';
                     feedback.style.top = top + 'px';
+                }else {
+                    feedback.style.display = 'none';
+                }
                 }, 100);
-            }
-            else {
-                feedback.style.display = 'none';
-            }
         };
         content.onclick = function (ev) {
             var ev = ev || window.event;
@@ -387,7 +396,7 @@ window.onload = function () {
 
 function issueTemplate(data) {
     let Problem = ''
-    data.existProblem.length == 0 ? '': Problem = `- ${data.existProblem.join('、')}`
+    data.existProblem.length == 0 ? '' : Problem = `- ${data.existProblem.join('、')}`
     return `1. 【文档链接】
 
 > ${data.link}
