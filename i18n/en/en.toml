@@ -116,19 +116,19 @@ other = "Next"
 other = "Rating"
 
 [issue_1]
-other = "文档存在风险与错误"
+other = "规范和低错类"
 
 [issue_2]
-other = "内容描述不清晰"
+other = "易用性"
 
 [issue_3]
-other = "内容获取有困难"
+other = "正确性"
 
 [issue_4]
-other = "示例代码有错误"
+other = "风险提示"
 
 [issue_5]
-other = "内容有缺失"
+other = "内容合规"
 
 [issue_title]
 other = "有奖捉虫"
