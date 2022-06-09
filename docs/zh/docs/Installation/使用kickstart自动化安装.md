@@ -94,7 +94,7 @@ TFTP（Trivial File Transfer Protocol，简单文件传输协议），该协议�
 >iptables -F  
 >```  
 
-1.  httpd的安装与服务启动。
+1.  安装并启动httpd。
 
     ```
     # dnf install httpd -y
@@ -102,7 +102,7 @@ TFTP（Trivial File Transfer Protocol，简单文件传输协议），该协议�
     # systemctl enable httpd
     ```
 
-2.  kickstart文件的准备。
+2.  准备kickstart文件。
 
     ```
     # mkdir /var/www/html/ks
@@ -213,7 +213,7 @@ TFTP（Trivial File Transfer Protocol，简单文件传输协议），该协议�
 >iptables -F  
 >```  
 
-1.  httpd的安装与服务启动。
+1. 安装并启动httpd。
 
     ```
     # dnf install httpd -y
@@ -221,7 +221,7 @@ TFTP（Trivial File Transfer Protocol，简单文件传输协议），该协议�
     # systemctl enable httpd
     ```
 
-2.  tftp的安装与配置。
+2. 安装并配置tftp。
 
     ```
     # dnf install tftp-server -y
