@@ -50,7 +50,7 @@
 </td>
 <td class="cellrowborder" valign="top" width="34.003400340034005%" headers="mcps1.2.4.1.2 "><p id="p2889102319334"><a name="p2889102319334"></a><a name="p2889102319334"></a>操作系统的全自动化安装</p>
 </td>
-<td class="cellrowborder" valign="top" width="54.085408540854075%" headers="mcps1.2.4.1.3 "><p id="p20889823113311"><a name="p20889823113311"></a><a name="p20889823113311"></a>需要配置tftp，dhcpd，pxe等服务</p>
+<td class="cellrowborder" valign="top" width="54.085408540854075%" headers="mcps1.2.4.1.3 "><p id="p20889823113311"><a name="p20889823113311"></a><a name="p20889823113311"></a>需要配置tftp，dhcp，pxe等服务</p>
 </td>
 </tr>
 </tbody>
@@ -60,13 +60,13 @@
 
 **kickstart**
 
-kickstart是一种无人值守的安装方式。它的工作原理是在安装过程中记录典型的需要人工干预填写的各种参数，并生成一个配置文件（ks.cfg），在安装过程中，安装程序首先会去查找ks配置文件，如果找到合适的参数，就采用所找到的参数；如果没有找到合适的参数，便需要安装者手工设定。所以，如果kickstart文件涵盖了安装过程中需要设定的所有参数，安装者只需要告诉安装程序从何处取ks.cfg文件，就能实现系统安装的自动化。
+kickstart是一种无人值守的安装方式。它的工作原理是在安装过程中记录典型的需要人工干预填写的各种参数，并生成一个配置文件（ks.cfg），在安装过程中，安装程序首先会去查找ks配置文件，如果找到合适的参数，就采用所找到的参数；如果没有找到合适的参数，便需要安装者手动设定。所以，如果kickstart文件涵盖了安装过程中需要设定的所有参数，安装者只需要告诉安装程序从何处取ks.cfg文件，就能实现系统安装的自动化。
 
 kickstart 安装提供一个安装过程自动化的方法，可以是部分自动化，也可以是完全自动化。
 
 **PXE**
 
-PXE（Pre-boot Execution Environment，预启动执行环境），工作于Client/Server的网络模式，支持PXE的客户端在启动过程中，能够从DHCP服务器获取IP结合TFTP（trivial file transfer protocol）等协议可以实现客户端的网络引导和安装。
+PXE（Pre-boot Execution Environment，预启动执行环境），工作于Client/Server的网络模式，支持PXE的客户端在启动过程中，能够从DHCP服务器获取IP，结合TFTP（trivial file transfer protocol）等协议可以实现客户端的网络引导和安装。
 
 **TFTP**
 
