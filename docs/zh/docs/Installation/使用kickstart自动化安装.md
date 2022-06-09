@@ -78,7 +78,7 @@ TFTP（Trivial File Transfer Protocol，简单文件传输协议），该协议�
 
 使用kickstart进行openEuler系统的半自动化安装的环境要求如下：
 
--   物理机/虚拟机（虚拟机创建可参考对应厂商的资料）。包括使用kickstart工具进行自动化安装的计算机和被安装的计算机。
+-   物理机/虚拟机（虚拟机创建可参考对应厂商的资料）：包括使用kickstart工具进行自动化安装的计算机和被安装的计算机。
 -   httpd：存放kickstart文件。
 -   ISO： openEuler-20.03-LTS-aarch64-dvd.iso
 
@@ -195,7 +195,7 @@ TFTP（Trivial File Transfer Protocol，简单文件传输协议），该协议�
 
 使用kickstart进行openEuler系统的全自动化安装的环境要求如下：
 
--   物理机/虚拟机（虚拟机创建可参考对应厂商的资料）。包括使用kickstart工具进行自动化安装的计算机和被安装的计算机。
+-   物理机/虚拟机（虚拟机创建可参考对应厂商的资料）：包括使用kickstart工具进行自动化安装的计算机和被安装的计算机。
 -   httpd：存放kickstart文件。
 -   tftp：提供vmlinuz和initrd文件。
 -   dhcpd/pxe：提供DHCP服务。
