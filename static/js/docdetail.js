@@ -104,7 +104,7 @@ $(function ($) {
                     isEvaluate = true;
                 },
                 error: function (data) {
-                    console.log(data);
+                    console.error(data);
                 },
             });
         }
@@ -197,10 +197,10 @@ $(function ($) {
                                 if (JSON.parse(data).code === 200) {
                                     window.open(`https://gitee.com/openeuler/docs/issues/new?issue%5Bassignee_id%5D=0&issue%5Bmilestone_id%5D=0&title=有奖捉虫&description=${body}`)
                                 } else {
-                                    console.log(JSON.parse(data));
+                                    console.error(JSON.parse(data));
                                 }
                             } catch (error) {
-                                console.log(error);
+                                console.error(error);
                             }
                             $("#title-evaluate").css('z-index', '1003');
                             $("#title-evaluate img").css('display', 'none');
@@ -208,14 +208,14 @@ $(function ($) {
                         error: function (err) {
                             $("#title-evaluate").css('z-index', '1003');
                             $("#title-evaluate img").css('display', 'none');
-                            console.log(err);
+                            console.error(err);
                         }
                     })
                 },
                 error: function (err) {
                     $("#title-evaluate").css('z-index', '1003');
                     $("#title-evaluate img").css('display', 'none');
-                    console.log(JSON.parse(err));
+                    console.error(JSON.parse(err));
                 },
             });
         }
