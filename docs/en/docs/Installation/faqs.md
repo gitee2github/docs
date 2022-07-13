@@ -3,15 +3,13 @@
 <!-- TOC -->
 
 - [FAQs](#faqs)
-    - [openEuler Fails to Start After It Is Installed to the Second Disk](#openeuler-fails-to-start-after-it-is-installed-to-the-second-disk)
-    - [openEuler Enters Emergency Mode After It Is started](#openEuler-enters-emergency-mode-after-it-is-started)
-    - [openEuler Fails to Be Reinstalled When an Unactivated Logical Volume Group Exists](#openEuler-fails-to-be-reinstalled-when-an-unactivated-logical-volume-group-exists)
-    - [An Exception Occurs During the Selection of the Installation Source](#an-exception-occurs-during-the-selection-of-the-installation-source)
-    - [How Do I Manually Enable the Kdump Service?](#how-do-i-manually-enable-the-kdump-service?)
-    - Fails to Select Only One Disk for Reinstallation When openEuler Is Installed on a Logical Volume Consisting of Multiple Disks 
-    - openEuler Fails to Be Installed on an x86 PM in UEFI Mode due to Secure Boot Option Setting
-    - [pmie_check Is Reported in the messages Log During openEuler Installation](#pmie_check-is-reported-in-the-messages-log-during-openEuler-installation)
-    - [Installation Fails when a User Selects Two Disks with OS Installed and Customizes Partitioning](#installation-fails-when-a-user-delects-two-disks-with-OS-installed-and-customizes-partitioning)
+  - [openEuler Fails to Start After It Is Installed to the Second Disk](#openeuler-fails-to-start-after-it-is-installed-to-the-second-disk)
+  - [openEuler Enters Emergency Mode After It Is started](#openeuler-enters-emergency-mode-after-it-is-started)
+  - [openEuler Fails to Be Reinstalled When an Unactivated Logical Volume Group Exists](#openeuler-fails-to-be-reinstalled-when-an-unactivated-logical-volume-group-exists)
+  - [An Exception Occurs During the Selection of the Installation Source](#an-exception-occurs-during-the-selection-of-the-installation-source)
+  - [How Do I Manually Enable the Kdump Service?](#how-do-i-manually-enable-the-kdump-service)
+  - [Fails to Select Only One Disk for Reinstallation When openEuler Is Installed on a Logical Volume Consisting of Multiple Disks](#fails-to-select-only-one-disk-for-reinstallation-when-openeuler-is-installed-on-a-logical-volume-consisting-of-multiple-disks)
+  - [openEuler Fails to Be Installed on an x86 PM in UEFI Mode due to Secure Boot Option Setting](#openeuler-fails-to-be-installed-on-an-x86-pm-in-uefi-mode-due-to-secure-boot-option-setting)
     
 <!-- /TOC -->
 
@@ -298,52 +296,3 @@ Access the BIOS, set  **secure boot**  to  **disabled**, and reinstall the openE
     >![](./public_sys-resources/icon-note.gif) **NOTE:**   
     >After  **Enforce Secure Boot**  is set to  **Disabled**, save the settings and exit. Then, reinstall the system.  
 
-## pmie_check Is Reported in the messages Log During openEuler Installation
-
-### Symptom
-
-During the OS installation, if you click  **Server > Performance tool**, PCP is installed. After the OS is installed and restared, an error "pmie_check failed in /usr/share/pcp/lib/pmie" is displayed in the  **/var/log/messages**  log.
-
-### Possible Causes
-
-anaconda does not support the installation of SELinux policy module in the chroot environment. During the pcp-selinux installation, the postin script fails to execute the PCP-related SELinux policy module. As a result, an error is reported after the OS is restarted.
-
-### Solutions
-
-After the OS is installed and restarted, perform either of the following two operations:
-
-1. Install SElinux policy module pcpupstream.
-
-    ```
-    /usr/libexec/pcp/bin/selinux-setup /var/lib/pcp/selinux install "pcpupstream"
-
-    ```
-
-2. Reinstall pcp-selinux
- 
-    ```
-    sudo dnf reinstall pcp-selinux
-
-    ```
-## Installation Fails when a User Selects Two Disks with OS Installed and Customizes Partitioning
-
-### Symptom
-
-During the OS installation, the OS has been installed on two disks. In this case, if you select one drive for custom partitioning, and click **Cancel** to perform custom partitioning on the other drive, the installation fails.
-
-
-![输入图片说明](https://gitee.com/openeuler/docs/raw/stable2-20.03_LTS_SP2/docs/en/docs/Installation/figures/cancle_disk.png)
-
-![输入图片说明](https://gitee.com/openeuler/docs/raw/stable2-20.03_LTS_SP2/docs/en/docs/Installation/figures/custom_paratition.png)
-
-### Possible Causes
-
-A user selects a disk for partitioning twice. After the user clicks **Cancel** and then selects the other drive, the drive information is incorrect. As a result, the installation fails.
-
-### Solutions
-
-Select the target drive for custom partitioning. Do not frequently cancel the operation. If you have to cancel and select another drive, you are advised to reinstall the OS.
-
-### Learn More About the Issue at:
-
-https://gitee.com/src-openeuler/anaconda/issues/I29P84?from=project-issue
