@@ -31,7 +31,7 @@ For details about installing an openEuler OS, see  _openEuler 20.03 LTS SP1 Inst
 
 ## A-Tune Installation
 
-This chapter describes the installation modes and methods of the A-Tune.
+This section describes the installation modes and methods of the A-Tune.
 
 ### Installation Modes
 
@@ -116,7 +116,7 @@ To install the A-Tune, perform the following steps:
 
 ## A-Tune Deployment
 
-This chapter describes how to deploy A-Tune.
+This section describes how to deploy A-Tune.
 
 
 
