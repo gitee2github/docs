@@ -385,7 +385,6 @@ h1 {
         box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
         font-size: 14px;
-        font-family: FZLTCHJW--GB1-0, FZLTCHJW--GB1;
         font-weight: normal;
         color: #002FA7;
         line-height: 24px;
@@ -420,7 +419,6 @@ h1 {
 
     .hot_documentation div a {
         font-size: 16px;
-        font-family: FZLTHJW--GB1-0, FZLTHJW--GB1;
         font-weight: normal;
         color: #002FA7;
         line-height: 26px;
@@ -429,7 +427,6 @@ h1 {
 
     .hot_documentation div span  {
         font-size: 14px;
-        font-family: FZLTXIHJW--GB1-0, FZLTXIHJW--GB1;
         font-weight: normal;
         color: #00000080;
         line-height: 24px;
@@ -457,7 +454,6 @@ h1 {
 
     .h5_community div a{
         font-size: 14px;
-        font-family: FZLTCHJW--GB1-0, FZLTCHJW--GB1;
         font-weight: normal;
         color: #002FA7;
         line-height: 24px;
