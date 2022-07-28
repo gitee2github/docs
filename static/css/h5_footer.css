@@ -29,7 +29,6 @@
     .h5_footer div:nth-child(2) p {
         margin-top: 10px;
         font-size: 14px;
-        font-family: HuaweiSansLight;
         color: #000000;
         line-height: 16px;
 
@@ -47,7 +46,6 @@
     .h5_footer div:nth-child(3) p:nth-child(2) {
         margin-top: 10px;
         font-size: 12px;
-        font-family: FZLTXIHJW--GB1-0, FZLTXIHJW--GB1;
         font-weight: normal;
         color: #000000;
         line-height: 12px;
@@ -56,7 +54,6 @@
     .h5_footer div:nth-child(3) p:nth-child(3) {
         margin-top: 20px;
         font-size: 12px;
-        font-family: FZLTXIHJW--GB1-0, FZLTXIHJW--GB1;
         font-weight: normal;
         color: #000000;
         line-height: 12px;
