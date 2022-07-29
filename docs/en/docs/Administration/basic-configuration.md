@@ -23,7 +23,7 @@
 <!-- /TOC -->
 ## Setting the System Locale
 
-System locale settings are stored in the /etc/locale.conf file and can be modified by the localectl command. These settings are read at system boot by the systemd daemon.
+System locale settings are stored in the **/etc/locale.conf** file and can be modified by the **localectl** command. These settings are read at system boot by the systemd daemon.
 
 ### Displaying the Current Locale Status
 
@@ -59,13 +59,13 @@ zh_CN.UTF-8
 
 ### Setting the Locale
 
-To set the language environment, run the following command as the user  **root**. In the command,  _locale_  indicates the language type to be set. Run the  **localectl list-locales**  command to obtain the value range. Change the value based on the site requirements.
+To set the language environment, run the following command as the **root** user. In the command,  _locale_  indicates the language type to be set. Run the  **localectl list-locales**  command to obtain the value range. Change the value as required.
 
 ```
 # localectl set-locale LANG=locale
 ```
 
-For example, if you want to use Simplified Chinese as the locale, run the following command as the user  **root**:
+For example, if you want to use Simplified Chinese as the locale, run the following command as the **root** user:
 
 ```
 # localectl set-locale LANG=zh_CN.UTF-8
@@ -73,11 +73,11 @@ For example, if you want to use Simplified Chinese as the locale, run the follow
 
 > ![](./public_sys-resources/icon-note.gif) **NOTE:**
 
-> After the modification, log in again or run the  command `source /etc/locale.conf` as the user **root** to update the configuration file for the modification to take effect:
+> After the modification, log in again or run the **source /etc/locale.conf** command as the user **root** to update the configuration file for the modification to take effect:
 
 ## Setting the Keyboard Layout
 
-Keyboard layout settings are stored in the /etc/locale.conf file and can be modified by the localectl command. These settings are read at early boot by the systemd daemon.
+Keyboard layout settings are stored in the **/etc/locale.conf** file and can be modified by the **localectl** command. These settings are read at early boot by the systemd daemon.
 
 ### Displaying the Current Settings
 
@@ -113,7 +113,7 @@ cn
 
 ### Setting the Keyboard Layout
 
-To set the keyboard layout, run the following command as the user  **root**. In the command,  _map_  indicates the keyboard layout to be set. Run the  **localectl list-keymaps**  command to obtain the value range. Change it based on the site requirements.
+To set the keyboard layout, run the following command as the **root** user. In the command,  _map_  indicates the keyboard layout to be set. Run the  **localectl list-keymaps**  command to obtain the value range. Change it as required.
 
 ```
 $ localectl set-keymap map
@@ -132,7 +132,7 @@ $ localectl status
 
 ## Setting the Date and Time
 
-This topic describes how to set the system date, time, and time zone by using timedatectl, date, and hwclock commands.
+This section describes how to set the system date, time, and time zone by using the **timedatectl**, **date**, and **hwclock** commands.
 
 ### Using the timedatectl Command
 
@@ -159,7 +159,7 @@ System clock synchronized: no
 
 #### Synchronizing the System Clock with a Remote Server
 
-Your system clock can be automatically synchronized with a remote server using the Network Time Protocol (NTP). Run the following command as the user  **root**  to enable or disable NTP. The value of  _boolean_  is  **yes**  or  **no**, indicating that the NTP is enabled or disabled for automatic system clock synchronization. Change the value based on the site requirements.
+Your system clock can be automatically synchronized with a remote server using the Network Time Protocol (NTP). Run the following command as the **root** user  to enable or disable NTP. The value of  _boolean_  is  **yes**  or  **no**, indicating that the NTP is enabled or disabled for automatic system clock synchronization. Change the value as required.
 
 > ![](./public_sys-resources/icon-note.gif) **NOTE:**  
 If the remote NTP server is enabled to automatically synchronize the system clock, you cannot manually change the date and time. If you need to manually change the date or time, ensure that automatic NTP system clock synchronization is disabled. You can run the  **timedatectl set-ntp no**  command to disable the NTP service.
@@ -179,13 +179,13 @@ For example, to enable automatic remote time synchronization, run the following 
 > ![](./public_sys-resources/icon-note.gif) **NOTE:**  
 Before changing the date, ensure that automatic NTP system clock synchronization has been disabled.
 
-Run the following command as the user  **root**  to change the current date. In the command,  _YYYY_  indicates the year,  _MM_  indicates the month, and  _DD_  indicates the day. Change them based on the site requirements.
+Run the following command as the **root** user  to change the current date. In the command,  _YYYY_  indicates the year,  _MM_  indicates the month, and  _DD_  indicates the day. Change them as required.
 
 ```
 # timedatectl set-time YYYY-MM-DD
 ```
 
-For example, to change the current date to August 14, 2019, run the following command as the user  **root**:
+For example, to change the current date to August 14, 2019, run the following command as the **root** user:
 
 ```
 # timedatectl set-time '2019-08-14'
@@ -196,7 +196,7 @@ For example, to change the current date to August 14, 2019, run the following co
 > ![](./public_sys-resources/icon-note.gif) **NOTE:**  
 Before changing the time, ensure that automatic NTP system clock synchronization has been disabled.
 
-To change the current time, run the following command as the user  **root**. In the command,  _HH_  indicates the hour,  _MM_  indicates the minute, and  _SS_  indicates the second. Change them based on the site requirements.
+To change the current time, run the following command as the **root** user. In the command,  _HH_  indicates the hour,  _MM_  indicates the minute, and  _SS_  indicates the second. Change them as required.
 
 ```
 # timedatectl set-time HH:MM:SS
@@ -216,13 +216,13 @@ To list all available time zones, run the following command:
 $ timedatectl list-timezones
 ```
 
-To change the current time zone, run the following command as the user  **root**. In the command,  _time\_zone_  indicates the time zone to be set. Change it based on the site requirements.
+To change the current time zone, run the following command as the **root** user. In the command,  _time\_zone_  indicates the time zone to be set. Change it as required.
 
 ```
 # timedatectl set-timezone time_zone
 ```
 
-Imagine you want to identify which time zone is closest to your present location while you are in Asia. You can check that by listing all available time zones in Asia with the following command:
+Assume that you want to identify which time zone is the closest to your present location while you are in Asia, check that by listing all available time zones in Asia with the following command:
 
 ```
 # timedatectl list-timezones | grep Asia
@@ -265,13 +265,13 @@ To display the current date and time, run the following command:
 $ date
 ```
 
-By default, the  **date**  command displays the local time. To display the time in Coordinated Universal Time (UTC), run the command with the --utc or -u command line option:
+By default, the  **date**  command displays the local time. To display the time in Coordinated Universal Time (UTC), run the command with the **--utc** or **-u** command line option:
 
 ```
 $ date --utc
 ```
 
-You can also customize the format of the displayed information by providing the + "format" option on the command line:
+You can also customize the format of the displayed information by providing the **+"format"** option in the command line:
 
 ```
 $ date +"format"
@@ -359,19 +359,19 @@ Example commands and outputs:
 
 #### Changing the Current Time
 
-To change the current time, run the date command with the --set or -s option as the root user: Run the following command as the user  **root**. In the command,  _HH_  indicates the hour,  _MM_  indicates the minute, and  _SS_  indicates the second. Change them based on the site requirements.
+To change the current time, run the **date** command with the **--set** or **-s** option as the **root** user. In the command,  _HH_  indicates the hour,  _MM_  indicates the minute, and  _SS_  indicates the second. Change them as required.
 
 ```
 # date --set HH:MM:SS
 ```
 
-By default, the date command sets the local time. To set the system clock in UTC instead, run the command with the --utc or -u command line option:
+By default, the **date** command sets the local time. To set the system clock in UTC instead, run the command with the **--utc** or **-u** command line option:
 
 ```
 # date --set HH:MM:SS --utc
 ```
 
-For example, to change the current time to 23:26:00, run the following command as the user  **root**:
+For example, to change the current time to 23:26:00, run the following command as the **root** user:
 
 ```
 # date --set 23:26:00
@@ -379,13 +379,13 @@ For example, to change the current time to 23:26:00, run the following command a
 
 #### Changing the Current Date
 
-To change the current date, run the command with the --set or -s command line option. Run the following command as the user  **root**. In the command,  _YYYY_  indicates the year,  _MM_  indicates the month, and  _DD_  indicates the day. Change them based on the site requirements.
+To change the current date, run the following command with the **--set** or **-s** command line option as the **root** user. In the command,  _YYYY_  indicates the year,  _MM_  indicates the month, and  _DD_  indicates the day. Change them as required.
 
 ```
 # date --set YYYY-MM-DD
 ```
 
-For example, to change the current date to November 2, 2019, run the following command as the user  **root**:
+For example, to change the current date to November 2, 2019, run the following command as the **root** user:
 
 ```
 # date --set 2019-11-02
@@ -393,7 +393,7 @@ For example, to change the current date to November 2, 2019, run the following c
 
 ### Using the hwclock Command
 
-You can run the hwclock command to set the real time clock (RTC).
+You can run the **hwclock** command to set the real time clock (RTC).
 
 #### Real-Time Clock and System Clock
 
@@ -406,7 +406,7 @@ When Linux starts, it reads the RTC and sets the system clock time based on the 
 
 #### Displaying the Current Date and Time
 
-To display the current RTC date and time, run the following command as the user  **root**:
+To display the current RTC date and time, run the following command as the **root** user:
 
 ```
 # hwclock
@@ -421,7 +421,7 @@ Example command output:
 
 #### Setting the Date and Time
 
-Run the following command as the user  **root**  to change the date and time of the current hardware. In the command,  _dd_  indicates the day,  _mm_  indicates the month,  _yyyy_  indicates the year,  _HH_  indicates the hour, and  _MM_  indicates the minute. Change them based on the site requirements.
+Run the following command as the **root** user  to change the date and time of the current hardware. In the command,  _dd_  indicates the day,  _mm_  indicates the month,  _yyyy_  indicates the year,  _HH_  indicates the hour, and  _MM_  indicates the minute. Change them as required.
 
 ```
 # hwclock --set --date "dd mm yyyy HH:MM"
@@ -441,7 +441,7 @@ This section describes how to set the memory reserved for kdump and modify param
 
 #### Parameter Formats of the Memory Reserved for kdump
 
-The memory reserved for kdump must be added to the bootargs in the **/boot/efi/EFI/openEuler/grub.cfg** configuration file. The memory reserved for kdump has been added to the released openEuler version by default and can be adjusted as required. After adding or modifying the bootargs, restart the system for the setting to take effect. The parameter formats of the memory reserved for kdump are as follows:
+The memory reserved for kdump must be added to the bootargs in the **/boot/efi/EFI/openEuler/grub.cfg** configuration file. The memory reserved for kdump has been added to the released openEuler version by default and can be adjusted as required. After adding or modifying the bootargs, restart the system for the settings to take effect. The parameter formats of the memory reserved for kdump are as follows:
 
 | Bootarg| Description| Default Value| Remarks|
 |----------|----------|----------|----------|
@@ -463,6 +463,6 @@ The memory reserved for kdump must be added to the bootargs in the **/boot/efi/E
 
 ### Disabling Network Drivers
 
-In the kdump configuration file **/etc/kdump.conf**, the dracut parameters can be used to set the tailored driver module. You can configure the network driver to the tailored driver list to prevent the kdump file system from loading the driver. After the configuration file is modified, restart the kdump service for the modification to take effect. Set the dracut parameters as follows:
+In the kdump configuration file **/etc/kdump.conf**, the **dracut** parameters can be used to set the tailored driver module. You can configure the network driver to the tailored driver list to prevent the kdump file system from loading the driver. After the configuration file is modified, restart the kdump service for the modification to take effect. Set the **dracut** parameters as follows:
 
 `dracut_args --omit-drivers "mdio-gpi usb_8dev et1011c rt2x00usb bcm-phy-lib mac80211_hwsim rtl8723be rndis_host hns3_cae amd vrf rtl8192cu mt76x02-lib int51x1 ppp_deflate team_mode_loadbalance smsc911x aweth bonding mwifiex_usb hnae dnet rt2x00pci vaser_pci hdlc_ppp marvell rtl8xxxu mlxsw_i2c ath9k_htc rtl8150 smc91x cortina at803x rockchip cxgb4 spi_ks8995 mt76x2u smsc9420 mdio-cavium bnxt_en ch9200 dummy macsec ice mt7601u rtl8188ee ixgbevf net1080 liquidio_vf be2net mlxsw_switchx2 gl620a xilinx_gmii2rgmii ppp_generic rtl8192de sja1000_platform ath10k_core cc770_platform realte igb c_can_platform c_can ethoc dm9601 smsc95xx lg-vl600 ifb enic ath9 mdio-octeon ppp_mppe ath10k_pci cc770 team_mode_activebackup marvell10g hinic rt2x00lib mlx4_en iavf broadcom igc c_can_pci alx rtl8192se rtl8723ae microchip lan78xx atl1c rtl8192c-common almia ax88179_178a qed netxen_nic brcmsmac rt2800usb e1000 qla3xxx mdio-bitbang qsemi mdio-mscc-miim plx_pci ipvlan r8152 cx82310_eth slhc mt76x02-usb ems_pci xen-netfront usbnet pppoe mlxsw_minimal mlxsw_spectrum cdc_ncm rt2800lib rtl_usb hnae3 ath9k_common ath9k_hw catc mt76 hns_enet_drv ppp_async huawei_cdc_ncm i40e rtl8192ce dl2 qmi_wwan mii peak_usb plusb can-dev slcan amd-xgbe team_mode_roundrobin ste10Xp thunder_xcv pptp thunder_bgx ixgbe davicom icplus tap tun smsc75xx smsc dlci hns_dsaf mlxsw_core rt2800mmi softing uPD60620 vaser_usb dp83867 brcmfmac mwifiex_pcie mlx4_core micrel team macvlan bnx2 virtio_net rtl_pci zaurus hns_mdi libcxgb hv_netvsc nicvf mt76x0u teranetics mlxfw cdc_eem qcom-emac pppox mt76-usb sierra_net i40evf bcm87xx mwifiex pegasus rt2x00mmi sja1000 ena hclgevf cnic cxgb4vf ppp_synctty iwlmvm team_mode_broadcast vxlan vsockmon hdlc_cisc rtl8723-common bsd_comp fakelb dp83822 dp83tc811 cicada fm10 8139t sfc hs geneve hclge xgene-enet-v2 cdc_mbim hdlc asix netdevsim rt2800pci team_mode_random lxt ems_usb mlxsw_pci sr9700 mdio-thunder mlxsw_switchib macvtap atlantic cdc_ether mcs7830 nicpf mdi peak_pci atl1e cdc_subset ipvtap btcoexist mt76x0-common veth slip iwldvm bcm7xxx vitesse netconsole epic100 myri10ge r8169 qede microchip_t1 liquidi bnx2x brcmutil mwifiex_sdi mlx5_core rtlwifi vmxnet3 nlmon hns3 hdlc_raw esd_usb2 atl2 mt76x2-common iwlwifi mdio-bcm-unimac national ath rtwpci rtw88 nfp rtl8821ae fjes thunderbolt-net 8139cp atl1 mscc vcan dp83848 dp83640 hdlc_fr e1000e ipheth net_failover aquantia rtl8192ee igbvf rocker intel-xway tg3" --omit "ramdisk network ifcfg qemu-net" --install "chmod" --nofscks`

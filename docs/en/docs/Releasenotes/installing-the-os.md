@@ -2,7 +2,7 @@
 
 ## Release Files
 
-The openEuler release files include [ISO release pacakges](http://repo.openeuler.org/openEuler-21.09/ISO/), [VM images](http://repo.openeuler.org/openEuler-21.09/virtual_machine_img/), [containier images](http://repo.openeuler.org/openEuler-21.09/docker_img/), [edge images](http://repo.openeuler.org/openEuler-21.09/edge_img/), [embedded images](https://repo.openeuler.org/openEuler-21.09/edge_img/), and [repo sources](http://repo.openeuler.org/openEuler-21.09/). The following tables describe those files respectively.
+The openEuler release files include [ISO release packages](http://repo.openeuler.org/openEuler-21.09/ISO/), [VM images](http://repo.openeuler.org/openEuler-21.09/virtual_machine_img/), [container images](http://repo.openeuler.org/openEuler-21.09/docker_img/), [edge images](http://repo.openeuler.org/openEuler-21.09/edge_img/), [embedded images](https://repo.openeuler.org/openEuler-21.09/edge_img/), and [repo sources](http://repo.openeuler.org/openEuler-21.09/). The following tables describe those files respectively.
 
 Table 1 ISO release packages
 

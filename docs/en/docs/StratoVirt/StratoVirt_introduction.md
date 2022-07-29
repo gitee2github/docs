@@ -26,26 +26,26 @@ Figure 1 shows the overall architecture.
 
 ## Features
 
-- Highly isolated based on hardware;
-- Fast cold boot: Benefiting from the minimalist design, a microVM can be started within 50ms;
-- Low memory overhead: StratoVirt works with a memory footprint less than 4MB;
-- I/O enhancement: StratoVirt offers normal I/O ability and minimalist I/O device emulation;
-- OCI compatibility: StratoVirt works with iSula and Kata container, and can be integrated into Kubernetes ecosystem perfectly;
-- Multi-platform support: Fully supports Intel and Arm platforms;
-- Expandability: StratoVirt has interface and design for importing more features, and can expand to standard virtualization support;
-- Security: lower than 46 syscalls while running;
+- Highly isolated based on hardware.
+- Fast cold boot: Benefiting from the minimalist design, a microVM can be started within 50ms.
+- Low memory overhead: StratoVirt works with a memory footprint of less than 4MB.
+- I/O enhancement: StratoVirt offers common I/O capabilities and minimalist I/O device emulation.
+- OCI compatibility: StratoVirt works with iSula and Kata containers, and can be integrated into the Kubernetes ecosystem perfectly.
+- Multi-platform support: StratoVirt fully supports Intel and Arm platforms.
+- Extensibility: StratoVirt has interface and design for importing more features, and can be extended to support standard virtualization.
+- Security: fewer than 46 syscalls while running.
 
 ## Implementation
 
 #### Running Architecture
 
 - A StratoVirt VM is an independent process in Linux. The process has three types of threads: main thread, vCPU thread and I/O thread:
-    - The main thread is a cycle for asynchronous collecting and processing events from external modules, such as a vCPU thread;
-    - Each vCPU has a thread to handle trap events of this vCPU;
-    - I/O threads can be configured for I/O devices to improve I/O performance;
+    - The main thread is a cycle for asynchronously collecting and processing events from external modules, such as a vCPU thread.
+    - Each vCPU has a thread to handle trap events of this vCPU.
+    - I/O threads can be configured for I/O devices to improve I/O performance.
 
 ## Restrictions
 
-- Only the Linux operating system is supported; The recommended kernel version is 4.19;
-- Only Linux is supported as the operating system of the VM, and the recommended kernel version is 4.19;
-- Supports a maximum of 254 CPUs;
+- Only the Linux operating system is supported and the recommended kernel versions are 4.19 and 5.10
+- Only Linux is supported as the operating system of the VM, and the recommended kernel versions are 4.19 and 5.10.
+- A maximum of 254 CPUs are supported.

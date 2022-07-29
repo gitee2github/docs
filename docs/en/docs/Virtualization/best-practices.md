@@ -523,7 +523,7 @@ During startup, the previous component measures (calculates the hash value) the 
 **Installing the swtpm and libtpms Software**
 
 swtpm provides a TPM emulator (TPM 1.2 and TPM 2.0) that can be integrated into a virtualization environment. So far, it has been integrated into QEMU and serves as a prototype system in RunC. swtpm uses libtpms to provide TPM1.2 and TPM2.0 simulation functions.
-Currently, openEuler 21.03 provides the libtpms and swtpm sources. You can run the yum command to install them.
+Currently, openEuler 21.09 provides the libtpms and swtpm sources. You can run the yum command to install them.
 
 ```
 # yum install libtpms swtpm swtpm-devel swtpm-tools
@@ -586,7 +586,7 @@ Currently, openEuler 21.03 provides the libtpms and swtpm sources. You can run t
 The vBIOS determines whether to enable the measure boot function. Currently, the vBIOS in openEuler 20.09 has the measure boot capability. If the host machine uses the edk2 component of another version, check whether the edk2 component supports the measure boot function.
 
 Log in to the VM as user root and check whether the TPM driver, tpm2-tss protocol stack, and tpm2-tools are installed on the VM.
-By default, the tpm driver (tpm_tis.ko), tpm2-tss protocol stack, and tpm2-tools are installed in openEuler 21.03. If another OS is used, run the following command to check whether the driver and related tools are installed:
+By default, the tpm driver (tpm_tis.ko), tpm2-tss protocol stack, and tpm2-tools are installed in openEuler 21.09. If another OS is used, run the following command to check whether the driver and related tools are installed:
 
 
 ```

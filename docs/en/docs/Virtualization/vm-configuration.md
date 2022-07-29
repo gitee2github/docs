@@ -218,7 +218,7 @@ For example, this example configures two I/O threads for the virtual machine, on
 	</disk>
 	<disk type='file' device='cdrom'>
 	    <driver name='qemu' type='raw' cache='none' io='native'/>
-	    <source file='/mnt/openEuler-21.03-aarch64-dvd.iso'/>
+	    <source file='/mnt/openEuler-21.09-aarch64-dvd.iso'/>
 	    <target dev='sdb' bus='scsi'/>
 	    <readonly/>
 	    <boot order='2'/>
@@ -725,7 +725,7 @@ An XML configuration file of AArch64 VM, which contains basic elements. The foll
 	</disk>
 	<disk type='file' device='cdrom'>
 	    <driver name='qemu' type='raw'/>
-	    <source file='/mnt/openEuler-21.03-aarch64-dvd.iso'/>
+	    <source file='/mnt/openEuler-21.09-aarch64-dvd.iso'/>
 	    <readonly/>
 	    <target dev='sdb' bus='scsi'/>
 	    <boot order='2'/>
