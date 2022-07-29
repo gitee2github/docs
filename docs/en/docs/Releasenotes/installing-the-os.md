@@ -1,8 +1,8 @@
 # Installing the OS<a name="EN-US_TOPIC_0225731123"></a>
 
-## Release Package<a name="section19865103114280"></a>
+## Release Files<a name="section19865103114280"></a>
 
-The following table lists the [openEuler release files](http://repo.openeuler.org/openEuler-21.03/), including the ISO release package, container image, VM image, and repo source that is used online.
+The following table lists the [openEuler release files](http://repo.openeuler.org/openEuler-21.03/), including the ISO release packages, container images, VM images, and repo sources used online.
 
 **Table 1**  openEuler release files<a name="table001"></a>
 
@@ -16,7 +16,7 @@ The following table lists the [openEuler release files](http://repo.openeuler.or
 </thead>
 <tr>
 	<td><a href="http://repo.openeuler.org/openEuler-21.03/ISO/">ISO</a></td>
-	<td id="table001row001">ISO release package</td>
+	<td id="table001row001">ISO release packages</td>
 	<td>The directory differentiates the ISO release packages for the AArch64, x86, and source, respectively. The details are as follows:
 		<ul>
 			<li><strong>openEuler-21.03-aarch64-dvd.iso</strong> and <strong>openEuler-21.03-x86_64-dvd.iso</strong> are the openEuler basic installation software package ISO files for the AArch64 and x86 architectures, respectively. The ISO files contain basic components running on the openEuler OS and meet the basic requirements of developers.</li>
@@ -31,7 +31,7 @@ The following table lists the [openEuler release files](http://repo.openeuler.or
 </tr>
 <tr>
 	<td><a href="http://repo.openeuler.org/openEuler-21.03/docker_img/">docker_img</a></td>
-	<td id="table001row002">Container image</td>
+	<td id="table001row002">Container images</td>
 	<td>The openEuler container image, which provides only the basic bash environment, is used as the basic container image. The directory differentiates the container images for the AArch64 and x86 architectures, respectively.
 		<div><span class="notetitle">Note:</span>
 			<div class="notebody"><p>Each container image has its own verification file, which is used to verify the integrity of the container image.</p></div>
@@ -40,9 +40,9 @@ The following table lists the [openEuler release files](http://repo.openeuler.or
 </tr>
 <tr>
 	<td id="table001row003"><a href="http://repo.openeuler.org/openEuler-21.03/virtual_machine_img/">virtual_machine_img</a></td>
-	<td>VM image</td>
+	<td>VM images</td>
 	<td><p>The openEuler VM image provides only the basic running environment to shorten the VM deployment time. The directory differentiates the VM images for the AArch64 and x86 architectures, respectively.</p>
-		<div><span class="notetitle">说明：</span>
+		<div><span class="notetitle">Note:</span>
 			<div class="notebody">
 				<ul>
 					<li>The default password of the root user of the VM image is openEuler12#$. Change the password upon the first login.</li>
@@ -54,7 +54,7 @@ The following table lists the [openEuler release files](http://repo.openeuler.or
 </tr>
 <tr>
 	<td><a href="http://repo.openeuler.org/openEuler-21.03/EPOL/">EPOL</a></td>
-	<td rowspan="7" id="table001row004">Repo source</td>
+	<td rowspan="7" id="table001row004">Repo sources</td>
 	<td>The repo sources of the openEuler third-party software package are mainly contributed by third parties and communities, and are maintained by the providers. The directory differentiates the repo sources for the AArch64 and x86 architectures, respectively.</td>
 </tr>
 <tr>
