@@ -1,10 +1,10 @@
 # Installing the OS<a name="EN-US_TOPIC_0225731123"></a>
 
-## Release Package<a name="section19865103114280"></a>
+## Release Files<a name="section19865103114280"></a>
 
-The following table lists the [openEuler release files](http://repo.openeuler.org/openEuler-20.03-LTS-SP2/), including the [ISO release package](http://repo.openeuler.org/openEuler-20.03-LTS-SP2/ISO/), [container image](http://repo.openeuler.org/openEuler-20.03-LTS-SP2/docker_img/), [VM image](http://repo.openeuler.org/openEuler-20.03-LTS-SP2/virtual_machine_img/), and [repo source](http://repo.openeuler.org/openEuler-20.03-LTS-SP2/) that is used online.
+The following tables list the [openEuler release files](http://repo.openeuler.org/openEuler-20.03-LTS-SP2/), including the [ISO release packages](http://repo.openeuler.org/openEuler-20.03-LTS-SP2/ISO/), [container images](http://repo.openeuler.org/openEuler-20.03-LTS-SP2/docker_img/), [VM images](http://repo.openeuler.org/openEuler-20.03-LTS-SP2/virtual_machine_img/), and [repo sources](http://repo.openeuler.org/openEuler-20.03-LTS-SP2/) used online.
 
-**Table 1**  ISO release<a name="table8396719144315"></a>
+**Table 1**  ISO release packages<a name="table8396719144315"></a>
 
 |  Name  | Description  |
 | :----  | :----  |
@@ -19,7 +19,7 @@ The following table lists the [openEuler release files](http://repo.openeuler.or
 | openEuler-20.03-LTS-SP2-source-dvd.iso | The ISO file that contains all source code software packages of the openEuler community |
 
 
-**Table 2**  VM image<a name="table1995101714610"></a>
+**Table 2**  VM images<a name="table1995101714610"></a>
 
 |  Name  | Description  |
 | :----  | :----  |
@@ -30,7 +30,7 @@ The following table lists the [openEuler release files](http://repo.openeuler.or
 > The default password of the root user of the VM image is openEuler12#$. Change the password upon the first login.
 
 
-**Table 3**  Container image<a name="table1276911538154"></a>
+**Table 3**  Container images<a name="table1276911538154"></a>
 
 |  Name  | Description  |
 | :----  | :----  |
@@ -38,7 +38,7 @@ The following table lists the [openEuler release files](http://repo.openeuler.or
 | openEuler-docker.x86_64.tar.xz | The openEuler container image for the x86 architecture  |
 
 
-**Table 4**  Repo source<a name="table953512211576"></a>
+**Table 4**  Repo sources<a name="table953512211576"></a>
 
 |  Directory  | Description  |
 | :----  | :----  |
