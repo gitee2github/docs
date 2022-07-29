@@ -13,10 +13,22 @@
     - [Setting a Keyboard Layout](#setting-a-keyboard-layout)
   - [Setting the Date and Time](#setting-the-date-and-time)
     - [Using the timedatectl Command](#using-the-timedatectl-command)
+      - [Displaying the Current Date and Time](#displaying-the-current-date-and-time)
+      - [Synchronizing the System Clock with a Remote Server](#synchronizing-the-system-clock-with-a-remote-server)
+      - [Changing the Current Date](#changing-the-current-date)
+      - [Changing the Current Time](#changing-the-current-time)
+      - [Changing the Time Zone](#changing-the-time-zone)
     - [Using the date Command](#using-the-date-command)
+      - [Displaying the Current Date and Time](#displaying-the-current-date-and-time-1)
+      - [Changing the Current Time](#changing-the-current-time-1)
+      - [Changing the Current Date](#changing-the-current-date-1)
     - [Using the hwclock Command](#using-the-hwclock-command)
+      - [Real-Time Clock and System Clock](#real-time-clock-and-system-clock)
+      - [Displaying the Current Date and Time](#displaying-the-current-date-and-time-2)
+      - [Setting the Date and Time](#setting-the-date-and-time-1)
   - [Setting kdump](#setting-kdump)
     - [Setting the Memory Reserved for kdump](#setting-the-memory-reserved-for-kdump)
+      - [kdump Memory Parameter Formats](#kdump-memory-parameter-formats)
     - [Recommended Reserved Memory](#recommended-reserved-memory)
     - [Disabling Network Drivers](#disabling-network-drivers)
   - [Configuring the Disk Scheduling Algorithm](#configuring-the-disk-scheduling-algorithm)
@@ -62,7 +74,7 @@ zh_CN.UTF-8
 
 ### Setting a Locale
 
-To set a locale, run the following command as the **root** user. In the command,  _locale_  indicates the language type to be set. Run the  `localectl list-locales`  command to obtain the available values. Change the value based on the site requirements.
+To set a locale, run the following command as the **root** user. In the command,  _locale_  indicates the language type to be set. Run the  `localectl list-locales`  command to obtain the available values. Change the value as required.
 
 ```
 # localectl set-locale LANG=locale
@@ -116,7 +128,7 @@ cn
 
 ### Setting a Keyboard Layout
 
-To set a keyboard layout, run the following command as the **root** user. In the command,  _map_  indicates the keyboard layout to be set. Run the  `localectl list-keymaps`  command to obtain the available values. Change it based on the site requirements.
+To set a keyboard layout, run the following command as the **root** user. In the command,  _map_  indicates the keyboard layout to be set. Run the  `localectl list-keymaps`  command to obtain the available values. Change it as required.
 
 ```
 $ localectl set-keymap map
@@ -162,7 +174,7 @@ System clock synchronized: no
 
 #### Synchronizing the System Clock with a Remote Server
 
-Your system clock can be automatically synchronized with a remote server using the Network Time Protocol (NTP). Run the following command as the **root** user  to enable or disable NTP. The value of  _boolean_  is  **yes**  or  **no**, indicating that the NTP is enabled or disabled for automatic system clock synchronization. Change the value based on the site requirements.
+Your system clock can be automatically synchronized with a remote server using the Network Time Protocol (NTP). Run the following command as the **root** user  to enable or disable NTP. The value of  _boolean_  is  **yes**  or  **no**, indicating that the NTP is enabled or disabled for automatic system clock synchronization. Change the value as required.
 
 > ![](./public_sys-resources/icon-note.gif) **NOTE:**  
 If NTP system clock automatic synchronization is enabled , you cannot manually change the date or time. If you need to manually change the date or time, ensure that NTP system clock automatic synchronization is disabled. You can run the  `timedatectl set-ntp no`  command to disable the NTP service.
@@ -182,7 +194,7 @@ For example, to enable automatic NTP time synchronization, run the following com
 > ![](./public_sys-resources/icon-note.gif) **NOTE:**  
 > Before changing the date, ensure that NTP system clock automatic synchronization has been disabled.
 
-Run the following command as the **root** user  to change the current date. In the command,  _YYYY_  indicates the year,  _MM_  indicates the month, and  _DD_  indicates the day. Change them based on the site requirements.
+Run the following command as the **root** user  to change the current date. In the command,  _YYYY_  indicates the year,  _MM_  indicates the month, and  _DD_  indicates the day. Change them as required.
 
 ```
 # timedatectl set-time YYYY-MM-DD
@@ -199,7 +211,7 @@ For example, to change the current date to August 14, 2019, run the following co
 > ![](./public_sys-resources/icon-note.gif) **NOTE:**  
 > Before changing the time, ensure that NTP system clock automatic synchronization has been disabled.
 
-To change the current time, run the following command as the **root** user. In the command,  _HH_  indicates the hour,  _MM_  indicates the minute, and  _SS_  indicates the second. Change them based on the site requirements.
+To change the current time, run the following command as the **root** user. In the command,  _HH_  indicates the hour,  _MM_  indicates the minute, and  _SS_  indicates the second. Change them as required.
 
 ```
 # timedatectl set-time HH:MM:SS
@@ -219,7 +231,7 @@ To list all available time zones, run the following command:
 $ timedatectl list-timezones
 ```
 
-To change the current time zone, run the following command as the **root** user. In the command,  _time\_zone_  indicates the target time zone. Change it based on the site requirements.
+To change the current time zone, run the following command as the **root** user. In the command,  _time\_zone_  indicates the target time zone. Change it as required.
 
 ```
 # timedatectl set-timezone time_zone
@@ -362,7 +374,7 @@ Example commands and outputs:
 
 #### Changing the Current Time
 
-To change the current time, run the `date` command with the `--set` or `-s` option as the **root** user. In the command,  _HH_  indicates the hour,  _MM_  indicates the minute, and  _SS_  indicates the second. Change them based on the site requirements.
+To change the current time, run the `date` command with the `--set` or `-s` option as the **root** user. In the command,  _HH_  indicates the hour,  _MM_  indicates the minute, and  _SS_  indicates the second. Change them as required.
 
 ```
 # date --set HH:MM:SS
@@ -382,7 +394,7 @@ For example, to change the current time to 23:26:00, run the following command a
 
 #### Changing the Current Date
 
-To change the current date, run the `date` command with the `--set` or `-s` command line option as the **root** user. In the command,  _YYYY_  indicates the year,  _MM_  indicates the month, and  _DD_  indicates the day. Change them based on the site requirements.
+To change the current date, run the `date` command with the `--set` or `-s` command line option as the **root** user. In the command,  _YYYY_  indicates the year,  _MM_  indicates the month, and  _DD_  indicates the day. Change them as required.
 
 ```
 # date --set YYYY-MM-DD
@@ -424,7 +436,7 @@ Example command output:
 
 #### Setting the Date and Time
 
-Run the following command as the **root** user  to change the date and time of the current hardware. In the command,  _dd_  indicates the day,  _mm_  indicates the month,  _yyyy_  indicates the year,  _HH_  indicates the hour, and  _MM_  indicates the minute. Change them based on the site requirements.
+Run the following command as the **root** user  to change the date and time of the current hardware. In the command,  _dd_  indicates the day,  _mm_  indicates the month,  _yyyy_  indicates the year,  _HH_  indicates the hour, and  _MM_  indicates the minute. Change them as required.
 
 ```
 # hwclock --set --date "dd mm yyyy HH:MM"
