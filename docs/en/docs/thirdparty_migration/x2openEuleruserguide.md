@@ -1017,7 +1017,7 @@ The x2openEuler tool has been installed.
 2.  In the assessment task creation area, select **Assessment** or **Collection** and set the following parameters:
 
     >![](public_sys-resources/icon-note.gif) **NOTE:**
-    >-   **Assessment** and **Collection** are Mutually exclusive. Select either of them as required.
+    >-   **Assessment** and **Collection** are mutually exclusive. Select either of them as required.
     >-   The **Assessment** function can be used to assess the configuration information of the current server environment or analyze the environment of other servers using **Externally imported**.
 
     **Figure 10** Creating a configuration collection and assessment task <a id="zh-cn_topic_0303172996_zh-cn_topic_0301201532_fig15306105118267"></a> 
