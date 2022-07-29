@@ -31,7 +31,7 @@ Spring Framework 包括三个核心组件 Spring-Core、Spring-Context 和 Sprin
 实现IOC\(控制反转\)的包，是 Spring Framework 的关键特性。
 
 **Spring-AOP**
-直接将面向切面的编程功能集成到 Spring 框架中，所以可以很容易的使用 Spring 框架管理任何对象。Spring-AOP 为基于 Spring 的应用程序中的对象提供了事物管理服务，不依赖 EJB 组件，就可以将声明性事物管理集成到应用程序中。
+直接将面向切面的编程功能集成到 Spring 框架中，所以可以很容易的使用 Spring 框架管理任何对象。Spring-AOP 为基于 Spring 的应用程序中的对象提供了事务管理服务，不依赖 EJB 组件，就可以将声明性事务管理集成到应用程序中。
 
 **Spring-Web**
 建立在 Spring-Context 模块之上，为基于 Web 的应用程序提供上下文。
