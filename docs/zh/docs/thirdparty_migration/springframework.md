@@ -12,7 +12,7 @@
 
 ### Spring Framwork 简介
 
-Spring Framework 是为解决 EJB 开发 JavaEE 程序代码冗余，配置复杂等诸多问题而引入的开源框架。Spring 作为容器，提供了对多种技术\(JMS, MQ, UnitTest\)的支持，同时通过 AOP\(事物管理，日志等\)提供了众多方便应用的辅助类，对主流框架提供了良好的支持。
+Spring Framework 是为解决 EJB 开发 JavaEE 程序代码冗余，配置复杂等诸多问题而引入的开源框架。Spring 作为容器，提供了对多种技术\(JMS, MQ, UnitTest\)的支持，同时通过 AOP\(事务管理、日志等\)提供了众多方便应用的辅助类，对主流框架提供了良好的支持。
 
 Spring Framework 整体框架结构如 [图1](#fig1601161484619)所示
 
