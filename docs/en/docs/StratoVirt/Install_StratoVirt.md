@@ -13,7 +13,7 @@
 
 ### Software Requirements
 
-Operating system: openEuler 21.03
+Operating system: openEuler 21.09
 
 
 
