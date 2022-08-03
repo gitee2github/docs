@@ -32,7 +32,7 @@ pkgship是一款管理OS软件包依赖关系，提供依赖和被依赖关系�
 
 * Repo源挂载正式发布地址：<https://repo.openeuler.org/openEuler-21.03/everything/$basearch/>
 * 源码获取地址：<https://gitee.com/openeuler/pkgship>
-* 每日构建版本获取地址：：<https://build.openeuler.org/package/show/openEuler:21.03/pkgship>
+* 每日构建版本获取地址：<https://build.openeuler.org/package/show/openEuler:21.03/pkgship>
 
 ## 运行环境
 
