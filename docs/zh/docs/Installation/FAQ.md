@@ -8,7 +8,7 @@
     - [选择安装源出现异常](#选择安装源出现异常)
     - [如何手动开启kdump服务](#如何手动开启kdump服务)
     - [多块磁盘组成逻辑卷安装系统后，再次安装不能只选其中一块磁盘](#多块磁盘组成逻辑卷安装系统后再次安装不能只选其中一块磁盘)
-    - [x86物理机UEFI模式由于security boot安全选项问题无法安装](#x86物理机uefi模式由于security-boot安全选项问题无法安装)
+    - [x86物理机UEFI模式由于Secure Boot安全选项问题无法安装](#x86物理机uefi模式由于security-boot安全选项问题无法安装)
 
 <!-- /TOC -->
 
@@ -263,22 +263,22 @@ kdump内核预留内存参数说明如下：
     >图形模式下也可以按“Ctrl+Alt+F6”回到图形界面，点击[图1](#fig115949762617)右下角的“Refresh”刷新存储配置生效。  
 
 
-## x86物理机UEFI模式由于security boot安全选项问题无法安装
+## x86物理机UEFI模式由于Secure Boot安全选项问题无法安装
 
 ### 问题现象
 
-x86物理机安装系统时，由于设置了BIOS选项security boot 为enable（默认是disable），导致系统一直停留在“No bootable device”提示界面，无法继续安装，如[图2](#fig115949762617)所示。
+x86物理机安装系统时，由于设置了BIOS选项Secure Boot 为Enabled（默认是Disabled），导致系统一直停留在“No bootable device”提示界面，无法继续安装，如[图2](#fig115949762617)所示。
 
 **图 2**  “No bootable device”提示界面<a name="fig115949762617"></a>  
 ![](./figures/No-bootable-device.png)
 
 ### 原因分析
 
-开启security boot后，主板会验证引导程序及操作系统 ，若没有用对应的私钥进行签名，则无法通过主板上的内置公钥进行认证。
+开启Secure Boot后，主板会验证引导程序及操作系统 ，若没有用对应的私钥进行签名，则无法通过主板上的内置公钥进行认证。
 
 ### 解决方法
 
-进入BIOS，设置security boot为disable，重新安装即可。
+进入BIOS，设置Secure Boot为Disabled，重新安装即可。
 
 1.  系统启动时，按“F11”，输入密码“Admin@9000”进入BIOS。
 
@@ -293,5 +293,5 @@ x86物理机安装系统时，由于设置了BIOS选项security boot 为enable�
     ![](./figures/select.png)
 
     >![](./public_sys-resources/icon-note.gif) **说明：**   
-    >设置security boot为disable之后，保存退出，重新安装即可。  
+    >设置Secure Boot为Disabled之后，保存退出，重新安装即可。  
 
