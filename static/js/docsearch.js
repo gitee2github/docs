@@ -23,9 +23,9 @@ $(function($) {
     $(document).ready(function() {
         $(".search-header>.search-text").blur(function() {
             var value = $(this).val();
-            value = $.trim(value); 
+            value = $.trim(value);
             if (value == '') {
-                searchMethods.search(decodeURI(value),1,"#baseof-pagination");  
+                searchMethods.search(decodeURI(value),1,"#baseof-pagination");
                 $(".search-result>#baseof-pagination").css("display",'none')
             }
         })
@@ -70,10 +70,10 @@ $(function($) {
     $(".h5-search>.search-text").bind('keypress',function(event){
         if(event.keyCode == "13") {
             keyword = $(".h5-search>.search-text").val();
-            
+
             $(".search-result").css('display','block');
             searchMethods.search(decodeURI(keyword),1,"#pagination");
-            
+
         }
     });
     var versionText = '';
@@ -97,6 +97,21 @@ $(function($) {
 
     var searchMethods = {
         search: function (value,page,el) {
+            if (value && el) {
+                const search_event_id = `${value}${new Date().getTime()}${window['sensorsCustomBuriedData']?.ip || ''}`;
+                const obj = {
+                    search_key: value,
+                    search_event_id
+                };
+                window['addSearchBuriedData'] = obj;
+                let sensors = window['sensorsDataAnalytic201505'];
+                sensors?.setProfile({
+                    profileType: 'searchValue',
+                    ...(window['sensorsCustomBuriedData'] || {}),
+                    ...(window['addSearchBuriedData'] || {})
+                });
+            }
+
             let postData = {
                 keyword: value,
                 model: 'docs',
@@ -136,7 +151,7 @@ $(function($) {
                         $(".search-result>.title").find(".res-amount").text(totalAmount);
                         $(".search-result>.title").find(".keyword").text(value);
                     }
-                    searchMethods.solveData(dataArr,versionText);
+                    searchMethods.solveData(dataArr,versionText, page);
                 },
                 error: function (data) {
                     totalAmount = 0;
@@ -145,14 +160,14 @@ $(function($) {
                 },
             });
         },
-        solveData: function (result, text) {
+        solveData: function (result, text, page) {
             $(".search-result>ul").empty();
             if (!result.length) {
                 $("#search_content").hide();
                 return;
             }
             $("#search_content").show();
-            result.forEach(function(item)  {
+            result.forEach(function(item, index)  {
                 let urlArr = item.path.split('/');
                 let name = item.title.replace("<em>","");
                 name = name.replace("</em>","");
@@ -160,16 +175,29 @@ $(function($) {
                 $(".search-result>ul").append('<li>'+
                 '<div class="res-title" href="' + searchMethods.escapeHTML(url) +'">' +
                 searchMethods.escapeHTML(item.title) +
-                '</div>' + 
-                '<div class="res-desc">' + 
-                searchMethods.escapeHTML(item.textContent) + 
-                '</div>' + 
+                '</div>' +
+                '<div class="res-desc">' +
+                searchMethods.escapeHTML(item.textContent) +
+                '</div>' +
                 '<div class="res-vers">' +
-                searchMethods.escapeHTML(text)+ '：<span class="which-version">' + searchMethods.escapeHTML(item.version) + '</span>' + 
+                searchMethods.escapeHTML(text)+ '：<span class="which-version">' + searchMethods.escapeHTML(item.version) + '</span>' +
                 '</div>' +
                 '</li>');
 
                 $(".search-result>ul li").find(".res-title").click(function (e) {
+                    const searchKeyObj = {
+                        search_tag: 'docs',
+                        search_rank_num: 10 * (page - 1) + (index + 1),
+                        search_result_total_num: totalAmount
+                    };
+                    let sensors = window['sensorsDataAnalytic201505'];
+                    sensors.setProfile({
+                        profileType: 'selectSearchResult',
+                        ...(item || {}),
+                        ...(window['sensorsCustomBuriedData'] || {}),
+                        ...(window['addSearchBuriedData'] || {}),
+                        ...searchKeyObj
+                    })
                     window.location.href = $(this).attr("href");
                 });
             });
@@ -185,7 +213,7 @@ $(function($) {
                         "'": '&#39;',
                         '"': '&quot;'
                     }[tag] || tag)
-                } 
+                }
             );
         }
     };
