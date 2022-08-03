@@ -26,13 +26,13 @@ pkgship是一款管理OS软件包依赖关系，提供依赖和被依赖关系�
 
 系统采用flask-restful开发，架构如下图所示。
 
-![avatar](./images/packagemanagement.png)
+![avatar](./images/openeuler%E6%9E%B6%E6%9E%84%E5%9B%BE2.png)
 
 ## 软件下载
 
-* Repo源挂载正式发布地址：<https://repo.openeuler.org/>
+* Repo源挂载正式发布地址：<https://repo.openeuler.org/openEuler-21.03/everything/$basearch/>
 * 源码获取地址：<https://gitee.com/openeuler/pkgship>
-* RPM包版本获取地址：<https://117.78.1.88/project/show/openEuler:Mainline>
+* 每日构建版本获取地址：<https://build.openeuler.org/package/show/openEuler:21.03/pkgship>
 
 ## 运行环境
 
