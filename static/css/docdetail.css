@@ -106,8 +106,8 @@
 }
 
 #menu-box .jstree-container-ul>.jstree-node {
-    display: flex;
-    align-items: center;
+    /* display: flex;
+    align-items: center; */
     margin-bottom: 30px;
 }
 
