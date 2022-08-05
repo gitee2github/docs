@@ -26,7 +26,7 @@ pkgship是一款管理OS软件包依赖关系，提供依赖和被依赖关系�
 
 系统采用flask-restful开发，架构如下图所示。
 
-![avatar](./images/openeuler%E6%9E%B6%E6%9E%84%E5%9B%BE2.png)
+![avatar](./images/pkgship3.png)
 
 ## 软件下载
 
