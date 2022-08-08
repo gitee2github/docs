@@ -174,4 +174,4 @@ nodelist {
 
 ![](./figures/HA-api.png)
 
-想了解如何快速使用HA高可用集群，以及添加一个实例。请参考[HA的使用实例文档](./HA的使用实例.md)。
+想了解如何快速使用HA高可用集群，以及添加一个实例。请参考[HA的使用实例文档](https://docs.openeuler.org/zh/docs/21.03/docs/desktop/usecase.html)。
