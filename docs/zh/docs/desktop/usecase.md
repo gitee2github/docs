@@ -78,7 +78,9 @@
 
 -  图形界面方式
 1. 填写资源名称和资源类型，如下图所示。
+
     ![](./figures/HA-add-resource.png)
+
 2. 回显为如下，则资源添加成功并启动，运行于其中一个节点上，例如ha1。
 
     ![](./figures/HA-apache-suc.png)
