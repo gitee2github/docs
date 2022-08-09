@@ -69,6 +69,8 @@ A-Ops是一款智能运维工具，通过实现智能运维基本框架，提供
    yum install aops-database # A-Ops 数据中心服务：数据存放和数据库管理。
    
    yum install aops-cli # A-Ops 基础命令行：主机管理、部署管理、模板管理、任务管理。
+
+   yum install aops-web # A-Ops web
    ```
 
 
@@ -100,6 +102,8 @@ rpm -ivh aops-manager-vx.x.x-x.oe1.arch.rpm
 rpm -ivh aops-database-vx.x.x-x.oe1.arch.rpm
 
 rpm -ivh aops-cli-vx.x.x-x.oe1.arch.rpm
+
+rpm -ivh aops-web-vx.x.x-x.oe1.arch.rpm
 ```
 
 
