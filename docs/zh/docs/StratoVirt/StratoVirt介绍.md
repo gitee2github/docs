@@ -13,7 +13,7 @@ StratoVirt是计算产业中面向云数据中心的企业级虚拟化VMM(Virtua
 StratoVirt核心架构自顶向下分为三层：
 
 - OCI兼容接口：兼容QMP（QEMU Machine Protocol）协议，具有完备的OCI兼容能力。
-- BootLoader：抛弃传统BIOS+GRUB的启动模式，实现了更轻更快的Bootloader。
+- BootLoader：抛弃传统BIOS+GRUB的启动模式，实现了更轻更快的BootLoader。
 - MicroVM：虚拟化层，充分利用软硬协同能力，精简化设备模型；低时延资源伸缩能力。
 
 整体架构视图如**图1**所示。
