@@ -7,7 +7,7 @@
 
 ### 环境准备
 
-需要至少两台安装了openEuler 21.03 的物理机/虚拟机（现以两台为例），安装方法参考《安装指南》。
+需要至少两台安装了openEuler 21.03 的物理机/虚拟机（现以两台为例），安装方法参考《openEuler 21.03安装指南》。
 
 ### 修改主机名称及/etc/hosts文件
 
@@ -174,4 +174,4 @@ nodelist {
 
 ![](./figures/HA-api.png)
 
-想了解如何快速使用HA高可用集群，以及添加一个实例。请参考[HA的使用实例文档](./HA的使用实例.md)。
+想了解如何快速使用HA高可用集群，以及添加一个实例。请参考[HA的使用实例文档](https://docs.openeuler.org/zh/docs/21.03/docs/desktop/usecase.html)。

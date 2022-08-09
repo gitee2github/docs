@@ -1,6 +1,6 @@
 # HA使用实例
 
-本章介绍如何快速使用HA高可用集群，以及添加一个实例。若不了解怎么安装，请参考[HA的安装与部署文档](./HA的安装与部署.md)。
+本章介绍如何快速使用HA高可用集群，以及添加一个实例。若不了解怎么安装，请参考[HA的安装与部署文档](https://docs.openeuler.org/zh/docs/21.03/docs/desktop/installha.html)。
 
 
 ## 快速使用指南
@@ -78,7 +78,9 @@
 
 -  图形界面方式
 1. 填写资源名称和资源类型，如下图所示。
+
     ![](./figures/HA-add-resource.png)
+
 2. 回显为如下，则资源添加成功并启动，运行于其中一个节点上，例如ha1。
 
     ![](./figures/HA-apache-suc.png)
