@@ -420,7 +420,7 @@ Master 和 Worker 节点通过 Docker 下载其他组件，下载镜像时需要
 
 ### 查看状态信息相关命令
 
-* 查看所有 pods
+* 查看所有 pods。
 
     ```
     kubectl get pods -A
@@ -444,7 +444,7 @@ Master 和 Worker 节点通过 Docker 下载其他组件，下载镜像时需要
     kubectl describe pod $podname -n $namespace
     ```
 
-* 删除pod，删除正在运行的pod,控制器会马上再创建一个新的
+* 删除pod，删除正在运行的pod，控制器会马上再创建一个新的。
 
     ```
     kubectl delete pods $podname
