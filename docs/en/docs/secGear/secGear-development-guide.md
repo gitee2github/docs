@@ -412,7 +412,7 @@ Applications developed using secGear comply with the following unified directory
 
    Copy the device public key file rsa_public_key_cloud.pem to the enclave directory. The device public key is used to encrypt the dynamic library in the security zone by using the temporarily generated AES key.
 
-   Note: The rsa_public_key_cloud.pem file is downloaded from <https://gitee.com/openeuler/secGear/blob/master/examples/helloworld/enclave/rsa_public_key_cloud.pem>.
+   Note: The rsa_public_key_cloud.pem file is downloaded from <https://gitee.com/openeuler/itrustee_sdk/blob/master/build/signtools/rsa_public_key_cloud.pem>.
 
 7. Compile the program.
 
