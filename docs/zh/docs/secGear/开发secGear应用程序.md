@@ -419,7 +419,7 @@
 
    将设备公钥文件 rsa_public_key_cloud.pem 复制到 enclave 目录。此处的设备公钥用于使用临时生成的 aes 密钥对安全区动态库进行加密。
 
-   说明：rsa_public_key_cloud.pem 文件下载路径：https://gitee.com/openeuler/secGear/blob/master/examples/helloworld/enclave/rsa_public_key_cloud.pem
+   说明：rsa_public_key_cloud.pem 文件下载路径：https://gitee.com/openeuler/itrustee_sdk/blob/master/build/signtools/rsa_public_key_cloud.pem
 
    
 
