@@ -3,14 +3,14 @@
 This chapter describes how to install and deploy A-Tune.
 
 - [Installation and Deployment](#installation-and-deployment)
-    - [Software and Hardware Requirements](#software-and-hardware-requirements)
-    - [Environment Preparation](#environment-preparation)
-    - [A-Tune Installation](#a-tune-installation)
-        - [Installation Modes](#installation-modes)
-        - [Installation Procedure](#installation-procedure)
-    - [A-Tune Deployment](#a-tune-deployment)
-    - [Starting A-Tune](#starting-a-tune)
-    - [Starting A-Tune engine](#starting-a-tune-engine)
+  - [Software and Hardware Requirements](#software-and-hardware-requirements)
+  - [Environment Preparation](#environment-preparation)
+  - [A-Tune Installation](#a-tune-installation)
+    - [Installation Modes](#installation-modes)
+    - [Installation Procedure](#installation-procedure)
+  - [A-Tune Deployment](#a-tune-deployment)
+  - [Starting A-Tune](#starting-a-tune)
+  - [Starting A-Tune engine](#starting-a-tune-engine)
 
 
 
@@ -31,7 +31,7 @@ For details about installing an openEuler OS, see  _openEuler 20.03 LTS SP1 Inst
 
 ## A-Tune Installation
 
-This section describes the installation modes and methods of the A-Tune.
+This chapter describes the installation modes and methods of the A-Tune.
 
 ### Installation Modes
 
@@ -116,7 +116,7 @@ To install the A-Tune, perform the following steps:
 
 ## A-Tune Deployment
 
-This section describes how to deploy A-Tune.
+This chapter describes how to deploy A-Tune.
 
 
 

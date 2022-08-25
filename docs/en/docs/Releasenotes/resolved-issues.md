@@ -68,7 +68,7 @@ Table 1 Resolved issues
 | [I2822Q](https://gitee.com/src-openEuler/zenity/issues/I2822Q?from=project-issue)| \[SP1] The permission for some files in the **zenity** directory is changed. |
 | [I281FY](https://gitee.com/src-openEuler/libsass/issues/I281FY?from=project-issue)| \[fuzz] use-of-uninitialized-value|
 | [I2813F](https://gitee.com/src-openEuler/deepin-desktop-base/issues/I2813F?from=project-issue)| \[dde] \[GUI Display] UOS-related icons are deleted.|
-| [I2811J](https://gitee.com/src-openEuler/libsass/issues/I2811J?from=project-issue)| \[fuzz] heap-buffer-overflow|
+| [I4762C](https://gitee.com/src-openeuler/sleuthkit/issues/I4762C)| \[fuzz] heap-buffer-overflow|
 | [I27ZBD](https://gitee.com/openEuler/raspberrypi/issues/I27ZBD?from=project-issue)| \[openEuler 20.03 LTS SP1] The default source of the RC2 image for Raspberry Pi cannot be used.|
 | [I27ZA7](https://gitee.com/openEuler/raspberrypi/issues/I27ZA7?from=project-issue)| \[openEuler 20.03 LTS SP1] An error message is displayed in the **NetworkManager** service of the RC2 image for Raspberry Pi.|
 | [I27X28](https://gitee.com/src-openEuler/nfs-utils/issues/I27X28?from=project-issue)| \[20.03-LTS-SP1] The NFS source mounts the image of the first version. After the mounting is canceled, the NFS source mounts the image of the second version. In this case, the Yum source contains the kernel 48 version. After the mounting, the kernel 47 version is contained. |
