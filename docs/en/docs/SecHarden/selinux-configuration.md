@@ -6,49 +6,86 @@ Discretionary access control \(DAC\) determines whether a resource can be access
 
 By default, openEuler uses SELinux to improve system security. SELinux has three modes:
 
--   **permissive**: The SELinux outputs alarms but does not forcibly execute the security policy.
--   **enforcing**: The SELinux security policy is forcibly executed.
--   **disabled**: The SELinux security policy is not loaded.
+-   **permissive**: The SELinux outputs alarms but does not forcibly execute the security policies.
+-   **enforcing**: The SELinux security policies are forcibly executed.
+-   **disabled**: The SELinux security policies are not loaded.
 
 ## Configuration Description
 
-SELinux is enabled for openEuler by default and the default mode is enforcing. You can change the SELinux mode by changing the value of  **SELINUX**  in  **/etc/selinux/config**.
-
--   To disable the SELinux policy, run the following command:
-
+-   Obtain the SELinux running status:
     ```
+    # getenforce
+    Enforcing
+    ```
+
+-   Set the enforcing mode when SELinux is enabled:
+    ```
+    # setenforce 1
+    # getenforce
+    Enforcing
+    ```
+
+-   Set the permissive mode when SELinux is enabled:
+    ```
+    # setenforce 0
+    # getenforce
+    Permissive
+    ```
+
+-   Disable SELinux when SELinux is enabled. (A reboot is required.)
+    1. Modify the SELinux configuration file **/etc/selinux/config** and set **SELINUX=disabled**.
+    ```
+    # cat /etc/selinux/config | grep "SELINUX="
     SELINUX=disabled
+    2. Reboot the system.
+    ```
+    # reboot
+    ```
+    3. The status is changed successfully.
+    ```
+    # getenforce
+    Disabled
     ```
 
--   To use the permissive policy, run the following command:
-
+-   Set the permissive mode when SELinux is disabled:
+    1. Modify the SELinux configuration file **/etc/selinux/config** and set **SELINUX=permissive**.
     ```
+    # cat /etc/selinux/config | grep "SELINUX="
     SELINUX=permissive
+    2. Create the **.autorelabel** file in the root directory.
     ```
-
-
->![](public_sys-resources/icon-note.gif) **NOTE:**   
->When you switch between the disabled mode and the other mode, you need to restart the system for the switch to take effect.  
->```  
-># reboot  
->```  
-
-## SELinux Commands
-
--   Query the SELinux mode. For example, the following shows that the SELinux mode is permissive.
-
+    # touch /.autorelabel
+    ```
+    3. Reboot the system. The system will restart twice.
+    ```
+    # reboot
+    ```
+    4. The status is changed successfully.
     ```
     # getenforce
     Permissive
     ```
 
--   Set the SELinux mode.  **0**  indicates the permissive mode, and  **1**  indicates the enforcing mode. For example, run the following command to set the SELinux mode to enforcing. This command cannot be used to set the disabled mode. After the system is restarted, the mode set in  **/etc/selinux/config**  is restored.
-
+-   Set the enforcing mode when SELinux is disabled:
+    1. Set SELinux to the permissive mode.
+    2. Modify the SELinux configuration file **/etc/selinux/config** and set **SELINUX=enforcing**.
     ```
-    # setenforce 1
+    # cat /etc/selinux/config | grep "SELINUX="
+    SELINUX=enforcing
+    ```
+    3. Reboot the system.
+    ```
+    # reboot
+    ```
+    4. The status is changed successfully.
+    ```
+    # getenforce
+    Enforcing
     ```
 
--   Query the SELinux status.  **SELinux status**  indicates the SELinux status.  **enabled**  indicates that SELinux is enabled, and  **disabled**  indicates that SELinux is disabled.  **Current mode**  indicates the current security policy of the SELinux.
+## SELinux Commands
+
+-   Query the SELinux status.  **SELinux status**  indicates the SELinux status.  **enabled**  indicates that SELinux is enabled, and  **disabled**  indicates that SELinux is disabled.  **Current mode**  indicates the current mode of the SELinux.
 
     ```
     # sestatus
@@ -64,4 +101,13 @@ SELinux is enabled for openEuler by default and the default mode is enforcing. Y
     Max kernel policy version:      31
     ```
 
+## Precautions
+
+-   Before enabling SELinux, you are advised to upgrade selinux-policy to the latest version using DNF. Otherwise, applications may fail to run properly. For example:
+
+    ```
+    dnf update selinux-policy -y
+    ```
+    
+-   If the system cannot be started due to improper SELinux configuration (for example, a policy is deleted by mistake or no proper rule or security context is configured), you can add **selinux=0** to the startup parameters to disable SELinux.
 
