@@ -7,19 +7,19 @@
 <!-- TOC -->
 
 - [Installation Mode](#installation-mode)
-    - [Installation Through a CD/DVD-ROM](#installation-through-a-cddvd-rom)
-        - [Preparing the Installation Source](#preparing-the-installation-source)
-        - [Starting the Installation](#starting-the-installation)
-    - [Installation Through a USB Flash Drive](#installation-through-a-usb-flash-drive)
-        - [Preparing the Installation Source](#preparing-the-installation-source-1)
-        - [Starting the Installation](#starting-the-installation-1)
-    - [Installation Through the Network Using PXE](#installation-through-the-network-using-pxe)
-    - [Installation Through a QCOW2 Image](#installation-through-a-qcow2-image)
-        - [Creating a QCOW2 Image](#creating-a-qcow2-image)
-        - [Starting the Installation](#starting-the-installation-2)
-    - [Installation Through a Private Image](#installation-through-a-private-image)
-        - [Creating a Private Image](#creating-a-private-image)
-        - [Starting the Installation](#starting-the-installation-3)
+  - [Installation Through a CD/DVD-ROM](#installation-through-a-cddvd-rom)
+    - [Preparing the Installation Source](#preparing-the-installation-source)
+    - [Starting the Installation](#starting-the-installation)
+  - [Installation Through a USB Flash Drive](#installation-through-a-usb-flash-drive)
+    - [Preparing the Installation Source](#preparing-the-installation-source-1)
+    - [Starting the Installation](#starting-the-installation-1)
+  - [Installation Through the Network Using PXE](#installation-through-the-network-using-pxe)
+  - [Installation Through a QCOW2 Image](#installation-through-a-qcow2-image)
+    - [Creating a QCOW2 Image](#creating-a-qcow2-image)
+    - [Starting the Installation](#starting-the-installation-2)
+  - [Installation Through a Private Image](#installation-through-a-private-image)
+    - [Creating a Private Image](#creating-a-private-image)
+    - [Starting the Installation](#starting-the-installation-3)
 
 <!-- /TOC -->
 
@@ -125,7 +125,7 @@ After a short delay, a graphical wizard page is displayed, which contains differ
 
 ## Installation Through the Network Using PXE
 
-To boot with PXE, you need to properly configure the server and your computer's network interface to support PXE.
+To boot with PXE, you need to properly configure the server, and your computer's network interface must support PXE.
 
 If the target hardware is installed with a PXE-enabled NIC, we can configure it to boot the computer from network system files rather than local media \(such as CD-ROMs\) and execute the Anaconda installation program.
 

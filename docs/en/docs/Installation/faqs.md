@@ -12,7 +12,6 @@
   - [openEuler Fails to Be Installed on an x86 PM in UEFI Mode due to Secure Boot Option Setting](#openeuler-fails-to-be-installed-on-an-x86-pm-in-uefi-mode-due-to-secure-boot-option-setting)
     
 <!-- /TOC -->
-
 ## openEuler Fails to Start After It Is Installed to the Second Disk
 
 ### Symptom
@@ -268,18 +267,18 @@ The logical volume formed by multiple disks is equivalent to a volume group. The
 
 ### Symptom
 
-During the installation of openEuler on an x86 PM in UEFI mode, the system stays at the "No bootable device" page and the installation cannot continue because  **secure boot**  is set to  **enabled**  \(by default, it is set to  **disabled**\), as shown in  [Figure 2](#fig115949762617).
+During the installation of openEuler on an x86 PM in UEFI mode, the system stays at the "No bootable device" page and the installation cannot continue because  **Secure Boot**  is set to  **Enabled**  \(by default, it is set to  **Disabled**\), as shown in  [Figure 2](#fig115949762617).
 
 **Figure  2**  Dialog box showing "No bootable device" <a name="fig115949762617"></a>  
 ![](./figures/dialog-box-showing-no-bootable-device.png "dialog-box-showing-no-bootable-device")
 
 ### Possible Causes
 
-After  **secure boot**  is set to  **enabled**, the mainboard verifies the boot program and OS. If the boot program and OS are not signed using the corresponding private key, they cannot pass the authentication of the built-in public key on the mainboard.
+After  **Secure Boot**  is set to  **Enabled**, the mainboard verifies the boot program and OS. If the boot program and OS are not signed using the corresponding private key, they cannot pass the authentication of the built-in public key on the mainboard.
 
 ### Solutions
 
-Access the BIOS, set  **secure boot**  to  **disabled**, and reinstall the openEuler.
+Access the BIOS, set  **Secure Boot**  to  **Disabled**, and reinstall the openEuler.
 
 1.  During the system startup, press  **F11**  and enter the password  **Admin@9000**  to access the BIOS.
 
