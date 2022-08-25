@@ -75,7 +75,7 @@ The following table lists the basic configuration information.
 | -append          | console=ttyS0 root=/dev/vda reboot=k panic=1 rw | Configures the kernel command line parameter. For the standard virtualization AArch64 platform, set **console** to **ttyAMA0** instead of **ttyS0**.|
 | -initrd          | /path/to/initrd.img                             | Configures the initrd file.|
 | -smp             | [cpus=] CPU count| Configures the number of CPUs. The value range is [1, 254].|
-| -m               | Memory size (MiB/GiB). The default unit is MB.| Configures the memory size. The value range is [256 MiB, 512 GiB].|
+| -m               | Memory size (MiB/GiB). The default unit is MiB.| Configures the memory size. The value range is [256 MiB, 512 GiB].|
 | -qmp             | unix:/path/to/socket,server,nowait              | Configures api-channel. Before running api-channel, ensure that the socket file does not exist.|
 | -D               | /path/to/logfile                                | Configures the log file.|
 | -pidfile         | /path/to/pidfile                                | Configures the pid file. This parameter must be used together with **-daemonize**. Ensure that the pid file does not exist before running the script.|
