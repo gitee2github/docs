@@ -2,20 +2,12 @@
 
 <!-- TOC -->
 
-
-
 - [Usage Instructions](#usage-instructions)
-
   - [Precautions](#precautions)
-
   - [Upgrade](#upgrade)
-
   - [Rollback](#rollback)
-
     - [Application Scenarios](#application-scenarios)
-
     - [Manual Rollback](#manual-rollback)
-
     - [KubeOS-based Rollback](#kubeos-based-rollback)
 
       
@@ -50,8 +42,8 @@ Parameter description:
 
 | Parameter           | Description                            | Mandatory (Yes/No)|
 | -------------- | ----------------------------------- | -------- |
-| osversion      | Address of the image used for the upgrade                | Yes       |
-| imageurl       | Version of the OS image used for the upgrade            | Yes       |
+| osversion      | Version of the OS image used for the upgrade                | Yes       |
+| imageurl       | Address of the image used for the upgrade            | Yes       |
 | maxunavailable | Number of nodes that are upgraded concurrently                | Yes       |
 | checksum       | Checksum (SHA-256) value of the image used for the upgrade| Yes       |
 | flagsafe       | Whether `imageurl` specifies a secure address| Yes       |
