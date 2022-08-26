@@ -148,7 +148,7 @@ acronym {
 
 a {
     text-decoration: none;
-    color: #002FA7;
+    color: var(--e-color-brand1);
 }
 
 

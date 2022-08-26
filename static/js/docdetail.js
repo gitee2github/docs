@@ -22,52 +22,58 @@ $(function ($) {
     var sourceLast = urlArr[6].replace("html", "md");
     var sourceHref = "https://gitee.com/openeuler/docs/tree/stable2-" + urlArr[3] + "/docs/" + lang + "/docs/" + urlArr[5] + "/" + sourceLast;
     $("#source").attr("href", sourceHref);
+    $("#version-select .option span,#h5-menu-top .option a").each(function(){
+        if($(this).html()===versionStr){
+            $(this).addClass("active")
+        }
+    })
     if (evaluateParams.lang === "en") {
-        $("#version-select>span").text("Version: " + versionStr);
+        $("#version-select>span,#h5-menu .h5-sersion").text("Version: " + versionStr);
     }
     else if (evaluateParams.lang === "zh") {
-        $("#version-select>span").text("版本: " + versionStr);
+        $("#version-select>span,#h5-menu .h5-sersion").text("版本: " + versionStr);
     }
-    else $("#version-select>span").text("version: " + versionStr);
-    $("#h5-menu-top .select-box").find("span").text(versionStr);
+    else {$("#version-select>span,#h5-menu .h5-sersion").text("version: " + versionStr)};
+    
+    // $("#h5-menu-top .select-box").find("span").text(versionStr);
+    if(location.href.includes('/ru/')){
+        $('#version-select .option').addClass('option-ru')
+    }
     $("#version-select").click(function (e) {
-        if ($(this).find(".option").css('display') === 'none') {
-            $(this).find(".option").show();
-        } else {
-            $(this).find(".option").hide();
-        }
-
+        $(this).children(".option").toggleClass("option-active");
+        $(this).children(".option-ru").toggleClass("option-ru-active");
+        $(this).toggleClass("open-option")
         $(document).one("click", function () {
-            $("#version-select .option").hide();
+            $("#version-select .option").removeClass("option-active");
+            $("#version-select .option-ru").toggleClass("option-ru-active");
         });
         e.stopPropagation();
     });
-
-    $("#h5-menu .h5-menu").click(function (e) {
-        $("#menu-box").show();
-        $("#content .docscontainer").css("height", "0");
-        $("#page").hide();
-    });
-    $("#h5-menu-top .icon-close").click(function (e) {
-        $("#menu-box").hide();
-        $("#content .docscontainer").css("height", "auto");
-        $("#page").show();
+    $(".h5_nav_left").click(function (e) {
+        $("#all>.left").addClass("show-left");
+        $(".h5-mask").show();
+        // $("#content .docscontainer").css("height", "0");
+        // $("#page").hide();
     });
 
+    // $("#h5-menu .h5-menu").click(function (e) {
+    //     $("#menu-box").show();
+    //     $("#content .docscontainer").css("height", "0");
+    //     $("#page").hide();
+    // });
+    $("#h5-menu-top .icon-close,.h5-mask").click(function (e) {
+        $("#all>.left").removeClass("show-left");
+        $(".h5-mask").hide();
+        // $("#content .docscontainer").css("height", "auto");
+        // $("#page").show();
+    });
     $("#h5-menu-top .h5-search").find(".search-btn").click(function (e) {
         keyword = $("#h5-menu-top .h5-search").find("input").val();
         window.location.href = '/' + lang + '/search.html?keyword=' + keyword;
     });
-
     $("#h5-menu-top .select-box").click(function (e) {
-        if ($(this).find(".option").css('display') === 'none') {
-            $(this).find(".option").show();
-        } else {
-            $(this).find(".option").hide();
-        }
-        $(document).one("click", function () {
-            $(this).find(".option").hide();
-        });
+        $("#h5-menu-top .menu-select-box .option").toggleClass("option-show")
+        $(".icon-servision").toggleClass("icon-open")
         e.stopPropagation();
     });
     if (isAdd1 && isAdd2 && !isAdd4) {
@@ -128,32 +134,51 @@ $(function ($) {
         $('.question').click()
         $(".baseof_mask").css('display', 'none');
     })
+    $('.btn-submit').hover(function(){
+        let submitType = $(".submit-type .active-submit>span").text();
+        if(submitType==="issue"){
+            $(".issue-submit-tip").addClass("tip-show")
+        }else if(submitType==="PR"){
+            $(".pr-submit-tip").addClass("tip-show")
+        }
+    },function(){
+        $(".issue-submit-tip").removeClass("tip-show")
+        $(".pr-submit-tip").removeClass("tip-show")
+    });
     $('.btn-submit').on('click', function () {
         let questionValue = $('.main-input').val().trim();
+        const regR = /[\r\n]+/g
+        let submitType = $(".submit-type .active-submit>span").text();
         let feedback = $('.issue-reason').val().trim();
         let checkedArr = []
+        const first=questionValue.split(regR)[0]
         $('.alert .active-border span').each(function (index) {
             checkedArr.push($('.alert .active-border span')[index].innerHTML)
         });
         let satisfaction = $('.satisfaction .active');
-        let joinReason = $(".checkbox-list input[type='radio']:checked");
+        // 获取要提交的文件的路径
+        const urlArr=location.href.split("/")
+        const title=urlArr[urlArr.length-1].replace(".html","")
+        const version=urlArr[urlArr.length-4]
+        const path=urlArr[urlArr.length-2]+"/"+urlArr[urlArr.length-1].replace("html","md")
+        // let joinReason = $(".checkbox-list input[type='radio']:checked");
+        // let joinReason = $(".checkbox-list input[type='radio']:checked");
         let email = $(".email-input").val().trim();
         let reg = new RegExp("^[a-z0-9A-Z]+[- | a-z0-9A-Z . _]+@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-z]{2,}$");
         let privacy = $(".privacy-box input[type='radio']:checked");
         if (!questionValue) {
             $('.first-input').focus()
             tipShow('请输入“有虫”片段', 0)
-        } else if (!feedback) {
+        } else if (!feedback||!submitType) {
             $('.issue-reason').focus()
-            tipShow('请输入问题描述', 1)
-        } else if (satisfaction.length === 0) {
-            tipShow('请选择满意度', 2)
-        } else if (joinReason.length === 0) {
-            tipShow('请选择参与原因', 3)
-        } else if (!email) {
-            tipShow('请输入您的邮箱', 4)
+            tipShow('请选择提交类型并输入问题描述', 1)
+        }
+        else if (!email) {
+            tipShow('请输入您的邮箱', 3)
         } else if (!reg.test(email)) {
-            tipShow('请输入正确的邮箱', 4)
+            tipShow('请输入正确的邮箱', 3)
+        }else if (satisfaction.length === 0) {
+            tipShow('请选择满意度', 2)
         }
         else if (privacy.length === 0) {
             tipShow('请勾选同意隐私声明', 5)
@@ -168,7 +193,7 @@ $(function ($) {
                 existProblem: checkedArr,
                 problemDetail: feedback,
                 comprehensiveSatisfication: parseInt(satisfaction.attr('key')),
-                participateReason: joinReason.next()[0].innerHTML,
+                participateReason: "本职工作",
                 email: email,
             }
             $("#title-evaluate").css('z-index', '1000');
@@ -195,7 +220,11 @@ $(function ($) {
                             let body = encodeURIComponent(issueTemplate(postData))
                             try {
                                 if (JSON.parse(data).code === 200) {
-                                    window.open(`https://gitee.com/openeuler/docs/issues/new?issue%5Bassignee_id%5D=0&issue%5Bmilestone_id%5D=0&title=有奖捉虫&description=${body}`)
+                                    if(submitType==="issue"){
+                                        window.open(`https://gitee.com/openeuler/docs/issues/new?issue%5Bassignee_id%5D=0&issue%5Bmilestone_id%5D=0&title=有奖捉虫&description=${body}`)
+                                    }else{
+                                        window.open(`https://gitee.com/-/ide/project/openeuler/docs/edit/stable2-${version}/-/docs/zh/docs/${path}?search=${first}&title=文档捉虫-openEuler ${version}-${title}&description=${feedback}&message=${feedback}&label_names=文档捉虫`)
+                                    }
                                 } else {
                                     console.error(JSON.parse(data));
                                 }
@@ -269,6 +298,9 @@ $(function ($) {
         count = $(".issue-reason").val().length;
         $("#text-count-tow").text(count);
     })
+    $('.submit-type .type-issue,.submit-type .type-PR').on('click', function (){
+            $(this).addClass('active-submit').siblings().removeClass('active-submit');
+    })
     $('.satisfaction .score').on('click', function () {
         $(this).addClass('active');
         $(this).siblings(".score").removeClass('active');
@@ -310,18 +342,37 @@ $(function ($) {
 
 function getTreeLink() {
     setTimeout(function () {
-        let openEle = $("#docstreeview .jstree-container-ul").find(".jstree-open");
-        for (let i = 0; i < openEle.length; i++) {
-            if (i < openEle.length - 1) {
-                let span = "<i></i>"
-                $(".link-container>.docs-a").append($("#docstreeview .jstree-container-ul").find(".jstree-open").eq(i).find("a").first().clone()).append(span);
-            } else {
-                let text = $("#docstreeview .jstree-container-ul").find(".jstree-open").eq(i).find("a").first().text();
-                let span = "<span>" + text + "</span>"
-                $(".link-container>.docs-a").append(span);
+        let openEle = $(" #docstreeview .jstree-container-ul").find(".jstree-open");
+        let lastBread='';
+        let h1=$(".markdown h1")
+        let title=""
+        if(h1.html()){
+            title=h1.html().trim()
+        }
+        if(openEle.length){
+            for (let i = 0; i < openEle.length; i++) {
+                if (i < openEle.length) {
+                    let span = "<i></i>"
+                    $(".docs-a").append($(" #docstreeview .jstree-container-ul").find(".jstree-open").eq(i).find("a").first().clone()).append(span);
+                    lastBread= $(" #docstreeview .jstree-container-ul").find(".jstree-open").eq(i).find("a").first().text()
+                }
+                // else {
+                //     let text = $(" #docstreeview .jstree-container-ul").find(".jstree-open").eq(i).find("a").first().text();
+                //     let span = "<span>" + text + "</span>"
+                //     lastBread=text
+                //     $(".docs-a").append(span);
+                // }
             }
         }
-    }, 500);
+        if(title!==lastBread){
+            $(".docs-a").append( `<a>${title}</a>`);
+        }else{
+            $(".docs-a i:nth-last-of-type(1)").remove()
+        }
+        if(!$(".docs-a>a:nth-last-of-type(1)").html()){
+           $(".docs-a>a:nth-last-of-type(1)").remove();
+        }
+    }, 100);
 }
 
 function tipShow(value, index) {
@@ -330,6 +381,16 @@ function tipShow(value, index) {
         setTimeout(function () {
             $('.privacy-box').removeClass('shake1');
         }, 1000)
+    }else if(index === 3) {
+        let tipBox = $("<div class='tip-box shake'></div>");
+        $('.text-email')[0].appendChild(tipBox[0]);
+        $('.tip-box').text(value).slideToggle(500)
+        setTimeout(function () {
+            $('.tip-box').slideToggle("slow");
+            setTimeout(function () {
+                $('.tip-box').remove()
+            }, 500)
+        }, 2500)
     } else {
         let tipBox = $("<div class='tip-box shake'></div>");
         $('.title-h3')[index].appendChild(tipBox[0]);
@@ -342,7 +403,7 @@ function tipShow(value, index) {
         }, 2500)
     }
 }
-
+// 选中文字出现捉虫图标
 window.onload = function () {
     if (lang === 'zh') {
         function selectText() {

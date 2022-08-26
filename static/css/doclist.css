@@ -4,7 +4,6 @@
 }
 
 li{
-    margin-top: 30px;
     color:#FFFFFF;
 }
 
@@ -12,8 +11,7 @@ li{
     margin-top: 50px;
     font-size: 30px;
     font-weight: weight;
-    color: #000000;
-    line-height: 30px;
+    color: var(--e-color-text1);line-height: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -21,8 +19,7 @@ li{
 
 .doclist .text>div span {
     font-size: 18px;
-    color: #000000;
-    line-height: 18px;
+    color: var(--e-color-text1);line-height: 18px;
 }
 
 .doclist .text>div {
@@ -55,15 +52,15 @@ li{
 }
 
 .doclist .text>div .lts:hover {
-    border: 1px solid #002FA7;
+    border: 1px solid var(--e-color-brand1);
 }
 
 .doclist .text>div #LTS-value.active {
-    border: 1px solid #002FA7;
+    border: 1px solid var(--e-color-brand1);
 }
 
 .doclist .text>div .active>div {
-    background: #002FA7;
+    background: var(--e-color-brand1);
 }
 
 
@@ -75,19 +72,18 @@ li{
 .doclist .doc-box .version {
     width: 240px;
     height: 64px;
-    box-shadow: 0px 6px 30px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--e-shadow-l2);
     border-radius: 8px;
     padding: 20px 0;
     text-align: center;
     font-size: 20px;
-    color: #000000;
-    line-height: 24px;
+    color: var(--e-color-text1);line-height: 24px;
     cursor: pointer;
     margin: 40px 40px 0 0;
 }
 
 .doclist .doc-box .active {
-    background: #002FA7;
+    background: var(--e-color-brand1);
     color: #FFFFFF;
 }
 
@@ -97,8 +93,7 @@ li{
 
 .doclist .doc-catalog .title { 
     font-size: 30px;
-    color: #000000;
-    line-height: 30px;
+    color: var(--e-color-text1);line-height: 30px;
     margin-bottom: 40px;
 }
 
@@ -111,8 +106,7 @@ li{
 .doclist .doc-catalog .list>div {
     padding: 40px 0 40px 40px;
     width: 540px;
-    background: #FFFFFF;
-    box-shadow: 0px 6px 30px 0px rgba(0, 0, 0, 0.1);
+    background: var(--e-color-bg2);box-shadow: var(--e-shadow-l2);
     border-radius: 8px;
     margin: 0 40px 40px 0;
     display: flex;
@@ -151,8 +145,7 @@ li{
 
 .doc-catalog .list>div span {  
     font-size: 20px;
-    color: #000000;
-    font-weight: bold;
+    color: var(--e-color-text1);font-weight: bold;
     line-height: 36px;
     white-space: nowrap;
     flex-shrink: 0;
@@ -165,7 +158,7 @@ li{
 .doc-catalog .list>div .link-box a{
     font-size: 16px;
     font-weight: normal;
-    color: #002FA7;
+    color: var(--e-color-brand1);
     line-height: 36px;
     margin-bottom: 10px;
 }
@@ -201,8 +194,7 @@ li{
 
 .webpage .other p { 
     font-size: 30px;
-    color: #000000;
-    line-height: 30px;
+    color: var(--e-color-text1);line-height: 30px;
 }
 
 .webpage .other img {
@@ -251,7 +243,7 @@ html[lang="zh"] .list[index="95"] .use .link-box a:nth-of-type(3) {
     margin-right: 55px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1100px) {
 
     .body_content .doclist .h5-search {
         position: relative;

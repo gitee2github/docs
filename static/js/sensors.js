@@ -498,7 +498,7 @@ function startSensor(num) {
     // 重试最大次数
     return;
   }
-  if (sensors && window['returnCitySN']) {
+  if (sensors) {
     initSensor();
   } else {
     setTimeout(() => {

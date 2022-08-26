@@ -9,7 +9,7 @@
     <div id="all" class="web">
         <div id="left">
             <div class="left">
-                <a href="https://openeuler.org/{{ .Site.LanguageCode }}/"><img src="\img\common\logo.png" alt=""/></a>
+                <a href="https://openeuler.org/{{ .Site.LanguageCode }}/"><img src="\img\common\logo_dark.svg" alt=""/></a>
             </div>
             <ul>
                 <li><i class="icon-tick" ></i>{{i18n "version_selection"}}</li>
@@ -27,30 +27,27 @@
                 <li><a href="{{i18n "know_95_1"}}">21.03</a></li>
                 {{ end }}
                 <li><a href="{{i18n "know_97_1"}}">20.09</a> </li>
-                <li > <i class="icon-earth" ></i>{{i18n "quick_links"}}</li>
-                <li><a href="https://openeuler.org/" target="_blank">openEuler</a></li>
-                <li><a href="https://www.hikunpeng.com/" target="_blank">{{i18n "kunpeng_community"}}</a></li>
             </ul>
         </div>
-
         <div id="right">
             <header>
                 <nav class="">
                     <div class="nav-menu">
 
-                        <div class="right">
+                        <div class="right index-right">
 
                             <div name="lang" id="lang">
                                 <span style="margin-left: 30px;">{{ i18n "current_lang" }}</span>
                                 <i class="icon-down"></i>
-                                <div class="option" style="margin-left: 20px;">
-                                    <a href="/zh/">{{ .Site.Params.languageZh }}</a>
-                                    <a href="/en/">{{ .Site.Params.languageEn }}</a>
-                                    <a href="/ru/">{{ .Site.Params.languageRu }}</a>
-                                    <div class="angle"></div>
+                                <div class="option web-lang lang-menu-list">
+                                    <a href="/zh/" class="lang-item">{{ .Site.Params.languageZh }}</a>
+                                    <a href="/en/" class="lang-item">{{ .Site.Params.languageEn }}</a>
+                                    <a href="/ru/" class="lang-item">{{ .Site.Params.languageRu }}</a>
                                 </div>
                             </div>
-
+                            <div class="theme-change">
+                                <i class="icon-theme light"></i>
+                            </div>
                         </div>
                     </div>
                 </nav>
@@ -59,8 +56,8 @@
                 <div>
                     <span>{{i18n "quick_search"}}</span>
                     <div class="input" id="search-input">
-                        <input type="text" placeholder="Search" class="search-text"/>
                         <i class="icon-search" style="right: 0px;"></i>
+                        <input type="text" placeholder="{{i18n "search_placeholder"}}" class="search-text"/>
                     </div>
                 </div>
                 <div class="search_right">
@@ -71,88 +68,111 @@
             <div  id="search_content">
                 <div class="search-result index-result" class="container" >
                     <ul>
-
                     </ul>
                     <div id="web-pagination"></div>
                 </div>
             </div>
-
-            <h1>{{ i18n "hot_document" }}</h1>
+            <div class="hot-document">
+                <h1>{{ i18n "hot_document" }}</h1>
             <div id="document_content">
-                <div>
+                <div href="{{i18n "A-Tune_link"}}">
                     <div class="hot_version">
-                        <a href="{{i18n "A-Tune_link"}}">{{i18n "A-Tune_header"}}</a>
+                        <p>{{i18n "A-Tune_header"}}</p>
                         <span>{{i18n "hot_docs_version"}}</span>
                     </div>
-                    <br>
                     <div class="hot-docs-desc">
                         {{i18n "A-Tune_content"}}
                     </div>
                 </div>
-                <div>
+                <div href="{{i18n "secGear_link"}}">
                     <div class="hot_version">
-                        <a href="{{i18n "secGear_link"}}">{{i18n "secGear_header"}}</a>
+                        <p>{{i18n "secGear_header"}}</p>
                         <span>{{i18n "hot_docs_version"}}</span>
                     </div>
-                    <br>
                     <div class="hot-docs-desc">
                         {{i18n "secGear_content"}}
                     </div>
                 </div>
-                <div>
+                <div href="{{i18n "StratoVirt_link"}}">
                     <div class="hot_version">
-                        <a href="{{i18n "StratoVirt_link"}}" >{{i18n "StratoVirt_header"}}</a>
+                        <p>{{i18n "StratoVirt_header"}}</p>
                         <span>{{i18n "hot_docs_version"}}</span>
                     </div>
-                    <br>
                     <div class="hot-docs-desc">
                         {{i18n "StratoVirt_content"}}
                     </div>
                 </div>
-                <div>
+                <div href="{{i18n "container_link"}}">
                     <div class="hot_version">
-                        <a href="{{i18n "container_link"}}">{{i18n "container_header"}}</a>
+                        <p>{{i18n "container_header"}}</p>
                         <span>{{i18n "hot_docs_version"}}</span>
                     </div>
-                    <br>
                     <div class="hot-docs-desc">
                         {{i18n "container_content"}}
                     </div>
                 </div>
+            </div>
             </div>
             {{ partial "pcfooter.html" . }}
         </div>
     </div>
     <div class="h5_index">
         <header>
-            <nav class="nav-box">
-                <div class="nav-menu container">
-                    <div class="h5_left">
-                        <a href="https://openeuler.org/{{ .Site.LanguageCode }}/"><img src="\img\common\logo-h5.png" /></a>
-                    </div>
-                    <div class="h5-right">
-                        <i class="icon-lang">
-                            <div class="option">
-                                <a href="/zh/">{{ .Site.Params.languageZh }}</a>
-                                <a href="/en/">{{ .Site.Params.languageEn }}</a>
-                                <a href="/ru/">{{ .Site.Params.languageRu }}</a>
-                                <div class="angle"></div>
-                            </div>
-                        </i>
-                        <i class="white_search" ></i>
-                    </div>
+            <div class="h5-nav-menu">
+                <div class="h5_nav_left"></div>
+                <div class="h5-logo">
+                  <!-- <img src="\img\common\logo-h5.png" alt="" /> -->
                 </div>
-            </nav>
+                <div class="h5-right">
+                  <i class="white_search"></i>
+                </div>
+              </div>
         </header>
-
+        <div class="h5_nav">
+            <div class="h5-logo">
+                <div class="logo-img"></div>
+                <i class="icon-close"></i>
+              </div>
+            <div class="container menu-select-box">
+                <div class="select-box">
+                  <p>{{i18n "version_selection"}}</p>
+                  <i class="icon-servision"></i>
+                </div>
+                <div class="option">
+                    <a href="{{ i18n "know_91_1"}}">{{ .Site.Params.version_91 }}</a>
+                    <a href="{{ i18n "know_92_1"}}">{{ .Site.Params.version_92 }}</a>
+                    <a href="{{ i18n "know_93_1"}}">{{ .Site.Params.version_93 }}</a>
+                    {{ if ne .Site.LanguageCode "ru"}}
+                    <a href="{{ i18n "know_94_1"}}">{{ .Site.Params.version_94 }}</a>
+                    <a href="{{ i18n "know_95_1"}}">{{ .Site.Params.version_95 }}</a>
+                    <a href="{{ i18n "know_96_1"}}">{{ .Site.Params.version_96 }}</a>
+                    {{ end }}
+                    <a href="{{ i18n "know_97_1"}}">{{ .Site.Params.version_97 }}</a>
+                    <a href="{{ i18n "know_98_1"}}">{{ .Site.Params.version_98 }}</a>
+                    <div class="angle"></div>
+                  </div>
+              </div>
+            <div class="h5-theme-lang">
+                <div class="lang">
+                 <a href="/zh/">中文</a>
+                 <a href="/en/">EN</a>
+                 <a href="/ru/">RU</a>
+                </div>
+                <div class="theme-change">
+                 <i class="icon-theme light"></i>
+             </div>
+             </div>
+        </div>
         <div class="zhezhao"></div>
         <div class="searcher">
             <div class="h5-search">
+                <i class="icon-search" style="right: 0px;"></i>
                 <input type="text" class="search-text" placeholder="{{ i18n "search_placeholder" }}" />
-                <div class="search-btn">{{ i18n "search" }}</div>
+                <i class="icon-clear" ></i>
+                <div class="cancel-btn">{{ i18n "cancel" }}</div>
             </div>
-            <div class="search-result">
-                <p class="title">{{ i18n "result_1" }}<span class="res-amount main-text"></span>{{ i18n "result_2" }}<span class="keyword main-text"></span>{{ i18n "result_3" }}</p>
+            <div class="search-result h5-search-result">
+                <!-- <p class="title">{{ i18n "result_1" }}<span class="res-amount main-text"></span>{{ i18n "result_2" }}<span class="keyword main-text"></span>{{ i18n "result_3" }}</p> -->
                 <ul>
 
                 </ul>
@@ -160,7 +180,13 @@
             </div>
         </div>
         <div class="h5_content">
-            <div class="h5_banner"><img src="/img/common/rectangle.png" alt="" /></div>
+            <div class="h5_banner">
+                <div class="banner-text">
+                    <p class="title-bg">LEARNING</p>
+                    <p class="title">{{i18n "document"}}</p>
+                </div>
+                <img class="banner-iii" src="/img/common/banner-iii.png" alt="" />
+            </div>
             <div class="h5_versions">
                 <span>{{ i18n "version_text" }}</span>
                 <div id="h5_versions">
@@ -198,32 +224,38 @@
             </div>
             <h3>{{ i18n "hot_document" }}</h3>
             <div class="hot_documentation">
-                <div>
-                    <a href="{{i18n "A-Tune_link"}}">{{i18n "A-Tune_header"}}</a>
-                    <br>
-                    <br>
+                <div  link="{{i18n "A-Tune_link"}}">
+                    <div class="hot_version">
+                        <p>{{i18n "A-Tune_header"}}</p>
+                        <span>{{i18n "hot_docs_version"}}</span>
+                    </div>
                     <span>{{i18n "A-Tune_content"}}</span>
                 </div>
-                <div>
-                    <a href="{{i18n "secGear_link"}}">{{i18n "secGear_header"}}</a>
-                    <br>
-                    <br>
+                <div link="{{i18n "secGear_link"}}">
+                    <div class="hot_version">
+                        <p>{{i18n "secGear_header"}}</p>
+                        <span>{{i18n "hot_docs_version"}}</span>
+                    </div>
                     <span>{{i18n "secGear_content"}}</span>
                 </div>
-                <div>
-                    <a href="{{i18n "StratoVirt_link"}}" >{{i18n "StratoVirt_header"}}</a>
-                    <br>
-                    <br>
+                <div link="{{i18n "StratoVirt_link"}}">
+                    <div class="hot_version">
+                        <p>{{i18n "StratoVirt_header"}}</p>
+                        <span>{{i18n "hot_docs_version"}}</span>
+                    </div>
                     <span>{{i18n "StratoVirt_content"}}</span>
                 </div>
-                <div>
-                    <a href="{{i18n "container_link"}}">{{i18n "container_header"}}</a>
-                    <br>
-                    <br>
+                <div link="{{i18n "container_link"}}">
+                    <div class="hot_version">
+                        <p>{{i18n "container_header"}}</p>
+                        <span>{{i18n "hot_docs_version"}}</span>
+                    </div>
                     <span>{{i18n "container_content"}}</span>
                 </div>
             </div>
-            <h3>{{ i18n "other_text" }}</h3>
+            <!-- 友好社区楼层 -->
+            <!-- <h3>{{ i18n "other_text" }}</h3>
+            
             <div class="h5_community">
                 <div>
                     <a href="https://openeuler.org/" target="_blank">openEuler</a>
@@ -231,24 +263,9 @@
                 <div>
                     <a href="https://www.hikunpeng.com/" target="_blank">{{i18n "kunpeng_community"}}</a>
                 </div>
-            </div>
+            </div> -->
         </div>
-
-        <div class="h5_footer">
-            <div class="atom">
-                <p>{{ i18n "atom" }}</p>
-                <img src="/img/common/atom.png" alt="">
-            </div>
-            <div>
-                <img src="/img/common/footerLogo.png" alt="" />
-                <p>{{ .Site.Params.email }}</p>
-            </div>
-            <div>
-                <img src="/img/common/qrcode.png" alt=""/>
-                <p>{{ i18n "attention" }}</p>
-                <p>{{ i18n "copy_right" }}</p>
-            </div>
-        </div>
+        {{ partial "pcfooter.html" . }}
     </div>
     {{ partial "scripts.html" . }}
 <script src="{{ "js/pagination.js" | relURL }}?t={{ mul 1000 (time now).Unix }}"></script>

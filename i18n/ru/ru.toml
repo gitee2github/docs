@@ -23,8 +23,8 @@ other = "Выбор версии"
 [quick_links]
 other = "Быстрые ссылки"
 
-[quick_search]
-other = "Быстрый поиск"
+[document]
+other = "документы"
 
 [hot_document]
 other = "Популярные документы"
@@ -50,7 +50,20 @@ other = "/ru/docs/20.03_LTS/docs/Releasenotes/terms-of-use.html"
 
 [know_97_1]
 other = "/ru/docs/20.09/docs/Releasenotes/terms-of-use.html"
-
+[version_91]
+other = "22.03 LTS"
+[version_93]
+other = "21.09"
+[version_94]
+other= "20.03 LTS SP2"
+[version_95]
+other = "21.03"
+[version_96]
+other = "20.03 LTS SP1"
+[version_97]
+other= "20.09"
+[version_98]
+other = "20.03 LTS"
 [atom]
 other = "openEuler - это проект с открытым исходным кодом, созданный и управляемый фондом OpenAtom."
 
@@ -196,3 +209,21 @@ other = "Руководство по установке"
 
 [container_link]
 other = "/ru/docs/20.03_LTS/docs/Installation/Installation.html"
+
+[cancel]
+other = "cancel"
+
+[atom-text]
+other = "openEuler - это проект с открытым исходным кодом, созданный и управляемый фондом OpenAtom."
+[brand]
+other = "Товарный знак"
+[privacy]
+other = "Политика конфиденциальности"
+[legal]
+other = "Правовое уведомление"
+[service]
+other = "Статус сервиса"
+[lang]
+other = "ru"
+[openEuler]
+other = "https://www.openeuler.org/ru/"

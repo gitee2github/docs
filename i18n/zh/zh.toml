@@ -9,7 +9,7 @@ other = "中文"
 other = "搜索"
 
 [search_placeholder]
-other = "输入内容"
+other = "请输入搜索内容"
 
 [document_link]
 other = "Documentation"
@@ -26,21 +26,37 @@ other = "目录"
 other = "友好社区"
 
 [know_91_1]
-other = "/zh/docs/22.03_LTS/docs/Releasenotes/法律声明.html"
+other = "/zh/docs/22.03_LTS/docs/Releasenotes/%E6%B3%95%E5%BE%8B%E5%A3%B0%E6%98%8E.html"
 [know_92_1]
-other = "/zh/docs/20.03_LTS_SP3/docs/Releasenotes/法律声明.html"
+other = "/zh/docs/20.03_LTS_SP3/docs/Releasenotes/%E6%B3%95%E5%BE%8B%E5%A3%B0%E6%98%8E.html"
 [know_93_1]
-other = "/zh/docs/21.09/docs/Releasenotes/法律声明.html"
+other = "/zh/docs/21.09/docs/Releasenotes/%E6%B3%95%E5%BE%8B%E5%A3%B0%E6%98%8E.html"
 [know_94_1]
-other = "/zh/docs/20.03_LTS_SP2/docs/Releasenotes/法律声明.html"
+other = "/zh/docs/20.03_LTS_SP2/docs/Releasenotes/%E6%B3%95%E5%BE%8B%E5%A3%B0%E6%98%8E.html"
 [know_95_1]
-other = "/zh/docs/21.03/docs/Releasenotes/法律声明.html"
+other = "/zh/docs/21.03/docs/Releasenotes/%E6%B3%95%E5%BE%8B%E5%A3%B0%E6%98%8E.html"
 [know_96_1]
-other = "/zh/docs/20.03_LTS_SP1/docs/Releasenotes/法律声明.html"
+other = "/zh/docs/20.03_LTS_SP1/docs/Releasenotes/%E6%B3%95%E5%BE%8B%E5%A3%B0%E6%98%8E.html"
 [know_97_1]
-other = "/zh/docs/20.09/docs/Releasenotes/法律声明.html"
+other = "/zh/docs/20.09/docs/Releasenotes/%E6%B3%95%E5%BE%8B%E5%A3%B0%E6%98%8E.html"
 [know_98_1]
-other = "/zh/docs/20.03_LTS/docs/Releasenotes/法律声明.html"
+other = "/zh/docs/20.03_LTS/docs/Releasenotes/%E6%B3%95%E5%BE%8B%E5%A3%B0%E6%98%8E.html"
+[version_91]
+other = "22.03 LTS"
+[version_92]
+other = "20.03 LTS SP3"
+[version_93]
+other = "21.09"
+[version_94]
+other= "20.03 LTS SP2"
+[version_95]
+other = "21.03"
+[version_96]
+other = "20.03 LTS SP1"
+[version_97]
+other= "20.09"
+[version_98]
+other = "20.03 LTS"
 
 
 [hot_document]
@@ -82,8 +98,8 @@ other = "安装指南"
 [container_link]
 other = "/zh/docs/20.03_LTS/docs/Installation/installation.html"
 
-[quick_search]
-other = "快速查找"
+[document]
+other = "文档"
 
 [version_selection]
 other = "版本选择"
@@ -134,13 +150,13 @@ other = "风险提示"
 other = "内容合规"
 
 [issue_title]
-other = "有奖捉虫"
+other = "文档捉虫"
 
 [issue_part]
 other = "“有虫”文档片段"
 
 [issue_reason]
-other = "存在的问题"
+other = "问题描述"
 
 [satisfaction]
 other = "您对文档的总体满意度"
@@ -179,13 +195,13 @@ other = "您理解并同意，您填写并提交的内容，即视为您已充�
 other = "隐私声明"
 
 [btn_submit]
-other = "创Issue赢奖品"
+other = "提交"
 
 [back]
 other = "返回顶部"
 
 [questionnaire]
-other = "有奖捉虫"
+other = "文档捉虫"
 
 #search page
 
@@ -200,3 +216,28 @@ other = "的结果"
 
 [hot_docs_version]
 other = "20.03 LTS"
+
+[relative]
+other = "关于openEuler"
+
+[website]
+other = "openEuler官网"
+
+[other_link]
+other = "友情链接"
+
+[cancel]
+other = "取消"
+
+[atom-text]
+other = "openEuler 是由开放原子开源基金会（OpenAtom Foundation）孵化及运营的开源项目"
+[brand]
+other = "品牌"
+[privacy]
+other = "隐私政策"
+[legal]
+other = "法律声明"
+[service]
+other = "服务状态"
+[lang]
+other = "zh"

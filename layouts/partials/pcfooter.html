@@ -1,15 +1,84 @@
-<div id="footer" style="display: flex;">
+<div class="footer migration">
+  <div class="app-content">
     <div class="atom">
-        <img src="/img/common/atom.png" alt="">
-        <p>{{ i18n "atom" }}</p>
+      <p class="atom-text">
+        {{i18n "atom-text"}}
+      </p>
+      <img src="/img/footer/atom-logo.png" class="atom-logo" />
     </div>
-    <div>
-        <img src="/img/common/footerLogo.png" alt="" />
-        <p>{{ .Site.Params.email }}</p>
-        <p>{{ i18n "copy_right" }}</p>
+  </div>
+  <div class="footer-content">
+    <div class="app-content">
+      <div class="inner">
+        <div class="footer-logo">
+          <img class="show-pc" src="/img/footer/footer-logo2.png" alt="" />
+          <img class="show-mo" src="/img/footer/footer-logo2-mo.png" alt="" />
+          <p>
+            <a class="email" href="mailto:contact@openeuler.io" target="_blank"
+              >contact@openeuler.io</a
+            >
+          </p>
+        </div>
+        <div class="footer-option">
+          <div class="footer-option-item">
+            <a href="javascript:;" class="link" link="brand">{{i18n "brand"}}</a
+            ><a href="javascript:;" class="link" link="privacy">{{i18n "privacy"}}</a
+            ><a href="javascript:;" class="link" link="legal">{{i18n "legal"}}</a
+            ><a href="javascript:;" class="link" link="service">{{i18n "service"}}</a>
+          </div>
+          <p class="copyright">{{i18n "copy_right"}}</p>
+        </div>
+        <div class="footer-right">
+          <div class="code-box">
+            <a class="code-pop" href="javascript:;"
+              ><img src="/img/footer/img-xzs.png" class="code-img" alt="" />
+              <div class="code-layer">
+                <img src="/img/footer/code-xzs.png" alt="" />
+                <p class="txt">openEuler公众号</p>
+              </div></a
+            ><a class="code-pop" href="javascript:;"
+              ><img src="/img/footer/img-gzh.png" class="code-img" alt="" />
+              <div class="code-layer">
+                <img src="/img/footer/code-zgz.png" alt="" />
+                <p class="txt">openEuler小助手</p>
+              </div></a
+            >
+          </div>
+          <div class="iszh footer-links">
+            <a
+              href="https://my.oschina.net/openeuler"
+              class="links-logo"
+              target="_blank"
+              ><img src="/img/footer/oschina.png" alt="" /></a
+            ><a
+              href="https://blog.csdn.net/openEuler_?spm=1000.2115.3001.5343"
+              class="links-logo"
+              target="_blank"
+              ><img src="/img/footer/csdn.png" alt="" /></a
+            ><a
+              href="https://juejin.cn/user/3183782863845454"
+              class="links-logo"
+              target="_blank"
+              ><img src="/img/footer/juejin.png" alt="" /></a
+            ><a
+              href="https://space.bilibili.com/527064077/channel/series"
+              class="links-logo"
+              target="_blank"
+              ><img src="/img/footer/bilibili.png" alt="" /></a
+            ><a
+              href="https://www.infoq.cn/profile/6E6CE3E2316F28/publish"
+              class="links-logo"
+              target="_blank"
+              ><img src="/img/footer/infoq.png" alt="" /></a
+            ><a
+              href="https://blog.51cto.com/u_14948868"
+              class="links-logo"
+              target="_blank"
+              ><img src="/img/footer/51cto.png" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-        <img src="/img/common/qrcode.png" alt=""/>
-        <p>{{ i18n "attention" }}</p>
-    </div>
+  </div>
 </div>
