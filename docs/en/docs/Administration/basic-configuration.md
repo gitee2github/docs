@@ -456,7 +456,7 @@ This section describes how to set the memory reserved for kdump and modify param
 
 #### kdump Memory Parameter Formats
 
-The memory reserved for kdump must be set in the boot parameters in the **/boot/efi/EFI/openEuler/grub.cfg** configuration file. The memory reserved for kdump has been set on openEuler by default and can be adjusted as required. After adding or modifying the boot parameters, restart the system for the settings to take effect. The kdump memory parameter formats are as follows:
+The memory reserved for kdump must be added to the bootargs in the **/boot/efi/EFI/openEuler/grub.cfg** (UEFI boot mode) or **/boot/grub2/grub.cfg** (legacy boot mode). The memory reserved for kdump has been added to openEuler releases by default and can be adjusted as required. After adding or modifying the bootargs, restart the system for the settings to take effect. The parameter formats of the memory reserved for kdump are as follows:
 
 | Boot Parameter| Description| Default Value| Remarks|
 |----------|----------|----------|----------|
