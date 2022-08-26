@@ -68,6 +68,8 @@ A-Ops is an intelligent O&M tool. It implements the basic intelligent O&M framew
    yum install aops-database # A-Ops data center service: data storage and database management.
 
    yum install aops-cli # A-Ops basic CLI: host management, deployment management, template management, and task management.
+   
+   yum install aops-web # A-Ops web
    ```
 
 ### 4.2 Downloading and Installing RPM Packages
@@ -94,6 +96,8 @@ rpm -ivh aops-manager-vx.x.x-x.oe1.arch.rpm
 rpm -ivh aops-database-vx.x.x-x.oe1.arch.rpm
 
 rpm -ivh aops-cli-vx.x.x-x.oe1.arch.rpm
+
+rpm -ivh aops-web-vx.x.x-x.oe1.arch.rpm
    ```
 
 ### 4.3 Downloading the Source Code

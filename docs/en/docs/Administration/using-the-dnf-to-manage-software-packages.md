@@ -169,10 +169,10 @@ The repository part allows you to customize openEuler software source repositori
     ```
     [OS]
     name=openEuler-$releasever - OS
-    baseurl=https://repo.openeuler.org/openEuler-21.03/OS/$basearch/
+    baseurl=https://repo.openeuler.org/openEuler-21.09/OS/$basearch/
     enabled=1
     gpgcheck=1
-    gpgkey=https://repo.openeuler.org/openEuler-21.03/OS/$basearch/RPM-GPG-KEY-openEuler
+    gpgkey=https://repo.openeuler.org/openEuler-21.09/OS/$basearch/RPM-GPG-KEY-openEuler
     ```
     
     >![](./public_sys-resources/icon-note.gif) **NOTE:**    
