@@ -1,10 +1,10 @@
 # system-services
 
-- [System Services](#system-services)
-    - [Hardening the SSH Service](#hardening-the-ssh-service)
+- [system-services](#system-services)
+  - [Hardening the SSH Service](#hardening-the-ssh-service)
 
 
-## hardening-the-ssh-service
+## Hardening the SSH Service
 
 ### Description
 
@@ -279,7 +279,7 @@ To harden a client, perform the following steps:
     </td>
     <td class="cellrowborder" valign="top" width="45.34%" headers="mcps1.2.5.1.2 "><p id="p1914641722613"><a name="p1914641722613"></a><a name="p1914641722613"></a>SSH key exchange algorithms.</p>
     </td>
-    <td class="cellrowborder" valign="top" width="13.01%" headers="mcps1.2.5.1.3 "><p id="p209516241518"><a name="p209516241518"></a><a name="p209516241518"></a>curve25519-sha256,curve25519-sha256@@libssh.org,diffie-hellman-group-exchange-sha256</p>
+    <td class="cellrowborder" valign="top" width="13.01%" headers="mcps1.2.5.1.3 "><p id="p209516241518"><a name="p209516241518"></a><a name="p209516241518"></a>curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256</p>
     </td>
     <td class="cellrowborder" valign="top" width="25.09%" headers="mcps1.2.5.1.4 "><p id="p19860122420254"><a name="p19860122420254"></a><a name="p19860122420254"></a>Yes</p>
     </td>

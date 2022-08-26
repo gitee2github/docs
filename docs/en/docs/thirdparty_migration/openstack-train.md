@@ -1,6 +1,12 @@
 # Guide to Porting OpenStack-Train to openEuler
 
-[[toc]]
+- [Software Overview](#software-overview)
+- [Environment Configuration](#environment-configuration)
+- [System Configuration](#system-configuration)
+- [Software Compilation](#software-compilation)
+- [Software Running](#software-running)
+- [FAQs](#faqs)
+
 
 ## Software Overview
 
@@ -374,7 +380,7 @@ Run the following command as the stack user to log in to the OpenStack client as
     - Run the following command to check the VM status:
     
         ```
-        # openstack server list   //查看虚拟机状态
+        # openstack server list   // View VM status.
         ```
     
         ![](./figures/vmlist.png)
