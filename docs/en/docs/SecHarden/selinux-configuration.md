@@ -6,9 +6,9 @@ Discretionary access control \(DAC\) determines whether a resource can be access
 
 By default, openEuler uses SELinux to improve system security. SELinux has three modes:
 
--   **permissive**: The SELinux outputs alarms but does not forcibly execute the security policy.
--   **enforcing**: The SELinux security policy is forcibly executed.
--   **disabled**: The SELinux security policy is not loaded.
+-   **permissive**: The SELinux outputs alarms but does not forcibly execute the security policies.
+-   **enforcing**: The SELinux security policies are forcibly executed.
+-   **disabled**: The SELinux security policies are not loaded.
 
 ## Configuration Description
 
@@ -48,7 +48,7 @@ SELinux is enabled for openEuler by default and the default mode is enforcing. Y
     # setenforce 1
     ```
 
--   Query the SELinux status.  **SELinux status**  indicates the SELinux status.  **enabled**  indicates that SELinux is enabled, and  **disabled**  indicates that SELinux is disabled.  **Current mode**  indicates the current security policy of the SELinux.
+-   Query the SELinux status.  **SELinux status**  indicates the SELinux status.  **enabled**  indicates that SELinux is enabled, and  **disabled**  indicates that SELinux is disabled.  **Current mode**  indicates the current mode of the SELinux.
 
     ```
     # sestatus
