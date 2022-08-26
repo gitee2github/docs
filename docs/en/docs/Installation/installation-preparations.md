@@ -5,17 +5,17 @@ This section describes the compatibility of the hardware and software and the re
 <!-- TOC -->
 
 - [Installation Preparations](#installation-preparations)
-    - [Obtaining the Installation Source](#obtaining-the-installation-source)
-    - [Performing Release Package Integrity Check](#performing-release-package-integrity-check)
-        - [Introduction](#introduction)
-        - [Prerequisites](#prerequisites)
-        - [Procedure](#procedure)
-    - [Installation Requirements for PMs](#installation-requirements-for-pms)
-        - [Hardware Compatibility](#hardware-compatibility)
-        - [Minimum Hardware Specifications](#minimum-hardware-specifications)
-    - [Installation Requirements for VMs](#installation-requirements-for-vms)
-        - [Virtualization Platform Compatibility](#virtualization-platform-compatibility)
-        - [Minimum Virtualization Space](#minimum-virtualization-space)
+  - [Obtaining the Installation Source](#obtaining-the-installation-source)
+  - [Performing Release Package Integrity Check](#performing-release-package-integrity-check)
+    - [Introduction](#introduction)
+    - [Prerequisites](#prerequisites)
+    - [Procedure](#procedure)
+  - [Installation Requirements for PMs](#installation-requirements-for-pms)
+    - [Hardware Compatibility](#hardware-compatibility)
+    - [Minimum Hardware Specifications](#minimum-hardware-specifications)
+  - [Installation Requirements for VMs](#installation-requirements-for-vms)
+    - [Virtualization Platform Compatibility](#virtualization-platform-compatibility)
+    - [Minimum Virtualization Space](#minimum-virtualization-space)
 
 <!-- /TOC -->
 
@@ -25,22 +25,22 @@ Obtain the openEuler release package and verification file before the installati
 
 Perform the following operations to obtain the openEuler release package:
 
-1.  Log in to the  [openEuler Community](https://openeuler.org/zh/)  website.
-2.  Click  **Download**. 
-3.  Choose the card **openEuler 20.03 LTS SP2**, and click **Download ISO**.The download list is displayed.
-    -   **aarch64**: ISO image file of the AArch64 architecture
-    -   **x86_64**: ISO image file of the x86_64 architecture
-    -   **source**: ISO image file of the openEuler source code
-4.  Select the openEuler release package and verification file to be downloaded based on the actual architecture environment to be installed.
+1.  Visit the [openEuler](https://www.openeuler.org/en/) website.
+2.  Click  **Download > Software Packages**. 
+3.  Click **Server Image** below **openEuler 20.03 LTS SP2**. The ISO list is displayed.
+    -   **aarch64**: ISO image files of the AArch64 architecture
+    -   **x86_64**: ISO image files of the x86_64 architecture
+    -   **source**: ISO image files of the openEuler source code
+4.  Select the target openEuler release package and verification file based on the actual environment.
     -   AArch64 architecture:
-        1. Click **aarch64**.
-        2. If you install the environment on the local host, download the release package **openEuler-20.03-LTS-SP2-aarch64-dvd.iso** and the verification file **openEuler-20.03-LTS-SP2-aarch64-dvd.iso.sha256sum** to the local host.
-        3. If you install the environment on the network, download the release package **openEuler-20.03-LTS-SP2-netinst-aarch64-dvd.iso** and the verification file **openEuler-20.03-LTS-SP2-netinst-aarch64-dvd.iso.sha256sum** to the local host.
+        1.  Click **aarch64**.
+        2.  If you install openEuler from a local source, download the release package **openEuler-20.03-LTS-SP2-aarch64-dvd.iso** and the verification file **openEuler-20.03-LTS-SP2-aarch64-dvd.iso.sha256sum** to the local host.
+        3.  If you install openEuler through the network, download the release package **openEuler-20.03-LTS-SP2-netinst-aarch64-dvd.iso** and the verification file **openEuler-20.03-LTS-SP2-netinst-aarch64-dvd.iso.sha256sum** to the local host.
 
     -   x86_64 architecture:
-        1. Click **x86_64**.
-        2. If you install the environment on the local host, download the release package **openEuler-20.03-LTS-SP2-x86_64-dvd.iso** and the verification file **openEuler-20.03-LTS-SP2-x86_64-dvd.iso.sha256sum** to the local host.
-        3. If you install the environment on the network, download the release package **openEuler-20.03-LTS-SP2-netinst-x86_64-dvd.iso** and the verification file **openEuler-20.03-LTS-SP2-netinst-x86_64-dvd.iso.sha256sum** to the local host.
+        1.  Click **x86_64**.
+	1.  If you install openEuler from a local source, download the release package **openEuler-20.03-LTS-SP2-x86_64-dvd.iso** and the verification file **openEuler-20.03-LTS-SP2-x86_64-dvd.iso.sha256sum** to the local host.
+        1.  If you install openEuler through the network, download the release package **openEuler-20.03-LTS-SP2-netinst-x86_64-dvd.iso** and the verification file **openEuler-20.03-LTS-SP2-netinst-x86_64-dvd.iso.sha256sum** to the local host.
 
 >![](./public_sys-resources/icon-note.gif) **Note:**   
 > When the network is available, install the environment on the network because the ISO release package is small.
