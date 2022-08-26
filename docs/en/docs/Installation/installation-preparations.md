@@ -5,17 +5,17 @@ This section describes the compatibility of the hardware and software and the re
 <!-- TOC -->
 
 - [Installation Preparations](#installation-preparations)
-    - [Obtaining the Installation Source](#obtaining-the-installation-source)
-    - [Release Package Integrity Check](#release-package-integrity-check)
-        - [Introduction](#introduction)
-        - [Prerequisites](#prerequisites)
-        - [Procedure](#procedure)
-    - [Installation Requirements for PMs](#installation-requirements-for-pms)
-        - [Hardware Compatibility](#hardware-compatibility)
-        - [Minimum Hardware Specifications](#minimum-hardware-specifications)
-    - [Installation Requirements for VMs](#installation-requirements-for-vms)
-        - [Virtualization Platform Compatibility](#virtualization-platform-compatibility)
-        - [Minimum Virtualization Space](#minimum-virtualization-space)
+  - [Obtaining the Installation Source](#obtaining-the-installation-source)
+  - [Release Package Integrity Check](#release-package-integrity-check)
+    - [Introduction](#introduction)
+    - [Prerequisites](#prerequisites)
+    - [Procedure](#procedure)
+  - [Installation Requirements for PMs](#installation-requirements-for-pms)
+    - [Hardware Compatibility](#hardware-compatibility)
+    - [Minimum Hardware Specifications](#minimum-hardware-specifications)
+  - [Installation Requirements for VMs](#installation-requirements-for-vms)
+    - [Virtualization Platform Compatibility](#virtualization-platform-compatibility)
+    - [Minimum Virtualization Space](#minimum-virtualization-space)
 
 <!-- /TOC -->
 
@@ -25,22 +25,22 @@ Obtain the openEuler release package and verification file before the installati
 
 Perform the following operations to obtain the openEuler release package:
 
-1.  Log in to the  [openEuler Community](https://openeuler.org/zh/)  website.
-2.  Click  **Download**. 
-3.  Choose the card **openEuler-21.03**. Click the link provided after  **Download ISO**.The download list is displayed.
-    -   **aarch64**: ISO image file of the AArch64 architecture
-    -   **x86\_64**: ISO image file of the x86\_64 architecture
-    -   **source**: ISO image file of the openEuler source code
-4.  Select the openEuler release package and verification file to be downloaded that adapt to the architecture of the environment to be installed.
+1.  Visit the [openEuler](https://www.openeuler.org/en/) website.
+2.  Click  **Download > Software Packages**. 
+3.  Click **Server Image** below **openEuler 21.09**. The ISO list is displayed.
+    -   **aarch64**: ISO image files of the AArch64 architecture
+    -   **x86_64**: ISO image files of the x86_64 architecture
+    -   **source**: ISO image files of the openEuler source code
+4.  Select the target openEuler release package and verification file based on the actual environment.
     -   AArch64 architecture:
         1.  Click **aarch64**.
-        2.  If you install the environment on the local host, download the release package **openEuler-21.03-aarch64-dvd.iso** and the verification file **openEuler-21.03-aarch64-dvd.iso.sha256sum** to the local host.
-        3.  If you install the environment on the network, download the release package **openEuler-21.03-netinst-aarch64-dvd.iso** and the verification file **openEuler-21.03-netinst-aarch64-dvd.iso.sha256sum** to the local host.
+        2.  If you install openEuler from a local source, download the release package **openEuler-21.09-aarch64-dvd.iso** and the verification file **openEuler-21.09-aarch64-dvd.iso.sha256sum** to the local host.
+        3.  If you install openEuler through the network, download the release package **openEuler-21.09-netinst-aarch64-dvd.iso** and the verification file **openEuler-21.09-netinst-aarch64-dvd.iso.sha256sum** to the local host.
 
     -   x86_64 architecture:
         1.  Click **x86_64**.
-		2.  If you install the environment on the local host, download the release package **openEuler-21.03-x86_64-dvd.iso** and the verification file **openEuler-21.03-x86_64-dvd.iso.sha256sum** to the local host.
-        3.  If you install the environment on the network, download the release package **openEuler-21.03-netinst-x86_64-dvd.iso** and the verification file **openEuler-21.03-netinst-x86_64-dvd.iso.sha256sum** to the local host.
+	1.  If you install openEuler from a local source, download the release package **openEuler-21.09-x86_64-dvd.iso** and the verification file **openEuler-21.09-x86_64-dvd.iso.sha256sum** to the local host.
+        1.  If you install openEuler through the network, download the release package **openEuler-21.09-netinst-x86_64-dvd.iso** and the verification file **openEuler-21.09-netinst-x86_64-dvd.iso.sha256sum** to the local host.
 
 >![](./public_sys-resources/icon-note.gif) **Note**   
 > When the network is available, install the environment on the network because the ISO release package is small.
@@ -60,9 +60,9 @@ Compare the verification value recorded in the verification file with the .iso f
 
 Before verifying the integrity of the release package, you need to prepare the following files:
 
-ISO file:  **openEuler-21.03-aarch64-dvd.iso**
+ISO file:  **openEuler-21.09-aarch64-dvd.iso**
 
-Verification file:  **openEuler-21.03-aarch64-dvd.iso.sha256sum**
+Verification file:  **openEuler-21.09-aarch64-dvd.iso.sha256sum**
 
 ### Procedure
 
@@ -71,13 +71,13 @@ To verify the file integrity, perform the following operations:
 1.  Obtain the verification value in the verification file. Run the following command:
 
     ```
-    $ cat openEuler-21.03-aarch64-dvd.iso.sha256sum 
+    $ cat openEuler-21.09-aarch64-dvd.iso.sha256sum 
     ```
 
 2.  Calculate the SHA256 verification value of the file. Run the following command:
 
     ```
-    $ sha256sum openEuler-21.03-aarch64-dvd.iso
+    $ sha256sum openEuler-21.09-aarch64-dvd.iso
     ```
 
     After the command is run, the verification value is displayed.
@@ -117,7 +117,7 @@ You need to take hardware compatibility into account during openEuler installati
 | Architecture  | AArch64 or x86_64 |
 | CPU  | Two CPUs |
 | Memory  | ≥ 4 GB (8 GB or higher recommended for better user experience) |
-| Hard disk  | ≥ 120 GB (for better user experience) |
+| Hard disk  | ≥ 32 GB (120 GB or higher recommended for better user experience) |
 
 ## Installation Requirements for VMs
 

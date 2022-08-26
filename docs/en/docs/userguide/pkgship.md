@@ -19,7 +19,7 @@
 The pkgship is a query tool used to manage the dependency of OS software packages and provide a complete dependency graph. The pkgship provides functions such as software package dependency query, lifecycle management, and patch query.
 
 1. Software package dependency query: Allow community personnel to understand the impact on software when software packages are introduced, updated, or deleted.
-2. Patch query: Allow community personnel to learn about the patches in the openEuler software package and obtain the patch information. For details, see [patch-tracking](../patch-tracking/README.md).
+2. Patch query: Allow community personnel to learn about the patches in the openEuler software package and obtain the patch information. For details, see [patch-tracking](https://docs.openeuler.org/en/docs/21.03/docs/userguide/patch-tracking.html).
 
 ## Architecture
 
@@ -53,6 +53,8 @@ The system uses the Flask-RESTful development mode. The following figure shows t
 | Python| 3.8 or later.|
 
 ## Installing the Tool
+
+> Note: The software can run in Docker. In openEuler 21.09, due to environment restrictions, use the `--privileged` parameter when creating a Docker. Otherwise, the software fails to be started. This document will be updated after the adaptation.
 
 **1\. Installing the pkgship**
 
