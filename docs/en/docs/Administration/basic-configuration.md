@@ -1,6 +1,40 @@
 # Basic Configuration
 
-[[toc]]
+- [Basic Configuration](#basic-configuration)
+  - [Setting the System Locale](#setting-the-system-locale)
+    - [Displaying the Current Locale Status](#displaying-the-current-locale-status)
+    - [Listing Available Locales](#listing-available-locales)
+    - [Setting the Locale](#setting-the-locale)
+  - [Setting the Keyboard Layout](#setting-the-keyboard-layout)
+    - [Displaying the Current Settings](#displaying-the-current-settings)
+    - [Listing Available Keyboard Layouts](#listing-available-keyboard-layouts)
+    - [Setting the Keyboard Layout](#setting-the-keyboard-layout-1)
+  - [Setting the Date and Time](#setting-the-date-and-time)
+    - [Using the timedatectl Command](#using-the-timedatectl-command)
+      - [Displaying the Current Date and Time](#displaying-the-current-date-and-time)
+      - [Synchronizing the System Clock with a Remote Server](#synchronizing-the-system-clock-with-a-remote-server)
+      - [Changing the Current Date](#changing-the-current-date)
+      - [Changing the Current Time](#changing-the-current-time)
+      - [Changing the Time Zone](#changing-the-time-zone)
+    - [Using the date Command](#using-the-date-command)
+      - [Displaying the Current Date and Time](#displaying-the-current-date-and-time-1)
+      - [Changing the Current Time](#changing-the-current-time-1)
+      - [Changing the Current Date](#changing-the-current-date-1)
+    - [Using the hwclock Command](#using-the-hwclock-command)
+      - [Real-Time Clock and System Clock](#real-time-clock-and-system-clock)
+      - [Displaying the Current Date and Time](#displaying-the-current-date-and-time-2)
+      - [Setting the Date and Time](#setting-the-date-and-time-1)
+  - [Setting kdump](#setting-kdump)
+    - [Setting the Memory Reserved for kdump](#setting-the-memory-reserved-for-kdump)
+      - [Parameter Formats of the Memory Reserved for kdump](#parameter-formats-of-the-memory-reserved-for-kdump)
+    - [Recommended Reserved Memory](#recommended-reserved-memory)
+    - [Disabling Network Drivers](#disabling-network-drivers)
+  - [Setting the Disk Scheduling Algorithm](#setting-the-disk-scheduling-algorithm)
+    - [Temporarily Modifying the Scheduling Policy](#temporarily-modifying-the-scheduling-policy)
+    - [Permanently Setting the Scheduling Policy](#permanently-setting-the-scheduling-policy)
+  - [Setting the NMI Watchdog](#setting-the-nmi-watchdog)
+    - [Displaying the Current NMI Watchdog Configuration Status](#displaying-the-current-nmi-watchdog-configuration-status)
+    - [Setting the NMI Watchdog Parameters](#setting-the-nmi-watchdog-parameters)
 
 ## Setting the System Locale
 
@@ -379,7 +413,7 @@ This section describes how to set the memory reserved for kdump and modify param
 
 #### Parameter Formats of the Memory Reserved for kdump
 
-The memory reserved for kdump must be added to the bootargs in the **/boot/efi/EFI/openEuler/grub.cfg** configuration file. The memory reserved for kdump has been added to the released openEuler version by default and can be adjusted as required. After adding or modifying the bootargs, restart the system for the setting to take effect. The parameter formats of the memory reserved for kdump are as follows:
+The memory reserved for kdump must be added to the bootargs in the **/boot/efi/EFI/openEuler/grub.cfg** (UEFI boot mode) or **/boot/grub2/grub.cfg** (legacy boot mode). The memory reserved for kdump has been added to openEuler releases by default and can be adjusted as required. After adding or modifying the bootargs, restart the system for the settings to take effect. The parameter formats of the memory reserved for kdump are as follows:
 
 | Bootarg| Description| Default Value| Remarks|
 |----------|----------|----------|----------|
@@ -432,14 +466,14 @@ The non-maskable interrupt (NMI) is the highest priority interrupt in the system
 
 Note: The following NMI watchdog settings apply only to hardware servers whose compatibility has been verified by the openEuler community. For other types of servers and VMs, the NMI watchdog settings are for reference only.
 
-### Run the following command to display the current NMI watchdog configuration status:
+### Displaying the Current NMI Watchdog Configuration Status
 
 ```
 # sudo sysctl kernel.nmi_watchdog 
 kernel.nmi_watchdog = 0 
 ```
 
-### Run the following command to set the NMI watchdog parameters:
+### Setting the NMI Watchdog Parameters
 
 ```
 # sudo sysctl  -w kernel.nmi_watchdog=1
