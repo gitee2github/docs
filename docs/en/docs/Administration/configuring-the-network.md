@@ -521,7 +521,7 @@ There are three types of host names:  **static**,  **transient**, and  **pretty*
 >![](./public_sys-resources/icon-note.gif) **NOTE:**   
 >Static and transient host names can contain only letters \(a–z and A–Z\), digits \(0–9\), hyphens \(-\), underlines \(\_\), and periods \(.\). The host names cannot start or end with a period \(.\) or contain two consecutive periods \(.\). The host name can contain a maximum of 64 characters.  
 
-### Configuring a Host Name by Running the  hostnamectl  Command
+### Configuring a Host Name by Running the hostnamectl Command
 
 #### Viewing All Host Names
 Run the following command to view the current host name:

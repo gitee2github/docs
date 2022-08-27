@@ -295,7 +295,7 @@ Use the collected data to train the model. Collect data of at least two workload
 
 #### Example
 
-Use the CSV file in the  **data**  directory as the training input. The generated model  **new-model.m**  is stored in the  **model**  directory.
+Use the CSV file in the  **data**  directory as the training input. The generated model  **new-model.m**  is stored in the  **models**  directory.
 
 ```
 # atune-adm train --data_path /home/data --output_file /usr/libexec/atuned/analysis/models/new-model.m 
@@ -889,7 +889,7 @@ Use the specified project file to search the dynamic space for parameters and fi
 </tr>
 <tr id="row59635792614"><td class="cellrowborder" valign="top" width="12.950000000000001%" headers="mcps1.2.5.1.1 "><p id="p096320712268"><a name="p096320712268"></a><a name="p096320712268"></a>weight</p>
 </td>
-<td class="cellrowborder" valign="top" width="24.23%" headers="mcps1.2.5.1.2 "><p id="p2096347192620"><a name="p2096347192620"></a><a name="p2096347192620"></a>Weight of the index. The value ranges from 0 to 100.</p>
+<td class="cellrowborder" valign="top" width="24.23%" headers="mcps1.2.5.1.2 "><p id="p2096347192620"><a name="p2096347192620"></a><a name="p2096347192620"></a>Weight of the index.</p>
 </td>
 <td class="cellrowborder" valign="top" width="15.629999999999999%" headers="mcps1.2.5.1.3 "><p id="p1666738163"><a name="p1666738163"></a><a name="p1666738163"></a>Integer</p>
 </td>

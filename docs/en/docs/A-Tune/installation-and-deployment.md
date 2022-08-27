@@ -117,7 +117,7 @@ To install the A-Tune, perform the following steps:
 
 ## A-Tune Deployment
 
-This section describes how to deploy A-Tune.
+This section describes how to configure and deploy A-Tune.
 
 
 
