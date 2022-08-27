@@ -12,15 +12,20 @@ Solution: Collect data of at least two data types for training.
 
 Possible cause:
 
-1.  Check whether the atuned service is started and check the atuned listening address.
+1.  The atuned service is not started. As a result, the atuned service cannot be connected. You can run the following command to check the status of the atuned service:
 
     ```
-    # systemctl status atuned
-    # netstat -nap | atuned
+    systemctl status atuned
     ```
+    If the atuned service is inactive, refer to solution 1.
 
-2.  The firewall blocks the atuned listening port.
-3.  The HTTP proxy is configured in the system. As a result, the connection fails.
+2.  The firewall blocks the listening port of the atuned service. As a result, the atuned service cannot be connected. You can run the following command to check the listening status of the atuned service on the current device:
+    ```
+    netstat -nap | grep atuned
+    ```
+    If the port of the atuned service does not exist, configure the port by referring to solution 2.
+
+3.  The HTTP proxy is configured in the system. As a result, the atuned service cannot be connected. Refer to solution 3.
 
 Solution: 
 
@@ -38,7 +43,7 @@ Solution:
     ```
 
 
-1.  Run the following command to delete the HTTP proxy or disable the HTTP proxy for the listening IP address without affecting services:
+3.  Run the following command to delete the HTTP proxy or disable the HTTP proxy for the listening IP address without affecting services:
 
     ```
     # no_proxy=$no_proxy, Listening IP address
