@@ -2,15 +2,15 @@
 
 <!-- TOC -->
 - [pkgship](#pkgship)
-  - [Introduction](#Introduction)
-  - [Architecture](#Architecture)
-  - [Downloading the Software](#Downloading the Software)
-  - [Operating Environment](#Operating Environment)
-  - [Installing the Tool](#Installing the Tool)
-  - [Configuring Parameters](#Configuring Parameters)
-  - [Starting and Stopping the Service](#Starting and Stopping the Service)
-  - [Using the Tool](#Using the Tool)
-  - [Viewing and Dumping Logs](#Viewing and Dumping Logs)
+  - [Introduction](#introduction)
+  - [Architecture](#architecture)
+  - [Downloading the Software](#downloading-the-software)
+  - [Operating Environment](#operating-environment)
+  - [Installing the Tool](#installing-the-tool)
+  - [Configuring Parameters](#configuring-parameters)
+  - [Starting and Stopping the Service](#starting-and-stopping-the-service)
+  - [Using the Tool](#using-the-tool)
+  - [Viewing and Dumping Logs](#viewing-and-dumping-logs)
 
 <!-- /TOC -->
 
