@@ -5,7 +5,7 @@ UKUI supports both x86_64 and aarch64 architectures.
 
 You are advised to create an administrator user before installing UKUI.
 
-1. Download openEuler 20.03 LTS SP2 and update the software source.
+1. Download the openEuler image, install the OS, and update the software source.
 ```
 sudo dnf update
 ```
