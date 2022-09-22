@@ -202,22 +202,23 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 </thead>
 <tbody><tr id="row1642124685214"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p44294645211"><a name="p44294645211"></a><a name="p44294645211"></a>-bp <em id="i142674211316"><a name="i142674211316"></a><a name="i142674211316"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p5504192417282"><a name="p5504192417282"></a><a name="p5504192417282"></a>Starts build from the <strong id="b15909724197"><a name="b15909724197"></a><a name="b15909724197"></a>%prep</strong> phase of the <em id="i276214508223"><a name="i276214508223"></a><a name="i276214508223"></a>specfile</em> (decompress the source code package and install the patch).</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p5504192417282"><a name="p5504192417282"></a><a name="p5504192417282"></a>Execute only the <strong id="b15909724197"><a name="b15909724197"></a><a name="b15909724197"></a>%prep</strong> section of the <em id="i276214508223"><a name="i276214508223"></a><a name="i276214508223"></a>specfile</em> (decompress the source code package and install the patch).</p>
 </td>
 </tr>
 <tr id="row375616513198"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p663152652313"><a name="p663152652313"></a><a name="p663152652313"></a>-bc <em id="i17281843152313"><a name="i17281843152313"></a><a name="i17281843152313"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1475675181912"><a name="p1475675181912"></a><a name="p1475675181912"></a>Starts build from the <strong id="b52483117197"><a name="b52483117197"></a><a name="b52483117197"></a>%build</strong> phase of the <em id="i11191112514"><a name="i11191112514"></a><a name="i11191112514"></a>specfile</em>.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1475675181912"><a name="p1475675181912"></a><a name="p1475675181912"></a>Execute <strong id="b15909724197"><a name="b15909724197"></a><a name="b15909724197"></a>%prep</strong> and <strong id="b52483117197"><a name="b52483117197"></a><a name="b52483117197"></a>%build</strong> sections of <em id="i11191112514"><a name="i11191112514"></a><a name="i11191112514"></a>specfile</em> (prepare and compile).</p>
 </td>
 </tr>
 <tr id="row3421646125214"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p143521654132516"><a name="p143521654132516"></a><a name="p143521654132516"></a>-bi <em id="i1312330192911"><a name="i1312330192911"></a><a name="i1312330192911"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p134949360269"><a name="p134949360269"></a><a name="p134949360269"></a>Starts build from the <strong id="b879710551192"><a name="b879710551192"></a><a name="b879710551192"></a>%install</strong> phase of the <em id="i37971555111910"><a name="i37971555111910"></a><a name="i37971555111910"></a>specfile</em>.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p134949360269"><a name="p134949360269"></a><a name="p134949360269"></a>Execute  <strong id="b15909724197"><a name="b15909724197"></a><a name="b15909724197"></a>%prep</strong>,<strong id="b52483117197"><a name="b52483117197"></a><a name
+="b52483117197"></a>%build</strong> and <strong id="b879710551192"><a name="b879710551192"></a><a name="b879710551192"></a>%install</strong> in the <em id="i37971555111910"><a name="i37971555111910"></a><a name="i37971555111910"></a>specfile</em> (prepare,compile and install).</p>
 </td>
 </tr>
 <tr id="row642846145211"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1342746115211"><a name="p1342746115211"></a><a name="p1342746115211"></a>-bl <em id="i1654526296"><a name="i1654526296"></a><a name="i1654526296"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p14710104517231"><a name="p14710104517231"></a><a name="p14710104517231"></a>Starts check from the <strong id="b15640104316205"><a name="b15640104316205"></a><a name="b15640104316205"></a>%file</strong> phase of the <em id="i5641104316208"><a name="i5641104316208"></a><a name="i5641104316208"></a>specfile</em>.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p14710104517231"><a name="p14710104517231"></a><a name="p14710104517231"></a>Check the <strong id="b15640104316205"><a name="b15640104316205"></a><a name="b15640104316205"></a>%file</strong> section of the <em id="i5641104316208"><a name="i5641104316208"></a><a name="i5641104316208"></a>specfile</em> (Check whether the files are complete).</p>
 </td>
 </tr>
 <tr id="row2428463528"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p56839482271"><a name="p56839482271"></a><a name="p56839482271"></a>-ba <em id="i182405318294"><a name="i182405318294"></a><a name="i182405318294"></a>specfile</em></p>
