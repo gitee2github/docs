@@ -201,22 +201,22 @@ rpmbuild命令格式为：rpmbuild \[_option_...\]
 </thead>
 <tbody><tr id="row1642124685214"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p44294645211"><a name="p44294645211"></a><a name="p44294645211"></a>-bp <em id="i142674211316"><a name="i142674211316"></a><a name="i142674211316"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p5504192417282"><a name="p5504192417282"></a><a name="p5504192417282"></a>从<em id="i276214508223"><a name="i276214508223"></a><a name="i276214508223"></a>specfile</em>文件的%prep段开始构建（解开源码包并打补丁）。</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p5504192417282"><a name="p5504192417282"></a><a name="p5504192417282"></a>只执行<em id="i276214508223"><a name="i276214508223"></a><a name="i276214508223"></a>specfile</em>的%prep段（解开源码包并打补丁）。</p>
 </td>
 </tr>
 <tr id="row375616513198"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p663152652313"><a name="p663152652313"></a><a name="p663152652313"></a>-bc <em id="i17281843152313"><a name="i17281843152313"></a><a name="i17281843152313"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1475675181912"><a name="p1475675181912"></a><a name="p1475675181912"></a>从<em id="i11191112514"><a name="i11191112514"></a><a name="i11191112514"></a>specfile</em>文件的%build段开始构建。</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1475675181912"><a name="p1475675181912"></a><a name="p1475675181912"></a>执行<em id="i11191112514"><a name="i11191112514"></a><a name="i11191112514"></a>specfile</em>的%prep和%build段（准备并编译）。</p>
 </td>
 </tr>
 <tr id="row3421646125214"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p143521654132516"><a name="p143521654132516"></a><a name="p143521654132516"></a>-bi <em id="i1312330192911"><a name="i1312330192911"></a><a name="i1312330192911"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p134949360269"><a name="p134949360269"></a><a name="p134949360269"></a>从<em id="i8494173617262"><a name="i8494173617262"></a><a name="i8494173617262"></a>specfile</em>文件的%install段开始构建。</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p134949360269"><a name="p134949360269"></a><a name="p134949360269"></a>执行<em id="i8494173617262"><a name="i8494173617262"></a><a name="i8494173617262"></a>specfile</em>的%prep，%build与%install段（准备，编译并安装）。</p>
 </td>
 </tr>
 <tr id="row642846145211"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1342746115211"><a name="p1342746115211"></a><a name="p1342746115211"></a>-bl <em id="i1654526296"><a name="i1654526296"></a><a name="i1654526296"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p14710104517231"><a name="p14710104517231"></a><a name="p14710104517231"></a>从<em id="i793315305278"><a name="i793315305278"></a><a name="i793315305278"></a>specfile</em>文件的%file段开始检查。</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p14710104517231"><a name="p14710104517231"></a><a name="p14710104517231"></a>检查<em id="i793315305278"><a name="i793315305278"></a><a name="i793315305278"></a>specfile</em>的%file段（检验文件是否齐全）。</p>
 </td>
 </tr>
 <tr id="row2428463528"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p56839482271"><a name="p56839482271"></a><a name="p56839482271"></a>-ba <em id="i182405318294"><a name="i182405318294"></a><a name="i182405318294"></a>specfile</em></p>
