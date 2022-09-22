@@ -444,7 +444,7 @@ Example: Run the following command to reduce the space of LV  **/dev/vg1/lvl**  
 Run the  **lvremove**  command as the **root** user to delete an LV. If the LV has been mounted by running the  **mount**  command, you need to run the  **umount**  command to unmount the LV before running the  **lvremove**  command.
 
 ```
-lvremove [option] vgname
+lvremove [option] lvname
 ```
 
 In the preceding information:
@@ -452,7 +452,7 @@ In the preceding information:
 -   _option_: command parameter options. Common parameter options are as follows:
     -   **-f**: forcibly deletes an LV without user confirmation.
 
--   _vgname_: name of the LV to be deleted.
+-   _lvname_: name of the LV to be deleted.
 
 Example: Run the following command to delete LV  **/dev/vg1/lv1**.
 

@@ -462,7 +462,7 @@ lvreduce [option] lvname
 可在root权限下通过lvremove命令删除逻辑卷。如果逻辑卷已经使用mount命令加载，则不能使用lvremove命令删除。必须使用umount命令卸载后，逻辑卷方可被删除。
 
 ```
-lvremove [option] vgname
+lvremove [option] lvname
 ```
 
 其中：
@@ -470,7 +470,7 @@ lvremove [option] vgname
 -   option：命令参数选项。常用的参数选项有：
     -   -f：强制删除逻辑卷，不需要用户确认。
 
--   vgname：指定要删除的逻辑卷。
+-   lvname：指定要删除的逻辑卷。
 
 示例：删除逻辑卷/dev/vg1/lv1。
 
