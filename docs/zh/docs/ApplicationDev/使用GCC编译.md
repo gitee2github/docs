@@ -214,7 +214,7 @@ GCC是一个功能强大的编译器，其 _options_ 参数取值很多，但有
 <tr id="row19323190113910"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p8323190153911"><a name="p8323190153911"></a><a name="p8323190153911"></a>-shared</p>
 </td>
 <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p18490202055012"><a name="p18490202055012"></a><a name="p18490202055012"></a>默认选项，可省略。</p>
-<a name="ul192366134394"></a><a name="ul192366134394"></a><ul id="ul192366134394"><li>可以生成动态库文件。</li><li>进行动态编译，优先链接动态库，只有没有动态库是才会链接同名的静态库。</li></ul>
+<a name="ul192366134394"></a><a name="ul192366134394"></a><ul id="ul192366134394"><li>可以生成动态库文件。</li><li>进行动态编译，优先链接动态库，只有没有动态库时才会链接同名的静态库。</li></ul>
 </td>
 <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p18323150113918"><a name="p18323150113918"></a><a name="p18323150113918"></a>-</p>
 </td>
