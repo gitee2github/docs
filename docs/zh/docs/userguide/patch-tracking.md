@@ -137,7 +137,7 @@ openssl req -x509 -days 3650 -subj "/CN=self-signed" \
     LISTEN = "127.0.0.1:5001"
     ```
 
-2. GitHub Token， 用于访问托管在 GitHub 上游开源软件仓的仓库信息 ， 生成 GitHub Token 的方法参考 [Creating a personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) 。
+2. 配置GitHub Token， 用于访问托管在 GitHub 上游开源软件仓的仓库信息。生成 GitHub Token 的方法参考 [Creating a personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) 。
 
     ```
     GITHUB_ACCESS_TOKEN = ""
