@@ -27,64 +27,14 @@ rpmbuild
 
 内容相关的说明如下：
 
-<a name="zh-cn_topic_0184337290_table1268115913017"></a>
-<table><thead align="left"><tr id="zh-cn_topic_0184337290_row673319549321"><th class="cellrowborder" valign="top" width="27.1%" id="mcps1.1.5.1.1"><p id="zh-cn_topic_0184337290_p1673485453210"><a name="zh-cn_topic_0184337290_p1673485453210"></a><a name="zh-cn_topic_0184337290_p1673485453210"></a><strong id="zh-cn_topic_0184337290_b215284143812"><a name="zh-cn_topic_0184337290_b215284143812"></a><a name="zh-cn_topic_0184337290_b215284143812"></a>目录</strong></p>
-</th>
-<th class="cellrowborder" valign="top" width="18.38%" id="mcps1.1.5.1.2"><p id="zh-cn_topic_0184337290_p167341354193219"><a name="zh-cn_topic_0184337290_p167341354193219"></a><a name="zh-cn_topic_0184337290_p167341354193219"></a><strong id="zh-cn_topic_0184337290_b151541483812"><a name="zh-cn_topic_0184337290_b151541483812"></a><a name="zh-cn_topic_0184337290_b151541483812"></a>宏代码</strong></p>
-</th>
-<th class="cellrowborder" valign="top" width="17.76%" id="mcps1.1.5.1.3"><p id="zh-cn_topic_0184337290_p157341854103211"><a name="zh-cn_topic_0184337290_p157341854103211"></a><a name="zh-cn_topic_0184337290_p157341854103211"></a><strong id="zh-cn_topic_0184337290_b121547463819"><a name="zh-cn_topic_0184337290_b121547463819"></a><a name="zh-cn_topic_0184337290_b121547463819"></a>名称</strong></p>
-</th>
-<th class="cellrowborder" valign="top" width="36.76%" id="mcps1.1.5.1.4"><p id="zh-cn_topic_0184337290_p1273465410328"><a name="zh-cn_topic_0184337290_p1273465410328"></a><a name="zh-cn_topic_0184337290_p1273465410328"></a><strong id="zh-cn_topic_0184337290_b191551414388"><a name="zh-cn_topic_0184337290_b191551414388"></a><a name="zh-cn_topic_0184337290_b191551414388"></a>功能</strong></p>
-</th>
-</tr>
-</thead>
-<tbody><tr id="zh-cn_topic_0184337290_row107541059163020"><td class="cellrowborder" valign="top" width="27.1%" headers="mcps1.1.5.1.1 "><p id="zh-cn_topic_0184337290_p675425913015"><a name="zh-cn_topic_0184337290_p675425913015"></a><a name="zh-cn_topic_0184337290_p675425913015"></a>~/rpmbuild/BUILD</p>
-</td>
-<td class="cellrowborder" valign="top" width="18.38%" headers="mcps1.1.5.1.2 "><p id="zh-cn_topic_0184337290_p175405917305"><a name="zh-cn_topic_0184337290_p175405917305"></a><a name="zh-cn_topic_0184337290_p175405917305"></a>%_builddir</p>
-</td>
-<td class="cellrowborder" valign="top" width="17.76%" headers="mcps1.1.5.1.3 "><p id="zh-cn_topic_0184337290_p1754175903010"><a name="zh-cn_topic_0184337290_p1754175903010"></a><a name="zh-cn_topic_0184337290_p1754175903010"></a>构建目录</p>
-</td>
-<td class="cellrowborder" valign="top" width="36.76%" headers="mcps1.1.5.1.4 "><p id="zh-cn_topic_0184337290_p875415916306"><a name="zh-cn_topic_0184337290_p875415916306"></a><a name="zh-cn_topic_0184337290_p875415916306"></a>源码包被解压至此，并在该目录的子目录完成编译</p>
-</td>
-</tr>
-<tr id="zh-cn_topic_0184337290_row117541859183017"><td class="cellrowborder" valign="top" width="27.1%" headers="mcps1.1.5.1.1 "><p id="zh-cn_topic_0184337290_p87541259163017"><a name="zh-cn_topic_0184337290_p87541259163017"></a><a name="zh-cn_topic_0184337290_p87541259163017"></a>~/rpmbuild/RPMS</p>
-</td>
-<td class="cellrowborder" valign="top" width="18.38%" headers="mcps1.1.5.1.2 "><p id="zh-cn_topic_0184337290_p9754125913018"><a name="zh-cn_topic_0184337290_p9754125913018"></a><a name="zh-cn_topic_0184337290_p9754125913018"></a>%_rpmdir</p>
-</td>
-<td class="cellrowborder" valign="top" width="17.76%" headers="mcps1.1.5.1.3 "><p id="zh-cn_topic_0184337290_p12754205963018"><a name="zh-cn_topic_0184337290_p12754205963018"></a><a name="zh-cn_topic_0184337290_p12754205963018"></a>标准 RPM 包目录</p>
-</td>
-<td class="cellrowborder" valign="top" width="36.76%" headers="mcps1.1.5.1.4 "><p id="zh-cn_topic_0184337290_p177548599306"><a name="zh-cn_topic_0184337290_p177548599306"></a><a name="zh-cn_topic_0184337290_p177548599306"></a>生成/保存二进制 RPM 包</p>
-</td>
-</tr>
-<tr id="zh-cn_topic_0184337290_row88505117359"><td class="cellrowborder" valign="top" width="27.1%" headers="mcps1.1.5.1.1 "><p id="zh-cn_topic_0184337290_p3753759173019"><a name="zh-cn_topic_0184337290_p3753759173019"></a><a name="zh-cn_topic_0184337290_p3753759173019"></a>~/rpmbuild/SOURCES</p>
-</td>
-<td class="cellrowborder" valign="top" width="18.38%" headers="mcps1.1.5.1.2 "><p id="zh-cn_topic_0184337290_p9753185903013"><a name="zh-cn_topic_0184337290_p9753185903013"></a><a name="zh-cn_topic_0184337290_p9753185903013"></a>%_sourcedir</p>
-</td>
-<td class="cellrowborder" valign="top" width="17.76%" headers="mcps1.1.5.1.3 "><p id="zh-cn_topic_0184337290_p10753135913308"><a name="zh-cn_topic_0184337290_p10753135913308"></a><a name="zh-cn_topic_0184337290_p10753135913308"></a>源代码目录</p>
-</td>
-<td class="cellrowborder" valign="top" width="36.76%" headers="mcps1.1.5.1.4 "><p id="zh-cn_topic_0184337290_p675495933018"><a name="zh-cn_topic_0184337290_p675495933018"></a><a name="zh-cn_topic_0184337290_p675495933018"></a>保存源码包（如 .tar 包）和所有 patch 补丁</p>
-</td>
-</tr>
-<tr id="zh-cn_topic_0184337290_row1868513113357"><td class="cellrowborder" valign="top" width="27.1%" headers="mcps1.1.5.1.1 "><p id="zh-cn_topic_0184337290_p3753135912308"><a name="zh-cn_topic_0184337290_p3753135912308"></a><a name="zh-cn_topic_0184337290_p3753135912308"></a>~/rpmbuild/SPECS</p>
-</td>
-<td class="cellrowborder" valign="top" width="18.38%" headers="mcps1.1.5.1.2 "><p id="zh-cn_topic_0184337290_p147534598305"><a name="zh-cn_topic_0184337290_p147534598305"></a><a name="zh-cn_topic_0184337290_p147534598305"></a>%_specdir</p>
-</td>
-<td class="cellrowborder" valign="top" width="17.76%" headers="mcps1.1.5.1.3 "><p id="zh-cn_topic_0184337290_p17753105910308"><a name="zh-cn_topic_0184337290_p17753105910308"></a><a name="zh-cn_topic_0184337290_p17753105910308"></a>Spec 文件目录</p>
-</td>
-<td class="cellrowborder" valign="top" width="36.76%" headers="mcps1.1.5.1.4 "><p id="zh-cn_topic_0184337290_p4753125918302"><a name="zh-cn_topic_0184337290_p4753125918302"></a><a name="zh-cn_topic_0184337290_p4753125918302"></a>保存 RPM 包配置（.spec）文件</p>
-</td>
-</tr>
-<tr id="zh-cn_topic_0184337290_row275418594301"><td class="cellrowborder" valign="top" width="27.1%" headers="mcps1.1.5.1.1 "><p id="zh-cn_topic_0184337290_p9754115973018"><a name="zh-cn_topic_0184337290_p9754115973018"></a><a name="zh-cn_topic_0184337290_p9754115973018"></a>~/rpmbuild/SRPMS</p>
-</td>
-<td class="cellrowborder" valign="top" width="18.38%" headers="mcps1.1.5.1.2 "><p id="zh-cn_topic_0184337290_p14754559163011"><a name="zh-cn_topic_0184337290_p14754559163011"></a><a name="zh-cn_topic_0184337290_p14754559163011"></a>%_srcrpmdir</p>
-</td>
-<td class="cellrowborder" valign="top" width="17.76%" headers="mcps1.1.5.1.3 "><p id="zh-cn_topic_0184337290_p7754115923010"><a name="zh-cn_topic_0184337290_p7754115923010"></a><a name="zh-cn_topic_0184337290_p7754115923010"></a>源代码 RPM 包目录</p>
-</td>
-<td class="cellrowborder" valign="top" width="36.76%" headers="mcps1.1.5.1.4 "><p id="zh-cn_topic_0184337290_p10754165933017"><a name="zh-cn_topic_0184337290_p10754165933017"></a><a name="zh-cn_topic_0184337290_p10754165933017"></a>生成/保存源码 RPM 包(SRPM)</p>
-</td>
-</tr>
-</tbody>
-</table>
+|  目录               | 宏代码       |   名称          | 功能                                       |
+|--------------------|--------------|-----------------|-------------------------------------------|
+|~/rpmbuild/BUILD    |%_builddir    |构建目录          |源码包被解压至此，并在该目录的子目录完成编译   |
+|~/rpmbuild/RPMS     |%_rpmdir      |标准 RPM 包目录   |生成/保存二进制 RPM 包   |
+|~/rpmbuild/SOURCES  |%_sourcedir   |源代码目录        |保存源码包（如 .tar 包）和所有 patch 补丁   |
+|~/rpmbuild/SPECS    |%_specdir     |Spec 文件目录     |保存 RPM 包配置（.spec）文件   |
+|~/rpmbuild/SPECS    |%_srcrpmdir   |源代码 RPM 包目录 |生成/保存源码 RPM 包(SRPM)   |
+|~/rpmbuild/BUILDROOT|%_buildrootdir|最终安装目录      |保存%install阶段安装的文件   |
 
 SPECS 下是RPM包的配置文件，是RPM打包的“图纸”，这个文件会告诉rpmbuild命令如何去打包。“宏代码”这一列就可以在SPEC文件中用来代指所对应的目录，类似于编程语言中的宏或全局变量。
 
