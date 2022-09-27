@@ -3,9 +3,9 @@
 - [概述](#概述)
 - [软硬件要求](#软硬件要求)
 - [注意事项和约束](#注意事项和约束)
-- [安装 LibcarePlus](#安装LibcarePlus)
-- [制作 LibcarePlus 热补丁](#制作_LibcarePlus_热补丁)
-- [应用 LibcarePlus 热补丁](#应用_LibcarePlus_热补丁)
+- [安装 LibcarePlus](#安装-libcareplus)
+- [制作 LibcarePlus 热补丁](#制作-libcareplus-热补丁)
+- [应用 LibcarePlus 热补丁](#应用-libcareplus-热补丁)
 
 ## 概述
 
