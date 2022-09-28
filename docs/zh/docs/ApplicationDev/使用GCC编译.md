@@ -248,7 +248,7 @@ GCC是一个功能强大的编译器，其 _options_ 参数取值很多，但有
     ```
     $ gcc -c test1.c
     $ gcc -c test2.c
-    $ gcc -o test1.o test2.o -o test
+    $ gcc test1.o test2.o -o test
     ```
 
 
