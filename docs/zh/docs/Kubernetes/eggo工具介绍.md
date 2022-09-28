@@ -64,7 +64,7 @@ openEuler 提供的 Kubernetes 集群自动化部署工具使用命令行方式�
   - plugin：k8s 集群部署的网络插件            
   - plugin-args：k8s 集群网络的网络插件的配置文件路径。例如 : {"NetworkYamlPath": "/etc/kubernetes/addons/calico.yaml"}
   
-- apiserver-endpoint：进群外部可访问的 APISERVER 服务的地址或域名，如果配置了 loadbalances 则填loadbalance 地址，否则填写第 1 个 master 节点地址。
+- apiserver-endpoint：集群外部可访问的 APISERVER 服务的地址或域名，如果配置了 loadbalances 则填loadbalance 地址，否则填写第 1 个 master 节点地址。
 
 - apiserver-cert-sans：apiserver 相关证书中需要额外配置的 IP 和域名。它包含如下子配置项
   - dnsnames：apiserver 相关证书中需要额外配置的域名数组列表。
