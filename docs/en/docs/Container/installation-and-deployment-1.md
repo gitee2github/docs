@@ -12,7 +12,7 @@
 
 -   **root** permissions are required for installing a secure container.
 -   For better performance, a secure container needs to run on the bare metal server and **must not run on VMs**.
--   A secure container depends on the following components from the corresponding openEuler version. Ensure that the required components have been installed in the environment. To install iSulad, refer to  [Installation Methods](#installation-methods.md).
+-   A secure container depends on the following components from the corresponding openEuler version. Ensure that the required components have been installed in the environment. To install iSulad, refer to  [Installation Configuration](https://docs.openeuler.org/en/docs/20.03_LTS_SP1/docs/Container/installation-configuration.html).
     -   docker-engine
     -   qemu
 

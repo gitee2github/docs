@@ -114,7 +114,7 @@ isula-build采用服务端/客户端模式，其中，isula-build为客户端，
 | ------ | -------- | ------------------------------ |
 | driver | 可选     | 存储驱动类型，目前支持overlay2 |
 
-  更多设置可参考 [containers-storage.conf.5.md](https://github.com/containers/storage/blob/master/docs/containers-storage.conf.5.md)。
+  更多设置可参考 [containers-storage.conf.5.md](https://github.com/containers/storage/blob/main/docs/containers-storage.conf.5.md)。
 
 
 - /etc/isula-build/registries.toml : 针对各个镜像仓库的配置文件。
@@ -124,7 +124,7 @@ isula-build采用服务端/客户端模式，其中，isula-build为客户端，
 | registries.search   | 可选     | 镜像仓库搜索域，在此list的镜像仓库可以被感知，不在此列的不被感知。 |
 | registries.insecure | 可选     | 可访问的不安全镜像仓库地址，在此列表中的镜像仓库将不会通过鉴权，不推荐使用。 |
 
-  更多设置可参考 [containers-registries.conf.5.md](https://github.com/containers/image/blob/master/docs/containers-registries.conf.5.md)。
+  更多设置可参考 [containers-registries.conf.5.md](https://github.com/containers/image/blob/main/docs/containers-registries.conf.5.md)。
 
 - /etc/isula-build/policy.json：镜像pull/push策略文件。注：当前不支持对其进行配置
 
