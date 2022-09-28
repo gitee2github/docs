@@ -5,6 +5,7 @@
 <script src="{{ .Site.BaseURL }}js/jstree.min.js"></script>
 <script src="{{ .Site.BaseURL }}js/sensorsdata.min.js"></script>
 <script src="{{ .Site.BaseURL }}js/sensors.js"></script>
+<script src="{{ .Site.BaseURL }}js/revision_new.js"></script>
 <div id="mask" onclick="hideNav()"></div>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -18,7 +19,6 @@
                 var href = wholeData[j].a_attr.href;
                 var text = wholeData[j].text;
                 //debugger;
-                
                 if ((encodeURIComponent(href).toLowerCase() == encodeURIComponent(relativeURL).toLowerCase()) || (text.indexOf(relativeURL) >= 0)) {
                     return wholeData[j].id;
                 } else {
@@ -41,7 +41,6 @@
                     const tierData = data.node.parents
                     tierData.unshift(data.node.id)
                     tierData.pop()
-                
                     getTiername(tierData)
                 }
                 if (data.node) {
@@ -53,7 +52,6 @@
                             link = aElement.attr("href");
                         }
                     }
-                   
                     var relativeURL = getRelativePath();
                     if (link != relativeURL) {
                         location.href = link;
@@ -69,7 +67,7 @@
                 $("#docstreeview").jstree()._open_to(currentID);
                 $('#docstreeview').jstree().select_node(currentID);
                 $('#docstreeview').jstree().open_node(currentID);
-                // 获取上/下一页 URL                 
+                // 获取上/下一页 URL
                 let result = [];
                 let nodeList = [];
                 /*把树状平铺，用于查看是否有上一页下一页*/
@@ -152,7 +150,7 @@
             const iterName = [],iterUrl = []
             if(Array.isArray(data)) {
                 data.map(function (item) {
-                    iterName.unshift($('#'+item+'_anchor').text()) 
+                    iterName.unshift($('#'+item+'_anchor').text())
                     iterUrl.unshift($('#'+item+'_anchor').attr('href'))
                 })
             }
@@ -181,7 +179,7 @@
         let preList = $(".markdown pre");
         for (let i = 0; i < preList.length; i++) {
             let pre = preList[i];
-            let btn = $("<span class='btn_pre_copy'>{{ i18n "copy_code" }}</span>");
+            let btn = $(`<span class='btn_pre_copy'>{{ i18n "copy_code" }}</span>`);
             btn.prependTo(pre);
         }
 
@@ -212,7 +210,6 @@
                 keyword = $("#nav-search .search-text").val();
             }
         });
-        
         $("#nav-search .icon-search").click(function (e) {
             $("#result-container").css("display","block");
             $(".baseof_mask").css('display','block');

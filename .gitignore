@@ -5,3 +5,6 @@
 /content
 /web-ui/node_modules
 /web-ui/package-lock.json
+public
+layouts/partials/docs/test-list.html
+layouts/partials/docs/test-list2.html

@@ -11,110 +11,180 @@
       <img src="/img/detail/gift.png" title="点击参与有奖捉虫" alt="">
   </div>
     <div id="all">
-      <header>
-        {{ partial "nav.html" . }}
-      </header>
-      <div id="content">
+      <div class="left">
+        <div id="menu-box">
+        <div class="pc-logo">
+          <a href="javaScript:;"><img src="\img\common\logo_dark.svg" alt="" /></a>
+        </div>
+        <div id="h5-menu-top">
+          <div class="h5-logo">
+            <div class="logo-img">
+            </div>
+            <i class="icon-close"></i>
+          </div>
+          <div class="container menu-select-box">
+            <div class="select-box">
+              <p>{{i18n "version_selection"}}</p>
+              <i class="icon-servision"></i>
+            </div>
+            <div class="option">
+              <a href="{{ i18n "know_91_1"}}">{{ .Site.Params.version_91 }}</a>
+              <a href="{{ i18n "know_92_1"}}">{{ .Site.Params.version_92 }}</a>
+              <a href="{{ i18n "know_93_1"}}">{{ .Site.Params.version_93 }}</a>
+              {{ if ne .Site.LanguageCode "ru"}}
+              <a href="{{ i18n "know_94_1"}}">{{ .Site.Params.version_94 }}</a>
+              <a href="{{ i18n "know_95_1"}}">{{ .Site.Params.version_95 }}</a>
+              <a href="{{ i18n "know_96_1"}}">{{ .Site.Params.version_96 }}</a>
+              {{ end }}
+              <a href="{{ i18n "know_97_1"}}">{{ .Site.Params.version_97 }}</a>
+              <a href="{{ i18n "know_98_1"}}">{{ .Site.Params.version_98 }}</a>
+              <div class="angle"></div>
+            </div>
+          </div>
+        </div>
+        <div id="version-select">
+          <span></span>
+          <div class="option">
+            {{ if ne .Site.LanguageCode "ru"}}
+            <span href="{{ i18n "know_91_1"}}">22.03 LTS</span>
+            <span href="{{ i18n "know_92_1"}}">20.03 LTS SP3</span>
+            {{ end }}
+            <span href="{{ i18n "know_93_1"}}">21.09</span>
+            {{ if ne .Site.LanguageCode "ru"}}
+            <span href="{{ i18n "know_94_1"}}">20.03 LTS SP2</span>
+            <span href="{{i18n "know_96_1"}}">20.03 LTS SP1</span>
+            {{ end }}
+            <span href="{{i18n "know_98_1"}}">20.03 LTS</span>
+            {{ if ne .Site.LanguageCode "ru"}}
+            <span href="{{i18n "know_95_1"}}">21.03</span>
+            {{ end }}
+            <span href="{{i18n "know_97_1"}}">20.09</span>
+          </div>
+        </div>
+        {{ partial "docs/menu" . }}
+        <div class="h5-theme-lang">
+           <div class="lang">
+            <a href="/zh/">中文</a>
+            <a href="/en/">EN</a>
+            <a href="/ru/">RU</a>
+           </div>
+           <div class="theme-change">
+            <i class="icon-theme light"></i>
+        </div>
+        </div>
+        </div>
+      </div>
+       <div id="content">
         {{ $versionArr := split $.File.Path "docs\\" }}
         {{ $version := index $versionArr 1}}
         {{ $version := split $version "\\" }}
         {{ $version := index $version 0}}
         {{ $lang := .Site.LanguageCode}}
           <main class="docscontainer">
+            {{ partial "nav.html" . }}
             <div id="h5-menu">
-                <ul>
-                  <li class="h5-prev">
-                    <a href="javaScript:;"><i class="icon-prev"></i><span>{{ i18n "previous" }}</span></a>
-                  </li>
-                  <li class="h5-menu">
-                    {{ i18n "catalog_text" }}
-                  </li>
-                  <li class="h5-next">
-                    <a href="javaScript:;"><span>{{ i18n "next" }}</span><i class="icon-next"></i></a>
-                  </li>
-                </ul>
-            </div>
-            <div id="menu-box">
-              <div id="version-select">
-                <span></span>
-                <i class="v-icon-down"></i>
-                <div class="option">
-                  <a href="{{ i18n "know_91_1"}}">{{ .Site.Params.version_91 }}</a>
-                  <a href="{{ i18n "know_92_1"}}">{{ .Site.Params.version_92 }}</a>
-                  <a href="{{ i18n "know_93_1"}}">{{ .Site.Params.version_93 }}</a>
-                  {{ if ne .Site.LanguageCode "ru"}}
-                  <a href="{{ i18n "know_94_1"}}">{{ .Site.Params.version_94 }}</a>
-                  <a href="{{ i18n "know_95_1"}}">{{ .Site.Params.version_95 }}</a>
-                  <a href="{{ i18n "know_96_1"}}">{{ .Site.Params.version_96 }}</a>
-                  {{ end }}
-                  <a href="{{ i18n "know_97_1"}}">{{ .Site.Params.version_97 }}</a>
-                  <a href="{{ i18n "know_98_1"}}">{{ .Site.Params.version_98 }}</a>
-                  <div class="angle"></div>
-                </div>
-              </div>
+              <ul>
+                <li class="h5-prev">
+                  <a href="javaScript:;"><i class="icon-prev"></i><span>{{ i18n "previous" }}</span></a>
+                </li>
+                <li class="h5-sersion">
+                </li>
+                <li class="h5-next">
+                  <a href="javaScript:;"><span>{{ i18n "next" }}</span><i class="icon-next"></i></a>
+                </li>
+              </ul>
+          </div>
+            <!-- <div id="h5-menu-box">
               <div id="h5-menu-top">
-                <p>{{ i18n "catalog_text" }}<i class="icon-close"></i></p>
+                <div class="h5-logo">
+                  <div class="logo-img">
+                  </div>
+                  <i class="icon-close"></i>
+                </div>
                 <div class="container menu-select-box">
                   <div class="select-box">
-                    <span></span>
-                    <i class="icon-down"></i>
-                    <div class="option">
-                      <a href="{{ i18n "know_91_1"}}">{{ .Site.Params.version_91 }}</a>
-                      <a href="{{ i18n "know_92_1"}}">{{ .Site.Params.version_92 }}</a>
-                      <a href="{{ i18n "know_93_1"}}">{{ .Site.Params.version_93 }}</a>
-                      {{ if ne .Site.LanguageCode "ru"}}
-                      <a href="{{ i18n "know_94_1"}}">{{ .Site.Params.version_94 }}</a>
-                      <a href="{{ i18n "know_95_1"}}">{{ .Site.Params.version_95 }}</a>
-                      <a href="{{ i18n "know_96_1"}}">{{ .Site.Params.version_96 }}</a>
-                      {{ end }}
-                      <a href="{{ i18n "know_97_1"}}">{{ .Site.Params.version_97 }}</a>
-                      <a href="{{ i18n "know_98_1"}}">{{ .Site.Params.version_98 }}</a>
-                      <div class="angle"></div>
-                    </div>
+                    <p>{{i18n "version_selection"}}</p>
+                    <i class="icon-servision"></i>
+                  </div>
+                  <div class="option">
+                    <a href="{{ i18n "know_91_1"}}">{{ .Site.Params.version_91 }}</a>
+                    <a href="{{ i18n "know_92_1"}}">{{ .Site.Params.version_92 }}</a>
+                    <a href="{{ i18n "know_93_1"}}">{{ .Site.Params.version_93 }}</a>
+                    {{ if ne .Site.LanguageCode "ru"}}
+                    <a href="{{ i18n "know_94_1"}}">{{ .Site.Params.version_94 }}</a>
+                    <a href="{{ i18n "know_95_1"}}">{{ .Site.Params.version_95 }}</a>
+                    <a href="{{ i18n "know_96_1"}}">{{ .Site.Params.version_96 }}</a>
+                    {{ end }}
+                    <a href="{{ i18n "know_97_1"}}">{{ .Site.Params.version_97 }}</a>
+                    <a href="{{ i18n "know_98_1"}}">{{ .Site.Params.version_98 }}</a>
+                    <div class="angle"></div>
                   </div>
                 </div>
               </div>
+              <div id="version-select">
+                <span></span>
+                <div class="option">
+                  {{ if ne .Site.LanguageCode "ru"}}
+                  <a href="{{ i18n "know_91_1"}}">22.03 LTS</a>
+                  <a href="{{ i18n "know_92_1"}}">20.03 LTS SP3</a>
+                  {{ end }}
+                  <a href="{{ i18n "know_93_1"}}">21.09</a>
+                  {{ if ne .Site.LanguageCode "ru"}}
+                  <a href="{{ i18n "know_94_1"}}">20.03 LTS SP2</a>
+                  <a href="{{i18n "know_96_1"}}">20.03 LTS SP1</a>
+                  {{ end }}
+                  <a href="{{i18n "know_98_1"}}">20.03 LTS</a>
+                  {{ if ne .Site.LanguageCode "ru"}}
+                  <a href="{{i18n "know_95_1"}}">21.03</a>
+                  {{ end }}
+                  <a href="{{i18n "know_97_1"}}">20.09</a>
+                  <div class="angle"></div>
+                </div>
+              </div>
               {{ partial "docs/menu" . }}
-            </div>
-            {{ partial "link.html" }}
+              <div class="h5-theme-lang">
+                 <div class="lang">
+                  <a href="/zh/">中文</a>
+                  <a href="/en/">EN</a>
+                  <a href="/ru/">RU</a>
+                 </div>
+                 <div class="theme-change">
+                  <i class="icon-theme light"></i>
+              </div>
+              </div>
+            </div> -->
+            <div class="h5-mask"></div>
             <div class="book-page container" id="page">
-
-              {{ template "main" . }}
+              <div class="page-content">
+                {{ partial "turn.html"}}
+                <div class="docs-a h5-docs-a">
+                </div> 
+                {{ template "main" . }}
+                {{ partial "insideNav.html"}}
+              </div>
+                <aside class="book-toc">
+                  <ul id="toc-list"></ul>
+                </aside>
             </div>
-            {{ partial "insideNav.html"}}
+            {{ partial "pcfooter.html" . }}
           </main>
-      </div>
+      </div> 
       <div class="zhezhao"></div>
-        <div class="searcher h5-searcher">
-            <div class="h5-search">
-                <input type="text" class="search-text" placeholder="{{ i18n "search_placeholder" }}" />
-                <div class="search-btn">{{ i18n "search" }}</div>
-            </div>
-            <div class="search-result">
-                <p class="title">{{ i18n "result_1" }}<span class="res-amount main-text"></span>{{ i18n "result_2" }}<span class="keyword main-text"></span>{{ i18n "result_3" }}</p>
+        <div class="searcher">
+          <div class="h5-search">
+            <i class="icon-search" style="right: 0px;"></i>
+            <input type="text" class="search-text" placeholder="{{ i18n "search_placeholder" }}" />
+            <i class="icon-clear" ></i>
+            <div class="cancel-btn">{{ i18n "cancel" }}</div>
+        </div>
+            <div class="search-result h5-search-result">
+                <!-- <p class="title">{{ i18n "result_1" }}<span class="res-amount main-text"></span>{{ i18n "result_2" }}<span class="keyword main-text"></span>{{ i18n "result_3" }}</p> -->
                 <ul>
 
                 </ul>
                 <div id="pagination"></div>
             </div>
         </div>
-      <!-- /#content -->
-      {{ partial "h5_footer.html"}}
-      <div id="footer" style="margin-left: 320px;">
-        <div class="atom">
-          <img src="/img/common/atom.png" alt="">
-          <p>{{ i18n "atom" }}</p>
-        </div>
-        <div>
-            <img src="/img/common/footerLogo.png" alt="footerLogo.png" />
-            <p>{{ .Site.Params.email }}</p>
-            <p>{{ i18n "copy_right" }}</p>
-        </div>
-        <div>
-            <img src="/img/common/qrcode.png" alt="qrcode.png"/>
-            <p>{{ i18n "attention" }}</p>
-        </div>
-    </div>
     </div>
     </div>
     <!-- /#all -->

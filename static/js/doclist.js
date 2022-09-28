@@ -1,5 +1,5 @@
 $(function($) {
-    $(".h5-right>.icon-lang,#lang").click(function (e) {
+    $(".h5-right>.icon-lang").click(function (e) {
         $(this).find(".option").show();
         $(document).one("click", function(){
             $(this).find(".option").hide();

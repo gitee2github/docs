@@ -11,6 +11,7 @@
     height: 28px;
     line-height: 28px;
     user-select: none;
+    color: var(--e-color-text1);
 }
 
 ._page_container input[type=number] {
@@ -31,16 +32,14 @@
     display: inline-block;
     list-style: none;
     vertical-align: top;
-    color: #303133;
     font-weight: bold;
     min-width: 30px;
     text-align: center;
-    border-radius: 2px;
     cursor: pointer;
 }
 
 ._page_container ._pages li:hover {
-    color: #002FA7;
+    color: var(--e-color-brand1);
 }
 
 ._page_container ._pages li:first-child,
@@ -84,7 +83,7 @@
 }
 
 ._page_container ._jumper ._jumper_input:focus {
-    border-color: #002FA7;
+    border-color: var(--e-color-brand1);
 }
 
 /*._pages_1 li {
@@ -93,11 +92,11 @@
 
 ._active_1 {
     color: #fff !important;
-    background-color: #002FA7 !important;
+    background-color: var(--e-color-brand1) !important;
 }
 
 ._active_2 {
-    color: #002FA7 !important;
+    color: var(--e-color-brand1) !important;
 }
 
 ._disabled {

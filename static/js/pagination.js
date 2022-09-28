@@ -285,6 +285,7 @@ var Pagination = /** @class */ (function () {
         return dom;
     };
     Pagination.prototype.validate = function (options) {
+        // console.log(options,options.element);
         if (!options)
             throw new Error('options of null');
         if (typeof options !== 'object')

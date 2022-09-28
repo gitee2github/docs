@@ -24,7 +24,6 @@
 
     <div class="doc-catalog">
         <p class="title">{{ i18n "catalog_text" }}</p>
-        
         {{ range .Site.Data.docsversion }}
         <div class="list" index="{{ .index }}" style="display: {{ .display }};">
             {{ if eq $lang "zh"}}

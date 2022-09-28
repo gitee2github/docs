@@ -55,6 +55,13 @@ $(function($) {
         $(".zhezhao").css("height",height);
 
     });
+    $(".cancel-btn").click(function (e) {
+        $(".searcher").css('display','none');
+        $(".zhezhao").css('display','none');
+        var height = $(".h5_index").outerHeight(true)-279;
+        $(".zhezhao").css("height",height);
+
+    });
 
     $(".zhezhao").click(function (e) {
         $(".searcher").css('display','none');
@@ -63,10 +70,20 @@ $(function($) {
 
     $(".h5-search").find(".search-btn").click(function (e) {
         keyword = $(".h5-search").find("input").val();
-        $(".search-result").css('display','block');
+        $(".search-result").css('display','none');
         searchMethods.search(decodeURI(keyword),1,"#pagination");
     });
-
+    $(".h5-search input").keyup(function(){
+        if($(this).val()!==""){
+            $(".icon-clear").show()
+        }else{
+            $(".icon-clear").hide()
+        }
+    }) 
+    $(".icon-clear").click(function(){
+        $(".h5-search input").val("")
+        $(".icon-clear").hide()
+    })
     $(".h5-search>.search-text").bind('keypress',function(event){
         if(event.keyCode == "13") {
             keyword = $(".h5-search>.search-text").val();
@@ -148,14 +165,14 @@ $(function($) {
                                 searchMethods.search(decodeURI(keyword),index);
                             }
                         });
-                        $(".search-result>.title").find(".res-amount").text(totalAmount);
+                        // $(".search-result>.title").find(".res-amount").text(totalAmount);
                         $(".search-result>.title").find(".keyword").text(value);
                     }
                     searchMethods.solveData(dataArr,versionText, page);
                 },
                 error: function (data) {
                     totalAmount = 0;
-                    $(".search-result>.title").find(".res-amount").text(totalAmount);
+                    // $(".search-result>.title").find(".res-amount").text(totalAmount);
                     $(".search-result>.title").find(".keyword").text(value);
                 },
             });
@@ -208,8 +225,8 @@ $(function($) {
                 function (tag) {
                     return ({
                         '&': '&amp;',
-                        '<': '&lt;',
-                        '>': '&gt;',
+                        // '<': '&lt;',
+                        // '>': '&gt;',
                         "'": '&#39;',
                         '"': '&quot;'
                     }[tag] || tag)
