@@ -24,7 +24,7 @@
 
 在 openEuler 发行版开发过程，需要及时更新上游社区各个软件包的最新代码，修改功能 bug 及安全问题，确保发布的 openEuler 发行版尽可能避免缺陷和漏洞。
 
-本工具对软件包进行补丁管理，主动监控上游社区提交，自动生成补丁，并自动提交 issue 给对应的 maintainer，同时自动验证补丁基础功能，减少验证工作量支持 maintainer 快速决策。
+本工具对软件包进行补丁管理，主动监控上游社区提交，自动生成补丁，并自动提交 issue 给对应的 maintainer，同时自动验证补丁基础功能，减少验证工作量，支持 maintainer 快速决策。
 
 ## 架构
 
@@ -137,7 +137,7 @@ openssl req -x509 -days 3650 -subj "/CN=self-signed" \
     LISTEN = "127.0.0.1:5001"
     ```
 
-2. GitHub Token， 用于访问托管在 GitHub 上游开源软件仓的仓库信息 ， 生成 GitHub Token 的方法参考 [Creating a personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) 。
+2. 配置GitHub Token， 用于访问托管在 GitHub 上游开源软件仓的仓库信息。生成 GitHub Token 的方法参考 [Creating a personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) 。
 
     ```
     GITHUB_ACCESS_TOKEN = ""
