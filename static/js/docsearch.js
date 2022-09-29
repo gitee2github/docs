@@ -151,7 +151,7 @@ $(function($) {
                     totalAmount = data.data.totalNum;
                     if(page === 1) {
                         let pag = new Pagination({
-                            element: el,
+                            element: el||'#baseof-pagination',
                             type: 1,
                             pageIndex: 1,
                             pageSize: 10,
