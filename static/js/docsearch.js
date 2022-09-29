@@ -66,6 +66,7 @@ $(function($) {
     $(".zhezhao").click(function (e) {
         $(".searcher").css('display','none');
         $(".zhezhao").css('display','none');
+        $(".h5_index .h5_nav").removeClass("h5_nav_show");
     });
 
     $(".h5-search").find(".search-btn").click(function (e) {
@@ -79,7 +80,7 @@ $(function($) {
         }else{
             $(".icon-clear").hide()
         }
-    }) 
+    })
     $(".icon-clear").click(function(){
         $(".h5-search input").val("")
         $(".icon-clear").hide()

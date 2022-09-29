@@ -545,12 +545,12 @@
   }
 }
 .h5-nav-menu .h5-logo {
-  width: 105px;
-  height: 24px;
-  background: url(../img/common/logo.svg) no-repeat 100%/100%;
+  width: 137px;
+  height: 23px;
+  background: url(../img/common/logo-mobile.png) no-repeat 100%/100%;
 }
 .dark .h5-nav-menu .h5-logo {
-  background: url(../img/common/logo_dark.svg) no-repeat 100%/100%;
+  background: url(../img/common/logo-pc.png) no-repeat 100%/100%;
 }
 .h5-search {
   width: 100vw;
@@ -604,12 +604,12 @@
 }
 
 #h5-menu-top .h5-logo .logo-img {
-  width: 95px;
-  height: 24px;
-  background: url(../img/common/logo.svg) no-repeat 100%/100%;
+  width: 137px;
+  height: 23px;
+  background: url(../img/common/logo-mobile.png) no-repeat 100%/100%;
 }
 .dark #h5-menu-top .h5-logo .logo-img {
-  background: url(../img/common/logo_dark.svg) no-repeat 100%/100%;
+  background: url(../img/common/logo-pc.png) no-repeat 100%/100%;
 }
 .top-link .other-link a:nth-of-type(2) {
   margin-left: 40px;
