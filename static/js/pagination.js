@@ -58,6 +58,7 @@ var Pagination = /** @class */ (function () {
         this.setOptions(options);
         this.render();
     };
+    // 渲染页面并绑定事件
     Pagination.prototype.render = function () {
         var _this_1 = this;
         var _a;
@@ -209,6 +210,7 @@ var Pagination = /** @class */ (function () {
         // 保存元素
         this.element.appendChild(container);
     };
+    // 当前页改变事件
     Pagination.prototype.handleChangePage = function (index) {
         var _this_1 = this;
         this.options.pageIndex = index;
@@ -243,6 +245,7 @@ var Pagination = /** @class */ (function () {
         // 回调
         typeof this.options.currentChange === 'function' && this.options.currentChange(index);
     };
+    // 根据当前页生成显示页码的最大页和最小页
     Pagination.prototype.getBetween = function () {
         // 最小下标
         var min = this.options.pageIndex - Math.floor(this.options.pageCount / 2);
@@ -263,6 +266,7 @@ var Pagination = /** @class */ (function () {
             max = this.pageNum;
         return { min: min, max: max };
     };
+    // 生成分页器展现的可以点击的页码
     Pagination.prototype.generateArray = function (start, end) {
         var arr = [];
         for (var i = start; i <= end; i++) {
@@ -270,6 +274,7 @@ var Pagination = /** @class */ (function () {
         }
         return arr;
     };
+    // 生成分页器的dom元素并进行内容填充
     Pagination.prototype.createElement = function (tag, classList) {
         var dom = document.createElement(tag);
         if (classList) {
@@ -284,8 +289,8 @@ var Pagination = /** @class */ (function () {
         }
         return dom;
     };
+    // 判断是否有正确生成容器实例
     Pagination.prototype.validate = function (options) {
-        // console.log(options,options.element);
         if (!options)
             throw new Error('options of null');
         if (typeof options !== 'object')

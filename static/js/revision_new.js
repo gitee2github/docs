@@ -122,17 +122,24 @@ $(function ($) {
       }
     );
     // 点击logo去到欧拉首页
-    $(".h5_index .h5-logo .logo-img,.h5_index .h5-logo").click(() => {
-      window.open(`https://www.openeuler.org/${lang}/`, "_self");
-    });
+    // $(".h5_index .h5-logo .logo-img,.h5_index .h5-logo").click(() => {
+    //   window.open(`https://www.openeuler.org/${lang}/`, "_self");
+    // });
     // 点击版本出现版本选择
     $(".h5_index .h5_nav .icon-servision").click(function () {
       $(this).toggleClass("open");
       $(".h5_index .h5_nav .option").toggleClass("option-show");
     });
     // 控制移动端菜单栏的显示
-    $(".h5_index .h5_nav_left,.h5_index .icon-close").click(function () {
-      $(".h5_index .h5_nav").toggleClass("h5_nav_show");
+    $(".h5_index .h5_nav_left").click(function () {
+      $(".h5_index .h5_nav").addClass("h5_nav_show");
+      $(".zhezhao").css("display", "block");
+      $(".zhezhao").css("height", "100vh");
+      $(".zhezhao").css("position", "fixed");
+    });
+    $(".h5_index .icon-close").click(function () {
+      $(".h5_index .h5_nav").removeClass("h5_nav_show");
+      $(".zhezhao").css("display", "none");
     });
     // 根据语言控制版本选择的显示
     $("#version-select .option a[href^='/ru/']").addClass("option-ru-a");
@@ -162,7 +169,7 @@ $(function ($) {
     );
     // 版本跳转
     $("#version-select .option>span").click(function () {
-      window.open($(this).attr("href"),"_self")
+      window.open($(this).attr("href"), "_self");
     });
   });
 });

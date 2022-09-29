@@ -10,7 +10,7 @@
   min-width: 300px;
   background-color: var(--e-color-kleinblue5);
   overflow: hidden;
-  padding-top: 53px;
+  padding-top: 40px;
 }
 #all > #left .left {
   width: 100%;
@@ -18,7 +18,7 @@
 }
 
 #all > #left img {
-  height: 52px;
+  height: 35px;
 }
 
 #all > #left > ul {
@@ -404,12 +404,12 @@ h1 {
     padding-bottom: 40px;
   }
   .h5-nav-menu .h5-logo {
-    width: 105px;
-    height: 24px;
-    background: url(../img/common/logo.svg) no-repeat 100%/100%;
+    width: 137px;
+    height: 23px;
+    background: url(../img/common/logo-mobile.png) no-repeat 100%/100%;
   }
   .dark .h5-nav-menu .h5-logo {
-    background: url(../img/common/logo_dark.svg) no-repeat 100%/100%;
+    background: url(../img/common/logo-pc.png) no-repeat 100%/100%;
   }
   #all {
     display: none !important;
@@ -780,12 +780,12 @@ h1 {
   width: 100%;
 }
 .h5_nav .h5-logo .logo-img {
-  width: 95px;
-  height: 24px;
-  background: url(../img/common/logo.svg) no-repeat 100%/100%;
+  width: 137px;
+  height: 23px;
+  background: url(../img/common/logo-mobile.png) no-repeat 100%/100%;
 }
 .dark .h5_nav .h5-logo .logo-img {
-  background: url(../img/common/logo_dark.svg) no-repeat 100%/100%;
+  background: url(../img/common/logo-pc.png) no-repeat 100%/100%;
 }
 .h5_nav .h5-logo .icon-close {
   width: 24px;
