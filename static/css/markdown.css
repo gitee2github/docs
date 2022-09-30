@@ -11,6 +11,9 @@
   border-left: 6px solid #002FA7;
   padding: 20px;
 }
+#markdown blockquote img{
+  vertical-align: top;
+}
 .markdown > *:first-child {
   margin-top: 0 !important;
 }
@@ -97,7 +100,7 @@
   content: "";
   display: block;
   width: 100%;
-  height: var(--o-spacing-h2);
+  height: 60px;
 }
 @media screen and (max-width: 768px) {
   .markdown h2 {
@@ -165,7 +168,7 @@
 }
 .markdown ul,
 .markdown ol {
-  padding-left: 1em;
+  padding-left: 1.5em;
 }
 .markdown ul li::marker,
 .markdown ol li::marker {

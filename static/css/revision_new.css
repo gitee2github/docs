@@ -947,9 +947,9 @@
 } */
 .book-toc {
   position: fixed;
-  right: 10vw;
+  right: 4vw;
   top: 100px;
-  width: 128px;
+  width: 200px;
   height: calc(100vh - 426px);
 }
 .book-toc::before {
