@@ -498,9 +498,9 @@
   display: inline-block;
   max-width: 100%;
 }
-.migration-markdown a[href^="#"] {
+/* .migration-markdown a[href^="#"] {
   display: none;
-}
+} */
 .migration-markdown div[class*="language-"] {
   position: relative;
   margin: 8px 0;
