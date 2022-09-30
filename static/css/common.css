@@ -274,7 +274,6 @@ i {
 
 .nav-menu>div .option,#h5-menu-top .select-box .option {
     display: none;
-    border-radius: 4px;
     position: absolute;
     width: 100%;
     background: var(--e-color-bg2);box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);

@@ -4,6 +4,7 @@ $(function($) {
         $(".baseof_mask").css('display','none');
         $('.alert').css('display','none')
         $("#result-container").css("display","none");
+        $("#title-evaluate").removeClass("bug-hide")
     });
 
     $(".search-header>.icon-search").click(function (e) {

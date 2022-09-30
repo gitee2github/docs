@@ -384,7 +384,9 @@ background-color: var(--e-color-kleinblue7);
     position: relative;
     line-height: 40px;
     padding-left: 16px;
-   width: 128px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .book-toc #toc-list li a:hover{
     color: var(--e-color-brand1);
@@ -568,12 +570,14 @@ background-color: var(--e-color-kleinblue7);
 #title-evaluate {
     position: fixed;
     bottom: 326px;
-    right: 10vw ;
+    right: 10vw;
     max-height: calc(100vh - 157px);
     z-index: 1002;
     box-shadow: var(--e-shadow-l4);
 }
-
+.bug-hide{
+    display: none ;
+  }
 #title-evaluate::-webkit-scrollbar-track {
 	border-radius:4px;
 	background-color:#F5F5F5;
