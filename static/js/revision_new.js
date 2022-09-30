@@ -146,9 +146,9 @@ $(function ($) {
     $("#h5-menu-top .option").addClass(`option-${lang}`);
     $("#h5-menu-top .option a[href^='/ru/']").addClass("option-ru-a");
     // 让markdown里面的目录隐藏
-    $(function ($) {
-      $(".markdown ul li>a[href^='#']").parent().hide();
-    });
+    // $(function ($) {
+    //   $(".markdown ul li>a[href^='#']").parent().hide();
+    // });
     // 尾部点击跳转
     $(".footer .footer-content .footer-option .footer-option-item a").click(
       function () {
