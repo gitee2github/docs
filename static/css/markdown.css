@@ -8,10 +8,10 @@
 #markdown blockquote {
   border-radius: 6px;
   background-color: rgba(203, 217, 255, 0.2);
-  border-left: 6px solid #002FA7;
+  border-left: 6px solid #002fa7;
   padding: 20px;
 }
-#markdown blockquote img{
+#markdown blockquote img {
   vertical-align: top;
 }
 .markdown > *:first-child {
@@ -95,31 +95,57 @@
   margin-bottom: var(--o-spacing-h3);
   font-size: var(--o-font-size-h5);
   line-height: var(--o-line-height-h5);
+  padding-top: 0;
 }
-.markdown h2::before {
+.markdown h1::before{
   content: "";
   display: block;
   width: 100%;
   height: 60px;
+  margin-top: -60px;
+  overflow: hidden;
+}
+.markdown h2::before,.markdown h3::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+}
+.markdown h2::before{
+  margin-top: -40px;
+}
+.markdown h3::before{
+  margin-top: -28px;
 }
 @media screen and (max-width: 768px) {
   .markdown h2 {
-    margin: var(--o-spacing-h4) 0 var(--o-spacing-h5);
+    margin: 0 0 var(--o-spacing-h5);
     font-size: var(--o-font-size-h8);
     line-height: var(--o-line-height-h8);
+    padding-top: 0;
   }
-  .markdown h2::before {
-    display: none;
+  .markdown h1::before{
+    height: 92px;
+    margin-top: -92px;
+  }
+  .markdown h2::before{
+    height: 92px;
+    margin-top: -72px;
+  }
+  .markdown h3::before{
+    height: 92px;
+    margin-top: -76px;
   }
 }
 .markdown h3 {
-  margin-top: var(--o-spacing-h3);
+  padding-top: 0;
   font-size: var(--o-font-size-h7);
   line-height: var(--o-line-height-h8);
 }
 @media screen and (max-width: 768px) {
   .markdown h3 {
-    margin-top: var(--o-spacing-h5);
+    padding-top: 0;
     font-size: var(--o-font-size-text);
     line-height: var(--o-line-height-text);
   }
@@ -158,11 +184,12 @@
     font-size: var(--o-font-size-tip);
     overflow: scroll;
   }
-  .markdown table p{
+  .markdown table p {
     margin-top: 0;
     margin-bottom: 0;
   }
-  .markdown table tr td p,.markdown table tr th p{
+  .markdown table tr td p,
+  .markdown table tr th p {
     padding: 8px 0;
   }
 }
@@ -202,7 +229,7 @@
     font-size: var(--o-font-size-text);
     padding-left: var(--o-spacing-h5);
   }
-  .markdown table tr th:nth-of-type(1){
+  .markdown table tr th:nth-of-type(1) {
     width: 30vw !important;
   }
 }
