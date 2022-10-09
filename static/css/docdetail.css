@@ -1623,11 +1623,11 @@ background-color: var(--e-color-kleinblue7);
         text-align: center;
     }
 
-    h3 {
+    /* h3 {
         margin-left: 30px;
         margin-top: 40px;
         font-size: 16px;
-    }
+    } */
 
     .hot_documentation {
         display: flex;
