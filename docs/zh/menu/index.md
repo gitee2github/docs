@@ -140,7 +140,7 @@ headless: true
     -   [K8S迁移至openEuler指导]({{< relref "./docs/thirdparty_migration/k8sinstall.md" >}})
     -   [SpringFramework迁移至openEuler指导]({{< relref "./docs/thirdparty_migration/springframework.md" >}})
     -   [x2openEuler 用户指南 （630）]({{< relref "./docs/thirdparty_migration/x2openEuleruseguide630.md" >}})
-    -   [x2openEuler 用户指南]({{< relref "./docs/thirdparty_migration/x2openEuleruseguide.md" >}})
+    -   [x2openEuler 用户指南 ]({{< relref "./docs/thirdparty_migration/x2openEuleruseguide.md" >}})
 -   [桌面环境用户指南]({{< relref "./docs/desktop/desktop.md" >}})
     -   [UKUI]({{< relref "./docs/desktop/ukui.md" >}})
         -   [安装 UKUI]({{< relref "./docs/desktop/安装UKUI.md" >}})
