@@ -1,4 +1,4 @@
-# x2openEuler 用户指南
+# x2openEuler 用户指南（630）
 <!-- TOC -->
 -   [x2openEuler 用户指南](#x2openeuler-用户指南)
     -   [前言](#前言)
