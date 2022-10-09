@@ -25,28 +25,28 @@
 </th>
 </tr>
 </thead>
-<tbody><tr id="row1372280416410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p3734547016410"><a name="p3734547016410"></a><a name="p3734547016410"></a><a name="image2670064316410"></a><a name="image2670064316410"></a><span><img class="" id="image2670064316410" height="25.270000000000003" width="67.83" src="figures/zh-cn_image_0000001344659722.png"></span></p>
+<tbody><tr id="row1372280416410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p3734547016410"><a name="p3734547016410"></a><a name="p3734547016410"></a><a name="image2670064316410"></a><a name="image2670064316410"></a><span><img class="" id="image2670064316410" height="25.270000000000003" width="67.83" src="figures-x2openEuler930/zh-cn_image_0000001344659722.png"></span></p>
 </td>
 <td class="cellrowborder" valign="top" width="79.42%" headers="mcps1.1.3.1.2 "><p id="p1757432116410"><a name="p1757432116410"></a><a name="p1757432116410"></a>表示如不避免则将会导致死亡或严重伤害的具有高等级风险的危害。</p>
 </td>
 </tr>
-<tr id="row466863216410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p1432579516410"><a name="p1432579516410"></a><a name="p1432579516410"></a><a name="image4895582316410"></a><a name="image4895582316410"></a><span><img class="" id="image4895582316410" height="25.270000000000003" width="67.83" src="figures/zh-cn_image_0000001344499798.png"></span></p>
+<tr id="row466863216410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p1432579516410"><a name="p1432579516410"></a><a name="p1432579516410"></a><a name="image4895582316410"></a><a name="image4895582316410"></a><span><img class="" id="image4895582316410" height="25.270000000000003" width="67.83" src="figures-x2openEuler930/zh-cn_image_0000001344499798.png"></span></p>
 </td>
 <td class="cellrowborder" valign="top" width="79.42%" headers="mcps1.1.3.1.2 "><p id="p959197916410"><a name="p959197916410"></a><a name="p959197916410"></a>表示如不避免则可能导致死亡或严重伤害的具有中等级风险的危害。</p>
 </td>
 </tr>
-<tr id="row123863216410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p1232579516410"><a name="p1232579516410"></a><a name="p1232579516410"></a><a name="image1235582316410"></a><a name="image1235582316410"></a><span><img class="" id="image1235582316410" height="25.270000000000003" width="67.83" src="figures/zh-cn_image_0000001395379565.png"></span></p>
+<tr id="row123863216410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p1232579516410"><a name="p1232579516410"></a><a name="p1232579516410"></a><a name="image1235582316410"></a><a name="image1235582316410"></a><span><img class="" id="image1235582316410" height="25.270000000000003" width="67.83" src="figures-x2openEuler930/zh-cn_image_0000001395379565.png"></span></p>
 </td>
 <td class="cellrowborder" valign="top" width="79.42%" headers="mcps1.1.3.1.2 "><p id="p123197916410"><a name="p123197916410"></a><a name="p123197916410"></a>表示如不避免则可能导致轻微或中度伤害的具有低等级风险的危害。</p>
 </td>
 </tr>
-<tr id="row5786682116410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p2204984716410"><a name="p2204984716410"></a><a name="p2204984716410"></a><a name="image4504446716410"></a><a name="image4504446716410"></a><span><img class="" id="image4504446716410" height="25.270000000000003" width="67.83" src="figures/zh-cn_image_0000001344340158.png"></span></p>
+<tr id="row5786682116410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p2204984716410"><a name="p2204984716410"></a><a name="p2204984716410"></a><a name="image4504446716410"></a><a name="image4504446716410"></a><span><img class="" id="image4504446716410" height="25.270000000000003" width="67.83" src="figures-x2openEuler930/zh-cn_image_0000001344340158.png"></span></p>
 </td>
 <td class="cellrowborder" valign="top" width="79.42%" headers="mcps1.1.3.1.2 "><p id="p4388861916410"><a name="p4388861916410"></a><a name="p4388861916410"></a>用于传递设备或环境安全警示信息。如不避免则可能会导致设备损坏、数据丢失、设备性能降低或其它不可预知的结果。</p>
 <p id="p1238861916410"><a name="p1238861916410"></a><a name="p1238861916410"></a>“须知”不涉及人身伤害。</p>
 </td>
 </tr>
-<tr id="row2856923116410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p5555360116410"><a name="p5555360116410"></a><a name="p5555360116410"></a><a name="image799324016410"></a><a name="image799324016410"></a><span><img class="" id="image799324016410" height="25.270000000000003" width="67.83" src="figures/zh-cn_image_0000001395220001.png"></span></p>
+<tr id="row2856923116410"><td class="cellrowborder" valign="top" width="20.580000000000002%" headers="mcps1.1.3.1.1 "><p id="p5555360116410"><a name="p5555360116410"></a><a name="p5555360116410"></a><a name="image799324016410"></a><a name="image799324016410"></a><span><img class="" id="image799324016410" height="25.270000000000003" width="67.83" src="figures-x2openEuler930/zh-cn_image_0000001395220001.png"></span></p>
 </td>
 <td class="cellrowborder" valign="top" width="79.42%" headers="mcps1.1.3.1.2 "><p id="p4612588116410"><a name="p4612588116410"></a><a name="p4612588116410"></a>对正文中重点信息的补充说明。</p>
 <p id="p1232588116410"><a name="p1232588116410"></a><a name="p1232588116410"></a>“说明”不是安全警示信息，不涉及人身、设备及环境伤害信息。</p>
@@ -184,7 +184,7 @@ x2openEuler工具提供web和CLI两种方式，以供使用者针对不同状况
 
 x2openEuler工具提供命令行或者web使用方式，用户在安装完成后选择使用方式。工具的使用方法请参考章节[通过web界面使用x2openEuler工具](#通过web界面使用x2openeuler工具)或章节[通过CLI使用x2openEuler工具](#通过cli使用x2openeuler工具)。
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-notice.gif) **须知：** 
+>![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
 >
 >-   待升级节点升级过程中需要root权限。
 
@@ -199,7 +199,7 @@ x2openEuler工具提供命令行或者web使用方式，用户在安装完成后
 x2openEuler工具首页界面主要由如所示的区域组成，各个区域的作用如图所示。
 
 **图 1**  x2openEuler工具首页界面<a name="fig14369194612411"></a>  
-![](C:/Users/hWX1163151/Downloads/figures/x2openEuler工具首页界面.png "x2openEuler工具首页界面")
+![](figures-x2openEuler930/x2openEuler工具首页界面.png "x2openEuler工具首页界面")
 
 **表 1**  x2openEuler工具首页界面参数说明
 
@@ -270,91 +270,91 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 </thead>
 <tbody><tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row12707159133115"><td class="cellrowborder" rowspan="2" valign="top" width="23%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p268910230347"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p268910230347"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p268910230347"></a>信息图标</p>
 </td>
-<td class="cellrowborder" valign="top" width="16.98%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p490344411436"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p490344411436"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p490344411436"></a><a name="image520520402015"></a><a name="image520520402015"></a><span><img id="image520520402015" src="figures/zh-cn_image_0000001349361872.png"></span></p>
+<td class="cellrowborder" valign="top" width="16.98%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p490344411436"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p490344411436"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p490344411436"></a><a name="image520520402015"></a><a name="image520520402015"></a><span><img id="image520520402015" src="figures-x2openEuler930/zh-cn_image_0000001349361872.png"></span></p>
 </td>
 <td class="cellrowborder" valign="top" width="60.019999999999996%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p119032449436"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p119032449436"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p119032449436"></a>配置。</p>
 </td>
 </tr>
-<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row3767138112818"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p27671738152818"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p27671738152818"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p27671738152818"></a><a name="image143545944619"></a><a name="image143545944619"></a><span><img id="image143545944619" src="figures/zh-cn_image_0000001350207758.png"></span></p>
+<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row3767138112818"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p27671738152818"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p27671738152818"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p27671738152818"></a><a name="image143545944619"></a><a name="image143545944619"></a><span><img id="image143545944619" src="figures-x2openEuler930/zh-cn_image_0000001350207758.png"></span></p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p17767173812289"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p17767173812289"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p17767173812289"></a>更多。</p>
 </td>
 </tr>
 <tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row1461975872418"><td class="cellrowborder" rowspan="3" valign="top" width="23%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1851122214381"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1851122214381"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1851122214381"></a>标志符号</p>
 </td>
-<td class="cellrowborder" valign="top" width="16.98%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1651132233813"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1651132233813"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1651132233813"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image6999175355916"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image6999175355916"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image6999175355916" src="figures/3.png" width="24.9375" height="24.172085"></span></p>
+<td class="cellrowborder" valign="top" width="16.98%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1651132233813"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1651132233813"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1651132233813"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image6999175355916"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image6999175355916"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image6999175355916" src="figures-x2openEuler930/3.png" width="24.9375" height="24.172085"></span></p>
 </td>
 <td class="cellrowborder" valign="top" width="60.019999999999996%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p351117229388"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p351117229388"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p351117229388"></a>用于提示操作警示信息。</p>
 </td>
 </tr>
-<tr id="zh-cn_topic_0000001234342694_row831115356595"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_p5311173585919"><a name="zh-cn_topic_0000001234342694_p5311173585919"></a><a name="zh-cn_topic_0000001234342694_p5311173585919"></a><a name="zh-cn_topic_0000001234342694_image1140320351801"></a><a name="zh-cn_topic_0000001234342694_image1140320351801"></a><span><img id="zh-cn_topic_0000001234342694_image1140320351801" src="figures/zh-cn_image_0000001344344466.png" width="19.950000000000003" height="20.136998"></span></p>
+<tr id="zh-cn_topic_0000001234342694_row831115356595"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_p5311173585919"><a name="zh-cn_topic_0000001234342694_p5311173585919"></a><a name="zh-cn_topic_0000001234342694_p5311173585919"></a><a name="zh-cn_topic_0000001234342694_image1140320351801"></a><a name="zh-cn_topic_0000001234342694_image1140320351801"></a><span><img id="zh-cn_topic_0000001234342694_image1140320351801" src="figures-x2openEuler930/zh-cn_image_0000001344344466.png" width="19.950000000000003" height="20.136998"></span></p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_p1311133575910"><a name="zh-cn_topic_0000001234342694_p1311133575910"></a><a name="zh-cn_topic_0000001234342694_p1311133575910"></a>用于提示操作提醒信息。</p>
 </td>
 </tr>
-<tr id="zh-cn_topic_0000001234342694_row9615837532"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_p26159372319"><a name="zh-cn_topic_0000001234342694_p26159372319"></a><a name="zh-cn_topic_0000001234342694_p26159372319"></a><a name="zh-cn_topic_0000001234342694_image18781951354"></a><a name="zh-cn_topic_0000001234342694_image18781951354"></a><span><img id="zh-cn_topic_0000001234342694_image18781951354" src="figures/zh-cn_image_0000001395224321.png" width="20.9475" height="20.9475"></span></p>
+<tr id="zh-cn_topic_0000001234342694_row9615837532"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_p26159372319"><a name="zh-cn_topic_0000001234342694_p26159372319"></a><a name="zh-cn_topic_0000001234342694_p26159372319"></a><a name="zh-cn_topic_0000001234342694_image18781951354"></a><a name="zh-cn_topic_0000001234342694_image18781951354"></a><span><img id="zh-cn_topic_0000001234342694_image18781951354" src="figures-x2openEuler930/zh-cn_image_0000001395224321.png" width="20.9475" height="20.9475"></span></p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_p14615173719319"><a name="zh-cn_topic_0000001234342694_p14615173719319"></a><a name="zh-cn_topic_0000001234342694_p14615173719319"></a>用于提示操作异常信息。</p>
 </td>
 </tr>
 <tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row1740103733419"><td class="cellrowborder" rowspan="12" valign="top" width="23%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p11191182865415"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p11191182865415"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p11191182865415"></a>用户控件图标</p>
 </td>
-<td class="cellrowborder" valign="top" width="16.98%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2302192116285"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2302192116285"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2302192116285"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image159098818019"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image159098818019"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image159098818019" src="figures/4.png" width="21.945" height="20.501285000000003"></span></p>
+<td class="cellrowborder" valign="top" width="16.98%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2302192116285"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2302192116285"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2302192116285"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image159098818019"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image159098818019"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image159098818019" src="figures-x2openEuler930/4.png" width="21.945" height="20.501285000000003"></span></p>
 </td>
 <td class="cellrowborder" valign="top" width="60.019999999999996%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1056721517387"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1056721517387"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1056721517387"></a>下载：将操作对象保存在本地。</p>
 </td>
 </tr>
-<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row137911040173410"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p15941133223015"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p15941133223015"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p15941133223015"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image159153292017"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image159153292017"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image159153292017" src="figures/5.png" width="17.955000000000002" height="21.495194"></span></p>
+<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row137911040173410"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p15941133223015"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p15941133223015"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p15941133223015"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image159153292017"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image159153292017"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image159153292017" src="figures-x2openEuler930/5.png" width="17.955000000000002" height="21.495194"></span></p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2567191515381"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2567191515381"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2567191515381"></a>删除所选条目。</p>
 </td>
 </tr>
-<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row1755758203019"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p123518277349"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p123518277349"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p123518277349"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image19294141333515"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image19294141333515"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image19294141333515" src="figures/zh-cn_image_0000001344664026.png"></span></p>
+<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row1755758203019"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p123518277349"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p123518277349"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p123518277349"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image19294141333515"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image19294141333515"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image19294141333515" src="figures-x2openEuler930/zh-cn_image_0000001344664026.png"></span></p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p55671015153820"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p55671015153820"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p55671015153820"></a>展开：展开已折叠的列表项。</p>
 </td>
 </tr>
-<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row114181353183213"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1241925363217"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1241925363217"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1241925363217"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image59742028113415"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image59742028113415"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image59742028113415" src="figures/111-(2).png"></span></p>
+<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row114181353183213"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1241925363217"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1241925363217"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1241925363217"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image59742028113415"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image59742028113415"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image59742028113415" src="figures-x2openEuler930/111-(2).png"></span></p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p8419195313325"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p8419195313325"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p8419195313325"></a>折叠：折叠已展开的列表项。</p>
 </td>
 </tr>
-<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row1178491718468"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1978481718469"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1978481718469"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1978481718469"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image766212139119"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image766212139119"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image766212139119" src="figures/8.png" width="18.9525" height="18.091059"></span></p>
+<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row1178491718468"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1978481718469"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1978481718469"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1978481718469"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image766212139119"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image766212139119"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image766212139119" src="figures-x2openEuler930/8.png" width="18.9525" height="18.091059"></span></p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p67841517194614"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p67841517194614"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p67841517194614"></a>保存：保存修改。</p>
 </td>
 </tr>
-<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row71441329184612"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p4144229164610"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p4144229164610"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p4144229164610"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image95061921611"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image95061921611"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image95061921611" src="figures/9.png" width="20.9475" height="20.9475"></span></p>
+<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row71441329184612"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p4144229164610"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p4144229164610"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p4144229164610"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image95061921611"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image95061921611"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image95061921611" src="figures-x2openEuler930/9.png" width="20.9475" height="20.9475"></span></p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p13622184865214"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p13622184865214"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p13622184865214"></a>回退：回退到前一步。</p>
 </td>
 </tr>
-<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row109441126184612"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p11944182614618"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p11944182614618"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p11944182614618"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image8909153511117"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image8909153511117"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image8909153511117" src="figures/10.png" width="18.9525" height="18.091059"></span></p>
+<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row109441126184612"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p11944182614618"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p11944182614618"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p11944182614618"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image8909153511117"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image8909153511117"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image8909153511117" src="figures-x2openEuler930/10.png" width="18.9525" height="18.091059"></span></p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p4531157165313"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p4531157165313"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p4531157165313"></a>取消：取消修改。</p>
 </td>
 </tr>
-<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row05851424174620"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p13585192494611"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p13585192494611"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p13585192494611"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image15624595215"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image15624595215"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image15624595215" src="figures/6.png" width="17.955000000000002" height="16.393713"></span></p>
+<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row05851424174620"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p13585192494611"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p13585192494611"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p13585192494611"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image15624595215"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image15624595215"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image15624595215" src="figures-x2openEuler930/6.png" width="17.955000000000002" height="16.393713"></span></p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1858502413467"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1858502413467"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1858502413467"></a>上一个：移动到上一个建议修改处。</p>
 </td>
 </tr>
-<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row5112922194620"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p131128221461"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p131128221461"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p131128221461"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image5314626171210"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image5314626171210"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image5314626171210" src="figures/7.png" width="14.9625" height="17.206875"></span></p>
+<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row5112922194620"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p131128221461"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p131128221461"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p131128221461"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image5314626171210"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image5314626171210"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image5314626171210" src="figures-x2openEuler930/7.png" width="14.9625" height="17.206875"></span></p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p18112132216466"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p18112132216466"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p18112132216466"></a>下一个：移动到下一个建议修改处。</p>
 </td>
 </tr>
-<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row13238337293"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1132317335294"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1132317335294"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1132317335294"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image14969195416302"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image14969195416302"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image14969195416302" src="figures/zh-cn_image_0000001344504126.png"></span></p>
+<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row13238337293"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1132317335294"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1132317335294"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1132317335294"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image14969195416302"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image14969195416302"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image14969195416302" src="figures-x2openEuler930/zh-cn_image_0000001344504126.png"></span></p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1032317333296"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1032317333296"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1032317333296"></a>排序。</p>
 </td>
 </tr>
-<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row185483415567"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p19854163435616"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p19854163435616"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p19854163435616"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image1417752105612"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image1417752105612"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image1417752105612" src="figures/zh-cn_image_0000001344664030.png"></span></p>
+<tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row185483415567"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p19854163435616"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p19854163435616"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p19854163435616"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image1417752105612"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image1417752105612"></a><span><img id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_image1417752105612" src="figures-x2openEuler930/zh-cn_image_0000001344664030.png"></span></p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p108541634115610"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p108541634115610"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p108541634115610"></a>建议反馈。</p>
 </td>
 </tr>
-<tr id="row1784812711492"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p68496277492"><a name="p68496277492"></a><a name="p68496277492"></a><a name="image10135830124919"></a><a name="image10135830124919"></a><span><img id="image10135830124919" src="figures/zh-cn_image_0000001400651241.png" width="18.9525" height="21.1736"></span></p>
+<tr id="row1784812711492"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p68496277492"><a name="p68496277492"></a><a name="p68496277492"></a><a name="image10135830124919"></a><a name="image10135830124919"></a><span><img id="image10135830124919" src="figures-x2openEuler930/zh-cn_image_0000001400651241.png" width="18.9525" height="21.1736"></span></p>
 </td>
 <td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p11536149115017"><a name="p11536149115017"></a><a name="p11536149115017"></a>条件选择筛选。</p>
 </td>
@@ -400,7 +400,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 </table>
 
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+>![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >建议使用Google Chrome或Microsoft Edge浏览器，主要因素如下：
 >
 >1.  Internet Explorer 11.0版本与工具中的编译器存在部分兼容性问题，主要体现在修改源码时的单步回退和批量修改问题上，建议用户在进行以上操作时使用Chrome浏览器。
@@ -409,32 +409,32 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 ##### 操作步骤
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-notice.gif) **须知：** 
+>![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
 >
 >-   默认连续5次登录失败，系统将对此用户进行锁定，锁定3分钟后可以重新登录。
->-   默认情况下，系统超时时间为30分钟，即在30分钟内，如果您未在webUI界面执行任何操作，系统将自动登出，此时需输入用户名和密码重新登录webUI界面。管理员可在x2openEuler工具首页中的![](C:/Users/hWX1163151/Downloads/figures/zh-cn_image_0000001399801737.png)选项中选择“系统配置”，手动配置会话超时时间，可配置范围为10\~240分钟。
+>-   默认情况下，系统超时时间为30分钟，即在30分钟内，如果您未在webUI界面执行任何操作，系统将自动登出，此时需输入用户名和密码重新登录webUI界面。管理员可在x2openEuler工具首页中的![](figures-x2openEuler930/zh-cn_image_0000001399801737.png)选项中选择“系统配置”，手动配置会话超时时间，可配置范围为10\~240分钟。
 >-   为保证系统的安全性，初次登录时，请及时修改初始密码，并定期更新。
->-   默认允许10个普通用户同时登录使用，管理员用户不受此限制。管理员用户可在x2openEuler工具首页中的![](C:/Users/hWX1163151/Downloads/figures/zh-cn_image_0000001349041952.png)菜单选项中选择“系统配置”，手动配置“最大在线普通用户数”，可配置范围为1\~20。
+>-   默认允许10个普通用户同时登录使用，管理员用户不受此限制。管理员用户可在x2openEuler工具首页中的![](figures-x2openEuler930/zh-cn_image_0000001349041952.png)菜单选项中选择“系统配置”，手动配置“最大在线普通用户数”，可配置范围为1\~20。
 >-   单个用户只允许1个活跃会话，如果当前用户已经在登录使用，重复登录会挤掉前面的登录。
 >-   用户首次登录时会弹出免责声明弹窗，用户仔细阅读后，勾选“我已阅读以上内容“，点击“确认“后才能使用本工具，如点击“取消“将会退出工具。
 
 1. 打开本地PC机的浏览器，在地址栏输入**https://_部署服务器的ip__:端口号_**（例如：https://10.254.206.190:18082），按“Enter”。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+   >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
    >HTTPS默认端口为18082，请确认使用该工具之前OS防火墙已开通18082端口。
 
 2. 在如[图2](#zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_bmc_user_0082_fig02)所示的安全告警窗口中选择“继续浏览此网站”。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+   >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
    >登录时可能会弹出“安全告警”界面，您可以选择忽略此告警信息，详细步骤请参见[为x2openEuler Upgrade工具导入根证书](#自定义服务器证书信息并导入)。
 
    **图 2**  安全告警<a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_bmc_user_0082_fig02"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/安全告警.png "安全告警")
+   ![](figures-x2openEuler930/安全告警.png "安全告警")
 
    打开首次登录界面，如[图3](#zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_fig127661116445)所示，参数说明如[表4](#zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_table22002056103214)所示。
 
    **图 3**  首次登录x2openEuler工具<a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_fig127661116445"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/首次登录x2openEuler工具.png "首次登录x2openEuler工具")
+   ![](figures-x2openEuler930/首次登录x2openEuler工具.png "首次登录x2openEuler工具")
 
    **表 4**  首次登录x2openEuler工具参数说明
 
@@ -472,7 +472,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
    打开登录界面，如[图4](#zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_fig14978362918)所示，参数说明如[表5](#zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_table19256162318436)所示。
 
    **图 4**  非首次登录x2openEuler工具<a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_fig14978362918"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/非首次登录x2openEuler工具.png "非首次登录x2openEuler工具")
+   ![](figures-x2openEuler930/非首次登录x2openEuler工具.png "非首次登录x2openEuler工具")
 
    **表 5**  非首次登录x2openEuler工具参数说明
 
@@ -515,7 +515,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
    -   新密码不能是旧密码的逆序。
    -   新密码不能在弱口令字典中。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+   >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
    >x2openEuler工具用户的密码有效期为90天，建议在密码有效期到达之前设置新密码。若密码已过期，则需要在登录后先进行密码修改操作。
 
    成功登录后，显示首页界面，界面右上角将显示登录的用户名。
@@ -531,12 +531,12 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 已成功登录x2openEuler工具。
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+>![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >只有管理员用户（x2openEulerAdmin）可以执行创建用户操作。
 
 ###### 操作步骤
 
-1. 在页面右上角的下拉菜单中![](C:/Users/hWX1163151/Downloads/figures/zh-cn_image_0000001395388673.png)，选择“用户管理“。
+1. 在页面右上角的下拉菜单中![](figures-x2openEuler930/zh-cn_image_0000001395388673.png)，选择“用户管理“。
 
    打开用户管理界面。
 
@@ -545,7 +545,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
    打开“创建”界面，如[图5](#zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_fig17366144012513)所示，需配置的参数如[表6](#zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_table423624975820)所示。
 
    **图 5**  创建用户<a name="zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_fig17366144012513"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/创建用户.png "创建用户")
+   ![](figures-x2openEuler930/创建用户.png "创建用户")
 
    **表 6**  创建用户参数说明
 
@@ -585,7 +585,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 3. 参考[表6](#zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_table423624975820)配置新用户后，单击“确认”。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+   >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
    >
    >-   创建的普通用户数量没有限制。
    >-   普通用户支持创建升级任务；支持查看和下载操作日志；支持配置扫描参数；支持查看web服务端证书信息；支持查看和搜索弱口令；所有用户都只能查看、下载、删除自己的历史报告。
@@ -669,7 +669,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 </table>
 
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+>![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >
 >-   软件包名称中的“x.x.x”表示版本号。
 >-   软件包中包含有针对待升级节点的分析工具接口。
@@ -693,7 +693,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 3. （可选）如果服务器OS防火墙已开启，执行如下操作开通服务器OS防火墙端口（如果服务器OS防火墙没有开启，请跳过此步骤）。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+   >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
    >
    >-   以下命令中的18082端口是在启动web服务时默认的HTTPS端口号，请根据实际情况修改。
    >-   若用户还配置了硬件防火墙，则需要用户联系相关的网络管理员同步完成对硬件防火墙的配置，开通需要访问的端口。
@@ -736,7 +736,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
       提示“yes”表示端口已开通。
 
-      >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+      >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
       >
       >- 如果想要移除端口，请执行以下命令：
       >
@@ -760,7 +760,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 5. 工具包安装成功后，执行以下命令启动web服务。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+   >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
    >如web服务受SELinux策略无法正常运行，请更改SELinux策略或[关闭SELinux](#关闭selinux)。
 
    ```
@@ -851,7 +851,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
    yum remove x2openEuler-core-x.x.x-x.x86_64
    ```
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+   >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
    >
    >-   当用户执行卸载命令时，如果有正在运行的任务，用户需要先终止或等待运行的任务结束。若用户仍选择卸载，当前运行的任务会直接中断。
    >-   当用户执行卸载命令时，需要确保当前用户所在客户端为唯一操作远端服务器x2openEuler工具的客户端，否则可能会因删除用户失败而导致工具卸载失败。
@@ -880,7 +880,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 ###### 操作步骤
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-notice.gif) **须知：** 
+>![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
 >x2openEuler工具最多支持50个节点的升级任务。
 
 1. 在页面左侧，单击“新建任务”，选择“升级任务”进入“新建升级任务”界面。
@@ -889,18 +889,18 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
    - 批量导入:通过模板表格导入多个节点的节点信息。
 
-     >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
      >批量导入节点过程中，工具会对导入的节点信息进行校验，若校验不通过则需按照提示修改导入信息，并重新进行批量导入操作。
 
      1. 在批量导入界面中，单击“模板表格”获取模板后参考[表10](#table163103351210)填写节点信息。
 
         **图 6**  批量导入<a name="fig20848122884119"></a>  
-        ![](C:/Users/hWX1163151/Downloads/figures/批量导入.png "批量导入")
+        ![](figures-x2openEuler930/批量导入.png "批量导入")
 
      2. 完成节点信息的填写后单击“上传文件”阅读“SSH传输须知”，选择已填写节点信息的批量导入文件进行上传。
 
         **图 7**  SSH传输须知<a name="fig148499286418"></a>  
-        ![](C:/Users/hWX1163151/Downloads/figures/SSH传输须知.png "SSH传输须知")
+        ![](figures-x2openEuler930/SSH传输须知.png "SSH传输须知")
 
    - 添加节点：添加单个节点的节点节点信息。
 
@@ -1001,12 +1001,12 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 3. 此处以添加单个节点进行指纹验证为例，工具对导入的节点信息校验完成后，进入节点指纹验证页面，确认节点指纹无误后，单击“确定”。
 
    **图 8**  指纹验证<a name="fig1064010347529"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/指纹验证.png "指纹验证")
+   ![](figures-x2openEuler930/指纹验证.png "指纹验证")
 
 4. 节点添加完成，确认添加节点信息无误后，单击任务名称右侧“确定”，完成升级任务创建。若需要修改或删除相应节点，单击右侧“操作”项下的“修改”或“删除”对节点进行操作。单击右下角“确认”启动升级任务，单击右下角“取消”，取消升级任务。
 
    **图 9**  升级任务信息确认<a name="fig793711713286"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/升级任务信息确认.png "升级任务信息确认")
+   ![](figures-x2openEuler930/升级任务信息确认.png "升级任务信息确认")
 
 
 ##### 进行节点升级
@@ -1028,25 +1028,25 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
       初始化节点会让待升级节点进入待测试状态，若初始化节点失败，则无法进入后续升级阶段。
 
-      >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+      >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
       >后续升级过程中，也可进行初始化节点，使待升级节点回归待测试状态。
 
       **图 10**  初始化节点<a name="fig15684151114911"></a>  
-      ![](C:/Users/hWX1163151/Downloads/figures/初始化节点.png "初始化节点")
+      ![](figures-x2openEuler930/初始化节点.png "初始化节点")
 
    2. 连通性测试
 
       连通性测试用于分析x2openEuler工具与待升级节点的连通性，验证环境信息是否正常，若连通性检测无法通过，则需修改节点配置信息。
 
       **图 11**  连通性测试页面<a name="fig645065083019"></a>  
-      ![](C:/Users/hWX1163151/Downloads/figures/连通性测试页面.png "连通性测试页面")
+      ![](figures-x2openEuler930/连通性测试页面.png "连通性测试页面")
 
    3. 升级前检查
 
       针对待升级节点进行软件、硬件兼容性评估及软件冲突检查，产生相应评估报告，确认待升级节点是否符合升级要求。若出现兼容性不通过的情况，则需参考评估报告进行软件适配。评估报告参数详细说明请参考[表11](#zh-cn_topic_0303172996_zh-cn_topic_0301201532_table102746212572)、[表12](#table1523112191012)。
 
       **图 12**  升级前检查<a name="fig447143316714"></a>  
-      ![](C:/Users/hWX1163151/Downloads/figures/升级前检查.png "升级前检查")
+      ![](figures-x2openEuler930/升级前检查.png "升级前检查")
 
       **表 11**  软件评估报告结果参数说明
 
@@ -1169,19 +1169,19 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
    4. 升级
 
-      >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+      >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
       >升级过程中会自动备份数据。默认备份**/usr **、**/run **、**/boot **、**/var**和**/etc**目录当中的文件，备份文件将被储存在**/.osbak**目录下。
 
       连通性测试和升级前检查通过后，进入节点升级阶段。升级完成后，需要手动启动升级节点，确保升级完成。
 
       **图 13**  节点升级<a name="fig1062347152016"></a>  
-      ![](C:/Users/hWX1163151/Downloads/figures/节点升级.png "节点升级")
+      ![](figures-x2openEuler930/节点升级.png "节点升级")
 
    5. 环境清理
 
       升级完成后建议清理备份数据，以节约节点空间。如需进行回退操作，则可以选择保留备份数据。
 
-      >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+      >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
       >升级完成后，需进行业务运行验证，若业务运行正常，即可进行备份数据清理，以释放占用空间。
 
 
@@ -1196,7 +1196,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 ##### 前提条件
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-notice.gif) **须知：** 
+>![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
 >进行升级之前，需要进行以下评估：
 >
 >-   确定已有软件是否可以在升级后的系统正常运行，包括软件安装与功能是否存在问题。
@@ -1209,7 +1209,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 2. <a name="li536331718423"></a>（可选）执行以下命令修改x2openEuler工具升级脚本。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-notice.gif) **须知：** 
+   >![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
    >当前x2openEuler工具支持将CentOS7.6升级至openEuler 20.03-LTS-SP1，请确认是否能够正常升级至其它操作系统后对以下配置部分进行修改。
 
    ```
@@ -1282,7 +1282,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
      </table>
 
 
-     >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
      >建议参数配置如下：
      >
      >-   **repo\_source = other**
@@ -1370,7 +1370,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 4. 使用x2openEuler工具进行升级操作。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-notice.gif) **须知：** 
+   >![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
    >
    >-   操作系统升级脚本会对待升级操作系统进行备份。
    >-   配置升级目标操作系统版本的repo源后，会将待升级操作系统上的RPM包升级为openEuler上对应的软件包，升级过程中会重新启动一次，以完成对内核升级的生效。
@@ -1385,7 +1385,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
    升级程序会自动安装x2openEuler 升级工具，并对操作系统进行升级。升级完成后界面如下图所示。
 
    **图 14**  升级完成界面<a name="fig1850216635014"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/升级完成界面.png "升级完成界面")
+   ![](figures-x2openEuler930/升级完成界面.png "升级完成界面")
 
 
 #### 升级后验证
@@ -1405,7 +1405,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
    如图显示则表示已升级至目标操作系统。
 
    **图 15**  验证信息<a name="fig175744371128"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/验证信息.png "验证信息")
+   ![](figures-x2openEuler930/验证信息.png "验证信息")
 
 2. 进行openEuler系统命令验证，能够正常运行即表示已升级至目标操作系统。
 
@@ -1437,24 +1437,24 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 本指南以Chrome 105.0为例介绍为x2openEuler工具导入根证书的操作步骤。
 
-1. 登录x2openEuler工具，在页面右上方选择“![](C:/Users/hWX1163151/Downloads/figures/zh-cn_image_0000001349536406.png)  \> web服务端证书”，单击“下载根证书“下载根证书。
+1. 登录x2openEuler工具，在页面右上方选择“![](figures-x2openEuler930/zh-cn_image_0000001349536406.png)  \> web服务端证书”，单击“下载根证书“下载根证书。
 
 2. 打开浏览器，依次选择“设置 \> 隐私设置和安全性 \> 安全\>管理证书”。
 
 3. 在弹出“证书”的对话框中，选择“受信任的根证书颁发机构”页签，单击“导入”，如[图16](#zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig17189781385)所示。
 
    **图 16**  证书<a name="zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig17189781385"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/证书.png "证书")
+   ![](figures-x2openEuler930/证书.png "证书")
 
 4. 在弹出的“证书导入向导”对话框中，单击“下一步”，如[图17](#zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig11891193855019)所示。
 
    **图 17**  证书导入向导欢迎页面<a name="zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig11891193855019"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/证书导入向导欢迎页面.png "证书导入向导欢迎页面")
+   ![](figures-x2openEuler930/证书导入向导欢迎页面.png "证书导入向导欢迎页面")
 
 5. 进入选择证书页面，单击“浏览”，如[图18](#zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig13105444538)所示。
 
    **图 18**  导入证书文件<a name="zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig13105444538"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/导入证书文件.png "导入证书文件")
+   ![](figures-x2openEuler930/导入证书文件.png "导入证书文件")
 
 6. 从本地PC路径中选择待导入的证书。
 
@@ -1463,7 +1463,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
    进入选择证书存储位置页面，选择如[图19](#zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig434861615572)中的存放位置。
 
    **图 19**  选择证书存储位置<a name="zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig434861615572"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/选择证书存储位置.png "选择证书存储位置")
+   ![](figures-x2openEuler930/选择证书存储位置.png "选择证书存储位置")
 
 8. 单击“下一步 \> 完成”。
 
@@ -1480,7 +1480,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
     1. 在“C:\\Windows\\System32\\drivers\\etc”路径下，打开“hosts”文件。
 
        **图 20**  hosts文件<a name="zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig2972645734"></a>  
-       ![](C:/Users/hWX1163151/Downloads/figures/hosts文件.png "hosts文件")
+       ![](figures-x2openEuler930/hosts文件.png "hosts文件")
 
     2. 在“hosts”文件中增加如下内容后保存并退出。
 
@@ -1514,7 +1514,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
      “Current mode“显示“permissive“表示SELinux已临时关闭强制模式。
 
-  >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-notice.gif) **须知：** 
+  >![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
   >服务器重启后失效，工具使用过程中可能会出现服务异常。
 
 - **永久关闭**
@@ -1557,7 +1557,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 - 若不清楚操作系统类型，用户可以依次执行下列命令查看操作系统的版本信息。
 
-  >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+  >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
   >根据[表15](#zh-cn_topic_0000001182700593_zh-cn_topic_0000001115418776_zh-cn_topic_0000001138533003_table16951181710103)所知，查询工具已兼容的操作系统的命令分成以下四种。
 
   -   cat /etc/os-release
@@ -1823,7 +1823,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 已成功登录x2openEuler工具。
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+>![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >
 >-   普通用户只可查看和下载自己的操作日志，管理员可以查看所有用户的操作日志。
 >-   操作日志保存在“/usr/local/x2openEuler/portal/src”目录下的数据库文件“db.sqlite3”中。
@@ -1831,12 +1831,12 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 ##### 操作步骤
 
-1. 在页面右上角![](C:/Users/hWX1163151/Downloads/figures/zh-cn_image_0000001348882304.png)下拉菜单中，选择“日志“。
+1. 在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001348882304.png)下拉菜单中，选择“日志“。
 
    打开“日志“界面，选择“操作日志“，如[图21](#zh-cn_topic_0000001234345414_zh-cn_topic_0239776338_zh-cn_topic_0237992755_fig13230172620106)所示。
 
    **图 21**  操作日志<a name="zh-cn_topic_0000001234345414_zh-cn_topic_0239776338_zh-cn_topic_0237992755_fig13230172620106"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/操作日志.png "操作日志")
+   ![](figures-x2openEuler930/操作日志.png "操作日志")
 
 2. （可选）下载操作日志。
 
@@ -1849,19 +1849,19 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 已成功登录x2openEuler工具。
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+>![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >
 >-   只有管理员（**x2openEulerAdmin**）可以查看，下载运行日志和修改运行日志级别。
->-   管理员可以在工具首页![](C:/Users/hWX1163151/Downloads/figures/zh-cn_image_0000001348882316.png)下拉菜单的“系统配置“，手动设置“日志级别“，工具只会记录配置的级别及以上级别的日志。
+>-   管理员可以在工具首页![](figures-x2openEuler930/zh-cn_image_0000001348882316.png)下拉菜单的“系统配置“，手动设置“日志级别“，工具只会记录配置的级别及以上级别的日志。
 
 ##### 操作步骤
 
-1. 在页面右上角![](C:/Users/hWX1163151/Downloads/figures/zh-cn_image_0000001399601601.png)下拉菜单中，选择“日志“。
+1. 在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001399601601.png)下拉菜单中，选择“日志“。
 
    打开“日志“界面，选择“运行日志“，如[图22](#zh-cn_topic_0000001278745005_zh-cn_topic_0239776341_zh-cn_topic_0239539015_fig13230172620106)所示。
 
    **图 22**  运行日志<a name="zh-cn_topic_0000001278745005_zh-cn_topic_0239776341_zh-cn_topic_0239539015_fig13230172620106"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/运行日志.png "运行日志")
+   ![](figures-x2openEuler930/运行日志.png "运行日志")
 
 2. 单击“一键下载”，可下载运行日志。
 
@@ -1895,12 +1895,12 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 已成功登录x2openEuler工具。
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+>![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >只有管理员（**x2openEulerAdmin**）可以执行重置密码操作。
 
 ##### 操作步骤
 
-1. 在页面右上角![](C:/Users/hWX1163151/Downloads/figures/zh-cn_image_0000001399721617.png)下拉菜单中，选择“用户管理“。
+1. 在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001399721617.png)下拉菜单中，选择“用户管理“。
 
    打开用户管理界面。
 
@@ -1909,7 +1909,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
    打开“重置密码”界面，如[图23](#zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_fig17366144012513)所示，需配置的参数如[表17](#zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_table423624975820)所示。
 
    **图 23**  重置密码<a name="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_fig17366144012513"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/重置密码.png "重置密码")
+   ![](figures-x2openEuler930/重置密码.png "重置密码")
 
    **表 17**  重置密码参数说明
 
@@ -1947,7 +1947,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 3. 参考[表17](#zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_table423624975820)重置完密码后，单击“确认”。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+   >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
    >重置密码后，被重置密码的用户如果处于登录状态将会自动退出到登陆页面，需要使用重置后的密码重新登录入页面。
 
 
@@ -1957,20 +1957,20 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 已成功登录。
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+>![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >
 >-   只有管理员（**x2openEulerAdmin**）可以执行删除用户操作。
 >-   系统默认的管理员不可删除。
 
 ##### 操作步骤
 
-1. 在页面右上角![](C:/Users/hWX1163151/Downloads/figures/zh-cn_image_0000001349361844.png)下拉菜单中，选择“用户管理“。
+1. 在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001349361844.png)下拉菜单中，选择“用户管理“。
 
    打开用户管理界面。
 
 2. 单击操作栏中指定用户后的“删除”。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-notice.gif) **须知：** 
+   >![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
    >删除用户后，该用户相关的所有历史数据都会被删除，请谨慎操作。
 
 3. 输入管理员的密码，单击“确认”。
@@ -1981,7 +1981,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 已成功登录x2openEuler工具。
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+>![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >x2openEuler工具用户的密码有效期为90天，建议在密码有效期到达之前设置新密码。若密码已过期，则需要在登录后先进行密码修改操作。
 
 ##### 操作步骤
@@ -1991,7 +1991,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
    打开用户修改密码界面，如[图24](#zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_fig149031625121310)所示，需配置的参数如[表18](#zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_table423624975820)所示。
 
    **图 24**  修改密码<a name="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_fig149031625121310"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/修改密码.png "修改密码")
+   ![](figures-x2openEuler930/修改密码.png "修改密码")
 
    **表 18**  修改密码参数说明
 
@@ -2029,7 +2029,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 2. 参考[表18](#zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_table423624975820)修改密码后，单击“确认”。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+   >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
    >密码修改完成后，当前用户会退出到登录页面，需要使用修改后的密码重新进行登录。
 
 
@@ -2041,7 +2041,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 已成功登录x2openEuler工具。
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+>![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >
 >-   用户可以查看和搜索弱口令。
 >-   只有管理员（**x2openEulerAdmin**）可以添加和删除弱口令。
@@ -2050,12 +2050,12 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 #### 操作步骤
 
-1. 在![](C:/Users/hWX1163151/Downloads/figures/zh-cn_image_0000001399801725.png)菜单选项中选择“弱口令字典“。
+1. 在![](figures-x2openEuler930/zh-cn_image_0000001399801725.png)菜单选项中选择“弱口令字典“。
 
 2. 单击“添加“，弹出对话框，如所示。
 
    **图 25**  添加弱口令<a name="zh-cn_topic_0000001234185478_zh-cn_topic_0272086558_zh-cn_topic_0269630302_fig112261223163211"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/添加弱口令.png "添加弱口令")
+   ![](figures-x2openEuler930/添加弱口令.png "添加弱口令")
 
 3. 在文本框中输入需要添加的弱口令。弱口令需要满足如下要求：
 
@@ -2068,7 +2068,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表20](#zh-cn_topic_00
 
 4. 单击“确认”添加弱口令。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+   >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
    >如需删除弱口令，单击对应弱口令“操作”列的“删除”。在弹出的“删除弱口令”对话框中单击“确认”。
 
 
@@ -2080,17 +2080,17 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
 
 已成功登录x2openEuler工具。
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+>![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >只有管理员（**x2openEulerAdmin**）可以执行生成CSR文件、导入web服务器证书、下载根证书，重启和更换工作密钥的操作。
 
 #### 查看当前web端服务证书
 
-1. <a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_li681951883619"></a>在页面右上方选择“![](C:/Users/hWX1163151/Downloads/figures/zh-cn_image_0000001349041948.png)  \> web服务端证书”。
+1. <a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_li681951883619"></a>在页面右上方选择“![](figures-x2openEuler930/zh-cn_image_0000001349041948.png)  \> web服务端证书”。
 
 2. 查看证书信息，如[图26](#zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_fig13817116161310)所示，界面参数描述如[表19](#zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_table166535474558)所示。
 
    **图 26**  web服务端证书信息<a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_fig13817116161310"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/web服务端证书信息.png "web服务端证书信息")
+   ![](figures-x2openEuler930/web服务端证书信息.png "web服务端证书信息")
 
    **表 19**  web服务端证书参数说明
 
@@ -2118,7 +2118,7 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
    <p id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p43231815412"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p43231815412"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p43231815412"></a>有效：证书剩余有效时间超过证书过期告警阈值。</p>
    <p id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p17487111918116"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p17487111918116"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p17487111918116"></a>即将过期：证书剩余有效时间小于或等于证书过期告警阈值。</p>
    <p id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p10231325413"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p10231325413"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p10231325413"></a>已过期：已过证书到期时间。</p>
-   <div class="note" id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_note1974172616215"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_note1974172616215"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_note1974172616215"></a><span class="notetitle"> 说明： </span><div class="notebody"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_ul11341124911219"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_ul11341124911219"></a><ul id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_ul11341124911219"><li>工具每天自动检查并更新证书状态。</li><li>web服务证书自动告警时间默认为90天。管理员可在<span id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_ph4493210133414"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_ph4493210133414"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_ph4493210133414"></a>鲲鹏代码迁移工具</span>首页中的<a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_image2533129203215"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_image2533129203215"></a><span><img id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_image2533129203215" src="figures/快照498.png"></span>选项中选择“系统配置”，手动配置“证书过期告警阈值”，可配置范围为7~180天。</li></ul>
+   <div class="note" id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_note1974172616215"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_note1974172616215"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_note1974172616215"></a><span class="notetitle"> 说明： </span><div class="notebody"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_ul11341124911219"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_ul11341124911219"></a><ul id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_ul11341124911219"><li>工具每天自动检查并更新证书状态。</li><li>web服务证书自动告警时间默认为90天。管理员可在<span id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_ph4493210133414"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_ph4493210133414"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_ph4493210133414"></a>鲲鹏代码迁移工具</span>首页中的<a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_image2533129203215"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_image2533129203215"></a><span><img id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_image2533129203215" src="figures-x2openEuler930/快照498.png"></span>选项中选择“系统配置”，手动配置“证书过期告警阈值”，可配置范围为7~180天。</li></ul>
    </div></div>
    </td>
    </tr>
@@ -2143,7 +2143,7 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
    打开“生成CSR文件”对话框，如[图27](#zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_fig542418764017)所示，界面参数描述如[表2](#zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_table2512136142515)所示。
 
    **图 27**  生成CSR文件<a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_fig542418764017"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/生成CSR文件.png "生成CSR文件")
+   ![](figures-x2openEuler930/生成CSR文件.png "生成CSR文件")
 
    **表 20**  CSR文件参数说明
 
@@ -2200,16 +2200,16 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
 
    获取到正式的证书后，保存到本地。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+   >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
    >用户也可以使用其根证书进行自签名获取正式的证书。
 
 4. 单击“导入web服务端证书“。
 
    弹出“导入web服务端证书“对话框。
 
-5. 单击![](C:/Users/hWX1163151/Downloads/figures/快照234.png)，选择需要导入证书文件，单击“导入“。
+5. 单击![](figures-x2openEuler930/快照234.png)，选择需要导入证书文件，单击“导入“。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+   >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
    >
    >-   导入的证书文件不得大于1MB，支持的格式为\*.crt、\*.cer、\*.pem。
    >-   [1](#zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_li681951883619)中生成的CSR文件与向CA机构申请的服务器证书是一一对应的，在导入服务器证书之前请不要再次生成新的CSR文件，否则需要向CA机构重新申请服务器证书。
@@ -2219,7 +2219,7 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
 
 7. 单击“更多  \>  重启服务“使证书生效。
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+   >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
    >用户手动在服务器上重启Nginx服务，证书不会生效，必须在web上进行重启操作。
 
 
@@ -2227,12 +2227,12 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
 
 工作密钥用于加密启动Nginx服务的口令。为提高系统安全性，建议定期更新。
 
-1. 在页面右上方![](C:/Users/hWX1163151/Downloads/figures/zh-cn_image_0000001399482085.png)选项中选择“web服务端证书”。
+1. 在页面右上方![](figures-x2openEuler930/zh-cn_image_0000001399482085.png)选项中选择“web服务端证书”。
 
 2. 单击“更多  \>  更新工作密钥“，如[图28](#zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_fig819916865318)所示。
 
    **图 28**  更新工作密钥<a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_fig819916865318"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/更新工作密钥.png "更新工作密钥")
+   ![](figures-x2openEuler930/更新工作密钥.png "更新工作密钥")
 
 3. 单击“更多  \>  重启服务“使工作密钥生效。
 
@@ -2244,12 +2244,12 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
 
 #### 操作步骤
 
-1. 在页面右上方选择“![](C:/Users/hWX1163151/Downloads/figures/zh-cn_image_0000001349719410.png)  \> 关于”。
+1. 在页面右上方选择“![](figures-x2openEuler930/zh-cn_image_0000001349719410.png)  \> 关于”。
 
 2. 查询工具的版本信息和发布时间，如[图29](#zh-cn_topic_0000001278625277_zh-cn_topic_0228242425_zh-cn_topic_0224501691_fig146401211465)所示。
 
    **图 29**  工具详细发布信息<a name="zh-cn_topic_0000001278625277_zh-cn_topic_0228242425_zh-cn_topic_0224501691_fig146401211465"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/工具详细发布信息.png "工具详细发布信息")
+   ![](figures-x2openEuler930/工具详细发布信息.png "工具详细发布信息")
 
 
 ### 查看工具免责声明
@@ -2260,10 +2260,10 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
 
 #### 操作步骤
 
-1. 在页面右上方选择“![](C:/Users/hWX1163151/Downloads/figures/zh-cn_image_0000001349559562.png)  \> 免责声明”，如[图30](#zh-cn_topic_0000001234185482_zh-cn_topic_0254527452_zh-cn_topic_0251460189_fig587014206813)所示。
+1. 在页面右上方选择“![](figures-x2openEuler930/zh-cn_image_0000001349559562.png)  \> 免责声明”，如[图30](#zh-cn_topic_0000001234185482_zh-cn_topic_0254527452_zh-cn_topic_0251460189_fig587014206813)所示。
 
    **图 30**  免责声明<a name="zh-cn_topic_0000001234185482_zh-cn_topic_0254527452_zh-cn_topic_0251460189_fig587014206813"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/免责声明.png "免责声明")
+   ![](figures-x2openEuler930/免责声明.png "免责声明")
 
 2. 仔细阅读免责声明。
 
@@ -2279,7 +2279,7 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
 x2openEuler-CLIent -v
 ```
 
->![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+>![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >“/opt/portadv“为工具安装目录，请根据实际情况替换。
 
 #### 使用实例
@@ -2305,7 +2305,7 @@ x2openEuler-upgrade vx.x.x
 升级过程中，工具会进行系统文件备份，产生日志如下图所示：
 
 **图 31**  系统文件备份日志<a name="fig1153733016313"></a>  
-![](C:/Users/hWX1163151/Downloads/figures/系统文件备份日志.png "系统文件备份日志")
+![](figures-x2openEuler930/系统文件备份日志.png "系统文件备份日志")
 
 在系统文件备份结束之前，若工具运行发生错误，系统无需进行回滚操作。若系统文件备份结束，工具运行发生错误，则需进行回滚操作。
 
@@ -2319,7 +2319,7 @@ x2openEuler-upgrade vx.x.x
    x2openEuler-upgrade pre-rollback
    ```
 
-   >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+   >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
    >该命令的具体使用方式，可以通过执行**x2openEuler-upgrade pre-rollback –h**进行查阅。
    >若执行**x2openEuler-upgrade pre-rollback -y**发生OS version error错误，可以在命令中添加“--force“选项，跳过系统版本号检查，直接进行回滚操作。
 
@@ -2343,40 +2343,40 @@ x2openEuler-upgrade vx.x.x
      1. 选择“Troubleshooting”
 
         **图 32**  UEFI grub菜单<a name="fig2073914244218"></a>  
-        ![](C:/Users/hWX1163151/Downloads/figures/UEFI-grub菜单.png "UEFI-grub菜单")
+        ![](figures-x2openEuler930/UEFI-grub菜单.png "UEFI-grub菜单")
 
      2. 选择“rescue”
 
         **图 33**  选择恢复模式<a name="fig3828143162215"></a>  
-        ![](C:/Users/hWX1163151/Downloads/figures/选择恢复模式.png "选择恢复模式")
+        ![](figures-x2openEuler930/选择恢复模式.png "选择恢复模式")
 
    - Legacy启动模式
 
      1. 选择“Troubleshooting”
 
         **图 34**  Legacy grub菜单<a name="fig164926425287"></a>  
-        ![](C:/Users/hWX1163151/Downloads/figures/Legacy-grub菜单.png "Legacy-grub菜单")
+        ![](figures-x2openEuler930/Legacy-grub菜单.png "Legacy-grub菜单")
 
      2. 选择“rescue”
 
         **图 35**  选择恢复模式<a name="fig1829641111298"></a>  
-        ![](C:/Users/hWX1163151/Downloads/figures/选择恢复模式-0.png "选择恢复模式-0")
+        ![](figures-x2openEuler930/选择恢复模式-0.png "选择恢复模式-0")
 
 
 4. 进入“救援模式”后，按下数字键“1”选择“Continue”。
 
    **图 36**  救援模式<a name="fig156761928327"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/救援模式.png "救援模式")
+   ![](figures-x2openEuler930/救援模式.png "救援模式")
 
    按下回车键后，进入“Rescue Shell”
 
    **图 37**  Rescue Shell<a name="fig3768321194816"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/Rescue-Shell.png "Rescue-Shell")
+   ![](figures-x2openEuler930/Rescue-Shell.png "Rescue-Shell")
 
 5. 为当前环境配置可用的ip地址。
 
    **图 37**  配置可用ip地址<a name="fig74681138115217"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/配置可用ip地址.png "配置可用ip地址")
+   ![](figures-x2openEuler930/配置可用ip地址.png "配置可用ip地址")
 
 6. 执行以下命令，开启SSH服务，上传SUT软件包至“/root”目录下。
 
@@ -2387,10 +2387,10 @@ x2openEuler-upgrade vx.x.x
    ```
 
    **图 38**  启动SSH服务<a name="fig580224295617"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/启动SSH服务.png "启动SSH服务")
+   ![](figures-x2openEuler930/启动SSH服务.png "启动SSH服务")
 
    **图 39**  上传SUT安装包至/root目录下<a name="fig49347485719"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/上传SUT安装包至-root目录下.png "上传SUT安装包至-root目录下")
+   ![](figures-x2openEuler930/上传SUT安装包至-root目录下.png "上传SUT安装包至-root目录下")
 
 7. 执行以下命令安装SUT软件包。
 
@@ -2400,7 +2400,7 @@ x2openEuler-upgrade vx.x.x
    ```
 
    **图 40**  安装SUT软件包<a name="fig1651419521472"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/安装SUT软件包.png "安装SUT软件包")
+   ![](figures-x2openEuler930/安装SUT软件包.png "安装SUT软件包")
 
 8. 执行以下命令，修改SUT配置文件，不对“/run/install”进行回滚。
 
@@ -2409,7 +2409,7 @@ x2openEuler-upgrade vx.x.x
    ```
 
    **图 41**  修改SUT配置文件<a name="fig240083919117"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/修改SUT配置文件.png "修改SUT配置文件")
+   ![](figures-x2openEuler930/修改SUT配置文件.png "修改SUT配置文件")
 
 9. 执行以下命令，进行系统救援。
 
@@ -2418,7 +2418,7 @@ x2openEuler-upgrade vx.x.x
    ```
 
    **图 42**  SUT系统救援<a name="fig143011864231"></a>  
-   ![](C:/Users/hWX1163151/Downloads/figures/SUT系统救援.png "SUT系统救援")
+   ![](figures-x2openEuler930/SUT系统救援.png "SUT系统救援")
 
 10. 系统救援完成后，执行以下命令重启系统。
 
@@ -2426,7 +2426,7 @@ x2openEuler-upgrade vx.x.x
     reboot
     ```
 
-    >![](C:/Users/hWX1163151/Downloads/public_sys-resources/icon-note.gif) **说明：** 
+    >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >系统重启之后，SELinux会进行relabel动作，物理机可能耗时较长。relabel动作触发完成后，系统会自动进行重启，此时才真正回退至最初的源操作系统。
 
 
