@@ -177,62 +177,58 @@ Configure an online yum source by directly obtaining the online openEuler repo s
      
      1. Log in to the openEuler community at  [https://openeuler.org](https://openeuler.org).
      
-     2. Click  **Download**.
+     2. Choose  **Download** > **Software Packages**.
      
-     3. Click the link provided after **Download ISO**. The download list is displayed.
+     3. Select the version to be downloaded, for example, openEuler 21.03. Then, click  **Download**. The download list is displayed.
      
-     4. Select the version to be downloaded, for example, openEuler 21.03. Then, click  **openEuler-21.03**. The download list is displayed.
-     
-     5. Click  **ISO**. The ISO download list is displayed.
+     4. Click  **ISO**. The ISO download list is displayed.
         
         - **aarch64**: ISO image file of the AArch64 architecture
         - **x86\_64**: ISO image file of the x86\_64 architecture
         - **source**: ISO image file of the openEuler source code
      
-     6. Click  **aarch64**.
+     5. Click  **aarch64**.
      
-     7. Click  **openEuler-21.03-aarch64-dvd.iso**  to download the openEuler release package to the local host.
+     6. Click  **openEuler-21.03-aarch64-dvd.iso**  to download the openEuler release package to the local host.
      
-     8. Click  **openEuler-21.03-aarch64-dvd.iso.sha256sum**  to download the openEuler verification file to the local host.
+     7. Click  **openEuler-21.03-aarch64-dvd.iso.sha256sum**  to download the openEuler verification file to the local host.
      
-     9. Log in to the openEuler OS and create a directory for storing the release package and verification file, for example,  ~/iso\*\*.
+     8. Log in to the openEuler OS and create a directory for storing the release package and verification file, for example,  ~/iso\*\*.
         
         ```
         $ mkdir ~/iso
         ```
      
-     10. Use a cross-platform file transfer tool (such as WinSCP) to upload the local openEuler release package and verification file to the target openEuler OS.
+     9.  Use a cross-platform file transfer tool (such as WinSCP) to upload the local openEuler release package and verification file to the target openEuler OS.
    
    - Run the  **wget**  command to download the ISO image.
      
      1. Log in to the openEuler community at  [https://openeuler.org](https://openeuler.org).
      
-     2. Click  **Download**.
+     2. Choose  **Download** > **Software Packages**.
      
      3. Click the link provided after **Download ISO**. The download list is displayed.
      
-     4. Select the version to be downloaded, for example, openEuler 21.03. Then, click  **openEuler-21.03**. The download list is displayed.
-     
-     5. Click  **ISO**. The ISO download list is displayed.
+     4. Click  **ISO**. The ISO download list is displayed.
         
         - **aarch64**: ISO image file of the AArch64 architecture
         - **x86\_64**: ISO image file of the x86\_64 architecture
         - **source**: ISO image file of the openEuler source code
      
-     6. Click  **aarch64**.
+     5. Click  **aarch64**.
      
-     7. <a name="li62369349505"></a>Right-click  **openEuler-21.03-aarch64-dvd.iso**  and choose  **Copy URL**  from the shortcut menu to copy the address of the openEuler release package.
+     6. <a name="li62369349505"></a>Right-click  **openEuler-21.03-aarch64-dvd.iso**  and choose  **Copy URL**  from the shortcut menu to copy the address of the openEuler release package.
      
-     8. <a name="li9236203405015"></a>Right-click  **openEuler-21.03-aarch64-dvd.iso.sha256sum**  and choose  **Copy URL**  from the shortcut menu to copy the address of the openEuler verification file.
+     7. <a name="li9236203405015"></a>Right-click  **openEuler-21.03-aarch64-dvd.iso.sha256sum**  and choose  **Copy URL**  from the shortcut menu to copy the address of the openEuler verification file.
      
-     9. Log in to the openEuler OS, create a directory (for example,  **~/iso**) for storing the release package and verification file, and switch to the directory.
+     8. Log in to the openEuler OS, create a directory (for example,  **~/iso**) for storing the release package and verification file, and switch to the directory.
         
         ```
         $ mkdir ~/iso
         $ cd ~/iso
         ```
      
-     10. Run the  **wget**  command to remotely download the release package and verification file. In the command,  **ipaddriso**  and  **ipaddrisosum**  are the addresses copied in  [1.g](#li62369349505)  and  [1.h](#li9236203405015).
+     9.  Run the  **wget**  command to remotely download the release package and verification file. In the command,  **ipaddriso**  and  **ipaddrisosum**  are the addresses copied in  [1.g](#li62369349505)  and  [1.h](#li9236203405015).
          
          ```
          $ wget ipaddriso
@@ -293,7 +289,7 @@ Configure an online yum source by directly obtaining the online openEuler repo s
    openEuler.repo
    ```
 
-6. Edit the **openEuler\_aarch64.repo** file as the **root** user. Configure the local openEuler repo source created in step [3](#li6236932222) as the yum source.
+5. Edit the **openEuler\_aarch64.repo** file as the **root** user. Configure the local openEuler repo source created in step [3](#li6236932222) as the yum source.
    
    ```
    # vi openEuler.repo

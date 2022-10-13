@@ -137,7 +137,7 @@ Configure the corresponding parameters in the configuration file. The path of th
    LISTEN = "127.0.0.1:5001"
    ```
 
-2. GitHub Token is used to access the repository information hosted in the upstream open source software repository of GitHub. For details about how to create a GitHub token, see [Creating a personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
+2. Configure GitHub Token used to access the repository information hosted in the upstream open source software repository of GitHub. For details about how to create a GitHub token, see [Creating a personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
    
    ```
    GITHUB_ACCESS_TOKEN = ""
