@@ -23,7 +23,7 @@ Libvirt tool uses XML files to describe a VM feature, including the VM name, CPU
 
 The VM XML configuration file uses domain as the root element, which contains multiple other elements. Some elements in the XML configuration file can contain corresponding attributes and attribute values to describe VM information in detail. Different attributes of the same element are separated by spaces.
 
-The basic format of the XML configuration file is as follows. In the format,  **label**  indicates the label name,  **attribute**  indicates the attribute, and  **value**  indicates the attribute value. Change them as required.
+The basic format of the XML configuration file is as follows. In the format,  **label**  indicates the label name,  **attribute**  indicates the attribute, and  **value**  indicates the attribute value. Change them based on the site requirements.
 
 ```
 <domain type='kvm'>
@@ -90,14 +90,14 @@ This section describes how to configure the vCPU and virtual memory.
 
 ### Elements
 
--   **vcpu**: number of virtual processors.
--   **memory**: size of the virtual memory.
+-   **vcpu**: The number of virtual processors.
+-   **memory**: The size of the virtual memory.
 
-    **unit**: memory unit. The value can be KiB \(2<sup>10</sup>  bytes\), MiB \(2<sup>20</sup>  bytes\), GiB \(2<sup>30</sup>  bytes\), or TiB \(2<sup>40</sup>  bytes\).
+    **unit**: The memory unit. The value can be KiB \(2<sup>10</sup>  bytes\), MiB \(2<sup>20</sup>  bytes\), GiB \(2<sup>30</sup>  bytes\), or TiB \(2<sup>40</sup>  bytes\).
 
--   **cpu**: mode of the virtual processor.
+-   **cpu**: The mode of the virtual processor.
 
-    **mode**: mode of the vCPU.
+    **mode**: The mode of the vCPU.
 
     -   **host-passthrough**: indicates that the architecture and features of the virtual CPU are the same as those of the host.
 
@@ -105,21 +105,21 @@ This section describes how to configure the vCPU and virtual memory.
 
     Sub-element  **topology**: A sub-element of the element cpu, used to describe the topology structure of a vCPU mode.
 
-    -   The attributes **socket**, **cores**, and **threads** of the sub-element **topology** describe the number of CPU sockets of a VM, the number of processor cores included in each CPU socket, and the number of threads included in each processor core, respectively. The attribute value is a positive integer, and the product of the three values equals the number of vCPUs.
+    -   The attributes **socket**, **cores**, and **threads** of the sub-element topology describe the number of CPU sockets of a VM, the number of processor cores included in each CPU socket, and the number of threads included in each processor core, respectively. The attribute value is a positive integer, and the product of the three values equals the number of vCPUs.
     -   The ARM architecture supports the virtual hyper-threading function. The virtual CPU hot add and the virtual hyper-threading function are mutually exclusive.
     Sub-element  **model**: A sub-element of the element cpu, used to describe the CPU model when **mode** is custom.
 
     Sub-element  **feature**: A sub-element of the element cpu, used to enable/disable a CPU feature when **mode** is custom.  The attribute **name** describes the name of the CPU feature.  And whether enable the CPU feature is controlled by the attribute **policy**:
 
-    -   **force**: forcibly enables the CPU feature regardless of whether it is supported by the host CPU.
+    -   **force**: force enable the CPU feature regardless of it being supported by host CPU.
 
-    -   **require**: enables the CPU feature. If both the host CPU and hypervisor do not support this feature, the VM will fail to be created.
+    -   **require**: enable the CPU feature.
 
-    -   **optional**: The CPU feature will be enabled if it is supported by the host CPU.
+    -   **optional**: the CPU feature will be enabled if and only if it is supported by host CPU.
 
-    -   **disable**: disables the CPU feature.
+    -   **disable**: disable the CPU feature.
 
-    -   **forbid**: disables the CPU feature. Guest creation will fail if the feature is supported by the host CPU.
+    -   **forbid**: disable the CPU feature and guest creation will fail if the feature is supported by host CPU.
 
 
 ### Configuration Example
@@ -237,15 +237,15 @@ The XML configuration file uses the  **disk**  element to configure storage devi
 </td>
 <td class="cellrowborder" valign="top" width="21.42%" headers="mcps1.2.4.1.2 "><p id="p144948333527"><a name="p144948333527"></a><a name="p144948333527"></a>The bus and device that a disk presents to a VM.</p>
 </td>
-<td class="cellrowborder" valign="top" width="65.28%" headers="mcps1.2.4.1.3 "><p id="p158671649195117"><a name="p158671649195117"></a><a name="p158671649195117"></a><strong id="b398714369574"><a name="b398714369574"></a><a name="b398714369574"></a>dev</strong>: logical device name of a disk, for example, <strong id="b991220105815"><a name="b991220105815"></a><a name="b991220105815"></a>sd[a-p]</strong> for SCSI, SATA, and USB buses and <strong id="b20572133412581"><a name="b20572133412581"></a><a name="b20572133412581"></a>hd[a-d]</strong> for IDE disks.</p>
-<p id="p7960169114"><a name="p7960169114"></a><a name="p7960169114"></a><strong id="b177746155918"><a name="b177746155918"></a><a name="b177746155918"></a>bus</strong>: type of a disk. Common types include **scsi**, **usb**, **sata**, and **virtio**.</p>
+<td class="cellrowborder" valign="top" width="65.28%" headers="mcps1.2.4.1.3 "><p id="p158671649195117"><a name="p158671649195117"></a><a name="p158671649195117"></a><strong id="b398714369574"><a name="b398714369574"></a><a name="b398714369574"></a>dev</strong>: specifies the logical device name of a disk, for example, <strong id="b991220105815"><a name="b991220105815"></a><a name="b991220105815"></a>sd[a-p]</strong> for SCSI, SATA, and USB buses and <strong id="b20572133412581"><a name="b20572133412581"></a><a name="b20572133412581"></a>hd[a-d]</strong> for IDE disks.</p>
+<p id="p7960169114"><a name="p7960169114"></a><a name="p7960169114"></a><strong id="b177746155918"><a name="b177746155918"></a><a name="b177746155918"></a>bus</strong>: specifies the type of a disk. Common types include scsi, usb, sata, and virtio.</p>
 </td>
 </tr>
 <tr id="row386764955116"><td class="cellrowborder" valign="top" width="13.3%" headers="mcps1.2.4.1.1 "><p id="p19867049125114"><a name="p19867049125114"></a><a name="p19867049125114"></a>boot</p>
 </td>
 <td class="cellrowborder" valign="top" width="21.42%" headers="mcps1.2.4.1.2 "><p id="p2313201420517"><a name="p2313201420517"></a><a name="p2313201420517"></a>The disk can be used as the boot disk.</p>
 </td>
-<td class="cellrowborder" valign="top" width="65.28%" headers="mcps1.2.4.1.3 "><p id="p11867149165120"><a name="p11867149165120"></a><a name="p11867149165120"></a><strong id="b195415181010"><a name="b195415181010"></a><a name="b195415181010"></a>order</strong>: disk startup sequence.</p>
+<td class="cellrowborder" valign="top" width="65.28%" headers="mcps1.2.4.1.3 "><p id="p11867149165120"><a name="p11867149165120"></a><a name="p11867149165120"></a><strong id="b195415181010"><a name="b195415181010"></a><a name="b195415181010"></a>order</strong>: specifies the disk startup sequence.</p>
 </td>
 </tr>
 <tr id="row18868164965114"><td class="cellrowborder" valign="top" width="13.3%" headers="mcps1.2.4.1.1 "><p id="p486814495519"><a name="p486814495519"></a><a name="p486814495519"></a>readonly</p>
@@ -312,7 +312,7 @@ In the XML configuration file, the element  **interface**  is used, and its attr
 </td>
 <td class="cellrowborder" valign="top" width="21.42%" headers="mcps1.2.4.1.2 "><p id="p466752217444"><a name="p466752217444"></a><a name="p466752217444"></a>The mac address of the vNIC.</p>
 </td>
-<td class="cellrowborder" valign="top" width="65.28%" headers="mcps1.2.4.1.3 "><p id="p5608740181019"><a name="p5608740181019"></a><a name="p5608740181019"></a><strong id="b14802133216224"><a name="b14802133216224"></a><a name="b14802133216224"></a>address</strong>: MAC address. If this parameter is not set, the system automatically generates a MAC address.</p>
+<td class="cellrowborder" valign="top" width="65.28%" headers="mcps1.2.4.1.3 "><p id="p5608740181019"><a name="p5608740181019"></a><a name="p5608740181019"></a><strong id="b14802133216224"><a name="b14802133216224"></a><a name="b14802133216224"></a>address</strong>: specifies the mac address. If this parameter is not set, the system automatically generates a mac address.</p>
 </td>
 </tr>
 <tr id="row08679492515"><td class="cellrowborder" valign="top" width="13.3%" headers="mcps1.2.4.1.1 "><p id="p188671349195119"><a name="p188671349195119"></a><a name="p188671349195119"></a>target</p>
@@ -333,7 +333,7 @@ In the XML configuration file, the element  **interface**  is used, and its attr
 </td>
 <td class="cellrowborder" valign="top" width="21.42%" headers="mcps1.2.4.1.2 "><p id="p2313201420517"><a name="p2313201420517"></a><a name="p2313201420517"></a>The NIC can be used for remote startup.</p>
 </td>
-<td class="cellrowborder" valign="top" width="65.28%" headers="mcps1.2.4.1.3 "><p id="p11867149165120"><a name="p11867149165120"></a><a name="p11867149165120"></a><strong id="b113691627102512"><a name="b113691627102512"></a><a name="b113691627102512"></a>order</strong>: startup sequence of NICs.</p>
+<td class="cellrowborder" valign="top" width="65.28%" headers="mcps1.2.4.1.3 "><p id="p11867149165120"><a name="p11867149165120"></a><a name="p11867149165120"></a><strong id="b113691627102512"><a name="b113691627102512"></a><a name="b113691627102512"></a>order</strong>: specifies the startup sequence of NICs.</p>
 </td>
 </tr>
 <tr id="row18868164965114"><td class="cellrowborder" valign="top" width="13.3%" headers="mcps1.2.4.1.1 "><p id="p486814495519"><a name="p486814495519"></a><a name="p486814495519"></a>model</p>
@@ -355,7 +355,7 @@ In the XML configuration file, the element  **interface**  is used, and its attr
 <td class="cellrowborder" valign="top" width="21.42%" headers="mcps1.2.4.1.2 "><p id="p090918115413"><a name="p090918115413"></a><a name="p090918115413"></a>Backend driver type</p>
 </td>
 <td class="cellrowborder" valign="top" width="65.28%" headers="mcps1.2.4.1.3 "><p id="p1090918194112"><a name="p1090918194112"></a><a name="p1090918194112"></a><strong id="b826415388276"><a name="b826415388276"></a><a name="b826415388276"></a>name</strong>: driver name. The value is <strong id="b11841751182718"><a name="b11841751182718"></a><a name="b11841751182718"></a>vhost</strong>.</p>
-<p id="p84340111436"><a name="p84340111436"></a><a name="p84340111436"></a><strong id="b19135262810"><a name="b19135262810"></a><a name="b19135262810"></a>queues</strong>: number of NIC queues.</p>
+<p id="p84340111436"><a name="p84340111436"></a><a name="p84340111436"></a><strong id="b19135262810"><a name="b19135262810"></a><a name="b19135262810"></a>queues</strong>: the number of NIC queues.</p>
 </td>
 </tr>
 </tbody>
@@ -514,10 +514,10 @@ In the XML configuration of libvirt, each controller element \(**controller**\) 
 </td>
 <td class="cellrowborder" valign="top" width="23.52%" headers="mcps1.2.4.1.2 "><p id="p123208121020"><a name="p123208121020"></a><a name="p123208121020"></a>The <strong id="b3139153515276"><a name="b3139153515276"></a><a name="b3139153515276"></a>address</strong> type is storage device address, indicating the owning disk controller and its position on the bus.</p>
 </td>
-<td class="cellrowborder" valign="top" width="61.11%" headers="mcps1.2.4.1.3 "><p id="p3201357231"><a name="p3201357231"></a><a name="p3201357231"></a><strong id="b158903378465"><a name="b158903378465"></a><a name="b158903378465"></a>controller</strong>: number of the owning controller.</p>
+<td class="cellrowborder" valign="top" width="61.11%" headers="mcps1.2.4.1.3 "><p id="p3201357231"><a name="p3201357231"></a><a name="p3201357231"></a><strong id="b158903378465"><a name="b158903378465"></a><a name="b158903378465"></a>controller</strong>: the number of the owning controller.</p>
 <p id="p1389922903710"><a name="p1389922903710"></a><a name="p1389922903710"></a><strong id="b45961940114910"><a name="b45961940114910"></a><a name="b45961940114910"></a>bus</strong>: channel number of the device output.</p>
 <p id="p621944515379"><a name="p621944515379"></a><a name="p621944515379"></a><strong id="b5576162615154"><a name="b5576162615154"></a><a name="b5576162615154"></a>target</strong>: target number of the storage device.</p>
-<p id="p567815011374"><a name="p567815011374"></a><a name="p567815011374"></a><strong id="b3736142191712"><a name="b3736142191712"></a><a name="b3736142191712"></a>unit</strong>: LUN number of the storage device.</p>
+<p id="p567815011374"><a name="p567815011374"></a><a name="p567815011374"></a><strong id="b3736142191712"><a name="b3736142191712"></a><a name="b3736142191712"></a>unit</strong>: lun number of the storage device.</p>
 </td>
 </tr>
 </tbody>
@@ -569,12 +569,12 @@ In addition to storage devices and network devices, some external devices need t
 
 -   **serial**: serial port device
 
-    Attribute  **type**: serial port type. The common attribute values are  **pty**,  **tcp**,  **pipe**, and  **file**.
+    Attribute  **type**: specifies the serial port type. The common attribute values are  **pty**,  **tcp**,  **pipe**, and  **file**.
 
 
 -   **video**: media device
 
-    Attribute **type**: media device type The common attribute value of the AArch architecture is  **virtio**, and that of the x86\_64 architecture is  **vga**  or  **cirrus**.
+    **type**  attribute: media device type The common attribute value of the AArch architecture is  **virtio**, and that of the x86\_64 architecture is  **vga**  or  **cirrus**.
 
     Subelement  **model**: subelement of  **video**, which is used to specify the media device type.
 
@@ -588,18 +588,18 @@ In addition to storage devices and network devices, some external devices need t
     </video>
     ```
 
--   **input**: output device.
+-   **input**: output device
 
-    Attribute **type**: type of the output device. The common attribute values are  **tabe**  and  **keyboard**, indicating that the output device is the tablet and keyboard respectively.
+    **type**  attribute: specifies the type of the output device. The common attribute values are  **tabe**  and  **keyboard**, indicating that the output device is the tablet and keyboard respectively.
 
-    **bus**: bus to be mounted. The common attribute value is  **USB**.
+    **bus**: specifies the bus to be mounted. The common attribute value is  **USB**.
 
--   **emulator**: emulator application path.
--   **graphics**: graphics device.
+-   **emulator**: emulator application path
+-   **graphics**: graphics device
 
-    Attribute **type**: type of a graphics device. The common attribute value is  **vnc**.
+    **type**  attribute: specifies the type of a graphics device. The common attribute value is  **vnc**.
 
-    Attribute **listen**: IP address to be listened to.
+    **listen**  attribute: specifies the IP address to be listened to.
 
 
 #### Configuration Example
@@ -636,11 +636,11 @@ The XML configuration file contain configurations related to the system architec
 
 -   **os**: defines VM startup parameters.
 
-    Subelement  **type**: VM type. The **arch** attribute  indicates the architecture type, for example, AArch64. The attribute  **machine**  indicates the type of VM chipset. Supported chipset type can be queried by running the  **qemu-kvm -machine ?**  command. For example, the AArch64 architecture supports the  **virt**  type.
+    Subelement  **type**: specifies the VM type. The attribute  **arch**  indicates the architecture type, for example, AArch64. The attribute  **machine**  indicates the type of VM chipset. Supported chipset type can be queried by running the  **qemu-kvm -machine ?**  command. For example, the AArch64 architecture supports the  **virt**  type.
 
-    Subelement  **loader**: firmware to be loaded, for example, the UEFI file provided by the EDK. The  **readonly**  attribute indicates whether the file is read-only. The value can be  **yes**  or  **no**. The  **type**  attribute indicates the  **loader**  type. The common values are  **rom**  and  **pflash**.
+    Subelement  **loader**: specifies the firmware to be loaded, for example, the UEFI file provided by the EDK. The  **readonly**  attribute indicates whether the file is read-only. The value can be  **yes**  or  **no**. The  **type**  attribute indicates the  **loader**  type. The common values are  **rom**  and  **pflash**.
 
-    Subelement  **nvram**: path of the  **nvram**  file, which is used to store the UEFI startup configuration.
+    Subelement  **nvram**: specifies the path of the  **nvram**  file, which is used to store the UEFI startup configuration.
 
 
 -   **features**: Hypervisor controls some VM CPU/machine features, such as the advanced configuration and power interface \(ACPI\) and the GICv3 interrupt controller specified by the ARM processor.
@@ -693,14 +693,14 @@ In addition to system resources and virtual devices, other elements need to be c
 
 ### Elements
 
--   **iothreads**: number of  **iothread**, which can be used to accelerate storage device performance.
+-   **iothreads**: specifies the number of  **iothread**, which can be used to accelerate storage device performance.
 
 -   **on\_poweroff**: action taken when a VM is powered off.
 -   **on\_reboot**: action taken when a VM is rebooted.
 -   **on\_crash**: action taken when a VM is on crash.
--   **clock**: clock type.
+-   **clock**: indicates the clock type.
 
-    Attribute **offset**: VM clock synchronization type. The value can be  **localtime**,  **utc**,  **timezone**, or  **variable**.
+    **offset**  attribute: specifies the VM clock synchronization type. The value can be  **localtime**,  **utc**,  **timezone**, or  **variable**.
 
 
 ### Configuration Example
