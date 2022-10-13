@@ -1,17 +1,29 @@
 # Managing Devices
 
 - [Managing Devices](#managing-devices)
-    - [Configuring a PCIe Controller for a VM](#configuring-a-pcie-controller-for-a-vm)
-    - [Managing Virtual Disks](#managing-virtual-disks)
-    - [Managing vNICs](#managing-vnics)
-    - [Configuring a Virtual Serial Port](#configuring-a-virtual-serial-port)
-    - [Managing Device Passthrough](#managing-device-passthrough)
-        - [PCI Passthrough](#pci-passthrough)
-        - [SR-IOV Passthrough](#sr-iov-passthrough)
-    - [Managing VM USB](#managing-vm-usb)
-        - [Configuring USB Controllers](#configuring-usb-controllers)
-        - [Configuring a USB Passthrough Device](#configuring-a-usb-passthrough-device)
-    - [Storing Snapshots](#storing-snapshots)
+  - [Configuring a PCIe Controller for a VM](#configuring-a-pcie-controller-for-a-vm)
+    - [Overview](#overview)
+    - [Configuring the PCIe Root, PCIe Root Port, and PCIe-PCI-Bridge](#configuring-the-pcie-root-pcie-root-port-and-pcie-pci-bridge)
+  - [Managing Virtual Disks](#managing-virtual-disks)
+  - [Managing vNICs](#managing-vnics)
+  - [Configuring a Virtual Serial Port](#configuring-a-virtual-serial-port)
+  - [Managing Device Passthrough](#managing-device-passthrough)
+    - [PCI Passthrough](#pci-passthrough)
+    - [SR-IOV Passthrough](#sr-iov-passthrough)
+  - [Managing VM USB](#managing-vm-usb)
+    - [Configuring USB Controllers](#configuring-usb-controllers)
+    - [Configuring a USB Passthrough Device](#configuring-a-usb-passthrough-device)
+  - [Storing Snapshots](#storing-snapshots)
+    - [Overview](#overview-7)
+    - [Procedure](#procedure-4)
+  - [Configuring Disk I/O Suspension](#configuring-disk-io-suspension)
+    - [Introduction](#introduction)
+      - [Overview](#overview-8)
+      - [Application Scenarios](#application-scenarios)
+      - [Precautions and Restrictions](#precautions-and-restrictions)
+    - [Disk I/O Suspension Configuration](#disk-io-suspension-configuration)
+      - [Using the QEMU CLI](#using-the-qemu-cli)
+      - [Using an XML Configuration File](#using-an-xml-configuration-file)
 
 
 ## Configuring a PCIe Controller for a VM
@@ -83,7 +95,7 @@ Virtual disk types include virtio-blk, virtio-scsi, and vhost-scsi. virtio-blk s
 
 ### Procedure
 
-For details about how to configure a virtual disk, see  [3.2.4.1 Storage Devices](#storage-devices). This section uses the virtio-scsi disk as an example to describe how to attach and detach a virtual disk.
+For details about how to configure a virtual disk, see **VM Configuration** > **Network Devices**. This section uses the virtio-scsi disk as an example to describe how to attach and detach a virtual disk.
 
 -   Attach a virtio-scsi disk.
 
@@ -265,39 +277,66 @@ PCI passthrough directly assigns a physical PCI device on the host to a VM. The 
 </tr>
 <tr id="row145701015173717"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p195701715123711"><a name="p195701715123711"></a><a name="p195701715123711"></a>hostdev.rom</p>
 </td>
-<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p1057010157379"><a name="p1057010157379"></a><a name="p1057010157379"></a>Specifies whether the VM can access the ROM of the passthrough device.</p>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p1057010157379"><a name="p1057010157379"></a><a name="p1057010157379"></a>Whether the VM can access the ROM of the passthrough device.</p>
 </td>
 <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p55705153378"><a name="p55705153378"></a><a name="p55705153378"></a>This parameter can be set to <strong id="b19245193774513"><a name="b19245193774513"></a><a name="b19245193774513"></a>on</strong> or <strong id="b1264443974517"><a name="b1264443974517"></a><a name="b1264443974517"></a>off</strong>. The default value is <strong id="b5402171644411"><a name="b5402171644411"></a><a name="b5402171644411"></a>on</strong>.</p>
 <a name="ul1937231571"></a><a name="ul1937231571"></a><ul id="ul1937231571"><li><strong id="b345358194616"><a name="b345358194616"></a><a name="b345358194616"></a>on</strong>: indicates that the VM can access the ROM of the passthrough device. For example, if a VM with a passthrough NIC needs to boot from the preboot execution environment (PXE), or a VM with a passthrough Host Bus Adapter (HBA) card needs to boot from the ROM, you can set this parameter to <strong id="b878213613481"><a name="b878213613481"></a><a name="b878213613481"></a>on</strong>.</li><li><strong id="b97161513154618"><a name="b97161513154618"></a><a name="b97161513154618"></a>off</strong>: indicates that the VM cannot access the ROM of the passthrough device.</li></ul>
 </td>
 </tr>
-<tr id="row20570201563712"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p1057013151371"><a name="p1057013151371"></a><a name="p1057013151371"></a>hostdev.address type</p>
+<tr id="row20570201563712"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p1057013151371"><a name="p1057013151371"></a><a name="p1057013151371"></a>hostdev.address.type</p>
 </td>
-<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p6570201510374"><a name="p6570201510374"></a><a name="p6570201510374"></a>Bus, Device, and Function (BDF) IDs on the guest OS displayed on the PCI device.</p>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p6570201510374"><a name="p6570201510374"></a><a name="p6570201510374"></a>Device type displayed on the guest, which must be the same as the actual device type.</p>
 </td>
-<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p1257011153370"><a name="p1257011153370"></a><a name="p1257011153370"></a>[0x03–0x1e] (range of slot ID)</p>
-<p id="p878711532216"><a name="p878711532216"></a><a name="p878711532216"></a>Note:</p>
-<a name="ul8885104953013"></a><a name="ul8885104953013"></a><ul id="ul8885104953013"><li><strong id="b134861629498"><a name="b134861629498"></a><a name="b134861629498"></a>domain</strong> indicates the domain information, <strong id="b1426413644914"><a name="b1426413644914"></a><a name="b1426413644914"></a>bus</strong> indicates the bus ID, <strong id="b1924131155210"><a name="b1924131155210"></a><a name="b1924131155210"></a>slot</strong> indicates the slot ID, and <strong id="b11341741135315"><a name="b11341741135315"></a><a name="b11341741135315"></a>function</strong> indicates the function.</li><li>Except for <strong id="b1037113613554"><a name="b1037113613554"></a><a name="b1037113613554"></a>slot</strong>, default values of these parameters are <strong id="b131425655411"><a name="b131425655411"></a><a name="b131425655411"></a>0</strong>.</li><li>The first slot <strong id="b17504125910578"><a name="b17504125910578"></a><a name="b17504125910578"></a>0x00</strong> is occupied by the system, the second slot <strong id="b551216212589"><a name="b551216212589"></a><a name="b551216212589"></a>0x01</strong> is occupied by the IDE controller and USB controller, and the third slot <strong id="b18706152316582"><a name="b18706152316582"></a><a name="b18706152316582"></a>0x02</strong> is occupied by the video.</li><li>The last slot <strong id="b128813261506"><a name="b128813261506"></a><a name="b128813261506"></a>0x1f</strong> is occupied by the PV channel.</li></ul>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p1257011153370"><a name="p1257011153370"></a><a name="p1257011153370"></a>**pci** (default configuration)</p>
+</td>
+</tr>
+<tr id="row20570201563712"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p1057013151371"><a name="p1057013151371"></a><a name="p1057013151371"></a>hostdev.address.domain</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p6570201510374"><a name="p6570201510374"></a><a name="p6570201510374"></a>Domain number of the device displayed on the guest.</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p1257011153370"><a name="p1257011153370"></a><a name="p1257011153370"></a>0x0000</p>
+</td>
+</tr>
+<tr id="row20570201563712"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p1057013151371"><a name="p1057013151371"></a><a name="p1057013151371"></a>hostdev.address.bus</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p6570201510374"><a name="p6570201510374"></a><a name="p6570201510374"></a>Bus number of the device displayed on the guest.</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p1257011153370"><a name="p1257011153370"></a><a name="p1257011153370"></a>**0x00** (default configuration). This parameter can only be set to the bus number configured in section "Configuring a PCIe Controller for a VM."</p>
+</td>
+</tr>
+<tr id="row20570201563712"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p1057013151371"><a name="p1057013151371"></a><a name="p1057013151371"></a>hostdev.address.slot</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p6570201510374"><a name="p6570201510374"></a><a name="p6570201510374"></a>Slot number of the device displayed on the guest.</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p1257011153370"><a name="p1257011153370"></a><a name="p1257011153370"></a>The slot number range is [0x03,0x1e]</p>
+<p id="p878711532216"><a name="p878711532216"></a><a name="p878711532216"></a>Note: </p>
+<a name="ul8885104953013"></a><a name="ul8885104953013"></a><ul id="ul8885104953013"><li>The first slot number 0x00 is occupied by the system, the second slot number 0x01 is occupied by the IDE controller and USB controller, and the third slot number 0x02 is occupied by the video. </li><li>The last slot number 0x1f is occupied by the pvchannel.</li></ul>
+</td>
+</tr>
+<tr id="row20570201563712"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="p1057013151371"><a name="p1057013151371"></a><a name="p1057013151371"></a>hostdev.address.function</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="p6570201510374"><a name="p6570201510374"></a><a name="p6570201510374"></a>Function number of the device displayed on the guest.</p>
+</td>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p1257011153370"><a name="p1257011153370"></a><a name="p1257011153370"></a>**0x0** (default configuration): The function number range is [0x0,0x7]</p>
 </td>
 </tr>
 </tbody>
 </table>
 
 >![](./public_sys-resources/icon-note.gif) **NOTE:**   
->VFIO passthrough is implemented by IOMMU group. Devices are divided to IOMMU groups based on access control services \(ACS\) on hardware. Devices in the same IOMMU group can be assigned to only one VM. If multiple functions on a PCI device belong to the same IOMMU group, they can be directly assigned to only one VM as well.  
+>VFIO passthrough is implemented by IOMMU group. Devices are divided to IOMMU groups based on access control services (ACS) on hardware. Devices in the same IOMMU group can be assigned to only one VM. If multiple functions on a PCI device belong to the same IOMMU group, they can be directly assigned to only one VM as well.  
 
 ### SR-IOV Passthrough
 
 #### Overview
 
-Single Root I/O Virtualization \(SR-IOV\) is a hardware-based virtualization solution. With the SR-IOV technology, a physical function \(PF\) can provide multiple virtual functions \(VFs\), and each VF can be directly assigned to a VM. This greatly improves hardware resource utilization and I/O performance of VMs. A typical application scenario is SR-IOV passthrough for NICs. With the SR-IOV technology, a physical NIC \(PF\) can function as multiple VF NICs, and then the VFs can be directly assigned to VMs.
+Single Root I/O Virtualization (SR-IOV) is a hardware-based virtualization solution. With the SR-IOV technology, a physical function (PF) can provide multiple virtual functions (VFs), and each VF can be directly assigned to a VM. This greatly improves hardware resource utilization and I/O performance of VMs. A typical application scenario is SR-IOV passthrough for NICs. With the SR-IOV technology, a physical NIC (PF) can function as multiple VF NICs, and then the VFs can be directly assigned to VMs.
 
 >![](./public_sys-resources/icon-note.gif) **NOTE:**   
 >-   SR-IOV requires the support of physical hardware. Before using SR-IOV, ensure that the hardware device to be directly assigned supports SR-IOV and the device driver on the host OS works in SR-IOV mode.  
 >-   The following describes how to query the NIC model:  
 >In the following command output, values in the first column indicate the PCI numbers of NICs, and  **19e5:1822**  indicates the vendor ID and device ID of the NIC.  
-
->```
+>```  
 ># lspci | grep Ether  
 >05:00.0 Ethernet controller: Device 19e5:1822 (rev 45)  
 >07:00.0 Ethernet controller: Device 19e5:1822 (rev 45)  
@@ -305,7 +344,7 @@ Single Root I/O Virtualization \(SR-IOV\) is a hardware-based virtualization sol
 >0b:00.0 Ethernet controller: Device 19e5:1822 (rev 45)  
 >81:00.0 Ethernet controller: Intel Corporation 82599ES 10-Gigabit SFI/SFP+ Network Connection (rev 01)  
 >81:00.1 Ethernet controller: Intel Corporation 82599ES 10-Gigabit SFI/SFP+ Network Connection (rev 01)  
-```
+>```
 
 
 #### Procedure
@@ -361,7 +400,7 @@ To configure SR-IOV passthrough for a NIC, perform the following steps:
         # ls -l /sys/bus/pci/devices/0000\:03\:00.0/
         ```
 
-        The following symbolic link information is displayed. You can obtain the VF IDs \(virtfnX\) and PCI BDF IDs based on the information.
+        The following symbolic link information is displayed. You can obtain the VF IDs (virtfnX) and PCI BDF IDs based on the information.
 
     2.  Identify the PF corresponding to a VF. The following uses VF 03:00.1 as an example:
 
@@ -453,10 +492,34 @@ To configure SR-IOV passthrough for a NIC, perform the following steps:
     >![](./public_sys-resources/icon-note.gif) **NOTE:**   
     >Disabling the SR-IOV function:  
     >To disable the SR-IOV function after the VM is stopped and no VF is in use, run the following command:  
-    >The following uses the Hi1822 NIC \(corresponding network interface name: eth0\) as an example:  
+    >The following uses the Hi1822 NIC corresponding network interface name: eth0) as an example:  
     >```  
     >echo 0 > /sys/class/net/eth0/device/sriov_numvfs  
     >```
+
+#### Configuring SR-IOV Passthrough for the HPRE Accelerator
+
+The accelerator engine is a hardware acceleration solution provided by TaiShan 200 servers based on the Kunpeng 920 processors. The HPRE accelerator is used to accelerate SSL/TLS applications. It significantly reduces processor consumption and improves processor efficiency. 
+On the Kunpeng server, you need to pass through the VFs of the HPRE accelerator on the host to the VM for internal services of the VM.
+
+**Table 1** HPRE accelerator description
+
+|             | Description                                                                                               |
+|-------------|-----------------------------------------------------------------------------------------------------|
+| Device name   | Hi1620 on-chip RSA/DH security algorithm accelerator (HPRE engine)                                  |
+| Description       | Modular exponentiation, RSA key pair operation, DH calculation, and some large-number auxiliary operations (modular exponentiation, modular multiplication, modulo operation, multiplication, modular inversion, prime number test, and mutual prime test)|
+| VendorID    | 0x19E5                                                                                              |
+| PF DeviceID | 0xA258                                                                                              |
+| VF DeviceID | 0xA259                                                                                              |
+| Maximum number of VFs | An HPRE PF supports a maximum of 63 VFs.                                                                      |
+
+
+>![](./public_sys-resources/icon-note.gif) **NOTE:**  
+>When a VM is using a VF device, the driver on the host cannot be uninstalled, and the accelerator does not support hot swap. 
+>VF operation (If **VFNUMS** is **0**, the VF is disabled, and **hpre_num** is used to identify a specific accelerator device): 
+>```
+>echo $VFNUMS > /sys/class/uacce/hisi_hpre-$hpre_num/device/sriov_numvfs
+>```
 
 
 ## Managing VM USB
@@ -469,9 +532,9 @@ To facilitate the use of USB devices such as USB key devices and USB mass storag
 
 A USB controller is a virtual controller that provides specific USB functions for USB devices on VMs. To use USB devices on a VM, you must configure USB controllers for the VM. Currently, openEuler supports the following types of USB controllers:
 
--   Universal host controller interface \(UHCI\): also called the USB 1.1 host controller specification.
--   Enhanced host controller interface \(EHCI\): also called the USB 2.0 host controller specification.
--   Extensible host controller interface \(xHCI\): also called the USB 3.0 host controller specification.
+-   Universal host controller interface (UHCI): also called the USB 1.1 host controller specification.
+-   Enhanced host controller interface (EHCI): also called the USB 2.0 host controller specification.
+-   Extensible host controller interface (xHCI): also called the USB 3.0 host controller specification.
 
 #### Precautions
 
@@ -487,21 +550,21 @@ A USB controller is a virtual controller that provides specific USB functions fo
 
 The following describes the configuration items of USB controllers for a VM. You are advised to configure USB 1.1, USB 2.0, and USB 3.0 to ensure the VM is compatible with three types of devices.
 
-The configuration item of the USB 1.1 controller \(UHCI\) in the XML configuration file is as follows:
+The configuration item of the USB 1.1 controller (UHCI) in the XML configuration file is as follows:
 
 ```
 <controller type='usb' index='0' model='piix3-uhci'>
 </controller>
 ```
 
-The configuration item of the USB 2.0 controller \(EHCI\) in the XML configuration file is as follows:
+The configuration item of the USB 2.0 controller (EHCI) in the XML configuration file is as follows:
 
 ```
 <controller type='usb' index='1' model='ehci'>
 </controller>
 ```
 
-The configuration item of the USB 3.0 controller \(xHCI\) in the XML configuration file is as follows:
+The configuration item of the USB 3.0 controller (xHCI) in the XML configuration file is as follows:
 
 ```
 <controller type='usb' index='2' model='nec-xhci'>
@@ -536,8 +599,8 @@ Description of the USB device in the XML configuration file:
 </hostdev>
 ```
 
--   **<address bus='**_m_**'device='**_n_**'/\>**:  _m_  indicates the USB bus address on the host, and  _n_  indicates the device ID.
--   **<address type='usb'bus='**_x_**'port='**_y_**'\>**: indicates that the USB device is to be mounted to the USB controller specified on the VM.  _x_  indicates the controller ID, which corresponds to the index number of the USB controller configured on the VM.  _y_  indicates the port address. When configuring a USB passthrough device, you need to set this parameter to ensure that the controller to which the device is mounted is as expected.
+-   **<address bus='***m_**'device='***n_**'/\>**:  *m_  indicates the USB bus address on the host, and  _n*  indicates the device ID.
+-   **<address type='usb'bus='***x_**'port='***y_**'\>**: indicates that the USB device is to be mounted to the USB controller specified on the VM.  *x_  indicates the controller ID, which corresponds to the index number of the USB controller configured on the VM.  _y*  indicates the port address. When configuring a USB passthrough device, you need to set this parameter to ensure that the controller to which the device is mounted is as expected.
 
 #### Configuration Methods
 
@@ -546,7 +609,7 @@ To configure USB passthrough, perform the following steps:
 1.  Configure USB controllers for the VM. For details, see  [Configuring USB Controllers](#configuring-usb-controllers).
 2.  Query information about the USB device on the host.
 
-    Run the  **lsusb**  command \(the  **usbutils**  software package needs to be installed\) to query the USB device information on the host, including the bus address, device address, device vendor ID, device ID, and product description. For example:
+    Run the  **lsusb**  command (the  **usbutils**  software package needs to be installed) to query the USB device information on the host, including the bus address, device address, device vendor ID, device ID, and product description. For example:
 
     ```
     # lsusb
@@ -603,7 +666,7 @@ To configure USB passthrough, perform the following steps:
 
 ### Overview
 
-The VM system may be damaged due to virus damage, system file deletion by mistake, or incorrect formatting. As a result, the system cannot be started. To quickly restore a damaged system, openEuler provides the storage snapshot function. openEuler can create a snapshot that records the VM status at specific time points without informing users \(usually within a few seconds\). The snapshot can be used to restore the VM to the status when the snapshots were taken. For example, a damaged system can be quickly restored with the help of snapshots, which improves system reliability.
+The VM system may be damaged due to virus damage, system file deletion by mistake, or incorrect formatting. As a result, the system cannot be started. To quickly restore a damaged system, openEuler provides the storage snapshot function. openEuler can create a snapshot that records the VM status at specific time points without informing users (usually within a few seconds). The snapshot can be used to restore the VM to the status when the snapshots were taken. For example, a damaged system can be quickly restored with the help of snapshots, which improves system reliability.
 
 >![](./public_sys-resources/icon-note.gif) **NOTE:**   
 >Currently, storage snapshots can be QCOW2 and RAW images only. Block devices are not supported.  
@@ -639,3 +702,95 @@ To create VM storage snapshots, perform the following steps:
      1582605802   2020-02-25 12:43:22 +0800   disk-snapshot
     ```
 
+## Configuring Disk I/O Suspension
+
+### Introduction
+
+#### Overview
+
+When a storage fault occurs (for example, the storage link is disconnected), the I/O error of the physical disk is sent to the VM front end through the virtualization layer. The VM receives the I/O error. As a result, the user file system in the VM may change to the read-only state. In this case, the VM needs to be restarted or the user needs to manually restore the file system, which brings extra workload to users.
+
+In this case, the virtualization platform provides the disk I/O suspension capability. That is, when the storage device is faulty, the VM I/Os are suspended when being delivered to the host. During the suspension period, no I/O error is returned to the VM. In this way, the file system in the VM does not change to the read-only state due to I/O errors. Instead, the file system is suspended. At the same time, the VM backend retries I/Os based on the specified suspension interval. If the storage fault is rectified within the suspension period, the suspended I/Os can be flushed to disks, and the internal file system of the VM automatically recovers without restarting the VM. If the storage fault is not rectified within the suspension period, an error is reported to the VM and the user is notified.
+
+#### Application Scenarios
+
+A cloud disk that may cause storage plane link disconnection is used as the backend of the virtual disk.
+
+#### Precautions and Restrictions
+
+- Only virtio-blk or virtio-scsi virtual disks support disk I/O suspension.
+
+- Generally, the backend of the virtual disk where the disk I/Os are suspended is the cloud disk whose storage plane link may be disconnected.
+
+- Disk I/O suspension can be enabled for read and write I/O errors separately. The retry interval and timeout interval for read and write I/O errors of the same disk are the same.
+
+- The disk I/O suspension retry interval does not include the actual read/write I/O overhead on the host. That is, the actual interval between two I/O retries is greater than the configured I/O error retry interval.
+
+- Disk I/O suspension cannot distinguish the specific type of I/O errors (such as storage link disconnection, bad sector, or reservation conflict). As long as the hardware returns an I/O error, suspension is performed.
+
+- When disk I/O suspension occurs, the internal I/Os of the VM are not returned, the system commands for accessing the disk, such as fdisk, are suspended, and the services that depend on the returned commands are suspended.
+
+- When disk I/O suspension occurs, the I/Os cannot be flushed to the disk. As a result, the VM may not be gracefully shut down. In this case, you need to forcibly shut down the VM.
+
+- When disk I/O suspension occurs, the disk data cannot be read. As a result, the VM cannot be restarted. In this case, you need to forcibly stop the VM, wait until the storage fault is rectified, and then restart the VM.
+
+- After a storage fault occurs, the following problems cannot be solved although disk I/O suspension occurs:
+
+  1. Failed to execute advanced storage features.
+
+     Advanced features include: virtual disk hot swap, virtual disk creation, VM startup, VM shutdown, VM forcible shutdown, VM hibernation, VM wakeup, VM storage live migration, VM storage live migration cancellation, VM storage snapshot creation, VM storage snapshot combination, VM disk capacity query, online disk capacity expansion, virtual CD-ROM drive insertion, and CD-ROM drive ejection from the VM.
+
+  2. Failed to execute the VM lifecycle.
+
+- When a live migration is initiated for a VM configured with disk I/O suspension, the disk I/O suspension configuration must be the same as that of the source host in the XML configuration of the destination disk.
+
+### Disk I/O Suspension Configuration
+
+#### Using the QEMU CLI
+
+To enable disk I/O suspension, configure `werror=retry` `rerror=retry` on the virtual disk device. To configure the retry policy, configure `retry_interval` and `retry_timeout`. `retry_interval` indicates the I/O retry interval. The value ranges from 0 to `MAX_LONG`, in milliseconds. If this parameter is not set, the default value 1000 ms is used. `retry_timeout` indicates the I/O retry timeout interval. The value ranges from 0 to `MAX_LONG`, in milliseconds. The value **0** indicates that no timeout occurs. If this parameter is not set, the default value **0** is used.
+
+The disk I/O suspension configuration of the virtio-blk disk is as follows:
+
+```shell
+-drive file=/path/to/your/storage,format=raw,if=none,id=drive-virtio-disk0,cache=none,aio=native \
+-device virtio-blk-pci,scsi=off,bus=pci.0,addr=0x6,\
+drive=drive-virtio-disk0,id=virtio-disk0,write-cache=on,\
+werror=retry,rerror=retry,retry_interval=2000,retry_timeout=10000
+```
+
+The disk I/O suspension configuration of the virtio-scsi disk is as follows:
+
+```shell
+-drive file=/path/to/your/storage,format=raw,if=none,id=drive-scsi0-0-0-0,cache=none,aio=native \
+-device scsi-hd,bus=scsi0.0,channel=0,scsi-id=0,lun=0,\
+device_id=drive-scsi0-0-0-0,drive=drive-scsi0-0-0-0,id=scsi0-0-0-0,write-cache=on,\
+werror=retry,rerror=retry,retry_interval=2000,retry_timeout=10000
+```
+
+#### Using an XML Configuration File
+
+To enable disk I/O suspension, configure `error_policy='retry'` `rerror_policy='retry'` in the disk XML configuration. Configure `retry_interval` and `retry_timeout`. retry_interval indicates the I/O retry interval. The value ranges from 0 to `MAX_LONG`, in milliseconds. If this parameter is not set, the default value 1000 ms is used. retry_timeout indicates the I/O retry timeout interval. The value ranges from 0 to `MAX_LONG`, in milliseconds. The value **0** indicates that no timeout occurs. If this parameter is not set, the default value **0** is used.
+
+The disk I/O suspension XML configuration of the virtio-blk disk is as follows:
+
+```xml
+<disk type='block' device='disk'>
+  <driver name='qemu' type='raw' cache='none' io='native' error_policy='retry' rerror_policy='retry' retry_interval='2000' retry_timeout='10000'/>
+  <source dev='/path/to/your/storage'/>
+  <target dev='vdb' bus='virtio'/>
+  <backingStore/>
+</disk>
+```
+
+The disk I/O suspension XML configuration of the virtio-scsi disk is as follows:
+
+```xml
+<disk type='block' device='disk'>
+  <driver name='qemu' type='raw' cache='none' io='native' error_policy='retry' rerror_policy='retry' retry_interval='2000' retry_timeout='10000'/>
+  <source dev='/path/to/your/storage'/>
+  <target dev='sdb' bus='scsi'/>
+  <backingStore/>
+  <address type='drive' controller='0' bus='0' target='0' unit='0'/>
+</disk>
+```

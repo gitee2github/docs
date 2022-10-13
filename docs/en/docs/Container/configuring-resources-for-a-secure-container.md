@@ -1,11 +1,11 @@
 # Configuring Resources for a Secure Container
 
 - [Configuring Resources for a Secure Container](#configuring-resources-for-a-secure-container)
-    - [Sharing Resources](#sharing-resources)
-    - [Limiting CPU Resources](#limiting-cpu-resources)
-    - [Limiting Memory Resources](#limiting-memory-resources)
-    - [Limiting Block I/O Resources](#limiting-block-i-o-resources)
-    - [Limiting File Descriptor Resources](#limiting-file-descriptor-resources)
+  - [Sharing Resources](#sharing-resources)
+  - [Limiting CPU Resources](#limiting-cpu-resources)
+  - [Limiting Memory Resources](#limiting-memory-resources)
+  - [Limiting Block I/O Resources](#limiting-block-io-resources)
+  - [Limiting File Descriptor Resources](#limiting-file-descriptor-resources)
 
 
 The secure container runs on a virtualized and isolated lightweight VM. Therefore, resource configuration is divided into two parts: resource configuration for the lightweight VM, that is, host resource configuration; resource configuration for containers in the VM, that is, guest container resource configuration. The following describes resource configuration for the two parts in detail.

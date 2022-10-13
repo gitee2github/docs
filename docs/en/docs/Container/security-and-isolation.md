@@ -3,7 +3,7 @@
 - [Security and Isolation](#security-and-isolation)
     - [Many-to-Many User Namespaces](#many-to-many-user-namespaces)
     - [User Permission Control](#user-permission-control)
-    - [proc File System Isolation \(Lxcfs\)](#proc-file-system-isolation-(lxcfs))
+    - [proc File System Isolation](#proc-file-system-isolation)
 
 
 
@@ -208,7 +208,7 @@ You can configure the startup parameters of the iSulad container engine to speci
     ```
 
 
-## proc File System Isolation \(Lxcfs\)
+## proc File System Isolation
 
 ### Application Scenario
 

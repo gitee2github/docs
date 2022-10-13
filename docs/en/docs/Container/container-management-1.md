@@ -302,7 +302,7 @@ docker run --name=container_registry -d -p 5000:5000 registry
 
 ### Principles and Application Scenarios
 
-Docker supports the extended features of hooks. The execution of hook applications and underlying runC complies with the OCI standards. For details about the standards, visit  [https://github.com/opencontainers/runtime-spec/blob/master/config.md\#hooks](#https://github.com/opencontainers/runtime-spec/blob/master/config.md#hooks).
+Docker supports the extended features of hooks. The execution of hook applications and underlying runC complies with the OCI standards. For details about the standards, visit  [https://github.com/opencontainers/runtime-spec/blob/main/config.md\#hooks](#https://github.com/opencontainers/runtime-spec/blob/main/config.md#hooks).
 
 There are three types of hooks: prestart, poststart, and poststop. They are respectively used before applications in the container are started, after the applications are started, and after the applications are stopped.
 
