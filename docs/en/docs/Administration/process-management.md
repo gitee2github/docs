@@ -172,7 +172,7 @@ at -c job [job...]
 #### Time Format
 The scheduled time can be in any of the following formats:
 
--   _hh:mm_ today: If _hh:mm_ is earlier than the current time, the selected commands will be run at _hh:mm_ the next day.
+-   _hh:mm_: If _hh:mm_ is earlier than the current time, the selected commands will be run at _hh:mm_ the next day.
 -   midnight, noon, teatime \(typically at 16:00\), or the like
 -   12-hour format followed by am or pm
 -   Time + date \(_month day_, _mm/dd/yy_, or _dd.mm.yy_\). The scheduled date must follow the scheduled time.
