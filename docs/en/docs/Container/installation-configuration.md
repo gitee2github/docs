@@ -1,16 +1,11 @@
 # Installation and Configuration 
-
+This chapter describes how to install and configure the iSulad.
+>![](./public_sys-resources/icon-note.gif) **Note：**
+>The root permission is required for installing the iSulad.
 
 - [Installation and Configuration](./installation-configuration)
     - [Installation Methods](#installation-methods)
     - [Deployment Configuration](#deployment-configuration)
-        - [Configuration Mode](#configuration-mode)
-        - [Storage Description](#storage-description)
-        - [Constraints](#constraints)
-        - [Daemon Multi-Port Binding](#daemon-multi-port-binding)
-        - [Configuring TLS Authentication and Enabling Remote Access](#configuring-tls-authentication-and-enabling-remote-access)
-        - [devicemapper Storage Driver Configuration](#devicemapper-storage-driver-configuration)
-    
 
 
 ## Installation Methods
