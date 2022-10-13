@@ -1,4 +1,10 @@
 # Uninstallation
+## Precautions
+- Before uninstalling iSulad, you need to stop the container to prevent the processes in the container from running and occupying host resources after the uninstallation.
+
+- Before uninstalling iSulad, you need to store the data that needs to be persisted in the container to the volume to prevent data loss after the uninstallation.
+
+## Procedure
 
 To uninstall iSulad, perform the following operations:
 

@@ -19,16 +19,16 @@ iSulad can be installed by running the  **yum**  or  **rpm**  command. The  **yu
 
 This section describes two installation methods.
 
--   \(Recommended\) Run the following command to install iSulad:
+-   (Recommended) Run the following command to install iSulad:
 
-    ```
+    ```shell
     $ sudo yum install -y iSulad
     ```
 
 
--   If the  **rpm**  command is used to install iSulad, you need to download and manually install the RMP packages of iSulad and all its dependencies. To install the RPM package of a single iSulad \(the same for installing dependency packages\), run the following command:
+-   If the  **rpm**  command is used to install iSulad, you need to download and manually install the RMP packages of iSulad and all its dependencies. To install the RPM package of a single iSulad (the same for installing dependency packages), run the following command:
 
-    ```
+    ```shell
     $ sudo rpm -ihv iSulad-xx.xx.xx-YYYYmmdd.HHMMSS.gitxxxxxxxx.aarch64.rpm
     ```
 
@@ -46,7 +46,7 @@ The iSulad server daemon  **isulad**  can be configured with a configuration fil
 
     During service startup, configure iSulad using the CLI. To view the configuration options, run the following command:
 
-    ```
+    ```shell
     $ isulad --help
     lightweight container runtime daemon
     
@@ -444,7 +444,7 @@ The iSulad server daemon  **isulad**  can be configured with a configuration fil
 
     Example: 
 
-    ```
+    ```json
     $ cat /etc/isulad/daemon.json
     {
         "group": "isulad",
@@ -570,7 +570,7 @@ The iSulad server daemon  **isulad**  can be configured with a configuration fil
 
 ### Constraints
 
--   In high concurrency scenarios \(200 containers are concurrently started\), the memory management mechanism of Glibc may cause memory holes and large virtual memory \(for example, 10 GB\). This problem is caused by the restriction of the Glibc memory management mechanism in the high concurrency scenario, but not by memory leakage. Therefore, the memory consumption does not increase infinitely. You can set  **MALLOC\_ARENA\_MAX**  to reducevirtual memory error and increase the rate of reducing physical memory. However, this environment variable will cause the iSulad concurrency performance to deteriorate. Set this environment variable based on the site requirements.
+-   In high concurrency scenarios (200 containers are concurrently started), the memory management mechanism of Glibc may cause memory holes and large virtual memory (for example, 10 GB). This problem is caused by the restriction of the Glibc memory management mechanism in the high concurrency scenario, but not by memory leakage. Therefore, the memory consumption does not increase infinitely. You can set  **MALLOC_ARENA_MAX**  to reducevirtual memory error and increase the rate of reducing physical memory. However, this environment variable will cause the iSulad concurrency performance to deteriorate. Set this environment variable based on the site requirements.
 
     ```
     To balance performance and memory usage, set MALLOC_ARENA_MAX to 4. (The iSulad performance on the ARM64 server is affected by less than 10%.)
@@ -582,7 +582,7 @@ The iSulad server daemon  **isulad**  can be configured with a configuration fil
 
 -   Precautions for specifying the daemon running directories
 
-    Take  **--root**  as an example. When  **/new/path/**  is used as the daemon new root directory, if a file exists in  **/new/path/**  and the directory or file name conflicts with that required by iSulad \(for example,  **engines**  and  **mnt**\), iSulad may update the original directory or file attributes including the owner and permission.
+    Take  **--root**  as an example. When  **/new/path/**  is used as the daemon new root directory, if a file exists in  **/new/path/**  and the directory or file name conflicts with that required by iSulad (for example,  **engines**  and  **mnt**), iSulad may update the original directory or file attributes including the owner and permission.
 
     Therefore, please note the impact of re-specifying various running directories and files on their attributes. You are advised to specify a new directory or file for iSulad to avoid file attribute changes and security issues caused by conflicts.
 
@@ -593,15 +593,15 @@ The iSulad server daemon  **isulad**  can be configured with a configuration fil
 
 -   Restrictions on command line parameter parsing
 
-    When the iSulad command line interface is used, the parameter parsing mode is slightly different from that of Docker. For flags with parameters in the command line, regardless of whether a long or short flag is used, only the first space after the flag or the character string after the equal sign \(=\) directly connected to the flag is used as the flag parameter. The details are as follows:
+    When the iSulad command line interface is used, the parameter parsing mode is slightly different from that of Docker. For flags with parameters in the command line, regardless of whether a long or short flag is used, only the first space after the flag or the character string after the equal sign (=) directly connected to the flag is used as the flag parameter. The details are as follows:
 
-    1.  When a short flag is used, each character in the character string connected to the hyphen \(-\) is considered as a short flag. If there is an equal sign \(=\), the character string following the equal sign \(=\) is considered as the parameter of the short flag before the equal sign \(=\).
+    1.  When a short flag is used, each character in the character string connected to the hyphen (-) is considered as a short flag. If there is an equal sign (=), the character string following the equal sign (=) is considered as the parameter of the short flag before the equal sign (=).
 
         **isula run -du=root busybox**  is equivalent to  **isula run -du root busybox**,  **isula run -d -u=root busybox**, or  **isula run -d -u root busybox**. When  **isula run -du:root**  is used, as  **-:**  is not a valid short flag, an error is reported. The preceding command is equivalent to  **isula run -ud root busybox**. However, this method is not recommended because it may cause semantic problems.
 
-    1.  When a long flag is used, the character string connected to  **--**  is regarded as a long flag. If the character string contains an equal sign \(=\), the character string before the equal sign \(=\) is a long flag, and the character string after the equal sign \(=\) is a parameter.
+    1.  When a long flag is used, the character string connected to  **--**  is regarded as a long flag. If the character string contains an equal sign (=), the character string before the equal sign (=) is a long flag, and the character string after the equal sign (=) is a parameter.
 
-        ```
+        ```shell
         isula run --user=root busybox
         ```
 
@@ -625,7 +625,7 @@ The daemon can bind multiple UNIX sockets or TCP ports and listen on these ports
 
 Users can configure one or more ports in the hosts field in the  **/etc/isulad/daemon.json**  file, or choose not to specify hosts.
 
-```
+```shell
 {
     "hosts": [
         "unix:///var/run/isulad.sock",
@@ -637,7 +637,7 @@ Users can configure one or more ports in the hosts field in the  **/etc/isulad/d
 
 Users can also run the  **-H**  or  **--host**  command in the  **/etc/sysconfig/iSulad**  file to configure a port, or choose not to specify hosts.
 
-```
+```shell
 OPTIONS='-H unix:///var/run/isulad.sock --host tcp://127.0.0.1:6789'
 ```
 
@@ -647,7 +647,7 @@ If hosts are not specified in the  **daemon.json**  file and iSulad, the daemon 
 
 -   Users cannot specify hosts in the  **/etc/isulad/daemon.json**  and  **/etc/sysconfig/iSuald**  files at the same time. Otherwise, an error will occur and iSulad cannot be started.
 
-    ```
+    ```shell
     unable to configure the isulad with file /etc/isulad/daemon.json: the following directives are specified both as a flag and in the configuration file: hosts: (from flag: [unix:///var/run/isulad.sock tcp://127.0.0.1:6789], from file: [unix:///var/run/isulad.sock tcp://localhost:5678 tcp://127.0.0.1:6789])
     ```
 
@@ -659,13 +659,13 @@ If hosts are not specified in the  **daemon.json**  file and iSulad, the daemon 
 
 #### Description
 
-iSulad is designed in C/S mode. By default, the iSulad daemon process listens only on the local/var/run/isulad.sock. Therefore, you can run commands to operate containers only on the local client iSula. To enable iSula's remote access to the container, the iSulad daemon process needs to listen on the remote access port using TCP/IP. However, listening is performed only by simply configuring tcp ip:port. In this case, all IP addresses can communicate with iSulad by calling  **isula -H tcp://**_remote server IP address_**:port**, which may cause security problems. Therefore, it is recommended that a more secure version, namely Transport Layer Security \(TLS\), be used for remote access.
+iSulad is designed in C/S mode. By default, the iSulad daemon process listens only on the local/var/run/isulad.sock. Therefore, you can run commands to operate containers only on the local client iSula. To enable iSula's remote access to the container, the iSulad daemon process needs to listen on the remote access port using TCP/IP. However, listening is performed only by simply configuring tcp ip:port. In this case, all IP addresses can communicate with iSulad by calling  **isula -H tcp://**_remote server IP address_**:port**, which may cause security problems. Therefore, it is recommended that a more secure version, namely Transport Layer Security (TLS), be used for remote access.
 
 #### Generating TLS Certificate
 
 -   Example of generating a plaintext private key and certificate
 
-    ```
+    ```shell
     #!/bin/bash
     set -e
     echo -n "Enter pass phrase:"
@@ -709,7 +709,7 @@ iSulad is designed in C/S mode. By default, the iSulad daemon process listens on
 
 -   Example of generating an encrypted private key and certificate request file
 
-    ```
+    ```bash
     #!/bin/bash
     
     echo -n "Enter public network ip:"
@@ -754,7 +754,7 @@ iSulad is designed in C/S mode. By default, the iSulad daemon process listens on
 
 #### APIs
 
-```
+```json
 {
     "tls": true,
     "tls-verify": true,
@@ -770,13 +770,13 @@ iSulad is designed in C/S mode. By default, the iSulad daemon process listens on
 
 The server supports the following modes:
 
--   Mode 1 \(client verified\): tlsverify, tlscacert, tlscert, tlskey
--   Mode 2 \(client not verified\): tls, tlscert, tlskey
+-   Mode 1 (client verified): tlsverify, tlscacert, tlscert, tlskey
+-   Mode 2 (client not verified): tls, tlscert, tlskey
 
 The client supports the following modes:
 
--   Mode 1 \(verify the identity based on the client certificate, and verify the server based on the specified CA\): tlsverify, tlscacert, tlscert, tlskey
--   Mode 2 \(server verified\): tlsverify, tlscacert
+-   Mode 1 (verify the identity based on the client certificate, and verify the server based on the specified CA): tlsverify, tlscacert, tlscert, tlskey
+-   Mode 2 (server verified): tlsverify, tlscacert
 
 Mode 1 is used for the server, and mode 2 for the client if the two-way authentication mode is used for communication.
 
@@ -792,13 +792,13 @@ Mode 2 is used for the server and the client if the unidirectional authenticatio
 
 On the server:
 
-```
+```shell
  isulad -H=tcp://0.0.0.0:2376 --tlsverify --tlscacert ~/.iSulad/ca.pem --tlscert ~/.iSulad/server-cert.pem --tlskey ~/.iSulad/server-key.pem
 ```
 
 On the client:
 
-```
+```shell
  isula version -H=tcp://$HOSTIP:2376 --tlsverify --tlscacert ~/.iSulad/ca.pem --tlscert ~/.iSulad/cert.pem --tlskey ~/.iSulad/key.pem
 ```
 
@@ -810,11 +810,11 @@ To use the devicemapper storage driver, you need to configure a thinpool device 
 
 1.  Stop the iSulad service.
 
-    ```
+    ```shell
     # systemctl stop isulad
     ```
 
-2.  Create a logical volume manager \(LVM\) volume based on the block device.
+2.  Create a logical volume manager (LVM) volume based on the block device.
 
     ```
     # pvcreate /dev/xvdf
@@ -822,26 +822,26 @@ To use the devicemapper storage driver, you need to configure a thinpool device 
 
 3.  Create a volume group based on the created physical volume.
 
-    ```
+    ```shell
     # vgcreate isula /dev/xvdf
     Volume group "isula" successfully created:
     ```
 
 4.  Create two logical volumes named  **thinpool**  and  **thinpoolmeta**.
 
-    ```
+    ```shell
     # lvcreate --wipesignatures y -n thinpool isula -l 95%VG
     Logical volume "thinpool" created.
     ```
 
-    ```
+    ```shell
     # lvcreate --wipesignatures y -n thinpoolmeta isula -l 1%VG
     Logical volume "thinpoolmeta" created.
     ```
 
 5.  Convert the two logical volumes into a thinpool and the metadata used by the thinpool.
 
-    ```
+    ```shell
     # lvconvert -y --zero n -c 512K --thinpool isula/thinpool --poolmetadata isula/thinpoolmeta
     
     WARNING: Converting logical volume isula/thinpool and isula/thinpoolmeta to
@@ -857,7 +857,7 @@ To use the devicemapper storage driver, you need to configure a thinpool device 
 
 1.  If iSulad has been used in the environment, back up the running data first.
 
-    ```
+    ```shell
     # mkdir /var/lib/isulad.bk
     # mv /var/lib/isulad/* /var/lib/isulad.bk
     ```
@@ -868,7 +868,7 @@ To use the devicemapper storage driver, you need to configure a thinpool device 
 
     -   Edit the  **/etc/isulad/daemon.json**  file, set  **storage-driver**  to  **devicemapper**, and set parameters related to the  **storage-opts**  field. For details about related parameters, see  [Parameter Description](#en-us_topic_0222861454_section1712923715282). The following lists the configuration reference:
 
-        ```
+        ```json
         {
             "storage-driver": "devicemapper"
             "storage-opts": [
@@ -881,13 +881,13 @@ To use the devicemapper storage driver, you need to configure a thinpool device 
 
     -   You can also edit  **/etc/sysconfig/iSulad**  to explicitly specify related iSulad startup parameters. For details about related parameters, see  [Parameter Description](#en-us_topic_0222861454_section1712923715282). The following lists the configuration reference:
 
-        ```
+        ```json
         OPTIONS="--storage-driver=devicemapper --storage-opt dm.thinpooldev=/dev/mapper/isula-thinpool --storage-opt dm.fs=ext4 --storage-opt dm.min_free_space=10%"
         ```
 
 3.  Start iSulad for the settings to take effect.
 
-    ```
+    ```shell
     # systemctl start isulad
     ```
 
@@ -958,7 +958,7 @@ For details about parameters supported by storage-opts, see  [Table 1](#en-us_to
 
     To disable automatic capacity expansion, set both  **thin\_pool\_autoextend\_threshold**  and  **thin\_pool\_autoextend\_percent**  in the  **/etc/lvm/profile/isula-thinpool.profile**  file to  **100**.
 
-    ```
+    ```json
     activation {   
       thin_pool_autoextend_threshold=100   
       thin_pool_autoextend_percent=100 
