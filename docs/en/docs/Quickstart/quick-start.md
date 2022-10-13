@@ -68,7 +68,7 @@ This document uses openEuler 20.03 LTS installed on the TaiShan 200 server as an
     </td>
     <td class="cellrowborder" valign="top" width="40.06400640064006%" headers="mcps1.2.4.1.2 "><a name="en-us_topic_0229291228_ul262164044016"></a><a name="en-us_topic_0229291228_ul262164044016"></a><ul id="en-us_topic_0229291228_ul262164044016"><li>AArch64</li><li>x86_64</li></ul>
     </td>
-    <td class="cellrowborder" valign="top" width="48.74487448744874%" headers="mcps1.2.4.1.3 "><a name="en-us_topic_0229291228_ul1830173916388"></a><a name="en-us_topic_0229291228_ul1830173916388"></a><ul id="en-us_topic_0229291228_ul1830173916388"><li>64-bit Arm architecture</li><li>64-bit Intel x86 architecture</li></ul>
+    <td class="cellrowborder" valign="top" width="48.74487448744874%" headers="mcps1.2.4.1.3 "><a name="en-us_topic_0229291228_ul1830173916388"></a><a name="en-us_topic_0229291228_ul1830173916388"></a><ul id="en-us_topic_0229291228_ul1830173916388"><li>64-bit ARM architecture</li><li>64-bit Intel x86 architecture</li></ul>
     </td>
     </tr>
     <tr id="en-us_topic_0229291228_ra68eff5c33a84bb2be6672a48a643d26"><td class="cellrowborder" valign="top" width="11.19111911191119%" headers="mcps1.2.4.1.1 "><p id="en-us_topic_0229291228_ac0a50d2069ab444cafff180647772df4"><a name="en-us_topic_0229291228_ac0a50d2069ab444cafff180647772df4"></a><a name="en-us_topic_0229291228_ac0a50d2069ab444cafff180647772df4"></a>CPU</p>

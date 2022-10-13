@@ -359,9 +359,6 @@ If you need to set the storage driver of Docker to devicemapper, you can also us
 -   When you use the devicemapper storage driver and the container is switched between the user namespace scenario and common scenario, the  **BaseDeviceUUID**  content in the corresponding deviceset-metadata file needs to be cleared. In the thinpool capacity expansion or rebuild scenario, you also need to clear the  **BaseDeviceUUID**  content in the deviceset-metadata file. Otherwise, the Docker service fails to be restarted.
 
 ## Impact of Forcibly Killing Docker Background Processes
-
-The call chain of Docker is long. Forcibly killing docker background processes \(such as sending  **kill -9**\) may cause data status inconsistency. This section describes some problems that may be caused by forcible killing.
-
 ### Semaphores May Be Residual
 
 When the devicemapper is used as the graphdriver, forcible killing may cause residual semaphores. Docker creates semaphores when performing operations on devicemapper. If daemon is forcibly killed before the semaphores are released, the release may fail. A maximum of one semaphore can be leaked at a time, and the leakage probability is low. However, the Linux OS has an upper limit on semaphores. When the number of semaphore leakage times reaches the upper limit, new semaphores cannot be created. As a result, Docker daemon fails to be started. The troubleshooting method is as follows:
