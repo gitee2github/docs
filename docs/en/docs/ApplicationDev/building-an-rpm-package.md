@@ -59,7 +59,7 @@ The content is described as follows:
 </td>
 <td class="cellrowborder" valign="top" width="17.76%" headers="mcps1.1.5.1.3 "><p id="en-us_topic_0184337290_p1754175903010"><a name="en-us_topic_0184337290_p1754175903010"></a><a name="en-us_topic_0184337290_p1754175903010"></a>Build directory.</p>
 </td>
-<td class="cellrowborder" valign="top" width="36.76%" headers="mcps1.1.5.1.4 "><p id="en-us_topic_0184337290_p875415916306"><a name="en-us_topic_0184337290_p875415916306"></a><a name="en-us_topic_0184337290_p875415916306"></a>The source code package is decompressed and compiled in a subdirectory of the directory.</p>
+<td class="cellrowborder" valign="top" width="36.76%" headers="mcps1.1.5.1.4 "><p id="en-us_topic_0184337290_p875415916306"><a name="en-us_topic_0184337290_p875415916306"></a><a name="en-us_topic_0184337290_p875415916306"></a>The source package is decompressed and compiled in a subdirectory of the directory.</p>
 </td>
 </tr>
 <tr id="en-us_topic_0184337290_row117541859183017"><td class="cellrowborder" valign="top" width="27.1%" headers="mcps1.1.5.1.1 "><p id="en-us_topic_0184337290_p87541259163017"><a name="en-us_topic_0184337290_p87541259163017"></a><a name="en-us_topic_0184337290_p87541259163017"></a>~/rpmbuild/RPMS</p>
@@ -77,7 +77,7 @@ The content is described as follows:
 </td>
 <td class="cellrowborder" valign="top" width="17.76%" headers="mcps1.1.5.1.3 "><p id="en-us_topic_0184337290_p10753135913308"><a name="en-us_topic_0184337290_p10753135913308"></a><a name="en-us_topic_0184337290_p10753135913308"></a>Source code directory.</p>
 </td>
-<td class="cellrowborder" valign="top" width="36.76%" headers="mcps1.1.5.1.4 "><p id="en-us_topic_0184337290_p675495933018"><a name="en-us_topic_0184337290_p675495933018"></a><a name="en-us_topic_0184337290_p675495933018"></a>The source code package (for example, .tar package) and all patches are stored in this directory.</p>
+<td class="cellrowborder" valign="top" width="36.76%" headers="mcps1.1.5.1.4 "><p id="en-us_topic_0184337290_p675495933018"><a name="en-us_topic_0184337290_p675495933018"></a><a name="en-us_topic_0184337290_p675495933018"></a>The source package (for example, .tar package) and all patches are stored in this directory.</p>
 </td>
 </tr>
 <tr id="en-us_topic_0184337290_row1868513113357"><td class="cellrowborder" valign="top" width="27.1%" headers="mcps1.1.5.1.1 "><p id="en-us_topic_0184337290_p3753135912308"><a name="en-us_topic_0184337290_p3753135912308"></a><a name="en-us_topic_0184337290_p3753135912308"></a>~/rpmbuild/SPECS</p>
@@ -111,7 +111,7 @@ The packaging process is as follows:
 3.  Install the RPM package. The installation is similar to pre-assembling the software package. Copy the contents \(such as binary files, configuration files, and man files\) that should be contained in the software package to  **%\_buildrootdir**  and assemble the contents based on the actual directory structure after installation. For example, if binary commands are stored in  **/usr/bin**, copy the directory structure to  **%\_buildrootdir**.
 4.  Perform necessary configurations, such as preparations before installation and cleanup after installation. These are configured in the SPEC file to tell the  **rpmbuild**  command how to build.
 5.  Check whether the software is running properly.
-6.  The generated RPM package is stored in  **%\_rpmdir**, and the source code package is stored in  **%\_srpmdir**.
+6.  The generated RPM package is stored in  **%\_rpmdir**, and the source package is stored in  **%\_srpmdir**.
 
 In the SPEC file, each phase is described as follows:
 
@@ -202,18 +202,18 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 </thead>
 <tbody><tr id="row1642124685214"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p44294645211"><a name="p44294645211"></a><a name="p44294645211"></a>-bp <em id="i142674211316"><a name="i142674211316"></a><a name="i142674211316"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p5504192417282"><a name="p5504192417282"></a><a name="p5504192417282"></a>Execute only the <strong id="b15909724197"><a name="b15909724197"></a><a name="b15909724197"></a>%prep</strong> section of the <em id="i276214508223"><a name="i276214508223"></a><a name="i276214508223"></a>specfile</em> (decompress the source code package and install the patch).</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p5504192417282"><a name="p5504192417282"></a><a name="p5504192417282"></a>Execute only the <strong id="b15909724197"><a name="b15909724197"></a><a name="b15909724197"></a>%prep</strong> section of the <em id="i276214508223"><a name="i276214508223"></a><a name="i276214508223"></a>specfile</em> (decompress the source package and install the patch).</p>
 </td>
 </tr>
 <tr id="row375616513198"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p663152652313"><a name="p663152652313"></a><a name="p663152652313"></a>-bc <em id="i17281843152313"><a name="i17281843152313"></a><a name="i17281843152313"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1475675181912"><a name="p1475675181912"></a><a name="p1475675181912"></a>Execute <strong id="b15909724197"><a name="b15909724197"></a><a name="b15909724197"></a>%prep</strong> and <strong id="b52483117197"><a name="b52483117197"></a><a name="b52483117197"></a>%build</strong> sections of <em id="i11191112514"><a name="i11191112514"></a><a name="i11191112514"></a>specfile</em> (prepare and compile).</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1475675181912"><a name="p1475675181912"></a><a name="p1475675181912"></a>Execute <strong id="b15909724197"><a name="b15909724197"></a><a name="b15909724197"></a>%prep</strong> and <strong id="b52483117197"><a name="b52483117197"></a><a name="b52483117197"></a>%build</strong> sections of the <em id="i11191112514"><a name="i11191112514"></a><a name="i11191112514"></a>specfile</em> (prepare and compile).</p>
 </td>
 </tr>
 <tr id="row3421646125214"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p143521654132516"><a name="p143521654132516"></a><a name="p143521654132516"></a>-bi <em id="i1312330192911"><a name="i1312330192911"></a><a name="i1312330192911"></a>specfile</em></p>
 </td>
 <td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p134949360269"><a name="p134949360269"></a><a name="p134949360269"></a>Execute  <strong id="b15909724197"><a name="b15909724197"></a><a name="b15909724197"></a>%prep</strong>,<strong id="b52483117197"><a name="b52483117197"></a><a name
-="b52483117197"></a>%build</strong> and <strong id="b879710551192"><a name="b879710551192"></a><a name="b879710551192"></a>%install</strong> in the <em id="i37971555111910"><a name="i37971555111910"></a><a name="i37971555111910"></a>specfile</em> (prepare,compile and install).</p>
+="b52483117197"></a>%build</strong> and <strong id="b879710551192"><a name="b879710551192"></a><a name="b879710551192"></a>%install</strong> sections of the <em id="i37971555111910"><a name="i37971555111910"></a><a name="i37971555111910"></a>specfile</em> (prepare,compile and install).</p>
 </td>
 </tr>
 <tr id="row642846145211"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1342746115211"><a name="p1342746115211"></a><a name="p1342746115211"></a>-bl <em id="i1654526296"><a name="i1654526296"></a><a name="i1654526296"></a>specfile</em></p>
@@ -223,7 +223,7 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 </tr>
 <tr id="row2428463528"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p56839482271"><a name="p56839482271"></a><a name="p56839482271"></a>-ba <em id="i182405318294"><a name="i182405318294"></a><a name="i182405318294"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1983024422919"><a name="p1983024422919"></a><a name="p1983024422919"></a>Uses the <em id="i622172017295"><a name="i622172017295"></a><a name="i622172017295"></a>specfile</em> to build the source code package and binary package.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1983024422919"><a name="p1983024422919"></a><a name="p1983024422919"></a>Uses the <em id="i622172017295"><a name="i622172017295"></a><a name="i622172017295"></a>specfile</em> to build the source package and binary package.</p>
 </td>
 </tr>
 <tr id="row176441743349"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p176441749342"><a name="p176441749342"></a><a name="p176441749342"></a>-bb <em id="i1815358294"><a name="i1815358294"></a><a name="i1815358294"></a>specfile</em></p>
@@ -233,12 +233,12 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 </tr>
 <tr id="row143691297164"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p913185619293"><a name="p913185619293"></a><a name="p913185619293"></a>-bs <em id="i18577144710301"><a name="i18577144710301"></a><a name="i18577144710301"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p8707203214307"><a name="p8707203214307"></a><a name="p8707203214307"></a>Uses the <em id="i99441330193010"><a name="i99441330193010"></a><a name="i99441330193010"></a>specfile</em> to build the source code package.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p8707203214307"><a name="p8707203214307"></a><a name="p8707203214307"></a>Uses the <em id="i99441330193010"><a name="i99441330193010"></a><a name="i99441330193010"></a>specfile</em> to build the source package.</p>
 </td>
 </tr>
 <tr id="row1399650113119"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p6756203383111"><a name="p6756203383111"></a><a name="p6756203383111"></a>-rp <em id="i18757173312312"><a name="i18757173312312"></a><a name="i18757173312312"></a>sourcefile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p11757183311317"><a name="p11757183311317"></a><a name="p11757183311317"></a>Starts build from the <strong id="b4301319235"><a name="b4301319235"></a><a name="b4301319235"></a>%prep</strong> phase of the <em id="i197751147153619"><a name="i197751147153619"></a><a name="i197751147153619"></a>sourcefile</em> (decompress the source code package and install the patch).</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p11757183311317"><a name="p11757183311317"></a><a name="p11757183311317"></a>Starts build from the <strong id="b4301319235"><a name="b4301319235"></a><a name="b4301319235"></a>%prep</strong> phase of the <em id="i197751147153619"><a name="i197751147153619"></a><a name="i197751147153619"></a>sourcefile</em> (decompress the source package and install the patch).</p>
 </td>
 </tr>
 <tr id="row114161423119"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p2757183312313"><a name="p2757183312313"></a><a name="p2757183312313"></a>-rc <em id="i7716153183620"><a name="i7716153183620"></a><a name="i7716153183620"></a>sourcefile</em></p>
@@ -258,7 +258,7 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 </tr>
 <tr id="row15609181543116"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p167572332315"><a name="p167572332315"></a><a name="p167572332315"></a>-ra <em id="i195041839133617"><a name="i195041839133617"></a><a name="i195041839133617"></a>sourcefile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1475713334313"><a name="p1475713334313"></a><a name="p1475713334313"></a>Uses the <em id="i11175457133613"><a name="i11175457133613"></a><a name="i11175457133613"></a>sourcefile</em> to build the source code package and binary package.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1475713334313"><a name="p1475713334313"></a><a name="p1475713334313"></a>Uses the <em id="i11175457133613"><a name="i11175457133613"></a><a name="i11175457133613"></a>sourcefile</em> to build the source package and binary package.</p>
 </td>
 </tr>
 <tr id="row346418223315"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1875753320313"><a name="p1875753320313"></a><a name="p1875753320313"></a>-rb <em id="i9950941153618"><a name="i9950941153618"></a><a name="i9950941153618"></a>sourcefile</em></p>
@@ -268,12 +268,12 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 </tr>
 <tr id="row4848131918311"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p187575336317"><a name="p187575336317"></a><a name="p187575336317"></a>-rs <em id="i5943643133613"><a name="i5943643133613"></a><a name="i5943643133613"></a>sourcefile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p12757123383112"><a name="p12757123383112"></a><a name="p12757123383112"></a>Uses the <em id="i6891141113712"><a name="i6891141113712"></a><a name="i6891141113712"></a>sourcefile</em> to build the source code package.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p12757123383112"><a name="p12757123383112"></a><a name="p12757123383112"></a>Uses the <em id="i6891141113712"><a name="i6891141113712"></a><a name="i6891141113712"></a>sourcefile</em> to build the source package.</p>
 </td>
 </tr>
 <tr id="row24008816315"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1864848133917"><a name="p1864848133917"></a><a name="p1864848133917"></a>-tp <em id="i1164815843917"><a name="i1164815843917"></a><a name="i1164815843917"></a>tarfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1664812814397"><a name="p1664812814397"></a><a name="p1664812814397"></a>Starts build from the <strong id="b882495422416"><a name="b882495422416"></a><a name="b882495422416"></a>%prep</strong> phase of the <em id="i10204153654013"><a name="i10204153654013"></a><a name="i10204153654013"></a>tarfile</em> (decompress the source code package and install the patch).</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1664812814397"><a name="p1664812814397"></a><a name="p1664812814397"></a>Starts build from the <strong id="b882495422416"><a name="b882495422416"></a><a name="b882495422416"></a>%prep</strong> phase of the <em id="i10204153654013"><a name="i10204153654013"></a><a name="i10204153654013"></a>tarfile</em> (decompress the source package and install the patch).</p>
 </td>
 </tr>
 <tr id="row73977115386"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p7648168153911"><a name="p7648168153911"></a><a name="p7648168153911"></a>-tc <em id="i352342324018"><a name="i352342324018"></a><a name="i352342324018"></a>tarfile</em></p>
@@ -288,7 +288,7 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 </tr>
 <tr id="row1831910143813"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p176494814391"><a name="p176494814391"></a><a name="p176494814391"></a>-ta <em id="i1598822734013"><a name="i1598822734013"></a><a name="i1598822734013"></a>tarfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1164938153915"><a name="p1164938153915"></a><a name="p1164938153915"></a>Uses the <em id="i5555114184019"><a name="i5555114184019"></a><a name="i5555114184019"></a>tarfile</em> to build the source code package and binary package.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1164938153915"><a name="p1164938153915"></a><a name="p1164938153915"></a>Uses the <em id="i5555114184019"><a name="i5555114184019"></a><a name="i5555114184019"></a>tarfile</em> to build the source package and binary package.</p>
 </td>
 </tr>
 <tr id="row16858111273820"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p964912883913"><a name="p964912883913"></a><a name="p964912883913"></a>-tb <em id="i1985417296405"><a name="i1985417296405"></a><a name="i1985417296405"></a>tarfile</em></p>
@@ -298,7 +298,7 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 </tr>
 <tr id="row163391515123813"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p176495811391"><a name="p176495811391"></a><a name="p176495811391"></a>-ts <em id="i990815311403"><a name="i990815311403"></a><a name="i990815311403"></a>tarfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p56490810392"><a name="p56490810392"></a><a name="p56490810392"></a>Uses the <em id="i17708658122817"><a name="i17708658122817"></a><a name="i17708658122817"></a>tarfile</em> to build the source code package.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p56490810392"><a name="p56490810392"></a><a name="p56490810392"></a>Uses the <em id="i17708658122817"><a name="i17708658122817"></a><a name="i17708658122817"></a>tarfile</em> to build the source package.</p>
 </td>
 </tr>
 <tr id="row2443719144118"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p7444191984111"><a name="p7444191984111"></a><a name="p7444191984111"></a>\-\-buildroot=<em id="i39711271427"><a name="i39711271427"></a><a name="i39711271427"></a>DIRECTORY</em></p>
@@ -338,7 +338,7 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 </tr>
 <tr id="row2477041403"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1247744907"><a name="p1247744907"></a><a name="p1247744907"></a>\-\-rebuild <em id="i45014485219"><a name="i45014485219"></a><a name="i45014485219"></a>sourcefile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p2477747013"><a name="p2477747013"></a><a name="p2477747013"></a>Installs the specified source code package <em id="i5781916123714"><a name="i5781916123714"></a><a name="i5781916123714"></a>sourcefile</em>, that is, start preparation, compilation, and installation of the source code package.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p2477747013"><a name="p2477747013"></a><a name="p2477747013"></a>Installs the specified source package <em id="i5781916123714"><a name="i5781916123714"></a><a name="i5781916123714"></a>sourcefile</em>, that is, start preparation, compilation, and installation of the source package.</p>
 </td>
 </tr>
 <tr id="row15893211013"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p168931212018"><a name="p168931212018"></a><a name="p168931212018"></a>\-\-recompile <em id="i182834913220"><a name="i182834913220"></a><a name="i182834913220"></a>sourcefile</em></p>
@@ -500,7 +500,7 @@ This section describes how to build RPM software packages using the OBS on the w
 
 ### OBS Overview
 
-OBS is a general compilation framework based on the openSUSE distribution. It is used to build source code packages into RPM software packages or Linux images. OBS uses the automatic distributed compilation mode and supports the compilation of images and installation packages of multiple Linux OS distributions \(such as openEuler, SUSE, and Debian\) on multiple architecture platforms \(such as x86 and ARM64\).
+OBS is a general compilation framework based on the openSUSE distribution. It is used to build source packages into RPM software packages or Linux images. OBS uses the automatic distributed compilation mode and supports the compilation of images and installation packages of multiple Linux OS distributions \(such as openEuler, SUSE, and Debian\) on multiple architecture platforms \(such as x86 and ARM64\).
 
 OBS consists of the backend and frontend. The backend implements all core functions. The frontend provides web applications and APIs for interaction with the backend. In addition, OBS provides an API command line client OSC, which is developed in an independent repository.
 

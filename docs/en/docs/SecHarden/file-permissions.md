@@ -1,16 +1,16 @@
 
-## File Permissions
+# File Permissions
 
 - [File Permissions](#file-permissions)
-    - [Setting the Permissions on and Ownership of Files](#setting-the-permissions-on-and-ownership-of-files)
-    - [Deleting Unowned Files](#deleting-unowned-files)
-    - [Removing a Symbolic Link to /dev/null](#removing-a-symbolic-link-to-dev-null)
-    - [Setting the umask Value for a Daemon](#setting-the-umask-value-for-a-daemon)
-    - [Adding a Sticky Bit Attribute to Globally Writable Directories](#adding-a-sticky-bit-attribute-to-globally-writable-directories)
-    - [Disabling the Globally Writable Permission on Unauthorized Files](#disabling-the-globally-writable-permission-on-unauthorized-files)
-    - [Restricting Permissions on the at Command](#restricting-permissions-on-the-at-command)
-    - [Restricting Permissions on the cron Command](#restricting-permissions-on-the-cron-command)
-    - [Restricting Permissions on the sudo Command](#restricting-permissions-on-the-sudo-command)
+  - [Setting the Permissions on and Ownership of Files](#setting-the-permissions-on-and-ownership-of-files)
+  - [Deleting Unowned Files](#deleting-unowned-files)
+  - [Removing a Symbolic Link to /dev/null](#removing-a-symbolic-link-to-devnull)
+  - [Setting the umask Value for a Daemon](#setting-the-umask-value-for-a-daemon)
+  - [Adding a Sticky Bit Attribute to Globally Writable Directories](#adding-a-sticky-bit-attribute-to-globally-writable-directories)
+  - [Disabling the Globally Writable Permission on Unauthorized Files](#disabling-the-globally-writable-permission-on-unauthorized-files)
+  - [Restricting Permissions on the at Command](#restricting-permissions-on-the-at-command)
+  - [Restricting Permissions on the cron Command](#restricting-permissions-on-the-cron-command)
+  - [Restricting Permissions on the sudo Command](#restricting-permissions-on-the-sudo-command)
 
 
 ## Setting the Permissions on and Ownership of Files
@@ -63,7 +63,7 @@ Delete the file whose user ID does not exist.
 
 Delete the file whose group ID does not exist.
 
-1.  Search for the file whose user ID does not exist.
+1.  Search for the file whose group ID does not exist.
 
     ```
     find / -nogroup
@@ -152,9 +152,10 @@ Any user can modify globally writable files, which affects system integrity.
 ### Implementation
 
 1.  Search for all globally writable files.
-
+    ````
     find / -type d ( -perm -o+w ) | grep -v proc
     find / -type f ( -perm -o+w ) | grep -v proc
+    ````
 
 2.  View the settings of files \(excluding files and directories with sticky bits\) listed in step 1, and delete the files or disable the globally writable permission on them. Run the following command to remove the permission. In the command,  _filename_  indicates the file name.
 
