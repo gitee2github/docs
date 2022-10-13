@@ -1635,13 +1635,13 @@ The Structured Query Language \(SQL\) used by MySQL is the most common standard 
 4.  Install the MySQL server as the **root** user.
 
     ```
-    # dnf install mysql
+    # dnf install mysql-server
     ```
 
 5.  Check the installed RPM package.
 
     ```
-    $ rpm -qa | grep mysql
+    $ rpm -qa | grep mysql-server
     ```
 
 
