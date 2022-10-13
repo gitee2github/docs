@@ -59,7 +59,7 @@
   </tr>
   <tr id="row445113512611"><td class="cellrowborder" valign="top" width="11.19111911191119%" headers="mcps1.2.4.1.1 "><p id="p24514350612"><a name="p24514350612"></a><a name="p24514350612"></a>Hard disk</p>
   </td>
-  <td class="cellrowborder" valign="top" width="40.06400640064006%" headers="mcps1.2.4.1.2 "><p id="p3451035464"><a name="p3451035464"></a><a name="p3451035464"></a>≥ 120 GB (for better user experience)</p>
+  <td class="cellrowborder" valign="top" width="40.06400640064006%" headers="mcps1.2.4.1.2 "><p id="p3451035464"><a name="p3451035464"></a><a name="p3451035464"></a>≥ 32 GB (120 GB or higher recommended better user experience)</p>
   </td>
   <td class="cellrowborder" valign="top" width="48.74487448744874%" headers="mcps1.2.4.1.3 "><p id="p1845133516618"><a name="p1845133516618"></a><a name="p1845133516618"></a>IDE, SATA, SAS interfaces are supported.</p>
   </td>
