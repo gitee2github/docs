@@ -159,7 +159,7 @@ This section describes how to create or use a QCOW2 image to install the openEul
     -   _fileName_: File name.
     -   _diskSize_: Disk size, which specifies the size of a block disk. The unit can be K, M, G, or T, indicating KiB, MiB, GiB, or TiB.
 
-    For example, to create an image file  **openEuler-imge.qcow2**  whose disk size is 32 GiB and format is qcow2, the command and output are as follows:
+    For example, to create an image file  **openEuler-imge.qcow2**  whose disk size is 32 GB and format is qcow2, the command and output are as follows:
 
     ```
     $ qemu-img create -f qcow2 openEuler-image.qcow2 32G

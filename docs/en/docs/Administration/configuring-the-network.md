@@ -8,7 +8,7 @@
         - [Configuring the Network Through the ifcfg File](#configuring-the-network-through-the-ifcfg-file)
     - [Configuring a Host Name](#configuring-a-host-name)
         - [Introduction](#introduction)
-        - [Configuring a Host Name by Running the hostnamectl Command](#configuring-a-host-name-by-running-the-hostnamectl-command)
+        - [Configuring a Host Name by Running the  **hostnamectl**  Command](#configuring-a-host-name-by-running-the-hostnamectl-command)
         - [Configuring a Host Name by Running the nmcli Command](#configuring-a-host-name-by-running-the-nmcli-command)
     - [Configuring Network Bonding](#configuring-network-bonding)
         - [Running the nmcli Command](#running-the-nmcli-command)
@@ -16,7 +16,7 @@
     - [IPv6 Differences \(vs IPv4\)](#ipv6-differences-vs-ipv4)
         - [Restrictions](#restrictions)
         - [Configuration Description](#configuration-description)
-        - [FAQs](#faqs)
+        - [FAQ](#faq)
 
 <!-- /TOC -->
 
@@ -521,7 +521,7 @@ There are three types of host names:  **static**,  **transient**, and  **pretty*
 >![](./public_sys-resources/icon-note.gif) **NOTE:**   
 >Static and transient host names can contain only letters \(a–z and A–Z\), digits \(0–9\), hyphens \(-\), underlines \(\_\), and periods \(.\). The host names cannot start or end with a period \(.\) or contain two consecutive periods \(.\). The host name can contain a maximum of 64 characters.  
 
-### Configuring a Host Name by Running the hostnamectl  Command
+### Configuring a Host Name by Running the  **hostnamectl**  Command
 
 #### Viewing All Host Names
 Run the following command to view the current host name:
@@ -1025,7 +1025,7 @@ Remarks:
 -   preferred\_lft: preferred lifetime. The preferred\_lft address has not expired and can be used for normal communication. If there are multiple preferred addresses, the address is selected based on the kernel mechanism.
 -   valid\_lft: valid lifetime. The address cannot be used for creating new connections within the period of \[preferred\_lft, valid\_lft\]. The existing connections are still valid.
 
-##### Command ip link
+##### ip link Command
 The commands are as follows:
 
 ```
@@ -1034,7 +1034,7 @@ ip link set IFNAME mtu MTU
 
 The minimum PMTU of IPv6 is 1280. If the MTU is set to a value smaller than 1280, IPv6 addresses will be lost. Other devices cannot ping the IPv6 address.
 
-##### Command ip addr
+##### ip addr Command
 1.  The commands are as follows:
 
     ```
@@ -1082,7 +1082,7 @@ The minimum PMTU of IPv6 is 1280. If the MTU is set to a value smaller than 1280
 
 
 
-##### Command ip route
+##### ip route Command
 1.  The commands are as follows:
 
     ```
@@ -1102,7 +1102,7 @@ The minimum PMTU of IPv6 is 1280. If the MTU is set to a value smaller than 1280
     You can choose whether to add the -6 option when deleting an IPv6 route. The ip route command determines whether an IPv4 address or an IPv6 address is used based on the address type.
 
 
-##### Command ip rule
+##### ip rule command
 1.  The commands are as follows:
 
     ```
@@ -1137,28 +1137,28 @@ The configuration differences in /etc/sysconfig/network are as follows:
 </th>
 </tr>
 </thead>
-<tbody><tr id="en-us_topic_0161841799_en-us_topic_0159175469_row934415256301"><td class="cellrowborder" valign="top" width="23.002300230023003%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p16344192543016"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p16344192543016"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p16344192543016"></a>N/A</p>
+<tbody><tr id="en-us_topic_0161841799_en-us_topic_0159175469_row934415256301"><td class="cellrowborder" valign="top" width="23.002300230023003%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p16344192543016"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p16344192543016"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p16344192543016"></a>NA</p>
 </td>
 <td class="cellrowborder" valign="top" width="40.564056405640564%" headers="mcps1.1.4.1.2 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p1334482573012"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1334482573012"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1334482573012"></a>IPV6FORWARDING=yes|no</p>
 </td>
 <td class="cellrowborder" valign="top" width="36.43364336433643%" headers="mcps1.1.4.1.3 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p934414251302"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p934414251302"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p934414251302"></a>IPv6 forwarding. By default, IPv6 packets are not forwarded.</p>
 </td>
 </tr>
-<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row1344122517308"><td class="cellrowborder" valign="top" width="23.002300230023003%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p9344152513303"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p9344152513303"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p9344152513303"></a>N/A</p>
+<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row1344122517308"><td class="cellrowborder" valign="top" width="23.002300230023003%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p9344152513303"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p9344152513303"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p9344152513303"></a>NA</p>
 </td>
 <td class="cellrowborder" valign="top" width="40.564056405640564%" headers="mcps1.1.4.1.2 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p123441025123013"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p123441025123013"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p123441025123013"></a>IPV6_AUTOCONF=yes|no</p>
 </td>
 <td class="cellrowborder" valign="top" width="36.43364336433643%" headers="mcps1.1.4.1.3 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p1134418258307"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1134418258307"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1134418258307"></a>If IPv6 forwarding is enabled, the value is <strong id="b105538218525"><a name="b105538218525"></a><a name="b105538218525"></a>no</strong>. Otherwise, the value is<strong id="b675215418524"><a name="b675215418524"></a><a name="b675215418524"></a> yes</strong>.</p>
 </td>
 </tr>
-<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row3344325173018"><td class="cellrowborder" valign="top" width="23.002300230023003%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p9344725143019"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p9344725143019"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p9344725143019"></a>N/A</p>
+<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row3344325173018"><td class="cellrowborder" valign="top" width="23.002300230023003%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p9344725143019"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p9344725143019"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p9344725143019"></a>NA</p>
 </td>
 <td class="cellrowborder" valign="top" width="40.564056405640564%" headers="mcps1.1.4.1.2 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p2344225183011"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p2344225183011"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p2344225183011"></a>IPV6_ROUTER=yes|no</p>
 </td>
 <td class="cellrowborder" valign="top" width="36.43364336433643%" headers="mcps1.1.4.1.3 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p113441425163010"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p113441425163010"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p113441425163010"></a>If IPv6 forwarding is enabled, the value is <strong id="b85772918528"><a name="b85772918528"></a><a name="b85772918528"></a>yes</strong>. Otherwise, the value is <strong id="b875931175216"><a name="b875931175216"></a><a name="b875931175216"></a>no</strong>.</p>
 </td>
 </tr>
-<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row173447253307"><td class="cellrowborder" valign="top" width="23.002300230023003%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p534417251308"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p534417251308"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p534417251308"></a>N/A</p>
+<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row173447253307"><td class="cellrowborder" valign="top" width="23.002300230023003%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p534417251308"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p534417251308"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p534417251308"></a>NA</p>
 </td>
 <td class="cellrowborder" valign="top" width="40.564056405640564%" headers="mcps1.1.4.1.2 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p8344132563010"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p8344132563010"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p8344132563010"></a>IPV6_AUTOTUNNEL=yes|no</p>
 </td>
@@ -1172,21 +1172,21 @@ The configuration differences in /etc/sysconfig/network are as follows:
 <td class="cellrowborder" valign="top" width="36.43364336433643%" headers="mcps1.1.4.1.3 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p103451125123015"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p103451125123015"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p103451125123015"></a>Indicates the default gateway in IPv6.</p>
 </td>
 </tr>
-<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row1234519256301"><td class="cellrowborder" valign="top" width="23.002300230023003%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p334511251304"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p334511251304"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p334511251304"></a>N/A</p>
+<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row1234519256301"><td class="cellrowborder" valign="top" width="23.002300230023003%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p334511251304"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p334511251304"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p334511251304"></a>NA</p>
 </td>
 <td class="cellrowborder" valign="top" width="40.564056405640564%" headers="mcps1.1.4.1.2 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p9345122511309"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p9345122511309"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p9345122511309"></a>IPV6_DEFAULTDEV=&lt;interface&gt; (optional)</p>
 </td>
 <td class="cellrowborder" valign="top" width="36.43364336433643%" headers="mcps1.1.4.1.3 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p153457255303"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p153457255303"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p153457255303"></a>Specifies the default forwarding NIC.</p>
 </td>
 </tr>
-<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row3345825183015"><td class="cellrowborder" valign="top" width="23.002300230023003%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p1734518251306"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1734518251306"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1734518251306"></a>N/A</p>
+<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row3345825183015"><td class="cellrowborder" valign="top" width="23.002300230023003%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p1734518251306"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1734518251306"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1734518251306"></a>NA</p>
 </td>
 <td class="cellrowborder" valign="top" width="40.564056405640564%" headers="mcps1.1.4.1.2 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p0345325193012"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p0345325193012"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p0345325193012"></a>IPV6_RADVD_PIDFILE=&lt;pid-file&gt; (optional)</p>
 </td>
 <td class="cellrowborder" valign="top" width="36.43364336433643%" headers="mcps1.1.4.1.3 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p1034614253307"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1034614253307"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1034614253307"></a>The default path of ipv6_radvd_pid is /var/run/radvd/radvd.pid.</p>
 </td>
 </tr>
-<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row15346162518300"><td class="cellrowborder" valign="top" width="23.002300230023003%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p15346125163015"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p15346125163015"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p15346125163015"></a>N/A</p>
+<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row15346162518300"><td class="cellrowborder" valign="top" width="23.002300230023003%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p15346125163015"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p15346125163015"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p15346125163015"></a>NA</p>
 </td>
 <td class="cellrowborder" valign="top" width="40.564056405640564%" headers="mcps1.1.4.1.2 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p13460257306"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p13460257306"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p13460257306"></a>IPV6_RADVD_TRIGGER_ACTION=startstop|reload|restart|SIGHUP (optional)</p>
 </td>
@@ -1216,14 +1216,14 @@ The differences in /etc/sysconfig/network-scripts/ifcfg-<interface-name\> are as
 </tr>
 <tr id="en-us_topic_0161841799_en-us_topic_0159175469_row13347172513011"><td class="cellrowborder" valign="top" width="23.36%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p11347192511306"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p11347192511306"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p11347192511306"></a>PREFIXn</p>
 </td>
-<td class="cellrowborder" valign="top" width="40.339999999999996%" headers="mcps1.1.4.1.2 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p18347825153015"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p18347825153015"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p18347825153015"></a>N/A</p>
+<td class="cellrowborder" valign="top" width="40.339999999999996%" headers="mcps1.1.4.1.2 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p18347825153015"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p18347825153015"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p18347825153015"></a>NA</p>
 </td>
 <td class="cellrowborder" valign="top" width="36.3%" headers="mcps1.1.4.1.3 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p1234752513017"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1234752513017"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1234752513017"></a>The network prefix, network alias, and PPP are invalid. The priority is higher than that of NETMASK.</p>
 </td>
 </tr>
 <tr id="en-us_topic_0161841799_en-us_topic_0159175469_row153471625183015"><td class="cellrowborder" valign="top" width="23.36%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p18347132511300"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p18347132511300"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p18347132511300"></a>NETMASKn</p>
 </td>
-<td class="cellrowborder" valign="top" width="40.339999999999996%" headers="mcps1.1.4.1.2 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p3347102511304"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p3347102511304"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p3347102511304"></a>N/A</p>
+<td class="cellrowborder" valign="top" width="40.339999999999996%" headers="mcps1.1.4.1.2 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p3347102511304"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p3347102511304"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p3347102511304"></a>NA</p>
 </td>
 <td class="cellrowborder" valign="top" width="36.3%" headers="mcps1.1.4.1.3 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p734772515307"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p734772515307"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p734772515307"></a>Indicates the subnet mask. It is used only for the alias and PPP.</p>
 </td>
@@ -1249,21 +1249,21 @@ The differences in /etc/sysconfig/network-scripts/ifcfg-<interface-name\> are as
 <td class="cellrowborder" valign="top" width="36.3%" headers="mcps1.1.4.1.3 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p1581816596383"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1581816596383"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1581816596383"></a>The default value is <strong id="b16798203616020"><a name="b16798203616020"></a><a name="b16798203616020"></a>no</strong>. If this parameter is set to <strong id="b2502744602"><a name="b2502744602"></a><a name="b2502744602"></a>yes</strong>, ifup-eth exits when dhclient fails.</p>
 </td>
 </tr>
-<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row1134822543015"><td class="cellrowborder" valign="top" width="23.36%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p9348122573019"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p9348122573019"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p9348122573019"></a>N/A</p>
+<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row1134822543015"><td class="cellrowborder" valign="top" width="23.36%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p9348122573019"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p9348122573019"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p9348122573019"></a>NA</p>
 </td>
 <td class="cellrowborder" valign="top" width="40.339999999999996%" headers="mcps1.1.4.1.2 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p734832513017"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p734832513017"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p734832513017"></a>IPV6_PRIVACY=rfc3041</p>
 </td>
 <td class="cellrowborder" valign="top" width="36.3%" headers="mcps1.1.4.1.3 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p10348152518301"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p10348152518301"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p10348152518301"></a>Disabled by default.</p>
 </td>
 </tr>
-<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row1134882573014"><td class="cellrowborder" valign="top" width="23.36%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p634802533014"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p634802533014"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p634802533014"></a>N/A</p>
+<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row1134882573014"><td class="cellrowborder" valign="top" width="23.36%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p634802533014"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p634802533014"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p634802533014"></a>NA</p>
 </td>
 <td class="cellrowborder" valign="top" width="40.339999999999996%" headers="mcps1.1.4.1.2 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p33481925173012"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p33481925173012"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p33481925173012"></a>IPV6INIT=yes|no</p>
 </td>
 <td class="cellrowborder" valign="top" width="36.3%" headers="mcps1.1.4.1.3 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p113492254302"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p113492254302"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p113492254302"></a>IPv6 is enabled by default.</p>
 </td>
 </tr>
-<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row133491725173012"><td class="cellrowborder" valign="top" width="23.36%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p1834922518303"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1834922518303"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1834922518303"></a>N/A</p>
+<tr id="en-us_topic_0161841799_en-us_topic_0159175469_row133491725173012"><td class="cellrowborder" valign="top" width="23.36%" headers="mcps1.1.4.1.1 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p1834922518303"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1834922518303"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1834922518303"></a>NA</p>
 </td>
 <td class="cellrowborder" valign="top" width="40.339999999999996%" headers="mcps1.1.4.1.2 "><p id="en-us_topic_0161841799_en-us_topic_0159175469_p1834982543011"><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1834982543011"></a><a name="en-us_topic_0161841799_en-us_topic_0159175469_p1834982543011"></a>IPV6FORWARDING=yes|no</p>
 </td>
@@ -1273,11 +1273,11 @@ The differences in /etc/sysconfig/network-scripts/ifcfg-<interface-name\> are as
 </tbody>
 </table>
 
-### FAQs
+### FAQ
 
 
 
-#### The iscsi-initiator-utils Does Not Support the fe80 IPv6 Address
+#### The iscsi-initiator-utils Does Not Support the fe80 IPv6 Address.
 
 ##### Symptom
 When a client uses an IPv6 address to log in to the iSCSI server, run the iscsiadm -m node -p ipv6address -l command. If the global address is used, replace ipv6address in the command example with the global address. However, the link-local address \(IPv6 address starting with fe80\) cannot be used because the current mechanism of iscsi-initiator-utils does not support the link-local address to log in to the iSCSI server.
@@ -1289,7 +1289,7 @@ If you use the iscsiadm -m node -p fe80::xxxx%enp3s0 -l format for login, the is
 
 Therefore,  **the current mechanism of iscsi-initiator-utils does not support login to the iSCSI server using a link-local address.**
 
-#### The IPv6 Address Is Lost After the NIC Is Down
+#### The IPv6 Address Is Lost After the NIC Is Down.
 
 ##### Symptom
 Run the ip link down+up NIC or ifconfig down+up NIC command to disable the NIC and then enable it to go online. Check the IP address configured on the NIC. It is found that the IPv4 address is not lost but the configured IPv6 address is lost.

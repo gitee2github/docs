@@ -248,7 +248,7 @@ There are two methods provided for compiling multiple source files.
     ```
     $ gcc -c test1.c
     $ gcc -c test2.c
-    $ gcc -o test1.o test2.o -o test
+    $ gcc test1.o test2.o -o test
     ```
 
 
