@@ -1,21 +1,6 @@
 # Configuring the Network
 
-- [Configuring the Network](#configuring-the-network)
-  - [Configuring an IP Address](#configuring-an-ip-address)
-    - [Using the nmcli Command](#using-the-nmcli-command)
-    - [Using the ip Command](#using-the-ip-command)
-    - [Configuring the Network Through the ifcfg File](#configuring-the-network-through-the-ifcfg-file)
-  - [Configuring a Host Name](#configuring-a-host-name)
-    - [Introduction](#introduction)
-    - [Configuring a Host Name by Running the hostnamectl Command](#configuring-a-host-name-by-running-the-hostnamectl-command)
-    - [Configuring a Host Name by Running the nmcli Command](#configuring-a-host-name-by-running-the-nmcli-command)
-  - [Configuring Network Bonding](#configuring-network-bonding)
-    - [Running the nmcli Command](#running-the-nmcli-command)
-    - [Configuring Network Bonding by Using a Command Line](#configuring-network-bonding-by-using-a-command-line)
-  - [IPv6 Differences \(vs IPv4\)](#ipv6-differences-vs-ipv4)
-    - [Restrictions](#restrictions)
-    - [Configuration Description](#configuration-description)
-    - [FAQs](#faqs)
+[[toc]]
 
 ## Configuring an IP Address
 
@@ -517,7 +502,7 @@ There are three types of host names:  **static**,  **transient**, and  **pretty*
 >![](./public_sys-resources/icon-note.gif) **NOTE:**   
 >Static and transient host names can contain only letters \(a–z and A–Z\), digits \(0–9\), hyphens \(-\), underlines \(\_\), and periods \(.\). The host names cannot start or end with a period \(.\) or contain two consecutive periods \(.\). The host name can contain a maximum of 64 characters.  
 
-### Configuring a Host Name by Running the hostnamectl Command
+### Configuring a Host Name by Running the  **hostnamectl**  Command
 
 #### Viewing All Host Names
 Run the following command to view the current host name:
@@ -999,7 +984,7 @@ Remarks:
 -   preferred\_lft: preferred lifetime. The preferred\_lft address has not expired and can be used for normal communication. If there are multiple preferred addresses, the address is selected based on the kernel mechanism.
 -   valid\_lft: valid lifetime. The address cannot be used for creating new connections within the period of \[preferred\_lft, valid\_lft\]. The existing connections are still valid.
 
-##### Command ip link
+##### ip link Command
 The commands are as follows:
 
 ```
@@ -1008,7 +993,7 @@ ip link set IFNAME mtu MTU
 
 The minimum PMTU of IPv6 is 1280. If the MTU is set to a value smaller than 1280, IPv6 addresses will be lost. Other devices cannot ping the IPv6 address.
 
-##### Command ip addr
+##### ip addr Command
 1.  The commands are as follows:
 
     ```
@@ -1056,7 +1041,7 @@ The minimum PMTU of IPv6 is 1280. If the MTU is set to a value smaller than 1280
 
 
 
-##### Command ip route
+##### ip route Command
 1.  The commands are as follows:
 
     ```
@@ -1076,7 +1061,7 @@ The minimum PMTU of IPv6 is 1280. If the MTU is set to a value smaller than 1280
     You can choose whether to add the -6 option when deleting an IPv6 route. The ip route command determines whether an IPv4 address or an IPv6 address is used based on the address type.
 
 
-##### Command ip rule
+##### ip rule command
 1.  The commands are as follows:
 
     ```
@@ -1104,33 +1089,33 @@ The configuration differences in /etc/sysconfig/network are as follows:
 
 |  IPv4   |IPv6  | Description |
 |:---  |:----  |:----  |
-|N/A| IPV6FORWARDING=yes/no | IPv6 forwarding. By default, IPv6 packets are not forwarded. |
-|N/A  | IPV6_AUTOCONF=yes/no |If IPv6 forwarding is enabled, the value is no. Otherwise, the value is yes.|
-| N/A | IPV6_ROUTER=yes/no | If IPv6 forwarding is enabled, the value is yes. Otherwise, the value is no. |
-|  N/A| IPV6_AUTOTUNNEL=yes/no | Indicates the automatic tunnel mode. The default value is no. |
+|NA| IPV6FORWARDING=yes/no | IPv6 forwarding. By default, IPv6 packets are not forwarded. |
+|NA  | IPV6_AUTOCONF=yes/no |If IPv6 forwarding is enabled, the value is no. Otherwise, the value is yes.|
+| NA | IPV6_ROUTER=yes/no | If IPv6 forwarding is enabled, the value is yes. Otherwise, the value is no. |
+|  NA| IPV6_AUTOTUNNEL=yes/no | Indicates the automatic tunnel mode. The default value is no. |
 | GATEWAY | IPV6_DEFAULTGW=<IPv6 address[%interface]> (optional) | Indicates the default gateway in IPv6. |
-| N/A | IPV6_DEFAULTDEV=<interface> (optional) | Specifies the default forwarding NIC. |
-| N/A | IPV6_RADVD_PIDFILE=<pid-file> (optional) | The default path of ipv6_radvd_pid is /var/run/radvd/radvd.pid. |
-| N/A | IPV6_RADVD_TRIGGER_ACTION=startstop|reload|restart|SIGHUP (optional) | Default radvd trigger action. |
+| NA | IPV6_DEFAULTDEV=<interface> (optional) | Specifies the default forwarding NIC. |
+| NA | IPV6_RADVD_PIDFILE=<pid-file> (optional) | The default path of ipv6_radvd_pid is /var/run/radvd/radvd.pid. |
+| NA | IPV6_RADVD_TRIGGER_ACTION=startstop|reload|restart|SIGHUP (optional) | Default radvd trigger action. |
 
 The differences in /etc/sysconfig/network-scripts/ifcfg-<interface-name\> are as follows:
 
 |  IPv4   |IPv6  | Description |
 |:---  |:----  |:----  |
 |IPADDRn| IPV6ADDR=<IPv6 address>[/<prefix length>] | indicates the IP address. |
-| PREFIXn  | N/A | The network prefix, network alias, and PPP are invalid. The priority is higher than that of NETMASK. |
-| NETMASKn | N/A | Indicates the subnet mask. It is used only for the alias and PPP. |
+| PREFIXn  | NA | The network prefix, network alias, and PPP are invalid. The priority is higher than that of NETMASK. |
+| NETMASKn | NA | Indicates the subnet mask. It is used only for the alias and PPP. |
 | GATEWAY | IPV6_DEFAULTGW=<IPv6 address[%interface]> (optional) | Default gateway |
 | MTU | IPV6_MTU=<MTU of link> (optional) | Default MTU |
 | IPV4_FAILURE_FATAL=yes/no | IPV6_FAILURE_FATAL | The default value is no. If this parameter is set to yes, ifup-eth exits when dhclient fails. |
-| N/A | IPV6_PRIVACY=rfc3041 | Disabled by default. |
-| N/A | IPV6INIT=yes/no | IPv6 is enabled by default. |
-| N/A | IPV6FORWARDING=yes/no | This function is disabled by default and has been discarded. |
+| NA | IPV6_PRIVACY=rfc3041 | Disabled by default. |
+| NA | IPV6INIT=yes/no | IPv6 is enabled by default. |
+| NA | IPV6FORWARDING=yes/no | This function is disabled by default and has been discarded. |
 
-### FAQs
+### FAQ
 
 
-#### The iscsi-initiator-utils Does Not Support the fe80 IPv6 Address
+#### The iscsi-initiator-utils Does Not Support the fe80 IPv6 Address.
 
 ##### Symptom
 When a client uses an IPv6 address to log in to the iSCSI server, run the iscsiadm -m node -p ipv6address -l command. If the global address is used, replace ipv6address in the command example with the global address. However, the link-local address \(IPv6 address starting with fe80\) cannot be used because the current mechanism of iscsi-initiator-utils does not support the link-local address to log in to the iSCSI server.
@@ -1142,7 +1127,7 @@ If you use the iscsiadm -m node -p fe80::xxxx%enp3s0 -l format for login, the is
 
 Therefore,  **the current mechanism of iscsi-initiator-utils does not support login to the iSCSI server using a link-local address.**
 
-#### The IPv6 Address Is Lost After the NIC Is Down
+#### The IPv6 Address Is Lost After the NIC Is Down.
 
 ##### Symptom
 Run the ip link down+up NIC or ifconfig down+up NIC command to disable the NIC and then enable it to go online. Check the IP address configured on the NIC. It is found that the IPv4 address is not lost but the configured IPv6 address is lost.

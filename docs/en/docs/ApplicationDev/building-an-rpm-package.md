@@ -96,7 +96,7 @@ The packaging process is as follows:
 3.  Install the RPM package. The installation is similar to pre-assembling the software package. Copy the contents \(such as binary files, configuration files, and man files\) that should be contained in the software package to  **%\_buildrootdir**  and assemble the contents based on the actual directory structure after installation. For example, if binary commands are stored in  **/usr/bin**, copy the directory structure to  **%\_buildrootdir**.
 4.  Perform necessary configurations, such as preparations before installation and cleanup after installation. These are configured in the SPEC file to tell the  **rpmbuild**  command how to build.
 5.  Check whether the software is running properly.
-6.  The generated RPM package is stored in  **%\_rpmdir**, and the source code package is stored in  **%\_srcrpmdir**.
+6.  The generated RPM package is stored in  **%\_rpmdir**, and the source code package is stored in  **%\_srpmdir**.
 
 In the SPEC file, each phase is described as follows:
 
