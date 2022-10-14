@@ -1,13 +1,13 @@
 # Authentication and Authorization
 
 - [Authentication and Authorization](#authentication-and-authorization)
-    - [Setting a Warning for Remote Network Access](#setting-a-warning-for-remote-network-access)
-    - [Forestalling Unauthorized System Restart by Holding Down Ctrl, Alt, and Delete](#forestalling-unauthorized-system-restart-by-holding-down-ctrl-alt-and-delete)
-    - [Setting an Automatic Exit Interval for Shell](#setting-an-automatic-exit-interval-for-shell)
-    - [Setting the Default umask Value for Users to 0077](#setting-the-default-umask-value-for-users-to-0077)
-    - [Setting the GRUB2 Encryption Password](#setting-the-grub2-encryption-password)
-    - [Setting the Secure Single-user Mode](#setting-the-secure-single-user-mode)
-    - [Disabling Interactive Startup](#disabling-interactive-startup)
+  - [Setting a Warning for Remote Network Access](#setting-a-warning-for-remote-network-access)
+  - [Forestalling Unauthorized System Restart by Pressing Ctrl+Alt+Delete](#forestalling-unauthorized-system-restart-by-pressing-ctrlaltdelete)
+  - [Setting an Automatic Exit Interval for Shell](#setting-an-automatic-exit-interval-for-shell)
+  - [Setting the Default umask Value for Users to 0077](#setting-the-default-umask-value-for-users-to-0077)
+  - [Setting the GRUB2 Encryption Password](#setting-the-grub2-encryption-password)
+  - [Setting the Secure Single-user Mode](#setting-the-secure-single-user-mode)
+  - [Disabling Interactive Startup](#disabling-interactive-startup)
 
 
 
@@ -25,16 +25,16 @@ This setting can be implemented by modifying the  **/etc/issue.net**  file. Repl
 Authorized users only. All activities may be monitored and reported. 
 ```
 
-## Forestalling Unauthorized System Restart by Holding Down Ctrl, Alt, and Delete
+## Forestalling Unauthorized System Restart by Pressing Ctrl+Alt+Delete
 
 ### Description
 
-By default, you can restart the system by pressing **Ctrl**,  **Alt**, and  **Delete**. You are advised to disable this function to prevent data loss due to misoperations.
+By default, you can restart the system by pressing **Ctrl**+**Alt**+**Delete**. You are advised to disable this function to prevent data loss due to misoperations.
 
 
 ### Implementation
 
-To disable the feature of restarting the system by holding down  **Ctrl**,  **Alt**, and  **Delete**, perform the following steps:
+To disable the feature of restarting the system by pressing  **Ctrl**+**Alt**+**Delete**, perform the following steps:
 
 1.  Run the following commands to delete the two  **ctrl-alt-del.target**  files:
 
@@ -71,7 +71,7 @@ export TMOUT=300
 The  **umask**  value is used to set default permission on files and directories. A smaller  **umask**  value indicates that group users or other users have incorrect permission, which brings system security risks. Therefore, the default  **umask**  value must be set to  **0077**  for all users, that is, the default permission on user directories is  **700**  and the permission on user files is  **600**. The  **umask**  value indicates the complement of a permission. For details about how to convert the  **umask**  value to a permission, see  [umask Values](#umask-values.md).
 
 >![](public_sys-resources/icon-note.gif) **NOTE:**   
->By default, the  **umask**  value of the openEuler user is set to  **0077**.  
+>By default, the  **umask**  value of the openEuler user is set to  **0022**.  
 
 ### Implementation
 

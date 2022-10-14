@@ -102,9 +102,9 @@ password    required      pam_pwhistory.so use_authtok remember=5 enforce_for_ro
 
 **Configuration Item Description**
 
-For details about the configuration items of  **pam\_pwquality.so**  and  **pam\_pwhistory.so**, see  [Table 1](#table201221044172117)  and  [Table 2](#table1212544452120), respectively.
+For details about the configuration items of  **pam\_pwquality.so**  and  **pam\_pwhistory.so**, see  [Table 2](#table201221044172117)  and  [Table 3](#table1212544452120), respectively.
 
-**Table  1**  Configuration items in pam\_pwquality.so
+**Table  2**  Configuration items in pam\_pwquality.so
 
 <a name="table201221044172117"></a>
 <table><thead align="left"><tr id="row18122244142118"><th class="cellrowborder" valign="top" width="23.03%" id="mcps1.2.3.1.1"><p id="p1012384412211"><a name="p1012384412211"></a><a name="p1012384412211"></a><strong id="b18676115316"><a name="b18676115316"></a><a name="b18676115316"></a>Item</strong></p>
@@ -156,7 +156,7 @@ For details about the configuration items of  **pam\_pwquality.so**  and  **pam\
 </tbody>
 </table>
 
-**Table  2**  Configuration items in pam\_pwhistory.so
+**Table  3**  Configuration items in pam\_pwhistory.so
 
 <a name="table1212544452120"></a>
 <table><thead align="left"><tr id="row412684402113"><th class="cellrowborder" valign="top" width="44.79%" id="mcps1.2.3.1.1"><p id="p141261944192114"><a name="p141261944192114"></a><a name="p141261944192114"></a><strong id="b6884240205618"><a name="b6884240205618"></a><a name="b6884240205618"></a>Item</strong></p>
@@ -186,9 +186,9 @@ To ensure system security, you are advised to set the password validity period a
 
 ### Implementation
 
-The password validity period is set by modifying the  **/etc/login.defs**  file.  [Table 1](#en-us_topic_0152100281_t77b5d0753721450c81911c18b74e82eb)  describes the hardening items. All hardening items in the table are in the  **/etc/login.defs**  file. You can directly modify the items in the configuration file.
+The password validity period is set by modifying the  **/etc/login.defs**  file.  [Table 4](#en-us_topic_0152100281_t77b5d0753721450c81911c18b74e82eb)  describes the hardening items. All hardening items in the table are in the  **/etc/login.defs**  file. You can directly modify the items in the configuration file.
 
-**Table  1**  Configuration items in login.defs
+**Table  4**  Configuration items in login.defs
 
 <a name="en-us_topic_0152100281_t77b5d0753721450c81911c18b74e82eb"></a>
 <table><thead align="left"><tr id="en-us_topic_0152100281_r3df3f3ed1b0a40718c7e8a0f4a4846fc"><th class="cellrowborder" valign="top" width="25.737426257374263%" id="mcps1.2.5.1.1"><p id="en-us_topic_0152100281_aeb399d5a434846a39fed2122dfa77569"><a name="en-us_topic_0152100281_aeb399d5a434846a39fed2122dfa77569"></a><a name="en-us_topic_0152100281_aeb399d5a434846a39fed2122dfa77569"></a><strong id="b574417411615"><a name="b574417411615"></a><a name="b574417411615"></a>Item</strong></p>
@@ -250,7 +250,7 @@ password    sufficient    pam_unix.so sha512 shadow nullok try_first_pass use_au
 
   
 
-**Table  1**  Configuration items in pam\_unix.so
+**Table  5**  Configuration items in pam\_unix.so
 
 <a name="en-us_topic_0152100376_t0e4d45c67099425e935ada4953a4aaa1"></a>
 <table><thead align="left"><tr id="en-us_topic_0152100376_r5f099f6e722f4e99a32455a5d47d934f"><th class="cellrowborder" valign="top" width="30.06%" id="mcps1.2.3.1.1"><p id="en-us_topic_0152100376_ad3eee42a35e3474d925afc02d065ea8d"><a name="en-us_topic_0152100376_ad3eee42a35e3474d925afc02d065ea8d"></a><a name="en-us_topic_0152100376_ad3eee42a35e3474d925afc02d065ea8d"></a><strong id="b18491749191310"><a name="b18491749191310"></a><a name="b18491749191310"></a>Item</strong></p>
@@ -288,7 +288,7 @@ auth        [default=die] pam_faillock.so authfail audit deny=3 even_deny_root u
 auth        sufficient    pam_faillock.so authsucc audit deny=3 even_deny_root unlock_time=300
 ```
 
-**Table  1**  Configuration items in pam\_faillock.so
+**Table  6**  Configuration items in pam\_faillock.so
 
 <a name="en-us_topic_0152100313_t7b1a3221642543eaa102d4e7a74c3d38"></a>
 <table><thead align="left"><tr id="en-us_topic_0152100313_r5ddcdf2378624d3ebe741051c18afc98"><th class="cellrowborder" valign="top" width="30.06%" id="mcps1.2.3.1.1"><p id="en-us_topic_0152100313_afd85f3cac36449f4ad45185e9d41b3ed"><a name="en-us_topic_0152100313_afd85f3cac36449f4ad45185e9d41b3ed"></a><a name="en-us_topic_0152100313_afd85f3cac36449f4ad45185e9d41b3ed"></a><strong id="b135211327131719"><a name="b135211327131719"></a><a name="b135211327131719"></a>Item</strong></p>
