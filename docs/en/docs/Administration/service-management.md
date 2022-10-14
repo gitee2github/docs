@@ -234,7 +234,7 @@ The  **systemctl**  command from the  **systemd**  command has the functions sim
 </td>
 <td class="cellrowborder" valign="top" width="37%" headers="mcps1.2.4.1.2 "><p id="en-us_topic_0151920917_a0990a28043f244f3a7c63159310ea5fc"><a name="en-us_topic_0151920917_a0990a28043f244f3a7c63159310ea5fc"></a><a name="en-us_topic_0151920917_a0990a28043f244f3a7c63159310ea5fc"></a>systemctl start <em id="i1147010194173"><a name="i1147010194173"></a><a name="i1147010194173"></a>network</em>.service</p>
 </td>
-<td class="cellrowborder" valign="top" width="33%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0151920917_a6f87a02ac1cb4b37845b6a91ba35eb02"><a name="en-us_topic_0151920917_a6f87a02ac1cb4b37845b6a91ba35eb02"></a><a name="en-us_topic_0151920917_a6f87a02ac1cb4b37845b6a91ba35eb02"></a>Starts a service.</p>
+<td class="cellrowborder" valign="top" width="33%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0151920917_a6f87a02ac1cb4b37845b6a91ba35eb02"><a name="en-us_topic_0151920917_a6f87a02ac1cb4b37845b6a91ba35eb02"></a><a name="en-us_topic_0151920917_a6f87a02ac1cb4b37845b6a91ba35eb02"></a>Starts a service. (Running services will not be restarted.)</p>
 </td>
 </tr>
 <tr id="en-us_topic_0151920917_r234d52fbaf2744e58e62737f22a62ee9"><td class="cellrowborder" valign="top" width="30%" headers="mcps1.2.4.1.1 "><p id="en-us_topic_0151920917_a4d1be5b113c748b5a81a5898138d28d8"><a name="en-us_topic_0151920917_a4d1be5b113c748b5a81a5898138d28d8"></a><a name="en-us_topic_0151920917_a4d1be5b113c748b5a81a5898138d28d8"></a>service <em id="i76031221191716"><a name="i76031221191716"></a><a name="i76031221191716"></a>network</em> stop</p>
@@ -248,7 +248,7 @@ The  **systemctl**  command from the  **systemd**  command has the functions sim
 </td>
 <td class="cellrowborder" valign="top" width="37%" headers="mcps1.2.4.1.2 "><p id="en-us_topic_0151920917_ac4319fcaf27b4960acc4025be401420d"><a name="en-us_topic_0151920917_ac4319fcaf27b4960acc4025be401420d"></a><a name="en-us_topic_0151920917_ac4319fcaf27b4960acc4025be401420d"></a>systemctl restart <em id="i2763627191712"><a name="i2763627191712"></a><a name="i2763627191712"></a>network</em>.service</p>
 </td>
-<td class="cellrowborder" valign="top" width="33%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0151920917_a2b544d2a4b744822a7371b4c2d302fcd"><a name="en-us_topic_0151920917_a2b544d2a4b744822a7371b4c2d302fcd"></a><a name="en-us_topic_0151920917_a2b544d2a4b744822a7371b4c2d302fcd"></a>Restarts a service.</p>
+<td class="cellrowborder" valign="top" width="33%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0151920917_a2b544d2a4b744822a7371b4c2d302fcd"><a name="en-us_topic_0151920917_a2b544d2a4b744822a7371b4c2d302fcd"></a><a name="en-us_topic_0151920917_a2b544d2a4b744822a7371b4c2d302fcd"></a>Stops and starts a service again.</p>
 </td>
 </tr>
 <tr id="en-us_topic_0151920917_r5fb05eeabf4743f6b95858329d896d77"><td class="cellrowborder" valign="top" width="30%" headers="mcps1.2.4.1.1 "><p id="en-us_topic_0151920917_ab4f282845e28411e8f96b6186b6db84b"><a name="en-us_topic_0151920917_ab4f282845e28411e8f96b6186b6db84b"></a><a name="en-us_topic_0151920917_ab4f282845e28411e8f96b6186b6db84b"></a>service <em id="i5183203114173"><a name="i5183203114173"></a><a name="i5183203114173"></a>network</em> reload</p>
