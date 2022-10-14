@@ -1,18 +1,9 @@
 # Preparation
 
-<!-- TOC -->
-
-- [Preparation](#preparation)
   - [Configuring the Development Environment](#configuring-the-development-environment)
-    - [OS Requirements](#os-requirements)
-  - [Configuring a Repo Source](#configuring-a-repo-source)
-    - [Configuring a Repo Source by Directly Obtaining the Repo Source File](#configuring-a-repo-source-by-directly-obtaining-the-repo-source-file)
-    - [Configuring a Repo Source by Mounting an ISO File](#configuring-a-repo-source-by-mounting-an-iso-file)
-- [dnf install java-1.8.0-openjdk-devel.aarch64](#dnf-install-java-180-openjdk-develaarch64)
-- [dnf install rpm-build](#dnf-install-rpm-build)
-- [dnf -y install gtk2 libXtst libXrender  xauth](#dnf--y-install-gtk2-libxtst-libxrender--xauth)
-
-<!-- /TOC -->
+  - [Configuring the openEuler Yum Source](#configuring-the-openeuler-yum-source)
+  - [Installing the Software Package](#installing-the-software-package)
+  - [Using the IDE for Java Development](#using-the-ide-for-java-development)
 ## Configuring the Development Environment
 
 - If physical machines (PMs) are used, the minimum hardware requirements of the development environment are described in  [Table 1](#table154419352610).
@@ -112,14 +103,14 @@ The openEuler OS is required.
 
 For details about how to install the openEuler OS, see the \[*openEuler 20.03 LTS SP1 Installation Guide*\](./../Installation/Installation.html ). On the  **SOFTWARE SELECTION**  page, select  **Development Tools**  in the  **Add-Ons for Selected Environment**  area.
 
-## Configuring a Repo Source
+## Configuring the openEuler Yum Source
 
-Configure an online yum source by directly obtaining the online openEuler repo source. Alternatively, configure a local yum source by mounting an ISO file and creating a local openEuler repo source.
+Configure an online Yum source by directly obtaining the online openEuler repo source. Alternatively, configure a local Yum source by mounting an ISO file and creating a local openEuler repo source.
 
 ### Configuring a Repo Source by Directly Obtaining the Repo Source File
 
 > ![](./public_sys-resources/icon-note.gif) **NOTE:**   
-> openEuler provides multiple repo sources for users online. For details about the repo sources, see [System Installation](./../Releasenotes/installing-the-os.html). This section uses the **openEuler\_aarch64.repo** file as an example to describe how to configure the OS repo source as the yum source.
+> openEuler provides multiple repo sources for users online. For details about the repo sources, see [System Installation](../Releasenotes/installing-the-os.md). This section uses the **openEuler\_aarch64.repo** file as an example to describe how to configure the OS repo source as the Yum source.
 
 1. Go to the yum source directory and check the .repo configuration file in the directory.
    
