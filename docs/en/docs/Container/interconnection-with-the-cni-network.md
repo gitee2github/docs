@@ -1,12 +1,12 @@
 # Interconnection with the CNI Network
 
 - [Interconnection with the CNI Network](#interconnection-with-the-cni-network)
-    - [Overview](#overview-0)
-    - [Common CNIs](#common-cnis)
-        - [CNI Network Configuration Description](#cni-network-configuration-description)
-        - [Adding a Pod to the CNI Network List](#adding-a-pod-to-the-cni-network-list)
-        - [Removing a Pod from the CNI Network List](#removing-a-pod-from-the-cni-network-list)
-    - [Usage Restrictions](#usage-restrictions)
+  - [Overview](#overview)
+  - [Common CNIs](#common-cnis)
+    - [CNI Network Configuration Description](#cni-network-configuration-description)
+    - [Adding a Pod to the CNI Network List](#adding-a-pod-to-the-cni-network-list)
+    - [Removing a Pod from the CNI Network List](#removing-a-pod-from-the-cni-network-list)
+  - [Usage Restrictions](#usage-restrictions)
 
 
 ## Overview

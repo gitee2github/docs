@@ -1,17 +1,17 @@
 # VM Configuration
 
 - [VM Configuration](#vm-configuration)
-    - [Introduction](#introduction)
-    - [VM Description](#vm-description)
-    - [vCPU and Virtual Memory](#vcpu-and-virtual-memory)
-    - [Virtual Device Configuration](#virtual-device-configuration)
-        - [Storage Devices](#storage-devices)
-        - [Network Device](#network-device)
-        - [Bus Configuration](#bus-configuration)
-        - [Other Common Devices](#other-common-devices)
-    - [Configurations Related to the System Architecture](#configurations-related-to-the-system-architecture)
-    - [Other Common Configuration Items](#other-common-configuration-items)
-    - [XML Configuration File Example](#xml-configuration-file-example)
+  - [Introduction](#introduction)
+  - [VM Description](#vm-description)
+  - [vCPU and Virtual Memory](#vcpu-and-virtual-memory)
+  - [Virtual Device Configuration](#virtual-device-configuration)
+    - [Storage Devices](#storage-devices)
+    - [Network Devices](#network-devices)
+    - [Bus Configuration](#bus-configuration)
+    - [Other Common Devices](#other-common-devices)
+  - [Configurations Related to the System Architecture](#configurations-related-to-the-system-architecture)
+  - [Other Common Configuration Items](#other-common-configuration-items)
+  - [XML Configuration File Example](#xml-configuration-file-example)
 
 ## Introduction
 
@@ -291,7 +291,7 @@ In this example, two I/O threads, one block disk device and one CD, are configur
 </domain>
 ```
 
-### Network Device
+### Network Devices
 
 #### Overview
 

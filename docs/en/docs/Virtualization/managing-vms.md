@@ -1,18 +1,18 @@
 ## Managing VMs
 
 - [Managing VMs](#managing-vms)
-    - [VM Life Cycle](#vm-life-cycle)
-        - [Introduction](#introduction-0)
-        - [Management Commands](#management-commands)
-        - [Example](#example)
-    - [Modify VM Configurations Online](#modify-vm-configurations-online)
-    - [Querying VM Information](#querying-vm-information)
-    - [Logging In to a VM](#logging-in-to-a-vm)
-        - [Logging In Using VNC Passwords](#logging-in-using-vnc-passwords)
-        - [Configuring VNC TLS Login](#configuring-vnc-tls-login)
-    - [VM Secure Boot](#VM-Secure-Boot)
-        - [General Introduction](#General-Introduction)
-        - [Secure Boot Practice](#Secure-Boot-Practice)
+  - [VM Life Cycle](#vm-life-cycle)
+    - [Introduction](#introduction)
+    - [Management Commands](#management-commands)
+    - [Example](#example)
+  - [Modifying VM Configurations Online](#modifying-vm-configurations-online)
+  - [Querying VM Information](#querying-vm-information)
+  - [Logging In to a VM](#logging-in-to-a-vm)
+    - [Logging In Using VNC Passwords](#logging-in-using-vnc-passwords)
+    - [Configuring VNC TLS Login](#configuring-vnc-tls-login)
+  - [VM Secure Boot](#vm-secure-boot)
+    - [General Introduction](#general-introduction)
+    - [Secure Boot Practice](#secure-boot-practice)
 
 ### VM Life Cycle
 
@@ -240,7 +240,7 @@ This section provides examples of commands related to VM life cycle management.
 
 
 
-### Modify VM Configurations Online
+### Modifying VM Configurations Online
 
 #### Overview
 
@@ -291,7 +291,7 @@ To query VM information, the following requirements must be met:
 
 -   Only the administrator has the permission to execute command line.
 
-#### Querying VM Information on a Host.
+#### Querying VM Information on a Host
 
 -   Query the list of running and paused VMs on a host.
 
@@ -582,7 +582,7 @@ To enable the TLS encryption authentication mode for the VNC, perform the follow
 
         In the preceding generated file,  **ca-cert.pem**  is the generated CA public key, and** ca-key.pem**  is the generated CA private key. The CA must keep them properly to prevent disclosure.
 
-    2.  Issue a certificate to the VNC server.  **Client Organization Name**  indicates the actual service name, for example,  **cleint.foo.com**. Set this parameter based on the site requirements.
+    2.  Issue a certificate to the VNC server.  **Server Organization Name**  indicates the actual service name, for example,  **server.foo.com**. Set this parameter based on the site requirements.
 
         ```
         # cat > server.info<<EOF

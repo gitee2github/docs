@@ -751,7 +751,7 @@ The following table lists the parameters supported by the  **run**  command.
     >The first scenario is not supported. For the second scenario, users need to understand the risk of data access failures.  
 
     >![](./public_sys-resources/icon-notice.gif) **NOTICE:**   
-    >-   In high concurrency scenarios \(200 containers are concurrently started\), the memory management mechanism of Glibc may cause memory holes and large virtual memory \(for example, 10 GB\). This problem is caused by the restriction of the Glibc memory management mechanism in the high concurrency scenario, but not by memory leakage. Therefore, the memory consumption does not increase infinitely. You can set the  **MALLOC\_ARENA\_MAX**  environment variable to reduce the virtual memory and increase the probability of reducing the physical memory. However, this environment variable will cause the iSulad concurrency performance to deteriorate. Set this environment variable based on the site requirements.  
+    >-   In high concurrency scenarios (200 containers are concurrently started), the memory management mechanism of Glibc may cause memory holes and large virtual memory (for example, 10 GB). This problem is caused by the restriction of the Glibc memory management mechanism in the high concurrency scenario, but not by memory leakage. Therefore, the memory consumption does not increase infinitely. You can set the  **MALLOC\_ARENA\_MAX**  environment variable to reduce the virtual memory and increase the probability of reducing the physical memory. However, this environment variable will cause the iSulad concurrency performance to deteriorate. Set this environment variable based on the site requirements.  
     >    ```  
     >    To balance performance and memory usage, set MALLOC_ARENA_MAX to 4. (The iSulad performance deterioration on the ARM64 server is controlled by less than 10%.)  
     >    Configuration method:  
@@ -940,7 +940,7 @@ The following table lists the parameters supported by the  **rm**  command.
 
 ### Constraints
 
--   In normal I/O scenarios, it takes T1 to delete a running container in an empty environment \(with only one container\). In an environment with 200 containers \(without a large number of I/O operations and with normal host I/O\), it takes T2 to delete a running container. The specification of T2 is as follows: T2 = max \{T1 x 3, 5\}s.
+-   In normal I/O scenarios, it takes T1 to delete a running container in an empty environment (with only one container). In an environment with 200 containers (without a large number of I/O operations and with normal host I/O), it takes T2 to delete a running container. The specification of T2 is as follows: T2 = max \{T1 x 3, 5\}s.
 
 ### Example
 

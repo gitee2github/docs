@@ -114,7 +114,7 @@ Currently, the isula-build server contains the following configuration file:
 | ------ | -------- | ------------------------------ |
 | driver | Optional | Storage driver type. Currently, overlay2 is supported. |
 
-  For more settings, see [containers-storage.conf.5.md](https://github.com/containers/storage/blob/master/docs/containers-storage.conf.5.md).
+  For more settings, see [containers-storage.conf.5.md](https://github.com/containers/storage/blob/main/docs/containers-storage.conf.5.md).
 
 
 - /etc/isula-build/registries.toml: configuration file for each image repository.
@@ -124,7 +124,7 @@ Currently, the isula-build server contains the following configuration file:
 | registries.search | Optional | Search domain of the image repository. Only listed image repositories can be found. |
 | registries.insecure | Optional | Accessible insecure image repositories. Listed image repositories cannot pass the authentication and are not recommended. |
 
-  For more settings, see [containers-registries.conf.5.md](https://github.com/containers/image/blob/master/docs/containers-registries.conf.5.md).
+  For more settings, see [containers-registries.conf.5.md](https://github.com/containers/image/blob/main/docs/containers-registries.conf.5.md).
 
 - /etc/isula-build/policy.json: image pull/push policy file. Note: Currently, this parameter cannot be configured.
 

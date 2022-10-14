@@ -2,7 +2,7 @@
 
 - [System Resource Management](#system-resource-management)
     - [General Description](#general-description)
-    - [Managing vCPU](#managing-vcpu)
+    - [Managing vCPUs](#managing-vcpus)
     - [Managing Virtual Memory](#managing-virtual-memory)
     - [Memory Hot Add](#memory-hot-add)
 
@@ -16,7 +16,7 @@ Before you start:
 -   Run the  **virsh list --all**  command to check that the VM has been defined.
 
 
-## Managing vCPU
+## Managing vCPUs
 
 ### CPU Shares
 

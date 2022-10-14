@@ -1,17 +1,16 @@
 # Best Practices
 
 - [Best Practices](#best-practices)
-    - [Performance Best Practices](#performance-best-practices)
-        - [Halt-Polling](#halt-polling)
-        - [I/O Thread Configuration](#i-o-thread-configuration)
-        - [Raw Device Mapping](#raw-device-mapping)
-        - [kworker Isolation and Binding](#kworker-isolation-and-binding)
-        - [HugePage Memory](#hugepage-memory)
-    - [Security Best Practices](#security-best-practices)
-        - [Libvirt Authentication](#libvirt-authentication)
-        - [qemu-ga](#qemu-ga)
-        - [sVirt Protection](#svirt-protection)
-
+  - [Performance Best Practices](#performance-best-practices)
+    - [Halt-Polling](#halt-polling)
+    - [I/O Thread Configuration](#io-thread-configuration)
+    - [Raw Device Mapping](#raw-device-mapping)
+    - [kworker Isolation and Binding](#kworker-isolation-and-binding)
+    - [HugePage Memory](#hugepage-memory)
+  - [Security Best Practices](#security-best-practices)
+    - [Libvirt Authentication](#libvirt-authentication)
+    - [qemu-ga](#qemu-ga)
+    - [sVirt Protection](#svirt-protection)
 ## Performance Best Practices
 
 ### Halt-Polling
@@ -219,7 +218,7 @@ If VMs use static HugePages, you can disable THP to reduce the overhead of the h
     ```
 
 
-## security Best Practices
+## Security Best Practices
 
 ### Libvirt Authentication
 
