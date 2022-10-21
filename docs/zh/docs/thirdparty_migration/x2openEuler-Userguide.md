@@ -2067,25 +2067,33 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
 #### 命令格式
 
 ```
-x2openEuler-CLient -v
+x2openEuler -v
 ```
 
 >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
->“/opt/portadv“为工具安装目录，请根据实际情况替换。
+>“/usr/local/x2openEuler“为工具安装目录，请根据实际情况替换。
 
 #### 使用实例
-
-查看当前安装的鲲鹏代码迁移工具的版本信息。
-
-```
-x2openEuler-CLient -v
-```
-
-返回信息如下所示（其中“x.x.x”表示版本号，请以实际情况为准）：
-
-```
-x2openEuler-upgrade vx.x.x
-```
+1. 执行以下命令确定x2openEuler用户是否具备登录权限。
+   ```
+   vi /etc/passwd
+   ```
+   若回显信息包含如下信息，则表示具备登录权限，否则需要修改以下内容只“/etc/passwd”中并保存。
+   ```
+   x2openEuler:x:1000:1000::/home/x2openEuler:/bin/bash
+   ```
+2. 执行以下命令切换到x2openEuler用户。
+   ```
+   su x2openEuler
+   ```
+3. 执行以下命令查看x2openEuler工具版本信息
+   ```
+   x2openEuler -v
+   ```
+   返回信息即为工具版本信息。
+   ```
+   x2openEuler x.x.x.x
+   ```
 
 ## FAQ
 
