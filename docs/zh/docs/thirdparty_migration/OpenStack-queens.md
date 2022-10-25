@@ -386,7 +386,7 @@ Openstack 支持多种形态部署，此文档支持`ALL in One`以及`Distribut
 
     ***注意:***
 
-    **替换 `GLANCE_DBPASS`，为 glance 数据库设置密码**
+    **替换 `GLANCE_DBPASS` 为 glance 数据库设置密码**
 
     创建服务凭证
 
