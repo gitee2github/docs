@@ -67,7 +67,7 @@ headless: true
     -   [Best Practices]({{< relref "./docs/Virtualization/best-practices.md" >}})
     -   [Tool Guide]({{< relref "./docs/Virtualization/tool-guide.md" >}})
     -   [Appendix]({{< relref "./docs/Virtualization/appendix.md" >}})
--   [StratoVirt Virtualization User Guide]({{< relref "./docs/StratoVirt/StratoVrit_guidance.md" >}})
+-   [StratoVirt Virtualization User Guide]({{< relref "./docs/StratoVirt/StratoVirt_guidance.md" >}})
     -   [Introduction to StratoVirt]({{< relref "./docs/StratoVirt/StratoVirt_introduction.md" >}})
     -   [Installing StratoVirt]({{< relref "./docs/StratoVirt/Install_StratoVirt.md" >}})
     -   [Preparing the Environment]({{< relref "./docs/StratoVirt/Prepare_env.md" >}})
