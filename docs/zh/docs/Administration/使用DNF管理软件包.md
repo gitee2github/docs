@@ -297,7 +297,7 @@ dnf search term
 示例如下：
 
 ```
-$   dnf search httpd
+#   dnf search httpd
 ========================================== N/S matched: httpd ==========================================
 httpd.aarch64 : Apache HTTP Server
 httpd-devel.aarch64 : Development interfaces for the Apache HTTP server
