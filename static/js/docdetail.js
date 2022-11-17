@@ -265,7 +265,7 @@ $(function ($) {
         template
     )
     $('.evaluates .issue').on('click', function () {
-        let oldValue = $('.issue-reason').val()
+        // let oldValue = $('.issue-reason').val()
         let text = `\n${this.children[0].innerHTML}:\n`;
         let preTag = null;
         if ($('.active-border').length) {
@@ -278,7 +278,7 @@ $(function ($) {
             preText = preTag +
                 $('.active-border .issue-detail').text().replace(/\s+/ig, "").replaceAll("；", '\n').replaceAll("●", '');
         }
-        text = oldValue + itemtext;
+        text =  itemtext;
         if ($(this).hasClass("active-border")) {
             text = text.replaceAll(itemtext.trim(), '')
             $(this).removeClass("active-border");
