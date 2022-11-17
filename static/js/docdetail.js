@@ -266,7 +266,7 @@ $(function ($) {
     )
     $('.evaluates .issue').on('click', function () {
         let oldValue = $('.issue-reason').val()
-        let text = `\n${this.childNodes[1].innerHTML}:\n`;
+        let text = `\n${this.children[0].innerHTML}:\n`;
         let preTag = null;
         if ($('.active-border').length) {
            preTag = `\n${$('.active-border')[0].childNodes[1].innerHTML}:\n`
