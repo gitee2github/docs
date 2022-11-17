@@ -40,8 +40,8 @@
 }
 
 .search-result .main-text,
-.search-result .res-title em, 
-.search-result .res-desc em {
+.search-result .res-title span, 
+.search-result .res-desc span {
     color: var(--e-color-brand1);
 }
 
