@@ -1,16 +1,18 @@
 # Best Practices
 - [Best Practices](#best-practices)
-    - [Performance Best Practices](#performance-best-practices)
-        - [Halt-Polling](#halt-polling)
-        - [I/O Thread Configuration](#i/o-thread-configuration)
-        - [Raw Device Mapping](#raw-device-mapping)
-        - [Kworker Isolation and Binding](#kworker-isolation-and-binding) 
-        - [HugePage Memory](#hugepage-memory)
-        - [Guest-Idle-Haltpoll](#guest-idle-haltpoll)
-    - [Security Best Practices](#security-best-practices)
-        - [Libvirt Authentication](#libvirt-authentication)
-        - [qemu-ga](#qume-ga)
-        - [sVirt Protection](#sVirt-protection)
+  - [Performance Best Practices](#performance-best-practices)
+    - [Halt-Polling](#halt-polling)
+    - [I/O Thread Configuration](#io-thread-configuration)
+    - [Raw Device Mapping](#raw-device-mapping)
+    - [kworker Isolation and Binding](#kworker-isolation-and-binding)
+    - [HugePage Memory](#hugepage-memory)
+    - [PV-qspinlock](#pv-qspinlock)
+    - [Guest-Idle-Haltpoll](#guest-idle-haltpoll)
+  - [Security Best Practices](#security-best-practices)
+    - [Libvirt Authentication](#libvirt-authentication)
+    - [qemu-ga](#qemu-ga)
+    - [sVirt Protection](#svirt-protection)
+    - [VM Trusted Boot](#vm-trusted-boot)
 
 ## Performance Best Practices
 
@@ -223,14 +225,14 @@ PV-qspinlock optimizes the spin lock in the virtual scenario of CPU overcommitme
 
 #### Procedure
 
-Modify the /boot/efi/EFI/openEuler/grub.cfg configuration file of the VM, add arm_pvspin to the startup parameter in the command line, and restart the VM for the modification to take effect. After PV-qspinlock takes effect, run the dmesg command on the VM. The following information is displayed:
+Modify the **/boot/efi/EFI/openEuler/grub.cfg** configuration file of the VM, add **arm_pvspin** to the startup parameter in the command line, and restart the VM for the modification to take effect. After PV-qspinlock takes effect, run the dmesg command on the VM. The following information is displayed:
 
 ```
 [    0.000000] arm-pv: PV qspinlocks enabled
 ```
 
->![](./public_sys-resources/icon-note.gif) **Note:**   
->PV-qspinlock is supported only when the operating systems of the host machine and VM are both openEuler 20.09 or later and the VM kernel compilation option CONFIG_PARAVIRT_SPINLOCKS is set to y (default value for openEuler).
+>![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>PV-qspinlock is supported only when the operating systems of the host machine and VM are both openEuler 20.09 or later and the VM kernel compilation option **CONFIG_PARAVIRT_SPINLOCKS** is set to **y** (default value for openEuler).
 
 ### Guest-Idle-Haltpoll
 
@@ -238,7 +240,7 @@ Modify the /boot/efi/EFI/openEuler/grub.cfg configuration file of the VM, add ar
 
 To ensure fairness and reduce power consumption, when the vCPU of the VM is idle, the VM executes the WFx/HLT instruction to exit to the host machine and triggers context switchover. The host machine determines whether to schedule other processes or vCPUs on the physical CPU or enter the energy saving mode. However, overheads of switching between a virtual machine and a host machine, additional context switching, and IPI wakeup are relatively high, and this problem is particularly prominent in services where sleep and wakeup are frequently performed. The Guest-Idle-Haltpoll technology indicates that when the vCPU of a VM is idle, the WFx/HLT is not executed immediately and VM-exit occurs. Instead, polling is performed on the VM for a period of time. During this period, the tasks of other vCPUs that share the LLC on the vCPU are woken up without sending IPI interrupts. This reduces the overhead of sending and receiving IPI interrupts and the overhead of VM-exit, thereby reducing the task wakeup latency.
 
->![](public_sys-resources/icon-note.gif) **Note:**
+>![](public_sys-resources/icon-note.gif) **NOTE:**
  The execution of the idle-haltpoll command by the vCPU on the VM increases the CPU overhead of the vCPU on the host machine. Therefore, it is recommended that the vCPU exclusively occupy physical cores on the host machine when this feature is enabled.
 
 #### Procedure
@@ -261,18 +263,18 @@ The Guest-Idle-Haltpoll feature is disabled by default. The following describes 
         </domain>
         ```
 
-        Alternatively, set cpuidle\_haltpoll.force to Y in the kernel startup parameters of the VM to forcibly enable the function. This method does not require the host machine to configure the vCPU to exclusively occupy the physical core.
+        Alternatively, set **cpuidle\_haltpoll.force** to **Y** in the kernel startup parameters of the VM to forcibly enable the function. This method does not require the host machine to configure the vCPU to exclusively occupy the physical core.
         ```
         cpuidle_haltpoll.force=Y
         ```
 
-    - If the processor architecture of the host machine is AArch64, this feature can be enabled only by configuring cpuidle\_haltpoll.force=Y haltpoll.enable=Y in the VM kernel startup parameters.
+    - If the processor architecture of the host machine is AArch64, this feature can be enabled only by configuring **cpuidle\_haltpoll.force=Y haltpoll.enable=Y** in the VM kernel startup parameters.
 
         ```
         cpuidle_haltpoll.force=Y haltpoll.enable=Y
         ```
 
-2.  Check whether the Guest-Idle-Haltpoll feature takes effect. Run the following command on the VM. If haltpoll is returned, the feature has taken effect.
+2.  Check whether the Guest-Idle-Haltpoll feature takes effect. Run the following command on the VM. If **haltpoll** is returned, the feature has taken effect.
 
     ```
     # cat /sys/devices/system/cpu/cpuidle/current_driver
@@ -280,28 +282,28 @@ The Guest-Idle-Haltpoll feature is disabled by default. The following describes 
 
 3.  (Optional) Set the Guest-Idle-Haltpoll parameter.
 
-    The following configuration files are provided in the /sys/module/haltpoll/parameters/ directory of the VM. You can adjust the configuration parameters based on service characteristics.
+    The following configuration files are provided in the **/sys/module/haltpoll/parameters/** directory of the VM. You can adjust the configuration parameters based on service characteristics.
 
-    -   guest\_halt\_poll\_ns: a global parameter that specifies the maximum polling duration after the vCPU is idle. The default value is 200000 (unit: ns).
-    -   guest\_halt\_poll\_shrink:  a divisor that is used to shrink the current vCPU guest\_halt\_poll\_ns when the wakeup event occurs after the global guest\_halt\_poll\_ns time. The default value is 2.
-    -   guest\_halt\_poll\_grow:  a multiplier that is used to extend the current vCPU guest\_halt\_poll\_ns when the wakeup event occurs after the current vCPU guest\_halt\_poll\_ns and before the global guest\_halt\_poll\_ns. The default value is 2.
-    -   guest\_halt\_poll\_grow\_start: When the system is idle, the guest\_halt\_poll\_ns of each vCPU reaches 0. This parameter is used to set the initial value of the current vCPU guest\_halt\_poll\_ns to facilitate scaling in and scaling out of the vCPU polling duration. The default value is 50000 (unit: ns).
-    -   guest\_halt\_poll\_allow\_shrink: a switch that is used to enable vCPU guest\_halt\_poll\_ns scale-in. The default value is Y. (Y indicates enabling the scale-in; N indicates disabling the scale-in.)
+    -   **guest\_halt\_poll\_ns**: a global parameter that specifies the maximum polling duration after the vCPU is idle. The default value is **200000** (unit: ns).
+    -   **guest\_halt\_poll\_shrink**:  a divisor that is used to shrink the current vCPU **guest\_halt\_poll\_ns** when the wakeup event occurs after the **global guest\_halt\_poll\_ns** time. The default value is **2**.
+    -   **guest\_halt\_poll\_grow**:  a multiplier that is used to extend the current vCPU **guest\_halt\_poll\_ns** when the wakeup event occurs after the current vCPU **guest\_halt\_poll\_ns** and before the global **guest\_halt\_poll\_ns**. The default value is **2**.
+    -   **guest\_halt\_poll\_grow\_start**: When the system is idle, the **guest\_halt\_poll\_ns** of each vCPU reaches 0. This parameter is used to set the initial value of the current vCPU **guest\_halt\_poll\_ns** to facilitate scaling in and scaling out of the vCPU polling duration. The default value is **50000** (unit: ns).
+    -   **guest\_halt\_poll\_allow\_shrink**: a switch that is used to enable vCPU **guest\_halt\_poll\_ns scale-in**. The default value is **Y**. (**Y** indicates enabling the scale-in; **N** indicates disabling the scale-in.)
 
-    You can run the following command as the user root to change the parameter values: In the preceding command, _value_ indicates the parameter value to be set, and _configFile_ indicates the corresponding configuration file.
+    You can run the following command as the **root** user to change the parameter values. In the preceding command, _value_ indicates the parameter value to be set, and _configFile_ indicates the corresponding configuration file.
 
     ```
     # echo value > /sys/module/haltpoll/parameters/configFile
     ```
 
-    For example, to set the global guest\_halt\_poll\_ns to 200000 ns, run the following command:
+    For example, to set the global **guest\_halt\_poll\_ns** to **200000** ns, run the following command:
 
     ```
     # echo 200000 > /sys/module/haltpoll/parameters/guest_halt_poll_ns
     ```
 
 
-## security Best Practices
+## Security Best Practices
 
 ### Libvirt Authentication
 
@@ -423,7 +425,7 @@ To add a qemu-ga blacklist, perform the following steps:
     ```
 
 
-1.  Set the blacklist. Add the commands to be shielded to  **--blacklist**  in the  **/usr/lib/systemd/system/qemu-guest-agent.service**  file. Use spaces to separate different commands. For example, to add the  **guest-file-open**  and  **guest-file-close**  commands to the blacklist, configure the file by referring to the following:
+3.  Set the blacklist. Add the commands to be shielded to  **--blacklist**  in the  **/usr/lib/systemd/system/qemu-guest-agent.service**  file. Use spaces to separate different commands. For example, to add the  **guest-file-open**  and  **guest-file-close**  commands to the blacklist, configure the file by referring to the following:
 
     ```
     [Service]
@@ -432,14 +434,14 @@ To add a qemu-ga blacklist, perform the following steps:
     ```
 
 
-1.  Restart the qemu-guest-agent service.
+4.  Restart the qemu-guest-agent service.
 
     ```
     # systemctl daemon-reload
     # systemctl restart qemu-guest-agent
     ```
 
-2.  Check whether the qemu-ga blacklist function takes effect on the VM, that is, whether the  **--blacklist**  parameter configured for the qemu-ga process is correct.
+5.  Check whether the qemu-ga blacklist function takes effect on the VM, that is, whether the  **--blacklist**  parameter configured for the qemu-ga process is correct.
 
     ```
     # ps -ef|grep qemu-ga|grep -E "blacklist=|b="
@@ -458,22 +460,22 @@ In a virtualization environment that uses the discretionary access control \(DAC
 
 #### Enabling sVirt Protection
 
-1.  Enable SELinux on the host.
-    1.  Log in to the host.
-    2.  Enable the SELinux function on the host.
-        1.  Modify the system startup parameter file  **grub.cfg**  to set  **selinux**  to  **1**.
+I.  Enable SELinux on the host.
+   1.  Log in to the host.
+   2.  Enable the SELinux function on the host.
+        a.  Modify the system startup parameter file  **grub.cfg**  to set  **selinux**  to  **1**.
 
             ```
             selinux=1
             ```
 
-        2.  Modify  **/etc/selinux/config**  to set the  **SELINUX**  to  **enforcing**.
+        b.  Modify  **/etc/selinux/config**  to set the  **SELINUX**  to  **enforcing**.
 
             ```
             SELINUX=enforcing
             ```
 
-    3.  Restart the host.
+   3.  Restart the host.
 
         ```
         # reboot
@@ -481,8 +483,8 @@ In a virtualization environment that uses the discretionary access control \(DAC
 
 
 
-1.  Create a VM where the sVirt function is enabled.
-    1.  Add the following information to the VM configuration file:
+II.  Create a VM where the sVirt function is enabled.
+   1.  Add the following information to the VM configuration file:
 
         ```
         <seclabel type='dynamic' model='selinux' relabel='yes'/>
@@ -494,14 +496,13 @@ In a virtualization environment that uses the discretionary access control \(DAC
         <seclabel type='none' model='selinux'/>
         ```
 
-    2.  Create a VM.
+   2.  Create a VM.
 
         ```
         # virsh define openEulerVM.xml
         ```
 
-2.  Check whether sVirt is enabled.
-
+III.  Check whether sVirt is enabled.
     Run the following command to check whether sVirt protection has been enabled for the QEMU process of the running VM. If  **svirt\_t:s0:c**  exists, sVirt protection has been enabled.
 
     ```
@@ -592,7 +593,7 @@ Currently, openEuler 21.03 provides the libtpms and swtpm sources. You can run t
 
 The vBIOS determines whether to enable the measure boot function. Currently, the vBIOS in openEuler 20.09 has the measure boot capability. If the host machine uses the edk2 component of another version, check whether the edk2 component supports the measure boot function.
 
-Log in to the VM as user root and check whether the TPM driver, tpm2-tss protocol stack, and tpm2-tools are installed on the VM.
+Log in to the VM as the **root** user and check whether the TPM driver, tpm2-tss protocol stack, and tpm2-tools are installed on the VM.
 By default, the tpm driver (tpm_tis.ko), tpm2-tss protocol stack, and tpm2-tools are installed in openEuler 21.03. If another OS is used, run the following command to check whether the driver and related tools are installed:
 
 

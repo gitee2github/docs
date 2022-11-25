@@ -225,21 +225,21 @@ A typical application scenario is to ensure data security when VM data is transm
 
 3. Precautions
 
-Before using TLS to live migrate VMs, you need to apply for certificates and set certificates on the source and destination ends. Before using the TLS function, you need to enable the peer authentication configuration item and set migrate_tls_x509_verify to 1 in /etc/libvirt/qemu.conf.
+Before using TLS to live migrate VMs, you need to apply for certificates and set certificates on the source and destination ends. Before using the TLS function, you need to enable the peer authentication configuration item and set **migrate_tls_x509_verify** to **1** in **/etc/libvirt/qemu.conf**.
 
-The service interruption duration and migration duration of single-channel TLS live migration increase significantly. The upper limit of the migration bandwidth is 100 MB/s to 200 MB/s. As a result, the migration may fail.
+The service interruption duration and migration duration of single-channel TLS live migration increase significantly. The upper limit of the migration bandwidth is 100 MiB/s to 200 MiB/s. As a result, the migration may fail.
 
 The multiFd can be used to perform multi-channel TLS migration. However, the CPU overhead increases (two more migration threads are enabled), which may affect VM running. You are advised to set the CPU affinity of the live migration thread to isolate the CPU resources used by the live migration thread from the CPU resources bound to the VM process. You are advised to bind two CPUs to each VM to be migrated.
 
 4. How to Use
 
-Single-channel live migration encryption transmission command
+Encrypted transmission command for single-channel live migration:
 
 ```
 virsh migrate --live --unsafe --tls --domain openEulerVM --desturi qemu+tcp://<destination-host-ip>/system --migrateuri tcp://<destionation-host-ip>
 ```
 
-Encrypted transmission commands for multi-channel live migration
+Encrypted transmission command for multi-channel live migration:
 
 ```
 virsh migrate --live --unsafe --parallel --tls --domain openEulerVM --desturi qemu+tcp://<destination-host-ip>/system --migrateuri tcp://<destionation-host-ip>
