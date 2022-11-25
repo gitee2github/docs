@@ -196,16 +196,16 @@ kubeedge-pi-counter-c69698d6-rb4xz      1/1     Running   0          2m      192
 
 |Name | Description |
 |---|---|
-|  [LED-RaspBerry-Pi](led-raspberrypi/README.md)     |Controlling a LED light with Raspberry Pi using KubeEdge platform
-|[Data Analysis @ Edge](apache-beam-analysis/README.md) | Analyzing data at edge by using Apache Beam and KubeEdge
-| [Security@Edge](security-demo/README.md) | Security at edge using SPIRE for identity management
-[Bluetooth-CC2650-demo](bluetooth-CC2650-demo/README.md)     |Controlling a CC2650 SensorTag bluetooth device using KubeEdge platform
-| [Play Music @Edge through WeChat](wechat-demo/README.md) | Play music at edge based on WeChat and KubeEdge
-| [Play Music @Edge through Web](web-demo/README.md) | Play music at edge based on Web and KubeEdge
-| [Collecting temperature @Edge](temperature-demo/README.md) | Collecting temperature at edge based KubeEdge
-| [Control pseudo device counter and collect data](kubeedge-counter-demo/README.md) | Control pseudo device counter and collect data based KubeEdge
-  [Play Music @Edge through Twitter](ke-twitter-demo/README.md)| Play music at edge based on Twitter and KubeEdge.
-  [Control Zigbee @Edge through cloud](kubeedge-edge-ai-application/README.md) | Face detection at cloud using OpenCV and using it to control zigbee on edge using Kubeedge.
+|  <a href='https://github.com/kubeedge/examples/blob/master/led-raspberrypi/README.md'>LED-RaspBerry-Pi</a>  |Controlling a LED light with Raspberry Pi using KubeEdge platform
+|<a href='https://github.com/kubeedge/examples/blob/master/led-raspberrypi/README.md'>Data Analysis @ Edge</a> | Analyzing data at edge by using Apache Beam and KubeEdge
+| <a href='https://github.com/kubeedge/examples/blob/master/security-demo/README.md'>Security@Edge</a>| Security at edge using SPIRE for identity management
+<a href='https://github.com/kubeedge/examples/blob/master/bluetooth-CC2650-demo/README.md'>Bluetooth-CC2650-demo</a>   |Controlling a CC2650 SensorTag bluetooth device using KubeEdge platform
+| <a href='https://github.com/kubeedge/examples/blob/master/wechat-demo/README.md'>Play Music @Edge through WeChat</a>| Play music at edge based on WeChat and KubeEdge
+| <a href='https://github.com/kubeedge/examples/blob/master/web-demo/README.md'>Play Music @Edge through Web</a> | Play music at edge based on Web and KubeEdge
+| <a href='https://github.com/kubeedge/examples/blob/master/temperature-demo/README.md'>Collecting temperature @Edge</a>| Collecting temperature at edge based KubeEdge
+| <a href='https://github.com/kubeedge/examples/blob/master/kubeedge-counter-demo/README.md'>Control pseudo device counter and collect data</a> | Control pseudo device counter and collect data based KubeEdge
+  <a href='https://github.com/kubeedge/examples/blob/master/ke-twitter-demo/README.md'>Play Music @Edge through Twitter</a>| Play music at edge based on Twitter and KubeEdge.
+  <a href='https://github.com/kubeedge/examples/blob/master/kubeedge-edge-ai-application/README.md'>Control Zigbee @Edge through cloud</a>| Face detection at cloud using OpenCV and using it to control zigbee on edge using Kubeedge.
 
 **2）使用EdgeMesh做边缘服务发现**
 
