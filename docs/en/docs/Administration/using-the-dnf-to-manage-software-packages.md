@@ -293,7 +293,7 @@ dnf search term
 The following is an example:
 
 ```
-$   dnf search httpd
+#   dnf search httpd
 ========================================== N/S matched: httpd ==========================================
 httpd.aarch64 : Apache HTTP Server
 httpd-devel.aarch64 : Development interfaces for the Apache HTTP server
