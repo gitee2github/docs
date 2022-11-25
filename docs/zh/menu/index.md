@@ -58,7 +58,7 @@ headless: true
     -   [附录]({{< relref "./docs/SecHarden/附录.md" >}})
 -   [虚拟化用户指南]({{< relref "./docs/Virtualization/virtualization.md" >}})
     -   [认识虚拟化]({{< relref "./docs/Virtualization/认识虚拟化.md" >}})
-    -   [安装虚拟化]({{< relref "./docs/Virtualization/安装虚拟化.md" >}})
+    -   [安装虚拟化组件]({{< relref "./docs/Virtualization/安装虚拟化组件.md" >}})
     -   [准备使用环境]({{< relref "./docs/Virtualization/准备使用环境.md" >}})
     -   [虚拟机配置]({{< relref "./docs/Virtualization/虚拟机配置.md" >}})
     -   [管理虚拟机]({{< relref "./docs/Virtualization/管理虚拟机.md" >}})
