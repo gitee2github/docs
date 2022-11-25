@@ -18,5 +18,4 @@ sudo dnf install ukui
 ```
 systemctl set-default graphical.target
 ```
-目前UKUI版本还在不断的更新，最新的安装方法请查阅：
-[https://gitee.com/openkylin/ukui-issues](https://gitee.com/openkylin/ukui-issues)
+目前UKUI版本还在不断的更新，最新的安装方法请查阅：[openEuler UKUI Issue库](https://gitee.com/openkylin-backup/ukui-issues?_from=gitee_search#/openkylin-backup/ukui-issues/blob/master/openEuler_20.09_UKUI_install_cn.md)
