@@ -18,12 +18,12 @@ do
   b=${r##*origin/stable2-}
   git checkout -b $b $r
 
-  
+
   if [ -d "./docs/ru" ]; then
     mkdir -p ../website/content/ru/docs/$b
-        cp -r ./docs/ru/* ../website/content/ru/docs/$b/ 
+        cp -r ./docs/ru/* ../website/content/ru/docs/$b/
   fi
-  
+
   cd ..
   cd ./docs
 done

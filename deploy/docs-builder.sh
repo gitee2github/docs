@@ -28,7 +28,7 @@ do
     mkdir -p ../website/content/ru/docs/$b
         cp -r ./docs/ru/* ../website/content/ru/docs/$b/
   fi
-    
+
   cd ..
   cd ./docs
 done
