@@ -109,7 +109,7 @@ var Login = {
 
   setCookie(cname, cvalue, isDelete) {
     const deleteStr = isDelete ? 'max-age=0; ' : '';
-    const domain = this.isTestENV() ? '.test.osinfra.cn' : '.openeuler.org';
+    const domain = '.openeuler.org';
     const expires = `${deleteStr}path=/; domain=${domain}`;
     document.cookie = `${cname}=${cvalue}; ${expires}`;
   },
@@ -161,8 +161,6 @@ var Login = {
     };
   },
 
-  redirectUri: `${location.origin}${location.pathname}`,
-
   // 退出登录
   logout(community='openeuler') {
     const { token } = this.getUserAuth();
@@ -186,65 +184,13 @@ var Login = {
     window.location.reload()
   },
 
-  getCodeByUrl(community='openeuler') {
-    const query = this.getUrlParam();
-    if (query.code && query.state) {
-      const param = {
-        code: query.code,
-        permission: 'sigRead',
-        community,
-        redirect: this.redirectUri,
-      };
-      LoginQuery.queryToken(param).then((res) => {
-        const { data = {} } = res;
-        const { token = '', photo = '', username = '' } = data;
-        this.saveUserAuth(token, photo, username);
-        this.deleteUrlCode(query);
-        window.parent.window.location.reload();
-      });
-    }
-  },
-
-  // 删除url上的code
-  deleteUrlCode(query) {
-    const arr = Object.entries(query);
-    let url = location.origin + location.pathname;
-    if (arr.length > 2) {
-      const _arr = arr.filter((item) => !['code', 'state'].includes(item[0]))
-      const search = _arr.reduce((pre, next) => {
-        pre += `${next[0]}=${next[1]}`;
-        return pre;
-      }, '?')
-      url += search;
-    }
-    history.replaceState(null, null, url);
-  },
-
-  getUrlParam(url = window.location.search) {
-    const param = {};
-    const arr = url.split('?');
-    if (arr[1]) {
-      const _arr = arr[1].split('&') || [];
-      _arr.forEach((item) => {
-        const it = item.split('=');
-        if (it.length === 2) {
-          const obj = {
-            [it[0]]: it[1],
-          };
-          Object.assign(param, obj);
-        }
-      });
-    }
-    return param;
-  },
-
   createClient(community) {
     const lang = this.getLanguage();
     const obj = {
       openeuler: {
         appId: '62679eab0b22b146d2ea0a3a',
         appHost: 'https://datastat.authing.cn',
-        redirectUri: this.redirectUri,
+        redirectUri: 'https://id.openeuler.org/login',
         lang: lang.language,
       },
     };
@@ -254,15 +200,8 @@ var Login = {
     return new Authing.AuthenticationClient(obj.openeuler);
   },
 
-  // scope配置，设置登录后用户返回信息
-  scopeConfig: {
-    scope: 'openid profile username',
-  },
-
   showGuard() {
-    const origin = this.isTestENV()
-      ? 'https://openeuler-usercenter.test.osinfra.cn'
-      : 'https://id.openeuler.org';
+    const origin = 'https://id.openeuler.org';
     location.href = `${origin}/login?redirect_uri=${location.href}`;
   },
 
@@ -309,22 +248,12 @@ var Login = {
       language: 'en-US',
     }
   },
-  // 判断测试环境,true为测试环境
-  isTestENV() {
-    let bool = false;
-    try {
-      bool = location?.host?.includes('test');
-    } catch {
-      bool = false;
-    }
-    return bool;
-  }
 }
 
 $(function($) { 
   $(document).ready(function() {
     if (location.pathname.includes('/ru/')) {
-      $('.opt-user').hide()
+      $('.opt-user').remove()
     }
   });
   Login.refreshInfo();
@@ -335,9 +264,7 @@ $(function($) {
     Login.logout();
   });
   $("#opt_user .zone").click(function (e) {
-    const origin = Login.isTestENV()
-      ? 'https://openeuler-usercenter.test.osinfra.cn'
-      : 'https://id.openeuler.org';
+    const origin = 'https://id.openeuler.org';
     window.open(
       `${origin}/${Login.getLanguage().lang}/profile`,
       '_blank'
