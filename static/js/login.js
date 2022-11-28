@@ -35,7 +35,7 @@ var LoginQuery = {
     return new Promise((resolve, reject) => {
       $.ajax({
         type: "get",
-        url: '/omapi/authing/user/permission',
+        url: '/omapi/oneid/user/permission',
         data: params,
         contentType: "application/json; charset=utf-8",
         datatype: "json",
@@ -55,32 +55,11 @@ var LoginQuery = {
       });
     });
   },
-  queryToken: (params) => {
-    return new Promise((resolve, reject) => {
-      $.ajax({
-        type: "get",
-        url: '/omapi/authing/token/apply',
-        data: params,
-        contentType: "application/json; charset=utf-8",
-        datatype: "json",
-        success(result) {
-          if (result) {
-              resolve(result);
-              return;
-          }
-          reject(result);
-        },
-        error(msg) {
-            reject(msg);
-        }
-      });
-    });
-  },
   queryIDToken: (token) => {
     return new Promise((resolve, reject) => {
       $.ajax({
         type: "get",
-        url: '/omapi/authing/logout',
+        url: '/omapi/oneid/logout',
         contentType: "application/json; charset=utf-8",
         datatype: "json",
         headers: {
