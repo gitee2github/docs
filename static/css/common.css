@@ -29,8 +29,8 @@ i {
     position: relative;
     margin-top: 180px !important;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 }
 
 .not-found img {
@@ -544,10 +544,7 @@ i {
     }
     .not-found {
         margin-top: 40px !important;
-        flex-direction: column;
-        justify-content: center;
     }
-    
     .not-found img {
         width: 265px;
         height: 272px;
