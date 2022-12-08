@@ -113,7 +113,6 @@ var Login = {
     if (!code) {
       this.deleteCookie(this.LOGIN_KEYS.USER_TOKEN);
     } else {
-      const str = JSON.stringify({photo, username})
       this.setCookie(this.LOGIN_KEYS.USER_TOKEN, code, false);
     }
   },
@@ -191,7 +190,6 @@ var Login = {
       LoginQuery.queryCourse({ community }, token).then((res) => {
         const { data } = res;
         if (
-          !loginProxy.photo &&
           Object.prototype.toString.call(data) === '[object Object]'
         ) {
           this.setLogInfo(data);
