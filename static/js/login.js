@@ -109,34 +109,22 @@ var Login = {
     this.setCookie(cname, 'null', true);
   },
 
-  saveUserAuth(code = '', photo = '', username='') {
+  saveUserAuth(code = '') {
     if (!code) {
       this.deleteCookie(this.LOGIN_KEYS.USER_TOKEN);
-      this.deleteCookie(this.LOGIN_KEYS.USER_INFO);
     } else {
       const str = JSON.stringify({photo, username})
       this.setCookie(this.LOGIN_KEYS.USER_TOKEN, code, false);
-      this.setCookie(this.LOGIN_KEYS.USER_INFO, str, false);
     }
   },
 
   getUserAuth() {
     const token = this.getCookie(this.LOGIN_KEYS.USER_TOKEN) || '';
-    const str = this.getCookie(this.LOGIN_KEYS.USER_INFO) || '';
-    let obj = {};
-    try {
-      obj = JSON.parse(str)
-    } catch {
-      obj = {}
-    }
-    const { photo = '', username='' } = obj;
     if (!token) {
       this.saveUserAuth();
     }
     return {
       token,
-      photo,
-      username,
     };
   },
 
@@ -198,9 +186,8 @@ var Login = {
 
   // 刷新后重新请求登录用户信息
   refreshInfo(community='openeuler') {
-    const { token, photo, username } = this.getUserAuth();
+    const { token } = this.getUserAuth();
     if (token) {
-      this.setLogInfo({photo, username})
       LoginQuery.queryCourse({ community }, token).then((res) => {
         const { data } = res;
         if (
@@ -208,7 +195,7 @@ var Login = {
           Object.prototype.toString.call(data) === '[object Object]'
         ) {
           this.setLogInfo(data);
-          this.saveUserAuth(token, data.photo, data.username);
+          this.saveUserAuth(token);
         }
       }).catch(() => {
         this.tokenFailIndicateLogin();
