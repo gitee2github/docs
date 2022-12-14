@@ -1,7 +1,7 @@
 # 部署  Kubernetes 集群
 
 
-本章介绍部署 Kubernets 集群的方法。
+本章介绍部署 Kubernetes 集群的方法。
 
 ## 环境说明
 
