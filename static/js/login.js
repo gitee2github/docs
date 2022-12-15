@@ -2,6 +2,7 @@
 const LOGIN_INFO = {
   photo: '',
   username: '',
+  token: 'token',
 }
 
 var loginProxy = new Proxy(LOGIN_INFO, {
@@ -9,13 +10,22 @@ var loginProxy = new Proxy(LOGIN_INFO, {
       return target[key] || '';
   },
   set: function(target, key, value) {
-      if (key === 'photo') {
+      if (key === 'token') {
         if (value) {
           $('#opt_user .logined').show();
           $('#opt_user .login').hide()
         } else {
           $('#opt_user .logined').hide();
           $('#opt_user .login').show();
+        }
+      }
+      if (key === 'photo') {
+        if (value) {
+          $('#opt_user .logined .img').show();
+          $('#opt_user .logined .empty-img').hide()
+        } else {
+          $('#opt_user .logined .img').hide();
+          $('#opt_user .logined .empty-img').show()
         }
         $("#opt_user .img")[0].src = value;
         $("#opt_user .img")[1].src = value;
@@ -171,10 +181,11 @@ var Login = {
     location.href = `${origin}/login?redirect_uri=${location.href}`;
   },
 
-  setLogInfo(data) {
+  setLogInfo(data, token = '') {
     const { photo = '', username = '' } = data;
     loginProxy.photo = photo;
     loginProxy.username = username;
+    loginProxy.token = token;
   },
 
   // token失效
@@ -192,12 +203,14 @@ var Login = {
         if (
           Object.prototype.toString.call(data) === '[object Object]'
         ) {
-          this.setLogInfo(data);
+          this.setLogInfo(data, token);
           this.saveUserAuth(token);
         }
       }).catch(() => {
         this.tokenFailIndicateLogin();
       });
+    } else {
+      this.setLogInfo({}, token);
     }
   },
   getLanguage() {

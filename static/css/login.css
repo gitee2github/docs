@@ -48,7 +48,7 @@
     align-items: center;
 }
 #opt_user .logined {
-    display: none;
+    /* display: none; */
 }
 #opt_user .opt-info {
     display: flex;
@@ -61,6 +61,13 @@
     position: relative;
 }
 #opt_user .opt-info .opt-img .img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    vertical-align: middle;
+    display: none;
+}
+#opt_user .opt-info .opt-img .empty-img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -83,6 +90,7 @@
     cursor: pointer;
     font-size: 14px;
     color: var(--e-color-text1);
+    display: none;
 }
 
 #opt_user .login:hover {
