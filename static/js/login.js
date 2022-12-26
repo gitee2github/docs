@@ -178,7 +178,8 @@ var Login = {
 
   showGuard() {
     const origin = 'https://id.openeuler.org';
-    location.href = `${origin}/login?redirect_uri=${location.href}`;
+    const { lang } = this.getLanguage();
+    location.href = `${origin}/login?redirect_uri=${location.href}&lang=${lang}`;
   },
 
   setLogInfo(data, token = '') {
