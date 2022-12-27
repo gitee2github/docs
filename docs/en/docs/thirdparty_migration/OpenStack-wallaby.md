@@ -2147,67 +2147,65 @@ Ironic is the bare metal service of OpenStack. If you need to deploy bare metal 
         
    5. Note
 
-The template of the PXE configuration file of the native OpenStack does not support the ARM64 architecture. You need to modify the native OpenStack code.
+        The template of the PXE configuration file of the native OpenStack does not support the ARM64 architecture. You need to modify the native OpenStack code.
 
-In Wallaby, Ironic provided by the community does not support the boot from ARM 64-bit UEFI PXE. As a result, the format of the generated grub.cfg file (generally in /tftpboot/) is incorrect, causing the PXE boot failure.
+        In Wallaby, Ironic provided by the community does not support the boot from ARM 64-bit UEFI PXE. As a result, the format of the generated grub.cfg file (generally in /tftpboot/) is incorrect, causing the PXE boot failure.
 
-The generated incorrect configuration file is as follows:
+        The generated incorrect configuration file is as follows:
 
-![erro](/Users/andy_lee/Downloads/erro.png)
+        ![ironic-err](./figures/ironic-err.png)
 
-As shown in the preceding figure, in the ARM architecture, the commands for searching for the vmlinux and ramdisk images are **linux** and **initrd**, respectively. The command in red in the preceding figure is the UEFI PXE startup command in the x86 architecture.
+        As shown in the preceding figure, in the ARM architecture, the commands for searching for the vmlinux and ramdisk images are **linux** and **initrd**, respectively. The command in red in the preceding figure is the UEFI PXE startup command in the x86 architecture.
 
-You need to modify the code logic for generating the grub.cfg file.
+        You need to modify the code logic for generating the grub.cfg file.
 
-The following TLS error is reported when Ironic sends a request to IPA to query the command execution status:
+        The following TLS error is reported when Ironic sends a request to IPA to query the command execution status:
 
-By default, both IPA and Ironic of Wallaby have TLS authentication enabled to send requests to each other. Disable TLS authentication according to the description on the official website.
+        By default, both IPA and Ironic of Wallaby have TLS authentication enabled to send requests to each other. Disable TLS authentication according to the description on the official website.
 
-1. Add **ipa-insecure=1** to the following configuration in the Ironic configuration file (**/etc/ironic/ironic.conf**):
+        1. Add **ipa-insecure=1** to the following configuration in the Ironic configuration file (**/etc/ironic/ironic.conf**):
 
-```
-[agent]
-verify_ca = False
- 
-[pxe]
-pxe_append_params = nofb nomodeset vga=normal coreos.autologin ipa-insecure=1
-```
+        ```
+        [agent]
+        verify_ca = False
+        
+        [pxe]
+        pxe_append_params = nofb nomodeset vga=normal coreos.autologin ipa-insecure=1
+        ```
 
-2. Add the IPA configuration file **/etc/ironic_python_agent/ironic_python_agent.conf** to the ramdisk image and configure the TLS as follows:
+        2. Add the IPA configuration file **/etc/ironic_python_agent/ironic_python_agent.conf** to the ramdisk image and configure the TLS as follows:
 
-**/etc/ironic_python_agent/ironic_python_agent.conf** (The **/etc/ironic_python_agent** directory must be created in advance.)
+        **/etc/ironic_python_agent/ironic_python_agent.conf** (The **/etc/ironic_python_agent** directory must be created in advance.)
 
-```
-[DEFAULT]
-enable_auto_tls = False
-```
+        ```
+        [DEFAULT]
+        enable_auto_tls = False
+        ```
 
-Set the permission:
+        Set the permission:
 
-```
-chown -R ipa.ipa /etc/ironic_python_agent/
-```
+        ```
+        chown -R ipa.ipa /etc/ironic_python_agent/
+        ```
 
-3. Modify the startup file of the IPA service and add the configuration file option.
+        3. Modify the startup file of the IPA service and add the configuration file option.
 
-   vim usr/lib/systemd/system/ironic-python-agent.service
+        vim usr/lib/systemd/system/ironic-python-agent.service
 
-   ```
-   [Unit]
-   Description=Ironic Python Agent
-   After=network-online.target
-    
-   [Service]
-   ExecStartPre=/sbin/modprobe vfat
-   ExecStart=/usr/local/bin/ironic-python-agent --config-file /etc/ironic_python_agent/ironic_python_agent.conf
-   Restart=always
-   RestartSec=30s
-    
-   [Install]
-   WantedBy=multi-user.target
-   ```
-
-   
+        ```
+        [Unit]
+        Description=Ironic Python Agent
+        After=network-online.target
+            
+        [Service]
+        ExecStartPre=/sbin/modprobe vfat
+        ExecStart=/usr/local/bin/ironic-python-agent --config-file /etc/ironic_python_agent/ironic_python_agent.conf
+        Restart=always
+        RestartSec=30s
+            
+        [Install]
+        WantedBy=multi-user.target
+        ```
 
 ### Installing Kolla
 

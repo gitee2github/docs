@@ -27,6 +27,7 @@ Note: In this document, the edge node ke-edge1 is used for verification. If you 
 --insecuret-port=8080
 --insecure-bind-address=0.0.0.0
 ```
+
 You can modify the `/etc/kubernetes/manifests/kube-apiserver.yaml` file, and then restart the Pod of the Kubernetes API server component to make the modifications take effect.
 
 **3) Download the sample code:**
@@ -38,6 +39,7 @@ You can modify the `/etc/kubernetes/manifests/kube-apiserver.yaml` file, and the
 ## 2. Creating the Device Model and Device
 
 **1) Create the device model.**
+
 ```
 [root@ke-cloud ~]# cd $GOPATH/src/github.com/kubeedge/examples/kubeedge-counter-demo/crds
 [root@ke-cloud crds~]# kubectl create -f kubeedge-counter-model.yaml
@@ -88,6 +90,7 @@ status:
 **1) Modify the code.**
 
 The cloud application **web-controller-app** controls the edge application **pi-counter-app**. The default listening port of the cloud application is 80. Change the port number to 8089.
+
 ```
 [root@ke-cloud ~]# cd $GOPATH/src/github.com/kubeedge/examples/kubeedge-counter-demo/web-controller-app
 [root@ke-cloud web-controller-app~]# vim main.go
@@ -177,6 +180,7 @@ Let's test the running effect of the Demo.
 
 **1) Execute the ON command.**
 On the web page, select **ON** and click **Execute**. You can run the following command on the edge node to view the execution result:
+
 ```
 [root@ke-edge1 ~]# docker logs -f counter-container-id
 ```
@@ -186,6 +190,7 @@ On the web page, select **STATUS** and click **Execute**. The current counter st
 
 **3) Execute the OFF command.**
 On the web page, select **OFF** and click **Execute**. You can run the following command on the edge node to view the execution result:
+
 ```
 [root@ke-edge1 ~]# docker logs -f counter-container-id
 ```
@@ -194,18 +199,18 @@ On the web page, select **OFF** and click **Execute**. You can run the following
 
 **1) For more official KubeEdge examples, visit https://github.com/kubeedge/examples.**
 
-|Name | Description |
-|---|---|
-|  [LED-RaspBerry-Pi](led-raspberrypi/README.md)     |Controlling a LED light with Raspberry Pi using KubeEdge platform.
-|[Data Analysis @ Edge](apache-beam-analysis/README.md) | Analyzing data at edge by using Apache Beam and KubeEdge.
-| [Security@Edge](security-demo/README.md) | Security at edge using SPIRE for identity management.
-[Bluetooth-CC2650-demo](bluetooth-CC2650-demo/README.md)     |Controlling a CC2650 SensorTag bluetooth device using KubeEdge platform.
-| [Play Music @Edge through WeChat](wechat-demo/README.md) | Play music at edge based on WeChat and KubeEdge.
-| [Play Music @Edge through Web](web-demo/README.md) | Play music at edge based on Web and KubeEdge.
-| [Collecting temperature @Edge](temperature-demo/README.md) | Collecting temperature at edge based KubeEdge.
-| [Control pseudo device counter and collect data](kubeedge-counter-demo/README.md) | Control pseudo device counter and collect data based KubeEdge.
-  [Play Music @Edge through Twitter](ke-twitter-demo/README.md)| Play music at edge based on Twitter and KubeEdge.
-  [Control Zigbee @Edge through cloud](kubeedge-edge-ai-application/README.md) | Face detection at cloud using OpenCV and using it to control zigbee on edge using KubeEdge.
+| Name                                                                                                                               | Description                                                                                 |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| [LED-RaspBerry-Pi](https://github.com/kubeedge/examples/blob/master/led-raspberrypi/README.md)                                     | Controlling a LED light with Raspberry Pi using KubeEdge platform.                          |
+| [Data Analysis @ Edge](https://github.com/kubeedge/examples/blob/master/apache-beam-analysis/README.md)                            | Analyzing data at edge by using Apache Beam and KubeEdge.                                   |
+| [Security@Edge](https://github.com/kubeedge/examples/blob/master/security-demo/README.md)                                          | Security at edge using SPIRE for identity management.                                       |
+| [Bluetooth-CC2650-demo](https://github.com/kubeedge/examples/blob/master/bluetooth-CC2650-demo/README.md)                          | Controlling a CC2650 SensorTag bluetooth device using KubeEdge platform.                    |
+| [Play Music @Edge through WeChat](https://github.com/kubeedge/examples/blob/master/wechat-demo/README.md)                          | Play music at edge based on WeChat and KubeEdge.                                            |
+| [Play Music @Edge through Web](https://github.com/kubeedge/examples/blob/master/web-demo/README.md)                                | Play music at edge based on Web and KubeEdge.                                               |
+| [Collecting temperature @Edge](https://github.com/kubeedge/examples/blob/master/temperature-demo/README.md)                        | Collecting temperature at edge based KubeEdge.                                              |
+| [Control pseudo device counter and collect data](https://github.com/kubeedge/examples/blob/master/kubeedge-counter-demo/README.md) | Control pseudo device counter and collect data based KubeEdge.                              |
+| [Play Music @Edge through Twitter](https://github.com/kubeedge/examples/blob/master/ke-twitter-demo/README.md)                     | Play music at edge based on Twitter and KubeEdge.                                           |
+| [Control Zigbee @Edge through cloud](https://github.com/kubeedge/examples/blob/master/kubeedge-edge-ai-application/README.md)      | Face detection at cloud using OpenCV and using it to control zigbee on edge using KubeEdge. |
 
 **2) Use EdgeMesh to discover edge services.**
 
