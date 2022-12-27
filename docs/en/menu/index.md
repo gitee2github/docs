@@ -49,7 +49,7 @@ headless: true
     -   [Appendix]({{< relref "./docs/SecHarden/appendix.md" >}})
 -   [Virtualization User Guide]({{< relref "./docs/Virtualization/virtualization.md" >}})
     -   [Introduction to Virtualization]({{< relref "./docs/Virtualization/introduction-to-virtualization.md" >}})
-    -   [Installation to Virtualization]({{< relref "./docs/Virtualization/installation-to-virtualization.md" >}})
+    -   [Installing Virtualization Components]({{< relref "./docs/Virtualization/virtualization-installation.md" >}})
     -   [Environment Preparation]({{< relref "./docs/Virtualization/environment-preparation.md" >}})
     -   [VM Configuration]({{< relref "./docs/Virtualization/vm-configuration.md" >}})
     -   [Managing VMs]({{< relref "./docs/Virtualization/managing-vms.md" >}})

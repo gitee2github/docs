@@ -68,7 +68,7 @@ export TMOUT=300
 
 ### Description
 
-The  **umask**  value is used to set default permission on files and directories. A smaller  **umask**  value indicates that group users or other users have incorrect permission, which brings system security risks. Therefore, the default  **umask**  value must be set to  **0077**  for all users, that is, the default permission on user directories is  **700**  and the permission on user files is  **600**. The  **umask**  value indicates the complement of a permission. For details about how to convert the  **umask**  value to a permission, see  [umask Values](#umask-values.md).
+The  **umask**  value is used to set default permission on files and directories. A smaller  **umask**  value indicates that group users or other users have incorrect permission, which brings system security risks. Therefore, the default  **umask**  value must be set to  **0077**  for all users, that is, the default permission on user directories is  **700**  and the permission on user files is  **600**. The  **umask**  value indicates the complement of a permission. For details about how to convert the  **umask**  value to a permission, see  [umask Values](./appendix.md#umask-values).
 
 >![](public_sys-resources/icon-note.gif) **NOTE:**   
 >By default, the  **umask**  value of the openEuler user is set to  **0022**.  

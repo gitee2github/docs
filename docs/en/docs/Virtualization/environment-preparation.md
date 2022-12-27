@@ -1,9 +1,10 @@
 # Environment Preparation
 
 - [Environment Preparation](#environment-preparation)
-    - [Preparing a VM Image](#preparing-a-vm-image)
-    - [Preparing the VM Network](#preparing-the-vm-network)
-    - [Preparing Boot Firmware](#preparing-boot-firmware)
+  - [Preparing a VM Image](#preparing-a-vm-image)
+  - [Preparing the VM Network](#preparing-the-vm-network)
+  - [Preparing Boot Firmware](#preparing-boot-firmware)
+  - [Configuring a Non-root User](#configuring-a-non-root-user)
 
 ## Preparing a VM Image
 
@@ -356,7 +357,7 @@ If the UEFI mode is used, the tool set EDK II needs to be installed. The install
     Install Date: Thu 19 Mar 2020 09:09:06 AM CST
     ```
 
-# Configuring a Non-root User
+## Configuring a Non-root User
 
 ### Overview
 
