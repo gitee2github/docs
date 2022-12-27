@@ -1,13 +1,17 @@
 # Authentication and Authorization
 
 - [Authentication and Authorization](#authentication-and-authorization)
-    - [Setting a Warning for Remote Network Access](#setting-a-warning-for-remote-network-access)
-    - [Forestalling Unauthorized System Restart by Pressing Ctrl+Alt+Delete](#forestalling-unauthorized-system-restart-by-holding-down-ctrl-alt-and-delete)
-    - [Setting an Automatic Exit Interval for Shell](#setting-an-automatic-exit-interval-for-shell)
-    - [Setting the Default umask Value for Users to 0077](#setting-the-default-umask-value-for-users-to-0077)
-    - [Setting the GRUB2 Encryption Password](#setting-the-grub2-encryption-password)
-    - [Setting the Secure Single-user Mode](#setting-the-secure-single-user-mode)
-    - [Disabling Interactive Startup](#disabling-interactive-startup)
+  - [Setting a Warning for Remote Network Access](#setting-a-warning-for-remote-network-access)
+    - [Description](#description)
+    - [Implementation](#implementation)
+  - [Forestalling Unauthorized System Restart by Pressing Ctrl+Alt+Delete](#forestalling-unauthorized-system-restart-by-pressing-ctrlaltdelete)
+    - [Description](#description-1)
+    - [Implementation](#implementation-1)
+  - [Setting an Automatic Exit Interval for Shell](#setting-an-automatic-exit-interval-for-shell)
+  - [Setting the Default umask Value for Users to 0077](#setting-the-default-umask-value-for-users-to-0077)
+  - [Setting the GRUB2 Encryption Password](#setting-the-grub2-encryption-password)
+  - [Setting the Secure Single-user Mode](#setting-the-secure-single-user-mode)
+  - [Disabling Interactive Startup](#disabling-interactive-startup)
 
 
 
@@ -29,7 +33,7 @@ Authorized users only. All activities may be monitored and reported.
 
 ### Description
 
-By default, you can restart the OS by holding down  **Ctrl**,  **Alt**, and  **Delete**. Disabling this feature can prevent data loss caused by misoperations.
+By default, you can restart the system by pressing **Ctrl**+**Alt**+**Delete**. You are advised to disable this function to prevent data loss due to misoperations.
 
 ### Implementation
 
@@ -67,7 +71,7 @@ export TMOUT=300
 
 ### Description
 
-The  **umask**  value is used to set default permission on files and directories. A smaller  **umask**  value indicates that group users or other users have incorrect permission, which brings system security risks. Therefore, the default  **umask**  value must be set to  **0077**  for all users, that is, the default permission on user directories is  **700**  and the permission on user files is  **600**. The  **umask**  value indicates the complement of a permission. For details about how to convert the  **umask**  value to a permission, see  [umask Values](#umask-values.md).
+The  **umask**  value is used to set default permission on files and directories. A smaller  **umask**  value indicates that group users or other users have incorrect permission, which brings system security risks. Therefore, the default  **umask**  value must be set to  **0077**  for all users, that is, the default permission on user directories is  **700**  and the permission on user files is  **600**. The  **umask**  value indicates the complement of a permission. For details about how to convert the  **umask**  value to a permission, see  [umask Values](./appendix.md#umask-values).
 
 >![](./public_sys-resources/icon-note.gif) **NOTE:**   
 >By default, the  **umask**  value of the openEuler user is set to  **0022**.  
