@@ -1,7 +1,7 @@
-# OpenStack-Rocky Deployment Guide
+# OpenStack Rocky Deployment Guide
 
 <!-- TOC -->
-- [OpenStack-Rocky Deployment Guide](#openstack-rocky-deployment-guide)
+- [OpenStack Rocky Deployment Guide](#openstack-rocky-deployment-guide)
   - [Introduction to OpenStack](#introduction-to-openstack)
   
   - [Preparing the Environment](#preparing-the-environment)
@@ -40,7 +40,7 @@ OpenStack is an open source cloud computing infrastructure software project deve
 
 As an open source cloud computing management platform, OpenStack consists of several major components, such as Nova, Cinder, Neutron, Glance, Keystone, and Horizon. OpenStack supports almost all cloud environments. The project aims to provide a cloud computing management platform that is easy-to-use, scalable, unified, and standardized. OpenStack provides an infrastructure as a service (IaaS) solution that combines complementary services, each of which provides an API for integration.
 
-The third-party oepkg Yum source certified by openEuler 20.03 LTS SP2 supports OpenStack-Rocky. You can configure the oepkg Yum source and deploy OpenStack based on this document.
+The third-party oepkg Yum source certified by openEuler 20.03 LTS SP2 supports OpenStack Rocky. You can configure the oepkg Yum source and deploy OpenStack based on this document.
 
 ## Preparing the Environment
 

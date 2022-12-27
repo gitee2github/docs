@@ -126,7 +126,7 @@ Configure an online yum source by directly obtaining the online openEuler repo s
 ### Configuring a Repo Source by Directly Obtaining the Repo Source File
 
 > ![](./public_sys-resources/icon-note.gif) **NOTE:**   
-> openEuler provides multiple repo sources for users online. For details about the repo sources, see [System Installation](./../Releasenotes/installing-the-os.html). This section uses the **openEuler\_aarch64.repo** file as an example to describe how to configure the OS repo source as the yum source.
+> openEuler provides multiple repo sources for users online. For details about the repo sources, see [System Installation](./../Releasenotes/installing-the-os.md). This section uses the **openEuler\_aarch64.repo** file as an example to describe how to configure the OS repo source as the yum source.
 
 1. Go to the yum source directory and check the .repo configuration file in the directory.
    
@@ -173,13 +173,13 @@ Configure an online yum source by directly obtaining the online openEuler repo s
 ### Configuring a Repo Source by Mounting an ISO File
 
 > ![](./public_sys-resources/icon-note.gif) ********NOTE:********   
-> openEuler provides multiple ISO release packages. For details about each ISO release package, see [System Installation](./../Releasenotes/installing-the-os.html). This section uses the  **openEuler-20.03-LTS-SP2-aarch64-dvd.iso**  file and  **openEuler-20.03-LTS-SP2-aarch64-dvd.iso.sha256sum**  verification file as examples. Modify them based on the actual requirements.
+> openEuler provides multiple ISO release packages. For details about each ISO release package, see [System Installation](./../Releasenotes/installing-the-os.md). This section uses the  **openEuler-20.03-LTS-SP2-aarch64-dvd.iso**  file and  **openEuler-20.03-LTS-SP2-aarch64-dvd.iso.sha256sum**  verification file as examples. Modify them based on the actual requirements.
 
 1. Download the ISO release package.
    
    - Download an ISO image using a cross-platform file transfer tool.
      
-     1. Log in to the openEuler community at  [https://openeuler.org](https://openeuler.org).
+     1. Log in to the openEuler community at  [https://www.openeuler.org](https://www.openeuler.org).
      
      2. Click  **Download**.
      
@@ -209,7 +209,7 @@ Configure an online yum source by directly obtaining the online openEuler repo s
    
    - Run the  **wget**  command to download the ISO image.
      
-     1. Log in to the openEuler community at  [https://openeuler.org](https://openeuler.org).
+     1. Log in to the openEuler community at  [https://www.openeuler.org](https://www.openeuler.org).
      
      2. Click  **Download**.
      

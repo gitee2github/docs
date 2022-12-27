@@ -5,7 +5,7 @@ DDE is a powerful desktop environment developed by UnionTech. It contains dozens
 
 #### Procedure
 
-1. [Download](https://openeuler.org/zh/download/) the openEuler ISO file and install the OS.
+1. [Download](https://www.openeuler.org/en/download/) the openEuler ISO file and install the OS.
 2. Update the software source.
 ```bash
 sudo dnf update
