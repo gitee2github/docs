@@ -1,4 +1,4 @@
-# Guide to Porting OpenStack-Train to openEuler
+# Guide to Porting OpenStack Train to openEuler
 
 - [Software Overview](#software-overview)
 - [Environment Configuration](#environment-configuration)
