@@ -42,7 +42,7 @@ The following table lists the [openEuler release files](http://repo.openeuler.or
 	<td id="table001row003"><a href="http://repo.openeuler.org/openEuler-20.03-LTS/virtual_machine_img/">virtual_machine_img</a></td>
 	<td>VM image</td>
 	<td><p>The openEuler VM image provides only the basic running environment to shorten the VM deployment time. The directory differentiates the VM images for the AArch64 and x86 architectures, respectively.</p>
-		<div><span class="notetitle">说明：</span>
+		<div><span class="notetitle">Note:</span>
 			<div class="notebody">
 				<ul>
 					<li>The default password of the root user of the VM image is openEuler12#$. Change the password upon the first login.</li>
