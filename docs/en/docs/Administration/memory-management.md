@@ -1,4 +1,4 @@
-# Etmem for Tiered Memory Expansion
+# etmem for Tiered Memory Expansion
 
 ## Introduction
 The development of CPU computing power - particularly lower costs of ARM cores - makes memory cost and capacity become the core frustration that restricts business costs and performance. Therefore, the most pressing issue is how to save memory cost and how to expand memory capacity.
@@ -17,7 +17,7 @@ The etmem client interacts with the server through the socket communication mech
 ```
    # git clone https://gitee.com/src-openeuler/etmem.git
 ```
-2. Compile and run the dependencies.
+2. Install the compilation and running dependency.
 
 The compilation and running of etmem depend on the libboundscheck component.
 
@@ -31,7 +31,7 @@ The compilation and running of etmem depend on the libboundscheck component.
 ```
 ## Instruction
 
-### Starting Etmemd
+### Starting etmemd
 
 #### How to Use
 
@@ -54,7 +54,7 @@ options:
 | `-s` or `--socket`    | Name of the etmemd listener, which is used to interact with the client| Yes      | Yes        | A string of fewer than 107 characters| Name of the server listener.                                        |
 | `-h` or `--help`      | Help information                          | No      | No        | N/A                   | If this option is specified, the command execution exits after the command output is printed.                                |
 
-### Etmem Configuration File
+### etmem Configuration File
 
 Before running the etmem process, the administrator needs to plan the processes that require memory expansion, configure the process information in the etmem configuration file, and configure the memory scan loops and times, and cold and hot memory thresholds.
 
@@ -90,7 +90,7 @@ Fields in the configuration file are described as follows.
 | param       | Start flag of the private parameter configuration section of an engine                                | Yes          | No            | N/A                       | Start flag of the private parameter configuration section of an engine. Each task corresponds to an engine, and each engine corresponds to a `param` and its fields.|
 | T           | Watermark of the `slide` engine                                         | Yes          | No            | 1 to 3 x `loop`               | Watermark. If the value is greater than or equal to the watermark, the memory is identified as hot memory. Otherwise, the memory is identified as cold memory.  |
 
-### Adding, Deleting, and Querying an Etmem Project
+### Adding, Deleting, and Querying an etmem Project
 
 #### Scenario Description
 
@@ -161,7 +161,7 @@ Command `show`:
 | ------------ | ------------------------------------------------------------ | -------- | ---------- | -------------------------------------------------------- |
 | `-s` or `--socket` | Name of the socket for communicating with the etmemd server. The value must be the same as that specified when the etmemd server is started.| Yes      | Yes        | This option is mandatory. When there are multiple etmemd servers, the administrator selects an etmemd server to communicate with.|
 
-### Starting and Stopping an Etmem Project
+### Starting and Stopping an etmem Project
 
 #### Scenario Description
 
