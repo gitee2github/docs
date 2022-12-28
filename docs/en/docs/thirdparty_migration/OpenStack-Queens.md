@@ -1,7 +1,7 @@
-# OpenStack-Queens Deployment Guide
+# OpenStack Queens Deployment Guide
 
 <!-- TOC -->
-- [OpenStack-Queens Deployment Guide](#openstack-queens-deployment-guide)
+- [OpenStack Queens Deployment Guide](#openstack-queens-deployment-guide)
   - [Introduction to OpenStack](#introduction-to-openstack)
   - [Conventions](#conventions)
   - [Preparing the Environment](#preparing-the-environment)
@@ -1747,7 +1747,7 @@ Ironic is a bare metal service of OpenStack. You are advised to use Ironic if yo
 
 6. Create a deploy ramdisk image.
    
-   RAMDisk images of OpenStack-Queens can be created using the ironic-python-agent service or disk-image-builder tool, or the latest ironic-python-agent-builder in the community. You can also use other tools. If the native tool of OpenStack-Queens RAMDisk is used, you need to install the corresponding software package.
+   RAMDisk images of OpenStack Queens can be created using the ironic-python-agent service or disk-image-builder tool, or the latest ironic-python-agent-builder in the community. You can also use other tools. If the native tool of OpenStack Queens RAMDisk is used, you need to install the corresponding software package.
    
    ```
    yum install openstack-ironic-python-agent

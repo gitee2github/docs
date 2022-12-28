@@ -1,10 +1,10 @@
-# Guide to Porting OpenStack-Train to openEuler
+# Guide to Porting OpenStack Train to openEuler
 
 - [Software Overview](#software-overview)
 - [Environment Configuration](#environment-configuration)
 - [System Configuration](#system-configuration)
 - [Software Compilation](#software-compilation)
-- [Running the devstack Script to Install OpenStack](#running-the-devstack-script-to-install-openstack)
+- [Using the devstack Script to Install OpenStack](#using-the-devstack-script-to-install-openstack)
 - [Software Running](#software-running)
 - [Software Uninstallation](#software-uninstallation)
 - [FAQs](#faqs)
@@ -368,7 +368,7 @@ Perform the following operations as the stack user.
     # pip3 install virtualenv
     ```
 
-## Running the devstack Script to Install OpenStack
+## Using the devstack Script to Install OpenStack
 
 Run the following commands as the stack user to execute the **stack.sh** script to install OpenStack on a single-node system:
 

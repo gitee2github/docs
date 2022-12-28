@@ -1,6 +1,6 @@
 # Quick Start
 
-This document uses openEuler 20.03-LTS-SP2 installed on the TaiShan 200 server as an example to describe how to quickly install and use openEuler OS. For details about the installation requirements and methods, see  [ Installation Guide](./../Installation/Installation.html).
+This document uses openEuler 20.03-LTS-SP2 installed on the TaiShan 200 server as an example to describe how to quickly install and use openEuler OS. For details about the installation requirements and methods, see the [Installation Guide](./../Installation/Installation.md).
 
 <!-- TOC -->
 
@@ -105,7 +105,7 @@ Perform the following operations to obtain the openEuler release package:
 > ![](./public_sys-resources/icon-note.gif) **NOTE:**   
 The release packages of the AArch64 architecture support the UEFI mode, and the release packages of the x86\_64 architecture support the UEFI and Legacy modes.
 
-1. Log in to the [openEuler Community](https://openeuler.org) website.
+1. Log in to the [openEuler Community](https://www.openeuler.org) website.
 
 2. Click  **Download**.
 
@@ -257,7 +257,7 @@ After entering the GUI installation page, perform the following operations to in
 
    3. Select **Root Password** and set the root password.
       
-        On the **ROOT PASSWORD** page, enter a password that meets the [Password Complexity](#密码复杂度) requirements and confirm the password, as shown in [Figure 10](#zh-cn_topic_0186390266_zh-cn_topic_0122145909_fig1323165793018).
+        On the **ROOT PASSWORD** page, enter a password that meets the [Password Complexity](#password-complexity) requirements and confirm the password, as shown in [Figure 10](#zh-cn_topic_0186390266_zh-cn_topic_0122145909_fig1323165793018).
       
         > ![](./public_sys-resources/icon-note.gif) **NOTE:**
         > 
@@ -308,7 +308,7 @@ After entering the GUI installation page, perform the following operations to in
 
 ## Viewing System Information
 
-After the system is installed and restarted, the system CLI login page is displayed. Enter the username and password set during the installation to log in to openEuler OS and view the following system information. For details about system management and configuration, see the  [openEuler 20.03-LTS-SP2 Administrator Guide](./../Administration/administration.html).
+After the system is installed and restarted, the system CLI login page is displayed. Enter the username and password set during the installation to log in to openEuler OS and view the following system information. For details about system management and configuration, see the  [openEuler 20.03-LTS-SP2 Administrator Guide](./../Administration/administration.md).
 
 - Run the following command to view the system information:
   

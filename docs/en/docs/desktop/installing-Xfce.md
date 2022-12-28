@@ -6,7 +6,7 @@ Xfce supports the x86\_64 and AArch64 architectures.
 
 You are advised to create an administrator during the installation.
 
-1. [Download](https://openeuler.org/en/download/) the openEuler ISO image and install the system. Run the following command to update the software source. You are advised to configure the Everything source and the EPOL source. This document describes how to install Xfce in the minimum installation scenario.
+1. [Download](https://www.openeuler.org/en/download/) the openEuler ISO image and install the system. Run the following command to update the software source. You are advised to configure the Everything source and the EPOL source. This document describes how to install Xfce in the minimum installation scenario.
    
    ```
    sudo dnf update

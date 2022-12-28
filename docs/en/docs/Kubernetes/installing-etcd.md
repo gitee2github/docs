@@ -1,14 +1,14 @@
-# Installing ETCD
+# Installing etcd
 
 
 ## Preparing the Environment
 
-Run the following command to enable the port used by ETCD:
+Run the following command to enable the port used by etcd:
 ```bash
 firewall-cmd --zone=public --add-port=2379-2381/tcp
 ```
 
-## Installing the ETCD Binary Package
+## Installing the etcd Binary Package
 
 Currently, the RPM package is used for installation. 
 
@@ -59,12 +59,12 @@ WantedBy=multi-user.target
 **注意:**
 
 - The boot setting `ETCD_UNSUPPORTED_ARCH=arm64` needs to be added to ARM64;
-- In this document, ETCD and k8s control are deployed on the same machine. Therefore, the `kubernetes.pem` and `kubernetes-key.pem` certificates are used to start ETCD and k8s control.
-- A CA certificate is used in the entire deployment process. ETCD can generate its own CA certificate and use its own CA certificate to sign other certificates. However, the certificate signed by the CA certificate needs to be used when the APIServer accesses the ETCD client.
-- `initial-cluster` needs to be added to all configurations for deploying ETCD.
-- To improve the storage efficiency of ETCD, you can use the directory of the SSD as `data-dir`.
+- In this document, etcd and Kubernetes control are deployed on the same machine. Therefore, the `kubernetes.pem` and `kubernetes-key.pem` certificates are used to start etcd and Kubernetes control.
+- A CA certificate is used in the entire deployment process. etcd can generate its own CA certificate and use its own CA certificate to sign other certificates. However, the certificate signed by the CA certificate needs to be used when the APIServer accesses the etcd client.
+- `initial-cluster` needs to be added to all configurations for deploying etcd.
+- To improve the storage efficiency of etcd, you can use the directory of the SSD as `data-dir`.
 
-Start the ETCD service.
+Start the etcd service.
 
 ```bash
 $ systemctl enable etcd

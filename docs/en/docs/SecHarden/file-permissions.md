@@ -4,7 +4,7 @@
 - [File Permissions](#file-permissions)
     - [Setting the Permissions on and Ownership of Files](#setting-the-permissions-on-and-ownership-of-files)
     - [Deleting Unowned Files](#deleting-unowned-files)
-    - [Removing a Symbolic Link to /dev/null](#removing-a-symbolic-link-to-dev-null)
+    - [Removing a Symbolic Link to /dev/null](#removing-a-symbolic-link-to-devnull)
     - [Setting the umask Value for a Daemon](#setting-the-umask-value-for-a-daemon)
     - [Adding a Sticky Bit Attribute to Globally Writable Directories](#adding-a-sticky-bit-attribute-to-globally-writable-directories)
     - [Disabling the Globally Writable Permission on Unauthorized Files](#disabling-the-globally-writable-permission-on-unauthorized-files)
@@ -113,7 +113,7 @@ For example, openEuler supports UEFI and legacy BIOS installation modes. The GRU
 
 ### Description
 
-The  **umask**  value is used to set default permission on files and directories. If the  **umask**  value is not specified, the file has the globally writable permission. This brings risks. A daemon provides a service for the system to receive user requests or network customer requests. To improve the security of files and directories created by the daemon, you are advised to set  **umask**  to  **0027**. The  **umask**  value indicates the complement of a permission. For details about how to convert the  **umask**  value to a permission, see  [umask Values](#umask-values.md).
+The  **umask**  value is used to set default permission on files and directories. If the  **umask**  value is not specified, the file has the globally writable permission. This brings risks. A daemon provides a service for the system to receive user requests or network customer requests. To improve the security of files and directories created by the daemon, you are advised to set  **umask**  to  **0027**. The  **umask**  value indicates the complement of a permission. For details about how to convert the  **umask**  value to a permission, see  [umask Values](./appendix.md#umask-values).
 
 >![](public_sys-resources/icon-note.gif) **NOTE:**   
 >By default, the  **umask**  value of the daemon is set to  **0022**  in openEuler.  

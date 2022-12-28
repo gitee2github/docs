@@ -3,22 +3,22 @@
 This section describes the compatibility of the hardware and software and the related configurations and preparations required for the installation.
 
 <!-- TOC -->
-- [Installation Preparations](#安装准备)
-  - [Obtaining the Installation Source](#获取安装源)
-  - [Verifying the Image Integrity](#镜像完整性校验)
-    - [Overview](#简介)
-    - [Prerequisites](#前提条件)
-    - [Procedure](#操作指导)
-  - [Installation Requirements](#安装要求)
-    - [Hardware Compatibility](#硬件兼容支持)
-    - [Minimum Hardware Specifications](#最小硬件要求)
+- [Installation Preparations](#installation-preparations)
+  - [Obtaining the Installation Source](#obtaining-the-installation-source)
+  - [Verifying the Image Integrity](#verifying-the-image-integrity)
+    - [Overview](#overview)
+    - [Prerequisites](#prerequisites)
+    - [Procedure](#procedure)
+  - [Installation Requirements](#installation-requirements)
+    - [Hardware Compatibility](#hardware-compatibility)
+    - [Minimum Hardware Specifications](#minimum-hardware-specifications)
 
 <!-- /TOC -->
 ## Obtaining the Installation Source
 
 Before installation, obtain the openEuler Raspberry Pi image and its verification file.
 
-1. Log in to the [openEuler Community](https://openeuler.org) website.
+1. Log in to the [openEuler Community](https://www.openeuler.org) website.
 
 2. Click **Download**.
 
