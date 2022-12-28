@@ -19,7 +19,7 @@ Table 1 Resolved issues
 | [I29COO](https://gitee.com/openEuler/docs/issues/I29COO?from=project-issue)| \[20.03-LTS-SP1] The installation method of the **netinst** image network needs to be added. |
 | [I29CFN](https://gitee.com/src-openEuler/dhcp/issues/I29CFN?from=project-issue)| Port 68 of the **DHCP** service needs to be disabled by default. |
 | [I29CBL](https://gitee.com/src-openEuler/dde/issues/I29CBL?from=project-issue)| \[20.03-LTS-SP1] \[arm/x86] An error occurs during DDE installation.|
-| [I29BAZ](https://gitee.com/openEuler/docs/issues/I29BAZ?from=project-issue)| \[OpenStack-Train] Add description of different commands executed on ARM- and x86-based servers.|
+| [I29BAZ](https://gitee.com/openEuler/docs/issues/I29BAZ?from=project-issue)| \[OpenStack Train] Add description of different commands executed on ARM- and x86-based servers.|
 | [I29AHP](https://gitee.com/src-openEuler/systemd/issues/I29AHP?from=project-issue)| After the LTS branch systemd is upgraded from 20.03 release 18 to release 28, the restart fails. |
 | [I2963S](https://gitee.com/src-openEuler/python-docutils/issues/I2963S?from=project-issue)| \[20.03-LTS-SP1] The **python-docutils-help** package is not installed during the installation of the **python3-docutils** package.|
 | [I2960L](https://gitee.com/src-openEuler/multipath-tools/issues/I2960L?from=project-issue)| \[20.03-LTS-SP1] The **multipath-tools-help** package is not installed during the installation of the **kpartx** package.|
