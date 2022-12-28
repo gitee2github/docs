@@ -17,5 +17,5 @@ sudo dnf install ukui
 ```
 systemctl set-default graphical.target
 ```
-At present, UKUI version is still constantly updated. Please check the latest installation method :
-[https://gitee.com/openkylin/ukui-issues](https://gitee.com/openkylin/ukui-issues)
+UKUI is constantly updated. Please check the latest installation method:
+[openEuler UKUI Issues](https://gitee.com/openkylin-backup/ukui-issues/blob/master/readme.md)
