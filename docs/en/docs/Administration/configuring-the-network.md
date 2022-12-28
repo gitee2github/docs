@@ -502,7 +502,7 @@ There are three types of host names:  **static**,  **transient**, and  **pretty*
 >![](./public_sys-resources/icon-note.gif) **NOTE:**   
 >Static and transient host names can contain only letters \(a–z and A–Z\), digits \(0–9\), hyphens \(-\), underlines \(\_\), and periods \(.\). The host names cannot start or end with a period \(.\) or contain two consecutive periods \(.\). The host name can contain a maximum of 64 characters.  
 
-### Configuring a Host Name by Running the  **hostnamectl**  Command
+### Configuring a Host Name by Running the hostnamectl Command
 
 #### Viewing All Host Names
 Run the following command to view the current host name:
@@ -838,7 +838,7 @@ Both IPv6 and IPv4 addresses can be obtained through DHCP as the **root** user. 
 ##### Setting the vendor class for dhclient in Stateful IPv6 Address Autoconfiguration
 -   On the client, add the setting of vendor class by using the configuration file.
 
-    Client configuration file \(/etc/dhcp/dhclient6.conf\): The file location can be customized. You need to specify the configuration file using the dhclient -cf option.
+    Client configuration file \(**/etc/dhcp/dhclient6.conf**\): The file location can be customized. You need to specify the configuration file using the dhclient -cf option.
 
     ```
     option dhcp6.vendor-class code 16 = {integer 32, integer 16, string};
@@ -859,7 +859,7 @@ Both IPv6 and IPv4 addresses can be obtained through DHCP as the **root** user. 
     ```
 
 
--   The DHCPv6 server configuration file \(/etc/dhcp/dhcpd6.conf\) needs to be specified by the dhcpd -cf option.
+-   The DHCPv6 server configuration file \(**/etc/dhcp/dhcpd6.conf**\) needs to be specified by the dhcpd -cf option.
 
     ```
     option dhcp6.vendor-class code 16 = {integer 32, integer 16, string};
@@ -1082,10 +1082,10 @@ The minimum PMTU of IPv6 is 1280. If the MTU is set to a value smaller than 1280
 #### Configuration Differences of the NetworkManager Service
 
 ##### Overview
-The NetworkManager service uses the ifup/ifdown logical interface definition to perform advanced network settings. Most of the parameters are set in the /etc/sysconfig/network and /etc/sysconfig/network-scripts/ifcfg-<interface-name\> configuration files. The former is a global setting, and the latter is a setting of a specified NIC. When the two settings conflict, the latter takes effect.
+The NetworkManager service uses the ifup/ifdown logical interface definition to perform advanced network settings. Most of the parameters are set in the **/etc/sysconfig/network** and **/etc/sysconfig/network-scripts/ifcfg-<interface-name\>** configuration files. The former is a global setting, and the latter is a setting of a specified NIC. When the two settings conflict, the latter takes effect.
 
 ##### Configuration Differences
-The configuration differences in /etc/sysconfig/network are as follows:
+The configuration differences in **/etc/sysconfig/network** are as follows:
 
 |  IPv4   |IPv6  | Description |
 |:---  |:----  |:----  |
@@ -1098,7 +1098,7 @@ The configuration differences in /etc/sysconfig/network are as follows:
 | NA | IPV6_RADVD_PIDFILE=<pid-file> (optional) | The default path of ipv6_radvd_pid is /var/run/radvd/radvd.pid. |
 | NA | IPV6_RADVD_TRIGGER_ACTION=startstop|reload|restart|SIGHUP (optional) | Default radvd trigger action. |
 
-The differences in /etc/sysconfig/network-scripts/ifcfg-<interface-name\> are as follows:
+The differences in **/etc/sysconfig/network-scripts/ifcfg-<interface-name\>** are as follows:
 
 |  IPv4   |IPv6  | Description |
 |:---  |:----  |:----  |
@@ -1161,7 +1161,7 @@ When both IPv4 and IPv6 addresses are configured in the configuration file of th
 The delay is caused by the buffer queue mechanism of rsyslog. By default, rsyslog writes data to a file only when the number of buffer queues reaches a specified value.
 
 ##### Solution
-You can disable the buffer queue mechanism by configuring the Direct mode as the **root** user. Add the following information at the beginning of the new remote transmission configuration file in the /etc/rsyslog.d directory on the rsyslog remote transmission server:
+You can disable the buffer queue mechanism by configuring the Direct mode as the **root** user. Add the following information at the beginning of the new remote transmission configuration file in the **/etc/rsyslog.d** directory on the rsyslog remote transmission server:
 
 ```
 $ActionQueueType Direct

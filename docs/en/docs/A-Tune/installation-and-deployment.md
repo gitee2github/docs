@@ -32,7 +32,7 @@ This chapter describes how to install and deploy A-Tune.
 
 ## Environment Preparation
 
-For details about installing an openEuler OS, see  _openEuler 20.09 Installation Guide_.
+For details about installing an openEuler OS, see the _openEuler 20.09 Installation Guide_.
 
 ## A-Tune Installation
 
