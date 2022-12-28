@@ -1,18 +1,17 @@
 ## Managing VMs
 
 - [Managing VMs](#managing-vms)
-    - [VM Life Cycle](#vm-life-cycle)
-        - [Introduction](#introduction-0)
-        - [Management Commands](#management-commands)
-        - [Example](#example)
-    - [Modify VM Configurations Online](#modify-vm-configurations-online)
-    - [Querying VM Information](#querying-vm-information)
-    - [Logging In to a VM](#logging-in-to-a-vm)
-        - [Logging In Using VNC Passwords](#logging-in-using-vnc-passwords)
-        - [Configuring VNC TLS Login](#configuring-vnc-tls-login)
-    - [VM Secure Boot](#VM-Secure-Boot)
-        - [General Introduction](#General-Introduction)
-        - [Secure Boot Practice](#Secure-Boot-Practice)
+  - [VM Life Cycle](#vm-life-cycle)
+    - [Introduction](#introduction)
+    - [Management Commands](#management-commands)
+    - [Example](#example)
+  - [Modify VM Configurations Online](#modifying-vm-configurations-online)
+  - [Logging In to a VM](#logging-in-to-a-vm)
+    - [Logging In Using VNC Passwords](#logging-in-using-vnc-passwords)
+    - [Configuring VNC TLS Login](#configuring-vnc-tls-login)
+  - [VM Secure Boot](#vm-secure-boot)
+    - [General Introduction](#general-introduction)
+    - [Secure Boot Practice](#secure-boot-practice)
 
 ### VM Life Cycle
 
@@ -84,7 +83,7 @@ You can use the  **virsh**  command tool to manage the VM lifecycle. This sectio
 
 ##### Prerequisites
 
--   Before performing operations on a VM, you need to query the VM status to ensure that the operations can be performed. For details about the conversion between status, see  [Status Transition](#introduction-0).
+-   Before performing operations on a VM, you need to query the VM status to ensure that the operations can be performed. For details about the conversion between status, see  [Status Transition](#status-transition).
 -   You have administrator rights.
 -   The VM XML configuration files are prepared.
 
@@ -102,7 +101,7 @@ The parameters are described as follows:
 -   _obj_: specifies the operation object, for example, the VM to be operated.
 -   _options_: command option. This parameter is optional.
 
-[Table 1](#table389518422611)  describes the commands used for VM lifecycle management.  _VMInstanse_  indicates the VM name, VM ID, or VM UUID,  _XMLFile_  indicates the XML configuration file of the VM, and  _DumpFile_  indicates the dump file. Change them based on the site requirements.
+[Table 1](#table389518422611)  describes the commands used for VM lifecycle management.  _VMInstance_  indicates the VM name, VM ID, or VM UUID,  _XMLFile_  indicates the XML configuration file of the VM, and  _DumpFile_  indicates the dump file. Change them based on the site requirements.
 
 **Table  1**  VM Lifecycle Management Commands
 
@@ -123,27 +122,27 @@ The parameters are described as follows:
 <td class="cellrowborder" valign="top" width="68.33%" headers="mcps1.2.3.1.2 "><p id="p97301879104"><a name="p97301879104"></a><a name="p97301879104"></a>Create a temporary VM. After the VM is created, it is in the running status.</p>
 </td>
 </tr>
-<tr id="row1689619421617"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p37301474109"><a name="p37301474109"></a><a name="p37301474109"></a><strong id="b20730770108"><a name="b20730770108"></a><a name="b20730770108"></a>virsh start </strong>&lt;<em id="i204711236181813"><a name="i204711236181813"></a><a name="i204711236181813"></a>VMInstanse</em>&gt;</p>
+<tr id="row1689619421617"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p37301474109"><a name="p37301474109"></a><a name="p37301474109"></a><strong id="b20730770108"><a name="b20730770108"></a><a name="b20730770108"></a>virsh start </strong>&lt;<em id="i204711236181813"><a name="i204711236181813"></a><a name="i204711236181813"></a>VMInstance</em>&gt;</p>
 </td>
 <td class="cellrowborder" valign="top" width="68.33%" headers="mcps1.2.3.1.2 "><p id="p2073018721010"><a name="p2073018721010"></a><a name="p2073018721010"></a>Start the VM. </p>
 </td>
 </tr>
-<tr id="row14896442366"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p20291141611019"><a name="p20291141611019"></a><a name="p20291141611019"></a><strong id="b729181641014"><a name="b729181641014"></a><a name="b729181641014"></a>virsh shutdown </strong>&lt;<em id="i4966101010166"><a name="i4966101010166"></a><a name="i4966101010166"></a>VMInstanse</em>&gt;</p>
+<tr id="row14896442366"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p20291141611019"><a name="p20291141611019"></a><a name="p20291141611019"></a><strong id="b729181641014"><a name="b729181641014"></a><a name="b729181641014"></a>virsh shutdown </strong>&lt;<em id="i4966101010166"><a name="i4966101010166"></a><a name="i4966101010166"></a>VMInstance</em>&gt;</p>
 </td>
 <td class="cellrowborder" valign="top" width="68.33%" headers="mcps1.2.3.1.2 "><p id="p17319175773610"><a name="p17319175773610"></a><a name="p17319175773610"></a>Shut down the VM. Start the VM shutdown process. If the VM fails to be shut down, forcibly stop it.</p>
 </td>
 </tr>
-<tr id="row9896134210612"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p929111641011"><a name="p929111641011"></a><a name="p929111641011"></a><strong id="b529191691010"><a name="b529191691010"></a><a name="b529191691010"></a>virsh destroy </strong>&lt;<em id="i694273815180"><a name="i694273815180"></a><a name="i694273815180"></a>VMInstanse</em>&gt;</p>
+<tr id="row9896134210612"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p929111641011"><a name="p929111641011"></a><a name="p929111641011"></a><strong id="b529191691010"><a name="b529191691010"></a><a name="b529191691010"></a>virsh destroy </strong>&lt;<em id="i694273815180"><a name="i694273815180"></a><a name="i694273815180"></a>VMInstance</em>&gt;</p>
 </td>
 <td class="cellrowborder" valign="top" width="68.33%" headers="mcps1.2.3.1.2 "><p id="p1029271671016"><a name="p1029271671016"></a><a name="p1029271671016"></a>Forcibly stop the VM.</p>
 </td>
 </tr>
-<tr id="row108969421161"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p5292191611016"><a name="p5292191611016"></a><a name="p5292191611016"></a><strong id="b112925167108"><a name="b112925167108"></a><a name="b112925167108"></a>virsh reboot </strong>&lt;<em id="i3983440111815"><a name="i3983440111815"></a><a name="i3983440111815"></a>VMInstanse</em>&gt;</p>
+<tr id="row108969421161"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p5292191611016"><a name="p5292191611016"></a><a name="p5292191611016"></a><strong id="b112925167108"><a name="b112925167108"></a><a name="b112925167108"></a>virsh reboot </strong>&lt;<em id="i3983440111815"><a name="i3983440111815"></a><a name="i3983440111815"></a>VMInstance</em>&gt;</p>
 </td>
 <td class="cellrowborder" valign="top" width="68.33%" headers="mcps1.2.3.1.2 "><p id="p32921616111019"><a name="p32921616111019"></a><a name="p32921616111019"></a>Reboot the VM.</p>
 </td>
 </tr>
-<tr id="row48973421767"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p1424561235"><a name="p1424561235"></a><a name="p1424561235"></a><strong id="b8424261833"><a name="b8424261833"></a><a name="b8424261833"></a>virsh save </strong> &lt;<em id="i163855131814"><a name="i163855131814"></a><a name="i163855131814"></a>VMInstanse</em>&gt; &lt;<em id="i43271518136"><a name="i43271518136"></a><a name="i43271518136"></a>DumpFile</em>&gt;</p>
+<tr id="row48973421767"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p1424561235"><a name="p1424561235"></a><a name="p1424561235"></a><strong id="b8424261833"><a name="b8424261833"></a><a name="b8424261833"></a>virsh save </strong> &lt;<em id="i163855131814"><a name="i163855131814"></a><a name="i163855131814"></a>VMInstance</em>&gt; &lt;<em id="i43271518136"><a name="i43271518136"></a><a name="i43271518136"></a>DumpFile</em>&gt;</p>
 </td>
 <td class="cellrowborder" valign="top" width="68.33%" headers="mcps1.2.3.1.2 "><p id="p3292916151012"><a name="p3292916151012"></a><a name="p3292916151012"></a>Dump the VM running status to a file.</p>
 </td>
@@ -153,17 +152,17 @@ The parameters are described as follows:
 <td class="cellrowborder" valign="top" width="68.33%" headers="mcps1.2.3.1.2 "><p id="p868182841017"><a name="p868182841017"></a><a name="p868182841017"></a>Restore the VM from the VM status dump file.</p>
 </td>
 </tr>
-<tr id="row1117211217102"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p669328161014"><a name="p669328161014"></a><a name="p669328161014"></a><strong id="b106918286103"><a name="b106918286103"></a><a name="b106918286103"></a>virsh suspend </strong>&lt;<em id="i215106151910"><a name="i215106151910"></a><a name="i215106151910"></a>VMInstanse</em>&gt;</p>
+<tr id="row1117211217102"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p669328161014"><a name="p669328161014"></a><a name="p669328161014"></a><strong id="b106918286103"><a name="b106918286103"></a><a name="b106918286103"></a>virsh suspend </strong>&lt;<em id="i215106151910"><a name="i215106151910"></a><a name="i215106151910"></a>VMInstance</em>&gt;</p>
 </td>
 <td class="cellrowborder" valign="top" width="68.33%" headers="mcps1.2.3.1.2 "><p id="p1069182871017"><a name="p1069182871017"></a><a name="p1069182871017"></a>Suspend the VM to make the VM in the paused status.</p>
 </td>
 </tr>
-<tr id="row1917215213101"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p16691428161011"><a name="p16691428161011"></a><a name="p16691428161011"></a><strong id="b1869132812100"><a name="b1869132812100"></a><a name="b1869132812100"></a>virsh resume </strong>&lt;<em id="i14154151015192"><a name="i14154151015192"></a><a name="i14154151015192"></a>VMInstanse</em>&gt;</p>
+<tr id="row1917215213101"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p16691428161011"><a name="p16691428161011"></a><a name="p16691428161011"></a><strong id="b1869132812100"><a name="b1869132812100"></a><a name="b1869132812100"></a>virsh resume </strong>&lt;<em id="i14154151015192"><a name="i14154151015192"></a><a name="i14154151015192"></a>VMInstance</em>&gt;</p>
 </td>
 <td class="cellrowborder" valign="top" width="68.33%" headers="mcps1.2.3.1.2 "><p id="p469328141011"><a name="p469328141011"></a><a name="p469328141011"></a>Resume the VM and restore the VM in the paused status to the running status.</p>
 </td>
 </tr>
-<tr id="row11173921141013"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p1569162812109"><a name="p1569162812109"></a><a name="p1569162812109"></a><strong id="b136913287105"><a name="b136913287105"></a><a name="b136913287105"></a>virsh undefine </strong>&lt;<em id="i2597181811911"><a name="i2597181811911"></a><a name="i2597181811911"></a>VMInstanse</em>&gt;</p>
+<tr id="row11173921141013"><td class="cellrowborder" valign="top" width="31.669999999999998%" headers="mcps1.2.3.1.1 "><p id="p1569162812109"><a name="p1569162812109"></a><a name="p1569162812109"></a><strong id="b136913287105"><a name="b136913287105"></a><a name="b136913287105"></a>virsh undefine </strong>&lt;<em id="i2597181811911"><a name="i2597181811911"></a><a name="i2597181811911"></a>VMInstance</em>&gt;</p>
 </td>
 <td class="cellrowborder" valign="top" width="68.33%" headers="mcps1.2.3.1.2 "><p id="p369122819106"><a name="p369122819106"></a><a name="p369122819106"></a>After a persistent VM is destroyed, the VM lifecycle ends and no more operations can be performed on the VM.</p>
 </td>
@@ -216,13 +215,13 @@ This section provides examples of commands related to VM life cycle management.
     -   If the  **nvram**  file is not used during the VM startup, run the following command to destroy the VM:
 
         ```
-        # virsh undefine <VMInstanse>
+        # virsh undefine <VMInstance>
         ```
 
     -   If the  **nvram**  file is used during the VM startup, run the following command to specify the  **nvram**  processing policy when destroying the VM:
 
         ```
-        # virsh undefine <VMInstanse> <strategy>
+        # virsh undefine <VMInstance> <strategy>
         ```
 
         _strategy_  indicates the policy for destroying a VM. The values can be:
@@ -240,7 +239,7 @@ This section provides examples of commands related to VM life cycle management.
 
 
 
-### Modify VM Configurations Online
+### Modifying VM Configurations Online
 
 #### Overview
 
@@ -582,7 +581,7 @@ To enable the TLS encryption authentication mode for the VNC, perform the follow
 
         In the preceding generated file,  **ca-cert.pem**  is the generated CA public key, and** ca-key.pem**  is the generated CA private key. The CA must keep them properly to prevent disclosure.
 
-    2.  Issue a certificate to the VNC server.  **Client Organization Name**  indicates the actual service name, for example,  **cleint.foo.com**. Set this parameter based on the site requirements.
+    2.  Issue a certificate to the VNC server.  **Client Organization Name**  indicates the actual service name, for example,  **client.foo.com**. Set this parameter based on the site requirements.
 
         ```
         # cat > server.info<<EOF
