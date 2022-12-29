@@ -760,7 +760,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 </td>
 <td class="cellrowborder" valign="top" width="28.65286528652865%" headers="mcps1.2.4.1.2 "><p id="p1659920594431"><a name="p1659920594431"></a><a name="p1659920594431"></a>x2openEuler工具安装包</p>
 </td>
-<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p165993595439"><a name="p165993595439"></a><a name="p165993595439"></a><a href="https://support.huawei.com/enterprise/zh/kunpeng-computing/openeuler-pid-250840395/software/256931125/?idAbsPath=fixnode01|23710424|251364417|9856629|250840395" target="_blank" rel="noopener noreferrer">下载</a></p>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="p165993595439"><a name="p165993595439"></a><a name="p165993595439"></a><a href="https://repo.oepkgs.net/openEuler/rpm/openEuler-20.03-LTS-SP1/contrib/x2openEuler/" target="_blank" rel="noopener noreferrer">oepkgs社区获取软件包</a></p>
 </td>
 </tr>
 </tbody>
