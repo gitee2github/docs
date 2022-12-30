@@ -173,8 +173,9 @@ After entering the GUI installation page, perform the following operations to in
       On the  **INSTALLATION DESTINATION**  page, select a local storage device.
       
       > ![](./public_sys-resources/icon-notice.gif) **NOTICE:**  
-When selecting the device to be installed, you are advised not to use the NVMe SSD storage medium as the OS installation disk.
-      
+      > The NVMe data protection feature is not supported because the NVMe drivers built in the BIOSs of many servers are of earlier versions. (Data protection: Format disk sectors to 512+N or 4096+N bytes.) Therefore, when selecting a proper storage medium, do not select an NVMe SSD with data protection enabled as the system disk. Otherwise, the OS may fail to boot.
+      > Users can consult the server vendor about whether the BIOS supports NVMe disks with data protection enabled as system disks. If you cannot confirm whether the BIOS supports NVMe disks with data protection enabled as system disks, you are not advised to use an NVMe disk to install the OS, or you can disable the data protection function of an NVMe disk to install the OS.
+
       You also need to configure the storage to partition the system. You can either manually configure partitions or select  **Automatic**  to automatically configure partitioning. Select  **Automatic**  if the software is installed in a new storage device or the data in the storage device is not required, as shown in  [Figure 9](#fig153381468101).
       
       **Figure  9**  Setting the installation destination<a name="fig153381468101"></a>  
