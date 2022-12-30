@@ -79,18 +79,18 @@
     max-width: 100%;
     margin: 0 auto;
   }
-  #docstreeview > ul  li{
+  #docstreeview > ul li {
     position: relative;
   }
-  #docstreeview > ul >li>i{
+  #docstreeview > ul > li > i {
     position: absolute;
     right: 16px;
-    top:7px;
+    top: 7px;
   }
-  #docstreeview > ul >li>ul>li>i{
+  #docstreeview > ul > li > ul > li > i {
     position: absolute;
     right: 16px;
-    top:14px;
+    top: 14px;
   }
 }
 #docstreeview > ul > li {
@@ -112,8 +112,8 @@
   line-height: 53px;
   /* border-top: 1px solid #e5e5e5; */
 }
-@media screen and (max-width: 1100px){
-  #docstreeview > ul > li > a{
+@media screen and (max-width: 1100px) {
+  #docstreeview > ul > li > a {
     padding: 8px 0;
     line-height: normal;
     height: auto;
@@ -309,6 +309,9 @@
   #menu-box .jstree-node > .jstree-anchor p a {
     font-size: 14px !important;
   }
+  #menu-box .jstree-node > .jstree-anchor > p > a {
+    margin-left: 0;
+  }
   #docstreeview > ul > li > ul {
     background-color: var(--e-color-bg1);
     padding: 0;
@@ -384,7 +387,7 @@
   }
   #h5-menu-top .option {
     height: 0;
-    overflow: hidden;
+    overflow: scroll;
     transition: all 0.2s;
   }
   #h5-menu-top .option-show {
@@ -426,7 +429,7 @@
     color: var(--e-color-text1);
     font-size: 14px;
   }
-  #h5-menu-top .option .active{
+  #h5-menu-top .option .active {
     color: var(--e-color-brand1);
   }
   .jstree-closed > .jstree-icon {
@@ -591,7 +594,7 @@
 .dark .h5-search .icon-search {
   background: url(../img/search/search-dark.svg) no-repeat 100%/100%;
 }
-.h5-search .icon-clear{
+.h5-search .icon-clear {
   position: absolute;
   right: 72px;
   top: 16px;
@@ -600,7 +603,7 @@
   height: 16px;
   background: url(../img/common/icon-close-light.svg) no-repeat 100%/100%;
 }
-.dark .h5-search .icon-clear{
+.dark .h5-search .icon-clear {
   background: url(../img/common/icon-close-dark.svg) no-repeat 100%/100%;
 }
 
@@ -925,9 +928,10 @@
   padding: 0 8px;
   border: 1px solid var(--e-color-kleinblue7);
 }
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1100px) {
   #menu-box #version-select {
-    display: none;}
+    display: none;
+  }
 }
 #menu-box #version-select::after {
   display: block;
@@ -1009,12 +1013,11 @@
   transform: translateX(-100%);
 }
 
-
-.h5-docs-a{
+.h5-docs-a {
   display: none;
 }
 @media screen and (max-width: 1100px) {
-  .h5-docs-a{
+  .h5-docs-a {
     display: flex;
     align-items: center;
   }
