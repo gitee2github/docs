@@ -220,25 +220,25 @@ background-color: var(--e-color-kleinblue7);
 }
 
 #menu-box .jstree-node[aria-level="1"]>.jstree-anchor {
-    max-width: 220px;
+    max-width: 200px;
 }
 /* #menu-box .jstree-node[aria-level="2"]>i{
     top: 12px;
 } */
 #menu-box .jstree-node[aria-level="2"]>.jstree-anchor {
-    max-width: 220px;
+    max-width: 200px;
 }
 
 #menu-box .jstree-node[aria-level="3"]>.jstree-anchor {
-    max-width: 220px;
+    max-width: 200px;
 }
 
 #menu-box .jstree-node[aria-level="4"]>.jstree-anchor {
-    max-width: 220px;
+    max-width: 200px;
 }
 
 #menu-box .jstree-node[aria-level="5"]>.jstree-anchor {
-    max-width: 220px;
+    max-width: 200px;
 }
 
 #menu-box .jstree-node>.jstree-anchor,
@@ -250,7 +250,12 @@ background-color: var(--e-color-kleinblue7);
     text-overflow: ellipsis;
 }
 #menu-box .jstree-node>.jstree-anchor>p>a{
+    display: inline-block;
+    max-width: 200px;
     margin-left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 #docstreeview>ul>li>ul>li a{
     font-size: var( --o-font-size-text) !important;
