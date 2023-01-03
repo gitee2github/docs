@@ -249,6 +249,9 @@ background-color: var(--e-color-kleinblue7);
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+#menu-box .jstree-node>.jstree-anchor>p>a{
+    margin-left: 0;
+}
 #docstreeview>ul>li>ul>li a{
     font-size: var( --o-font-size-text) !important;
 }
