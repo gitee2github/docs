@@ -1,18 +1,18 @@
 # x2openEuler 用户指南
-## 前言<a name="ZH-CN_TOPIC_0000001459724845"></a>
+## 前言
 
-### 概述<a name="section4537382116410"></a>
+### 概述
 
 本文档介绍了获取x2openEuler工具安装包，以及对其进行安装、使用的方法，对x2openEuler工具的web界面的各项功能做了详细介绍，同时提供了常见的问题解答及故障处理方法，详细请参考对应手册。
 
-### 读者对象<a name="section4378592816410"></a>
+### 读者对象
 
 本文档主要适用于升级的操作人员。操作人员必须具备以下经验和技能：
 
 -   熟悉待升级操作系统相关情况。
 -   有服务器维护操作经验。
 
-### 符号约定<a name="section133020216410"></a>
+### 符号约定
 
 在本文中可能出现下列标志，它们所代表的含义如下。
 
@@ -53,7 +53,7 @@
 </tbody>
 </table>
 
-### 命令行格式约定<a name="section62915265"></a>
+### 命令行格式约定
 
 <a name="table57396167"></a>
 <table><thead align="left"><tr id="row54460779"><th class="cellrowborder" valign="top" width="30%" id="mcps1.1.3.1.1"><p id="p49246997"><a name="p49246997"></a><a name="p49246997"></a>格式</p>
@@ -110,7 +110,7 @@
 </tbody>
 </table>
 
-### 修改记录<a name="section2467512116410"></a>
+### 修改记录
 
 <a name="table1557726816410"></a>
 <table><thead align="left"><tr id="row2942532716410"><th class="cellrowborder" valign="top" width="20.72%" id="mcps1.1.4.1.1"><p id="p3778275416410"><a name="p3778275416410"></a><a name="p3778275416410"></a><strong id="b5687322716410"><a name="b5687322716410"></a><a name="b5687322716410"></a>文档版本</strong></p>
@@ -153,18 +153,18 @@
 </tbody>
 </table>
 
-## 介绍<a name="ZH-CN_TOPIC_0000001459284997"></a>
-### 免责声明<a name="ZH-CN_TOPIC_0000001409005322"></a>
+## 介绍
+### 免责声明
 
 -   建议您在非生产环境使用本工具，避免影响生产业务运行。
 -   使用过程中涉及的非工具本身验证功能所用的用户名和密码，不作他用，且不会被保存在系统环境中。
 -   在您进行分析或操作前应当确认您为应用程序的所有者或已获得所有者的充足授权同意。
 -   分析结果中可能包含您所分析应用的内部信息和相关数据，请妥善管理。
--   除非法律法规或双方合同另有规定，华为公司对分析结果不做任何明示或暗示的声明和保证,不对分析结果的适销性、满意度、非侵权性或特定用途适用性等作出任何保证或者承诺。
+-   除非法律法规或双方合同另有规定，openEuler社区对分析结果不做任何明示或暗示的声明和保证,不对分析结果的适销性、满意度、非侵权性或特定用途适用性等作出任何保证或者承诺。
 -   您根据分析记录所采取的任何行为均应符合法律法规的要求，并由您自行承担风险。
--   未经所有者授权，任何个人或组织均不得使用应用程序及相关分析记录从事任何活动。华为公司不对由此造成的一切后果负责，亦不承担任何法律责任。必要时，将追究其法律责任。
+-   未经所有者授权，任何个人或组织均不得使用应用程序及相关分析记录从事任何活动。openEuler社区不对由此造成的一切后果负责，亦不承担任何法律责任。必要时，将追究其法律责任。
 
-### x2openEuler 原地升级工具简介<a name="ZH-CN_TOPIC_0000001459284985"></a>
+### x2openEuler 原地升级工具简介
 
 x2openEuler工具是一款将源操作系统升级为目标操作系统的搬迁工具套件，工具支持原地升级功能。
 
@@ -174,7 +174,7 @@ x2openEuler工具提供web界面方式进行操作，以供使用者能够在图
 
 同时，为了面向全面的数字化改造，配合产品信息化改造，使用x2openEuler工具升级的目标操作系统采用欧拉技术线，对于已有的业务系统完成数字化改造后可实现无缝迁移，保证业务的稳定性和高可用性。
 
-### 应用场景<a name="ZH-CN_TOPIC_0000001409165254"></a>
+### 应用场景
 
 升级任务：当用户运行环境操作系统生命周期即将EOS时，可使用该工具将本地操作系统升级到新的目标操作系统。
 
@@ -182,13 +182,13 @@ x2openEuler工具提供web界面方式进行操作，以供使用者能够在图
 
 配置迁移任务：帮助用户迁移本地环境上运行的业务相关配置到升级后的目标操作系统，以保证业务正常运行。
 
-### 部署方式<a name="ZH-CN_TOPIC_0000001409485046"></a>
+### 部署方式
 
 单机部署，即将x2openEuler工具部署在用户的安装Cent OS 7.6或openEuler服务器上。
 
-### 访问和使用<a name="ZH-CN_TOPIC_0000001409325082"></a>
+### 访问和使用
 
-x2openEuler工具提供命令行或者web使用方式，用户在安装完成后选择使用方式。工具的使用方法请参考章节[特性指南](特性指南.md)。
+x2openEuler工具提供命令行或者web使用方式，用户在安装完成后选择使用方式。工具的使用方法请参考章节[特性指南](#特性指南)。
 
 >![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
 >-   待升级节点升级过程中需要root权限，由于root用户拥有最高权限，直接使用root用户登录服务器可能会存在安全风险。您可以通过配置禁止root用户SSH登录的选项，来提升系统安全性。具体配置如下：先以普通用户登录服务器，切换至root登录后检查/etc/ssh/sshd\_config配置项PermitRootlogin，如果显示no，说明禁止了root用户登录；如果显示yes，则需要将配置项PermitRootlogin设置为no。
@@ -198,13 +198,13 @@ x2openEuler工具提供命令行或者web使用方式，用户在安装完成后
 
 
 
-#### 界面说明<a name="ZH-CN_TOPIC_0000001409485038"></a>
+#### 界面说明
 
-##### 界面分区<a name="section626664153710"></a>
+##### 界面分区
 
-x2openEuler工具首页界面主要由如所示的区域组成，各个区域的作用如所示。
+x2openEuler工具首页界面主要由如所示的区域组成，各个区域的作用如[图1](#pic1)所示。
 
-**图 1**  x2openEuler工具首页界面<a name="fig14369194612411"></a>  
+**图 1**  x2openEuler工具首页界面<a id="pic1"></a>  
 ![](figures-x2openEuler930/x2openEuler工具首页界面.png "x2openEuler工具首页界面")
 
 **表 1**  x2openEuler工具首页界面参数说明
@@ -256,13 +256,13 @@ x2openEuler工具首页界面主要由如所示的区域组成，各个区域的
 </tbody>
 </table>
 
-##### 图标及按钮说明<a name="section1498599184420"></a>
+##### 图标及按钮说明
 
-x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_table810511366261)所示。
+x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示。
 
 **表 2**  图标/按钮说明
 
-<a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_table810511366261"></a>
+<a id="table1"></a>
 <table><thead align="left"><tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row610533642618"><th class="cellrowborder" valign="top" width="23%" id="mcps1.2.4.1.1"><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1010512362262"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1010512362262"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1010512362262"></a>类型</p>
 </th>
 <th class="cellrowborder" valign="top" width="16.98%" id="mcps1.2.4.1.2"><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2105836172611"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2105836172611"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2105836172611"></a>图标/按钮</p>
@@ -365,17 +365,17 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 </tbody>
 </table>
 
-#### 登录x2openEuler工具web界面<a name="ZH-CN_TOPIC_0000001459724841"></a>
+#### 登录x2openEuler工具web界面
 
 本章节以Windows 10操作系统安装的Chrome 105.0浏览器为例介绍登录x2openEuler工具web界面的操作步骤。
 
-##### 浏览器要求<a name="section134017262482"></a>
+##### 浏览器要求
 
-浏览器要求如[表1](#zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_table1037673612464)所示。
+浏览器要求如[表3](#table3)所示。
 
-**表 1**  浏览器要求
+**表 3**  浏览器要求
 
-<a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_table1037673612464"></a>
+<a id="table3"></a>
 <table><thead align="left"><tr id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_row153767361464"><th class="cellrowborder" valign="top" width="24.62%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p8376153613461"><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p8376153613461"></a><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p8376153613461"></a>浏览器类型</p>
 </th>
 <th class="cellrowborder" valign="top" width="75.38%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p9377143624616"><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p9377143624616"></a><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p9377143624616"></a>说明</p>
@@ -400,7 +400,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 </tbody>
 </table>
 
-##### 操作步骤<a name="section173927913498"></a>
+##### 操作步骤
 
 >![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
 >-   默认连续5次登录失败，系统将对此用户进行锁定，锁定3分钟后可以重新登录。
@@ -415,22 +415,22 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >HTTPS默认端口为18082，请确认使用该工具之前OS防火墙已开通18082端口。
 
-2.  在如[图1](#zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_bmc_user_0082_fig02)所示的安全告警窗口中选择“继续浏览此网站”。
+2.  在如[图2](#pic2)所示的安全告警窗口中选择“继续浏览此网站”。
 
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
-    >登录时可能会弹出“安全告警”界面，您可以选择忽略此告警信息或者下载华为根证书屏蔽该界面，详细步骤请参见[为x2openEuler Upgrade工具导入根证书](（可选）为x2openEuler工具导入根证书.md)。
+    >登录时可能会弹出“安全告警”界面，您可以选择忽略此告警信息或者下载x2openEuler工具根证书屏蔽该界面，详细步骤请参见[为x2openEuler Upgrade工具导入根证书](#可选为x2openeuler工具导入根证书)。
 
-    **图 1**  安全告警<a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_bmc_user_0082_fig02"></a>  
+    **图 2**  安全告警<a id="pic2"></a>  
     ![](figures-x2openEuler930/安全告警.png "安全告警")
 
-    打开首次登录界面，如[图2](#zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_fig127661116445)所示，参数说明如[表2](#zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_table22002056103214)所示。
+    打开首次登录界面，如[图3](#pic3)所示，参数说明如[表4](#table4)所示。
 
-    **图 2**  首次登录x2openEuler工具<a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_fig127661116445"></a>  
+    **图 3**  首次登录x2openEuler工具<a id="pic3"></a>  
     ![](figures-x2openEuler930/首次登录x2openEuler工具.png "首次登录x2openEuler工具")
 
-    **表 2**  首次登录x2openEuler工具参数说明
+    **表 4**  首次登录x2openEuler工具参数说明
 
-    <a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_table22002056103214"></a>
+    <a id="table4"></a>
     <table><thead align="left"><tr id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_row17200205610321"><th class="cellrowborder" valign="top" width="23.14%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p92001156113219"><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p92001156113219"></a><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p92001156113219"></a>参数</p>
     </th>
     <th class="cellrowborder" valign="top" width="76.86%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p8200135613320"><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p8200135613320"></a><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p8200135613320"></a>说明</p>
@@ -447,7 +447,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     <tr id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_row104851144296"><td class="cellrowborder" valign="top" width="23.14%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_zh-cn_topic_0116018405_p66762427"><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_zh-cn_topic_0116018405_p66762427"></a><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_zh-cn_topic_0116018405_p66762427"></a>密码</p>
     </td>
     <td class="cellrowborder" valign="top" width="76.86%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p1151759154115"><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p1151759154115"></a><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p1151759154115"></a>登录用户的密码。密码需要满足如下复杂度要求：</p>
-    <a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_ul58691739151319"></a><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_ul58691739151319"></a><ul id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_ul58691739151319"><li>密码长度为8~32个字符</li><li>必须包含大写字母、小写字母、数字、特殊字符（`~!@#$%^&amp;*()-_=+\|[{}];:'",&lt;.&gt;/?）中的两种及以上类型的组合</li><li>密码不能包含空格</li><li>密码不能是用户名</li><li>密码不能在<a href="管理弱口令字典.md">弱口令字典</a>中</li></ul>
+    <a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_ul58691739151319"></a><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_ul58691739151319"></a><ul id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_ul58691739151319"><li>密码长度为8~32个字符</li><li>必须包含大写字母、小写字母、数字、特殊字符（`~!@#$%^&amp;*()-_=+\|[{}];:'",&lt;.&gt;/?）中的两种及以上类型的组合</li><li>密码不能包含空格</li><li>密码不能是用户名</li><li>密码不能在<a href="#Weakpassworddictionary">弱口令字典</a>中</li></ul>
     </td>
     </tr>
     <tr id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_row11841951144511"><td class="cellrowborder" valign="top" width="23.14%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p1389913139114"><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p1389913139114"></a><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p1389913139114"></a>确认密码</p>
@@ -460,14 +460,14 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 3.  设置管理员密码，单击“确认”。
 
-    打开登录界面，如[图3](#zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_fig14978362918)所示，参数说明如[表3](#zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_table19256162318436)所示。
+    打开登录界面，如[图4](#pic4)所示，参数说明如[表5](#table5)所示。
 
-    **图 3**  非首次登录x2openEuler工具<a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_fig14978362918"></a>  
+    **图 4**  非首次登录x2openEuler工具<a id="pic4"></a>  
     ![](figures-x2openEuler930/非首次登录x2openEuler工具.png "非首次登录x2openEuler工具")
 
-    **表 3**  非首次登录x2openEuler工具参数说明
+    **表 5**  非首次登录x2openEuler工具参数说明
 
-    <a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_table19256162318436"></a>
+    <a id="table5"></a>
     <table><thead align="left"><tr id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_row725617236436"><th class="cellrowborder" valign="top" width="23.14%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p1225612364311"><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p1225612364311"></a><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p1225612364311"></a>参数</p>
     </th>
     <th class="cellrowborder" valign="top" width="76.86%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p325642313431"><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p325642313431"></a><a name="zh-cn_topic_0000001278742309_zh-cn_topic_0000001085632596_zh-cn_topic_0188408926_p325642313431"></a>说明</p>
@@ -516,12 +516,12 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     成功登录后，显示首页界面，界面右上角将显示登录的用户名。
 
 
-#### 使用前配置<a name="ZH-CN_TOPIC_0000001459724833"></a>
+#### 使用前配置
 
 
 
 
-##### 创建用户<a name="ZH-CN_TOPIC_0000001459605169"></a>
+##### 创建用户
 
 **前提条件<a name="zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_section11470129119"></a>**
 
@@ -530,17 +530,17 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >只有管理员用户（x2openEulerAdmin）可以执行创建用户操作。
 
-##### 操作步骤<a name="zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_section15419164415118"></a>
+##### 操作步骤
 
 1.  单击页面右上角![](figures-x2openEuler930/zh-cn_image_0000001470049897.png)，在下拉菜单中选择“用户管理“，打开用户管理界面。
-2.  单击“创建“，打开“创建”界面，如[图1](#zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_fig17366144012513)所示，需配置的参数如[表1](#zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_table423624975820)所示。
+2.  单击“创建“，打开“创建”界面，如[图5](#pic5)所示，需配置的参数如[表6](#table6)所示。
 
-    **图 1**  创建用户<a name="zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_fig17366144012513"></a>  
+    **图 5**  创建用户<a id="pic6"></a>  
     ![](figures-x2openEuler930/创建用户.png "创建用户")
 
-    **表 1**  创建用户参数说明
+    **表 6**  创建用户参数说明
 
-    <a name="zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_table423624975820"></a>
+    <a id="table6"></a>
     <table><thead align="left"><tr id="zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_row323612494584"><th class="cellrowborder" valign="top" width="18.360000000000003%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_p52362498581"><a name="zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_p52362498581"></a><a name="zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_p52362498581"></a>参数</p>
     </th>
     <th class="cellrowborder" valign="top" width="81.64%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_p6236124911583"><a name="zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_p6236124911583"></a><a name="zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_p6236124911583"></a>说明</p>
@@ -573,14 +573,14 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     </tbody>
     </table>
 
-3.  参考[表1](#zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_table423624975820)配置新用户后，单击“确认”。
+3.  参考[表6](#table6)配置新用户后，单击“确认”。
 
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >-   创建的普通用户数量没有限制。
     >-   普通用户支持创建系统升级、系统信息收集和系统配置迁移任务；支持查看和下载操作日志；支持查看web服务端证书信息；支持查看和搜索弱口令；所有用户都只能查看、下载自己的升级任务相关报告。
 
 
-#### 系统配置<a name="ZH-CN_TOPIC_0000001470049225"></a>
+#### 系统配置
 
 **前提条件<a name="section72361543165417"></a>**
 
@@ -592,14 +592,14 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 **操作步骤<a name="section139131865517"></a>**
 
 1.  单击页面右上角![](figures-x2openEuler930/zh-cn_image_0000001419813812.png)，在下拉菜单中选择“系统配置“，打开系统配置界面。
-2.  系统配置界面如图所示，单击“修改”，对配置项进行修改，需配置的参数如所示。
+2.  系统配置界面如图所示，单击“修改”，对配置项进行修改，需配置的参数如[图6](#pic6)所示。
 
-    **图 1**  系统配置<a name="fig6181105717212"></a>  
+    **图 6**  系统配置<a id="pic6"></a>  
     ![](figures-x2openEuler930/系统配置.png "系统配置")
 
-    **表 1**  系统配置项说明
+    **表 7**  系统配置项说明
 
-    <a name="table15148182410411"></a>
+    <a id="table7"></a>
     <table><thead align="left"><tr id="row41481824142"><th class="cellrowborder" valign="top" width="18.42%" id="mcps1.2.3.1.1"><p id="p321012141512"><a name="p321012141512"></a><a name="p321012141512"></a>配置项</p>
     </th>
     <th class="cellrowborder" valign="top" width="81.58%" id="mcps1.2.3.1.2"><p id="p214818241442"><a name="p214818241442"></a><a name="p214818241442"></a>说明</p>
@@ -637,7 +637,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 3.  选择对应配置项完成修改后，单击“确定”保存修改内容，单击“取消”放弃修改内容。
 
-## 安装x2openEuler工具<a name="ZH-CN_TOPIC_0000001409485054"></a>
+## 安装x2openEuler工具
 
 
 
@@ -646,22 +646,22 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 
 
-### 环境要求<a name="ZH-CN_TOPIC_0000001459724837"></a>
+### 环境要求
 
-#### 操作系统要求<a name="section324191914325"></a>
+#### 操作系统要求
 
 -   x2openEuler  web工具部署要求
 
-    **表 1**  操作系统要求
+    **表 8**  操作系统要求
 
-    <a name="table3351213615"></a>
+    <a id="table8"></a>
     <table><thead align="left"><tr id="row173616210368"><th class="cellrowborder" valign="top" width="21.89%" id="mcps1.2.3.1.1"><p id="p1733317517367"><a name="p1733317517367"></a><a name="p1733317517367"></a>部署环境</p>
     </th>
     <th class="cellrowborder" valign="top" width="78.11%" id="mcps1.2.3.1.2"><p id="p036182203615"><a name="p036182203615"></a><a name="p036182203615"></a>描述</p>
     </th>
     </tr>
     </thead>
-    <tbody><tr id="row163617263613"><td class="cellrowborder" valign="top" width="21.89%" headers="mcps1.2.3.1.1 "><p id="p1836122153619"><a name="p1836122153619"></a><a name="p1836122153619"></a>CentOS 7.6/openEuler全系</p>
+    <tbody><tr id="row163617263613"><td class="cellrowborder" valign="top" width="21.89%" headers="mcps1.2.3.1.1 "><p id="p1836122153619"><a name="p1836122153619"></a><a name="p1836122153619"></a>CentOS 7.6/openEuler 20.03-LTS-SPx</p>
     </td>
     <td class="cellrowborder" valign="top" width="78.11%" headers="mcps1.2.3.1.2 "><p id="p103619217364"><a name="p103619217364"></a><a name="p103619217364"></a>保持与待升级节点连接的内部网络联通。</p>
     </td>
@@ -674,9 +674,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >待升级环境必须能够保证兼容安装openEuler 20.03-LTS-SP1操作系统。
 
-    **表 2**  操作系统要求
+    **表 9**  操作系统要求
 
-    <a name="table7678115513401"></a>
+    <a id="table9"></a>
     <table><thead align="left"><tr id="row76783557409"><th class="cellrowborder" valign="top" width="21.89%" id="mcps1.2.3.1.1"><p id="p126771055174017"><a name="p126771055174017"></a><a name="p126771055174017"></a>待升级操作系统</p>
     </th>
     <th class="cellrowborder" valign="top" width="78.11%" id="mcps1.2.3.1.2"><p id="p0677185516403"><a name="p0677185516403"></a><a name="p0677185516403"></a>升级目标操作系统</p>
@@ -700,13 +700,13 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     </table>
 
 
-#### 硬件要求<a name="section127961416302"></a>
+#### 硬件要求
 
-部署x2openEuler web工具硬件要求如[表3](#zh-cn_topic_0000001136299636_zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_table38928044)所示。
+部署x2openEuler web工具硬件要求如[表10](#table10)所示。
 
-**表 3**  硬件要求
+**表 10**  硬件要求
 
-<a name="zh-cn_topic_0000001136299636_zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_table38928044"></a>
+<a id="table10"></a>
 <table><thead align="left"><tr id="zh-cn_topic_0000001136299636_zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_row49314056"><th class="cellrowborder" valign="top" width="16.43%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001136299636_zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p35015599"><a name="zh-cn_topic_0000001136299636_zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p35015599"></a><a name="zh-cn_topic_0000001136299636_zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p35015599"></a>硬件类型</p>
 </th>
 <th class="cellrowborder" valign="top" width="83.57%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001136299636_zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p17691262"><a name="zh-cn_topic_0000001136299636_zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p17691262"></a><a name="zh-cn_topic_0000001136299636_zh-cn_topic_0000001115418740_zh-cn_topic_0228242408_zh-cn_topic_0190602888_p17691262"></a>说明</p>
@@ -739,13 +739,13 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >待升级节点无特别要求，但需要保持内存在2GB及以上，否则会导致升级因内存不足而失败。
 
-### 获取软件包<a name="ZH-CN_TOPIC_0000001459285009"></a>
+### 获取软件包
 
-安装过程中所需软件包如[表1](#table157514228369)所示。
+安装过程中所需软件包如[表11](#table11)所示。
 
-**表 1**  获取工具软件包
+**表 11**  获取工具软件包
 
-<a name="table157514228369"></a>
+<a id="table11"></a>
 <table><thead align="left"><tr id="row375162223618"><th class="cellrowborder" valign="top" width="38.01380138013801%" id="mcps1.2.4.1.1"><p id="p17751102243611"><a name="p17751102243611"></a><a name="p17751102243611"></a>软件包名称</p>
 </th>
 <th class="cellrowborder" valign="top" width="28.65286528652865%" id="mcps1.2.4.1.2"><p id="p1875132213369"><a name="p1875132213369"></a><a name="p1875132213369"></a>软件包说明</p>
@@ -770,7 +770,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 >-   软件包名称中的“x.x.x”表示版本号。
 >-   软件包中包含有针对待升级节点的分析工具接口。
 
-### 软件数字签名验证<a name="ZH-CN_TOPIC_0000001409485050"></a>
+### 软件数字签名验证
 
 为了防止软件包在传递过程或存储期间被恶意篡改，下载软件包时需下载对应的数字签名文件用于完整性验证。
 
@@ -782,9 +782,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 企业客户请访问：[https://support.huawei.com/enterprise/zh/tool/pgp-verify-TL1000000054](https://support.huawei.com/enterprise/zh/tool/pgp-verify-TL1000000054)
 
-### 安装<a name="ZH-CN_TOPIC_0000001459844813"></a>
+### 安装
 
-#### 前提条件<a name="section1841112591725"></a>
+#### 前提条件
 
 -   已获取x2openEuler工具安装包。
 -   已安装远程SSH登录工具，如Xshell、MobaXterm、PuTTY等。
@@ -792,7 +792,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 -   待升级环境可以通过网络访问本地配置的CentOS yum源。
 -   工具安装环境需开启工具端口。
 
-#### 操作步骤<a name="section1293875515121"></a>
+#### 操作步骤
 
 1.  此处以在x86环境上安装x2openEuler工具为例，使用sftp工具将upgrade安装包x2openEuler-core-_x.x.x-xx_.x86\_64.rpm上传至远程服务器的/root目录下。
 2.  使SSH远程登录工具登录至需要远程服务器命令行界面。
@@ -861,7 +861,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 5.  工具包安装成功后，执行以下命令启动web服务。
 
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
-    >如web服务受SELinux策略无法正常运行，请更改SELinux策略或[关闭SELinux](关闭SELinux.md)。
+    >如web服务受SELinux策略无法正常运行，请更改SELinux策略或[关闭SELinux](#关闭selinux)。
 
     ```
     cd /usr/local/x2openEuler/portal/service
@@ -912,13 +912,13 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     ```
 
 
-### 验证<a name="ZH-CN_TOPIC_0000001409165258"></a>
+### 验证
 
-#### web模式下验证安装结果<a name="zh-cn_topic_0000001136299640_zh-cn_topic_0000001115418742_zh-cn_topic_0228242378_zh-cn_topic_0190602891_section1266275245114"></a>
+#### web模式下验证安装结果
 
-登录Web界面，详细步骤请参见[登录x2openEuler工具Web界面](登录x2openEuler工具web界面.md)，能够成功登录说明x2openEuler工具安装成功。
+登录Web界面，详细步骤请参见[登录x2openEuler工具Web界面](#登录x2openeuler工具web界面)，能够成功登录说明x2openEuler工具安装成功。
 
-#### CLI模式下验证安装结果<a name="zh-cn_topic_0000001136299640_zh-cn_topic_0000001115418742_zh-cn_topic_0228242378_zh-cn_topic_0190602891_section355017412527"></a>
+#### CLI模式下验证安装结果
 
 1.  使用SSH远程登录工具，进入待升级节点命令行界面。
 2.  执行如下命令查看版本信息。
@@ -934,13 +934,13 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     ```
 
 
-### 卸载<a name="ZH-CN_TOPIC_0000001409005338"></a>
+### 卸载
 
-#### 前提条件<a name="zh-cn_topic_0000001182698923_zh-cn_topic_0000001115258840_zh-cn_topic_0228242372_zh-cn_topic_0190602892_section19751229183511"></a>
+#### 前提条件
 
 没有正在运行中的任务。
 
-#### 操作步骤<a name="section9817131345911"></a>
+#### 操作步骤
 
 1.  使用SSH工具远程登录进入操作系统命令行界面_。_
 2.  执行如下命令卸载x2openEuler工具。
@@ -955,27 +955,18 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     >-   卸载完成后，x2openEuler用户、“/home/x2openEuler“和“/var/spool/mail/x2openEuler“相关文件目录会被自动移除，以保证系统环境安全。
 
 
-## 特性指南<a name="ZH-CN_TOPIC_0000001459605185"></a>
-
-
-
-
-
-### 系统升级<a name="ZH-CN_TOPIC_0000001409485058"></a>
+## 特性指南
+### 系统升级
 
 系统升级特性帮助用户将待升级节点的操作系统升级为目标操作系统，以保障业务的连续性和安全性。
 
+#### 创建升级任务
 
-
-
-
-#### 创建升级任务<a name="ZH-CN_TOPIC_0000001459285013"></a>
-
-##### 前提条件<a name="section145734101290"></a>
+##### 前提条件
 
 已成功登录x2openEuler工具。
 
-##### 操作步骤<a name="section559311110306"></a>
+##### 操作步骤
 
 >![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
 >x2openEuler工具单个升级任务最多支持50个节点。
@@ -987,21 +978,21 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
         >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
         >批量导入节点过程中，工具会对导入的节点信息进行校验，若校验不通过则需按照提示修改导入信息，并重新进行批量导入操作。
 
-        1.  在批量导入界面中，单击“模板表格”获取模板后参考[表1](#table163103351210)填写节点信息。
+        1.  在批量导入界面中，单击“模板表格”获取模板后参考[表12](#table12)填写节点信息。
 
-            **图 1**  批量导入<a name="fig20848122884119"></a>  
+            **图 7**  批量导入<a id="pic7"></a>  
             ![](figures-x2openEuler930/批量导入.png "批量导入")
 
         2.  完成节点信息的填写后单击“上传文件”阅读“SSH传输须知”，选择已填写节点信息的批量导入文件进行上传。
 
-            **图 2**  SSH传输须知<a name="fig148499286418"></a>  
+            **图 8**  SSH传输须知<a id="pic8"></a>  
             ![](figures-x2openEuler930/SSH传输须知.png "SSH传输须知")
 
     -   添加节点：添加单个节点的节点节点信息。
 
-        在“添加节点”页面，参考[表1](#table163103351210)输入相应信息后，单击“确定”进行节点添加。
+        在“添加节点”页面，参考[表12](#table12)输入相应信息后，单击“确定”进行节点添加。
 
-        **表 1**  节点信息参数说明
+        **表 12**  节点信息参数说明
 
         <a name="table163103351210"></a>
         <table><thead align="left"><tr id="row6631103381215"><th class="cellrowborder" valign="top" width="21.33%" id="mcps1.2.3.1.1"><p id="p1631153314128"><a name="p1631153314128"></a><a name="p1631153314128"></a>参数</p>
@@ -1062,7 +1053,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
         </tr>
         <tr id="row1581583719460"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p78151373465"><a name="p78151373465"></a><a name="p78151373465"></a>repo源配置</p>
         </td>
-        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p1681510375464"><a name="p1681510375464"></a><a name="p1681510375464"></a>输入已配置的repo源名称或单击右侧“选择”进行选择已配置的待升级节点在升级过程中需要的repo源，可参考<a href="配置repo源.md">配置repo源</a>进行配置。</p>
+        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p1681510375464"><a name="p1681510375464"></a><a name="p1681510375464"></a>输入已配置的repo源名称或单击右侧“选择”进行选择已配置的待升级节点在升级过程中需要的repo源，可参考<a href="#configrepo">配置repo源</a>进行配置。</p>
         </td>
         </tr>
         <tr id="row8231193124718"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p13232731174712"><a name="p13232731174712"></a><a name="p13232731174712"></a>业务软件</p>
@@ -1132,7 +1123,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 3.  此处以添加单个节点进行指纹验证为例，工具对导入的节点信息校验完成后，进入节点指纹验证页面，确认节点指纹无误后，单击“确定”。
 
-    **图 3**  指纹验证<a name="fig1064010347529"></a>  
+    **图 9**  指纹验证<a id="pic9"></a>  
     ![](figures-x2openEuler930/指纹验证.png "指纹验证")
 
 4.  节点添加完成，确认添加节点信息无误后，单击任务名称右侧“确定”，完成升级任务创建。若需要修改或删除相应节点，单击右侧“操作”项下的“修改”或“删除”对节点进行操作。单击右下角“确认”启动升级任务，单击右下角“取消”，取消升级任务。
@@ -1140,18 +1131,18 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >升级任务创建完成后，工具会自动对升级任务中配置的待升级节点进行连通性测试，连通性测试通过后才能进行后续升级操作。若连通性测试失败，请检查并修改节点配置信息。
 
-    **图 4**  升级任务信息确认<a name="fig793711713286"></a>  
+    **图 10**  升级任务信息确认<a id="pic10"></a>  
     ![](figures-x2openEuler930/升级任务信息确认.png "升级任务信息确认")
 
 
-#### 进行节点升级<a name="ZH-CN_TOPIC_0000001459605173"></a>
+#### 进行节点升级
 
-##### 前提条件<a name="section17439923111314"></a>
+##### 前提条件
 
 -   已登录x2openEuler工具。
 -   已创建升级任务。
 
-##### 操作步骤<a name="section1360131981712"></a>
+##### 操作步骤
 
 1.  在页面“全部任务”下选择需要进行升级的任务，单击右侧“进入任务”，进入任务详情页面。
 2.  单击节点信息右侧的“开始分析”，可对单个节点进行升级。同时勾选多个节点，单击左上角“批量操作”，可对多个节点启动分析任务。
@@ -1161,26 +1152,26 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >升级过程中在不同的升级阶段结束后可单击右下角“初始化”，使待升级节点回归待测试状态。
 
-    **图 1**  初始化节点<a name="fig15684151114911"></a>  
+    **图 11**  初始化节点<a id="pic11"></a>  
     ![](figures-x2openEuler930/初始化节点.png "初始化节点")
 
     1.  连通性测试
 
         连通性测试用于分析x2openEuler工具与待升级节点的连通性，验证repo源是否处于可用状态，若连通性检测无法通过，则需修改节点配置信息。
 
-        **图 2**  连通性测试页面<a name="fig645065083019"></a>  
+        **图 12**  连通性测试页面<a id="pic12"></a>  
         ![](figures-x2openEuler930/连通性测试页面.png "连通性测试页面")
 
     2.  升级前检查
 
-        针对待升级节点进行软件、硬件兼容性评估及软件冲突检查，产生相应评估报告，确认待升级节点是否符合升级要求。若出现兼容性不通过的情况，则需参考评估报告进行软件适配。评估报告参数详细说明请参考[表1](#zh-cn_topic_0303172996_zh-cn_topic_0301201532_table102746212572)、[表2](#table1523112191012)和[表3](#table19674154594619)。
+        针对待升级节点进行软件、硬件兼容性评估及软件冲突检查，产生相应评估报告，确认待升级节点是否符合升级要求。若出现兼容性不通过的情况，则需参考评估报告进行软件适配。评估报告参数详细说明请参考[表13](#table13)、[表14](#table14)和[表15](#table15)。
 
-        **图 3**  升级前检查<a name="fig447143316714"></a>  
+        **图 13**  升级前检查<a nid="pic13"></a>  
         ![](figures-x2openEuler930/升级前检查.png "升级前检查")
 
-        **表 1**  业务软件评估报告结果参数说明
+        **表 13**  业务软件评估报告结果参数说明
 
-        <a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_table102746212572"></a>
+        <a id="table13"></a>
         <table><thead align="left"><tr id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_row171675241281"><th class="cellrowborder" valign="top" width="24.09%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a>参数</p>
         </th>
         <th class="cellrowborder" valign="top" width="75.91%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a>说明</p>
@@ -1226,9 +1217,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
         </tbody>
         </table>
 
-        **表 2**  硬件兼容性评估报告结果参数说明
+        **表 14**  硬件兼容性评估报告结果参数说明
 
-        <a name="table1523112191012"></a>
+        <a id="table14"></a>
         <table><thead align="left"><tr id="row123921131011"><th class="cellrowborder" valign="top" width="24.09%" id="mcps1.2.3.1.1"><p id="p1823142161016"><a name="p1823142161016"></a><a name="p1823142161016"></a>参数</p>
         </th>
         <th class="cellrowborder" valign="top" width="75.91%" id="mcps1.2.3.1.2"><p id="p92316215103"><a name="p92316215103"></a><a name="p92316215103"></a>说明</p>
@@ -1250,9 +1241,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
         </tbody>
         </table>
 
-        **表 3**  软件冲突检查报告结果参数说明
+        **表 15**  软件冲突检查报告结果参数说明
 
-        <a name="table19674154594619"></a>
+        <a name="table15"></a>
         <table><thead align="left"><tr id="row7675134511464"><th class="cellrowborder" valign="top" width="23.93%" id="mcps1.2.3.1.1"><p id="p15675154514612"><a name="p15675154514612"></a><a name="p15675154514612"></a>参数</p>
         </th>
         <th class="cellrowborder" valign="top" width="76.07000000000001%" id="mcps1.2.3.1.2"><p id="p16675245164615"><a name="p16675245164615"></a><a name="p16675245164615"></a>说明</p>
@@ -1301,7 +1292,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
         连通性测试和升级前检查通过后，进入节点升级阶段。升级完成后，单击“重启节点”或手动启动升级节点，确保升级完成。
 
-        **图 4**  节点升级<a name="fig1062347152016"></a>  
+        **图 14**  节点升级<a id="pic14"></a>  
         ![](figures-x2openEuler930/节点升级.png "节点升级")
 
     4.  环境清理
@@ -1318,13 +1309,13 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     >系统重启之后，SELinux会进行relabel动作，物理机可能耗时较长。relabel动作触发完成后，系统会自动进行重启，此时才真正升级至目标操作系统。
 
 
-#### 升级后验证<a name="ZH-CN_TOPIC_0000001459605189"></a>
+#### 升级后验证
 
-##### 前提条件<a name="section152761318267"></a>
+##### 前提条件
 
 升级完成后，需进行以下操作对升级后环境进行验证，确保升级完成。
 
-##### 操作步骤<a name="section1557613212264"></a>
+##### 操作步骤
 
 1.  执行以下命令，检查操作系统版本是否已升级至目标操作系统。
 
@@ -1347,20 +1338,20 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 3.  （可选）升级完成后，可根据业务需求，执行业务恢复或适配脚本。
 4.  检查业务状态是否运行正常。
 
-### 系统信息收集评估<a name="ZH-CN_TOPIC_0000001409005342"></a>
+### 系统信息收集评估
 
 系统信息收集评估任务收集待升级节点信息，针对待升级节点进行软件、硬件兼容性评估及软件冲突检查，产生相应评估报告，确认待升级节点是否符合升级要求。
 
 
 
 
-#### 创建系统信息收集评估任务<a name="ZH-CN_TOPIC_0000001459903525"></a>
+#### 创建系统信息收集评估任务
 
-##### 前提条件<a name="section142727917325"></a>
+##### 前提条件
 
 已登录x2openEuler工具。
 
-##### 操作步骤<a name="section148494113188"></a>
+##### 操作步骤
 
 1.  在页面左侧，单击“新建任务”，选择“系统信息收集评估”进入“新建升级任务”界面，工具默认会自动生成任务名称，可修改该名称。
 2.  在“新建系统信息收集评估任务”确认“任务名称”后，选择“批量导入”或“添加节点”，并对以下参数进行配置。
@@ -1371,21 +1362,21 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
         1.  在批量导入界面中，单击“模板表格”获取模板后参考[表1](#table163103351210)填写节点信息。
 
-            **图 1**  批量导入<a name="fig20848122884119"></a>  
+            **图 15**  批量导入<a id="pic15"></a>  
             ![](figures-x2openEuler930/批量导入-0.png "批量导入-0")
 
         2.  完成节点信息的填写后单击“上传文件”阅读“SSH传输须知”，选择已填写节点信息的批量导入文件进行上传。
 
-            **图 2**  SSH传输须知<a name="fig148499286418"></a>  
+            **图 16**  SSH传输须知<a id="pic16"></a>  
             ![](figures-x2openEuler930/SSH传输须知-1.png "SSH传输须知-1")
 
     -   添加节点：添加单个节点的节点节点信息。
 
-        在“添加节点”页面，参考[表1](#table163103351210)输入相应信息后，单击“确定”进行节点添加。
+        在“添加节点”页面，参考[表16](#table16)输入相应信息后，单击“确定”进行节点添加。
 
-        **表 1**  节点信息参数说明
+        **表 16**  节点信息参数说明
 
-        <a name="table163103351210"></a>
+        <a id="table16"></a>
         <table><thead align="left"><tr id="row6631103381215"><th class="cellrowborder" valign="top" width="21.33%" id="mcps1.2.3.1.1"><p id="p1631153314128"><a name="p1631153314128"></a><a name="p1631153314128"></a>参数</p>
         </th>
         <th class="cellrowborder" valign="top" width="78.67%" id="mcps1.2.3.1.2"><p id="p1631433191211"><a name="p1631433191211"></a><a name="p1631433191211"></a>说明</p>
@@ -1446,7 +1437,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
         </tr>
         <tr id="row1581583719460"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p78151373465"><a name="p78151373465"></a><a name="p78151373465"></a>repo源配置</p>
         </td>
-        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p1681510375464"><a name="p1681510375464"></a><a name="p1681510375464"></a>输入已配置的repo源名称或单击右侧“选择”进行选择已配置的待升级节点在升级过程中需要的repo源，可参考进行<a href="配置repo源.md">配置repo源</a>配置。</p>
+        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p1681510375464"><a name="p1681510375464"></a><a name="p1681510375464"></a>输入已配置的repo源名称或单击右侧“选择”进行选择已配置的待升级节点在升级过程中需要的repo源，可参考进行<a href="#configrepo">配置repo源</a>配置。</p>
         </td>
         </tr>
         <tr id="row8231193124718"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p13232731174712"><a name="p13232731174712"></a><a name="p13232731174712"></a>业务软件</p>
@@ -1461,7 +1452,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 3.  此处以添加单个节点进行指纹验证为例，工具对导入的节点信息校验完成后，进入节点指纹验证页面，确认节点指纹无误后，单击“确定”。
 
-    **图 3**  指纹验证<a name="fig1064010347529"></a>  
+    **图 17**  指纹验证<a id="pic17"></a>  
     ![](figures-x2openEuler930/指纹验证-2.png "指纹验证-2")
 
 4.  节点添加完成，确认添加节点信息无误后，单击任务名称右侧“确定”，完成系统信息收集评估任务创建。若需要修改或删除相应节点，单击右侧“操作”项下的“修改”或“删除”对节点进行操作。单击右下角“确认”启动升级任务，单击右下角“取消”，取消任务。
@@ -1469,17 +1460,17 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >任务创建完成后，工具会自动对系统信息收集评估任务中配置的待升级节点进行连通性测试，连通性测试通过后才能进行后续收集分析任务。若连通性测试失败，请检查并修改节点配置信息。
 
-    **图 4**  系统信息收集评估任务创建信息确认<a name="fig793711713286"></a>  
+    **图 18**  系统信息收集评估任务创建信息确认<a id="pic18"></a>  
     ![](figures-x2openEuler930/系统信息收集评估任务创建信息确认.png "系统信息收集评估任务创建信息确认")
 
 
-#### 进行系统信息收集评估<a name="ZH-CN_TOPIC_0000001459983693"></a>
+#### 进行系统信息收集评估
 
-##### 前提条件<a name="section1658172842318"></a>
+##### 前提条件
 
 已创建系统信息收集评估任务。
 
-##### 操作步骤<a name="section815317396327"></a>
+##### 操作步骤
 
 1.  在页面“全部任务”下选择系统信息收集评估任务，单击右侧“进入任务”，进入任务详情页面。
 2.  单击节点信息右侧的“开始测试”，可对单个节点进行连通性测试。同时勾选多个节点，单击左上角“批量操作”，可对多个节点启动评估任务。
@@ -1489,26 +1480,26 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >升级过程中在不同的升级阶段结束后可单击右下角“初始化”，使待升级节点回归待测试状态。
 
-    **图 1**  初始化节点<a name="fig15684151114911"></a>  
+    **图 19**  初始化节点<a id="pic19"></a>  
     ![](figures-x2openEuler930/初始化节点-3.png "初始化节点-3")
 
     1.  连通性测试
 
         连通性测试用于分析x2openEuler工具与待升级节点的连通性，验证环境信息是否正常，若连通性检测无法通过，则需修改节点配置信息。
 
-        **图 2**  连通性测试页面<a name="fig645065083019"></a>  
+        **图 20**  连通性测试页面<a id="pic20"></a>  
         ![](figures-x2openEuler930/连通性测试页面-4.png "连通性测试页面-4")
 
     2.  收集与评估
 
-        针对待升级节点进行软件、硬件兼容性评估及软件冲突检查，产生相应评估报告，确认待升级节点是否符合升级要求。若出现兼容性不通过的情况，则需参考评估报告进行软件适配。评估报告参数详细说明请参考[表1](#table14266653162916)、[表2](#table819033014306)和[表3](#table16880412203118)。
+        针对待升级节点进行软件、硬件兼容性评估及软件冲突检查，产生相应评估报告，确认待升级节点是否符合升级要求。若出现兼容性不通过的情况，则需参考评估报告进行软件适配。评估报告参数详细说明请参考[表17](#table17)、[表18](#table18)和[表19](#table19)。
 
-        **图 3**  收集与评估<a name="fig447143316714"></a>  
+        **图 21**  收集与评估<a id="pic21"></a>  
         ![](figures-x2openEuler930/收集与评估.png "收集与评估")
 
-        **表 1**  业务软件评估报告结果参数说明
+        **表 17**  业务软件评估报告结果参数说明
 
-        <a name="table14266653162916"></a>
+        <a id="table17"></a>
         <table><thead align="left"><tr id="zh-cn_topic_0000001459605173_zh-cn_topic_0303172996_zh-cn_topic_0284251757_row171675241281"><th class="cellrowborder" valign="top" width="24.09%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001459605173_zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"><a name="zh-cn_topic_0000001459605173_zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a><a name="zh-cn_topic_0000001459605173_zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a>参数</p>
         </th>
         <th class="cellrowborder" valign="top" width="75.91%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001459605173_zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"><a name="zh-cn_topic_0000001459605173_zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a><a name="zh-cn_topic_0000001459605173_zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a>说明</p>
@@ -1554,9 +1545,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
         </tbody>
         </table>
 
-        **表 2**  硬件兼容性评估报告结果参数说明
+        **表 18**  硬件兼容性评估报告结果参数说明
 
-        <a name="table819033014306"></a>
+        <a id="table18"></a>
         <table><thead align="left"><tr id="zh-cn_topic_0000001459605173_row123921131011"><th class="cellrowborder" valign="top" width="24.09%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001459605173_p1823142161016"><a name="zh-cn_topic_0000001459605173_p1823142161016"></a><a name="zh-cn_topic_0000001459605173_p1823142161016"></a>参数</p>
         </th>
         <th class="cellrowborder" valign="top" width="75.91%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001459605173_p92316215103"><a name="zh-cn_topic_0000001459605173_p92316215103"></a><a name="zh-cn_topic_0000001459605173_p92316215103"></a>说明</p>
@@ -1578,9 +1569,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
         </tbody>
         </table>
 
-        **表 3**  软件冲突检查报告结果参数说明
+        **表 19**  软件冲突检查报告结果参数说明
 
-        <a name="table16880412203118"></a>
+        <a id="table19"></a>
         <table><thead align="left"><tr id="zh-cn_topic_0000001459605173_row7675134511464"><th class="cellrowborder" valign="top" width="23.93%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001459605173_p15675154514612"><a name="zh-cn_topic_0000001459605173_p15675154514612"></a><a name="zh-cn_topic_0000001459605173_p15675154514612"></a>参数</p>
         </th>
         <th class="cellrowborder" valign="top" width="76.07000000000001%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001459605173_p16675245164615"><a name="zh-cn_topic_0000001459605173_p16675245164615"></a><a name="zh-cn_topic_0000001459605173_p16675245164615"></a>说明</p>
@@ -1622,20 +1613,20 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 3.  （可选）单击右下角“初始化”回归待测试阶段，单击“下载环境信息和日志”获取环境信息和工具运行日志结果。
 
-### 系统配置迁移<a name="ZH-CN_TOPIC_0000001459605181"></a>
+### 系统配置迁移
 
 配置迁移任务分析节点环境中的相关配置信息并迁移至目标环境中，实现业务连续运行。
 
 
 
 
-#### 创建系统配置迁移任务<a name="ZH-CN_TOPIC_0000001459844833"></a>
+#### 创建系统配置迁移任务
 
-##### 前提条件<a name="section185021634162318"></a>
+##### 前提条件
 
 已成功登录x2openEuler工具。
 
-##### 操作步骤<a name="section155618482236"></a>
+##### 操作步骤
 
 1.  在页面左侧，单击“新建任务”，选择“配置迁移任务”进入“新建配置迁移任务”界面。
 2.  在“新建升级任务”输入“任务名称”后，选择“迁移类型”，此处以“分析并迁移为例”，并对以下参数进行配置。
@@ -1651,26 +1642,26 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
         >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
         >批量导入节点过程中，工具会对导入的节点信息进行校验，若校验不通过则需按照提示修改导入信息，并重新进行批量导入操作。
 
-        1.  在批量导入界面中，单击“模板表格”获取模板后参考[表1](#table544615246440)填写节点信息。
+        1.  在批量导入界面中，单击“模板表格”获取模板后参考[表20](#table20)填写节点信息。
 
-            **图 1**  批量导入<a name="fig1437172474414"></a>  
+            **图 22**  批量导入<a id="pic22"></a>  
             ![](figures-x2openEuler930/批量导入-5.png "批量导入-5")
 
         2.  完成节点信息的填写后单击“上传文件”阅读“SSH传输须知”，选择已填写节点信息的批量导入文件进行上传。
 
-            **图 2**  SSH传输须知<a name="fig643812419449"></a>  
+            **图 23**  SSH传输须知<a id="pic23"></a>  
             ![](figures-x2openEuler930/SSH传输须知-6.png "SSH传输须知-6")
 
     -   添加节点：添加单个节点的节点信息。
-        1.  在“添加节点”页面，参考[表1](#table544615246440)输入相应信息后，单击“确定”进行节点添加。
+        1.  在“添加节点”页面，参考[表20](#table20)输入相应信息后，单击“确定”进行节点添加。
 
-            **图 3**  添加节点<a name="fig1443892484415"></a>  
+            **图 24**  添加节点<a id="pic24"></a>  
             ![](figures-x2openEuler930/添加节点.png "添加节点")
 
 
-    **表 1**  节点信息参数说明
+    **表 20**  节点信息参数说明
 
-    <a name="table544615246440"></a>
+    <a id="table20"></a>
     <table><thead align="left"><tr id="row5439724114414"><th class="cellrowborder" valign="top" width="21.33%" id="mcps1.2.3.1.1"><p id="p124382241449"><a name="p124382241449"></a><a name="p124382241449"></a>参数</p>
     </th>
     <th class="cellrowborder" valign="top" width="78.67%" id="mcps1.2.3.1.2"><p id="p543818244444"><a name="p543818244444"></a><a name="p543818244444"></a>说明</p>
@@ -1767,23 +1758,23 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 3.  此处以添加单个节点进行指纹验证为例，工具对导入的节点信息校验完成后，进入节点指纹验证页面，确认节点指纹无误后，单击“确定”。
 
-    **图 4**  指纹验证<a name="fig1064010347529"></a>  
+    **图 25**  指纹验证<a id="pic25"></a>  
     ![](figures-x2openEuler930/指纹验证-7.png "指纹验证-7")
 
 4.  节点添加完成，确认添加节点信息无误后，单击任务名称右侧“确定”，完成配置迁移任务创建。若需要修改或删除相应节点，单击右侧“操作”项下的“修改”或“删除”对节点进行操作。单击右下角“确认”启动配置迁移任务，单击右下角“取消”，取消配置迁移任务。
 
-    **图 5**  配置迁移任务信息确认<a name="fig793711713286"></a>  
+    **图 26**  配置迁移任务信息确认<a id="pic26"></a>  
     ![](figures-x2openEuler930/配置迁移任务信息确认.png "配置迁移任务信息确认")
 
 
-#### 进行系统配置迁移<a name="ZH-CN_TOPIC_0000001409005334"></a>
+#### 进行系统配置迁移
 
-##### 前提条件<a name="section36448151455"></a>
+##### 前提条件
 
 -   已登录x2openEuler工具。
 -   已创建配置迁移任务。
 
-##### 操作步骤<a name="section1153615561511"></a>
+##### 操作步骤
 
 1.  在页面“全部任务”下选择已创建的配置迁移任务，单击右侧“进入任务”，进入任务详情页面。
 2.  单击节点信息右侧的“开始分析”，可对单个节点进行分析配置迁移。同时勾选多个节点，单击左上角“批量操作”，可对多个节点启动分析配置迁移。
@@ -1794,19 +1785,19 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
         连通性测试用于分析x2openEuler工具与源目节点的连通性，验证环境信息是否正常，若连通性检测无法通过，则需修改节点配置信息。
 
-        **图 1**  连通性测试页面<a name="fig645065083019"></a>  
+        **图 27**  连通性测试页面<a id="pic27"></a>  
         ![](figures-x2openEuler930/连通性测试页面-8.png "连通性测试页面-8")
 
     2.  配置分析
 
-        针对源节点进行配置分析，产生配置分析报告，确认源节点可以进行迁移配置信息。配置分析报告参数详细说明请参考[表1](#zh-cn_topic_0303172996_zh-cn_topic_0301201532_table102746212572)。
+        针对源节点进行配置分析，产生配置分析报告，确认源节点可以进行迁移配置信息。配置分析报告参数详细说明请参考[表21](#table21)。
 
-        **图 2**  配置分析<a name="fig447143316714"></a>  
+        **图 28**  配置分析<a id="pic28"></a>  
         ![](figures-x2openEuler930/配置分析.png "配置分析")
 
-        **表 1**  配置分析报告结果参数说明
+        **表 21**  配置分析报告结果参数说明
 
-        <a name="zh-cn_topic_0303172996_zh-cn_topic_0301201532_table102746212572"></a>
+        <a id="table21"></a>
         <table><thead align="left"><tr id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_row171675241281"><th class="cellrowborder" valign="top" width="24.09%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a>参数</p>
         </th>
         <th class="cellrowborder" valign="top" width="75.91%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a>说明</p>
@@ -1845,7 +1836,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
         勾选需要迁移的配置信息，单击右下角“开始迁移”进行配置迁移。
 
-        **图 3**  配置迁移<a name="fig16157184512267"></a>  
+        **图 29**  配置迁移<a id="pic29"></a>  
         ![](figures-x2openEuler930/配置迁移.png "配置迁移")
 
     4.  环境清理
@@ -1859,23 +1850,23 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 3.  配置迁移完成后，请在目标节点上进行业务测试，以确认业务运行正常，如需进行回退操作，可进入节点详情页面，单击右下角“回退”。
 
-## 常用操作<a name="ZH-CN_TOPIC_0000001459844837"></a>
+## 常用操作
 
-### 配置repo源<a name="ZH-CN_TOPIC_0000001470055029"></a>
+### <span id="configrepo"> 配置repo源 </span>
 
-#### 前提条件<a name="section692010812260"></a>
+#### 前提条件
 
 -   已登录x2openEuler工具
 -   创建升级、信息收集分析或配置迁移任务
 
-#### 操作步骤<a name="section175887298279"></a>
+#### 操作步骤
 
-1.  在工具创建任务时，单击“添加节点”，下拉至“repo源名称”选项。单击右侧“选择”，进入选择repo源界面，如图[图1](#fig520262337)。
+1.  在工具创建任务时，单击“添加节点”，下拉至“repo源名称”选项。单击右侧“选择”，进入选择repo源界面，如图[图30](#pic30)。
 
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >工具默认提供openEuler 20.03-LTS-SP1操作系统的aarch和x86\_64源。
 
-    **图 1**  选择repo源<a name="fig520262337"></a>  
+    **图 30**  选择repo源<a id="pic30"></a>  
     ![](figures-x2openEuler930/选择repo源.png "选择repo源")
 
 2.  在左侧“repo源名称”列表中，选择相应repo源，单击“确定”即完成repo源选择。
@@ -1900,7 +1891,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 
 
-### （可选）为x2openEuler工具导入根证书<a name="ZH-CN_TOPIC_0000001409325086"></a>
+### （可选）为x2openEuler工具导入根证书
 
 使用浏览器登录x2openEuler工具时，若弹出安全告警提示，可以在浏览器中为x2openEuler工具导入根证书来屏蔽此安全告警提示。
 
@@ -1908,27 +1899,27 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 1.  登录x2openEuler工具，在页面右上方选择“![](figures-x2openEuler930/zh-cn_image_0000001409485102.png)  \> web服务端证书”，单击“下载根证书“下载根证书。
 2.  打开浏览器，依次选择“设置 \> 隐私设置和安全性 \> 安全\>管理证书”。
-3.  在弹出“证书”的对话框中，选择“受信任的根证书颁发机构”页签，单击“导入”，如[图1](#zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig17189781385)所示。
+3.  在弹出“证书”的对话框中，选择“受信任的根证书颁发机构”页签，单击“导入”，如[图31](#pic31)所示。
 
-    **图 1**  证书<a name="zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig17189781385"></a>  
+    **图 31**  证书<a id="pic31"></a>  
     ![](figures-x2openEuler930/证书.png "证书")
 
-4.  在弹出的“证书导入向导”对话框中，单击“下一步”，如[图2](#zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig11891193855019)所示。
+4.  在弹出的“证书导入向导”对话框中，单击“下一步”，如[图32](#pic32)所示。
 
-    **图 2**  证书导入向导欢迎页面<a name="zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig11891193855019"></a>  
+    **图 32**  证书导入向导欢迎页面<a id="pic32"></a>  
     ![](figures-x2openEuler930/证书导入向导欢迎页面.png "证书导入向导欢迎页面")
 
-5.  进入选择证书页面，单击“浏览”，如[图3](#zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig13105444538)所示。
+5.  进入选择证书页面，单击“浏览”，如[图33](#pic33)所示。
 
-    **图 3**  导入证书文件<a name="zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig13105444538"></a>  
+    **图 33**  导入证书文件<a id="pic33"></a>  
     ![](figures-x2openEuler930/导入证书文件.png "导入证书文件")
 
 6.  从本地PC路径中选择待导入的证书。
 7.  单击“下一步”。
 
-    进入选择证书存储位置页面，选择如[图4](#zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig434861615572)中的存放位置。
+    进入选择证书存储位置页面，选择如[图34](#pic34)中的存放位置。
 
-    **图 4**  选择证书存储位置<a name="zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig434861615572"></a>  
+    **图 34**  选择证书存储位置<a id="pic34"></a>  
     ![](figures-x2openEuler930/选择证书存储位置.png "选择证书存储位置")
 
 8.  单击“下一步 \> 完成”。
@@ -1943,7 +1934,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 11. 由于颁发的证书是针对工具的名称，需要修改本地的Hosts映射。
     1.  在“C:\\Windows\\System32\\drivers\\etc”路径下，打开“hosts”文件。
 
-        **图 5**  hosts文件<a name="zh-cn_topic_0000001136461098_zh-cn_topic_0000001161738671_zh-cn_topic_0230797645_fig2972645734"></a>  
+        **图 35**  hosts文件<a id="pic35"></a>  
         ![](figures-x2openEuler930/hosts文件.png "hosts文件")
 
     2.  在“hosts”文件中增加如下内容后保存并退出。
@@ -1954,7 +1945,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 12. 打开本地PC机的浏览器，在地址栏输入**https://x2openEuler_:端口号_**（例如：https://x2openEuler:8084），按“Enter”。
 
-### 关闭SELinux<a name="ZH-CN_TOPIC_0000001409325078"></a>
+### 关闭SELinux
 
 若存在环境节点需要关闭SElinux强制模式，执行以下操作。
 
@@ -2010,13 +2001,13 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 
 
-### 修改x2openEuler工具的IP和端口<a name="ZH-CN_TOPIC_0000001476339405"></a>
+### 修改x2openEuler工具的IP和端口
 
-#### 前提条件<a name="section1126925515557"></a>
+#### 前提条件
 
 已部署x2openEuler工具。
 
-#### 操作步骤<a name="section129413253563"></a>
+#### 操作步骤
 
 1.  使用SSH工具远程登录x2openEuler部署环境，进入Linux操作系统命令行界面。
 2.  执行以下命令停止x2openEuler工具。
@@ -2063,16 +2054,16 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     >-   在执行修改IP和端口命令前，需要先进入“/usr/local/x2openEuler/portal/service”目录。
     >-   执行命令后会系统会列出可用的IP地址，用户可以自行选择。
     >-   执行命令进行修改端口时，需确认该端口未被占用，避免产生端口冲突。若工具部署环境已经开启防火墙，则需要确保开通修改后端口，若修改前端口不再被使用，则需对其做关闭处理，避免影响部署环境安全。
-    >-   修改完端口后,重启工具相关服务，请参考章节[启动/停止/重启服务](启动-停止-重启服务.md)。
+    >-   修改完端口后,重启工具相关服务，请参考章节[启动/停止/重启服务](#启动停止重启服务)。
 
 
-### 启动/停止/重启服务<a name="ZH-CN_TOPIC_0000001426739410"></a>
+### 启动/停止/重启服务
 
-#### 前提条件<a name="section535717572468"></a>
+#### 前提条件
 
 已部署x2openEuler工具。
 
-#### 操作步骤<a name="section310691764910"></a>
+#### 操作步骤
 
 1.  使用SSH工具远程登录x2openEuler部署环境，进入Linux操作系统命令行界面。
 2.  执行以下命令进行工具服务启动/停止/重启操作。
@@ -2083,15 +2074,10 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     ```
 
 
-### 管理日志<a name="ZH-CN_TOPIC_0000001409485034"></a>
+### 管理日志
+#### 日志说明
 
-
-
-
-
-#### 日志说明<a name="ZH-CN_TOPIC_0000001459605165"></a>
-
-##### 操作日志说明<a name="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_section11470129119"></a>
+##### 操作日志说明
 
 操作日志主要用来记录用户的各种修改操作信息或者系统定时任务信息，记录的信息如下所示：
 
@@ -2110,15 +2096,15 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 -   管理弱口令字典
 -   更新工作密钥
 
-##### 运行日志说明<a name="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_section11855931192318"></a>
+##### 运行日志说明
 
 运行日志主要用来记录程序运行过程中一些必要的信息，用于帮助开发人员或客户快速定位问题，处理程序运行中的异常信息。
 
 一键下载的日志压缩包中包含如下模块：
 
-**表 1**  运行日志模块说明
+**表 22**  运行日志模块说明
 
-<a name="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_table1539816521419"></a>
+<a id="table22"></a>
 <table><thead align="left"><tr id="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_row839855274119"><th class="cellrowborder" valign="top" width="16.07%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_p18398145212413"><a name="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_p18398145212413"></a><a name="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_p18398145212413"></a>运行日志模块</p>
 </th>
 <th class="cellrowborder" valign="top" width="83.93%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_p1639813521417"><a name="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_p1639813521417"></a><a name="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_p1639813521417"></a>说明</p>
@@ -2217,9 +2203,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 </tbody>
 </table>
 
-#### 操作日志管理<a name="ZH-CN_TOPIC_0000001409165242"></a>
+#### 操作日志管理
 
-##### 前提条件<a name="zh-cn_topic_0000001234345414_zh-cn_topic_0239776338_zh-cn_topic_0237992755_section11470129119"></a>
+##### 前提条件
 
 已成功登录x2openEuler工具。
 
@@ -2228,13 +2214,13 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 >-   操作日志保存在“/usr/local/x2openEuler/portal/src”目录下的数据库文件“db.sqlite3”中。
 >-   操作日志默认保存30天，工具每天凌晨1点自动检查、删除超过30天的操作日志。
 
-##### 操作步骤<a name="zh-cn_topic_0000001234345414_zh-cn_topic_0239776338_zh-cn_topic_0237992755_section9958959164515"></a>
+##### 操作步骤
 
 1.  在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001459724873.png)下拉菜单中，选择“日志“。
 
-    打开“日志“界面，选择“操作日志“，如[图1](#zh-cn_topic_0000001234345414_zh-cn_topic_0239776338_zh-cn_topic_0237992755_fig13230172620106)所示。
+    打开“日志“界面，选择“操作日志“，如[图36](#pic36)所示。
 
-    **图 1**  操作日志<a name="zh-cn_topic_0000001234345414_zh-cn_topic_0239776338_zh-cn_topic_0237992755_fig13230172620106"></a>  
+    **图 36**  操作日志<a id="pic36"></a>  
     ![](figures-x2openEuler930/操作日志.png "操作日志")
 
 2.  （可选）下载操作日志。
@@ -2242,9 +2228,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     单击页面上的“下载”下载csv格式日志文件。
 
 
-#### 运行日志管理<a name="ZH-CN_TOPIC_0000001409325074"></a>
+#### 运行日志管理
 
-##### 前提条件<a name="zh-cn_topic_0000001278745005_zh-cn_topic_0239776341_zh-cn_topic_0239539015_section11470129119"></a>
+##### 前提条件
 
 已成功登录x2openEuler工具。
 
@@ -2252,13 +2238,13 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 >-   只有管理员（**x2openEulerAdmin**）可以查看，下载运行日志和修改运行日志级别。
 >-   管理员可以在工具首页![](figures-x2openEuler930/zh-cn_image_0000001409165266.png)下拉菜单的“系统配置“，手动设置“日志级别“，工具只会记录配置的级别及以上级别的日志。
 
-##### 操作步骤<a name="zh-cn_topic_0000001278745005_zh-cn_topic_0239776341_zh-cn_topic_0239539015_section3761131418325"></a>
+##### 操作步骤
 
 1.  在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001459844845.png)下拉菜单中，选择“日志“。
 
-    打开“日志“界面，选择“运行日志“，如[图1](#zh-cn_topic_0000001278745005_zh-cn_topic_0239776341_zh-cn_topic_0239539015_fig13230172620106)所示。
+    打开“日志“界面，选择“运行日志“，如[图37](#pic37)所示。
 
-    **图 1**  运行日志<a name="zh-cn_topic_0000001278745005_zh-cn_topic_0239776341_zh-cn_topic_0239539015_fig13230172620106"></a>  
+    **图 37**  运行日志<a id="pic37"></a>  
     ![](figures-x2openEuler930/运行日志.png "运行日志")
 
 2.  单击“一键下载”，可下载运行日志。
@@ -2281,22 +2267,22 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     -   ERROR：一般错误级别，记录错误事件，但应用可能还能继续运行。
 
 
-### 管理用户<a name="ZH-CN_TOPIC_0000001409485042"></a>
+### 管理用户
 
 
 
 
 
-#### 重置密码<a name="ZH-CN_TOPIC_0000001409325066"></a>
+#### 重置密码
 
-##### 前提条件<a name="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_section11470129119"></a>
+##### 前提条件
 
 已成功登录x2openEuler工具。
 
 >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >只有管理员（**x2openEulerAdmin**）可以执行重置密码操作。
 
-##### 操作步骤<a name="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_section15419164415118"></a>
+##### 操作步骤
 
 1.  在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001459605233.png)下拉菜单中，选择“用户管理“。
 
@@ -2304,14 +2290,14 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 2.  单击操作栏中指定用户后的“重置密码”。
 
-    打开“重置密码”界面，如[图1](#zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_fig17366144012513)所示，需配置的参数如[表1](#zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_table423624975820)所示。
+    打开“重置密码”界面，如[图38](#pic38)所示，需配置的参数如[表23](#table23)所示。
 
-    **图 1**  重置密码<a name="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_fig17366144012513"></a>  
+    **图 38**  重置密码<a id="pic38"></a>  
     ![](figures-x2openEuler930/重置密码.png "重置密码")
 
-    **表 1**  重置密码参数说明
+    **表 23**  重置密码参数说明
 
-    <a name="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_table423624975820"></a>
+    <a id="table23"></a>
     <table><thead align="left"><tr id="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_row323612494584"><th class="cellrowborder" valign="top" width="18.360000000000003%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_p52362498581"><a name="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_p52362498581"></a><a name="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_p52362498581"></a>参数</p>
     </th>
     <th class="cellrowborder" valign="top" width="81.64%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_p6236124911583"><a name="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_p6236124911583"></a><a name="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_p6236124911583"></a>说明</p>
@@ -2348,9 +2334,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     >重置密码后，被重置密码的用户如果处于登录状态将会自动退出到登陆页面，需要使用重置后的密码重新登录入页面。
 
 
-#### 删除用户<a name="ZH-CN_TOPIC_0000001459724829"></a>
+#### 删除用户
 
-##### 前提条件<a name="zh-cn_topic_0000001234505330_zh-cn_topic_0228242428_zh-cn_topic_0189814932_section11470129119"></a>
+##### 前提条件
 
 已成功登录。
 
@@ -2358,7 +2344,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 >-   只有管理员（**x2openEulerAdmin**）可以执行删除用户操作。
 >-   系统默认的管理员不可删除。
 
-##### 操作步骤<a name="zh-cn_topic_0000001234505330_zh-cn_topic_0228242428_zh-cn_topic_0189814932_section812116272511"></a>
+##### 操作步骤
 
 1.  在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001459844865.png)下拉菜单中，选择“用户管理“。
 
@@ -2371,27 +2357,27 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 
 3.  输入管理员的密码，单击“确认”。
 
-#### 修改当前登录用户密码<a name="ZH-CN_TOPIC_0000001459284993"></a>
+#### 修改当前登录用户密码
 
-##### 前提条件<a name="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_section9385321132610"></a>
+##### 前提条件
 
 已成功登录x2openEuler工具。
 
 >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >x2openEuler工具用户的密码有效期为90天，建议在密码有效期到达之前设置新密码。若密码已过期，则需要在登录后先进行密码修改操作。
 
-##### 操作步骤<a name="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_section1120351218261"></a>
+##### 操作步骤
 
 1.  在页面右上角登录用户的下拉菜单中，选择“修改密码“。
 
-    打开用户修改密码界面，如[图1](#zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_fig149031625121310)所示，需配置的参数如[表1](#zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_table423624975820)所示。
+    打开用户修改密码界面，如[图39](#pic39)所示，需配置的参数如[表1](#zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_table423624975820)所示。
 
-    **图 1**  修改密码<a name="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_fig149031625121310"></a>  
+    **图 39**  修改密码<a id="pic39"></a>  
     ![](figures-x2openEuler930/修改密码.png "修改密码")
 
-    **表 1**  修改密码参数说明
+    **表 24**  修改密码参数说明
 
-    <a name="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_table423624975820"></a>
+    <a id="table24"></a>
     <table><thead align="left"><tr id="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_row323612494584"><th class="cellrowborder" valign="top" width="18.360000000000003%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_p52362498581"><a name="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_p52362498581"></a><a name="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_p52362498581"></a>参数</p>
     </th>
     <th class="cellrowborder" valign="top" width="81.64%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_p6236124911583"><a name="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_p6236124911583"></a><a name="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_p6236124911583"></a>说明</p>
@@ -2428,11 +2414,11 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     >密码修改完成后，当前用户会退出到登录页面，需要使用修改后的密码重新进行登录。
 
 
-### 管理弱口令字典<a name="ZH-CN_TOPIC_0000001409325062"></a>
+### <span id="Weakpassworddictionary"> 管理弱口令字典 </span>
 
 弱口令通常是指容易被别人猜测到或被破解工具破解的口令。在设置或修改密码时，如果密码是弱口令字典中的口令，则系统会强制用户重新设置，以提升用户密码的安全性。
 
-#### 前提条件<a name="zh-cn_topic_0000001234185478_zh-cn_topic_0272086558_zh-cn_topic_0269630302_section11470129119"></a>
+#### 前提条件
 
 已成功登录x2openEuler工具。
 
@@ -2442,12 +2428,12 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
 >-   工具提供52条默认的弱口令。
 >-   最多可添加至1000条弱口令。
 
-#### 操作步骤<a name="zh-cn_topic_0000001234185478_zh-cn_topic_0272086558_zh-cn_topic_0269630302_section2935104519267"></a>
+#### 操作步骤
 
 1.  在![](figures-x2openEuler930/zh-cn_image_0000001459285021.png)菜单选项中选择“弱口令字典“。
-2.  单击“添加“，弹出对话框，如所示。
+2.  单击“添加“，弹出对话框，如[图40](#pic40)所示。
 
-    **图 1**  添加弱口令<a name="zh-cn_topic_0000001234185478_zh-cn_topic_0272086558_zh-cn_topic_0269630302_fig112261223163211"></a>  
+    **图 40**  添加弱口令<a id="pic40"></a>  
     ![](figures-x2openEuler930/添加弱口令.png "添加弱口令")
 
 3.  在文本框中输入需要添加的弱口令。弱口令需要满足如下要求：
@@ -2464,28 +2450,28 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#zh-cn_topic_000
     >如需删除弱口令，单击对应弱口令“操作”列的“删除”。在弹出的“删除弱口令”对话框中单击“确认”。
 
 
-### 管理web服务端证书<a name="ZH-CN_TOPIC_0000001459605161"></a>
+### 管理web服务端证书
 
 web服务端证书用于客户端浏览器和web服务器之间的通讯，实现数据信息在客户端和web服务器之间的加密传输，可以防止数据信息的泄露。为提高安全性，建议替换成自己的证书，并及时更新证书，保证证书的有效性。
 
-#### 前提条件<a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_section11470129119"></a>
+#### 前提条件
 
 已成功登录x2openEuler工具。
 
 >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >只有管理员（**x2openEulerAdmin**）可以执行生成CSR文件、导入web服务器证书、下载根证书，重启和更换工作密钥的操作。
 
-#### 查看当前web端服务证书<a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_section8939735152415"></a>
+#### 查看当前web端服务证书
 
 1.  <a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_li681951883619"></a>在页面右上方选择“![](figures-x2openEuler930/zh-cn_image_0000001409485074.png)  \> web服务端证书”。
-2.  查看证书信息，如[图1](#zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_fig13817116161310)所示，界面参数描述如[表1](#zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_table166535474558)所示。
+2.  查看证书信息，如[图41](#pic41)所示，界面参数描述如[表25](#table25)所示。
 
-    **图 1**  web服务端证书信息<a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_fig13817116161310"></a>  
+    **图 41**  web服务端证书信息<a id="pic41"></a>  
     ![](figures-x2openEuler930/web服务端证书信息.png "web服务端证书信息")
 
-    **表 1**  web服务端证书参数说明
+    **表 25**  web服务端证书参数说明
 
-    <a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_table166535474558"></a>
+    <a id="table25"></a>
     <table><thead align="left"><tr id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_row19653647105517"><th class="cellrowborder" valign="top" width="25.979999999999997%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p16531147175517"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p16531147175517"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p16531147175517"></a>参数</p>
     </th>
     <th class="cellrowborder" valign="top" width="74.02%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p565311472558"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p565311472558"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p565311472558"></a>说明</p>
@@ -2526,18 +2512,18 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
     </table>
 
 
-#### 自定义服务器证书信息并导入<a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_section564195416239"></a>
+#### 自定义服务器证书信息并导入
 
 1.  在“web服务端证书”页面中单击“生成CSR文件”。
 
-    打开“生成CSR文件”对话框，如[图2](#zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_fig542418764017)所示，界面参数描述如[表2](#zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_table2512136142515)所示。
+    打开“生成CSR文件”对话框，如[图42](#pic42)所示，界面参数描述如[表26](#table26)所示。
 
-    **图 2**  生成CSR文件<a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_fig542418764017"></a>  
+    **图 42**  生成CSR文件<a id="pic42"></a>  
     ![](figures-x2openEuler930/生成CSR文件.png "生成CSR文件")
 
-    **表 2**  CSR文件参数说明
+    **表 26**  CSR文件参数说明
 
-    <a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_table2512136142515"></a>
+    <a id="table26"></a>
     <table><thead align="left"><tr id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_row451213692510"><th class="cellrowborder" valign="top" width="15.32%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p185940272125"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p185940272125"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p185940272125"></a>参数</p>
     </th>
     <th class="cellrowborder" valign="top" width="84.68%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p35947271122"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p35947271122"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p35947271122"></a>说明</p>
@@ -2604,55 +2590,55 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
     >用户手动在服务器上重启Nginx服务，证书不会生效，必须在web上进行重启操作。
 
 
-#### 更新工作密钥<a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_section10476335132611"></a>
+#### 更新工作密钥
 
 工作密钥用于加密启动Nginx服务的口令。为提高系统安全性，建议定期更新。
 
 1.  在页面右上方![](figures-x2openEuler930/zh-cn_image_0000001459844861.png)选项中选择“web服务端证书”。
-2.  单击“更多  \>  更新工作密钥“，如[图3](#zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_fig819916865318)所示。
+2.  单击“更多  \>  更新工作密钥“，如[图43](#pic43)所示。
 
-    **图 3**  更新工作密钥<a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_fig819916865318"></a>  
+    **图 43**  更新工作密钥<a id="pic43></a>  
     ![](figures-x2openEuler930/更新工作密钥.png "更新工作密钥")
 
 3.  单击“更多  \>  重启服务“使工作密钥生效。
 
-### 查询工具发布信息<a name="ZH-CN_TOPIC_0000001459284989"></a>
+### 查询工具发布信息
 
-#### 前提条件<a name="zh-cn_topic_0000001278625277_zh-cn_topic_0228242425_zh-cn_topic_0224501691_section11470129119"></a>
+#### 前提条件
 
 已成功登录x2openEuler工具。
 
-#### 操作步骤<a name="zh-cn_topic_0000001278625277_zh-cn_topic_0228242425_zh-cn_topic_0224501691_section8939735152415"></a>
+#### 操作步骤
 
 1.  在页面右上方选择“![](figures-x2openEuler930/zh-cn_image_0000001409165262.png)  \> 关于”。
-2.  查询工具的版本信息和发布时间，如[图1](#zh-cn_topic_0000001278625277_zh-cn_topic_0228242425_zh-cn_topic_0224501691_fig146401211465)所示。
+2.  查询工具的版本信息和发布时间，如[图44](#pic44)所示。
 
-    **图 1**  工具详细发布信息<a name="zh-cn_topic_0000001278625277_zh-cn_topic_0228242425_zh-cn_topic_0224501691_fig146401211465"></a>  
+    **图 44**  工具详细发布信息<a id="pic44"></a>  
     ![](figures-x2openEuler930/工具详细发布信息.png "工具详细发布信息")
 
 
-### 查看工具免责声明<a name="ZH-CN_TOPIC_0000001409165234"></a>
+### 查看工具免责声明
 
-#### 前提条件<a name="zh-cn_topic_0000001234185482_zh-cn_topic_0254527452_zh-cn_topic_0251460189_section11470129119"></a>
+#### 前提条件
 
 已成功登录鲲鹏代码迁移工具。
 
-#### 操作步骤<a name="zh-cn_topic_0000001234185482_zh-cn_topic_0254527452_zh-cn_topic_0251460189_section8939735152415"></a>
+#### 操作步骤
 
-1.  在页面右上方选择“![](figures-x2openEuler930/zh-cn_image_0000001459844881.png)  \> 免责声明”，如[图1](#zh-cn_topic_0000001234185482_zh-cn_topic_0254527452_zh-cn_topic_0251460189_fig587014206813)所示。
+1.  在页面右上方选择“![](figures-x2openEuler930/zh-cn_image_0000001459844881.png)  \> 免责声明”，如[图45](#pic45)所示。
 
-    **图 1**  免责声明<a name="zh-cn_topic_0000001234185482_zh-cn_topic_0254527452_zh-cn_topic_0251460189_fig587014206813"></a>  
+    **图 45**  免责声明<a id="pic45"></a>  
     ![](figures-x2openEuler930/免责声明.png "免责声明")
 
 2.  仔细阅读免责声明。
 
-### 版本查看（CLI）<a name="ZH-CN_TOPIC_0000001409165246"></a>
+### 版本查看（CLI）
 
-#### 命令功能<a name="zh-cn_topic_0000001234505338_zh-cn_topic_0228242404_zh-cn_topic_0190799699_section3525192516111"></a>
+#### 命令功能
 
 查看当前安装的x2openEuler工具的版本信息。
 
-#### 命令格式<a name="zh-cn_topic_0000001234505338_zh-cn_topic_0228242404_zh-cn_topic_0190799699_section1652582513112"></a>
+#### 命令格式
 
 ```
 x2openEuler -v
@@ -2661,7 +2647,7 @@ x2openEuler -v
 >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >“/usr/local/x2openEuler“为工具安装目录，请根据实际情况替换。
 
-#### 使用实例<a name="zh-cn_topic_0000001234505338_zh-cn_topic_0228242404_zh-cn_topic_0190799699_section6525122514111"></a>
+#### 使用实例
 
 1.  执行以下命令确定x2openEuler用户是否具备登录权限。
 
@@ -2696,15 +2682,18 @@ x2openEuler -v
     x2openEuler x.x.x.x
     ```
 
+### 反馈建议
 
-## FAQ<a name="ZH-CN_TOPIC_0000001459285001"></a>
-### x2openEuler升级失败-救援模式<a name="ZH-CN_TOPIC_0000001409005318"></a>
+如对工具及插件有任何建议，请提交issue至以下链接。
+问题反馈：https://gitee.com/openeuler/oec-application/issues
+## FAQ
+### x2openEuler升级失败-救援模式
 
-#### 现象描述<a name="section5559173451016"></a>
+#### 现象描述
 
 升级完成后，无法进入操作系统且无法通过回退方式恢复源操作系统，可通过使用ISO镜像光驱进入救援模式进行系统救援。
 
-#### 处理步骤<a name="section280413171916"></a>
+#### 处理步骤
 
 此处以x86\_64系统为例。
 
@@ -2714,39 +2703,39 @@ x2openEuler -v
     -   UEFI启动模式
         1.  选择“Troubleshooting”
 
-            **图 1**  UEFI grub菜单<a name="fig2073914244218"></a>  
+            **图 46**  UEFI grub菜单<a id="pic46"></a>  
             ![](figures-x2openEuler930/UEFI-grub菜单.png "UEFI-grub菜单")
 
         2.  选择“rescue”
 
-            **图 2**  选择恢复模式<a name="fig3828143162215"></a>  
+            **图 47**  选择恢复模式<a id="pic47"></a>  
             ![](figures-x2openEuler930/选择恢复模式.png "选择恢复模式")
 
     -   Legacy启动模式
         1.  选择“Troubleshooting”
 
-            **图 3**  Legacy grub菜单<a name="fig164926425287"></a>  
+            **图 48**  Legacy grub菜单<a id="pic48"></a>  
             ![](figures-x2openEuler930/Legacy-grub菜单.png "Legacy-grub菜单")
 
         2.  选择“rescue”
 
-            **图 4**  选择恢复模式<a name="fig1829641111298"></a>  
+            **图 49**  选择恢复模式<a id="pic49"></a>  
             ![](figures-x2openEuler930/选择恢复模式-9.png "选择恢复模式-9")
 
 
 4.  进入“救援模式”后，按下数字键“1”选择“Continue”。
 
-    **图 5**  救援模式<a name="fig156761928327"></a>  
+    **图 50**  救援模式<a id="pic50"></a>  
     ![](figures-x2openEuler930/救援模式.png "救援模式")
 
     按下回车键后，进入“Rescue Shell”
 
-    **图 6**  Rescue Shell<a name="fig3768321194816"></a>  
+    **图 51**  Rescue Shell<a id="pic51"></a>  
     ![](figures-x2openEuler930/Rescue-Shell.png "Rescue-Shell")
 
 5.  为当前环境配置可用的ip地址。
 
-    **图 7**  配置可用ip地址<a name="fig74681138115217"></a>  
+    **图 52**  配置可用ip地址<a id="pic52"></a>  
     ![](figures-x2openEuler930/配置可用ip地址.png "配置可用ip地址")
 
 6.  执行以下命令，开启SSH服务，上传x2openEuler-upgrade软件包至“/root”目录下。
@@ -2757,10 +2746,10 @@ x2openEuler -v
     scp root@xxx.xxx.xxx.xxx:/xxx/x2oepnEuler-upgrade* /root/ 
     ```
 
-    **图 8**  启动SSH服务<a name="fig580224295617"></a>  
+    **图 53**  启动SSH服务<a id="pic53"></a>  
     ![](figures-x2openEuler930/启动SSH服务.png "启动SSH服务")
 
-    **图 9**  上传x2openEuler工具安装包至/root目录下<a name="fig49347485719"></a>  
+    **图 54**  上传x2openEuler工具安装包至/root目录下<a id="pic54"></a>  
     ![](figures-x2openEuler930/上传x2openEuler工具安装包至-root目录下.png "上传x2openEuler工具安装包至-root目录下")
 
 7.  执行以下命令解压安装包获取x2openEuler-upgrade软件包并进行安装。
@@ -2770,7 +2759,7 @@ x2openEuler -v
     rpm -ivh /root/x2openEuler-upgrade-* --nodeps
     ```
 
-    **图 10**  安装x2openEuler-upgrade软件包<a name="fig1651419521472"></a>  
+    **图 55**  安装x2openEuler-upgrade软件包<a id="pic55"></a>  
     ![](figures-x2openEuler930/安装x2openEuler-upgrade软件包.png "安装x2openEuler-upgrade软件包")
 
 8.  执行以下命令，修改x2openEuler-upgrade配置文件，不对“/run/install”进行回滚。
@@ -2779,7 +2768,7 @@ x2openEuler -v
     vim /mnt/sysroot/etc/sut/sut.conf 
     ```
 
-    **图 11**  修改x2openEuler-upgrade配置文件<a name="fig240083919117"></a>  
+    **图 56**  修改x2openEuler-upgrade配置文件<a id="pic56"></a>  
     ![](figures-x2openEuler930/修改x2openEuler-upgrade配置文件.png "修改x2openEuler-upgrade配置文件")
 
 9.  执行以下命令，进行系统救援。
@@ -2788,7 +2777,7 @@ x2openEuler -v
     x2openEuler rescue -p /mnt/sysroot/
     ```
 
-    **图 12**  系统救援<a name="fig143011864231"></a>  
+    **图 57**  系统救援<a id="pic57"></a>  
     ![](figures-x2openEuler930/系统救援.png "系统救援")
 
 10. 系统救援完成后，执行以下命令重启系统。
@@ -2801,45 +2790,45 @@ x2openEuler -v
     >系统重启之后，SELinux会进行relabel动作，物理机可能耗时较长。relabel动作触发完成后，系统会自动进行重启，此时才真正回退至最初的源操作系统。
 
 
-### 升级后部分命令无法执行<a name="ZH-CN_TOPIC_0000001459724821"></a>
+### 升级后部分命令无法执行
 
-#### 现象描述<a name="section136111113812"></a> 
+#### 现象描述
 
 升级完成后，目标操作系统部分命令无法正常执行，报错原因为“找不到符号链接”。
 
-#### 可能原因<a name="section5503133612418"></a>
+#### 可能原因
 
 升级前配置了高版本的动态依赖库，升级后会出现系统冲突。
 
-#### 处理步骤<a name="section1596211425395"></a>
+#### 处理步骤
 
 排查“/etc/ld.so.conf.d”目录下是存在和系统目录下的so文件冲突的配置。
 
-### 升级失败-DNF升级报错<a name="ZH-CN_TOPIC_0000001459724825"></a>
+### 升级失败-DNF升级报错
 
-#### 现象描述<a name="section9111154314447"></a>
+#### 现象描述
 
 升级失败，排查日志为DNF软件升级报错。
 
-#### 可能原因<a name="section186254955910"></a>
+#### 可能原因
 
 查看repo源配置，检查升级软件数量。正常情况下，90%的软件包都可以升级，若升级数量较低需要检查配置的repo源是否正确，是否存在配置repo源不完全的情况。
 
-#### 处理步骤<a name="section168415614519"></a>
+#### 处理步骤
 
 完整配置 everything、epol和update源。
 
-### 升级过程漫长<a name="ZH-CN_TOPIC_0000001459844821"></a>
+### 升级过程漫长
 
-#### 现象描述<a name="section816335171816"></a>
+#### 现象描述
 
 源操作系统升级至目标操作系统过程耗费时间过长。
 
-#### 可能原因<a name="section15220427153711"></a>
+#### 可能原因
 
 固定备份目录下存在大文件。
 
-#### 处理步骤<a name="section197259271597"></a>
+#### 处理步骤
 
 1.  执行以下命令查看升级节点的文件系统，查看固定备份目录下是否存在大文件。
 
@@ -2849,19 +2838,19 @@ x2openEuler -v
 
 2.  如有需要将对应目录填写在排查目录中。
 
-### 升级前检查grub2版本不满足要求<a name="ZH-CN_TOPIC_0000001459605177"></a>
+### 升级前检查grub2版本不满足要求
 
-#### 现象描述<a name="section674010929"></a>
+#### 现象描述
 
 升级前检查报告grub2版本不满足要求。
 
-#### 处理步骤<a name="section1733327121213"></a>
+#### 处理步骤
 
 若升级的目标系统为“openEuler-20.03-LTS-SP1”,需要挂载update源。
 
-### 升级前检查报错<a name="ZH-CN_TOPIC_0000001409005326"></a>
+### 升级前检查报错
 
-#### 现象描述<a name="section9561534142312"></a>
+#### 现象描述
 
 升级前检查报错，回显信息如下：
 
@@ -2869,7 +2858,7 @@ x2openEuler -v
 Abnormal exit,error:/etc/x2openEuler/database_2.0.0.630/centos7.4/x86_64/primary not exist
 ```
 
-#### 处理步骤<a name="section7162114392818"></a>
+#### 处理步骤
 
 1.  访问[OEPKGS](https://repo.oepkgs.net/openEuler/rpm/openEuler-20.03-LTS-SP1/contrib/x2openEuler/noarch/Packages/)，根据报错回显信息，获取对应版本数据包，例如“缺少CentOS 7.4 的数据库包需要安装x2openEuler-database-centos7.4-2.0.0.630-1.noarch.rpm，x2openEuler-database-centos7.4-openEuler20.03-LTS-SP1-2.0.0.630-1.noarch.rpm”。
 2.  上传获取的数据包至部署x2openEuler工具的环境，并使用SSH远程登录工具登录。
@@ -2882,26 +2871,49 @@ Abnormal exit,error:/etc/x2openEuler/database_2.0.0.630/centos7.4/x86_64/primary
 
 4.  进入升级任务，重新开始升级前检查。
 
-## 附录<a name="ZH-CN_TOPIC_0000001409325070"></a>
+### QEMU相关问题处理
+#### 现象描述1
+安装qemu-kvm 软件，在操作系统完成升级后，发现软件被卸载。
+#### 处理步骤
+执行以下命令安装qemu软件，再次启动虚拟机。
+```
+yum install qemu
+```
+#### 现象描述2
+升级后安装qemu，启动虚拟机报错如下：
+```
+Process exited prior to exec:libvirt:QEMU Driver error:Unable to get devmapper targets for /data1/var/lib/scevm/instance/xxxxxxx/disk.qcow2:Success
+```
+#### 处理步骤
+由于主机没有加载dm_mod.ko导致，可以通过modprobedm_mod来解决该异常，执行如下命令:
+```
+modprobe dm_mod
+```
+#### 现象描述3
+升级完成后虚拟机启动提示machine不匹配相关异常。
+#### 处理步骤
+由于升级后machine不匹配，首先执行以下命令查询openEuler支持的machine类型。
+```
+qemu-kvm -machine help
+```
+之后执行以下命令修改对应虚拟机的machine参数为openEuler支持的类型，并再次启动虚拟机。
+```
+virsh edit
+```
+## 附录
 
-
-
-
-
-
-
-### 账户权限说明<a name="ZH-CN_TOPIC_0000001460538193"></a>
+### 账户权限说明
 
 **注意事项<a name="section14911236561"></a>**
 
-请注意，产品功能运行涉及以下账户，如[表1](#table1664711409584)所示，请注意信息保护，定期维护账户安全。
+请注意，产品功能运行涉及以下账户，如[表27](#table27)所示，请注意信息保护，定期维护账户安全。
 
 >![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
 >由于root用户拥有最高权限，直接使用root用户登录服务器可能会存在安全风险。您可以通过配置禁止root用户SSH登录的选项，来提升系统安全性。具体配置如下：先以普通用户登录服务器，切换至root登录后检查/etc/ssh/sshd\_config配置项PermitRootlogin，如果显示no，说明禁止了root用户登录；如果显示yes，则需要将配置项PermitRootlogin设置为no。
 
-**表 1**  账户清单
+**表 27**  账户清单
 
-<a name="table1664711409584"></a>
+<a id="table27"></a>
 <table><thead align="left"><tr id="row4649184025811"><th class="cellrowborder" valign="top" width="13.459999999999999%" id="mcps1.2.6.1.1"><p id="p564924025815"><a name="p564924025815"></a><a name="p564924025815"></a>应用环境</p>
 </th>
 <th class="cellrowborder" valign="top" width="17.93%" id="mcps1.2.6.1.2"><p id="p1364914075811"><a name="p1364914075811"></a><a name="p1364914075811"></a>用户名/用户类型</p>
@@ -2986,17 +2998,17 @@ Abnormal exit,error:/etc/x2openEuler/database_2.0.0.630/centos7.4/x86_64/primary
 </tbody>
 </table>
 
-### 运行环境数据使用说明<a name="ZH-CN_TOPIC_0000001409165238"></a>
+### 运行环境数据使用说明
 
 **注意事项<a name="section782611620155"></a>**
 
-请注意，产品功能涉及的数据使用场景如下[表1](#table5582131519592)所示，请注意信息保护。
+请注意，产品功能涉及的数据使用场景如下[表28](#table28)所示，请注意信息保护。
 
 **运行环境数据使用场景说明<a name="section179976012566"></a>**
 
-**表 1**  数据使用信息说明
+**表 28**  数据使用信息说明
 
-<a name="table5582131519592"></a>
+<a id="table28"></a>
 <table><thead align="left"><tr id="row19582171535915"><th class="cellrowborder" valign="top" width="14.6985301469853%" id="mcps1.2.8.1.1"><p id="p14582121518596"><a name="p14582121518596"></a><a name="p14582121518596"></a>收集信息的场景或功能</p>
 </th>
 <th class="cellrowborder" valign="top" width="31.096890310968906%" id="mcps1.2.8.1.2"><p id="p10846103513116"><a name="p10846103513116"></a><a name="p10846103513116"></a>收集信息使用的命令或文件</p>
@@ -3040,11 +3052,11 @@ Abnormal exit,error:/etc/x2openEuler/database_2.0.0.630/centos7.4/x86_64/primary
 </tbody>
 </table>
 
-### 相关链接<a name="ZH-CN_TOPIC_0000001409165250"></a>
+### 相关链接
 
-**表 1**  相关链接
+**表 29**  相关链接
 
-<a name="table1656344955412"></a>
+<a id="table29"></a>
 <table><thead align="left"><tr id="row1856304918547"><th class="cellrowborder" valign="top" width="36.19%" id="mcps1.2.3.1.1"><p id="p9563154911541"><a name="p9563154911541"></a><a name="p9563154911541"></a>相关内容</p>
 </th>
 <th class="cellrowborder" valign="top" width="63.81%" id="mcps1.2.3.1.2"><p id="p356384917540"><a name="p356384917540"></a><a name="p356384917540"></a>网址</p>
@@ -3071,7 +3083,7 @@ Abnormal exit,error:/etc/x2openEuler/database_2.0.0.630/centos7.4/x86_64/primary
 <td class="cellrowborder" valign="top" width="63.81%" headers="mcps1.2.3.1.2 "><p id="p1882755906"><a name="p1882755906"></a><a name="p1882755906"></a>https://gitee.com/openeuler/oec-application</p>
 </td>
 </tr>
-<tr id="row178821330135618"><td class="cellrowborder" valign="top" width="36.19%" headers="mcps1.2.3.1.1 "><p id="p088312305566"><a name="p088312305566"></a><a name="p088312305566"></a>华为开源镜像仓</p>
+<tr id="row178821330135618"><td class="cellrowborder" valign="top" width="36.19%" headers="mcps1.2.3.1.1 "><p id="p088312305566"><a name="p088312305566"></a><a name="p088312305566"></a>华为云开源镜像仓</p>
 </td>
 <td class="cellrowborder" valign="top" width="63.81%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0308075319_p1162181375914"><a name="zh-cn_topic_0308075319_p1162181375914"></a><a name="zh-cn_topic_0308075319_p1162181375914"></a>https://mirrors.huaweicloud.com/repository/conf/CentOS-AltArch-7.repo</p>
 <p id="zh-cn_topic_0308075319_p14621713185911"><a name="zh-cn_topic_0308075319_p14621713185911"></a><a name="zh-cn_topic_0308075319_p14621713185911"></a>https://mirrors.huaweicloud.com/epel/7/$basearch</p>
@@ -3085,7 +3097,7 @@ Abnormal exit,error:/etc/x2openEuler/database_2.0.0.630/centos7.4/x86_64/primary
 </tbody>
 </table>
 
-### 术语<a name="ZH-CN_TOPIC_0000001459285005"></a>
+### 术语
 
 <a name="zh-cn_topic_0229761957_zh-cn_topic_0195271714_table1000233"></a>
 <table><tbody><tr id="zh-cn_topic_0229761957_row1364614118328"><td class="cellrowborder" style="border:none" colspan="2" valign="top">&nbsp;&nbsp;</td>
@@ -3130,7 +3142,7 @@ Abnormal exit,error:/etc/x2openEuler/database_2.0.0.630/centos7.4/x86_64/primary
 </tbody>
 </table>
 
-### 缩略语<a name="ZH-CN_TOPIC_0000001409005330"></a>
+### 缩略语
 
 <a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_table166084911276"></a>
 <table><tbody><tr id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_row13429252131613"><td class="cell-norowborder" style="border:none" colspan="3" valign="top"><p id="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p15986185513165"><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p15986185513165"></a><a name="zh-cn_topic_0229761958_zh-cn_topic_0195271715_p15986185513165"></a><strong id="b1768811243719"><a name="b1768811243719"></a><a name="b1768811243719"></a>B</strong></p>
