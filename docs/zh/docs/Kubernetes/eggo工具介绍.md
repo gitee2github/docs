@@ -102,7 +102,7 @@ openEuler 提供的 Kubernetes 集群自动化部署工具使用命令行方式�
           - port：端口地址
           - protocol：端口类型，可选值为 tcp 或者 udp
       
-  - install：配置各种类型节点上需要安装的安装包或者二进制文件的详细信息，注意将对应文件放到在 tar.gz 安装包中。以下给全量配置说明，具体配置请根据实际情况选择。
+  - install：配置各种类型节点上需要安装的安装包或者二进制文件的详细信息，注意将对应文件放到 tar.gz 安装包中。以下给全量配置说明，具体配置请根据实际情况选择。
       - package-source：配置安装包的详细信息
           - type：安装包的压缩类型，目前只支持 tar.gz 类型的安装包
           - dstpath：安装包在对端机器上的路径，必须是可用的绝对路径
@@ -127,7 +127,7 @@ openEuler 提供的 Kubernetes 集群自动化部署工具使用命令行方式�
       - dns：k8s coredns 安装包。如果 corednstype 配置为 pod，此处无需配置
       - addition：额外的安装包或二进制文件列表
         - master：以下配置会安装在所有 master 节点
-          - name：需要安装的软件包包或二进制文件的名称
+          - name：需要安装的软件包或二进制文件的名称
           - type：配置项类型，可选值为 pkg、repo、bin、file、dir、image、yaml、shell 。如果配置为 repo ，请在对应节点上配置 repo 源
           - schedule：仅在 type 为 shell 时有效，代表用户想要执行脚本的时机，支持 prejoin（节点加入前）、postjoin（节点加入后）、precleanup（节点退出前）、postcleanup（节点退出后）。
           - TimeOut：脚本执行超时时间，超时时该进程被强制终止运行。未配置默认为 30s
