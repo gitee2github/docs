@@ -44,7 +44,6 @@ paginate = 10
     email = "contact@openeuler.io"
 
     ### DOC Configurations
-    BookRepo = 'https://gitee.com/opengauss/docs/blob'
     BookEditPath= 'blob/master/content'
     BookDateFormat = 'Jan 2, 2019'
     enableGitInfo = true

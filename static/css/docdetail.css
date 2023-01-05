@@ -565,7 +565,7 @@ background-color: var(--e-color-kleinblue7);
 }
 @media screen and (max-width:1480px) {
     #page{
-        margin-right: 0;
+        margin-right: 40px;
     }
     .book-toc{
         display: none;
@@ -582,6 +582,11 @@ background-color: var(--e-color-kleinblue7);
     max-height: calc(100vh - 157px);
     z-index: 1002;
     box-shadow: var(--e-shadow-l4);
+}
+@media screen and (max-width:1480px){
+    #title-evaluate{
+        right: 1vw;
+    }
 }
 .bug-hide{
     display: none ;
@@ -1194,6 +1199,11 @@ background-color: var(--e-color-kleinblue7);
     text-align: center;
     background-color: var(--e-color-brand1);
     color: #fff;
+}
+.btn-submit>span{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
 }
 .alert .icon-close {
