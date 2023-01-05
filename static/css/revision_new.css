@@ -9,6 +9,9 @@
     width: 100%;
     margin-left: 0;
   }
+  #markdown {
+    margin-top: 16px;
+  }
 }
 .markdown {
   margin-left: 0 !important;
@@ -1022,3 +1025,13 @@
     align-items: center;
   }
 }
+.dark img {
+  filter: brightness(0.8) grayscale(0.2) contrast(1.2);
+}
+#menu-box .jstree-node[aria-level="3"],
+#menu-box .jstree-node[aria-level="4"],
+#menu-box .jstree-node[aria-level="5"],
+#menu-box .jstree-node[aria-level="6"] {
+  padding-left: 16px;
+}
+

@@ -134,7 +134,7 @@ $(function ($) {
         $('.question').click()
         $(".baseof_mask").css('display', 'none');
     })
-    $('.btn-submit').hover(function(){
+    $('.btn-submit>span').hover(function(){
         let submitType = $(".submit-type .active-submit>span").text();
         if(submitType==="issue"){
             $(".issue-submit-tip").addClass("tip-show")
@@ -145,7 +145,7 @@ $(function ($) {
         $(".issue-submit-tip").removeClass("tip-show")
         $(".pr-submit-tip").removeClass("tip-show")
     });
-    $('.btn-submit').on('click', function () {
+    $('.btn-submit>span').on('click', function () {
         let questionValue = $('.main-input').val().trim();
         const regR = /[\r\n]+/g
         let submitType = $(".submit-type .active-submit>span").text();
@@ -220,10 +220,19 @@ $(function ($) {
                             let body = encodeURIComponent(issueTemplate(postData))
                             try {
                                 if (JSON.parse(data).code === 200) {
+                                    function openUrl(url="#") {
+                                        let tempALink = document.createElement("a");
+                                        tempALink.setAttribute("target", "_blank");
+                                        tempALink.setAttribute("id", "openWin");
+                                        tempALink.setAttribute("href", url);
+                                        document.body.appendChild(tempALink);
+                                        document.getElementById("openWin").click();
+                                        document.body.removeChild(tempALink);
+                                    }
                                     if(submitType==="issue"){
-                                        window.open(`https://gitee.com/openeuler/docs/issues/new?issue%5Bassignee_id%5D=0&issue%5Bmilestone_id%5D=0&title=有奖捉虫&description=${body}`)
+                                        openUrl(`https://gitee.com/openeuler/docs/issues/new?issue%5Bassignee_id%5D=0&issue%5Bmilestone_id%5D=0&title=有奖捉虫&description=${body}`)
                                     }else{
-                                        window.open(`https://gitee.com/-/ide/project/openeuler/docs/edit/stable2-${version}/-/docs/zh/docs/${path}?search=${first}&title=文档捉虫-openEuler ${version}-${title}&description=${feedback}&message=${feedback}&label_names=文档捉虫`)
+                                        openUrl(`https://gitee.com/-/ide/project/openeuler/docs/edit/stable2-${version}/-/docs/zh/docs/${path}?search=${first}&title=文档捉虫-openEuler ${version}-${title}&description=${feedback}&message=${feedback}&label_names=文档捉虫`)
                                     }
                                 } else {
                                     console.error(JSON.parse(data));
@@ -419,7 +428,7 @@ window.onload = function () {
         content.onmouseup = function (event) {
             let ev = event || window.event;
             let left = ev.clientX;
-            let top = ev.clientY;
+            let top = ev.clientY+30;
             let select = selectText().trim();
             setTimeout(function () {
                 if (select.length > 0 && window.getSelection()&&window.getSelection().type === 'Range') {
