@@ -1,6 +1,5 @@
 # Best Practices
 
-[[toc]]
 <!-- TOC -->
 
 - [Best practices](#best practices)
