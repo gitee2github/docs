@@ -350,6 +350,7 @@
   }
   #h5-menu-top .select-box {
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-items: center;
     padding: 0px 0 8px 0;
@@ -363,6 +364,51 @@
     height: 16px;
     position: relative;
     right: 42px;
+  }
+  #h5-menu-top .select-box .version-tip{
+    position: absolute;
+    width: auto;
+    white-space: nowrap;
+    padding: 0 6px;
+    bottom: 38px;
+    left: 12px;
+    font-size: 12px;
+    line-height: 20px;
+    background-color: var(--e-color-bg2);
+    border: 1px solid var(--e-color-kleinblue5);
+    color: var(--e-color-text1);
+    z-index: 99;
+    transition: opacity 0.2s;
+    opacity: 0;
+  }
+  #h5-menu-top .select-box .version-tip.ru{
+    display: none;
+  }
+  #h5-menu-top .select-box .version-tip.tip-show{
+    opacity: 1;
+  }
+  #h5-menu-top .select-box .version-tip::after{
+    content: "";
+    display: block;
+    border-left: 6px solid transparent;
+    border-top: 6px solid var(--e-color-kleinblue5);
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+  }
+  #h5-menu-top .select-box .version-tip::before{
+    content: "";
+    display: block;
+    border-left: 6px solid transparent;
+    border-top: 6px solid var(--e-color-bg2);
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    position: absolute;
+    left: 10px;
+    top: 19px;
+    z-index: 9;
   }
   /* .select-box {
     padding: 30px 0 8px 0;
@@ -949,6 +995,39 @@
 #menu-box #version-select > span {
   color: #feb32a;
 }
+#menu-box #version-select .version-tip {
+  position: absolute;
+  width: auto;
+  white-space: nowrap;
+  padding: 0 8px;
+  bottom: 38px;
+  left: 178px;
+  font-size: 14px;
+  line-height: 32px;
+  background-color: var(--e-color-bg2);
+  border: 1px solid var(--e-color-kleinblue5);
+  color: var(--e-color-text1);
+  z-index: 99;
+  transition: opacity 0.2s;
+  opacity: 0;
+}
+#menu-box #version-select .version-tip.ru{
+  display: none;
+}
+#menu-box #version-select .version-tip::after{
+  content: "";
+  display: block;
+  border-left: 8px solid var(--e-color-kleinblue5);
+  border-top: 8px solid var(--e-color-bg2);
+  border-right: 8px solid var(--e-color-kleinblue5);
+  border-bottom: 8px solid var(--e-color-kleinblue5);
+  position: absolute;
+  left: 10px;
+  top: 32px;
+}
+#menu-box #version-select.open-option .version-tip{
+  opacity: 1;
+}
 /* #menu-box .open-option::after {
   transform: rotateZ(-90deg) !important;
   background-image: url(../img/common/icon-arrow-right-open.svg) !important;
@@ -1034,4 +1113,12 @@
 #menu-box .jstree-node[aria-level="6"] {
   padding-left: 16px;
 }
-
+.feedback .bug-icon-dark {
+  display: none;
+}
+.dark .feedback .bug-icon {
+  display: none;
+}
+.dark .feedback .bug-icon-dark {
+  display: inline-block;
+}

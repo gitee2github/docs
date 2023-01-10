@@ -73,6 +73,7 @@ $(function ($) {
     });
     $("#h5-menu-top .select-box").click(function (e) {
         $("#h5-menu-top .menu-select-box .option").toggleClass("option-show")
+        $("#h5-menu-top .menu-select-box .version-tip").toggleClass("tip-show")
         $(".icon-servision").toggleClass("icon-open")
         e.stopPropagation();
     });

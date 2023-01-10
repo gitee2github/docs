@@ -546,7 +546,7 @@ background-color: var(--e-color-kleinblue7);
     padding-top: 40px;
     /* margin-top: 40px; */
     /* padding: 144px 0 40px 0; */
-    position: relative;
+    /* position: relative; */
     max-width: 1460px;
     padding: 40px 64px 64px;
     min-height: calc(100vh - 320px);
@@ -1167,8 +1167,8 @@ background-color: var(--e-color-kleinblue7);
     cursor: pointer;
     position: fixed;
     display: none;
-    width: 25px;
-    background-color: white;
+    width: 32px;
+    /* background-color: white; */
     border-radius: 5px;
     z-index: 1;
 }

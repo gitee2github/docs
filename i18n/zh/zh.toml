@@ -257,3 +257,7 @@ other = "法律声明"
 other = "服务状态"
 [lang]
 other = "zh"
+[openEuler]
+other = "https://www.openeuler.org/zh/"
+[version_tip]
+other = "不同版本内容存在差异，请选择对应版本文档。"
