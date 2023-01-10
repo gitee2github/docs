@@ -1,6 +1,24 @@
 # Best Practices
 
-[[toc]]
+<!-- TOC -->
+
+- [Best practices](#best practices)
+	- [Performance best practices](#performance best practices)
+		- [halt-polling](#halt-polling)
+		- [IOThread configuration](#iothread configuration)
+		- [Raw device mapping](#raw device mapping)
+		- [kworker isolation binding](#kworker isolation binding)
+		- [Memory huge page](#memory huge page)
+		- [PV-qspinlock](#pv-qspinlock)
+		- [Guest-Idle-Haltpoll](#guest-idle-haltpoll)
+	- [Security best practices](#security best practices)
+		- [Libvirt authentication](#libvirt authentication)
+		- [qemu-ga](#qemu-ga)
+		- [sVirt protection](#svirt protection)
+		- [VM trusted boot](#VM trusted boot)
+
+<!-- /TOC -->
+
 
 ## Performance Best Practices
 
