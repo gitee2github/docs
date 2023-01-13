@@ -8,7 +8,8 @@
 
   <body>
     <div class="feedback">
-      <img src="/img/detail/bug.png" title="点击参与文档捉虫" alt="">
+      <img class="bug-icon" src="/img/detail/bug.svg" title="点击参与文档捉虫" alt="">
+      <img class="bug-icon-dark" src="/img/detail/bug-dark.svg" title="点击参与文档捉虫" alt="">
   </div>
     <div id="all">
       <div class="left">
@@ -26,6 +27,9 @@
             <div class="select-box">
               <p>{{i18n "version_selection"}}</p>
               <i class="icon-servision"></i>
+              <div class="version-tip {{ i18n "lang"}}">
+                {{ i18n "version_tip"}}
+              </div>
             </div>
             <div class="option">
               <a href="{{ i18n "know_89_1"}}">{{ .Site.Params.version_89 }}</a>
@@ -64,6 +68,9 @@
             {{ end }}
             <span href="{{i18n "know_97_1"}}">20.09</span>
           </div>
+          <div class="version-tip {{ i18n "lang"}}">
+            {{ i18n "version_tip"}}
+          </div>
         </div>
         {{ partial "docs/menu" . }}
         <div class="h5-theme-lang">
@@ -98,65 +105,6 @@
                 </li>
               </ul>
           </div>
-            <!-- <div id="h5-menu-box">
-              <div id="h5-menu-top">
-                <div class="h5-logo">
-                  <div class="logo-img">
-                  </div>
-                  <i class="icon-close"></i>
-                </div>
-                <div class="container menu-select-box">
-                  <div class="select-box">
-                    <p>{{i18n "version_selection"}}</p>
-                    <i class="icon-servision"></i>
-                  </div>
-                  <div class="option">
-                    <a href="{{ i18n "know_91_1"}}">{{ .Site.Params.version_91 }}</a>
-                    <a href="{{ i18n "know_92_1"}}">{{ .Site.Params.version_92 }}</a>
-                    <a href="{{ i18n "know_93_1"}}">{{ .Site.Params.version_93 }}</a>
-                    {{ if ne .Site.LanguageCode "ru"}}
-                    <a href="{{ i18n "know_94_1"}}">{{ .Site.Params.version_94 }}</a>
-                    <a href="{{ i18n "know_95_1"}}">{{ .Site.Params.version_95 }}</a>
-                    <a href="{{ i18n "know_96_1"}}">{{ .Site.Params.version_96 }}</a>
-                    {{ end }}
-                    <a href="{{ i18n "know_97_1"}}">{{ .Site.Params.version_97 }}</a>
-                    <a href="{{ i18n "know_98_1"}}">{{ .Site.Params.version_98 }}</a>
-                    <div class="angle"></div>
-                  </div>
-                </div>
-              </div>
-              <div id="version-select">
-                <span></span>
-                <div class="option">
-                  {{ if ne .Site.LanguageCode "ru"}}
-                  <a href="{{ i18n "know_91_1"}}">22.03 LTS</a>
-                  <a href="{{ i18n "know_92_1"}}">20.03 LTS SP3</a>
-                  {{ end }}
-                  <a href="{{ i18n "know_93_1"}}">21.09</a>
-                  {{ if ne .Site.LanguageCode "ru"}}
-                  <a href="{{ i18n "know_94_1"}}">20.03 LTS SP2</a>
-                  <a href="{{i18n "know_96_1"}}">20.03 LTS SP1</a>
-                  {{ end }}
-                  <a href="{{i18n "know_98_1"}}">20.03 LTS</a>
-                  {{ if ne .Site.LanguageCode "ru"}}
-                  <a href="{{i18n "know_95_1"}}">21.03</a>
-                  {{ end }}
-                  <a href="{{i18n "know_97_1"}}">20.09</a>
-                  <div class="angle"></div>
-                </div>
-              </div>
-              {{ partial "docs/menu" . }}
-              <div class="h5-theme-lang">
-                 <div class="lang">
-                  <a href="/zh/">中文</a>
-                  <a href="/en/">EN</a>
-                  <a href="/ru/">RU</a>
-                 </div>
-                 <div class="theme-change">
-                  <i class="icon-theme light"></i>
-              </div>
-              </div>
-            </div> -->
             <div class="h5-mask"></div>
             <div class="book-page container" id="page">
               <div class="page-content">

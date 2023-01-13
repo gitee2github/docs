@@ -247,3 +247,5 @@ other = "Service Status"
 other = "en"
 [openEuler]
 other = "https://www.openeuler.org/en/"
+[version_tip]
+other = "Documents vary with versions, Select one as required."

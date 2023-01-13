@@ -227,3 +227,5 @@ other = "Статус сервиса"
 other = "ru"
 [openEuler]
 other = "https://www.openeuler.org/ru/"
+[version_tip]
+other = "Documents vary with versions, Select one as required."
