@@ -587,7 +587,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
 已成功登录x2openEuler工具。
 
 >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
->只有管理员用户（x2openEulerAdmin）可以执行创建用户操作。
+>只有管理员用户（x2openEulerAdmin）可以执行系统配置操作。
 
 **操作步骤<a name="section139131865517"></a>**
 
