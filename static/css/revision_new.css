@@ -378,14 +378,14 @@
     border: 1px solid var(--e-color-kleinblue5);
     color: var(--e-color-text1);
     z-index: 99;
-    transition: opacity 0.2s;
-    opacity: 0;
+    transition: transform 0.2s;
+    transform: scale(0);
   }
   #h5-menu-top .select-box .version-tip.ru{
     display: none;
   }
-  #h5-menu-top .select-box .version-tip.tip-show{
-    opacity: 1;
+  #h5-menu-top .select-box:hover .version-tip{
+    transform: scale(1);
   }
   #h5-menu-top .select-box .version-tip::after{
     content: "";
@@ -1008,8 +1008,8 @@
   border: 1px solid var(--e-color-kleinblue5);
   color: var(--e-color-text1);
   z-index: 99;
-  transition: opacity 0.2s;
-  opacity: 0;
+  transition: transform 0.2s;
+  transform: scale(0);
 }
 #menu-box #version-select .version-tip.ru{
   display: none;
@@ -1025,8 +1025,8 @@
   left: 10px;
   top: 32px;
 }
-#menu-box #version-select.open-option .version-tip{
-  opacity: 1;
+#menu-box #version-select:hover .version-tip{
+  transform: scale(1);
 }
 /* #menu-box .open-option::after {
   transform: rotateZ(-90deg) !important;
