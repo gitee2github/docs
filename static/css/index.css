@@ -1,4 +1,6 @@
 #all {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   /* padding-bottom: var(--o-spacing-h1); */
@@ -76,7 +78,7 @@
 }
 
 #all > #right {
-  width: 85%;
+  width: calc(100vw - 300px);
   overflow: hidden;
   background-color: var(--e-color-bg1);
   /* max-width: 1620px; */
