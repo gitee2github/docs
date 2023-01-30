@@ -8,11 +8,16 @@
 }
 
 #all > #left {
+  position: sticky;
+  top: 0;
+  left: 0;
   width: 300px;
   min-width: 300px;
   background-color: var(--e-color-kleinblue5);
   overflow: hidden;
   padding-top: 40px;
+  height: fit-content;
+  min-height: 100vh;
 }
 #all > #left .left {
   width: 100%;
@@ -191,7 +196,7 @@
 .hot-document {
   padding-top: 45px;
   padding-left: 120px;
-  padding-right: 140px;
+  padding-right: 120px;
   padding-bottom: var(--o-spacing-h1);
 }
 h1 {

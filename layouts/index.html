@@ -97,6 +97,9 @@
                     <div id="web-pagination"></div>
                 </div>
             </div>
+            {{ if eq .Site.LanguageCode "zh"}}
+                {{ partial "doc_map.html" . }}
+            {{ end }}
             <div class="hot-document">
                 <h1>{{ i18n "hot_document" }}</h1>
             <div id="document_content">
@@ -146,7 +149,6 @@
             <div class="h5-nav-menu">
                 <div class="h5_nav_left"></div>
                 <div class="h5-logo">
-                  <!-- <img src="\img\common\logo-h5.png" alt="" /> -->
                 </div>
                 <div class="h5-right">
                   <i class="white_search"></i>
@@ -222,7 +224,6 @@
                 <div class="cancel-btn">{{ i18n "cancel" }}</div>
             </div>
             <div class="search-result h5-search-result">
-                <!-- <p class="title">{{ i18n "result_1" }}<span class="res-amount main-text"></span>{{ i18n "result_2" }}<span class="keyword main-text"></span>{{ i18n "result_3" }}</p> -->
                 <ul>
 
                 </ul>
@@ -278,6 +279,9 @@
                     {{ end }}
                 </div>
             </div>
+            {{ if eq .Site.LanguageCode "zh"}}
+                 {{ partial "doc_map.html" . }}
+            {{ end }}
             <h3>{{ i18n "hot_document" }}</h3>
             <div class="hot_documentation">
                 <div  link="{{i18n "A-Tune_link"}}">
@@ -309,17 +313,6 @@
                     <span>{{i18n "container_content"}}</span>
                 </div>
             </div>
-            <!-- 友好社区楼层 -->
-            <!-- <h3>{{ i18n "other_text" }}</h3>
-
-            <div class="h5_community">
-                <div>
-                    <a href="https://openeuler.org/" target="_blank">openEuler</a>
-                </div>
-                <div>
-                    <a href="https://www.hikunpeng.com/" target="_blank">{{i18n "kunpeng_community"}}</a>
-                </div>
-            </div> -->
         </div>
         {{ partial "pcfooter.html" . }}
     </div>
