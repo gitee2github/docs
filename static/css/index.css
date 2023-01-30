@@ -84,14 +84,12 @@
 
 #all > #right {
   width: calc(100vw - 300px);
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: var(--e-color-bg1);
-  /* max-width: 1620px; */
 }
 
 #all > #right > header {
   font-size: 18px;
-  /* width: calc(100vw - 337px); */
   height: 60px;
   background-color: #fff;
 }
