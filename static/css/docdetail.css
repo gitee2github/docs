@@ -1,9 +1,9 @@
 /* 详情页面样式 */
 /* 版本选择 */
-/* #all{
+/* #app{
     display: flex;
 } */
-#all .left{
+#app .left{
     background-color: var(--e-color-kleinblue5);
     position: fixed;
     left: 0;
@@ -11,7 +11,7 @@
     height: 100vh;
 }
 @media screen and (max-width: 1100px){
-    #all .left{
+    #app .left{
         width: 60vw;
         position: fixed;
         left: 0;
@@ -21,10 +21,10 @@
         transform: translateX(-100%);
         transition: all 0.5s;
     }
-    #all .left::-webkit-scrollbar{
+    #app .left::-webkit-scrollbar{
         width: 0px;
     }
-    #all .show-left{
+    #app .show-left{
         transform: translateX(0) ;
       }
 }
@@ -623,31 +623,6 @@ background-color: var(--e-color-kleinblue7);
     position: relative;
 }
 
-#title-evaluate .title {
-    display: none !important;
-}
-
-#title-evaluate .title .active{
-    color: var(--e-color-brand1);
-}
-
-#title-evaluate .title ul {
-    list-style: disc;
-}
-
-#title-evaluate .title > ul > li > ul {
-    margin-top: 20px;
-}
-
-#title-evaluate .title > ul > li > ul > li {
-    margin-bottom: 20px;
-}
-
-#title-evaluate .title > ul > li > ul > li > ul {
-    margin-top: 10px;
-}
-
-
 #title-evaluate .evaluate {
     width: 170px;
     height: 60px;
@@ -746,6 +721,10 @@ background-color: var(--e-color-kleinblue7);
     /* border-radius: 3px; */
     z-index: 2;
 }
+.alert .tip-box.email-en{
+    top: 24px;
+    left: -88px;
+}
 .alert .text-email {
     display: inline-block;
 }
@@ -767,6 +746,10 @@ background-color: var(--e-color-kleinblue7);
     border: 1px solid transparent;
     box-sizing: border-box;
     color: var(--e-color-text4);
+}
+
+.alert .evaluates.en .issue{
+    padding: 3px 8px;
 }
 
 .alert .evaluates .active-border {
@@ -1608,7 +1591,7 @@ background-color: var(--e-color-kleinblue7);
         margin-right: 33px;
     }
 
-    .h5_index > img {
+    .app-mobile > img {
        margin-top: 90px;
     }
 
@@ -1724,7 +1707,7 @@ background-color: var(--e-color-kleinblue7);
         margin-top: 60px;
     }
 
-    .zhezhao {
+    .mask-mobile {
         background-color: rgba(0, 0, 0, 0.4);
         position: fixed;
         top: 0;

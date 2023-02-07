@@ -1,84 +1,81 @@
 <div id="title-evaluate">
-    <div class="title">
-
-    </div>
     <div class="alert">
         <form action="">
             <div class="icon-close"></div>
-            <h2 class="title-h2">{{ i18n "issue_title" }} <a title="查看详情" target="_blank" href="https://docs-bug.openeuler.sh/"><div class="help-icon"></div></a></h2>
+            <h2 class="title-h2">{{ i18n "issue_title" }} <a title="{{ i18n "issue_detail" }}" target="_blank" href="https://docs-bug.openeuler.sh/"><div class="help-icon"></div></a></h2>
             <h3 class="title-h3">{{ i18n "issue_part" }}</h3>
             <div class="textarea-box">
-                <textarea class="main-input first-input" maxlength="500" placeholder="点击输入将“有虫”文档复制，粘贴到此处。"></textarea>
+                <textarea class="main-input first-input" maxlength="500" placeholder="{{ i18n "issue_part_placeholder" }}"></textarea>
                 <!-- <p><span id="text-count">0</span>/500</p> -->
             </div>
             <h3 class="title-h3">{{ i18n "issue_reason" }}</h3>
             <div class="submit-type">
-                <span class="type-title">提交类型</span>
+                <span class="type-title">{{ i18n "issue_submit_type" }}</span>
                 <span class="type-issue">
                     <span>issue</span>
-                    <div class="issue-tip">有点复杂...<br/>找人问问吧。</div>
+                    <div class="issue-tip">{{ i18n "issue_tip1" }}<br/>{{ i18n "issue_tip2" }}</div>
                 </span>
                 <span class="type-PR active-submit">
                     <span>PR</span>
-                    <div class="PR-tip">小问题，全程线上修改...<br/>一键搞定！</div>
+                    <div class="PR-tip">{{ i18n "PR_tip1" }}<br/>{{ i18n "PR_tip2" }}</div>
                 </span>
             </div>
-            <div class="evaluates">
-                <div class="issue-title">问题类型</div>
+            <div class="evaluates {{ i18n "lang" }}">
+                <div class="issue-title">{{ i18n "issue_type" }}</div>
                 <div class="issue" key="1">
                     <span>{{ i18n "issue_1" }}</span>
                     <div class="issue-detail">
-                        <p>● 错别字或拼写错误；标点符号使用错误；</p>
-                        <p>● 链接错误、空单元格、格式错误；</p>
-                        <p>● 英文中包含中文字符；</p>
-                        <p>● 界面和描述不一致，但不影响操作；</p>
-                        <p>● 表述不通顺，但不影响理解；</p>
-                        <p>● 版本号不匹配：如软件包名称、界面版本号；</p>
+                        <p>● {{ i18n "issue_1_1" }}</p>
+                        <p>● {{ i18n "issue_1_2" }}</p>
+                        <p>● {{ i18n "issue_1_3" }}</p>
+                        <p>● {{ i18n "issue_1_4" }}</p>
+                        <p>● {{ i18n "issue_1_5" }}</p>
+                        <p>● {{ i18n "issue_1_6" }}</p>
                     </div>
                 </div>
                 <div class="issue" key="2">
                     <span>{{ i18n "issue_2" }}</span>
                     <div class="issue-detail">
-                        <p>● 关键步骤错误或缺失，无法指导用户完成任务；</p>
-                        <p>● 缺少必要的前提条件、注意事项等；</p>
-                        <p>● 图形、表格、文字等晦涩难懂；</p>
-                        <p>● 逻辑不清晰，该分类、分项、分步骤的没有给出；</p>
+                        <p>● {{ i18n "issue_2_1" }}</p>
+                        <p>● {{ i18n "issue_2_2" }}</p>
+                        <p>● {{ i18n "issue_2_3" }}</p>
+                        <p>● {{ i18n "issue_2_4" }}</p>
                     </div>
                 </div>
                 <div class="issue" key="3">
                     <span>{{ i18n "issue_3" }}</span>
                     <div class="issue-detail">
-                        <p>● 技术原理、功能、规格等描述和软件不一致，存在错误；</p>
-                        <p>● 原理图、架构图等存在错误；</p>
-                        <p>● 命令、命令参数等错误；</p>
-                        <p>● 代码片段错误；</p>
-                        <p>● 命令无法完成对应功能；</p>
-                        <p>● 界面错误，无法指导操作；</p>
+                        <p>● {{ i18n "issue_3_1" }}</p>
+                        <p>● {{ i18n "issue_3_2" }}</p>
+                        <p>● {{ i18n "issue_3_3" }}</p>
+                        <p>● {{ i18n "issue_3_4" }}</p>
+                        <p>● {{ i18n "issue_3_5" }}</p>
+                        <p>● {{ i18n "issue_3_6" }}</p>
                     </div>
                 </div>
                 <div class="issue" key="4">
                     <span>{{ i18n "issue_4" }}</span>
                     <div class="issue-detail">
-                        <p>● 对重要数据或系统存在风险的操作，缺少安全提示；</p>
+                        <p>● {{ i18n "issue_4_1" }}</p>
                     </div>
                 </div>
                 <div class="issue" key="5">
                     <span>{{ i18n "issue_5" }}</span>
                     <div class="issue-detail">
-                        <p>● 违反法律法规，涉及政治、领土主权等敏感词；</p>
-                        <p>● 内容侵权；</p>
+                        <p>● {{ i18n "issue_5_1" }}</p>
+                        <p>● {{ i18n "issue_5_2" }}</p>
                     </div>
                 </div>
             </div>
             <div class="textarea-box">
-                <textarea class="issue-reason main-input" maxlength="500" placeholder="点击输入详细问题描述，以帮助我们快速定位问题。"></textarea>
+                <textarea class="issue-reason main-input" maxlength="500" placeholder="{{ i18n "issue_reason_placeholder" }}"></textarea>
                 <!-- <p><span id="text-count-tow">0</span>/500</p> -->
             </div>
             <div class="email">
                 <p class="text-email">
                     {{ i18n "text_email" }}
                 </p>
-                <input type="text" placeholder="点击输入您的邮箱" class="email-input">
+                <input type="text" placeholder="{{ i18n "email_placeholder" }}" class="email-input">
             </div>
             <h3 class="title-h3">{{ i18n "satisfaction" }}</h3>
             <div class="satisfaction">
@@ -91,7 +88,8 @@
                 <div class="checkbox-item">
                     <input type="radio" id="privacy" name="privacy">
                     <label class="label" for="privacy">{{ i18n "privacy_text" }}<a
-                            href="https://www.openeuler.org/zh/other/privacy/" target="_blank">{{ i18n "privacy_link"
+                            href="https://www.openeuler.org/{{ i18n "lang"
+                        }}/other/privacy/" target="_blank">{{ i18n "privacy_link"
                             }}</a>
                     </label>
                 </div>
@@ -99,11 +97,11 @@
             <div class="btn-submit"><span>{{ i18n "btn_submit" }}</span>
                 <div class="login-tip">
                     <div class="main-tip">
-                        封印500报错，需保持gitee在登录状态
+                        {{ i18n "login_tip" }}
                     </div>
                 </div>
                 <div class="submit-tip issue-submit-tip">
-                    根据您的反馈，会自动生成issue模板。您只需点击按钮，创建issue即可。
+                    {{ i18n "submit_tip" }}
                 </div>
                 <div class="submit-tip pr-submit-tip">
                 </div>

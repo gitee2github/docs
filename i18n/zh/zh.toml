@@ -150,20 +150,82 @@ other = "下一篇"
 [evaluate]
 other = "评价"
 
+#bug start
+
+[issue_detail]
+other = "查看详情"
+
 [issue_1]
 other = "规范和低错类"
+
+[issue_1_1]
+other = "错别字或拼写错误；标点符号使用错误；"
+
+[issue_1_2]
+other = "链接错误、空单元格、格式错误；"
+
+[issue_1_3]
+other = "英文中包含中文字符；"
+
+[issue_1_4]
+other = "界面和描述不一致，但不影响操作；"
+
+[issue_1_5]
+other = "表述不通顺，但不影响理解；"
+
+[issue_1_6]
+other = "版本号不匹配：如软件包名称、界面版本号；"
 
 [issue_2]
 other = "易用性"
 
+[issue_2_1]
+other = "关键步骤错误或缺失，无法指导用户完成任务；"
+
+[issue_2_2]
+other = "缺少必要的前提条件、注意事项等；"
+
+[issue_2_3]
+other = "图形、表格、文字等晦涩难懂；"
+
+[issue_2_4]
+other = "逻辑不清晰，该分类、分项、分步骤的没有给出；"
+
 [issue_3]
 other = "正确性"
+
+[issue_3_1]
+other = "技术原理、功能、规格等描述和软件不一致，存在错误；"
+
+[issue_3_2]
+other = "原理图、架构图等存在错误；"
+
+[issue_3_3]
+other = "命令、命令参数等错误；"
+
+[issue_3_4]
+other = "代码片段错误；"
+
+[issue_3_5]
+other = "命令无法完成对应功能；"
+
+[issue_3_6]
+other = "界面错误，无法指导操作；"
 
 [issue_4]
 other = "风险提示"
 
+[issue_4_1]
+other = "对重要数据或系统存在风险的操作，缺少安全提示；"
+
 [issue_5]
 other = "内容合规"
+
+[issue_5_1]
+other = "违反法律法规，涉及政治、领土主权等敏感词；"
+
+[issue_5_2]
+other = "内容侵权；"
 
 [issue_title]
 other = "文档捉虫"
@@ -171,8 +233,32 @@ other = "文档捉虫"
 [issue_part]
 other = "“有虫”文档片段"
 
+[issue_part_placeholder]
+other = "点击输入将“有虫”文档复制，粘贴到此处。"
+
 [issue_reason]
 other = "问题描述"
+
+[issue_reason_placeholder]
+other = "点击输入详细问题描述，以帮助我们快速定位问题。"
+
+[issue_submit_type]
+other = "提交类型"
+
+[issue_tip1]
+other = "有点复杂..."
+
+[issue_tip2]
+other = "找人问问吧。"
+
+[PR_tip1]
+other = "小问题，全程线上修改..."
+
+[PR_tip2]
+other = "一键搞定！"
+
+[issue_type]
+other = "问题类型"
 
 [satisfaction]
 other = "您对文档的总体满意度"
@@ -204,6 +290,15 @@ other = "您的邮箱"
 [text_email]
 other = "我们可能针对您提出的问题，向您发送邮件反馈进行方案。如有获奖信息，也会通过此方式通知您。"
 
+[email_placeholder]
+other = "点击输入您的邮箱"
+
+[login_tip]
+other = "封印500报错，需保持gitee在登录状态"
+
+[submit_tip]
+other = "根据您的反馈，会自动生成issue模板。您只需点击按钮，创建issue即可。"
+
 [privacy_text]
 other = "您理解并同意，您填写并提交的内容，即视为您已充分阅读并同意openEuler的"
 
@@ -218,6 +313,8 @@ other = "返回顶部"
 
 [questionnaire]
 other = "文档捉虫"
+
+#bug end
 
 #search page
 
