@@ -1,4 +1,4 @@
-#all {
+#app {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -7,7 +7,7 @@
   background-color: var(--e-color-bg1);
 }
 
-#all > #left {
+#app > #left {
   position: sticky;
   top: 0;
   left: 0;
@@ -19,28 +19,28 @@
   height: fit-content;
   min-height: 100vh;
 }
-#all > #left .left {
+#app > #left .left {
   width: 100%;
   padding-left: 40px;
 }
 
-#all > #left img {
+#app > #left img {
   height: 35px;
 }
 
-#all > #left > ul {
+#app > #left > ul {
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 53px;
 }
 
-#all > #left > ul a {
+#app > #left > ul a {
   color: #ffffff;
 }
-#all > #left > ul li ~ li {
+#app > #left > ul li ~ li {
   line-height: 56px;
 }
-#all > #left > ul li ~ li::after {
+#app > #left > ul li ~ li::after {
   content: "";
   display: block;
   width: 100%;
@@ -49,56 +49,56 @@
   opacity: 0.1;
 }
 
-#all > #left > ul li:nth-child(1) {
+#app > #left > ul li:nth-child(1) {
   font-size: 18px;
   margin-bottom: 24px;
 }
 
-#all > #left > ul li:nth-child(2) {
+#app > #left > ul li:nth-child(2) {
   font-size: 16px;
 }
 
-#all > #left > ul li:nth-child(3) {
+#app > #left > ul li:nth-child(3) {
   font-size: 16px;
 }
 
-#all > #left > ul li:nth-child(4) {
+#app > #left > ul li:nth-child(4) {
   font-size: 16px;
 }
 
-#all > #left > ul li:nth-child(5) {
+#app > #left > ul li:nth-child(5) {
   font-size: 16px;
 }
 
-#all > #left > ul li:nth-child(6) {
+#app > #left > ul li:nth-child(6) {
   font-size: 16px;
 }
 
-#all > #left > ul li:nth-child(7) {
+#app > #left > ul li:nth-child(7) {
   font-size: 16px;
 }
 
-#all > #left > ul li:nth-child(8) {
+#app > #left > ul li:nth-child(8) {
   font-size: 16px;
 }
 
-#all > #right {
+#app > #right {
   width: calc(100vw - 300px);
   overflow-x: hidden;
   background-color: var(--e-color-bg1);
 }
 
-#all > #right > header {
+#app > #right > header {
   font-size: 18px;
   height: 60px;
   background-color: #fff;
 }
 
-#all > #right > header div #lang {
+#app > #right > header div #lang {
   border: none;
   cursor: pointer;
 }
-#all > #right > header div #lang:hover .option {
+#app > #right > header div #lang:hover .option {
   display: block;
   left: -14px;
 }
@@ -108,14 +108,13 @@
   flex-direction: row;
   background-color: var(--e-color-bg1);
   justify-content: space-between;
+  align-items: center;
   padding-left: 120px;
   padding-right: 120px;
 }
 
 #search_header div:nth-child(1) {
-  margin-top: 85px;
   width: 48%;
-  height: 210px;
 }
 
 #search_header div:nth-child(1) span {
@@ -127,10 +126,11 @@
 
 .search_right {
   width: 48%;
-  height: 210px;
+  /* height: 210px; */
   margin-top: 85px;
   margin-bottom: 85px;
   display: flex;
+  justify-content: end;
   align-items: center;
 }
 
@@ -139,7 +139,7 @@
 }
 
 #search-input {
-  margin-top: 40px;
+  /* margin-top: 40px; */
   position: relative;
 }
 
@@ -351,7 +351,7 @@ h1 {
   width: 78px;
   height: 78px;
 } */
-.h5_index {
+.app-mobile {
   display: none;
 }
 
@@ -405,7 +405,7 @@ h1 {
     z-index: 9;
     background-color: var(--e-color-bg2);
   }
-  .h5_index .h5_content {
+  .app-mobile .h5_content {
     background-color: var(--e-color-bg1);
     padding-bottom: 40px;
   }
@@ -417,11 +417,11 @@ h1 {
   .dark .h5-nav-menu .h5-logo {
     background: url(../img/common/logo-pc.png) no-repeat 100%/100%;
   }
-  #all {
+  #app {
     display: none !important;
   }
 
-  .h5_index {
+  .app-mobile {
     display: block;
     position: relative;
   }
@@ -492,7 +492,7 @@ h1 {
     margin-right: 33px;
   }
 
-  .h5_index > img {
+  .app-mobile > img {
     margin-top: 90px;
   }
 
@@ -705,7 +705,7 @@ h1 {
   .h5_content .h5_banner .banner-iii {
     height: 94px;
   }
-  .zhezhao {
+  .mask-mobile {
     background-color: rgba(0, 0, 0, 0.4);
     position: absolute;
     top: 0;
@@ -722,7 +722,7 @@ h1 {
 .index-result {
   max-height: unset !important;
 }
-.h5_index .h5_nav {
+.app-mobile .h5_nav {
   position: fixed;
   left: -61%;
   top: 0;
@@ -732,19 +732,19 @@ h1 {
   background-color: var(--e-color-bg2);
   transition: all 0.5s;
 }
-.h5_index .h5_nav_show {
+.app-mobile .h5_nav_show {
   left: 0;
 }
-.h5_index .select-box {
+.app-mobile .select-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.h5_index .select-box span {
+.app-mobile .select-box span {
   margin-left: 16px;
   font-size: 14px;
 }
-.h5_index .select-box .icon-down {
+.app-mobile .select-box .icon-down {
   width: 16px;
   height: 16px;
   position: relative;

@@ -1,5 +1,4 @@
 {{ template "_internal/google_analytics.html" . }}
-<div class="mask"></div>
 <!-- authing-js-sdk.min 下载地址https://cdn.jsdelivr.net/npm/authing-js-sdk/build/browser/index.min.js -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/authing-js-sdk/build/browser/index.min.js"></script> -->
 <script src="{{ .Site.BaseURL }}js/authing-js-sdk.min.js"></script>
@@ -10,7 +9,6 @@
 <script src="{{ .Site.BaseURL }}js/sensorsdata.min.js"></script>
 <script src="{{ .Site.BaseURL }}js/sensors.js"></script>
 <script src="{{ .Site.BaseURL }}js/revision_new.js"></script>
-<div id="mask" onclick="hideNav()"></div>
 <script type="text/javascript">
     $(document).ready(function () {
         // function getRelativePath() {
@@ -121,35 +119,35 @@
                 result[1] == null ? $('#h5-menu .h5-next').addClass('disabled') : $('#h5-menu .h5-next a').attr('href', result[1]);
             });
         }
-        function showNav() {
-            $('#menu').css({
-                "transform": "translateX(0)"
-            }).attr("onoff", "on");
-            $('.mask').addClass('maskLayer');
-        }
-        function hideNav() {
-            $('#menu').css({
-                "transform": "translateX(-100%)"
-            }).attr("onoff", "off");
-            $('.mask').removeClass('maskLayer');
-        }
+        // function showNav() {
+        //     $('#menu').css({
+        //         "transform": "translateX(0)"
+        //     }).attr("onoff", "on");
+        //     $('.mask').addClass('maskLayer');
+        // }
+        // function hideNav() {
+        //     $('#menu').css({
+        //         "transform": "translateX(-100%)"
+        //     }).attr("onoff", "off");
+        //     $('.mask').removeClass('maskLayer');
+        // }
 
-        $("#slideNav").bind('click', function () {
-            if ($('#menu').attr("onoff") == "on") {
-                hideNav();
-            } else {
-                showNav();
-            }
-        })
+        // $("#slideNav").bind('click', function () {
+        //     if ($('#menu').attr("onoff") == "on") {
+        //         hideNav();
+        //     } else {
+        //         showNav();
+        //     }
+        // })
 
         // 点击遮罩层隐藏
-        $('.mask').bind('click', function() {
-            if ($('#menu').attr("onoff") == "on") {
-                hideNav();
-            } else {
-                showNav();
-            }
-        })
+        // $('.mask').bind('click', function() {
+        //     if ($('#menu').attr("onoff") == "on") {
+        //         hideNav();
+        //     } else {
+        //         showNav();
+        //     }
+        // })
 
         /* 获取当前所在层级名称以及父层级名称 */
         function getTiername(data) {

@@ -1,6 +1,6 @@
 
 $(function ($) {
-    if (lang !== 'zh') {
+    if (lang == 'ru') {
         $('#title-evaluate').css('display', 'none')
     }
     var isEvaluate = false;
@@ -50,7 +50,7 @@ $(function ($) {
         e.stopPropagation();
     });
     $(".h5_nav_left").click(function (e) {
-        $("#all>.left").addClass("show-left");
+        $("#app>.left").addClass("show-left");
         $(".h5-mask").show();
         // $("#content .docscontainer").css("height", "0");
         // $("#page").hide();
@@ -62,7 +62,7 @@ $(function ($) {
     //     $("#page").hide();
     // });
     $("#h5-menu-top .icon-close,.h5-mask").click(function (e) {
-        $("#all>.left").removeClass("show-left");
+        $("#app>.left").removeClass("show-left");
         $(".h5-mask").hide();
         // $("#content .docscontainer").css("height", "auto");
         // $("#page").show();
@@ -166,22 +166,29 @@ $(function ($) {
         let email = $(".email-input").val().trim();
         let reg = new RegExp("^[a-z0-9A-Z]+[- | a-z0-9A-Z . _]+@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-z]{2,}$");
         let privacy = $(".privacy-box input[type='radio']:checked");
+        let tipText=''
         if (!questionValue) {
             $('.first-input').focus()
-            tipShow('请输入“有虫”片段', 0)
+            tipText=lang=="zh"?'请输入“有虫”片段':'Enter the buggy content'
+            tipShow(tipText, 0)
         } else if (!feedback||!submitType) {
             $('.issue-reason').focus()
-            tipShow('请选择提交类型并输入问题描述', 1)
+            tipText=lang=="zh"?'请选择提交类型并输入问题描述':'Choose a submission type and describe the bug'
+            tipShow(tipText, 1)
         }
         else if (!email) {
-            tipShow('请输入您的邮箱', 3)
+            tipText=lang=="zh"?'请输入您的邮箱':'Enter your email'
+            tipShow(tipText, 3)
         } else if (!reg.test(email)) {
-            tipShow('请输入正确的邮箱', 3)
+            tipText=lang=="zh"?'请输入正确的邮箱':'Enter a valid email'
+            tipShow(tipText, 3)
         }else if (satisfaction.length === 0) {
-            tipShow('请选择满意度', 2)
+            tipText=lang=="zh"?'请选择满意度':'Rate your satisfaction with this document'
+            tipShow(tipText, 2)
         }
         else if (privacy.length === 0) {
-            tipShow('请勾选同意隐私声明', 5)
+            tipText=lang=="zh"?'请勾选同意隐私声明':'Agree to Privacy Statement'
+            tipShow(tipText, 5)
         } else {
             let loginData = {
                 community: 'OPENEULER',
@@ -193,7 +200,7 @@ $(function ($) {
                 existProblem: checkedArr,
                 problemDetail: feedback,
                 comprehensiveSatisfication: parseInt(satisfaction.attr('key')),
-                participateReason: "本职工作",
+                participateReason: lang=="zh"?"本职工作":"Job Duties",
                 email: email,
             }
             $("#title-evaluate").css('z-index', '1000');
@@ -208,7 +215,8 @@ $(function ($) {
                     let token = JSON.parse(data).token
                     $.ajax({
                         type: "POST",
-                        url: '/omapi/add/bugquestionnaire?community=openeuler',
+                        // url: `/omapi-test/add/bugquestionnaire?community=openeuler&lang=${lang}`,
+                        url: `/omapi/add/bugquestionnaire?community=openeuler&lang=${lang}`,
                         data: JSON.stringify(postData),
                         contentType: "application/json; charset=utf-8",
                         datatype: "json",
@@ -232,7 +240,7 @@ $(function ($) {
                                     if(submitType==="issue"){
                                         openUrl(`https://gitee.com/openeuler/docs/issues/new?issue%5Bassignee_id%5D=0&issue%5Bmilestone_id%5D=0&title=有奖捉虫&description=${body}`)
                                     }else{
-                                        openUrl(`https://gitee.com/-/ide/project/openeuler/docs/edit/stable2-${version}/-/docs/zh/docs/${path}?search=${first}&title=文档捉虫-openEuler ${version}-${title}&description=${feedback}&message=${feedback}&label_names=文档捉虫`)
+                                        openUrl(`https://gitee.com/-/ide/project/openeuler/docs/edit/stable2-${version}/-/docs/${lang}/docs/${path}?search=${first}&title=文档捉虫-openEuler ${version}-${title}&description=${feedback}&message=${feedback}&label_names=文档捉虫`)
                                     }
                                 } else {
                                     console.error(JSON.parse(data));
@@ -262,11 +270,11 @@ $(function ($) {
     for (let i = 1; i <= 10; i++) {
         let rank = '';
         if (i <= 6) {
-            rank = '失望'
+            rank = lang==='zh'? '失望':'Disappointed'
         } else if (i > 6 && i <= 8) {
-            rank = '一般'
+            rank = lang==='zh'? '一般':'Neutral'
         } else {
-            rank = '满意'
+            rank = lang==='zh'? '满意':'Satisfied'
         }
         template = template + `<div class="score" key="${i}">${i}<div class="score-detail" ">${rank}</div></div>`
     }
@@ -391,7 +399,8 @@ function tipShow(value, index) {
             $('.privacy-box').removeClass('shake1');
         }, 1000)
     }else if(index === 3) {
-        let tipBox = $("<div class='tip-box shake'></div>");
+        const enEmailClass=lang==='zh'?'':'email-en'
+        let tipBox = $(`<div class='tip-box shake ${enEmailClass}'></div>`);
         $('.text-email')[0].appendChild(tipBox[0]);
         $('.tip-box').text(value).slideToggle(500)
         setTimeout(function () {
@@ -414,7 +423,7 @@ function tipShow(value, index) {
 }
 // 选中文字出现捉虫图标
 window.onload = function () {
-    if (lang === 'zh') {
+    if (lang !== 'ru') {
         function selectText() {
             if (document.selection) {
                 return document.selection.createRange().text;

@@ -51,21 +51,21 @@ $(function ($) {
 
   $('.white_search').click(function (e) {
     $('.searcher').css('display', 'block');
-    $('.zhezhao').css('display', 'block');
-    var height = $('.h5_index').outerHeight(true) - 279;
-    $('.zhezhao').css('height', height);
+    $('.mask-mobile').css('display', 'block');
+    var height = $('.app-mobile').outerHeight(true) - 279;
+    $('.mask-mobile').css('height', height);
   });
   $('.cancel-btn').click(function (e) {
     $('.searcher').css('display', 'none');
-    $('.zhezhao').css('display', 'none');
-    var height = $('.h5_index').outerHeight(true) - 279;
-    $('.zhezhao').css('height', height);
+    $('.mask-mobile').css('display', 'none');
+    var height = $('.app-mobile').outerHeight(true) - 279;
+    $('.mask-mobile').css('height', height);
   });
 
-  $('.zhezhao').click(function (e) {
+  $('.mask-mobile').click(function (e) {
     $('.searcher').css('display', 'none');
-    $('.zhezhao').css('display', 'none');
-    $('.h5_index .h5_nav').removeClass('h5_nav_show');
+    $('.mask-mobile').css('display', 'none');
+    $('.app-mobile .h5_nav').removeClass('h5_nav_show');
   });
 
   $('.h5-search')

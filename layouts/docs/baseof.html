@@ -11,7 +11,7 @@
       <img class="bug-icon" src="/img/detail/bug.svg" title="点击参与文档捉虫" alt="">
       <img class="bug-icon-dark" src="/img/detail/bug-dark.svg" title="点击参与文档捉虫" alt="">
   </div>
-    <div id="all">
+    <div id="app">
       <div class="left">
         <div id="menu-box">
         <div class="pc-logo">
@@ -121,7 +121,7 @@
             {{ partial "pcfooter.html" . }}
           </main>
       </div> 
-      <div class="zhezhao"></div>
+      <div class="mask-mobile"></div>
         <div class="searcher">
           <div class="h5-search">
             <i class="icon-search" style="right: 0px;"></i>
@@ -139,7 +139,7 @@
         </div>
     </div>
     </div>
-    <!-- /#all -->
+    <!-- /#app -->
 
     {{ partial "scripts.html" . }}
     <script src="{{ .Site.BaseURL }}js/docdetail.js"></script>

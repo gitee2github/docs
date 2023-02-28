@@ -147,38 +147,124 @@ other = "Next"
 [evaluate]
 other = "Rating"
 
+#bug start
+
+[issue_detail]
+other = "View Details"
+
 [issue_1]
-other = "规范和低错类"
+other = "Specifications and Common Mistakes"
+
+[issue_1_1]
+other = "Misspellings or punctuation mistakes;"
+
+[issue_1_2]
+other = "Incorrect links, empty cells, or wrong formats;"
+
+[issue_1_3]
+other = "Chinese characters in English context;"
+
+[issue_1_4]
+other = "Minor inconsistencies between the UI and descriptions;"
+
+[issue_1_5]
+other = "Low writing fluency that does not affect understanding;"
+
+[issue_1_6]
+other = "Incorrect version numbers, including software package names and version numbers on the UI."
 
 [issue_2]
-other = "易用性"
+other = "Usability"
+
+[issue_2_1]
+other = "Incorrect or missing key steps;"
+
+[issue_2_2]
+other = "Missing prerequisites or precautions;"
+
+[issue_2_3]
+other = "Ambiguous figures, tables, or texts;"
+
+[issue_2_4]
+other = "Unclear logic, such as missing classifications, items, and steps."
 
 [issue_3]
-other = "正确性"
+other = "Correctness"
+
+[issue_3_1]
+other = "Technical principles, function descriptions, or specifications inconsistent with those of the software;"
+
+[issue_3_2]
+other = "Incorrect schematic or architecture diagrams;"
+
+[issue_3_3]
+other = "Incorrect commands or command parameters;"
+
+[issue_3_4]
+other = "Incorrect code;"
+
+[issue_3_5]
+other = "Commands inconsistent with the functions;"
+
+[issue_3_6]
+other = "Wrong screenshots."
 
 [issue_4]
-other = "风险提示"
+other = "Risk Warnings"
+
+[issue_4_1]
+other = "Lack of risk warnings for operations that may damage the system or important data."
 
 [issue_5]
-other = "内容合规"
+other = "Content Compliance"
+
+[issue_5_1]
+other = "Contents that may violate applicable laws and regulations or geo-cultural context-sensitive words and expressions;"
+
+[issue_5_2]
+other = "Copyright infringement."
 
 [issue_title]
-other = "有奖捉虫"
+other = "Bug Catching"
 
 [issue_part]
-other = "“有虫”文档片段"
+other = "Buggy Content"
+
+[issue_part_placeholder]
+other = "Copy and paste the buggy document content here."
 
 [issue_reason]
-other = "存在的问题"
+other = "Bug Description"
+
+[issue_reason_placeholder]
+other = "Describe the bug so that we can quickly locate the problem."
+
+[issue_submit_type]
+other = "Submit As"
+
+[issue_tip1]
+other = "It's a little complicated...."
+
+[issue_tip2]
+other = "I'd like to ask someone."
+
+[PR_tip1]
+other = "Just a small problem."
+
+[PR_tip2]
+other = "I can fix it online!"
+
+[issue_type]
+other = "Bug Type"
 
 [satisfaction]
-other = "您对文档的总体满意度"
+other = "How satisfied are you with this document"
 
 [low_score]
-other = "非常不满意"
+other = "Not satisfied at all"
 
 [high_score]
-other = "非常满意"
+other = "Very satisfied"
 
 [join_reason]
 other = "请问是什么原因让您参与到这个问题中"
@@ -196,25 +282,36 @@ other = "技术兴趣"
 other = "学习"
 
 [email]
-other = "您的邮箱"
+other = "Your email address"
 
 [text_email]
-other = "我们可能针对您提出的问题，向您发送邮件反馈进行方案。如有获奖信息，也会通过此方式通知您。"
+other = "We may contact you through email in regard to the bug fixing solution. You will also be notified through email if you win any prize during the activity."
+
+[email_placeholder]
+other = "Your email address"
+
+[login_tip]
+other = "Error 500 is reported. Please log in to Gitee first."
+
+[submit_tip]
+other = "Click to create an issue. An issue template will be automatically generated based on your feedback."
 
 [privacy_text]
-other = "您理解并同意，您填写并提交的内容，即视为您已充分阅读并同意openEuler的"
+other = "By submitting the contents, you fully understand and agree to the terms of the openEuler "
 
 [privacy_link]
-other = "隐私声明"
+other = "Privacy Statement."
 
 [btn_submit]
-other = "创Issue赢奖品"
+other = "Submit"
 
 [back]
-other = "返回顶部"
+other = "Back to Top"
 
 [questionnaire]
-other = "有奖捉虫"
+other = "Bug Catching"
+
+#bug end
 
 #search page
 

@@ -114,24 +114,24 @@ $(function ($) {
       }
     );
     // 点击logo去到欧拉首页
-    // $(".h5_index .h5-logo .logo-img,.h5_index .h5-logo").click(() => {
+    // $(".app-mobile .h5-logo .logo-img,.app-mobile .h5-logo").click(() => {
     //   window.open(`https://www.openeuler.org/${lang}/`, "_self");
     // });
     // 点击版本出现版本选择
-    $(".h5_index .h5_nav .icon-servision").click(function () {
+    $(".app-mobile .h5_nav .icon-servision").click(function () {
       $(this).toggleClass("open");
-      $(".h5_index .h5_nav .option").toggleClass("option-show");
+      $(".app-mobile .h5_nav .option").toggleClass("option-show");
     });
     // 控制移动端菜单栏的显示
-    $(".h5_index .h5_nav_left").click(function () {
-      $(".h5_index .h5_nav").addClass("h5_nav_show");
-      $(".zhezhao").css("display", "block");
-      $(".zhezhao").css("height", "100vh");
-      $(".zhezhao").css("position", "fixed");
+    $(".app-mobile .h5_nav_left").click(function () {
+      $(".app-mobile .h5_nav").addClass("h5_nav_show");
+      $(".mask-mobile").css("display", "block");
+      $(".mask-mobile").css("height", "100vh");
+      $(".mask-mobile").css("position", "fixed");
     });
-    $(".h5_index .icon-close").click(function () {
-      $(".h5_index .h5_nav").removeClass("h5_nav_show");
-      $(".zhezhao").css("display", "none");
+    $(".app-mobile .icon-close").click(function () {
+      $(".app-mobile .h5_nav").removeClass("h5_nav_show");
+      $(".mask-mobile").css("display", "none");
     });
     // 根据语言控制版本选择的显示
     $("#version-select .option a[href^='/ru/']").addClass("option-ru-a");

@@ -6,7 +6,7 @@
 <link href="{{ "css/docsearch.css"  | relURL }}?t={{ mul 1000 (time now).Unix }}" rel="stylesheet" type="text/css">
 <link href="{{ "css/index.css"  | relURL }}?t={{ mul 1000 (time now).Unix }}" rel="stylesheet" type="text/css">
 <body>
-    <div id="all" class="web">
+    <div id="app" class="web">
         <div id="left">
             <div class="left">
                 <img src="\img\common\logo-pc.png" alt=""/>
@@ -144,7 +144,7 @@
             {{ partial "pcfooter.html" . }}
         </div>
     </div>
-    <div class="h5_index">
+    <div class="app-mobile">
         <header>
             <div class="h5-nav-menu">
                 <div class="h5_nav_left"></div>
@@ -215,7 +215,7 @@
              </div>
              </div>
         </div>
-        <div class="zhezhao"></div>
+        <div class="mask-mobile"></div>
         <div class="searcher">
             <div class="h5-search">
                 <i class="icon-search" style="right: 0px;"></i>
