@@ -227,6 +227,9 @@ other = "Copyright infringement."
 [issue_title]
 other = "Bug Catching"
 
+[issue_participantion]
+other = "Click to submit bugs"
+
 [issue_part]
 other = "Buggy Content"
 
@@ -241,6 +244,12 @@ other = "Describe the bug so that we can quickly locate the problem."
 
 [issue_submit_type]
 other = "Submit As"
+
+[issue_submit_type1]
+other = "Issue"
+
+[issue_submit_type2]
+other = "PR"
 
 [issue_tip1]
 other = "It's a little complicated...."
@@ -291,7 +300,7 @@ other = "We may contact you through email in regard to the bug fixing solution. 
 other = "Your email address"
 
 [login_tip]
-other = "Error 500 is reported. Please log in to Gitee first."
+other = "Error 500 reported.Log in to Gitee first."
 
 [submit_tip]
 other = "Click to create an issue. An issue template will be automatically generated based on your feedback."
