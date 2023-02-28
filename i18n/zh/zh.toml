@@ -230,6 +230,9 @@ other = "内容侵权；"
 [issue_title]
 other = "文档捉虫"
 
+[issue_participantion]
+other = "点击参与文档捉虫"
+
 [issue_part]
 other = "“有虫”文档片段"
 
@@ -244,6 +247,12 @@ other = "点击输入详细问题描述，以帮助我们快速定位问题。"
 
 [issue_submit_type]
 other = "提交类型"
+
+[issue_submit_type1]
+other = "issue"
+
+[issue_submit_type2]
+other = "PR"
 
 [issue_tip1]
 other = "有点复杂..."

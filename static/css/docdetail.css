@@ -809,24 +809,22 @@ background-color: var(--e-color-kleinblue7);
     position: relative;
 }
 .alert .submit-type .type-issue .issue-tip,.alert .submit-type .type-PR .PR-tip{
-    width: 150px;
     padding: 8px 10px;
     background-color: var(--e-color-bg2);
     border: 1px solid var(--e-color-brand1);
     color: var(--e-color-text4);
     position: absolute;
-    top:-80px;
+    bottom:46px;
     left: -30px;
     display: block;
     transform: scale(0);
     transition: all 0.5s;
 }
+.alert .submit-type .type-issue .issue-tip p,.alert .submit-type .type-PR .PR-tip p{
+    white-space: nowrap;
+}
 .alert .submit-type .type-issue:hover .issue-tip,.alert .submit-type .type-PR:hover .PR-tip{
     transform: scale(1);
-}
-.alert .submit-type .type-PR .PR-tip{
-    width: 200px;
-    top:-80px;
 }
 .alert .submit-type .type-issue .issue-tip::before,.alert .submit-type .type-PR .PR-tip::before{
     content: ' ';
