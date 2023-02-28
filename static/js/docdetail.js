@@ -175,7 +175,7 @@ $(function ($) {
   $(".btn-submit>span").on("click", function () {
     let questionValue = $(".main-input").val().trim();
     const regR = /[\r\n]+/g;
-    let submitType = $(".submit-type .active-submit>span").text();
+    let submitType = $(".submit-type .active-submit").attr("attr_type");
     let feedback = $(".issue-reason").val().trim();
     let checkedArr = [];
     const first = questionValue.split(regR)[0];
