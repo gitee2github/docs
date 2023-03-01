@@ -39,7 +39,7 @@ Spring Framework 包括三个核心组件 Spring-Core、Spring-Context 和 Sprin
 **Spring-Webmvc**
 是一个全功能的构建 web 应用程序的 MVC 实现，容纳了大量视图技术。MVC 框架通过策略接口变成了高度可配置的。
 
-从上面的介绍可以看出，IOC\(控制反转\)的实现包 Spring-Beans 和 AOP\(依赖注入\)的实现包  Spring-AOP 是整个框架的基础，而 Spring-Core 是整个框架的核心。在此基础上，Spring-Context 提供了上下文环境，为各个模块提供粘合作用。而 web 部分的功能，是依赖 Spring-Web 和 Spring-Webmvc 来实现的。
+从上面的介绍可以看出，IOC\(控制反转\)的实现包 Spring-Beans 和 AOP\(面向切面编程\)的实现包  Spring-AOP 是整个框架的基础，而 Spring-Core 是整个框架的核心。在此基础上，Spring-Context 提供了上下文环境，为各个模块提供粘合作用。而 web 部分的功能，是依赖 Spring-Web 和 Spring-Webmvc 来实现的。
 
 
 ### Spring Boot 和 Spring Cloud 简介
