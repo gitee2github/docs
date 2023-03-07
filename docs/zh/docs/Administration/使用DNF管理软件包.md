@@ -138,6 +138,7 @@ repository部分允许您定义定制化的openEuler软件源仓库，各个仓�
     选项说明：
 
     **表 2**  repository参数说明
+    <a name="zh-cn_topic_0151921080_t7c83ace02ab94e9986c0684f417e3436"></a>
     <table><thead align="left"><tr><th class="cellrowborder" valign="top" width="31.580000000000002%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0151921080_af95a9e18156646249707de3f94ac1b3c"><a name="zh-cn_topic_0151921080_af95a9e18156646249707de3f94ac1b3c"></a><a name="zh-cn_topic_0151921080_af95a9e18156646249707de3f94ac1b3c"></a>参数</p>
     </th>
     <th class="cellrowborder" valign="top" width="68.42%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0151921080_a8cc2e976bc794e86a279d3bae8f901c4"><a name="zh-cn_topic_0151921080_a8cc2e976bc794e86a279d3bae8f901c4"></a><a name="zh-cn_topic_0151921080_a8cc2e976bc794e86a279d3bae8f901c4"></a>说明</p>
@@ -235,7 +236,7 @@ repository部分允许您定义定制化的openEuler软件源仓库，各个仓�
 
 要定义一个新的软件源仓库，您可以在 /etc/dnf/dnf.conf 文件中添加“repository”部分，或者在/etc/yum.repos.d/目录下添加“.repo”文件进行说明。建议您通过添加“.repo”的方式，每个软件源都有自己对应的“.repo”文件，以下介绍该方式的操作方法。
 
-要在您的系统中添加一个这样的源，请在root权限下执行如下命令，执行完成之后会在/etc/yum.repos.d/目录下生成对应的repo文件。其中  _repository\_url_  为repo源地址，详情请参见[表2](#zh-cn_topic_0151921080_t2df9dceb0ff64b2f8db8ec5cd779792a)。
+要在您的系统中添加一个这样的源，请在root权限下执行如下命令，执行完成之后会在/etc/yum.repos.d/目录下生成对应的repo文件。其中  _repository\_url_  为repo源地址，详情请参见[表2](#zh-cn_topic_0151921080_t7c83ace02ab94e9986c0684f417e3436)。
 
 ```
 dnf config-manager --add-repo repository_url
