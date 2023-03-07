@@ -25,7 +25,7 @@ Spring Framework 包括三个核心组件 Spring-Core、Spring-Context 和 Sprin
 核心容器提供 Spring 框架的基本功能，主要组件是 BeanFactory ,实现对 Bean 的管理。
 
 **Spring-Context**
-是一个配置文件，向Spring Framework 提供上下文信息。上下文包括企业服务，例如 JNDI，EJB，电子邮件，国际化，校验和调度功能。
+是一个配置文件，向Spring Framework 提供上下文信息。上下文包括企业服务，例如 JNDI、EJB、电子邮件、国际化、校验和调度功能。
 
 **Spring-Beans**
 实现IOC\(控制反转\)的包，是 Spring Framework 的关键特性。
