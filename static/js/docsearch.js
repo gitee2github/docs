@@ -187,7 +187,7 @@ $(function ($) {
       }
       $('#search_content').show();
       result.forEach(function (item, index) {
-        let url = `/${lang}/${item.path}.html`;
+        let url = `/${item.path}.html`;
         $('.search-result>ul').append(
           '<li>' +
             '<div class="res-title" href="' +
