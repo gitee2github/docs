@@ -89,7 +89,7 @@
     </td>
     <td class="cellrowborder" valign="top" width="40.06400640064006%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0229291228_p1224172312719"><a name="zh-cn_topic_0229291228_p1224172312719"></a><a name="zh-cn_topic_0229291228_p1224172312719"></a>为了获得更好的应用体验，建议不小于120GB</p>
     </td>
-    <td class="cellrowborder" valign="top" width="48.74487448744874%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0229291228_acc0affdd82e34f32966171e21855ef40"><a name="zh-cn_topic_0229291228_acc0affdd82e34f32966171e21855ef40"></a><a name="zh-cn_topic_0229291228_acc0affdd82e34f32966171e21855ef40"></a>支持IDE、SATA、SAS等接口的硬盘。</p>
+    <td class="cellrowborder" valign="top" width="48.74487448744874%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0229291228_acc0affdd82e34f32966171e21855ef40"><a name="zh-cn_topic_0229291228_acc0affdd82e34f32966171e21855ef40"></a><a name="zh-cn_topic_0229291228_acc0affdd82e34f32966171e21855ef40"></a><ul id="zh-cn_topic_0229291228_acc0affdd82e34f32966171e21855ef40"><li>支持IDE、SATA、SAS等接口的硬盘。</li><li>不支持开启DIF功能的nvme盘。</li></ul></p>
     </td>
     </tr>
     </tbody>
