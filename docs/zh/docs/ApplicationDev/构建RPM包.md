@@ -96,9 +96,9 @@ SPECS 下是RPM包的配置文件，是RPM打包的“图纸”，这个文件�
 3.  进行“安装”，类似于预先组装软件包，把软件包应该包含的内容（比如二进制文件、配置文件、man文档等）复制到%\_buildrootdir中，并按照实际安装后的目录结构组装，比如二进制命令可能会放在/usr/bin下，那么就在%\_buildrootdir下也按照同样的目录结构放置。
 4.  做一些必要的配置，比如在实际安装前的准备，安装后的清理等等。这些都是通过配置在SPEC文件中来告诉rpmbuild命令。
 5.  检查软件是否正常运行。
-6.  生成的RPM包放置到%\_rpmdir，源码包放置到%\_srpmdir下。
+6.  生成的RPM包放置到%\_rpmdir，源码包放置到%\_srcrpmdir下。
 
-在SPEC文件中的，各个阶段说明如下：
+在SPEC文件中，各个阶段说明如下：
 
 <a name="zh-cn_topic_0184337290_table14621920105410"></a>
 <table><thead align="left"><tr id="zh-cn_topic_0184337290_row1416062025411"><th class="cellrowborder" valign="top" width="7.75077507750775%" id="mcps1.1.5.1.1"><p id="zh-cn_topic_0184337290_p141601200544"><a name="zh-cn_topic_0184337290_p141601200544"></a><a name="zh-cn_topic_0184337290_p141601200544"></a><strong id="zh-cn_topic_0184337290_b18160102005415"><a name="zh-cn_topic_0184337290_b18160102005415"></a><a name="zh-cn_topic_0184337290_b18160102005415"></a><span>阶段</span></strong></p>
