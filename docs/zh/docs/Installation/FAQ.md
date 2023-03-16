@@ -336,5 +336,5 @@ https://gitee.com/src-openeuler/anaconda/issues/I29P84?from=project-issue
 由于默认配置了reset_devices启动参数，second kernel启动过程中会触发设备复位(reset_devices)操作，设备复位操作导致MegaRAID控制器或磁盘状态故障，转储vmcore文件时访问MegaRAID卡的磁盘报错，进而无法生成vmcore。
 
 ### 解决方法
-在物理机`etc/sysconfig/kdump`文件中将second kernel默认启动参数`reset_devices`删除，可以规避second kernel启动过程中由于MegaRAID卡驱动复位设备所致IO请求未完成问题，以成功生成vmcore。
+在物理机`/etc/sysconfig/kdump`文件中将second kernel默认启动参数`reset_devices`删除，可以规避second kernel启动过程中由于MegaRAID卡驱动复位设备所致IO请求未完成问题，以成功生成vmcore。
 ![](./figures/reset_devices.png)
