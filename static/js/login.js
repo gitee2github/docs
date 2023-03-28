@@ -65,29 +65,6 @@ var LoginQuery = {
       });
     });
   },
-  queryIDToken: (token) => {
-    return new Promise((resolve, reject) => {
-      $.ajax({
-        type: "get",
-        url: '/omapi/oneid/logout',
-        contentType: "application/json; charset=utf-8",
-        datatype: "json",
-        headers: {
-            token,
-        },
-        success(result) {
-          if (result) {
-              resolve(result);
-              return;
-          }
-          reject(result);
-        },
-        error(msg) {
-            reject(msg);
-        }
-      });
-    });
-  },
 }
 
 var Login = {
@@ -95,6 +72,8 @@ var Login = {
     USER_TOKEN: '_U_T_',
     USER_INFO: '_U_I_',
   },
+
+  targetOrigin: 'https://id.openeuler.org',
 
   setCookie(cname, cvalue, isDelete) {
     const deleteStr = isDelete ? 'max-age=0; ' : '';
@@ -138,21 +117,10 @@ var Login = {
   },
 
   // 退出登录
-  logout(community='openeuler') {
-    const { token } = this.getUserAuth();
-    LoginQuery.queryIDToken(token).then((res) => {
-      const idToken = res.data.id_token;
-      const client1 = this.createClient(community);
-      const logoutUrl = client1.buildLogoutUrl({
-        expert: true,
-        redirectUri: `${location.origin}`,
-        idToken,
-      });
-      this.saveUserAuth();
-      location.href = logoutUrl;
-    }).catch(() => {
-      this.tokenFailIndicateLogin();
-    });
+  logout() {
+    location.href = `${this.targetOrigin}/logout?redirect_uri=${
+      window?.location?.origin
+    }`;
   },
 
   // 刷新页面
@@ -160,26 +128,9 @@ var Login = {
     window.location.reload()
   },
 
-  createClient(community) {
-    const lang = this.getLanguage();
-    const obj = {
-      openeuler: {
-        appId: '62679eab0b22b146d2ea0a3a',
-        appHost: 'https://datastat.authing.cn',
-        redirectUri: 'https://id.openeuler.org/login',
-        lang: lang.language,
-      },
-    };
-    if (obj[community]) {
-      return new Authing.AuthenticationClient(obj[community]);
-    }
-    return new Authing.AuthenticationClient(obj.openeuler);
-  },
-
   showGuard() {
-    const origin = 'https://id.openeuler.org';
     const { lang } = this.getLanguage();
-    location.href = `${origin}/login?redirect_uri=${location.href}&lang=${lang}`;
+    location.href = `${this.targetOrigin}/login?redirect_uri=${location.href}&lang=${lang}`;
   },
 
   setLogInfo(data, token = '') {
@@ -205,7 +156,6 @@ var Login = {
           Object.prototype.toString.call(data) === '[object Object]'
         ) {
           this.setLogInfo(data, token);
-          this.saveUserAuth(token);
         }
       }).catch(() => {
         this.tokenFailIndicateLogin();
@@ -242,9 +192,8 @@ $(function($) {
     Login.logout();
   });
   $("#opt_user .zone").click(function (e) {
-    const origin = 'https://id.openeuler.org';
     window.open(
-      `${origin}/${Login.getLanguage().lang}/profile`,
+      `${Login.targetOrigin}/${Login.getLanguage().lang}/profile`,
       '_blank'
     );
   });
