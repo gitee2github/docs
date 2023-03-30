@@ -100,6 +100,9 @@
             {{ if eq .Site.LanguageCode "zh"}}
                 {{ partial "doc_map.html" . }}
             {{ end }}
+            {{ if eq .Site.LanguageCode "en"}}
+                {{ partial "doc_map_22.03_LTS_SP1_en.html" . }}
+            {{ end }}
             <div class="hot-document">
                 <h1>{{ i18n "hot_document" }}</h1>
             <div id="document_content">
@@ -281,6 +284,9 @@
             </div>
             {{ if eq .Site.LanguageCode "zh"}}
                  {{ partial "doc_map.html" . }}
+            {{ end }}
+            {{ if eq .Site.LanguageCode "en"}}
+                 {{ partial "doc_map_22.03_LTS_SP1_en.html" . }}
             {{ end }}
             <h3>{{ i18n "hot_document" }}</h3>
             <div class="hot_documentation">
