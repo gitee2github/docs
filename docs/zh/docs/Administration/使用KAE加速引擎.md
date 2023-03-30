@@ -78,14 +78,14 @@ KAE加速引擎主要有以下应用场景，如[表1](#table11915824163418)所�
 
 ##### 环境要求
 
--   TaiShan 200服务器，开启加速引擎功能
+-   TaiShan 200服务器，开启加速引擎功能。
 
 >![](./public_sys-resources/icon-note.gif) **说明：**   
 >-   需要导入加速器许可证，具体操作请参考《[TaiShan 机架服务器 iBMC \(V500及以上\) 用户指南](https://support.huawei.com/enterprise/zh/doc/EDOC1100121687)》中“许可证管理”章节。  
 >-   物理机场景使用加速器需要关闭SMMU，具体操作请参考《[TaiShan 200服务器BIOS参数参考](https://support.huawei.com/enterprise/zh/doc/EDOC1100088653)》。  
 
--   CPU：Kunpeng 920
--   操作系统：openEuler-20.03-LTS-SP2-aarch64-dvd.iso
+-   CPU：Kunpeng 920。
+-   操作系统：openEuler-20.03-LTS-SP2-aarch64-dvd.iso。
 
 ##### KAE加速引擎软件说明
 
@@ -124,8 +124,8 @@ KAE加速引擎主要有以下应用场景，如[表1](#table11915824163418)所�
 
 ##### 前提条件
 
--   已在本地安装远程SSH登录工具
--   已安装openEuler操作系统
+-   已在本地安装远程SSH登录工具。
+-   已安装openEuler操作系统。
 -   RPM工具能正常使用。
 -   已安装OpenSSL 1.1.1a或以上版本。
 
@@ -421,7 +421,7 @@ hisi_zip-1.2.10-4.oe1.aarch64
 
     ![](./figures/zh-cn_image_0231143195.png)
 
-6.  重启系统或通过命令行手动卸载旧版本驱动，然后加载新版本驱动，并查看是否加载成功
+6.  重启系统或通过命令行手动卸载旧版本驱动，然后加载新版本驱动，并查看是否加载成功。
 
     ```
     卸载旧驱动
@@ -578,7 +578,7 @@ int main(int argc, char **argv)
 
 ### 通过OpenSSL配置文件openssl.cnf使用KAE引擎
 
-新建openssl.cnf 需要添加如下配置信息
+新建openssl.cnf 需要添加如下配置信息：
 
 ```
 openssl_conf=openssl_def 
