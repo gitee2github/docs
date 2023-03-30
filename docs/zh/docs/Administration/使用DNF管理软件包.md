@@ -129,7 +129,7 @@ skip_if_unavailable=False
 
 repository部分允许您定义定制化的openEuler软件源仓库，各个仓库的名称不能相同，否则会引起冲突。配置repository部分有两种方式，一种是直接配置/etc/dnf/dnf.conf文件中的“repository”部分，另外一种是配置/etc/yum.repos.d目录下的.repo文件。
 
--   直接配置/etc/dnf/dnf.conf文件中的“repository”部分
+-   直接配置/etc/dnf/dnf.conf文件中的“repository”部分。
 
     下面是\[repository\]部分的一个最小配置示例：
 
@@ -167,7 +167,7 @@ repository部分允许您定义定制化的openEuler软件源仓库，各个仓�
     </table>
 
 
--   配置/etc/yum.repos.d目录下的.repo文件
+-   配置/etc/yum.repos.d目录下的.repo文件。
 
     openEuler提供了多种repo源供用户在线使用，各repo源含义可参考[系统安装](./../Releasenotes/系统安装.md\)，使用管理员权限添加openEuler repo源，示例如下：
 
