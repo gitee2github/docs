@@ -121,7 +121,16 @@
 </th>
 </tr>
 </thead>
-<tbody><tr id="row17948128462"><td class="cellrowborder" valign="top" width="20.72%" headers="mcps1.1.4.1.1 "><p id="p8942121466"><a name="p8942121466"></a><a name="p8942121466"></a>04</p>
+<tbody>
+<tr>
+<td>05</td>
+<td>2023-03-30</td>
+<td>第五次正式发布。
+    <li>刷新系统升级。</li>
+    <li>新增配置生成秘钥、配置代理、回退一致性、安装操作系统数据库支持包等章节。</li>
+</td>
+</tr>
+<tr id="row17948128462"><td class="cellrowborder" valign="top" width="20.72%" headers="mcps1.1.4.1.1 "><p id="p8942121466"><a name="p8942121466"></a><a name="p8942121466"></a>04</p>
 </td>
 <td class="cellrowborder" valign="top" width="26.119999999999997%" headers="mcps1.1.4.1.2 "><p id="p139421224618"><a name="p139421224618"></a><a name="p139421224618"></a>2022-12-30</p>
 </td>
@@ -162,7 +171,7 @@
 -   分析结果中可能包含您所分析应用的内部信息和相关数据，请妥善管理。
 -   除非法律法规或双方合同另有规定，openEuler社区对分析结果不做任何明示或暗示的声明和保证,不对分析结果的适销性、满意度、非侵权性或特定用途适用性等作出任何保证或者承诺。
 -   您根据分析记录所采取的任何行为均应符合法律法规的要求，并由您自行承担风险。
--   未经所有者授权，任何个人或组织均不得使用应用程序及相关分析记录从事任何活动。openEuler社区不对由此造成的一切后果负责，亦不承担任何法律责任。必要时，将追究其法律责任。
+-   未经所有者授权，任何个人或组织均不得使用应用程序及相关分析记录从事任何活动。openEuler社区不对由此造成的一切后果负责，亦不承担任何法律责任。必要时，将追究其法律S责任。
 
 ### x2openEuler 原地升级工具简介
 
@@ -194,10 +203,6 @@ x2openEuler工具提供命令行或者web使用方式，用户在安装完成后
 >-   待升级节点升级过程中需要root权限，由于root用户拥有最高权限，直接使用root用户登录服务器可能会存在安全风险。您可以通过配置禁止root用户SSH登录的选项，来提升系统安全性。具体配置如下：先以普通用户登录服务器，切换至root登录后检查/etc/ssh/sshd\_config配置项PermitRootlogin，如果显示no，说明禁止了root用户登录；如果显示yes，则需要将配置项PermitRootlogin设置为no。
 >-   “配置迁移任务”只支持web方式使用。
 
-
-
-
-
 #### 界面说明
 
 ##### 界面分区
@@ -209,7 +214,7 @@ x2openEuler工具首页界面主要由如所示的区域组成，各个区域的
 
 **表 1**  x2openEuler工具首页界面参数说明
 
-<a name="table12281714194218"></a>
+<a name="table1S"></a>
 <table><thead align="left"><tr id="row172288142423"><th class="cellrowborder" valign="top" width="6.380638063806381%" id="mcps1.2.4.1.1"><p id="p32287147425"><a name="p32287147425"></a><a name="p32287147425"></a><strong id="b470814119432"><a name="b470814119432"></a><a name="b470814119432"></a>区域</strong></p>
 </th>
 <th class="cellrowborder" valign="top" width="27.912791279127912%" id="mcps1.2.4.1.2"><p id="p62281014124210"><a name="p62281014124210"></a><a name="p62281014124210"></a><strong id="b67267120439"><a name="b67267120439"></a><a name="b67267120439"></a>名称</strong></p>
@@ -217,7 +222,7 @@ x2openEuler工具首页界面主要由如所示的区域组成，各个区域的
 <th class="cellrowborder" valign="top" width="65.70657065706571%" id="mcps1.2.4.1.3"><p id="p19228191418424"><a name="p19228191418424"></a><a name="p19228191418424"></a><strong id="b17745161164319"><a name="b17745161164319"></a><a name="b17745161164319"></a>说明</strong></p>
 </th>
 </tr>
-</thead>
+</thead>                                        
 <tbody><tr id="row1722851413422"><td class="cellrowborder" valign="top" width="6.380638063806381%" headers="mcps1.2.4.1.1 "><p id="p52282140425"><a name="p52282140425"></a><a name="p52282140425"></a>1</p>
 </td>
 <td class="cellrowborder" valign="top" width="27.912791279127912%" headers="mcps1.2.4.1.2 "><p id="p922981416428"><a name="p922981416428"></a><a name="p922981416428"></a>任务管理区</p>
@@ -236,14 +241,14 @@ x2openEuler工具首页界面主要由如所示的区域组成，各个区域的
 </td>
 <td class="cellrowborder" valign="top" width="27.912791279127912%" headers="mcps1.2.4.1.2 "><p id="p0229121415427"><a name="p0229121415427"></a><a name="p0229121415427"></a>配置</p>
 </td>
-<td class="cellrowborder" valign="top" width="65.70657065706571%" headers="mcps1.2.4.1.3 "><p id="p1922961474213"><a name="p1922961474213"></a><a name="p1922961474213"></a>提供用户管理，弱口令字典，系统配置，日志和web服务端证书功能入口。</p>
+<td class="cellrowborder" valign="top" width="65.70657065706571%" headers="mcps1.2.4.1.3 "><p id="p1922961474213"><a name="p1922961474213"></a><a name="p1922961474213"></a>提供用户管理，弱口令字典，系统配置，日志，web服务端证书和回退一致性检查过滤等功能入口。</p>
 </td>
 </tr>
 <tr id="row7597171003218"><td class="cellrowborder" valign="top" width="6.380638063806381%" headers="mcps1.2.4.1.1 "><p id="p125981610153214"><a name="p125981610153214"></a><a name="p125981610153214"></a>4</p>
 </td>
 <td class="cellrowborder" valign="top" width="27.912791279127912%" headers="mcps1.2.4.1.2 "><p id="p6598510113213"><a name="p6598510113213"></a><a name="p6598510113213"></a>更多</p>
 </td>
-<td class="cellrowborder" valign="top" width="65.70657065706571%" headers="mcps1.2.4.1.3 "><p id="p659891073215"><a name="p659891073215"></a><a name="p659891073215"></a>提供中英文切换，联机帮助、免责声明和<span id="text562174003813"><a name="text562174003813"></a><a name="text562174003813"></a>x2openEuler工具</span>发布信息入口。</p>
+<td class="cellrowborder" valign="top" width="65.70657065706571%" headers="mcps1.2.4.1.3 "><p id="p659891073215"><a name="p659891073215"></a><a name="p659891073215"></a>提供深色/浅色模式切换，联机帮助、免责声明和<span id="text562174003813"><a name="text562174003813"></a><a name="text562174003813"></a>x2openEuler工具</span>发布信息入口。</p>
 </td>
 </tr>
 <tr id="row37000158325"><td class="cellrowborder" valign="top" width="6.380638063806381%" headers="mcps1.2.4.1.1 "><p id="p107004159328"><a name="p107004159328"></a><a name="p107004159328"></a>5</p>
@@ -258,11 +263,11 @@ x2openEuler工具首页界面主要由如所示的区域组成，各个区域的
 
 ##### 图标及按钮说明
 
-x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示。
+x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示。
 
 **表 2**  图标/按钮说明
 
-<a id="table1"></a>
+<a id="table2"></a>
 <table><thead align="left"><tr id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_row610533642618"><th class="cellrowborder" valign="top" width="23%" id="mcps1.2.4.1.1"><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1010512362262"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1010512362262"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p1010512362262"></a>类型</p>
 </th>
 <th class="cellrowborder" valign="top" width="16.98%" id="mcps1.2.4.1.2"><p id="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2105836172611"><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2105836172611"></a><a name="zh-cn_topic_0000001234342694_zh-cn_topic_0228242391_zh-cn_topic_0188408909_p2105836172611"></a>图标/按钮</p>
@@ -523,14 +528,14 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
 
 ##### 创建用户
 
-**前提条件<a name="zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_section11470129119"></a>**
+###### 前提条件<a name="zh-cn_topic_0000001234661914_zh-cn_topic_0228242365_zh-cn_topic_0189814930_section11470129119"></a>
 
 已成功登录x2openEuler工具。
 
 >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >只有管理员用户（x2openEulerAdmin）可以执行创建用户操作。
 
-##### 操作步骤
+###### 操作步骤
 
 1.  单击页面右上角![](figures-x2openEuler930/zh-cn_image_0000001470049897.png)，在下拉菜单中选择“用户管理“，打开用户管理界面。
 2.  单击“创建“，打开“创建”界面，如[图5](#pic5)所示，需配置的参数如[表6](#table6)所示。
@@ -580,16 +585,16 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
     >-   普通用户支持创建系统升级、系统信息收集和系统配置迁移任务；支持查看和下载操作日志；支持查看web服务端证书信息；支持查看和搜索弱口令；所有用户都只能查看、下载自己的升级任务相关报告。
 
 
-#### 系统配置
+##### 系统配置
 
-**前提条件<a name="section72361543165417"></a>**
+###### 前提条件<a name="section72361543165417"></a>
 
 已成功登录x2openEuler工具。
 
 >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >只有管理员用户（x2openEulerAdmin）可以执行系统配置操作。
 
-**操作步骤<a name="section139131865517"></a>**
+###### 操作步骤<a name="section139131865517"></a>
 
 1.  单击页面右上角![](figures-x2openEuler930/zh-cn_image_0000001419813812.png)，在下拉菜单中选择“系统配置“，打开系统配置界面。
 2.  系统配置界面如图所示，单击“修改”，对配置项进行修改，需配置的参数如[图6](#pic6)所示。
@@ -637,14 +642,41 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
 
 3.  选择对应配置项完成修改后，单击“确定”保存修改内容，单击“取消”放弃修改内容。
 
+##### （可选）配置代理<a name="ZH-CN_TOPIC_0000001537044329"></a>
+
+###### 前提条件<a name="section141057268475"></a>
+
+-   x2openEuler工具已部署。
+-   x2openEuler工具部署环境需要配置代理。
+
+###### 操作步骤<a name="section14824757165213"></a>
+
+如果x2openEuler工具部署环境需要配置代理，则可参考如下操作步骤进行代理配置。如果无需配置代理，则可跳过该章节。
+
+1.  使用SSH工具远程登录x2openEuler部署环境，进入Linux操作系统命令行界面。
+2.  执行以下命令配置“/etc/systemd/system/gunicorn\_x2openEuler.service”文件。
+
+    ```
+    vi /etc/systemd/system/gunicorn_x2openEuler.service
+    ```
+
+3.  在“gunicorn\_x2openEuler.service”文件中的“Service”字段后面增加如下两个环境变量。
+
+    ```
+    Environment="http_proxy=ip:port"
+    Environment="https_proxy=ip:port"
+    ```
+
+    >![](public_sys-resources/icon-note.gif) **说明：** 
+    >“_ip:port_”是代理服务器的地址和端口号。
+
+4.  按“ESC”，输入“:wq”，按“Enter”保存并退出。
+5.  执行以下命令重启“gunicorn\_x2openEuler”服务使配置文件生效。
+
+    ```
+    systemctl restart gunicorn_x2openEuler
+    ```
 ## 安装x2openEuler工具
-
-
-
-
-
-
-
 
 ### 环境要求
 
@@ -674,6 +706,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >待升级环境必须能够保证兼容安装openEuler 20.03-LTS-SP1操作系统。
 
+-   待升级节点操作系统要求   
     **表 9**  操作系统要求
 
     <a id="table9"></a>
@@ -698,6 +731,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
     </tr>
     </tbody>
     </table>
+
+    >![](public_sys-resources/icon-note.gif) **说明：** 
+    >x2openEuler工具默认支持源操作系统版本 CentOS 7.6，目标操作系统版本 openEuler 20.03-LTS-SP1，可通过[安装操作系统支持包](安装操作系统数据库支持包.md)支持更多操作系统。
 
 
 #### 硬件要求
@@ -865,7 +901,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
 
     ```
     cd /usr/local/x2openEuler/portal/service
-    bash service_start.sh
+    bash service_init.sh
     ```
 
     回显如下：
@@ -1032,7 +1068,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
         <p id="p277964811710"><a name="p277964811710"></a><a name="p277964811710"></a></p>
         </td>
         <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p186923589177"><a name="p186923589177"></a><a name="p186923589177"></a>密钥认证：通过私钥文件和私钥文件的密码短语进行认证。</p>
-        <a name="ul16885151414195"></a><a name="ul16885151414195"></a><ul id="ul16885151414195"><li>私钥文件：登录待升级节点私钥文件的绝对路径。</li><li>密码短语：登录待升级节点私钥文件的密码短语。</li></ul>
+        <a name="ul16885151414195"></a><a name="ul16885151414195"></a><ul id="ul16885151414195"><li>私钥文件：登录待升级节点私钥文件的绝对路径。</li><li>密码短语：登录待升级节点私钥文件的密码短语。</li>配置秘钥认证方式请参考<a href="#configkey">配置生成秘钥</a></ul>
         </td>
         </tr>
         <tr id="row15778248161710"><td class="cellrowborder" valign="top" headers="mcps1.2.3.1.1 "><p id="p3779114861714"><a name="p3779114861714"></a><a name="p3779114861714"></a>口令认证：通过口令进行认证。</p>
@@ -1043,12 +1079,12 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
         </tr>
         <tr id="row1647714127452"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p147771215454"><a name="p147771215454"></a><a name="p147771215454"></a>源操作系统版本</p>
         </td>
-        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p14774121459"><a name="p14774121459"></a><a name="p14774121459"></a>待升级节点的操作系统。</p>
+        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p14774121459"><a name="p14774121459"></a><a name="p14774121459"></a>待升级节点的操作系统，默认为CentOS 7.6，可通过<a href="#installosdatabase">安装操作系统支持包</a>支持更多操作系统。</p>
         </td>
         </tr>
         <tr id="row687112217459"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p1687110228458"><a name="p1687110228458"></a><a name="p1687110228458"></a>目标操作系统版本</p>
         </td>
-        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p18871152244517"><a name="p18871152244517"></a><a name="p18871152244517"></a>待升级节点进行升级的目标操作系统。</p>
+        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p18871152244517"><a name="p18871152244517"></a><a name="p18871152244517"></a>待升级节点进行升级的目标操作系统，默认为openEuler 20.03-LTS-SP1，可通过<a href="#installosdatabase">安装操作系统支持包</a>支持更多操作系统。</p>
         </td>
         </tr>
         <tr id="row1581583719460"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p78151373465"><a name="p78151373465"></a><a name="p78151373465"></a>repo源配置</p>
@@ -1129,7 +1165,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
 4.  节点添加完成，确认添加节点信息无误后，单击任务名称右侧“确定”，完成升级任务创建。若需要修改或删除相应节点，单击右侧“操作”项下的“修改”或“删除”对节点进行操作。单击右下角“确认”启动升级任务，单击右下角“取消”，取消升级任务。
 
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
-    >升级任务创建完成后，工具会自动对升级任务中配置的待升级节点进行连通性测试，连通性测试通过后才能进行后续升级操作。若连通性测试失败，请检查并修改节点配置信息。
+    >升级任务创建完成后，工具会自动对升级任务中配置的待升级节点进行环境检查，环境检查通过后才能进行后续升级操作。若环境检查失败，请检查并修改节点配置信息。
 
     **图 10**  升级任务信息确认<a id="pic10"></a>  
     ![](figures-x2openEuler930/升级任务信息确认.png "升级任务信息确认")
@@ -1151,20 +1187,22 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
 
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >升级过程中在不同的升级阶段结束后可单击右下角“初始化”，使待升级节点回归待测试状态。
+    >-   导入前后置脚本后，升级任务中会增加“前置脚本执行”和“后置脚本执行”阶段。
+    >-   若升级过程中需要进行回退，可进行[回退一致性配置](#backup)， 配置内容将不会进行一致性检查。配置之后仅在下一次回退才会生效。
 
     **图 11**  初始化节点<a id="pic11"></a>  
     ![](figures-x2openEuler930/初始化节点.png "初始化节点")
 
-    1.  连通性测试
+    1.  环境检查
 
-        连通性测试用于分析x2openEuler工具与待升级节点的连通性，验证repo源是否处于可用状态，若连通性检测无法通过，则需修改节点配置信息。
+        环境检查用于分析x2openEuler工具与待升级节点的环境连通性，验证repo源是否处于可用状态，若环境检查无法通过，则需参考对应检查项操作建议修改节点配置信息。
 
-        **图 12**  连通性测试页面<a id="pic12"></a>  
-        ![](figures-x2openEuler930/连通性测试页面.png "连通性测试页面")
+        **图 12**  环境检查页面<a id="pic12"></a>  
+        ![](figures-x2openEuler930/环境检查页面.png "环境检查页面")
 
     2.  升级前检查
 
-        针对待升级节点进行软件、硬件兼容性评估及软件冲突检查，产生相应评估报告，确认待升级节点是否符合升级要求。若出现兼容性不通过的情况，则需参考评估报告进行软件适配。评估报告参数详细说明请参考[表13](#table13)、[表14](#table14)和[表15](#table15)。
+        针对待升级节点进行配置文件升级策略、软件、硬件兼容性评估及软件冲突检查，产生相应评估报告，确认待升级节点是否符合升级要求。若出现兼容性不通过的情况，则需参考评估报告进行软件适配。评估报告参数详细说明请参考[表13](#table13)、[表14](#table14)、[表15](#table15)和[表16](#table16)。
 
         **图 13**  升级前检查<a nid="pic13"></a>  
         ![](figures-x2openEuler930/升级前检查.png "升级前检查")
@@ -1283,6 +1321,53 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
         </tbody>
         </table>
 
+        **表 16**  软件冲突检查报告结果参数说明
+
+        <a name="table16"></a>
+        <table><thead align="left"><tr id="row7675134511464"><th class="cellrowborder" valign="top" width="23.93%" id="mcps1.2.3.1.1"><p id="p15675154514612"><a name="p15675154514612"></a><a name="p15675154514612"></a>参数</p>
+        </th>
+        <th class="cellrowborder" valign="top" width="76.07000000000001%" id="mcps1.2.3.1.2"><p id="p16675245164615"><a name="p16675245164615"></a><a name="p16675245164615"></a>说明</p>
+        </th>
+        </tr>
+        </thead>
+        <tbody><tr id="row1467514515461"><td class="cellrowborder" valign="top" width="23.93%" headers="mcps1.2.3.1.1 "><p id="p19675194515461"><a name="p19675194515461"></a><a name="p19675194515461"></a>软件冲突检查统计</p>
+        </td>
+        <td class="cellrowborder" valign="top" width="76.07000000000001%" headers="mcps1.2.3.1.2 "><p id="p1467594594614"><a name="p1467594594614"></a><a name="p1467594594614"></a>显示评估环境升级中存在的冲突信息、源操作系统保留包、升级到目标系统包、升级到openEuler拓展仓库包、源操作系统删除的软件包和目标操作系统额外安装包等相关信息。</p>
+        </td>
+        </tr>
+        <tr id="row19675164519466"><td class="cellrowborder" valign="top" width="23.93%" headers="mcps1.2.3.1.1 "><p id="p136750453461"><a name="p136750453461"></a><a name="p136750453461"></a>冲突信息</p>
+        </td>
+        <td class="cellrowborder" valign="top" width="76.07000000000001%" headers="mcps1.2.3.1.2 "><p id="p9601163120594"><a name="p9601163120594"></a><a name="p9601163120594"></a>描述了源操作系统与升级目标操作系统中存在的软件包冲突信息。</p>
+        </td>
+        </tr>
+        <tr id="row116755454461"><td class="cellrowborder" valign="top" width="23.93%" headers="mcps1.2.3.1.1 "><p id="p1567534524618"><a name="p1567534524618"></a><a name="p1567534524618"></a>源操作系统保留包</p>
+        </td>
+        <td class="cellrowborder" valign="top" width="76.07000000000001%" headers="mcps1.2.3.1.2 "><p id="p1167544513467"><a name="p1167544513467"></a><a name="p1167544513467"></a>升级至目标操作系统后保留的源操作系统软件包。</p>
+        </td>
+        </tr>
+        <tr id="row62352744910"><td class="cellrowborder" valign="top" width="23.93%" headers="mcps1.2.3.1.1 "><p id="p1424122764915"><a name="p1424122764915"></a><a name="p1424122764915"></a>升级到目标系统包</p>
+        </td>
+        <td class="cellrowborder" valign="top" width="76.07000000000001%" headers="mcps1.2.3.1.2 "><p id="p132114718915"><a name="p132114718915"></a><a name="p132114718915"></a>升级至目标操作系统后的同时升级的软件包信息。</p>
+        </td>
+        </tr>
+        <tr id="row3376204617205"><td class="cellrowborder" valign="top" width="23.93%" headers="mcps1.2.3.1.1 "><p id="p5376184616204"><a name="p5376184616204"></a><a name="p5376184616204"></a>升级到openEuler拓展仓库包</p>
+        </td>
+        <td class="cellrowborder" valign="top" width="76.07000000000001%" headers="mcps1.2.3.1.2 "><p id="p2376746152015"><a name="p2376746152015"></a><a name="p2376746152015"></a>升级至openEuler操作系统后拓展的软件包信息。</p>
+        </td>
+        </tr>
+        <tr id="row2049154516493"><td class="cellrowborder" valign="top" width="23.93%" headers="mcps1.2.3.1.1 "><p id="p950204519499"><a name="p950204519499"></a><a name="p950204519499"></a>源操作系统删除的软件包</p>
+        </td>
+        <td class="cellrowborder" valign="top" width="76.07000000000001%" headers="mcps1.2.3.1.2 "><p id="p450145144919"><a name="p450145144919"></a><a name="p450145144919"></a>升级至目标操作系统后移除的源操作系统软件包。</p>
+        </td>
+        </tr>
+        <tr id="row133110498495"><td class="cellrowborder" valign="top" width="23.93%" headers="mcps1.2.3.1.1 "><p id="p1131134915493"><a name="p1131134915493"></a><a name="p1131134915493"></a>目标操作系统额外安装包</p>
+        </td>
+        <td class="cellrowborder" valign="top" width="76.07000000000001%" headers="mcps1.2.3.1.2 "><p id="p6312049124910"><a name="p6312049124910"></a><a name="p6312049124910"></a>升级至目标操作系统后额外安装的软件包。</p>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+
         升级前检查完成后，单击右下角“导出HTML报告”即可导出检查报告。单击“下载环境信息和日志”获取检查过程中收集的环境信息和任务执行日志。若升级前检查未通过，可单击右下角“重试”重新尝试升级检查或单击“剔除节点”清除该节点当前状态，剔除后单击“恢复”可恢复至剔除前状态。
 
     3.  升级和数据备份
@@ -1290,14 +1375,14 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
         >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
         >升级过程中会自动备份数据。默认备份**/usr **、**/run **、**/boot **、**/var**和**/etc**目录当中的文件，备份文件将被储存在**/.osbak**目录下。
 
-        连通性测试和升级前检查通过后，进入节点升级阶段。升级完成后，单击“重启节点”或手动启动升级节点，确保升级完成。
+        环境检查和升级前检查通过后，进入节点升级阶段。升级完成后，单击“重启节点”或手动启动升级节点，确保升级完成。
 
         **图 14**  节点升级<a id="pic14"></a>  
         ![](figures-x2openEuler930/节点升级.png "节点升级")
 
-    4.  环境清理
+    4.  升级后环境检查
 
-        升级完成后建议清理备份数据，以节约节点空间。如需进行回退操作，则可以选择保留备份数据。
+        升级后环境检查会对升级后操作系统命令、软件包等进行检查并生成检查报告。升级完成后建议清理备份数据，以节约节点空间。如需进行回退操作，则可以选择保留备份数据。
 
         >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
         >升级完成后，需进行业务运行验证，若业务运行正常，即可进行备份数据清理，以释放占用空间。
@@ -1360,7 +1445,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
         >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
         >批量导入节点过程中，工具会对导入的节点信息进行校验，若校验不通过则需按照提示修改导入信息，并重新进行批量导入操作。
 
-        1.  在批量导入界面中，单击“模板表格”获取模板后参考[表1](#table163103351210)填写节点信息。
+        1.  在批量导入界面中，单击“模板表格”获取模板后参考[表17](#table17)填写节点信息。
 
             **图 15**  批量导入<a id="pic15"></a>  
             ![](figures-x2openEuler930/批量导入-0.png "批量导入-0")
@@ -1372,11 +1457,11 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
 
     -   添加节点：添加单个节点的节点节点信息。
 
-        在“添加节点”页面，参考[表16](#table16)输入相应信息后，单击“确定”进行节点添加。
+        在“添加节点”页面，参考[表17](#table17)输入相应信息后，单击“确定”进行节点添加。
 
-        **表 16**  节点信息参数说明
+        **表 17**  节点信息参数说明
 
-        <a id="table16"></a>
+        <a id="table17"></a>
         <table><thead align="left"><tr id="row6631103381215"><th class="cellrowborder" valign="top" width="21.33%" id="mcps1.2.3.1.1"><p id="p1631153314128"><a name="p1631153314128"></a><a name="p1631153314128"></a>参数</p>
         </th>
         <th class="cellrowborder" valign="top" width="78.67%" id="mcps1.2.3.1.2"><p id="p1631433191211"><a name="p1631433191211"></a><a name="p1631433191211"></a>说明</p>
@@ -1414,7 +1499,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
         <p id="p277964811710"><a name="p277964811710"></a><a name="p277964811710"></a></p>
         </td>
         <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p186923589177"><a name="p186923589177"></a><a name="p186923589177"></a>密钥认证：通过私钥文件和私钥文件的密码短语进行认证。</p>
-        <a name="ul16885151414195"></a><a name="ul16885151414195"></a><ul id="ul16885151414195"><li>私钥文件：登录待升级节点私钥文件的绝对路径。</li><li>密码短语：登录待升级节点私钥文件的密码短语。</li></ul>
+        <a name="ul16885151414195"></a><a name="ul16885151414195"></a><ul id="ul16885151414195"><li>私钥文件：登录待升级节点私钥文件的绝对路径。</li><li>密码短语：登录待升级节点私钥文件的密码短语。</li>配置秘钥认证方式请参考<a href="#configkey">配置生成秘钥</a></ul>
         </td>
         </tr>
         <tr id="row15778248161710"><td class="cellrowborder" valign="top" headers="mcps1.2.3.1.1 "><p id="p3779114861714"><a name="p3779114861714"></a><a name="p3779114861714"></a>口令认证：通过口令进行认证。</p>
@@ -1425,14 +1510,11 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
         </tr>
         <tr id="row1647714127452"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p147771215454"><a name="p147771215454"></a><a name="p147771215454"></a>源操作系统版本</p>
         </td>
-        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p14774121459"><a name="p14774121459"></a><a name="p14774121459"></a>待升级节点的操作系统，当前支持以下操作系统：</p>
-        <a name="ul193563363311"></a><a name="ul193563363311"></a><ul id="ul193563363311"><li>CentOS 6.8</li><li>CentOS 7.2</li><li>CentOS 8.2</li></ul>
-        </td>
+        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p14774121459"><a name="p14774121459"></a><a name="p14774121459"></a>待升级节点的操作系统，默认为CentOS 7.6，可通过<a href="#installosdatabase">安装操作系统支持包</a>支持更多操作系统。
         </tr>
         <tr id="row687112217459"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p1687110228458"><a name="p1687110228458"></a><a name="p1687110228458"></a>目标操作系统版本</p>
         </td>
-        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p18871152244517"><a name="p18871152244517"></a><a name="p18871152244517"></a>待升级节点进行升级的目标操作系统，当前支持以下操作系统：</p>
-        <p id="p1943184214812"><a name="p1943184214812"></a><a name="p1943184214812"></a>openEuler20.03-LTS-SP1</p>
+        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p18871152244517"><a name="p18871152244517"></a><a name="p18871152244517"></a>待升级节点进行升级的目标操作系统，默认为openEuler 20.03-LTS-SP1，可通过<a href="#installosdatabase">安装操作系统支持包</a>支持更多操作系统。
         </td>
         </tr>
         <tr id="row1581583719460"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p78151373465"><a name="p78151373465"></a><a name="p78151373465"></a>repo源配置</p>
@@ -1458,7 +1540,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
 4.  节点添加完成，确认添加节点信息无误后，单击任务名称右侧“确定”，完成系统信息收集评估任务创建。若需要修改或删除相应节点，单击右侧“操作”项下的“修改”或“删除”对节点进行操作。单击右下角“确认”启动升级任务，单击右下角“取消”，取消任务。
 
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
-    >任务创建完成后，工具会自动对系统信息收集评估任务中配置的待升级节点进行连通性测试，连通性测试通过后才能进行后续收集分析任务。若连通性测试失败，请检查并修改节点配置信息。
+    >任务创建完成后，工具会自动对系统信息收集评估任务中配置的待升级节点进行环境检查，环境检查通过后才能进行后续收集分析任务。若环境检查失败，请检查并修改节点配置信息。
 
     **图 18**  系统信息收集评估任务创建信息确认<a id="pic18"></a>  
     ![](figures-x2openEuler930/系统信息收集评估任务创建信息确认.png "系统信息收集评估任务创建信息确认")
@@ -1473,7 +1555,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
 ##### 操作步骤
 
 1.  在页面“全部任务”下选择系统信息收集评估任务，单击右侧“进入任务”，进入任务详情页面。
-2.  单击节点信息右侧的“开始测试”，可对单个节点进行连通性测试。同时勾选多个节点，单击左上角“批量操作”，可对多个节点启动评估任务。
+2.  单击节点信息右侧的“开始测试”，可对单个节点进行环境检查。同时勾选多个节点，单击左上角“批量操作”，可对多个节点启动评估任务。
 
     节点信息收集评估任务分为2个阶段，其中任意阶段失败都会导致任务终止。
 
@@ -1483,23 +1565,23 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
     **图 19**  初始化节点<a id="pic19"></a>  
     ![](figures-x2openEuler930/初始化节点-3.png "初始化节点-3")
 
-    1.  连通性测试
+    1.  环境检查
 
-        连通性测试用于分析x2openEuler工具与待升级节点的连通性，验证环境信息是否正常，若连通性检测无法通过，则需修改节点配置信息。
+        环境检查用于分析x2openEuler工具与待升级节点的连通性，验证环境信息是否正常，若环境检查无法通过，则需修改节点配置信息。
 
-        **图 20**  连通性测试页面<a id="pic20"></a>  
-        ![](figures-x2openEuler930/连通性测试页面-4.png "连通性测试页面-4")
+        **图 20**  环境检查页面<a id="pic20"></a>  
+        ![](figures-x2openEuler930/环境检查页面-4.png "环境检查页面-4")
 
     2.  收集与评估
 
-        针对待升级节点进行软件、硬件兼容性评估及软件冲突检查，产生相应评估报告，确认待升级节点是否符合升级要求。若出现兼容性不通过的情况，则需参考评估报告进行软件适配。评估报告参数详细说明请参考[表17](#table17)、[表18](#table18)和[表19](#table19)。
+        针对待升级节点进行软件、硬件兼容性评估及软件冲突检查，产生相应评估报告，确认待升级节点是否符合升级要求。若出现兼容性不通过的情况，则需参考评估报告进行软件适配。评估报告参数详细说明请参考[表18](#table18)、[表19](#table19)和[表20](#table20)。
 
         **图 21**  收集与评估<a id="pic21"></a>  
         ![](figures-x2openEuler930/收集与评估.png "收集与评估")
 
-        **表 17**  业务软件评估报告结果参数说明
+        **表 18**  业务软件评估报告结果参数说明
 
-        <a id="table17"></a>
+        <a id="table18"></a>
         <table><thead align="left"><tr id="zh-cn_topic_0000001459605173_zh-cn_topic_0303172996_zh-cn_topic_0284251757_row171675241281"><th class="cellrowborder" valign="top" width="24.09%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001459605173_zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"><a name="zh-cn_topic_0000001459605173_zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a><a name="zh-cn_topic_0000001459605173_zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a>参数</p>
         </th>
         <th class="cellrowborder" valign="top" width="75.91%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001459605173_zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"><a name="zh-cn_topic_0000001459605173_zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a><a name="zh-cn_topic_0000001459605173_zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a>说明</p>
@@ -1545,9 +1627,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
         </tbody>
         </table>
 
-        **表 18**  硬件兼容性评估报告结果参数说明
+        **表 19**  硬件兼容性评估报告结果参数说明
 
-        <a id="table18"></a>
+        <a id="table19"></a>
         <table><thead align="left"><tr id="zh-cn_topic_0000001459605173_row123921131011"><th class="cellrowborder" valign="top" width="24.09%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001459605173_p1823142161016"><a name="zh-cn_topic_0000001459605173_p1823142161016"></a><a name="zh-cn_topic_0000001459605173_p1823142161016"></a>参数</p>
         </th>
         <th class="cellrowborder" valign="top" width="75.91%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001459605173_p92316215103"><a name="zh-cn_topic_0000001459605173_p92316215103"></a><a name="zh-cn_topic_0000001459605173_p92316215103"></a>说明</p>
@@ -1569,9 +1651,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
         </tbody>
         </table>
 
-        **表 19**  软件冲突检查报告结果参数说明
+        **表 20**  软件冲突检查报告结果参数说明
 
-        <a id="table19"></a>
+        <a id="table20"></a>
         <table><thead align="left"><tr id="zh-cn_topic_0000001459605173_row7675134511464"><th class="cellrowborder" valign="top" width="23.93%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001459605173_p15675154514612"><a name="zh-cn_topic_0000001459605173_p15675154514612"></a><a name="zh-cn_topic_0000001459605173_p15675154514612"></a>参数</p>
         </th>
         <th class="cellrowborder" valign="top" width="76.07000000000001%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001459605173_p16675245164615"><a name="zh-cn_topic_0000001459605173_p16675245164615"></a><a name="zh-cn_topic_0000001459605173_p16675245164615"></a>说明</p>
@@ -1642,7 +1724,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
         >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
         >批量导入节点过程中，工具会对导入的节点信息进行校验，若校验不通过则需按照提示修改导入信息，并重新进行批量导入操作。
 
-        1.  在批量导入界面中，单击“模板表格”获取模板后参考[表20](#table20)填写节点信息。
+        1.  在批量导入界面中，单击“模板表格”获取模板后参考[表21](#table21)填写节点信息。
 
             **图 22**  批量导入<a id="pic22"></a>  
             ![](figures-x2openEuler930/批量导入-5.png "批量导入-5")
@@ -1653,15 +1735,15 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
             ![](figures-x2openEuler930/SSH传输须知-6.png "SSH传输须知-6")
 
     -   添加节点：添加单个节点的节点信息。
-        1.  在“添加节点”页面，参考[表20](#table20)输入相应信息后，单击“确定”进行节点添加。
+        1.  在“添加节点”页面，参考[表21](#table21)输入相应信息后，单击“确定”进行节点添加。
 
             **图 24**  添加节点<a id="pic24"></a>  
             ![](figures-x2openEuler930/添加节点.png "添加节点")
 
 
-    **表 20**  节点信息参数说明
+    **表 21**  节点信息参数说明
 
-    <a id="table20"></a>
+    <a id="table21"></a>
     <table><thead align="left"><tr id="row5439724114414"><th class="cellrowborder" valign="top" width="21.33%" id="mcps1.2.3.1.1"><p id="p124382241449"><a name="p124382241449"></a><a name="p124382241449"></a>参数</p>
     </th>
     <th class="cellrowborder" valign="top" width="78.67%" id="mcps1.2.3.1.2"><p id="p543818244444"><a name="p543818244444"></a><a name="p543818244444"></a>说明</p>
@@ -1699,7 +1781,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
     <p id="p14440424164418"><a name="p14440424164418"></a><a name="p14440424164418"></a></p>
     </td>
     <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p15440924204420"><a name="p15440924204420"></a><a name="p15440924204420"></a>密钥认证：通过私钥文件和私钥文件的密码短语进行认证。</p>
-    <a name="ul6441124144418"></a><a name="ul6441124144418"></a><ul id="ul6441124144418"><li>私钥文件：登录源节点私钥文件的绝对路径。</li><li>密码短语：登录源节点私钥文件的密码短语。<div class="note" id="note3441172420442"><a name="note3441172420442"></a><a name="note3441172420442"></a><span class="notetitle"> 说明： </span><div class="notebody"><a name="ul544110243447"></a><a name="ul544110243447"></a><ul id="ul544110243447"><li>若登录用户为普通用户，需要输入root用户口令切换到root用户进行具体操作。</li><li>由于root用户拥有最高权限，直接使用root用户登录服务器可能会存在安全风险。您可以通过配置禁止root用户SSH登录的选项，来提升系统安全性。具体配置如下：先以普通用户登录服务器，切换至root登录后检查/etc/ssh/sshd_config配置项PermitRootlogin，如果显示no，说明禁止了root用户登录；如果显示yes，则需要将配置项PermitRootlogin设置为no。</li><li>配置的节点信息中涉及用户密码输入，请注意定期维护账户信息，确保环境安全。</li></ul>
+    <a name="ul6441124144418"></a><a name="ul6441124144418"></a><ul id="ul6441124144418"><li>私钥文件：登录源节点私钥文件的绝对路径。</li><li>密码短语：登录源节点私钥文件的密码短语。配置秘钥认证方式请参考<a href="#configkey">配置生成秘钥</a><div class="note" id="note3441172420442"><a name="note3441172420442"></a><a name="note3441172420442"></a><span class="notetitle"> 说明： </span><div class="notebody"><a name="ul544110243447"></a><a name="ul544110243447"></a><ul id="ul544110243447"><li>若登录用户为普通用户，需要输入root用户口令切换到root用户进行具体操作。</li><li>由于root用户拥有最高权限，直接使用root用户登录服务器可能会存在安全风险。您可以通过配置禁止root用户SSH登录的选项，来提升系统安全性。具体配置如下：先以普通用户登录服务器，切换至root登录后检查/etc/ssh/sshd_config配置项PermitRootlogin，如果显示no，说明禁止了root用户登录；如果显示yes，则需要将配置项PermitRootlogin设置为no。</li><li>配置的节点信息中涉及用户密码输入，请注意定期维护账户信息，确保环境安全。</li></ul>
     </div></div>
     </li></ul>
     </td>
@@ -1712,8 +1794,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
     </tr>
     <tr id="row5441324204412"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p544152444410"><a name="p544152444410"></a><a name="p544152444410"></a>源操作系统版本</p>
     </td>
-    <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p12441182416442"><a name="p12441182416442"></a><a name="p12441182416442"></a>源节点操作系统版本，当前支持以下操作系统：</p>
-    <a name="ul785232732310"></a><a name="ul785232732310"></a><ul id="ul785232732310"><li>CentOS 6.8</li><li>CentOS 7.6</li><li>CentOS 8.2</li></ul>
+    <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p12441182416442"><a name="p12441182416442"></a><a name="p12441182416442"></a>待升级节点的操作系统，默认为CentOS 7.6，可通过<a href="#installosdatabase">安装操作系统支持包</a>支持更多操作系统。
     </td>
     </tr>
     <tr id="row1944211248448"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p11441824134415"><a name="p11441824134415"></a><a name="p11441824134415"></a>目标节点IP</p>
@@ -1749,8 +1830,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
     </tr>
     <tr id="row544612404419"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p1444672417447"><a name="p1444672417447"></a><a name="p1444672417447"></a>目标操作系统版本</p>
     </td>
-    <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p2446624194417"><a name="p2446624194417"></a><a name="p2446624194417"></a>目标节点操作系统版本，当前工具支持以下版本：</p>
-    <p id="p12446122411449"><a name="p12446122411449"></a><a name="p12446122411449"></a>openEuler20.03-LTS-SP1</p>
+    <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p2446624194417"><a name="p2446624194417"></a><a name="p2446624194417"></a>目标操作系统默认为openEuler 20.03-LTS-SP1，可通过<a href="#installosdatabase">安装操作系统支持包</a>支持更多操作系统。</p>
     </td>
     </tr>
     </tbody>
@@ -1781,23 +1861,23 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
 
     配置分析迁移过程分为4个阶段，其中任意阶段失败都会导致后续任务执行过程终止。
 
-    1.  连通性测试
+    1.  环境检查
 
-        连通性测试用于分析x2openEuler工具与源目节点的连通性，验证环境信息是否正常，若连通性检测无法通过，则需修改节点配置信息。
+        环境检查用于分析x2openEuler工具与源目节点的连通性，验证环境信息是否正常，若连通性检测无法通过，则需修改节点配置信息。
 
-        **图 27**  连通性测试页面<a id="pic27"></a>  
-        ![](figures-x2openEuler930/连通性测试页面-8.png "连通性测试页面-8")
+        **图 27**  环境检查页面<a id="pic27"></a>  
+        ![](figures-x2openEuler930/环境检查页面-8.png "环境检查页面-8")
 
     2.  配置分析
 
-        针对源节点进行配置分析，产生配置分析报告，确认源节点可以进行迁移配置信息。配置分析报告参数详细说明请参考[表21](#table21)。
+        针对源节点进行配置分析，产生配置分析报告，确认源节点可以进行迁移配置信息。配置分析报告参数详细说明请参考[表22](#table22)。
 
         **图 28**  配置分析<a id="pic28"></a>  
         ![](figures-x2openEuler930/配置分析.png "配置分析")
 
-        **表 21**  配置分析报告结果参数说明
+        **表 22**  配置分析报告结果参数说明
 
-        <a id="table21"></a>
+        <a id="table22"></a>
         <table><thead align="left"><tr id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_row171675241281"><th class="cellrowborder" valign="top" width="24.09%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p1316713247285"></a>参数</p>
         </th>
         <th class="cellrowborder" valign="top" width="75.91%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a><a name="zh-cn_topic_0303172996_zh-cn_topic_0284251757_p10167132422819"></a>说明</p>
@@ -2102,9 +2182,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
 
 一键下载的日志压缩包中包含如下模块：
 
-**表 22**  运行日志模块说明
+**表 23**  运行日志模块说明
 
-<a id="table22"></a>
+<a id="table23"></a>
 <table><thead align="left"><tr id="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_row839855274119"><th class="cellrowborder" valign="top" width="16.07%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_p18398145212413"><a name="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_p18398145212413"></a><a name="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_p18398145212413"></a>运行日志模块</p>
 </th>
 <th class="cellrowborder" valign="top" width="83.93%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_p1639813521417"><a name="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_p1639813521417"></a><a name="zh-cn_topic_0000001278465425_zh-cn_topic_0254785321_zh-cn_topic_0254628243_p1639813521417"></a>说明</p>
@@ -2269,10 +2349,6 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
 
 ### 管理用户
 
-
-
-
-
 #### 重置密码
 
 ##### 前提条件
@@ -2290,14 +2366,14 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
 
 2.  单击操作栏中指定用户后的“重置密码”。
 
-    打开“重置密码”界面，如[图38](#pic38)所示，需配置的参数如[表23](#table23)所示。
+    打开“重置密码”界面，如[图38](#pic38)所示，需配置的参数如[表24](#table24)所示。
 
     **图 38**  重置密码<a id="pic38"></a>  
     ![](figures-x2openEuler930/重置密码.png "重置密码")
 
-    **表 23**  重置密码参数说明
+    **表 24**  重置密码参数说明
 
-    <a id="table23"></a>
+    <a id="table24"></a>
     <table><thead align="left"><tr id="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_row323612494584"><th class="cellrowborder" valign="top" width="18.360000000000003%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_p52362498581"><a name="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_p52362498581"></a><a name="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_p52362498581"></a>参数</p>
     </th>
     <th class="cellrowborder" valign="top" width="81.64%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_p6236124911583"><a name="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_p6236124911583"></a><a name="zh-cn_topic_0000001234185474_zh-cn_topic_0228242383_zh-cn_topic_0189814931_p6236124911583"></a>说明</p>
@@ -2370,14 +2446,14 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table1)所示�
 
 1.  在页面右上角登录用户的下拉菜单中，选择“修改密码“。
 
-    打开用户修改密码界面，如[图39](#pic39)所示，需配置的参数如[表1](#zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_table423624975820)所示。
+    打开用户修改密码界面，如[图39](#pic39)所示，需配置的参数如[表25](#table25)所示。
 
     **图 39**  修改密码<a id="pic39"></a>  
     ![](figures-x2openEuler930/修改密码.png "修改密码")
 
-    **表 24**  修改密码参数说明
+    **表 25**  修改密码参数说明
 
-    <a id="table24"></a>
+    <a id="table25"></a>
     <table><thead align="left"><tr id="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_row323612494584"><th class="cellrowborder" valign="top" width="18.360000000000003%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_p52362498581"><a name="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_p52362498581"></a><a name="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_p52362498581"></a>参数</p>
     </th>
     <th class="cellrowborder" valign="top" width="81.64%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_p6236124911583"><a name="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_p6236124911583"></a><a name="zh-cn_topic_0000001234664622_zh-cn_topic_0228242269_zh-cn_topic_0189814933_p6236124911583"></a>说明</p>
@@ -2464,14 +2540,14 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
 #### 查看当前web端服务证书
 
 1.  <a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_li681951883619"></a>在页面右上方选择“![](figures-x2openEuler930/zh-cn_image_0000001409485074.png)  \> web服务端证书”。
-2.  查看证书信息，如[图41](#pic41)所示，界面参数描述如[表25](#table25)所示。
+2.  查看证书信息，如[图41](#pic41)所示，界面参数描述如[表26](#table26)所示。
 
     **图 41**  web服务端证书信息<a id="pic41"></a>  
     ![](figures-x2openEuler930/web服务端证书信息.png "web服务端证书信息")
 
-    **表 25**  web服务端证书参数说明
+    **表 26**  web服务端证书参数说明
 
-    <a id="table25"></a>
+    <a id="table26"></a>
     <table><thead align="left"><tr id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_row19653647105517"><th class="cellrowborder" valign="top" width="25.979999999999997%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p16531147175517"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p16531147175517"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p16531147175517"></a>参数</p>
     </th>
     <th class="cellrowborder" valign="top" width="74.02%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p565311472558"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p565311472558"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p565311472558"></a>说明</p>
@@ -2516,12 +2592,12 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
 
 1.  在“web服务端证书”页面中单击“生成CSR文件”。
 
-    打开“生成CSR文件”对话框，如[图42](#pic42)所示，界面参数描述如[表26](#table26)所示。
+    打开“生成CSR文件”对话框，如[图42](#pic42)所示，界面参数描述如[表27](#table27)所示。
 
     **图 42**  生成CSR文件<a id="pic42"></a>  
     ![](figures-x2openEuler930/生成CSR文件.png "生成CSR文件")
 
-    **表 26**  CSR文件参数说明
+    **表 27**  CSR文件参数说明
 
     <a id="table26"></a>
     <table><thead align="left"><tr id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_row451213692510"><th class="cellrowborder" valign="top" width="15.32%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p185940272125"><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p185940272125"></a><a name="zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_p185940272125"></a>参数</p>
@@ -2682,6 +2758,164 @@ x2openEuler -v
     x2openEuler x.x.x.x
     ```
 
+### <span id="backup">回退一致性配置</span>
+
+#### 前提条件
+
+已成功登录x2openEuler工具。
+
+#### 操作步骤
+
+1.  在页面右上方选择“![](figures/zh-cn_image_0000001486157324.png)  \> 回退一致性检查过滤”，进入“回退一致性检查过滤”页面。
+2.  在“回退一致性检查过滤”页面中参考[表28](#table28)配置需要在回退一致性检查中过滤的内容，配置内容支持正则表达式。
+
+    **表 28**  参数配置
+
+    <a name="table28"></a>
+    <table><thead align="left"><tr id="row191844862220"><th class="cellrowborder" valign="top" width="26.889999999999997%" id="mcps1.2.3.1.1"><p id="p21848852220"><a name="p21848852220"></a><a name="p21848852220"></a>参数项</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="73.11%" id="mcps1.2.3.1.2"><p id="p1618412872215"><a name="p1618412872215"></a><a name="p1618412872215"></a>描述</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="row1318488152214"><td class="cellrowborder" valign="top" width="26.889999999999997%" headers="mcps1.2.3.1.1 "><p id="p21842862215"><a name="p21842862215"></a><a name="p21842862215"></a>软件配置</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="73.11%" headers="mcps1.2.3.1.2 "><p id="p1118458132213"><a name="p1118458132213"></a><a name="p1118458132213"></a>不需要进行一致性检查的软件配置项。</p>
+    </td>
+    </tr>
+    <tr id="row71846802210"><td class="cellrowborder" valign="top" width="26.889999999999997%" headers="mcps1.2.3.1.1 "><p id="p121849852217"><a name="p121849852217"></a><a name="p121849852217"></a>软件包</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="73.11%" headers="mcps1.2.3.1.2 "><p id="p11847818223"><a name="p11847818223"></a><a name="p11847818223"></a>不需要进行一致性检查的软件包。</p>
+    </td>
+    </tr>
+    <tr id="row41849818220"><td class="cellrowborder" valign="top" width="26.889999999999997%" headers="mcps1.2.3.1.1 "><p id="p141849816222"><a name="p141849816222"></a><a name="p141849816222"></a>文件</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="73.11%" headers="mcps1.2.3.1.2 "><p id="p6184785229"><a name="p6184785229"></a><a name="p6184785229"></a>不需要进行一致性检查的文件。</p>
+    </td>
+    </tr>
+    <tr id="row12184183229"><td class="cellrowborder" valign="top" width="26.889999999999997%" headers="mcps1.2.3.1.1 "><p id="p101842892219"><a name="p101842892219"></a><a name="p101842892219"></a>服务配置</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="73.11%" headers="mcps1.2.3.1.2 "><p id="p918519892216"><a name="p918519892216"></a><a name="p918519892216"></a>不需要进行一致性检查的服务配置。</p>
+    </td>
+    </tr>
+    <tr id="row1318517818228"><td class="cellrowborder" valign="top" width="26.889999999999997%" headers="mcps1.2.3.1.1 "><p id="p918510810225"><a name="p918510810225"></a><a name="p918510810225"></a>内核参数</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="73.11%" headers="mcps1.2.3.1.2 "><p id="p181851384228"><a name="p181851384228"></a><a name="p181851384228"></a>不需要进行一致性检查的内核参数。</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+3.  配置完成后，单击“确定”保存。
+
+    >![](public_sys-resources/icon-note.gif) **说明：** 
+    >回退过程中出现的不一致项，在进行回退一致性配置后， 配置内容将不会进行一致性检查。配置之后仅在下一次回退才会生效。
+
+
+
+### <span id="configkey">配置生成秘钥</span>
+
+#### 前提条件
+
+-   已部署x2openEuler工具
+-   本地已安装SSH远程连接工具
+
+#### 操作步骤
+
+1.  使用SSH工具远程登录待升级节点，进入Linux操作系统命令行界面。执行以下命令生成秘钥并修改公钥名称。
+
+    ```
+    ssh-keygen
+    cd /root/.ssh
+    mv id_rsa.pub authorized_keys
+    ```
+
+    >![](public_sys-resources/icon-note.gif) **说明：** 
+    >1.  执行**ssh-keygen**命令后，请根据终端交互信息进行操作。
+    >2.  修改“id\_rsa.pub”文件名称时，需确认“/etc/ssh/sshd\_config”文件中“AuthorizedKeysFile”参数为“.ssh/authorized\_keys”。
+
+2.  执行以下命令配置“/etc/ssh/sshd\_config”文件，开启秘钥连接。
+
+    ```
+    vi /etc/ssh/sshd_config
+    ```
+
+    去掉如下内容注释：
+
+    ```
+    PubkeyAuthentication yes
+    ```
+
+    修改完成后，按“ESC”，输入“:wq”，按“Enter”保存并退出。
+
+3.  执行以下命令重启SSH服务使配置内容生效。
+
+    ```
+    systemctl restart sshd
+    ```
+
+4.  将id\_rsa文件传输至x2openEuler部署节点。
+5.  使用SSH工具远程登录待升级节点，进入Linux操作系统命令行界面。
+6.  将待升级节点id\_rsa文件移动至“/opt/x2openEuler”目录下，执行以下命令修改id\_rsa文件权限及属主属组。
+
+    ```
+    chown x2openEuler:x2openEuler id_rsa 
+    chmod 600 id_rsa
+    ```
+
+7.  在x2openEuler工具进行“批量导入”或“添加节点”时，选择“认证方式”为“秘钥认证”。
+
+
+### <span id="installosdatabase">安装操作系统数据库支持包</span>
+
+#### 前提条件
+
+已成功安装x2openEuler工具。
+
+已获取操作系统数据库支持包到本地。
+
+#### 操作步骤
+
+1.  访问[openEuler 扩展仓库](https://repo.oepkgs.net/openEuler/rpm/)获取操作系统数据库支持包到本地。
+
+    本文以安装CentOS 7.9升级到openEuler 20.03-LTS-SP1所需的操作系统数据库支持包为例为例.
+
+    1.  进入以下路径。
+
+        ```
+        openEuler-20.03-LTS-SP1/contrib/x2openEuler/aarch64/Packages/
+        ```
+
+        >![](public_sys-resources/icon-note.gif) **说明：** 
+        >其中，
+        >-   openEuler-20.03-LTS-SP1为升级目标操作系统。
+        >-   aarch64为操作系统架构。
+
+    2.  获取以下操作系统包。
+
+        ```
+        x2openEuler-database-centos7.9-openEuler20.03-LTS-SP1-2.0.0.630-1.noarch.rpm
+        x2openEuler-database-centos7.9-2.0.0.630-1.noarch.rpm
+        ```
+
+2.  使用SSH工具远程登录x2openEuler部署环境，上传操作系统数据库支持包，并进入Linux操作系统命令行界面。
+3.  进入操作系统数据库支持包上传目录，执行以下命令进行安装。
+
+    ```
+    rpm -ivh x2openEuler-database-centos7.9-2.0.0.630-1.noarch.rpm
+    rpm -ivh x2openEuler-database-centos7.9-openEuler20.03-LTS-SP1-2.0.0.630-1.noarch.rpm
+    ```
+
+4.  执行以下命令重启服务。
+
+    ```
+    systemctl restart gunicorn_x2openEuler.service
+    systemctl restart nginx_x2openEuler.service
+    ```
+
+5.  登录x2openEuler工具Web页面，在创建任务时，“源操作系统版本”选项中，手动输入“centos7.9”即可。
+
+
 ### 反馈建议
 
 如对工具及插件有任何建议，请提交issue至以下链接。
@@ -2694,51 +2928,59 @@ x2openEuler -v
 升级完成后，无法进入操作系统且无法通过回退方式恢复源操作系统，可通过使用ISO镜像光驱进入救援模式进行系统救援。
 
 #### 处理步骤
-
 此处以x86\_64系统为例。
 
-1.  获取标准ISO发布镜像。（例如  [openEuler-20.03-LTS-SP1-x86\_64-dvd.iso](https://repo.openeuler.org/openEuler-20.03-LTS-SP1/ISO/x86_64/openEuler-20.03-LTS-SP1-x86_64-dvd.iso)）
+1.  获取标准ISO发布镜像。（例如  [openEuler-20.03-LTS-SP1-everthing-x86\_64-dvd.iso](https://repo.openeuler.org/openEuler-20.03-LTS-SP1/ISO/x86_64/openEuler-20.03-LTS-SP1-everything-x86_64-dvd.iso)）
 2.  光驱挂载ISO镜像并重启机器通过光驱引导。
 3.  在光驱的GRUB菜单界面中进入“系统救援”，具体操作如下：
     -   UEFI启动模式
         1.  选择“Troubleshooting”
 
-            **图 46**  UEFI grub菜单<a id="pic46"></a>  
+            **图 46**  UEFI grub菜单<a name="pic46"></a>  
             ![](figures-x2openEuler930/UEFI-grub菜单.png "UEFI-grub菜单")
 
         2.  选择“rescue”
 
-            **图 47**  选择恢复模式<a id="pic47"></a>  
+            **图 47**  选择恢复模式<a name="pic47"></a>  
             ![](figures-x2openEuler930/选择恢复模式.png "选择恢复模式")
 
     -   Legacy启动模式
         1.  选择“Troubleshooting”
 
-            **图 48**  Legacy grub菜单<a id="pic48"></a>  
+            **图 48**  Legacy grub菜单<a name="pic48"></a>  
             ![](figures-x2openEuler930/Legacy-grub菜单.png "Legacy-grub菜单")
 
         2.  选择“rescue”
 
-            **图 49**  选择恢复模式<a id="pic49"></a>  
+            **图 49**  选择恢复模式<a name="pic49"></a>  
             ![](figures-x2openEuler930/选择恢复模式-9.png "选择恢复模式-9")
 
 
 4.  进入“救援模式”后，按下数字键“1”选择“Continue”。
 
-    **图 50**  救援模式<a id="pic50"></a>  
+    **图 50**  救援模式<a name="pic50"></a>  
     ![](figures-x2openEuler930/救援模式.png "救援模式")
 
     按下回车键后，进入“Rescue Shell”
 
-    **图 51**  Rescue Shell<a id="pic51"></a>  
+    **图 51**  Rescue Shell<a name="pic51"></a>  
     ![](figures-x2openEuler930/Rescue-Shell.png "Rescue-Shell")
 
-5.  为当前环境配置可用的ip地址。
+5.  执行以下命令检查当前环境是否存在x2openEuler-upgrade 软件包，若存在则跳转至[7](#li0265188125315)。
 
-    **图 52**  配置可用ip地址<a id="pic52"></a>  
+    ```
+    find / -name x2openEuler-upgrade
+    ```
+
+    **图 52**  检查x2openEuler-upgrade 软件包<a name="pic52"></a>  
+    ![](figures-x2openEuler930/检查x2openEuler-upgrade-软件包.png "检查x2openEuler-upgrade-软件包")
+
+6.  为当前环境配置可用的ip地址。
+
+    **图 53**  配置可用ip地址<a name="pic53"></a>  
     ![](figures-x2openEuler930/配置可用ip地址.png "配置可用ip地址")
 
-6.  执行以下命令，开启SSH服务，上传x2openEuler-upgrade软件包至“/root”目录下。
+7.  <a name="li0265188125315"></a>执行以下命令，开启SSH服务，上传x2openEuler-upgrade软件包至“/root”目录下。
 
     ```
     mv /etc/ssh/sshd_config.anaconda /etc/ssh/sshd_config
@@ -2746,48 +2988,63 @@ x2openEuler -v
     scp root@xxx.xxx.xxx.xxx:/xxx/x2oepnEuler-upgrade* /root/ 
     ```
 
-    **图 53**  启动SSH服务<a id="pic53"></a>  
+    **图 54**  启动SSH服务<a name="pic54"></a>  
     ![](figures-x2openEuler930/启动SSH服务.png "启动SSH服务")
 
-    **图 54**  上传x2openEuler工具安装包至/root目录下<a id="pic54"></a>  
+    **图 55**  上传x2openEuler工具安装包至/root目录下<a name="pic55"></a>  
     ![](figures-x2openEuler930/上传x2openEuler工具安装包至-root目录下.png "上传x2openEuler工具安装包至-root目录下")
 
-7.  执行以下命令解压安装包获取x2openEuler-upgrade软件包并进行安装。
+8.  执行以下命令解压安装包获取x2openEuler-upgrade软件包并进行安装。
 
     ```
     ln -s /usr/bin/python3 /usr/bin/python
     rpm -ivh /root/x2openEuler-upgrade-* --nodeps
+    source /root/.bashrc
     ```
 
-    **图 55**  安装x2openEuler-upgrade软件包<a id="pic55"></a>  
+    **图 56**  安装x2openEuler-upgrade软件包<a name="pic56"></a>  
     ![](figures-x2openEuler930/安装x2openEuler-upgrade软件包.png "安装x2openEuler-upgrade软件包")
 
-8.  执行以下命令，修改x2openEuler-upgrade配置文件，不对“/run/install”进行回滚。
+9.  执行以下命令，修改x2openEuler-upgrade配置文件，不对“/run/install”进行回滚。
 
     ```
     vim /mnt/sysroot/etc/sut/sut.conf 
     ```
 
-    **图 56**  修改x2openEuler-upgrade配置文件<a id="pic56"></a>  
+    **图 57**  修改x2openEuler-upgrade配置文件<a name="pic57"></a>  
     ![](figures-x2openEuler930/修改x2openEuler-upgrade配置文件.png "修改x2openEuler-upgrade配置文件")
 
-9.  执行以下命令，进行系统救援。
+10. 执行以下命令，进行系统救援。
 
     ```
     x2openEuler rescue -p /mnt/sysroot/
     ```
 
-    **图 57**  系统救援<a id="pic57"></a>  
+    **图 58**  系统救援<a name="pic58"></a>  
     ![](figures-x2openEuler930/系统救援.png "系统救援")
 
-10. 系统救援完成后，执行以下命令重启系统。
+11. 系统救援完成后，执行以下命令重启系统。
 
     ```
     reboot
     ```
 
-    >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
+    >![](public_sys-resources/icon-note.gif) **说明：** 
     >系统重启之后，SELinux会进行relabel动作，物理机可能耗时较长。relabel动作触发完成后，系统会自动进行重启，此时才真正回退至最初的源操作系统。
+
+12. 执行以下命令进行系统救援结果验证。
+
+    ```
+    cat /etc/os-release
+    ```
+
+    **图 59**  验证结果<a name="pic59"></a>  
+    ![](figures-x2openEuler930/验证结果.png "验证结果")
+
+    >![](public_sys-resources/icon-note.gif) **说明：** 
+    >-   救援完成后，可执行源操作系统命令进行验证。
+    >-   可根据业务需求，执行业务恢复或适配脚本。
+
 
 
 ### 升级后部分命令无法执行
@@ -2906,14 +3163,14 @@ virsh edit
 
 **注意事项<a name="section14911236561"></a>**
 
-请注意，产品功能运行涉及以下账户，如[表27](#table27)所示，请注意信息保护，定期维护账户安全。
+请注意，产品功能运行涉及以下账户，如[表29](#table29)所示，请注意信息保护，定期维护账户安全。
 
 >![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
 >由于root用户拥有最高权限，直接使用root用户登录服务器可能会存在安全风险。您可以通过配置禁止root用户SSH登录的选项，来提升系统安全性。具体配置如下：先以普通用户登录服务器，切换至root登录后检查/etc/ssh/sshd\_config配置项PermitRootlogin，如果显示no，说明禁止了root用户登录；如果显示yes，则需要将配置项PermitRootlogin设置为no。
 
-**表 27**  账户清单
+**表 29**  账户清单
 
-<a id="table27"></a>
+<a id="table29"></a>
 <table><thead align="left"><tr id="row4649184025811"><th class="cellrowborder" valign="top" width="13.459999999999999%" id="mcps1.2.6.1.1"><p id="p564924025815"><a name="p564924025815"></a><a name="p564924025815"></a>应用环境</p>
 </th>
 <th class="cellrowborder" valign="top" width="17.93%" id="mcps1.2.6.1.2"><p id="p1364914075811"><a name="p1364914075811"></a><a name="p1364914075811"></a>用户名/用户类型</p>
@@ -3002,11 +3259,11 @@ virsh edit
 
 **注意事项<a name="section782611620155"></a>**
 
-请注意，产品功能涉及的数据使用场景如下[表28](#table28)所示，请注意信息保护。
+请注意，产品功能涉及的数据使用场景如下[表30](#table30)所示，请注意信息保护。
 
 **运行环境数据使用场景说明<a name="section179976012566"></a>**
 
-**表 28**  数据使用信息说明
+**表 30**  数据使用信息说明
 
 <a id="table28"></a>
 <table><thead align="left"><tr id="row19582171535915"><th class="cellrowborder" valign="top" width="14.6985301469853%" id="mcps1.2.8.1.1"><p id="p14582121518596"><a name="p14582121518596"></a><a name="p14582121518596"></a>收集信息的场景或功能</p>
@@ -3054,9 +3311,9 @@ virsh edit
 
 ### 相关链接
 
-**表 29**  相关链接
+**表 31**  相关链接
 
-<a id="table29"></a>
+<a id="table31"></a>
 <table><thead align="left"><tr id="row1856304918547"><th class="cellrowborder" valign="top" width="36.19%" id="mcps1.2.3.1.1"><p id="p9563154911541"><a name="p9563154911541"></a><a name="p9563154911541"></a>相关内容</p>
 </th>
 <th class="cellrowborder" valign="top" width="63.81%" id="mcps1.2.3.1.2"><p id="p356384917540"><a name="p356384917540"></a><a name="p356384917540"></a>网址</p>
