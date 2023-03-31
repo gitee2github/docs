@@ -83,6 +83,8 @@ other = "Content"
 [other_text]
 other = "Reference Links"
 
+[know_88_1]
+other = "/en/docs/23.03/docs/Releasenotes/terms-of-use.html"
 [know_89_1]
 other = "/en/docs/22.03_LTS_SP1/docs/Releasenotes/terms-of-use.html"
 [know_90_1]
@@ -103,6 +105,8 @@ other = "/en/docs/20.03_LTS_SP1/docs/Releasenotes/terms-of-use.html"
 other = "/en/docs/20.09/docs/Releasenotes/terms-of-use.html"
 [know_98_1]
 other = "/en/docs/20.03_LTS/docs/Releasenotes/terms-of-use.html"
+[version_88]
+other = "23.03"
 [version_89]
 other = "22.03 LTS SP1"
 [version_90]

@@ -14,6 +14,7 @@
             <ul>
                 <li><i class="icon-tick" ></i>{{i18n "version_selection"}}</li>
                 {{ if ne .Site.LanguageCode "ru"}}
+                <li><a href="{{ i18n "know_88_1"}}">23.03</a></li>
                 <li><a href="{{ i18n "know_89_1"}}">22.03 LTS SP1</a></li>
                 <li><a href="{{ i18n "know_90_1"}}">22.09</a></li>
                 <li><a href="{{ i18n "know_91_1"}}">22.03 LTS</a></li>
@@ -192,6 +193,7 @@
                   <i class="icon-servision"></i>
                 </div>
                 <div class="option">
+                    <a href="{{ i18n "know_88_1"}}">{{ .Site.Params.version_88 }}</a>
                     <a href="{{ i18n "know_89_1"}}">{{ .Site.Params.version_89 }}</a>
                     <a href="{{ i18n "know_90_1"}}">{{ .Site.Params.version_90 }}</a>
                     <a href="{{ i18n "know_91_1"}}">{{ .Site.Params.version_91 }}</a>
@@ -278,6 +280,9 @@
                     </div>
                     <div>
                         <a href="{{ i18n "know_89_1"}}">22.03 LTS SP1</a>
+                    </div>
+                    <div>
+                        <a href="{{ i18n "know_88_1"}}">23.03</a>
                     </div>
                     {{ end }}
                 </div>
