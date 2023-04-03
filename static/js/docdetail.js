@@ -393,12 +393,10 @@ $(function ($) {
       $radio.prop("checked", false);
       $radio.data("checked", false);
       $(".submit-tip").css("display", "none");
-      $(".login-tip").css("display", "none");
     } else {
       $radio.prop("checked", true);
       $radio.data("checked", true);
       $(".submit-tip").css("display", "block");
-      $(".login-tip").css("display", "block");
     }
   });
   getTreeLink();
