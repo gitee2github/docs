@@ -227,11 +227,6 @@ $(function ($) {
         lang == "zh" ? "请勾选同意隐私声明" : "Agree to Privacy Statement";
       tipShow(tipText, 5);
     } else {
-      let loginData = {
-        community: "OPENEULER",
-        username: "eulerUser",
-        password: $.base64.encode("5Am@OpenEuler#94Community"),
-      };
       let postData = {
         bugDocFragment: questionValue,
         existProblem: checkedArr,
@@ -244,65 +239,46 @@ $(function ($) {
       $(".baseof_mask img").css("display", "inline-block");
       $.ajax({
         type: "POST",
-        url: "https://omapi.osinfra.cn/token/apply",
-        data: JSON.stringify(loginData),
+        url: `/omapi/add/bugquestionnaire?community=openeuler&lang=${lang}`,
+        data: JSON.stringify(postData),
         contentType: "application/json; charset=utf-8",
         datatype: "json",
         success: function (data) {
-          let token = JSON.parse(data).token;
-          $.ajax({
-            type: "POST",
-            // url: `/omapi-test/add/bugquestionnaire?community=openeuler&lang=${lang}`,
-            url: `/omapi/add/bugquestionnaire?community=openeuler&lang=${lang}`,
-            data: JSON.stringify(postData),
-            contentType: "application/json; charset=utf-8",
-            datatype: "json",
-            headers: {
-              token: token,
-            },
-            success: function (data) {
-              postData.link = window.location.href;
-              let body = encodeURIComponent(issueTemplate(postData));
-              try {
-                if (JSON.parse(data).code === 200) {
-                  function openUrl(url = "#") {
-                    let tempALink = document.createElement("a");
-                    tempALink.setAttribute("target", "_blank");
-                    tempALink.setAttribute("id", "openWin");
-                    tempALink.setAttribute("href", url);
-                    document.body.appendChild(tempALink);
-                    document.getElementById("openWin").click();
-                    document.body.removeChild(tempALink);
-                  }
-                  if (submitType === "issue") {
-                    openUrl(
-                      `https://gitee.com/openeuler/docs/issues/new?issue%5Bassignee_id%5D=0&issue%5Bmilestone_id%5D=0&title=有奖捉虫&description=${body}`
-                    );
-                  } else {
-                    openUrl(
-                      `https://gitee.com/-/ide/project/openeuler/docs/edit/stable2-${version}/-/docs/${lang}/docs/${path}?search=${first}&title=文档捉虫-openEuler ${version}-${title}&description=${feedback}&message=${feedback}&label_names=文档捉虫`
-                    );
-                  }
-                } else {
-                  console.error(JSON.parse(data));
-                }
-              } catch (error) {
-                console.error(error);
+          postData.link = window.location.href;
+          let body = encodeURIComponent(issueTemplate(postData));
+          try {
+            if (JSON.parse(data).code === 200) {
+              function openUrl(url = "#") {
+                let tempALink = document.createElement("a");
+                tempALink.setAttribute("target", "_blank");
+                tempALink.setAttribute("id", "openWin");
+                tempALink.setAttribute("href", url);
+                document.body.appendChild(tempALink);
+                document.getElementById("openWin").click();
+                document.body.removeChild(tempALink);
               }
-              $("#title-evaluate").css("z-index", "1003");
-              $("#title-evaluate img").css("display", "none");
-            },
-            error: function (err) {
-              $("#title-evaluate").css("z-index", "1003");
-              $("#title-evaluate img").css("display", "none");
-              console.error(err);
-            },
-          });
+              if (submitType === "issue") {
+                openUrl(
+                  `https://gitee.com/openeuler/docs/issues/new?issue%5Bassignee_id%5D=0&issue%5Bmilestone_id%5D=0&title=有奖捉虫&description=${body}`
+                );
+              } else {
+                openUrl(
+                  `https://gitee.com/-/ide/project/openeuler/docs/edit/stable2-${version}/-/docs/${lang}/docs/${path}?search=${first}&title=文档捉虫-openEuler ${version}-${title}&description=${feedback}&message=${feedback}&label_names=文档捉虫`
+                );
+              }
+            } else {
+              console.error(JSON.parse(data));
+            }
+          } catch (error) {
+            console.error(error);
+          }
+          $("#title-evaluate").css("z-index", "1003");
+          $("#title-evaluate img").css("display", "none");
         },
         error: function (err) {
           $("#title-evaluate").css("z-index", "1003");
           $("#title-evaluate img").css("display", "none");
-          console.error(JSON.parse(err));
+          console.error(err);
         },
       });
     }
