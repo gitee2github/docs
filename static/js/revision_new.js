@@ -176,18 +176,18 @@ $(function ($) {
     const targetNode = $("#docstreeview")[0];
     targetNode.addEventListener("DOMSubtreeModified", addNavTitle, false);
     // 给较长的导航栏文字增加title end
+    // 控制左侧导航栏滚动
+    $(document).ready(function () {
+      const firstNavTop = $("#docstreeview>ul>li:nth-of-type(1)").offset().top;
+      const checkedTop = $(".jstree-clicked").offset().top;
+      $("#docstreeview")
+        .stop()
+        .animate(
+          {
+            scrollTop: checkedTop - firstNavTop,
+          },
+          500
+        );
+    });
   });
 });
-// 控制左侧导航栏滚动
-window.onload = function () {
-  const firstNavTop = $("#docstreeview>ul>li:nth-of-type(1)").offset().top;
-  const checkedTop = $(".jstree-clicked").offset().top;
-  $("#docstreeview")
-    .stop()
-    .animate(
-      {
-        scrollTop: checkedTop - firstNavTop,
-      },
-      500
-    );
-};
