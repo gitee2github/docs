@@ -30,7 +30,7 @@ virsh vol-create-as --pool vmPool --name node3.img --capacity 300G --allocation 
 
 ## Enabling Firewall Ports
 
-**Method 1**
+### Method 1
 
 1. Query a port.
 
@@ -49,7 +49,7 @@ virsh vol-create-as --pool vmPool --name node3.img --capacity 300G --allocation 
    firewall-cmd --zone=public --add-port=5905/tcp
    ```
 
-**Method 2**
+### Method 2
 
 Disable the firewall.
 
