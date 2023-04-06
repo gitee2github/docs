@@ -127,7 +127,7 @@
 <td>2023-03-30</td>
 <td>第五次正式发布。
     <li>刷新系统升级。</li>
-    <li>新增配置生成秘钥、配置代理、回退一致性、安装操作系统数据库支持包等章节。</li>
+    <li>新增配置生成秘钥、配置代理、回退一致性、上传操作系统数据库支持包等章节。</li>
 </td>
 </tr>
 <tr id="row17948128462"><td class="cellrowborder" valign="top" width="20.72%" headers="mcps1.1.4.1.1 "><p id="p8942121466"><a name="p8942121466"></a><a name="p8942121466"></a>04</p>
@@ -733,7 +733,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
     </table>
 
     >![](public_sys-resources/icon-note.gif) **说明：** 
-    >x2openEuler工具默认支持源操作系统版本 CentOS 7.6，目标操作系统版本 openEuler 20.03-LTS-SP1，可通过[安装操作系统支持包](安装操作系统数据库支持包.md)支持更多操作系统。
+    >x2openEuler工具默认支持源操作系统版本 CentOS 7.6，目标操作系统版本 openEuler 20.03-LTS-SP1，可通过[上传操作系统支持包](#updateosdatabase)支持更多操作系统。
 
 
 #### 硬件要求
@@ -814,9 +814,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
 使用软件包安装/升级之前，也需要按上述过程先验证软件包的数字签名，确保软件包未被篡改。
 
-运营商客户请访问：[http://support.huawei.com/carrier/digitalSignatureAction](http://support.huawei.com/carrier/digitalSignatureAction)
+运营商客户请访问：[PGP Verfy](https://support.huawei.com/carrier/navi?coltype=software#col=software&detailId=PBI1-253374093&path=PBI1-253383977/PBI1-23710112/PBI1-21431666/PBI1-253386765/PBI1-22562161)
 
-企业客户请访问：[https://support.huawei.com/enterprise/zh/tool/pgp-verify-TL1000000054](https://support.huawei.com/enterprise/zh/tool/pgp-verify-TL1000000054)
+企业客户请访问：[PGP Verfy](https://support.huawei.com/enterprise/zh/tool/pgp-verify-TL1000000054)
 
 ### 安装
 
@@ -897,7 +897,8 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 5.  工具包安装成功后，执行以下命令启动web服务。
 
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
-    >如web服务受SELinux策略无法正常运行，请更改SELinux策略或[关闭SELinux](#关闭selinux)。
+    >- 如web服务受SELinux策略无法正常运行，请更改SELinux策略或[关闭SELinux](#关闭selinux)。
+    >- 如web服务需停止或重启请参考[启动/停止/重启服务](#启动停止重启服务)
 
     ```
     cd /usr/local/x2openEuler/portal/service
@@ -1079,12 +1080,12 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
         </tr>
         <tr id="row1647714127452"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p147771215454"><a name="p147771215454"></a><a name="p147771215454"></a>源操作系统版本</p>
         </td>
-        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p14774121459"><a name="p14774121459"></a><a name="p14774121459"></a>待升级节点的操作系统，默认为CentOS 7.6，可通过<a href="#installosdatabase">安装操作系统支持包</a>支持更多操作系统。</p>
+        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p14774121459"><a name="p14774121459"></a><a name="p14774121459"></a>待升级节点的操作系统，默认为CentOS 7.6，可通过<a href="#updateosdatabase">上传操作系统支持包</a>支持更多操作系统。</p>
         </td>
         </tr>
         <tr id="row687112217459"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p1687110228458"><a name="p1687110228458"></a><a name="p1687110228458"></a>目标操作系统版本</p>
         </td>
-        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p18871152244517"><a name="p18871152244517"></a><a name="p18871152244517"></a>待升级节点进行升级的目标操作系统，默认为openEuler 20.03-LTS-SP1，可通过<a href="#installosdatabase">安装操作系统支持包</a>支持更多操作系统。</p>
+        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p18871152244517"><a name="p18871152244517"></a><a name="p18871152244517"></a>待升级节点进行升级的目标操作系统，默认为openEuler 20.03-LTS-SP1，可通过<a href="#updateosdatabase">上传操作系统支持包</a>支持更多操作系统。</p>
         </td>
         </tr>
         <tr id="row1581583719460"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p78151373465"><a name="p78151373465"></a><a name="p78151373465"></a>repo源配置</p>
@@ -1510,11 +1511,11 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
         </tr>
         <tr id="row1647714127452"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p147771215454"><a name="p147771215454"></a><a name="p147771215454"></a>源操作系统版本</p>
         </td>
-        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p14774121459"><a name="p14774121459"></a><a name="p14774121459"></a>待升级节点的操作系统，默认为CentOS 7.6，可通过<a href="#installosdatabase">安装操作系统支持包</a>支持更多操作系统。
+        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p14774121459"><a name="p14774121459"></a><a name="p14774121459"></a>待升级节点的操作系统，默认为CentOS 7.6，可通过<a href="#updateosdatabase">上传操作系统支持包</a>支持更多操作系统。
         </tr>
         <tr id="row687112217459"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p1687110228458"><a name="p1687110228458"></a><a name="p1687110228458"></a>目标操作系统版本</p>
         </td>
-        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p18871152244517"><a name="p18871152244517"></a><a name="p18871152244517"></a>待升级节点进行升级的目标操作系统，默认为openEuler 20.03-LTS-SP1，可通过<a href="#installosdatabase">安装操作系统支持包</a>支持更多操作系统。
+        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p18871152244517"><a name="p18871152244517"></a><a name="p18871152244517"></a>待升级节点进行升级的目标操作系统，默认为openEuler 20.03-LTS-SP1，可通过<a href="#updateosdatabase">上传操作系统支持包</a>支持更多操作系统。
         </td>
         </tr>
         <tr id="row1581583719460"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p78151373465"><a name="p78151373465"></a><a name="p78151373465"></a>repo源配置</p>
@@ -1794,7 +1795,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
     </tr>
     <tr id="row5441324204412"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p544152444410"><a name="p544152444410"></a><a name="p544152444410"></a>源操作系统版本</p>
     </td>
-    <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p12441182416442"><a name="p12441182416442"></a><a name="p12441182416442"></a>待升级节点的操作系统，默认为CentOS 7.6，可通过<a href="#installosdatabase">安装操作系统支持包</a>支持更多操作系统。
+    <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p12441182416442"><a name="p12441182416442"></a><a name="p12441182416442"></a>待升级节点的操作系统，默认为CentOS 7.6，可通过<a href="#updateosdatabase">上传操作系统支持包</a>支持更多操作系统。
     </td>
     </tr>
     <tr id="row1944211248448"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p11441824134415"><a name="p11441824134415"></a><a name="p11441824134415"></a>目标节点IP</p>
@@ -1830,7 +1831,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
     </tr>
     <tr id="row544612404419"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p1444672417447"><a name="p1444672417447"></a><a name="p1444672417447"></a>目标操作系统版本</p>
     </td>
-    <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p2446624194417"><a name="p2446624194417"></a><a name="p2446624194417"></a>目标操作系统默认为openEuler 20.03-LTS-SP1，可通过<a href="#installosdatabase">安装操作系统支持包</a>支持更多操作系统。</p>
+    <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p2446624194417"><a name="p2446624194417"></a><a name="p2446624194417"></a>目标操作系统默认为openEuler 20.03-LTS-SP1，可通过<a href="#updateosdatabase">上传操作系统支持包</a>支持更多操作系统。</p>
     </td>
     </tr>
     </tbody>
@@ -2866,7 +2867,7 @@ x2openEuler -v
 7.  在x2openEuler工具进行“批量导入”或“添加节点”时，选择“认证方式”为“秘钥认证”。
 
 
-### <span id="installosdatabase">安装操作系统数据库支持包</span>
+### <span id="updateosdatabase">上传操作系统数据库支持包</span>
 
 #### 前提条件
 
@@ -2878,42 +2879,49 @@ x2openEuler -v
 
 1.  访问[openEuler 扩展仓库](https://repo.oepkgs.net/openEuler/rpm/)获取操作系统数据库支持包到本地。
 
-    本文以安装CentOS 7.9升级到openEuler 20.03-LTS-SP1所需的操作系统数据库支持包为例为例.
+    本文以安装CentOS 7.3升级到openEuler 22.03-LTS所需的操作系统数据库支持包为例。
 
     1.  进入以下路径。
 
         ```
-        openEuler-20.03-LTS-SP1/contrib/x2openEuler/aarch64/Packages/
+        openEuler-22.03-LTS/contrib/x2openEuler/noarch/Packages/
         ```
 
         >![](public_sys-resources/icon-note.gif) **说明：** 
         >其中，
-        >-   openEuler-20.03-LTS-SP1为升级目标操作系统。
-        >-   aarch64为操作系统架构。
+        >-   openEuler-22.03-LTS为升级目标操作系统。
+        >-   noarch为操作系统架构,可根据硬件环境平台选择aarch或x86_64目录。
 
     2.  获取以下操作系统包。
+        **表 29** 操作系统包列表
+        <a name="table29"></a>
+        <table>
+        <tr>
+            <td><b>操作系统包</b></td>
+            <td><b>描述</b></td>
+        </tr>
+        <tr>
+            <td> x2openEuler-database-centos7.3-openEuler22.03-LTS-2.0.0.630-1.noarch.rpm </td>
+            <td> 源操作系统升级至目标操作系统的数据库支持包。 </td>
+        </tr>
+        <tr>
+            <td> x2openEuler-database-centos7.3-2.0.0.630-1.noarch </td>
+            <td> 源操作系统数据库支持包。 </td>
+        </tr>
+        <tr>
+            <td> x2openEuler-database-openEuler22.03-LTS-2.0.0.630-1.noarch </td>
+            <td> 目标操作系统数据库支持包。 </td>
+        </tr>
+        </table>
+        
 
-        ```
-        x2openEuler-database-centos7.9-openEuler20.03-LTS-SP1-2.0.0.630-1.noarch.rpm
-        x2openEuler-database-centos7.9-2.0.0.630-1.noarch.rpm
-        ```
-
-2.  使用SSH工具远程登录x2openEuler部署环境，上传操作系统数据库支持包，并进入Linux操作系统命令行界面。
-3.  进入操作系统数据库支持包上传目录，执行以下命令进行安装。
-
+2.  使用SSH工具远程登录x2openEuler部署环境，上传操作系统数据库支持包至以下路径。
     ```
-    rpm -ivh x2openEuler-database-centos7.9-2.0.0.630-1.noarch.rpm
-    rpm -ivh x2openEuler-database-centos7.9-openEuler20.03-LTS-SP1-2.0.0.630-1.noarch.rpm
+    /etc/x2openEuler/rpms/databases
     ```
-
-4.  执行以下命令重启服务。
-
-    ```
-    systemctl restart gunicorn_x2openEuler.service
-    systemctl restart nginx_x2openEuler.service
-    ```
-
-5.  登录x2openEuler工具Web页面，在创建任务时，“源操作系统版本”选项中，手动输入“centos7.9”即可。
+     >![](public_sys-resources/icon-note.gif) **说明：** 
+     >工具默认支持源操作系统CentOS7.6 和 目标操作系统 openEuler 20.03-LTS-SP1，因此当需要升级其它系统至openEuler 20.03-LTS-SP1时，无需再次上传目标操作系统数据库支持包。
+3.  登录x2openEuler工具Web页面，在创建任务时，“源操作系统版本”选项中，选择“centos7.3”，目标操作系统选择“openEuler 22.03-LTS”即可。
 
 
 ### 反馈建议
@@ -3168,9 +3176,9 @@ virsh edit
 >![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
 >由于root用户拥有最高权限，直接使用root用户登录服务器可能会存在安全风险。您可以通过配置禁止root用户SSH登录的选项，来提升系统安全性。具体配置如下：先以普通用户登录服务器，切换至root登录后检查/etc/ssh/sshd\_config配置项PermitRootlogin，如果显示no，说明禁止了root用户登录；如果显示yes，则需要将配置项PermitRootlogin设置为no。
 
-**表 29**  账户清单
+**表 30**  账户清单
 
-<a id="table29"></a>
+<a id="table30"></a>
 <table><thead align="left"><tr id="row4649184025811"><th class="cellrowborder" valign="top" width="13.459999999999999%" id="mcps1.2.6.1.1"><p id="p564924025815"><a name="p564924025815"></a><a name="p564924025815"></a>应用环境</p>
 </th>
 <th class="cellrowborder" valign="top" width="17.93%" id="mcps1.2.6.1.2"><p id="p1364914075811"><a name="p1364914075811"></a><a name="p1364914075811"></a>用户名/用户类型</p>
@@ -3263,9 +3271,9 @@ virsh edit
 
 **运行环境数据使用场景说明<a name="section179976012566"></a>**
 
-**表 30**  数据使用信息说明
+**表 31**  数据使用信息说明
 
-<a id="table28"></a>
+<a id="table31"></a>
 <table><thead align="left"><tr id="row19582171535915"><th class="cellrowborder" valign="top" width="14.6985301469853%" id="mcps1.2.8.1.1"><p id="p14582121518596"><a name="p14582121518596"></a><a name="p14582121518596"></a>收集信息的场景或功能</p>
 </th>
 <th class="cellrowborder" valign="top" width="31.096890310968906%" id="mcps1.2.8.1.2"><p id="p10846103513116"><a name="p10846103513116"></a><a name="p10846103513116"></a>收集信息使用的命令或文件</p>
@@ -3311,9 +3319,9 @@ virsh edit
 
 ### 相关链接
 
-**表 31**  相关链接
+**表 32**  相关链接
 
-<a id="table31"></a>
+<a id="table32"></a>
 <table><thead align="left"><tr id="row1856304918547"><th class="cellrowborder" valign="top" width="36.19%" id="mcps1.2.3.1.1"><p id="p9563154911541"><a name="p9563154911541"></a><a name="p9563154911541"></a>相关内容</p>
 </th>
 <th class="cellrowborder" valign="top" width="63.81%" id="mcps1.2.3.1.2"><p id="p356384917540"><a name="p356384917540"></a><a name="p356384917540"></a>网址</p>
