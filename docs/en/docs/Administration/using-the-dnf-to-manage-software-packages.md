@@ -1,13 +1,14 @@
-# Using the DNF to Manage Software Packages
+# Using DNF to Manage Software Packages
 
 DNF is a Linux software package management tool used to manage RPM software packages. The DNF can query software package information, obtain software packages from a specified software library, automatically process dependencies to install or uninstall software packages, and update the system to the latest available version.
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
->-   DNF is fully compatible with YUM and provides YUM-compatible command lines and APIs for extensions and plug-ins.  
->-   You must have the administrator rights to use the DNF. All commands in this chapter must be executed by the administrator.  
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
+>
+>- DNF is fully compatible with YUM and provides YUM-compatible command lines and APIs for extensions and plug-ins.  
+>- You must have the administrator rights to use the DNF. All commands in this chapter must be executed by the administrator.  
 <!-- TOC -->
 
-- [Using the DNF to Manage Software Packages](#using-the-dnf-to-manage-software-packages)
+- [Using DNF to Manage Software Packages](#using-dnf-to-manage-software-packages)
     - [Configuring the DNF](#configuring-the-dnf)
         - [The DNF Configuration File](#the-dnf-configuration-file)
         - [Creating a Local Software Repository](#creating-a-local-software-repository)
@@ -21,7 +22,6 @@ DNF is a Linux software package management tool used to manage RPM software pack
         - [Deleting a Software Package](#deleting-a-software-package)
     - [Managing Software Package Groups](#managing-software-package-groups)
         - [Listing Software Package Groups](#listing-software-package-groups)
-        - [Displaying the Software Package Group Information](#displaying-the-software-package-group-information)
         - [Installation Software Package Group](#installation-software-package-group)
         - [Deleting a Software Package Group](#deleting-a-software-package-group)
     - [Check and Update](#check-and-update)
@@ -33,24 +33,23 @@ DNF is a Linux software package management tool used to manage RPM software pack
 
 ## Configuring the DNF
 
-
-
 ### The DNF Configuration File
 
 The main configuration file of the DNF is /etc/dnf/dnf.conf which consists of two parts:
 
--   The  **main**  part in the file stores the global settings of the DNF.
+- The  **main**  part in the file stores the global settings of the DNF.
 
--   The **repository** part in the file stores the settings of the software source. You can add one or more  **repository**  sections to the file.
+- The **repository** part in the file stores the settings of the software source. You can add one or more  **repository**  sections to the file.
 
 In addition, the /etc/yum.repos.d directory stores one or more repo source files, which define different repositories.
 
 You can configure a software source by either directly configuring the /etc/dnf/dnf.conf file or configuring the .repo file in the /etc/yum.repos.d directory.
 
 #### Configuring the main Part
+
 The /etc/dnf/dnf.conf file contains the  **main**  part. The following is an example of the configuration file:
 
-```
+```conf
 [main]
 gpgcheck=1
 installonly_limit=3
@@ -120,22 +119,23 @@ Common options are as follows:
 
 The repository part allows you to customize openEuler software source repositories. The name of each repository must be unique. Otherwise, conflicts may occur. You can configure a software source by either directly configuring the /etc/dnf/dnf.conf file or configuring the .repo file in the /etc/yum.repos.d directory.
 
--   Configuring the /etc/dnf/dnf.conf file
+- Configuring the /etc/dnf/dnf.conf file
 
     The following is a minimum configuration example of the \[repository\] section:
 
-    ```
+    ```conf
     [repository]
     name=repository_name
     baseurl=repository_url
     ```
 
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**   
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
     >openEuler provides an online image source at  [https://repo.openeuler.org/](https://repo.openeuler.org/). For example, if the openEuler 21.03 version is aarch64, the  **baseurl**  can be set to  [https://repo.openeuler.org/openEuler-21.03/OS/aarch64/](https://repo.openeuler.org/openEuler-21.03/OS/aarch64/).  
 
     Common options are as follows:
 
-    **Table  2**  repository parameter description <a name="en-us_topic_0151921080_t2df9dceb0ff64b2f8db8ec5cd779792a"></a>
+    **Table  2**  repository parameter description
+    <a name="en-us_topic_0151921080_t7c83ace02ab94e9986c0684f417e3436"></a>
     <table><thead align="left"><tr id="en-us_topic_0151921080_r9162be1b9c5b451f8a7ff1466f5b8430"><th class="cellrowborder" valign="top" width="31.580000000000002%" id="mcps1.2.3.1.1"><p id="en-us_topic_0151921080_af95a9e18156646249707de3f94ac1b3c"><a name="en-us_topic_0151921080_af95a9e18156646249707de3f94ac1b3c"></a><a name="en-us_topic_0151921080_af95a9e18156646249707de3f94ac1b3c"></a>Parameter</p>
     </th>
     <th class="cellrowborder" valign="top" width="68.42%" id="mcps1.2.3.1.2"><p id="en-us_topic_0151921080_a8cc2e976bc794e86a279d3bae8f901c4"><a name="en-us_topic_0151921080_a8cc2e976bc794e86a279d3bae8f901c4"></a><a name="en-us_topic_0151921080_a8cc2e976bc794e86a279d3bae8f901c4"></a>Description</p>
@@ -156,17 +156,16 @@ The repository part allows you to customize openEuler software source repositori
     </tbody>
     </table>
 
+- Configuring the .repo file in the /etc/yum.repos.d directory
+    openEuler provides multiple repo sources for users online. For details about the repo sources, see [System Installation](./../Releasenotes/installing-the-os.md).
 
--   Configuring the .repo file in the /etc/yum.repos.d directory
-    openEuler provides multiple repo sources for users online. For details about the repo sources, see [System Installation](./../Releasenotes/installing-the-os.md.html).
-    
     For example, run the following command as the **root** user to add the openeuler repo source to the openEuler.repo file.
-    
+
+    ```shell
+    vi /etc/yum.repos.d/openEuler.repo
     ```
-    # vi /etc/yum.repos.d/openEuler.repo
-    ```
-    
-    ```
+
+    ```conf
     [OS]
     name=openEuler-$releasever - OS
     baseurl=https://repo.openeuler.org/openEuler-21.09/OS/$basearch/
@@ -174,92 +173,94 @@ The repository part allows you to customize openEuler software source repositori
     gpgcheck=1
     gpgkey=https://repo.openeuler.org/openEuler-21.09/OS/$basearch/RPM-GPG-KEY-openEuler
     ```
-    
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**    
+
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
+    >
     > - **enabled** indicates whether to enable the software source repository. The value can be **1** or **0**. The default value is **1**, indicating that the software source repository is enabled.
     > - **gpgkey** is the public key used to verify the signature.
 
-
 #### Displays the Current Configuration
--   To display the current configuration information, run the following command:
 
-    ```
+- To display the current configuration information, run the following command:
+
+    ```shell
     dnf config-manager --dump
     ```
 
--   To display the configuration of a software source, query the repo id:
+- To display the configuration of a software source, query the repo id:
 
-    ```
+    ```shell
     dnf repolist
     ```
 
     Run the following command to display the software source configuration of the corresponding ID. In the command,  _repository_  indicates the repository ID.
 
-    ```
+    ```shell
     dnf config-manager --dump repository
     ```
 
--   You can also use a global regular expression to display all matching configurations.
+- You can also use a global regular expression to display all matching configurations.
 
-    ```
+    ```shell
     dnf config-manager --dump glob_expression
     ```
-
 
 ### Creating a Local Software Repository
 
 To create a local repository of software sources, perform the following steps.
 
-1.  Install the createrepo software package. Run the following command as the root user:
+1. Install the createrepo software package. Run the following command as the root user:
 
-    ```
+    ```shell
     dnf install createrepo
     ```
 
-2.  Copy the required software packages to a directory, for example, /mnt/local\_repo/.
-3.  Run the following command to create a software source:
+2. Copy the required software packages to a directory, for example, /mnt/local\_repo/.
+3. Run the following command to create a software source:
 
-    ```
+    ```shell
     createrepo /mnt/local_repo
     ```
-
 
 ### Adding, Enabling, and Disabling Software Sources
 
 This section describes how to add, enable, and disable the software source repository by running the  **dnf config-manager**  command.
 
 #### Adding Software Source
+
 To define a new software repository, you can add the repository part to the /etc/dnf/dnf.conf file or add the .repo file to the /etc/yum.repos.d/ directory. You are advised to add the .repo file. Each software source has its own .repo file. The following describes how to add the .repo file.
 
-To add such a source to your system, run the following command as the user  **root**. After the command is executed, the corresponding .repo file is generated in the  **/etc/yum.repos.d/**  directory. In the command,  _repository\_url_  indicates the repo source address. For details, see  [Table 2](#en-us_topic_0151921080_t2df9dceb0ff64b2f8db8ec5cd779792a).
+To add such a source to your system, run the following command as the user  **root**. After the command is executed, the corresponding .repo file is generated in the  **/etc/yum.repos.d/**  directory. In the command,  _repository\_url_  indicates the repo source address. For details, see  [Table 2](#en-us_topic_0151921080_t7c83ace02ab94e9986c0684f417e3436).
 
-```
+```shell
 dnf config-manager --add-repo repository_url
 ```
 
 #### Enabling a Software Repository
+
 To enable the software source, run the following command as the user  **root**. In the command,  _repository_  indicates the repository ID in the new .repo file. You can run the  **dnf repolist**  command to query the repository ID.
 
-```
+```shell
 dnf config-manager --set-enable repository
 ```
 
 You can also use a global regular expression to enable all matching software sources. In the command,  _glob\_expression_  indicates the regular expression used to match multiple repository IDs.
 
-```
+```shell
 dnf config-manager --set-enable glob_expression
 ```
 
 #### Disabling a Software Repository
+
 To disable a software source, run the following command as the user  **root**:
 
-```
+```shell
 dnf config-manager --set-disable repository
 ```
 
 You can also use a global regular expression to disable all matching software sources.
 
-```
+```shell
 dnf config-manager --set-disable glob_expression
 ```
 
@@ -268,15 +269,16 @@ dnf config-manager --set-disable glob_expression
 The DNF enables you to query, install, and delete software packages.
 
 ### Searching for Software Packages
+
 You can search for the required RPM package by its name, abbreviation, or description. The command is as follows:
 
-```
+```shell
 dnf search term
 ```
 
 The following is an example:
 
-```
+```shell
 $   dnf search httpd
 ========================================== N/S matched: httpd ==========================================
 httpd.aarch64 : Apache HTTP Server
@@ -289,36 +291,38 @@ mod_dav_svn.aarch64  : Apache httpd module for Subversion server
 ```
 
 ### Listing Software Packages
+
 To list all installed and available RPM packages in the system, run the following command:
 
-```
+```shell
 dnf list all
 ```
 
 To list a specific RPM package in the system, run the following command:
 
-```
+```shell
 dnf list glob_expression...
 ```
 
 The following is an example:
 
-```
+```shell
 $ dnf list httpd
 Available Packages
 httpd.aarch64              2.4.34-8.h5.oe1           Local
 ```
 
 ### Displaying RPM Package Information
+
 To view information about one or more RPM packages, run the following command:
 
-```
+```shell
 dnf info package_name...
 ```
 
 The following is a command example:
 
-```
+```shell
 $ dnf info httpd
 Available Packages
 Name        : httpd
@@ -335,57 +339,60 @@ Description : The Apache HTTP Server is a powerful, efficient, and extensible
 ```
 
 ### Installing an RPM Package
+
 To install a software package and all its dependencies that have not been installed, run the following command as the user  **root**:
 
-```
+```shell
 dnf install package_name
 ```
 
 You can also add software package names to install multiple software packages at the same time. Add the  **strict=False**  parameter to the /etc/dnf/dnf.conf configuration file and run the  **dnf**  command to add --setopt=strict=0. Run the following command as the user  **root**:
 
-```
+```shell
 dnf install package_name package_name... --setopt=strict=0
 ```
 
 The following is an example:
 
-```
-# dnf install httpd
+```shell
+dnf install httpd
 ```
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
->If the RPM package fails to be installed, see  [Installation Failure Caused by Software Package Conflict, File Conflict, or Missing Software Package](./faqs.html#installation-failure-caused-by-software-package-conflict-file-conflict-or-missing-software-package).  
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
+>If the RPM package fails to be installed, see  [Installation Failure Caused by Software Package Conflict, File Conflict, or Missing Software Package](./faqs.md#installation-failure-caused-by-software-package-conflict-file-conflict-or-missing-software-package).  
 
 ### Downloading Software Packages
+
 To download the software package using the DNF, run the following command as the user  **root**:
 
-```
+```shell
 dnf download package_name
 ```
 
 If you need to download the dependency packages that are not installed, add  **\-\-resolve**. The command is as follows:
 
-```
+```shell
 dnf download --resolve package_name
 ```
 
 The following is an example:
 
-```
-# dnf download --resolve httpd
+```shell
+dnf download --resolve httpd
 ```
 
 ### Deleting a Software Package
+
 To uninstall the software package and related dependent software packages, run the following command as the user  **root**:
 
-```
+```shell
 dnf remove package_name...
 ```
 
 The following is an example:
 
-```
-# dnf remove totem
+```shell
+dnf remove totem
 ```
 
 ## Managing Software Package Groups
@@ -393,30 +400,31 @@ The following is an example:
 A software package set is a group of software packages that serve a common purpose, for example, a system tool set. You can use the DNF to install or delete software package groups, improving operation efficiency.
 
 ### Listing Software Package Groups
+
 The summary parameter can be used to list the number of all installed software package groups, available groups, and available environment groups in the system. The command is as follows:
 
-```
+```shell
 dnf groups summary
 ```
 
 The following is an example:
 
-```
-# dnf groups summary
+```shell
+dnf groups summary
 Last metadata expiration check: 0:11:56 ago on Sat 17 Aug 2019 07:45:14 PM CST.
 Available Groups: 8
 ```
 
 To list all software package groups and their group IDs, run the following command:
 
-```
+```shell
 dnf group list
 ```
 
 The following is an example:
 
-```
-# dnf group list
+```shell
+$ dnf group list
 Last metadata expiration check: 0:10:32 ago on Sat 17 Aug 2019 07:45:14 PM CST.
 Available Environment Groups:
    Minimal Install
@@ -432,19 +440,20 @@ Available Groups:
    Security Tools
    System Tools
 
-```
+```shell
 
 ### Displaying the Software Package Group Information
+
 To list the mandatory and optional packages contained in a software package group, run the following command:
 
-```
+```shell
 dnf group info glob_expression...
 ```
 
 The following is an example of displaying the Development Tools information:
 
-```
-# dnf group info "Development Tools"
+```shell
+$ dnf group info "Development Tools"
 Last metadata expiration check: 0:14:54 ago on Wed 05 Jun 2019 08:38:02 PM CST.
 
 Group: Development Tools
@@ -462,47 +471,49 @@ Group: Development Tools
 ```
 
 ### Installation Software Package Group
+
 Each software package group has its own name and corresponding group ID. You can use the software package group name or its ID to install the software package.
 
 To install a software package group, run the following command as the user  **root**:
 
-```
+```shell
 dnf group install group_name
 ```
 
-```
+```shell
 dnf group install groupid
 ```
 
 For example, to install the software package group of Development Tools, run the following command:
 
-```
-# dnf group install "Development Tools"
+```shell
+dnf group install "Development Tools"
 ```
 
-```
-# dnf group install development
+```shell
+dnf group install development
 ```
 
 ### Deleting a Software Package Group
+
 To uninstall a software package group, you can use the group name or ID to run the following command as the user  **root**:
 
-```
+```shell
 dnf group remove group_name
 ```
 
-```
+```shell
 dnf group remove groupid
 ```
 
 For example, to delete the software package group of Development Tools, run the following command:
 
-```
-# dnf group remove "Development Tools"
+```shell
+dnf group remove "Development Tools"
 ```
 
-```
-# dnf group remove development
+```shell
+dnf group remove development
 ```
 
 ## Check and Update
@@ -510,16 +521,17 @@ For example, to delete the software package group of Development Tools, run the 
 You can use the DNF to check whether any software package in your system needs to be updated. You can use the DNF to list the software packages to be updated. You can choose to update all packages at a time or update only specified packages.
 
 ### Checking for Update
+
 To list all currently available updates, run the following command:
 
-```
+```shell
 dnf check-update
 ```
 
 The following is an example:
 
-```
-# dnf check-update
+```shell
+$ dnf check-update
 Last metadata expiration check: 0:02:10 ago on Sun 01 Sep 2019 11:28:07 PM  CST.
 
 anaconda-core.aarch64       19.31.123-1.14             updates
@@ -535,16 +547,17 @@ bind-utils.aarch64          32:9.9.4-29.3              updates
 ```
 
 ### Upgrade
+
 To upgrade a single software package, run the following command as the user  **root**:
 
-```
+```shell
 dnf update package_name
 ```
 
 For example, to upgrade the RPM package, run the following command:
 
-```
-# dnf update anaconda-gui.aarch64
+```shell
+$ dnf update anaconda-gui.aarch64
 Last metadata expiration check: 0:02:10 ago on Sun 01 Sep 2019 11:30:27 PM  CST.
 Dependencies Resolved
 ================================================================================
@@ -567,13 +580,14 @@ Is this ok [y/N]:
 
 Similarly, to upgrade a software package group, run the following command as the user  **root**:
 
-```
+```shell
 dnf group update group_name
 ```
 
 ### Updating All Packages and Their Dependencies
+
 To update all packages and their dependencies, run the following command as the user  **root**:
 
-```
+```shell
 dnf update
 ```

@@ -2,7 +2,6 @@
 
 **Note: Manual deployment applies only to experimental and learning environments and is not intended for commercial environments.**
 
-
 This chapter describes how to deploy a Kubernetes cluster.
 
 ## Environment
@@ -17,4 +16,3 @@ Deploy based on the preceding [VM installation](./preparing-VMs.md) and obtain t
 | k8snode1   | 52:54:00:00:00:83 | 192.168.122.157/24 |
 | k8snode2   | 52:54:00:00:00:84 | 192.168.122.158/24 |
 | k8snode3   | 52:54:00:00:00:85 | 192.168.122.159/24 |
-
