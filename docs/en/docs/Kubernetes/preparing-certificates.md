@@ -175,7 +175,7 @@ Compile the CSR configuration of kube-controller-manager:
 Generate a certificate:
 
 ```bash
-cfssl gencert -ca=../ca/ca.pem -ca-key=../ca/ca-key.pem -config=../ca/ca-config.json-profile=kubernetes kube-controller-manager-csr.json | cfssljson -bare kube-controller-manager
+cfssl gencert -ca=../ca/ca.pem -ca-key=../ca/ca-key.pem -config=../ca/ca-config.json -profile=kubernetes kube-controller-manager-csr.json | cfssljson -bare kube-controller-manager
 ```
 
 The result is as follows:
@@ -404,7 +404,7 @@ Generate a certificate:
 cfssl gencert -ca=../ca/ca.pem -ca-key=../ca/ca-key.pem -config=../ca/ca-config.json -hostname=192.168.122.154,192.168.122.155,192.168.122.156,127.0.0.1 -profile=kubernetes etcd-csr.json | cfssljson -bare etcd
 ```
 
-* Note: Assume that the IP address of the ETCD cluster is 192.168.122.154,192.168.122.155,192.168.122.156*
+- Note: Assume that the IP address of the ETCD cluster is 192.168.122.154,192.168.122.155,192.168.122.156*
 
 The result is as follows:
 
