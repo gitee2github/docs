@@ -2,7 +2,7 @@
 
 ## Release Files<a name="section19865103114280"></a>
 
-The following tables list the [openEuler release files](http://repo.openeuler.org/openEuler-20.03-LTS-SP1/), including the [ISO release packages](http://repo.openeuler.org/openEuler-20.03-LTS-SP1/ISO/), [container images](http://repo.openeuler.org/openEuler-20.03-LTS-SP1/docker_img/), [VM images](http://repo.openeuler.org/openEuler-20.03-LTS-SP1/virtual_machine_img/), and [repo sources](http://repo.openeuler.org/openEuler-20.03-LTS-SP1/) used online.
+The openEuler release files include [ISO release package](http://repo.openeuler.org/openEuler-20.03-LTS-SP1/ISO/), [VM images](http://repo.openeuler.org/openEuler-20.03-LTS-SP1/virtual_machine_img/), [container images](http://repo.openeuler.org/openEuler-20.03-LTS-SP1/docker_img/), [embedded images](http://repo.openeuler.org/openEuler-20.03-LTS-SP1/embedded_img/), and [repo sources](http://repo.openeuler.org/openEuler-20.03-LTS-SP1/). [Table 1](#table8396719144315) describes the ISO release packages. [Table 3](#table1276911538154) describes the container images. [Table 5](#table953512211576) describes the repo sources, which are convenient for online use.
 
 **Table 1**  ISO release packages<a name="table8396719144315"></a>
 
@@ -18,7 +18,6 @@ The following tables list the [openEuler release files](http://repo.openeuler.or
 | openEuler-20.03-LTS-SP1-netinst-x86_64-dvd.iso |The openEuler miniaturization ISO files for the x86 architecture. |
 | openEuler-20.03-LTS-SP1-source-dvd.iso | The ISO file that contains all source code software packages of the openEuler community |
 
-
 **Table 2**  VM images<a name="table1995101714610"></a>
 
 |  Name  | Description  |
@@ -26,9 +25,8 @@ The following tables list the [openEuler release files](http://repo.openeuler.or
 | openEuler-20.03-LTS-SP1.aarch64.qcow2.xz | The openEuler VM image for the AArch64 architecture |
 | openEuler-20.03-LTS-SP1.x86_64.qcow2.xz |  The openEuler VM image for the x86 architecture |
 
-> ![](./public_sys-resources/icon-note.gif) **NOTICE：**   
+> ![](./public_sys-resources/icon-note.gif) **NOTICE：**
 > The default password of the root user of the VM image is openEuler12#$. Change the password upon the first login.
-
 
 **Table 3**  Container images<a name="table1276911538154"></a>
 
@@ -36,7 +34,6 @@ The following tables list the [openEuler release files](http://repo.openeuler.or
 | :----  | :----  |
 | openEuler-docker.aarch64.tar.xz | The openEuler container image for the AArch64 architecture |
 | openEuler-docker.x86_64.tar.xz | The openEuler container image for the x86 architecture  |
-
 
 **Table 4**  Repo sources<a name="table953512211576"></a>
 
@@ -77,18 +74,18 @@ The following tables list the [openEuler release files](http://repo.openeuler.or
     <th>Server</th>
     <th>Server Model</th>
     <th>Component</th>
-	<th>Typical Configuration</th>
+ <th>Typical Configuration</th>
   </tr>
   <tr>
     <td rowspan="3">Huawei</td>
     <td rowspan="3">TaiShan 200</td>
     <td rowspan="3">2280 balanced model</td>
-	<td>CPU</td>
-	<td>Kunpeng 920</td>
+ <td>CPU</td>
+ <td>Kunpeng 920</td>
   </tr>
   <tr>
-	<td>Memory</td>
-	<td>32G*4 2933MHz</td>
+ <td>Memory</td>
+ <td>32G*4 2933MHz</td>
   </tr>
   <tr>
     <td>Network</td>
@@ -98,12 +95,12 @@ The following tables list the [openEuler release files](http://repo.openeuler.or
     <td rowspan="3">Huawei</td>
     <td rowspan="3">FusionServer Pro</td>
     <td rowspan="3">2288H V5 rack server</td>
-	<td>CPU</td>
-	<td>Intel(R) Xeon(R) Gold 5118 CPU @ 2.30GHz</td>
+ <td>CPU</td>
+ <td>Intel(R) Xeon(R) Gold 5118 CPU @ 2.30GHz</td>
   </tr>
   <tr>
-	<td>Memory</td>
-	<td>32*4 2400MHz</td>
+ <td>Memory</td>
+ <td>32*4 2400MHz</td>
   </tr>
   <tr>
     <td>Network</td>
@@ -113,16 +110,15 @@ The following tables list the [openEuler release files](http://repo.openeuler.or
     <td rowspan="3">PHYTIUM</td>
     <td rowspan="3">Phytium</td>
     <td rowspan="3">FT-2000+/64</td>
-	<td>CPU</td>
-	<td>FT-2000+/64</td>
+ <td>CPU</td>
+ <td>FT-2000+/64</td>
   </tr>
   <tr>
-	<td>Memory</td>
-	<td>Micron 16G*32</td>
+ <td>Memory</td>
+ <td>Micron 16G*32</td>
   </tr>
   <tr>
     <td>Network</td>
     <td>I350</td>
   </tr>
 </table>
-
