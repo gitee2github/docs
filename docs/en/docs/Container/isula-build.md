@@ -1,47 +1,47 @@
 # Container Image Building
 
 - [Container Image Building](#container-image-building)
-  - [Overview](#overview)
-  - [Installation](#installation)
-    - [Preparations](#preparations)
-      - [Installing isula-build](#installing-isula-build)
-  - [Configuring and Managing the isula-build Service](#configuring-and-managing-the-isula-build-service)
-    - [Configuring the isula-build Service](#configuring-the-isula-build-service)
-    - [Managing the isula-build Service](#managing-the-isula-build-service)
-      - [(Recommended) Using systemd for Management](#recommended-using-systemd-for-management)
-      - [Directly Running isula-builder](#directly-running-isula-builder)
-  - [Usage Guidelines](#usage-guidelines)
-    - [Prerequisites](#prerequisites)
-    - [Overview](#overview-1)
-    - [ctr-img: Container Image Management](#ctr-img-container-image-management)
-      - [build: Container Image Build](#build-container-image-build)
-      - [image: Viewing Local Persistent Build Images](#image-viewing-local-persistent-build-images)
-      - [import: Importing a Basic Container Image](#import-importing-a-basic-container-image)
-      - [load: Importing Cascade Images](#load-importing-cascade-images)
-      - [rm: Deleting a Local Persistent Image](#rm-deleting-a-local-persistent-image)
-      - [save: Exporting Cascade Images](#save-exporting-cascade-images)
-      - [tag: Tagging Local Persistent Images](#tag-tagging-local-persistent-images)
-      - [pull: Pulling an Image To a Local Host](#pull-pulling-an-image-to-a-local-host)
-      - [push: Pushing a Local Image to a Remote Repository](#push-pushing-a-local-image-to-a-remote-repository)
-    - [info: Viewing the Operating Environment and System Information](#info-viewing-the-operating-environment-and-system-information)
-    - [login: Logging In to the Remote Image Repository](#login-logging-in-to-the-remote-image-repository)
-    - [logout: Logging Out of the Remote Image Repository](#logout-logging-out-of-the-remote-image-repository)
-    - [version: Querying the isula-build Version](#version-querying-the-isula-build-version)
-    - [manifest: Manifest List Management](#manifest-manifest-list-management)
-      - [create: Manifest List Creation](#create-manifest-list-creation)
-      - [annotate: Manifest List Update](#annotate-manifest-list-update)
-      - [inspect: Manifest List Inspect](#inspect-manifest-list-inspect)
-      - [push: Manifest List Push to the Remote Repository.](#push-manifest-list-push-to-the-remote-repository)
-  - [Directly Integrating a Container Engine](#directly-integrating-a-container-engine)
-    - [Integration with iSulad](#integration-with-isulad)
-    - [Integration with Docker](#integration-with-docker)
-  - [Precautions](#precautions)
-    - [Constraints or Limitations](#constraints-or-limitations)
-    - [Differences with "docker build"](#differences-with-docker-build)
-  - [Appendix](#appendix)
-    - [Command Line Parameters](#command-line-parameters)
-    - [Communication Matrix](#communication-matrix)
-    - [File and Permission](#file-and-permission)
+    - [Overview](#overview)
+    - [Installation](#installation)
+        - [Preparations](#preparations)
+            - [Installing isula-build](#installing-isula-build)
+    - [Configuring and Managing the isula-build Service](#configuring-and-managing-the-isula-build-service)
+        - [Configuring the isula-build Service](#configuring-the-isula-build-service)
+        - [Managing the isula-build Service](#managing-the-isula-build-service)
+            - [(Recommended) Using systemd for Management](#recommended-using-systemd-for-management)
+            - [Directly Running isula-builder](#directly-running-isula-builder)
+    - [Usage Guidelines](#usage-guidelines)
+        - [Prerequisites](#prerequisites)
+        - [Overview](#overview-1)
+        - [ctr-img: Container Image Management](#ctr-img-container-image-management)
+            - [build: Container Image Build](#build-container-image-build)
+            - [image: Viewing Local Persistent Build Images](#image-viewing-local-persistent-build-images)
+            - [import: Importing a Basic Container Image](#import-importing-a-basic-container-image)
+            - [load: Importing Cascade Images](#load-importing-cascade-images)
+            - [rm: Deleting a Local Persistent Image](#rm-deleting-a-local-persistent-image)
+            - [save: Exporting Cascade Images](#save-exporting-cascade-images)
+            - [tag: Tagging Local Persistent Images](#tag-tagging-local-persistent-images)
+            - [pull: Pulling an Image To a Local Host](#pull-pulling-an-image-to-a-local-host)
+            - [push: Pushing a Local Image to a Remote Repository](#push-pushing-a-local-image-to-a-remote-repository)
+        - [info: Viewing the Operating Environment and System Information](#info-viewing-the-operating-environment-and-system-information)
+        - [login: Logging In to the Remote Image Repository](#login-logging-in-to-the-remote-image-repository)
+        - [logout: Logging Out of the Remote Image Repository](#logout-logging-out-of-the-remote-image-repository)
+        - [version: Querying the isula-build Version](#version-querying-the-isula-build-version)
+        - [manifest: Manifest List Management](#manifest-manifest-list-management)
+            - [create: Manifest List Creation](#create-manifest-list-creation)
+            - [annotate: Manifest List Update](#annotate-manifest-list-update)
+            - [inspect: Manifest List Inspect](#inspect-manifest-list-inspect)
+            - [push: Manifest List Push to the Remote Repository.](#push-manifest-list-push-to-the-remote-repository)
+    - [Directly Integrating a Container Engine](#directly-integrating-a-container-engine)
+        - [Integration with iSulad](#integration-with-isulad)
+        - [Integration with Docker](#integration-with-docker)
+    - [Precautions](#precautions)
+        - [Constraints or Limitations](#constraints-or-limitations)
+        - [Differences with "docker build"](#differences-with-docker-build)
+    - [Appendix](#appendix)
+        - [Command Line Parameters](#command-line-parameters)
+        - [Communication Matrix](#communication-matrix)
+        - [File and Permission](#file-and-permission)
 
 ## Overview
 
@@ -53,7 +53,7 @@ The isula-build uses the server/client mode. The isula-build functions as a clie
 
 >![](./public_sys-resources/icon-note.gif) **Note:**
 >
-> - Currently, isula-build supports OCI image format ([OCI Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md)) and Docker image format ([Image Manifest Version 2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/)). Use the `export ISULABUILD_CLI_EXPERIMENTAL=enabled` command to enable the experimental feature for supporting OCI image format. When the experimental feature is disabled, isula-build will take Docker image format as the default image format. Otherwise, isula-build will take OCI image format as the default image format.
+> - Currently, isula-build supports OCI image format ([OCI Image Format Specification](https://github.com/opencontainers/image-spec/blob/main/spec.md/)) and Docker image format ([Image Manifest Version 2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/)). Use the `export ISULABUILD_CLI_EXPERIMENTAL=enabled` command to enable the experimental feature for supporting OCI image format. When the experimental feature is disabled, isula-build will take Docker image format as the default image format. Otherwise, isula-build will take OCI image format as the default image format.
 
 ## Installation
 
@@ -69,17 +69,17 @@ To ensure that isula-build can be successfully installed, the following software
 
 Before using isula-build to build a container image, you need to install the following software packages:
 
-**(Recommended) Method 1: Using Yum**
+##### (Recommended) Method 1: Using Yum
 
 1. Configure the openEuler Yum source.
 
 2. Log in to the target server as the root user and install isula-build.
 
-   ```
+   ```shell
    sudo yum install -y isula-build
    ```
 
-**Method 2: Using the RPM Package**
+##### Method 2: Using the RPM Package
 
 1. Obtain an **isula-build-*.rpm** installation package from the openEuler Yum source, for example, **isula-build-0.9.5-6.oe1.x86_64.rpm**.
 
@@ -87,7 +87,7 @@ Before using isula-build to build a container image, you need to install the fol
 
 3. Log in to the target server as the root user and run the following command to install isula-build:
 
-   ```
+   ```shell
    sudo rpm -ivh /home/isula-build-*.rpm
    ```
 
@@ -121,8 +121,7 @@ Currently, the isula-build server contains the following configuration file:
 | ------ | -------- | ------------------------------ |
 | driver | Optional | Storage driver type. Currently, **overlay2** is supported. |
 
-  For more settings, see [containers-storage.conf.5.md](https://github.com/containers/storage/blob/master/docs/containers-storage.conf.5.md).
-
+  For more settings, see [containers-storage.conf.5.md](https://github.com/containers/storage/blob/main/docs/containers-storage.conf.5.md).
 
 - **/etc/isula-build/registries.toml**: configuration file for each image repository.
 
@@ -131,7 +130,7 @@ Currently, the isula-build server contains the following configuration file:
 | registries.search | Optional | Search domain of the image repository. Only listed image repositories can be found. |
 | registries.insecure | Optional | Accessible insecure image repositories. Listed image repositories cannot pass the authentication and are not recommended. |
 
-  For more settings, see [containers-registries.conf.5.md](https://github.com/containers/image/blob/master/docs/containers-registries.conf.5.md).
+  For more settings, see [containers-registries.conf.5.md](https://github.com/containers/image/blob/main/docs/containers-registries.conf.5.md).
 
 - **/etc/isula-build/policy.json**: image pull/push policy file. Note: Currently, this parameter cannot be configured.
 
@@ -226,15 +225,15 @@ sudo yum install -y docker-engine
 The isula-build client provides a series of commands for building and managing container images. Currently, the isula-build client provides the following commands:
 
 - `ctr-img`: manages container images. The `ctr-img` command contains the following subcommands:
-  - `build`: builds a container image based on the specified Dockerfile.
-  - `images`: lists local container images.
-  - `import`: imports a basic container image.
-  - `load`: imports a cascade image.
-  - `rm`: deletes a local container image.
-  - `save`: exports a cascade image to a local disk.
-  - `tag`: adds a tag to a local container image.
-  - `pull`: pulls an image to a local host.
-  - `push`: pushes a local image to a remote repository.
+    - `build`: builds a container image based on the specified Dockerfile.
+    - `images`: lists local container images.
+    - `import`: imports a basic container image.
+    - `load`: imports a cascade image.
+    - `rm`: deletes a local container image.
+    - `save`: exports a cascade image to a local disk.
+    - `tag`: adds a tag to a local container image.
+    - `pull`: pulls an image to a local host.
+    - `push`: pushes a local image to a remote repository.
 - `info`: displays the running environment and system information of isula-build.
 - `login`: logs in to the remote container image repository.
 - `logout`: logs out of the remote container image repository.
@@ -248,12 +247,11 @@ The isula-build client provides a series of commands for building and managing c
 
 The following describes how to use these commands in detail.
 
-
 ### ctr-img: Container Image Management
 
 The isula-build command groups all container image management commands into the `ctr-img` command. The command format is as follows:
 
-```
+```shell
 isula-build ctr-img [command]
 ```
 
@@ -261,7 +259,7 @@ isula-build ctr-img [command]
 
 The subcommand build of the `ctr-img` command is used to build container images. The command format is as follows:
 
-```
+```shell
 isula-build ctr-img build [flags]
 ```
 
@@ -280,7 +278,7 @@ The `build` command contains the following flags:
 
 **The following describes the flags in detail.**
 
-**\--build-arg**
+##### \--build-arg
 
 Parameters in the Dockerfile are inherited from the commands. The usage is as follows:
 
@@ -311,7 +309,7 @@ Storing signatures
 Build success with image id: 39b62a3342eed40b41a1bcd9cd455d77466550dfa0f0109af7a708c3e895f9a2
 ```
 
-**\--build-static**
+##### \--build-static
 
 Specifies a static build. That is, when isula-build is used to build a container image, differences between all timestamps and other build factors (such as the container ID and hostname) are eliminated. Finally, a container image that meets the static requirements is built.
 
@@ -332,34 +330,35 @@ For container image build, isula-build supports the same Dockerfile. If the buil
   Example:
 
   ```sh
-  $ sudo isula-build ctr-img build -f Dockerfile --build-static='build-time=2020-05-23 10:55:33' .
+  sudo isula-build ctr-img build -f Dockerfile --build-static='build-time=2020-05-23 10:55:33' .
   ```
 
   In this way, the container images and image IDs built in the same environment for multiple times are the same.
 
-**\--format**
+##### \--format
 
 This option can be used when the experiment feature is enabled. The default image format is **oci**. You can specify the image format to build. For example, the following commands are used to build an OCI image and a Docker image, respectively.
+
   ```sh
-  $ export ISULABUILD_CLI_EXPERIMENTAL=enabled; sudo isula-build ctr-img build -f Dockerfile --format oci .
+  export ISULABUILD_CLI_EXPERIMENTAL=enabled; sudo isula-build ctr-img build -f Dockerfile --format oci .
   ```
 
   ```sh
-  $ export ISULABUILD_CLI_EXPERIMENTAL=enabled; sudo isula-build ctr-img build -f Dockerfile --format docker .
+  export ISULABUILD_CLI_EXPERIMENTAL=enabled; sudo isula-build ctr-img build -f Dockerfile --format docker .
   ```
 
-**\--iidfile**
+##### \--iidfile
 
 Run the following command to output the ID of the built image to a file:
 
-```
+```shell
 isula-build ctr-img build --iidfile filename
 ```
 
 For example, to export the container image ID to the **testfile** file, run the following command:
 
   ```sh
-$ sudo isula-build ctr-img build -f Dockerfile_arg --iidfile testfile
+sudo isula-build ctr-img build -f Dockerfile_arg --iidfile testfile
   ```
 
   Check the container image ID in the **testfile** file.
@@ -369,34 +368,33 @@ $ cat testfile
 76cbeed38a8e716e22b68988a76410eaf83327963c3b29ff648296d5cd15ce7b
   ```
 
-**\-o, --output**
+##### \-o, --output
 
 Currently, `-o` and `--output` support the following formats:
 
 - `isulad:image:tag`: directly pushes the image that is successfully built to iSulad, for example, `-o isulad:busybox:latest`. The following restrictions apply:
 
-  - isula-build and iSulad must be on the same node.
-  - The tag must be configured.
-  - On the isula-build client, you need to temporarily save the successfully built image as **/var/tmp/isula-build-tmp-%v.tar** and then import it to iSulad. Ensure that the **/var/tmp/** directory has sufficient disk space.
+    - isula-build and iSulad must be on the same node.
+    - The tag must be configured.
+    - On the isula-build client, you need to temporarily save the successfully built image as **/var/tmp/isula-build-tmp-%v.tar** and then import it to iSulad. Ensure that the **/var/tmp/** directory has sufficient disk space.
 
 - `docker-daemon:image:tag`: directly pushes the successfully built image to Docker daemon, for example, `-o docker-daemon:busybox:latest`. The following restrictions apply:
 - isula-build and Docker must be on the same node.
-  - The tag must be configured.
+    - The tag must be configured.
 
 - `docker://registry.example.com/repository:tag`: directly pushes the successfully built image to the remote image repository in Docker image format, for example, `-o docker://localhost:5000/library/busybox:latest`.
-
 
 - `docker-archive:<path>/<filename>:image:tag`: saves the successfully built image to the local host in Docker image format, for example, `-o docker-archive:/root/image.tar:busybox:latest`.
 
 When experiment feature is enabled, you can build image in OCI image format with:
+
 - `oci://registry.example.com/repository:tag`: directly pushes the successfully built image to the remote image repository in OCI image format(OCI image format should be supported by the remote repository), for example, `-o oci://localhost:5000/library/busybox:latest`.
 
 - `oci-archive:<path>/<filename>:image:tag`: saves the successfully built image to the local host in OCI image format, for example, `-o oci-archive:/root/image.tar:busybox:latest`.
 
-
 In addition to the flags, the `build` subcommand also supports an argument whose type is string and meaning is context, that is, the context of the Dockerfile build environment. The default value of this parameter is the current path where isula-build is executed. This path affects the path retrieved by the **ADD** and **COPY** instructions of the .dockerignore file and Dockerfile.
 
-**\--proxy**
+##### \--proxy
 
 Specifies whether the container started by the **RUN** instruction inherits the proxy-related environment variables **http_proxy**, **https_proxy**, **ftp_proxy**, **no_proxy**, **HTTP_PROXY**, **HTTPS_PROXY**, and **FTP_PROXY**. The default value is **true**.
 
@@ -406,22 +404,22 @@ When a user configures proxy-related **ARG** or **ENV** in the Dockerfile, the i
 >
 > - If the client and daemon are running on different terminals, the environment variables of the terminal where the daemon is running are inherited.
 
-**\--tag**
+##### \--tag
 
 Specifies the tag of the image stored on the local disk after the image is successfully built.
 
-**\--cap-add**
+##### \--cap-add
 
 Run the following command to add the permission required by the **RUN** instruction during the build process:
 
-```
+```shell
 isula-build ctr-img build --cap-add ${CAP}
 ```
 
 Example:
 
 ```sh
-$ sudo isula-build ctr-img build --cap-add CAP_SYS_ADMIN --cap-add CAP_SYS_PTRACE -f Dockerfile
+sudo isula-build ctr-img build --cap-add CAP_SYS_ADMIN --cap-add CAP_SYS_PTRACE -f Dockerfile
 ```
 
 > **Note:**
@@ -466,7 +464,7 @@ A tar file in rootfs form can be imported into isula-build via the `ctr-img impo
 
 The command format is as follows:
 
-```
+```shell
 isula-build ctr-img import [flags]
 ```
 
@@ -498,7 +496,7 @@ Cascade images are images that are saved to the local computer by running the `d
 
 The command format is as follows:
 
-```
+```shell
 isula-build ctr-img load [flags]
 ```
 
@@ -536,13 +534,11 @@ Loaded image as c07ddb44daa97e9e8d2d68316b296cc9343ab5f3d2babc5e6e03b80cd580478e
 > - isula-build allows you to import a container image with a maximum size of 50 GB.
 > - isula-build automatically recognizes the image format and loads it from the cascade image file.
 
-
-
 #### rm: Deleting a Local Persistent Image
 
 You can run the `rm` command to delete an image from the local persistent storage. The command format is as follows:
 
-```
+```shell
 isula-build ctr-img rm IMAGE [IMAGE...] [FLAGS]
 ```
 
@@ -563,7 +559,7 @@ Deleted: sha256:eeba1bfe9fca569a894d525ed291bdaef389d28a88c288914c1a9db7261ad12c
 
 You can run the `save` command to export the cascade images to the local disk. The command format is as follows:
 
-```
+```shell
 isula-build ctr-img save [REPOSITORY:TAG]|imageID -o xx.tar
 ```
 
@@ -624,12 +620,11 @@ Save success with image: [busybox:latest nginx:latest]
 >- Save exports an image in .tar format by default. If necessary, you can save the image and then manually compress it.
 >- When exporting an image using image name, specify the entire image name in the *REPOSITORY:TAG* format.
 
-
 #### tag: Tagging Local Persistent Images
 
 You can run the `tag` command to add a tag to a local persistent container image. The command format is as follows:
 
-```
+```shell
 isula-build ctr-img tag <imageID>/<imageName> busybox:latest
 ```
 
@@ -656,7 +651,7 @@ alpine                                   v1           a24bb4013296       2020-05
 
 Run the `pull` command to pull an image from a remote image repository to a local host. Command format:
 
-```
+```shell
 isula-build ctr-img pull REPOSITORY[:TAG]
 ```
 
@@ -676,7 +671,7 @@ Pull success with image: example-registry/library/alpine:latest
 
 Run the `push` command to push a local image to a remote repository. Command format:
 
-```
+```shell
 isula-build ctr-img push REPOSITORY[:TAG]
 ```
 
@@ -700,12 +695,11 @@ Push success with image: example-registry/library/mybusybox:latest
 >
 >- Before pushing an image, log in to the corresponding image repository.
 
-
 ### info: Viewing the Operating Environment and System Information
 
 You can run the `isula-build info` command to view the running environment and system information of isula-build. The command format is as follows:
 
-```
+```shell
  isula-build info [flags]
 ```
 
@@ -738,7 +732,7 @@ $ sudo isula-build info -H
        localhost:5000
        oepkgs.net
    Runtime:
-	 MemSys:           68.4 MB
+  MemSys:           68.4 MB
      HeapSys:          63.3 MB
      HeapAlloc:        7.41 MB
      MemHeapInUse:     8.98 MB
@@ -750,13 +744,13 @@ $ sudo isula-build info -H
 
 You can run the `login` command to log in to the remote image repository. The command format is as follows:
 
-```
+```shell
  isula-build login SERVER [FLAGS]
 ```
 
 Currently, the following flags are supported:
 
-```
+```shell
  Flags:
    -p, --password-stdin    Read password from stdin
    -u, --username string   Username to access registry
@@ -781,13 +775,13 @@ Enter the password in interactive mode.
 
 You can run the `logout` command to log out of the remote image repository. The command format is as follows:
 
-```
+```shell
  isula-build logout [SERVER] [FLAGS]
 ```
 
 Currently, the following flags are supported:
 
-```
+```shell
  Flags:
    -a, --all   Logout all registries
 ```
@@ -832,7 +826,7 @@ The manifest list contains the image information corresponding to different syst
 
 The create subcommand of the `manifest` command is used to create a manifest list. The command format is as follows:
 
-```
+```shell
 isula-build manifest create MANIFEST_LIST MANIFEST [MANIFEST...]
 ```
 
@@ -841,14 +835,14 @@ You can specify the name of the manifest list and the remote images to be added 
 Example:
 
 ```sh
-$ sudo isula-build manifest create openeuler localhost:5000/openeuler_x86:latest localhost:5000/openeuler_aarch64:latest
+sudo isula-build manifest create openeuler localhost:5000/openeuler_x86:latest localhost:5000/openeuler_aarch64:latest
 ```
 
 #### annotate: Manifest List Update
 
 The `annotate` subcommand of the `manifest` command is used to update the manifest list. The command format is as follows:
 
-```
+```shell
 isula-build manifest annotate MANIFEST_LIST MANIFEST [flags]
 ```
 
@@ -864,14 +858,14 @@ Currently, the following flags are supported:
 Example:
 
 ```sh
-$ sudo isula-build manifest annotate --os linux --arch arm64 openeuler:latest localhost:5000/openeuler_aarch64:latest
+sudo isula-build manifest annotate --os linux --arch arm64 openeuler:latest localhost:5000/openeuler_aarch64:latest
 ```
 
 #### inspect: Manifest List Inspect
 
 The `inspect` subcommand of the `manifest` command is used to query the manifest list. The command format is as follows:
 
-```
+```shell
 isula-build manifest inspect MANIFEST_LIST
 ```
 
@@ -905,18 +899,18 @@ $ sudo isula-build manifest inspect openeuler:latest
 }
 ```
 
-#### push: Manifest List Push to the Remote Repository.
+#### push: Manifest List Push to the Remote Repository
 
 The manifest subcommand `push` is used to push the manifest list to the remote repository. The command format is as follows:
 
-```
+```shell
 isula-build manifest push MANIFEST_LIST DESTINATION
 ```
 
 Example:
 
 ```sh
-$ sudo isula-build manifest push openeuler:latest localhost:5000/openeuler:latest
+sudo isula-build manifest push openeuler:latest localhost:5000/openeuler:latest
 ```
 
 ## Directly Integrating a Container Engine
@@ -930,7 +924,7 @@ Images that are successfully built can be directly exported to the iSulad.
 Example:
 
 ```sh
-$ sudo isula-build ctr-img build -f Dockerfile -o isulad:busybox:2.0
+sudo isula-build ctr-img build -f Dockerfile -o isulad:busybox:2.0
 ```
 
 Specify iSulad in the -o parameter to export the built container image to iSulad. You can query the image using isula images.
@@ -945,7 +939,7 @@ busybox                        2.0        2d414a5cad6d         2020-08-01 06:41:
 >![](./public_sys-resources/icon-note.gif) **Note:**
 >
 > - It is required that isula-build and iSulad be on the same node.
-> - When an image is directly exported to the iSulad, the isula-build client needs to temporarily store the successfully built image as `/var/lib/isula-build/tmp/[buildid]/isula-build-tmp-%v.tar` and then import it to the iSulad. Ensure that the /var/tmp/ directory has sufficient disk space. If the isula-build client process is killed or Ctrl+C is pressed during the export, you need to manually clear the `/var/lib/isula-build/tmp/[buildid]/isula-build-tmp-%v.tar` file.
+> - When an image is directly exported to the iSulad, the isula-build client needs to temporarily store the successfully built image as `/var/lib/isula-build/tmp/[build_id]/isula-build-tmp-%v.tar` and then import it to the iSulad. Ensure that the /var/tmp/ directory has sufficient disk space. If the isula-build client process is killed or Ctrl+C is pressed during the export, you need to manually clear the `/var/lib/isula-build/tmp/[build_id]/isula-build-tmp-%v.tar` file.
 
 ### Integration with Docker
 
@@ -954,7 +948,7 @@ Images that are successfully built can be directly exported to the Docker daemon
 Example:
 
 ```sh
-$ sudo isula-build ctr-img build -f Dockerfile -o docker-daemon:busybox:2.0
+sudo isula-build ctr-img build -f Dockerfile -o docker-daemon:busybox:2.0
 ```
 
 Specify docker-daemon in the -o parameter to export the built container image to Docker. You can run the `docker images` command to query the image.
@@ -970,9 +964,11 @@ busybox                                             2.0                 2d414a5c
 > - The isula-build and Docker must be on the same node.
 
 ## Precautions
+
 This chapter is something about constraints, limitations and differences with `docker build` when use isula-builder build images.
 
 ### Constraints or Limitations
+
 1. When export an image to [iSulad](https://gitee.com/openeuler/iSulad/blob/master/README.md), a tag is necessary.
 2. Because the OCI runtime, for example, **runc**, will be called by isula-builder when executing the **RUN** instruction, the integrity of the runtime binary should be guaranteed by the user.
 3. DataRoot should not be set to **tmpfs**.
@@ -983,9 +979,10 @@ This chapter is something about constraints, limitations and differences with `d
 8. When export image to a tar package, only tar compression format is supported by isula-builder currently.
 9. The base image size is limited to 1 GB when importing a base image using `import`.
 
+### Differences with "docker build"
 
-###  Differences with "docker build"
 The `isula-build` complies with [Dockerfile specification](https://docs.docker.com/engine/reference/builder), but there are also some subtle differences between `isula-builder` and `docker build` as follows:
+
 1. isula-builder commits after each build stage, but not every line.
 2. Build cache is not supported by isula-builder.
 3. Only **RUN** instruction will be executed in the build container.
@@ -998,7 +995,6 @@ The `isula-build` complies with [Dockerfile specification](https://docs.docker.c
 10. Image name should be in the *NAME:TAG* format. For example **busybox:latest**, where **latest** must not be omitted.
 
 ## Appendix
-
 
 ### Command Line Parameters
 
@@ -1088,4 +1084,4 @@ The isula-build component processes communicate with each other through the Unix
 | /var/run/isula_build.sock                   | 660                 | Local socket of isula-builder.                            |
 | /var/lib/isula-build                        | 700                 | Local persistency directory.                                             |
 | /var/run/isula-build                        | 700                 | Local runtime directory.                                             |
-| /var/lib/isula-build/tmp/[buildid]/isula-build-tmp-*.tar              | 644                 | Local temporary directory for storing the images when they are exported to iSulad.                           |
+| /var/lib/isula-build/tmp/\[build_id\]/isula-build-tmp-*.tar              | 644                 | Local temporary directory for storing the images when they are exported to iSulad.                           |
