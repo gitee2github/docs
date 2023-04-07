@@ -22,53 +22,53 @@ When you use the automatic Kubernetes cluster deployment tool, use the YAML conf
 - private-key-path:The path of the key for password-free SSH login. You only need to configure either private-key-path or password. If both are configured, private-key-path is used preferentially.
 
 - masters: The master node list. It is recommended that each master node is also set as a worker node. Each master node contains the following sub-items. Each master node must be configured with a group of sub-items:
-  - name: The name of the master node, which is the node name displayed to the Kubernetes cluster.
-  - ip: The IP address of the master node.
-  - port: The port for SSH login of the node. The default value is 22.
-  - arch: CPU architecture of the master node. For example, the value for x86_64 CPUs is amd64.
+    - name: The name of the master node, which is the node name displayed to the Kubernetes cluster.
+    - ip: The IP address of the master node.
+    - port: The port for SSH login of the node. The default value is 22.
+    - arch: CPU architecture of the master node. For example, the value for x86_64 CPUs is amd64.
   
 - workers: The list of the worker nodes. Each worker node contains the following sub-items. Each worker node must be configured with a group of sub-items:
-  - name: The name of the worker node, which is the node name displayed to the Kubernetes cluster.
-  - ip: The IP address of the master node.
-  - port: The port for SSH login of the node. The default value is 22.
-  - arch: CPU architecture of the worker node. For example, the value for x86_64 CPUs is amd64.
+    - name: The name of the worker node, which is the node name displayed to the Kubernetes cluster.
+    - ip: The IP address of the master node.
+    - port: The port for SSH login of the node. The default value is 22.
+    - arch: CPU architecture of the worker node. For example, the value for x86_64 CPUs is amd64.
   
 - etcds: The list of etcd nodes. If this parameter is left empty, one etcd node is deployed for each master node. Otherwise, only the configured etcd node is deployed. Each etcd node contains the following sub-items. Each etcd node must be configured with a group of sub-items:
-  - name: The name of the etcd node, which is the node name displayed to the Kubernetes cluster.
-  - ip: The IP address of the etcd node.
-  - port: The port for SSH login.
-  - arch: CPU architecture of the etcd node. For example, the value for x86_64 CPUs is amd64.
+    - name: The name of the etcd node, which is the node name displayed to the Kubernetes cluster.
+    - ip: The IP address of the etcd node.
+    - port: The port for SSH login.
+    - arch: CPU architecture of the etcd node. For example, the value for x86_64 CPUs is amd64.
   
 - loadbalance: The loadbalance node list. Each loadbalance node contains the following sub-items. Each loadbalance node must be configured with a group of sub-items:
-  - name: The name of the loadbalance node, which is the node name displayed to the Kubernetes cluster.
-  - ip: The IP address of the loadbalance node.
-  - port: The port for SSH login.
-  - arch: CPU architecture of the loadbalance node. For example, the value for x86_64 CPUs is amd64.
-  - bind-port: The listening port of the load balancing service.
+    - name: The name of the loadbalance node, which is the node name displayed to the Kubernetes cluster.
+    - ip: The IP address of the loadbalance node.
+    - port: The port for SSH login.
+    - arch: CPU architecture of the loadbalance node. For example, the value for x86_64 CPUs is amd64.
+    - bind-port: The listening port of the load balancing service.
   
 - external-ca: Whether to use an external CA certificate. If yes, set this parameter to true. Otherwise, set this parameter to false.
 
 - external-ca-path: The path of the external CA certificate file. This parameter takes affect only when external-ca is set to true.
 
 - service: service information created by Kubernetes. The service configuration item contains the following sub-items:
-  - cidr: The IP address segment of the service created by Kubernetes.
-  - dnsaddr: DNS address of the service created by Kubernetes
-  -  gateway: The gateway address of the service created by Kubernetes.
-  - dns: The configuration item of the CoreDNS created by Kubernetes. The dns configuration item contains the following sub-items:
-    - corednstype: The deployment type of the CoreDNS created by Kubernetes. The value can be pod or binary.
-    - imageversion: The CoreDNS image version of the pod deployment type.
-    - replicas: The number of CoreDNS replicas of the pod deployment type.
+    - cidr: The IP address segment of the service created by Kubernetes.
+    - dnsaddr: DNS address of the service created by Kubernetes
+    - gateway: The gateway address of the service created by Kubernetes.
+    - dns: The configuration item of the CoreDNS created by Kubernetes. The dns configuration item contains the following sub-items:
+        - corednstype: The deployment type of the CoreDNS created by Kubernetes. The value can be pod or binary.
+        - imageversion: The CoreDNS image version of the pod deployment type.
+        - replicas: The number of CoreDNS replicas of the pod deployment type.
   
 - network: The network configuration of the Kubernetes cluster. The network configuration item contains the following sub-items:
-  - podcidr: IP address segment of the Kubernetes cluster network.
-  - plugin: The network plugin deployed in the Kubernetes cluster
-  - plugin-args: The configuration file path of the network plugin of the Kubernetes cluster network. Example: {"NetworkYamlPath": "/etc/kubernetes/addons/calico.yaml"}
+    - podcidr: IP address segment of the Kubernetes cluster network.
+    - plugin: The network plugin deployed in the Kubernetes cluster
+    - plugin-args: The configuration file path of the network plugin of the Kubernetes cluster network. Example: {"NetworkYamlPath": "/etc/kubernetes/addons/calico.yaml"}
   
 - apiserver-endpoint: The IP address or domain name of the APIServer service that can be accessed by external systems. If loadbalance is configured, set this parameter to the IP address of the loadbalance node. Otherwise, set this parameter to the IP address of the first master node.
 
 - apiserver-cert-sans: The IP addresses and domain names that need to be configured in the APIServer certificate. This configuration item contains the following sub-items:
-  - dnsnames: The array list of the domain names that need to be configured in the APIServer certificate.
-  - ips: The array list of IP addresses that need to be configured in the APIServer certificate.
+    - dnsnames: The array list of the domain names that need to be configured in the APIServer certificate.
+    - ips: The array list of IP addresses that need to be configured in the APIServer certificate.
   
 - apiserver-timeout: APIServer response timeout interval.
 
@@ -93,45 +93,45 @@ When you use the automatic Kubernetes cluster deployment tool, use the YAML conf
 - insecure-registries: The address of the image repository used for downloading container images through HTTP.
 
 - config-extra-args: The extra parameters for starting services of each component (such as kube-apiserver and etcd). This configuration item contains the following sub-items:
-  - name: The component name. The value can be etcd, kube-apiserver, kube-controller-manager, kube-scheduler, kube-proxy or kubelet.
+    - name: The component name. The value can be etcd, kube-apiserver, kube-controller-manager, kube-scheduler, kube-proxy or kubelet.
 
-  - extra-args: The extended parameters of the component. The format is key: value. Note that the component parameter corresponding to key must be prefixed with a hyphen (-) or two hyphens (--).
+    - extra-args: The extended parameters of the component. The format is key: value. Note that the component parameter corresponding to key must be prefixed with a hyphen (-) or two hyphens (--).
 
-  - open-ports: Configure the ports that need to be enabled additionally. The ports required by Kubernetes do not need to be configured. Other plugin ports need to be configured additionally.
-      - worker | master | etcd | loadbalance: The type of the node where the ports are enabled. Each configuration item contains one or more port and protocol sub-items.
-          - port: The port address.
-          - protocol: The port type. The value can be tcp or udp.
-      
-  - install: Configure the detailed information about the installation packages or binary files to be installed on each type of nodes. Note that the corresponding files must be packaged in a tar.gz installation package. The following describes the full configuration. Select the configuration items as needed.
-      - package-source: The detailed information about the installation package.
-          - type: The compression type of the installation package. Currently, only tar.gz installation packages are supported.
-          - dstpath: The path where the installation package is to be decompressed on the peer host. The path must be valid absolute path.
-          - srcpath: The path for storing the installation packages of different architectures. The architecture must correspond to the host architecture. The path must be a valid absolute path.
-              - arm64: The path of the installation package of the ARM64 architecture. This parameter is required if any ARM64 node is included in the configuration.
-              - amd64: The path of the installation package of the AMD64 architecture. This parameter is required if any x86_64 node is included in the configuration.
+    - open-ports: Configure the ports that need to be enabled additionally. The ports required by Kubernetes do not need to be configured. Other plugin ports need to be configured additionally.
+        - worker | master | etcd | loadbalance: The type of the node where the ports are enabled. Each configuration item contains one or more port and protocol sub-items.
+            - port: The port address.
+            - protocol: The port type. The value can be tcp or udp.
+
+    - install: Configure the detailed information about the installation packages or binary files to be installed on each type of nodes. Note that the corresponding files must be packaged in a tar.gz installation package. The following describes the full configuration. Select the configuration items as needed.
+        - package-source: The detailed information about the installation package.
+            - type: The compression type of the installation package. Currently, only tar.gz installation packages are supported.
+            - dstpath: The path where the installation package is to be decompressed on the peer host. The path must be valid absolute path.
+            - srcpath: The path for storing the installation packages of different architectures. The architecture must correspond to the host architecture. The path must be a valid absolute path.
+                - arm64: The path of the installation package of the ARM64 architecture. This parameter is required if any ARM64 node is included in the configuration.
+                - amd64: The path of the installation package of the AMD64 architecture. This parameter is required if any x86_64 node is included in the configuration.
 
       > ![](./public_sys-resources/icon-note.gif)**NOTE**:
       >
       > - In the install configuration item, the sub-items of etcd, kubernetes-master, kubernetes-worker, network, loadbalance, container, image, and dns are the same, that is, name, type, dst, schedule, and TimeOut. dst, schedule, and TimeOut are optional. You can determine whether to configure them based on the files to be installed. The following uses the etcd and kubernetes-master nodes as an example.
 
-      - etcd: The list of packages or binary files to be installed on etcd nodes.
-          - name: The names of the software packages or binary files to be installed. If the software package is an installation package, enter only the name and do not specify the version. During the installation, `$name*` is used for identification. Example: etcd. If there are multiple software packages, use commas (,) to separate them.
-          - type: The type of the configuration item. The value can be pkg, repo, bin, file, dir, image, yaml, or shell. If type is set to repo, configure the repo source on the corresponding node.
-          - dst: The path of the destination folder. This parameter is required when type is set to bin, file, or dir. It indicates the directory where a file or folder is stored. To prevent users from incorrectly configuring a path and deleting important files during cleanup, this parameter must be set to a path in the whitelist. For details, see "Whitelist Description."
-      - kubernetes-master: The list of packages or binary files to be installed on the Kubernetes master nodes.
-      - kubernetes-worker: The list of packages or binary files to be installed on the Kubernetes worker nodes.
-      - network: The list of packages or binary files to be installed for the network.
-      - loadbalance: The list of packages or binary files to be installed on the loadbalance nodes.
-      - container: The list of packages or binary files to be installed for the containers.
-      - image: The tar package of the container image.
-      - dns: Kubernetes CoreDNS installation package. If corednstype is set to pod, this parameter is not required.
-      - addition: The list of additional installation packages or binary files.
-        - master: The following configurations will be installed on all master nodes.
-          - name: The name of the software package or binary file to be installed.
-          - type: The type of the configuration item. The value can be pkg, repo, bin, file, dir, image, yaml, or shell. If type is set to repo, configure the repo source on the corresponding node.
-          - schedule: Valid only when type is set to shell. This parameter indicates when the user wants to execute the script. The value can be prejoin (before the node is added), postjoin (after the node is added), precleanup (before the node is removed), or postcleanup (after the node is removed).
-          - TimeOut: The script execution timeout interval. If the execution times out, the process is forcibly stopped. The default value is 30s.
-        - worker: The configurations will be installed on all worker nodes. The configuration format is the same as that of master under addition.
+        - etcd: The list of packages or binary files to be installed on etcd nodes.
+            - name: The names of the software packages or binary files to be installed. If the software package is an installation package, enter only the name and do not specify the version. During the installation, `$name*` is used for identification. Example: etcd. If there are multiple software packages, use commas (,) to separate them.
+            - type: The type of the configuration item. The value can be pkg, repo, bin, file, dir, image, yaml, or shell. If type is set to repo, configure the repo source on the corresponding node.
+            - dst: The path of the destination folder. This parameter is required when type is set to bin, file, or dir. It indicates the directory where a file or folder is stored. To prevent users from incorrectly configuring a path and deleting important files during cleanup, this parameter must be set to a path in the whitelist. For details, see "Whitelist Description."
+        - kubernetes-master: The list of packages or binary files to be installed on the Kubernetes master nodes.
+        - kubernetes-worker: The list of packages or binary files to be installed on the Kubernetes worker nodes.
+        - network: The list of packages or binary files to be installed for the network.
+        - loadbalance: The list of packages or binary files to be installed on the loadbalance nodes.
+        - container: The list of packages or binary files to be installed for the containers.
+        - image: The tar package of the container image.
+        - dns: Kubernetes CoreDNS installation package. If corednstype is set to pod, this parameter is not required.
+        - addition: The list of additional installation packages or binary files.
+            - master: The following configurations will be installed on all master nodes.
+                - name: The name of the software package or binary file to be installed.
+                - type: The type of the configuration item. The value can be pkg, repo, bin, file, dir, image, yaml, or shell. If type is set to repo, configure the repo source on the corresponding node.
+                - schedule: Valid only when type is set to shell. This parameter indicates when the user wants to execute the script. The value can be prejoin (before the node is added), postjoin (after the node is added), precleanup (before the node is removed), or postcleanup (after the node is removed).
+                - TimeOut: The script execution timeout interval. If the execution times out, the process is forcibly stopped. The default value is 30s.
+            - worker: The configurations will be installed on all worker nodes. The configuration format is the same as that of master under addition.
 
 ### Whitelist Description
 
@@ -323,7 +323,7 @@ To utilize the cluster deployment tool provided by openEuler, use the eggo comma
 
 Run the following command to deploy a Kubernetes cluster using the specified YAML configuration:
 
-**eggo deploy** [ **-d** ]  **-f** *deploy.yaml* 
+**eggo deploy** \[ **-d** \]  **-f** *deploy.yaml*
 
 | Parameter| Mandatory (Yes/No)| Description                           |
 | ------------- | -------- | --------------------------------- |
@@ -334,7 +334,7 @@ Run the following command to deploy a Kubernetes cluster using the specified YAM
 
 Run the following command to add a specified single node to the Kubernetes cluster:
 
-**eggo** **join** [ **-d** ]  **--id** *k8s-cluster*  [ **--type** *master,worker* ] **--arch** *arm64* **--port** *22* [ **--name** *master1*] *IP* 
+**eggo** **join** \[ **-d** \]  **--id** *k8s-cluster*  \[ **--type** *master,worker* \] **--arch** *arm64* **--port** *22* \[ **--name** *master1*\] *IP*
 
 | Parameter| Mandatory (Yes/No) | Description|
 | ------------- | -------- | ------------------------------------------------------------ |
@@ -350,7 +350,7 @@ Run the following command to add a specified single node to the Kubernetes clust
 
 Run the following command to add specified multiple nodes to the Kubernetes cluster:
 
-**eggo** **join**  [ **-d** ]  **--id** *k8s-cluster*  **-f** *nodes.yaml*
+**eggo** **join**  \[ **-d** \]  **--id** *k8s-cluster*  **-f** *nodes.yaml*
 
 | Parameter| Mandatory (Yes/No) | Description                           |
 | ------------- | -------- | -------------------------------- |
@@ -362,7 +362,7 @@ Run the following command to add specified multiple nodes to the Kubernetes clus
 
 Run the following command to delete one or more nodes from the Kubernetes cluster:
 
-**eggo delete**  [ **-d** ]  **--id** *k8s-cluster* *node* [*node...*]
+**eggo delete**  \[ **-d** \]  **--id** *k8s-cluster* *node* \[*node...*\]
 
 | Parameter| Mandatory (Yes/No) | Description                               |
 | ------------- | -------- | -------------------------------------------- |
@@ -374,7 +374,7 @@ Run the following command to delete one or more nodes from the Kubernetes cluste
 
 Run the following command to delete the entire Kubernetes cluster:
 
-**eggo cleanup**  [ **-d** ]  **--id** *k8s-cluster* [ **-f** *deploy.yaml* ]
+**eggo cleanup**  \[ **-d** \]  **--id** *k8s-cluster* \[ **-f** *deploy.yaml* \]
 
 | Parameter| Mandatory (Yes/No) | Description|
 | ------------- | -------- | ------------------------------------------------------------ |
@@ -386,13 +386,11 @@ Run the following command to delete the entire Kubernetes cluster:
 >
 > - The cluster configuration cached during cluster deployment is recommended when you delete the cluster. That is, you are advised not to set the --file | -f parameter in normal cases. Set this parameter only when the cache configuration is damaged or lost due to an exception.
 
-
-
 #### Querying the Cluster
 
 Run the following command to query all Kubernetes clusters deployed using eggo:
 
-**eggo list** [ **-d** ]
+**eggo list** \[ **-d** \]
 
 | Parameter| Mandatory (Yes/No) | Description |
 | ------------- | -------- | ------------ |
@@ -402,7 +400,7 @@ Run the following command to query all Kubernetes clusters deployed using eggo:
 
 Run the following command to quickly generate the required YAML configuration file for the Kubernetes cluster deployment.
 
-**eggo template**  **-d**  **-f** *template.yaml* **-n** *k8s-cluster* **-u** *username* **-p** *password* **--etcd** [*192.168.0.1,192.168.0.2*]  **--masters** [*192.168.0.1,192.168.0.2*] **--workers** *192.168.0.3* **--loadbalance** *192.168.0.4*
+**eggo template**  **-d**  **-f** *template.yaml* **-n** *k8s-cluster* **-u** *username* **-p** *password* **--etcd** \[*192.168.0.1,192.168.0.2*\]  **--masters** \[*192.168.0.1,192.168.0.2*\] **--workers** *192.168.0.3* **--loadbalance** *192.168.0.4*
 
 | Parameter| Mandatory (Yes/No) | Description                           |
 | ------------------- | -------- | ------------------------------- |
