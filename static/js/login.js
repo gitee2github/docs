@@ -144,24 +144,57 @@ var Login = {
   tokenFailIndicateLogin() {
     this.setLogInfo({});
     this.saveUserAuth();
+    this.removeSessionInfo();
+  },
+
+  setSessionInfo(data) {
+    const { username, photo } = data || {};
+    if (username && photo) {
+      sessionStorage.setItem(
+        this.LOGIN_KEYS.USER_INFO,
+        JSON.stringify({ username, photo })
+      );
+    }
+  },
+  getSessionInfo() {
+    let username = '';
+    let photo = '';
+    try {
+      const info = sessionStorage.getItem(this.LOGIN_KEYS.USER_INFO);
+      if (info) {
+        const obj = JSON.parse(info) || {};
+        username = obj.username || '';
+        photo = obj.photo || '';
+      }
+    } catch (error) {}
+    return {
+      username,
+      photo,
+    };
+  },
+  removeSessionInfo() {
+    sessionStorage.removeItem(this.LOGIN_KEYS.USER_INFO);
   },
 
   // 刷新后重新请求登录用户信息
   refreshInfo(community='openeuler') {
     const { token } = this.getUserAuth();
     if (token) {
+      this.setLogInfo(this.getSessionInfo(), token);
       LoginQuery.queryCourse({ community }, token).then((res) => {
         const { data } = res;
         if (
           Object.prototype.toString.call(data) === '[object Object]'
         ) {
           this.setLogInfo(data, token);
+          this.setSessionInfo(data);
         }
       }).catch(() => {
         this.tokenFailIndicateLogin();
       });
     } else {
       this.setLogInfo({}, token);
+      this.removeSessionInfo();
     }
   },
   getLanguage() {
