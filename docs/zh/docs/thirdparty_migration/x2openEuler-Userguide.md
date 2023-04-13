@@ -1,3 +1,6 @@
+---
+title: "x2openEuler 用户指南"
+---
 # x2openEuler 用户指南
 ## 前言
 
