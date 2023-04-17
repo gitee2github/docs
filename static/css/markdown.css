@@ -201,6 +201,10 @@
 .markdown ol li::marker {
   color: var(--e-color-text1);
 }
+.markdown .hljs {
+  /* 解决100%尺寸下 --变 —— 问题 */
+  letter-spacing: 1px;
+}
 .markdown table {
   width: 100%;
   font-size: var(--o-font-size-text);

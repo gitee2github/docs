@@ -17,6 +17,8 @@ buildFuture = true
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+    [markup.goldmark.extensions]
+      typographer = false
 # Define the number of posts per page
 paginate = 10
 
