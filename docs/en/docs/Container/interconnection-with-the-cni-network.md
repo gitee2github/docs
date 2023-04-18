@@ -1,13 +1,12 @@
 # Interconnection with the CNI Network
 
 - [Interconnection with the CNI Network](#interconnection-with-the-cni-network)
-    - [Overview](#overview-0)
+    - [Overview](#overview)
     - [Common CNIs](#common-cnis)
         - [CNI Network Configuration Description](#cni-network-configuration-description)
         - [Adding a Pod to the CNI Network List](#adding-a-pod-to-the-cni-network-list)
         - [Removing a Pod from the CNI Network List](#removing-a-pod-from-the-cni-network-list)
     - [Usage Restrictions](#usage-restrictions)
-
 
 ## Overview
 
@@ -17,8 +16,8 @@ The container runtime interface \(CRI\) is provided to connect to the CNI networ
 
 Common CNIs include CNI network configuration items in the CNI network configuration and pod configuration. These CNIs are visible to users.
 
--   CNI network configuration items in the CNI network configuration refer to those used to specify the path of the CNI network configuration file, path of the binary file of the CNI network plug-in, and network mode. For details, see  [Table 1](#en-us_topic_0183259146_table18221919589).
--   CNI network configuration items in the pod configuration refer to those used to set the additional CNI network list to which the pod is added. By default, the pod is added only to the default CNI network plane. You can add the pod to multiple CNI network planes as required.
+- CNI network configuration items in the CNI network configuration refer to those used to specify the path of the CNI network configuration file, path of the binary file of the CNI network plug-in, and network mode. For details, see  [Table 1](#en-us_topic_0183259146_table18221919589).
+- CNI network configuration items in the pod configuration refer to those used to set the additional CNI network list to which the pod is added. By default, the pod is added only to the default CNI network plane. You can add the pod to multiple CNI network planes as required.
 
 **Table  1**  CNI network configuration items
 
@@ -69,19 +68,16 @@ Add the network plane configuration item "network.alpha.kubernetes.io/network" t
 
 The network plane is configured in JSON format, including:
 
--   **name**: specifies the name of the CNI network plane.
--   **interface**: specifies the name of a network interface.
+- **name**: specifies the name of the CNI network plane.
+- **interface**: specifies the name of a network interface.
 
 The following is an example of the CNI network configuration method:
 
-```
+```json
 "annotations" : {
         "network.alpha.kubernetes.io/network": "{\"name\": \"mynet\", \"interface\": \"eth1\"}"
  }
 ```
-
-  
-
 
 ### CNI Network Configuration Description
 
@@ -96,7 +92,7 @@ If  **--network-plugin=cni**  is configured for iSulad and the default network p
 
 **port\_mappings**  in the pod configuration is also a network configuration item, which is used to set the port mapping of the pod. To set port mapping, perform the following steps:
 
-```
+```json
 "port_mappings":[
      { 
          "protocol": 1,
@@ -106,22 +102,22 @@ If  **--network-plugin=cni**  is configured for iSulad and the default network p
 ]
 ```
 
--   **protocol**: protocol used for mapping. The value can be  **tcp**  \(identified by 0\) or  **udp**  \(identified by 1\).
--   **container\_port**: port through which the container is mapped.
--   **host\_port**: port mapped to the host.
+- **protocol**: protocol used for mapping. The value can be  **tcp**  \(identified by 0\) or  **udp**  \(identified by 1\).
+- **container\_port**: port through which the container is mapped.
+- **host\_port**: port mapped to the host.
 
 ### Removing a Pod from the CNI Network List
 
 When StopPodSandbox is called, the interface for removing a pod from the CNI network list will be called to clear network resources.
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
+>
 >1. Before calling the RemovePodSandbox interface, you must call the StopPodSandbox interface at least once.  
 >2. If StopPodSandbox fails to call the CNI, residual network resources may exist.  
 
 ## Usage Restrictions
 
--   Currently, only CNI 0.3.0 and CNI 0.3.1 are supported. In later versions, CNI 0.1.0 and CNI 0.2.0 may need to be supported. Therefore, when error logs are displayed, the information about CNI 0.1.0 and CNI 0.2.0 is reserved.
--   name: The value must contain lowercase letters, digits, hyphens \(-\), and periods \(.\) and cannot be started or ended with a hyphen or period. The value can contain a maximum of 200 characters.
--   The number of configuration files cannot exceed 200, and the size of a single configuration file cannot exceed 1 MB.
--   The extended parameters need to be configured based on the actual network requirements. Optional parameters do not need to be written into the netconf.json file.
-
+- Currently, only CNI 0.3.0 and CNI 0.3.1 are supported. In later versions, CNI 0.1.0 and CNI 0.2.0 may need to be supported. Therefore, when error logs are displayed, the information about CNI 0.1.0 and CNI 0.2.0 is reserved.
+- name: The value must contain lowercase letters, digits, hyphens \(-\), and periods \(.\) and cannot be started or ended with a hyphen or period. The value can contain a maximum of 200 characters.
+- The number of configuration files cannot exceed 200, and the size of a single configuration file cannot exceed 1 MB.
+- The extended parameters need to be configured based on the actual network requirements. Optional parameters do not need to be written into the netconf.json file.
