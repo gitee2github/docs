@@ -630,7 +630,7 @@ postgres=# GRANT ALL PRIVILEGES ON TABLE table1 TO PUBLIC;
 
 #### Creating a Database
 
-You can use the  **CREATE DATABASE**  statement or the  **createdb**  command to create a role. The  **createdb**  command encapsulates the  **CREATE DATABASE**  statement and needs to be executed on the shell GUI instead of the database GUI.
+You can use the  **CREATE DATABASE**  statement or the  **createdb**  command to create a database. The  **createdb**  command encapsulates the  **CREATE DATABASE**  statement and needs to be executed on the shell GUI instead of the database GUI.
 
 ```
 CREATE DATABASE databasename;
