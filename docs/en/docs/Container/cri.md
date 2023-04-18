@@ -29,14 +29,13 @@
             - [PullImage](#pullimage)
             - [RemoveImage](#removeimage)
             - [ImageFsInfo](#imagefsinfo)
-    - [Constraints](#constraints-2)
-
+    - [Constraints](#constraints)
 
 ## Description
 
 The Container Runtime Interface \(CRI\) provided by Kubernetes defines container and image service APIs. iSulad uses the CRI to interconnect with Kubernetes.
 
-Since the container runtime is isolated from the image lifecycle, two services need to be defined. This API is defined by using  [Protocol Buffer](https://developers.google.com/protocol-buffers/)  based on  [gRPC](https://grpc.io/).
+Since the container runtime is isolated from the image lifecycle, two services need to be defined. This API is defined by using  [Protocol Buffer](https://protobuf.dev/)  based on  [gRPC](https://grpc.io/).
 
 The current CRI version is v1alpha1. For official API description, access the following link:
 
@@ -44,7 +43,7 @@ The current CRI version is v1alpha1. For official API description, access the fo
 
 iSulad uses the API description file of version 1.14 used by Pass, which is slightly different from the official API description file. API description in this document prevails.
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >The listening IP address of the CRI WebSocket streaming service is  **127.0.0.1**  and the port number is  **10350**. The port number can be configured in the  **--websocket-server-listening-port**  command or in the  **daemon.json**  configuration file.  
 
 ## APIs
@@ -53,7 +52,7 @@ The following tables list the parameters that may be used in each API. Some para
 
 ### API Parameters
 
--   **DNSConfig**
+- **DNSConfig**
 
     The API is used to configure DNS servers and search domains of a sandbox.
 
@@ -80,8 +79,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **Protocol**
+
+- **Protocol**
 
     The API is used to specify enum values of protocols.
 
@@ -103,8 +102,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **PortMapping**
+
+- **PortMapping**
 
     The API is used to configure the port mapping for a sandbox.
 
@@ -136,8 +135,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **MountPropagation**
+
+- **MountPropagation**
 
     The API is used to specify enums of mount propagation attributes.
 
@@ -164,8 +163,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **Mount**
+
+- **Mount**
 
     The API is used to mount a volume on the host to a container. \(Only files and folders are supported.\)
 
@@ -206,8 +205,7 @@ The following tables list the parameters that may be used in each API. Some para
     </tbody>
     </table>
 
-
--   **NamespaceOption**
+- **NamespaceOption**
 
     <table><thead align="left"><tr id="en-us_topic_0182207110_row320210420420"><th class="cellrowborder" valign="top" width="40.43%" id="mcps1.1.3.1.1"><p id="en-us_topic_0182207110_p3202142345"><a name="en-us_topic_0182207110_p3202142345"></a><a name="en-us_topic_0182207110_p3202142345"></a>Parameter</p>
     </th>
@@ -232,8 +230,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **Capability**
+
+- **Capability**
 
     This API is used to specify the capabilities to be added and deleted.
 
@@ -256,8 +254,7 @@ The following tables list the parameters that may be used in each API. Some para
     </tbody>
     </table>
 
-
--   **Int64Value**
+- **Int64Value**
 
     The API is used to encapsulate data of the signed 64-bit integer type.
 
@@ -274,8 +271,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **UInt64Value**
+
+- **UInt64Value**
 
     The API is used to encapsulate data of the unsigned 64-bit integer type.
 
@@ -292,8 +289,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **LinuxSandboxSecurityContext**
+
+- **LinuxSandboxSecurityContext**
 
     The API is used to configure the Linux security options of a sandbox.
 
@@ -346,8 +343,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **LinuxPodSandboxConfig**
+
+- **LinuxPodSandboxConfig**
 
     The API is used to configure information related to the Linux host and containers.
 
@@ -374,8 +371,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **PodSandboxMetadata**
+
+- **PodSandboxMetadata**
 
     Sandbox metadata contains all information that constructs a sandbox name. It is recommended that the metadata be displayed on the user interface during container running to improve user experience. For example, a unique sandbox name can be generated based on the metadata during running.
 
@@ -408,8 +405,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **PodSandboxConfig**
+
+- **PodSandboxConfig**
 
     This API is used to specify all mandatory and optional configurations for creating a sandbox.
 
@@ -461,8 +458,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **PodSandboxNetworkStatus**
+
+- **PodSandboxNetworkStatus**
 
     The API is used to describe the network status of a sandbox.
 
@@ -489,8 +486,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **Namespace**
+
+- **Namespace**
 
     The API is used to set namespace options.
 
@@ -507,8 +504,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **LinuxPodSandboxStatus**
+
+- **LinuxPodSandboxStatus**
 
     The API is used to describe the status of a Linux sandbox.
 
@@ -525,8 +522,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **PodSandboxState**
+
+- **PodSandboxState**
 
     The API is used to specify enum data of the sandbox status values.
 
@@ -548,8 +545,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **PodSandboxStatus**
+
+- **PodSandboxStatus**
 
     The API is used to describe the PodSandbox status.
 
@@ -601,8 +598,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **PodSandboxStateValue**
+
+- **PodSandboxStateValue**
 
     The API is used to encapsulate  [PodSandboxState](#en-us_topic_0182207110_li1818214574195).
 
@@ -619,8 +616,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **PodSandboxFilter**
+
+- **PodSandboxFilter**
 
     The API is used to add filter criteria for the sandbox list. The intersection of multiple filter criteria is displayed.
 
@@ -647,10 +644,10 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **PodSandbox**
 
-    This API is used to provide a minimum description of a sandbox. 
+- **PodSandbox**
+
+    This API is used to provide a minimum description of a sandbox.
 
     <table><thead align="left"><tr id="en-us_topic_0182207110_row17177173543219"><th class="cellrowborder" valign="top" width="40.43%" id="mcps1.1.3.1.1"><p id="en-us_topic_0182207110_p191773352328"><a name="en-us_topic_0182207110_p191773352328"></a><a name="en-us_topic_0182207110_p191773352328"></a>Parameter</p>
     </th>
@@ -690,8 +687,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **KeyValue**
+
+- **KeyValue**
 
     The API is used to encapsulate key-value pairs.
 
@@ -713,8 +710,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **SELinuxOption**
+
+- **SELinuxOption**
 
     The API is used to specify the SELinux label of a container.
 
@@ -746,8 +743,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **ContainerMetadata**
+
+- **ContainerMetadata**
 
     Container metadata contains all information that constructs a container name. It is recommended that the metadata be displayed on the user interface during container running to improve user experience. For example, a unique container name can be generated based on the metadata during running.
 
@@ -770,8 +767,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **ContainerState**
+
+- **ContainerState**
 
     The API is used to specify enums of container status values.
 
@@ -803,8 +800,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **ContainerStateValue**
+
+- **ContainerStateValue**
 
     The API is used to encapsulate the data structure of  [ContainerState](#en-us_topic_0182207110_li65182518309).
 
@@ -821,8 +818,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **ContainerFilter**
+
+- **ContainerFilter**
 
     The API is used to add filter criteria for the container list. The intersection of multiple filter criteria is displayed.
 
@@ -854,8 +851,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **LinuxContainerSecurityContext**
+
+- **LinuxContainerSecurityContext**
 
     The API is used to specify container security configurations.
 
@@ -921,8 +918,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **LinuxContainerResources**
+
+- **LinuxContainerResources**
 
     The API is used to specify configurations of Linux container resources.
 
@@ -968,8 +965,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **Image**
+
+- **Image**
 
     The API is used to describe the basic information about an image.
 
@@ -1010,8 +1007,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **ImageSpec**
+
+- **ImageSpec**
 
     The API is used to represent the internal data structure of an image. Currently, ImageSpec encapsulates only the container image name.
 
@@ -1028,8 +1025,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **StorageIdentifier**
+
+- **StorageIdentifier**
 
     The API is used to specify the unique identifier for defining the storage.
 
@@ -1046,8 +1043,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **FilesystemUsage**
+
+- **FilesystemUsage**
 
     <table><tbody><tr id="en-us_topic_0182207110_row486218218314"><td class="cellrowborder" valign="top" width="40.699999999999996%"><p id="en-us_topic_0182207110_p3862192117316"><a name="en-us_topic_0182207110_p3862192117316"></a><a name="en-us_topic_0182207110_p3862192117316"></a><strong id="en-us_topic_0182207110_b15749426141818"><a name="en-us_topic_0182207110_b15749426141818"></a><a name="en-us_topic_0182207110_b15749426141818"></a>Parameter</strong></p>
     </td>
@@ -1076,8 +1073,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **AuthConfig**
+
+- **AuthConfig**
 
     <table><tbody><tr id="en-us_topic_0182207110_row419944410312"><td class="cellrowborder" valign="top" width="41.06%"><p id="en-us_topic_0182207110_p1519964418314"><a name="en-us_topic_0182207110_p1519964418314"></a><a name="en-us_topic_0182207110_p1519964418314"></a><strong id="en-us_topic_0182207110_b146630375182"><a name="en-us_topic_0182207110_b146630375182"></a><a name="en-us_topic_0182207110_b146630375182"></a>Parameter</strong></p>
     </td>
@@ -1116,8 +1113,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **Container**
+
+- **Container**
 
     The API is used to describe container information, such as the ID and status.
 
@@ -1174,8 +1171,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **ContainerStatus**
+
+- **ContainerStatus**
 
     The API is used to describe the container status information.
 
@@ -1262,8 +1259,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **ContainerStatsFilter**
+
+- **ContainerStatsFilter**
 
     The API is used to add filter criteria for the container stats list. The intersection of multiple filter criteria is displayed.
 
@@ -1290,8 +1287,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **ContainerStats**
+
+- **ContainerStats**
 
     The API is used to add filter criteria for the container stats list. The intersection of multiple filter criteria is displayed.
 
@@ -1323,8 +1320,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **ContainerAttributes**
+
+- **ContainerAttributes**
 
     The API is used to list basic container information.
 
@@ -1356,8 +1353,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **CpuUsage**
+
+- **CpuUsage**
 
     The API is used to list the CPU usage information of a container.
 
@@ -1379,8 +1376,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **MemoryUsage**
+
+- **MemoryUsage**
 
     The API is used to list the memory usage information of a container.
 
@@ -1402,8 +1399,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **FilesystemUsage**
+
+- **FilesystemUsage**
 
     The API is used to list the read/write layer information of a container.
 
@@ -1435,8 +1432,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **Device**
+
+- **Device**
 
     The API is used to specify the host volume to be mounted to a container.
 
@@ -1462,8 +1459,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **LinuxContainerConfig**
+
+- **LinuxContainerConfig**
 
     The API is used to specify Linux configurations.
 
@@ -1484,8 +1481,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **ContainerConfig**
+
+- **ContainerConfig**
 
     The API is used to specify all mandatory and optional fields for creating a container.
 
@@ -1571,8 +1568,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **NetworkConfig**
+
+- **NetworkConfig**
 
     This API is used to specify runtime network configurations.
 
@@ -1588,8 +1585,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **RuntimeConfig**
+
+- **RuntimeConfig**
 
     This API is used to specify runtime network configurations.
 
@@ -1605,8 +1602,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **RuntimeCondition**
+
+- **RuntimeCondition**
 
     The API is used to describe runtime status information.
 
@@ -1637,8 +1634,8 @@ The following tables list the parameters that may be used in each API. Some para
     </tr>
     </tbody>
     </table>
-    
--   **RuntimeStatus**
+
+- **RuntimeStatus**
 
     The API is used to describe runtime status.
 
@@ -1655,20 +1652,15 @@ The following tables list the parameters that may be used in each API. Some para
     </tbody>
     </table>
 
-
-
-
 ### Runtime Service
 
 The runtime service provides APIs for operating pods and containers, and APIs for querying the configuration and status information of the runtime service.
-
-
 
 #### RunPodSandbox
 
 #### Prototype
 
-```
+```proto
 rpc RunPodSandbox(RunPodSandboxRequest) returns (RunPodSandboxResponse) {}
 ```
 
@@ -1678,8 +1670,8 @@ This API is used to create and start a PodSandbox. If the PodSandbox is successf
 
 #### Precautions
 
-1.  The default image for starting a sandbox is  **rnd-dockerhub.huawei.com/library/pause-$\{**_machine_**\}:3.0**  where  **$\{**_machine_**\}**  indicates the architecture. On x86\_64, the value of  _machine_  is  **amd64**. On ARM64, the value of  _machine_  is  **aarch64**. Currently, only the  **amd64**  or  **aarch64**  image can be downloaded from the rnd-dockerhub registry. If the image does not exist on the host, ensure that the host can download the image from the rnd-dockerhub registry. If you want to use another image, refer to  **pod-sandbox-image**  in the  _iSulad Deployment Configuration_.
-2.  The container name is obtained from fields in  [PodSandboxMetadata](#apis.md#en-us_topic_0182207110_li2359918134912)  and separated by underscores \(\_\). Therefore, the metadata cannot contain underscores \(\_\). Otherwise, the  [ListPodSandbox](#listpodsandbox.md#EN-US_TOPIC_0184808098)  API cannot be used for query even when the sandbox is running successfully.
+1. The default image for starting a sandbox is  **rnd-dockerhub.huawei.com/library/pause-$\{**_machine_**\}:3.0**  where  **$\{**_machine_**\}**  indicates the architecture. On x86\_64, the value of  _machine_  is  **amd64**. On ARM64, the value of  _machine_  is  **aarch64**. Currently, only the  **amd64**  or  **aarch64**  image can be downloaded from the rnd-dockerhub registry. If the image does not exist on the host, ensure that the host can download the image from the rnd-dockerhub registry. If you want to use another image, refer to  **pod-sandbox-image**  in the  _iSulad Deployment Configuration_.
+2. The container name is obtained from fields in  [PodSandboxMetadata](#apis.md#en-us_topic_0182207110_li2359918134912)  and separated by underscores \(\_\). Therefore, the metadata cannot contain underscores \(\_\). Otherwise, the  [ListPodSandbox](#listpodsandbox.md#EN-US_TOPIC_0184808098)  API cannot be used for query even when the sandbox is running successfully.
 
 #### Parameters
 
@@ -1722,7 +1714,7 @@ This API is used to create and start a PodSandbox. If the PodSandbox is successf
 
 #### Prototype
 
-```
+```proto
 rpc StopPodSandbox(StopPodSandboxRequest) returns (StopPodSandboxResponse) {}
 ```
 
@@ -1766,7 +1758,7 @@ This API is used to stop PodSandboxes and sandbox containers, and reclaim the ne
 
 #### Prototype
 
-```
+```proto
 rpc RemovePodSandbox(RemovePodSandboxRequest) returns (RemovePodSandboxResponse) {}
 ```
 
@@ -1814,7 +1806,7 @@ This API is used to delete a sandbox. If any running container belongs to the sa
 
 #### Prototype
 
-```
+```proto
 rpc PodSandboxStatus(PodSandboxStatusRequest) returns (PodSandboxStatusResponse) {}
 ```
 
@@ -1868,7 +1860,7 @@ This API is used to query the sandbox status. If the sandbox does not exist, an 
 
 #### Prototype
 
-```
+```proto
 rpc ListPodSandbox(ListPodSandboxRequest) returns (ListPodSandboxResponse) {}
 ```
 
@@ -1910,7 +1902,7 @@ This API is used to return the sandbox information list. Filtering based on crit
 
 #### CreateContainer
 
-```
+```proto
 grpc::Status CreateContainer(grpc::ServerContext *context, const runtime::CreateContainerRequest *request, runtime::CreateContainerResponse *reply) {}
 ```
 
@@ -1920,9 +1912,9 @@ This API is used to create a container in the PodSandbox.
 
 #### Precautions
 
--   **sandbox\_config**  in** CreateContainerRequest**  is the same as the configuration transferred to  **RunPodSandboxRequest**  to create a PodSandbox. It is transferred again for reference only. PodSandboxConfig must remain unchanged throughout the lifecycle of a pod.
--   The container name is obtained from fields in  [ContainerMetadata](#apis.md#en-us_topic_0182207110_li17135914132319)  and separated by underscores \(\_\). Therefore, the metadata cannot contain underscores \(\_\). Otherwise, the  [ListContainers](#listcontainers.md#EN-US_TOPIC_0184808103)  API cannot be used for query even when the sandbox is running successfully.
--   **CreateContainerRequest**  does not contain the  **runtime\_handler**  field. The runtime type of the container is the same as that of the corresponding sandbox.
+- **sandbox\_config**  in**CreateContainerRequest**  is the same as the configuration transferred to  **RunPodSandboxRequest**  to create a PodSandbox. It is transferred again for reference only. PodSandboxConfig must remain unchanged throughout the lifecycle of a pod.
+- The container name is obtained from fields in  [ContainerMetadata](#apis.md#en-us_topic_0182207110_li17135914132319)  and separated by underscores \(\_\). Therefore, the metadata cannot contain underscores \(\_\). Otherwise, the  [ListContainers](#listcontainers.md#EN-US_TOPIC_0184808103)  API cannot be used for query even when the sandbox is running successfully.
+- **CreateContainerRequest**  does not contain the  **runtime\_handler**  field. The runtime type of the container is the same as that of the corresponding sandbox.
 
 #### Parameters
 
@@ -1954,7 +1946,7 @@ This API is used to create a container in the PodSandbox.
 
 Unstructured key-value mappings that can be used to store and retrieve any metadata. The field can be used to transfer parameters for the fields for which the CRI does not provide specific parameters.
 
--   Customize the field:
+- Customize the field:
 
     <a name="en-us_topic_0183088045_table18570435155317"></a>
     <table><tbody><tr id="en-us_topic_0183088045_row961273515313"><td class="cellrowborder" valign="top" width="50%"><p id="en-us_topic_0183088045_p146121535155310"><a name="en-us_topic_0183088045_p146121535155310"></a><a name="en-us_topic_0183088045_p146121535155310"></a><strong id="en-us_topic_0183088045_b6471318131516"><a name="en-us_topic_0183088045_b6471318131516"></a><a name="en-us_topic_0183088045_b6471318131516"></a>Custom key:value</strong></p>
@@ -1969,7 +1961,6 @@ Unstructured key-value mappings that can be used to store and retrieve any metad
     </tr>
     </tbody>
     </table>
-
 
 #### Return Values
 
@@ -1991,7 +1982,7 @@ Unstructured key-value mappings that can be used to store and retrieve any metad
 
 #### Prototype
 
-```
+```proto
 rpc StartContainer(StartContainerRequest) returns (StartContainerResponse) {}
 ```
 
@@ -2035,7 +2026,7 @@ This API is used to start a container.
 
 #### Prototype
 
-```
+```proto
 rpc StopContainer(StopContainerRequest) returns (StopContainerResponse) {}
 ```
 
@@ -2072,7 +2063,7 @@ None
 
 #### Prototype
 
-```
+```proto
 rpc RemoveContainer(RemoveContainerRequest) returns (RemoveContainerResponse) {}
 ```
 
@@ -2104,7 +2095,7 @@ None
 
 #### Prototype
 
-```
+```proto
 rpc ListContainers(ListContainersRequest) returns (ListContainersResponse) {}
 ```
 
@@ -2148,7 +2139,7 @@ This API is used to return the container information list. Filtering based on cr
 
 #### Prototype
 
-```
+```proto
 rpc ContainerStatus(ContainerStatusRequest) returns (ContainerStatusResponse) {}
 ```
 
@@ -2202,7 +2193,7 @@ This API is used to return the container status information. If the container do
 
 #### Prototype
 
-```
+```proto
 rpc UpdateContainerResources(UpdateContainerResourcesRequest) returns (UpdateContainerResourcesResponse) {}
 ```
 
@@ -2212,8 +2203,8 @@ This API is used to update container resource configurations.
 
 #### Precautions
 
--   This API cannot be used to update the pod resource configurations.
--   The value of  **oom\_score\_adj**  of any container cannot be updated.
+- This API cannot be used to update the pod resource configurations.
+- The value of  **oom\_score\_adj**  of any container cannot be updated.
 
 #### Parameters
 
@@ -2244,7 +2235,7 @@ None
 
 #### Prototype
 
-```
+```proto
 rpc ExecSync(ExecSyncRequest) returns (ExecSyncResponse) {}
 ```
 
@@ -2312,7 +2303,7 @@ The interaction between the terminal and the containers must be disabled when a 
 
 #### Prototype
 
-```
+```proto
 rpc Exec(ExecRequest) returns (ExecResponse) {}
 ```
 
@@ -2322,7 +2313,7 @@ This API is used to run commands in a container through the gRPC communication m
 
 #### Precautions
 
-The interaction between the terminal and the container can be enabled when a single command is executed. One of  **stdin**,  **stdout**, and  **stderr **must be true. If  **tty**  is true,  **stderr**  must be false. Multiplexing is not supported. In this case, the output of  **stdout**  and  **stderr**  will be combined to a stream.
+The interaction between the terminal and the container can be enabled when a single command is executed. One of  **stdin**,  **stdout**, and  **stderr**must be true. If  **tty**  is true,  **stderr**  must be false. Multiplexing is not supported. In this case, the output of  **stdout**  and  **stderr**  will be combined to a stream.
 
 #### Parameters
 
@@ -2385,7 +2376,7 @@ The interaction between the terminal and the container can be enabled when a sin
 
 #### Prototype
 
-```
+```proto
 rpc Attach(AttachRequest) returns (AttachResponse) {}
 ```
 
@@ -2449,7 +2440,7 @@ This API is used to take over the init process of a container through the gRPC c
 
 #### Prototype
 
-```
+```proto
 rpc ContainerStats(ContainerStatsRequest) returns (ContainerStatsResponse) {}
 ```
 
@@ -2493,7 +2484,7 @@ This API is used to return information about resources occupied by a container. 
 
 #### Prototype
 
-```
+```proto
 rpc ListContainerStats(ListContainerStatsRequest) returns (ListContainerStatsResponse) {}
 ```
 
@@ -2537,7 +2528,7 @@ This API is used to return the information about resources occupied by multiple 
 
 #### Prototype
 
-```
+```proto
 rpc UpdateRuntimeConfig(UpdateRuntimeConfigRequest) returns (UpdateRuntimeConfigResponse);
 ```
 
@@ -2573,7 +2564,7 @@ None
 
 #### Prototype
 
-```
+```proto
 rpc Status(StatusRequest) returns (StatusResponse) {};
 ```
 
@@ -2626,12 +2617,11 @@ If the network configuration fails to be updated, the original configuration is 
 
 The service provides the gRPC API for pulling, viewing, and removing images from the registry.
 
-
 #### ListImages
 
 #### Prototype
 
-```
+```proto
 rpc ListImages(ListImagesRequest) returns (ListImagesResponse) {}
 ```
 
@@ -2643,8 +2633,8 @@ This API is used to list existing image information.
 
 This is a unified API. You can run the  **cri images**  command to query embedded images. However, embedded images are not standard OCI images. Therefore, query results have the following restrictions:
 
--   An embedded image does not have an image ID. Therefore, the value of  **image ID**  is the config digest of the image.
--   An embedded image has only config digest, and it does not comply with the OCI image specifications. Therefore, the value of  **digest**  cannot be displayed.
+- An embedded image does not have an image ID. Therefore, the value of  **image ID**  is the config digest of the image.
+- An embedded image has only config digest, and it does not comply with the OCI image specifications. Therefore, the value of  **digest**  cannot be displayed.
 
 #### Parameters
 
@@ -2682,7 +2672,7 @@ This is a unified API. You can run the  **cri images**  command to query embedde
 
 #### Prototype
 
-```
+```proto
 rpc ImageStatus(ImageStatusRequest) returns (ImageStatusResponse) {}
 ```
 
@@ -2692,8 +2682,8 @@ The API is used to query the information about a specified image.
 
 #### Precautions
 
-1.  If the image to be queried does not exist,  **ImageStatusResponse**  is returned and  **Image**  is set to  **nil**  in the return value.
-2.  This is a unified API. Since embedded images do not comply with the OCI image specifications and do not contain required fields, the images cannot be queried by using this API.
+1. If the image to be queried does not exist,  **ImageStatusResponse**  is returned and  **Image**  is set to  **nil**  in the return value.
+2. This is a unified API. Since embedded images do not comply with the OCI image specifications and do not contain required fields, the images cannot be queried by using this API.
 
 #### Parameters
 
@@ -2741,7 +2731,7 @@ The API is used to query the information about a specified image.
 
 #### Prototype
 
-```
+```proto
  rpc PullImage(PullImageRequest) returns (PullImageResponse) {}
 ```
 
@@ -2799,7 +2789,7 @@ Currently, you can download public images, and use the username, password, and a
 
 #### Prototype
 
-```
+```proto
 rpc RemoveImage(RemoveImageRequest) returns (RemoveImageResponse) {}
 ```
 
@@ -2835,7 +2825,7 @@ None
 
 #### Prototype
 
-```
+```proto
 rpc ImageFsInfo(ImageFsInfoRequest) returns (ImageFsInfoResponse) {}
 ```
 
@@ -2869,32 +2859,32 @@ None
 
 ### Constraints
 
-1.  If  **log\_directory**  is configured in the  **PodSandboxConfig**  parameter when a sandbox is created,  **log\_path**  must be specified in  **ContainerConfig**  when all containers that belong to the sandbox are created. Otherwise, the containers may not be started or deleted by using the CRI.
+1. If  **log\_directory**  is configured in the  **PodSandboxConfig**  parameter when a sandbox is created,  **log\_path**  must be specified in  **ContainerConfig**  when all containers that belong to the sandbox are created. Otherwise, the containers may not be started or deleted by using the CRI.
 
     The actual value of  **LOGPATH**  of containers is  **log\_directory/log\_path**. If  **log\_path**  is not set, the final value of  **LOGPATH**  is changed to  **log\_directory**.
 
-    -   If the path does not exist, iSulad will create a soft link pointing to the actual path of container logs when starting a container. Then  **log\_directory**  becomes a soft link. There are two cases:
-        1.  In the first case, if  **log\_path**  is not configured for other containers in the sandbox,  **log\_directory**  will be deleted and point to  **log\_path**  of the newly started container. As a result, logs of the first started container point to logs of the later started container.
-        2.  In the second case, if  **log\_path**  is configured for other containers in the sandbox, the value of  **LOGPATH**  of the container is  **log\_directory/log\_path**. Because  **log\_directory**  is a soft link, the creation fails when  **log\_directory/log\_path**  is used as the soft link to point to the actual path of container logs.
+    - If the path does not exist, iSulad will create a soft link pointing to the actual path of container logs when starting a container. Then  **log\_directory**  becomes a soft link. There are two cases:
+        1. In the first case, if  **log\_path**  is not configured for other containers in the sandbox,  **log\_directory**  will be deleted and point to  **log\_path**  of the newly started container. As a result, logs of the first started container point to logs of the later started container.
+        2. In the second case, if  **log\_path**  is configured for other containers in the sandbox, the value of  **LOGPATH**  of the container is  **log\_directory/log\_path**. Because  **log\_directory**  is a soft link, the creation fails when  **log\_directory/log\_path**  is used as the soft link to point to the actual path of container logs.
 
-    -   If the path exists, iSulad will attempt to delete the path \(non-recursive\) when starting a container. If the path is a folder path containing content, the deletion fails. As a result, the soft link fails to be created, the container fails to be started, and the same error occurs when the container is going to be deleted.
+    - If the path exists, iSulad will attempt to delete the path \(non-recursive\) when starting a container. If the path is a folder path containing content, the deletion fails. As a result, the soft link fails to be created, the container fails to be started, and the same error occurs when the container is going to be deleted.
 
-2.  If  **log\_directory**  is configured in the  **PodSandboxConfig**  parameter when a sandbox is created, and  **log\_path**  is specified in  **ContainerConfig**  when a container is created, the final value of  **LOGPATH**  is  **log\_directory/log\_path**. iSulad does not recursively create  **LOGPATH**, therefore, you must ensure that  **dirname\(LOGPATH\)**  exists, that is, the upper-level path of the final log file path exists.
-3.  If  **log\_directory**  is configured in the  **PodSandboxConfig**  parameter when a sandbox is created, and the same  **log\_path**  is specified in  **ContainerConfig**  when multiple containers are created, or if containers in different sandboxes point to the same  **LOGPATH**, the latest container log path will overwrite the previous path after the containers are started successfully.
-4.  If the image content in the remote registry changes and the original image is stored in the local host, the name and tag of the original image are changed to  **none**  when you call the CRI Pull image API to download the image again.
+2. If  **log\_directory**  is configured in the  **PodSandboxConfig**  parameter when a sandbox is created, and  **log\_path**  is specified in  **ContainerConfig**  when a container is created, the final value of  **LOGPATH**  is  **log\_directory/log\_path**. iSulad does not recursively create  **LOGPATH**, therefore, you must ensure that  **dirname\(LOGPATH\)**  exists, that is, the upper-level path of the final log file path exists.
+3. If  **log\_directory**  is configured in the  **PodSandboxConfig**  parameter when a sandbox is created, and the same  **log\_path**  is specified in  **ContainerConfig**  when multiple containers are created, or if containers in different sandboxes point to the same  **LOGPATH**, the latest container log path will overwrite the previous path after the containers are started successfully.
+4. If the image content in the remote registry changes and the original image is stored in the local host, the name and tag of the original image are changed to  **none**  when you call the CRI Pull image API to download the image again.
 
     An example is as follows:
 
     Locally stored images:
 
-    ```
+    ```console
     IMAGE                                        TAG                 IMAGE ID            SIZE
     rnd-dockerhub.huawei.com/pproxyisulad/test   latest              99e59f495ffaa       753kB
     ```
 
     After the  **rnd-dockerhub.huawei.com/pproxyisulad/test:latest**  image in the remote registry is updated and downloaded again:
 
-    ```
+    ```console
     IMAGE                                        TAG                 IMAGE ID            SIZE
     <none>                                       <none>              99e59f495ffaa       753kB
     rnd-dockerhub.huawei.com/pproxyisulad/test   latest              d8233ab899d41       1.42MB
@@ -2902,10 +2892,8 @@ None
 
     Run the  **isula images**  command. The value of  **REF**  is displayed as  **-**.
 
-    ```
+    ```console
     REF                                               IMAGE ID               CREATED              SIZE       
     rnd-dockerhub.huawei.com/pproxyisulad/test:latest d8233ab899d41          2019-02-14 19:19:37  1.42MB     
     -                                                 99e59f495ffaa          2016-05-04 02:26:41  753kB
     ```
-
-

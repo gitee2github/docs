@@ -25,8 +25,6 @@
 
 ## PostgreSQL Server
 
-
-
 ### Software Description
 
 [Figure 1](#fig26022387391)  shows the PostgreSQL architecture and  [Table 1](#table62020913417)  describes the main processes.
@@ -109,277 +107,258 @@
 
 ### Configuring the Environment
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >The following environment configuration is for reference only. Configure the environment based on the site requirements.  
-
-
 
 #### Disabling the Firewall and Automatic Startup
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >It is recommended that firewall be disabled in the test environment to prevent network impact. Configure the firewall based on actual requirements.  
 
-1.  Stop the firewall service as the **root** user.
+1. Stop the firewall service as the **root** user.
 
-    ```
-    # systemctl stop firewalld
-    ```
-
-2.  Disable the firewall service as the **root** user.
-
-    ```
-    # systemctl disable firewalld
+    ```shell
+    systemctl stop firewalld
     ```
 
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**   
+2. Disable the firewall service as the **root** user.
+
+    ```shell
+    systemctl disable firewalld
+    ```
+
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
     >The automatic startup is automatically disabled as the firewall is disabled.  
-
 
 #### Disabling SELinux
 
-1.  Modify the configuration file as the **root** user.
+1. Modify the configuration file as the **root** user.
 
+    ```shell
+    sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
     ```
-    # sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
-    ```
-
 
 #### Creating a User Group and a User
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >In the server environment, independent users are assigned to each process to implement permission isolation for security purposes. The user group and user are created for the OS, not for the database.  
 
-1.  Create a PostgreSQL user or user group as the **root** user.
+1. Create a PostgreSQL user or user group as the **root** user.
 
-    ```
-    # groupadd  postgres
-    ```
-
-    ```
-    # useradd  -g postgres postgres
+    ```shell
+    groupadd  postgres
     ```
 
-2.  Set the postgres user password as the **root** user. \(Enter the password twice for confirmation.\)
-
-    ```
-    #passwd postgres
+    ```shell
+    useradd  -g postgres postgres
     ```
 
+2. Set the postgres user password as the **root** user. \(Enter the password twice for confirmation.\)
+
+    ```shell
+    passwd postgres
+    ```
 
 #### Creating Data Drives
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
->-   When testing the ultimate performance, you are advised to attach NVMe SSDs with better I/O performance to create PostgreSQL test instances to avoid the impact of disk I/O on the performance test result. This section uses NVMe SSDs as an example. For details, see Step 1 to Step 4.  
->-   In a non-performance test, run the following command as the **root** user to create a data directory. Then skip this section.  
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
+>
+>- When testing the ultimate performance, you are advised to attach NVMe SSDs with better I/O performance to create PostgreSQL test instances to avoid the impact of disk I/O on the performance test result. This section uses NVMe SSDs as an example. For details, see Step 1 to Step 4.  
+>- In a non-performance test, run the following command as the **root** user to create a data directory. Then skip this section.  
 >    \# mkdir /data  
 
-1.  Create a file system \(xfs is used as an example as the **root** user. Create the file system based on the site requirements.\). If a file system has been created for a disk, an error will be reported when you run this command. You can use the  **-f**  parameter to forcibly create a file system.
+1. Create a file system \(xfs is used as an example as the **root** user. Create the file system based on the site requirements.\). If a file system has been created for a disk, an error will be reported when you run this command. You can use the  **-f**  parameter to forcibly create a file system.
 
-    ```
-    # mkfs.xfs /dev/nvme0n1
-    ```
-
-2.  Create a data directory.
-
-    ```
-    # mkdir /data
+    ```shell
+    mkfs.xfs /dev/nvme0n1
     ```
 
-3.  Mount disks.
+2. Create a data directory.
 
-    ```
-    # mount -o noatime,nobarrier /dev/nvme0n1 /data
+    ```shell
+    mkdir /data
     ```
 
+3. Mount disks.
+
+    ```shell
+    mount -o noatime,nobarrier /dev/nvme0n1 /data
+    ```
 
 #### Data Directory Authorization
 
-1.  Modify the directory permission as the **root** user.
+1. Modify the directory permission as the **root** user.
 
+    ```shell
+    chown -R postgres:postgres /data/
     ```
-    # chown -R postgres:postgres /data/
-    ```
-
 
 ### Installing, Running, and Uninstalling PostgreSQL
 
-
 #### Installing PostgreSQL
 
-1.  Configure the local yum source. For details, see  [Configuring the Repo Server](./configuring-the-repo-server.html).
-2.  Clear the cache.
+1. Configure the local yum source. For details, see  [Configuring the Repo Server](./configuring-the-repo-server.md).
+2. Clear the cache.
 
-    ```
-    $ dnf clean all
-    ```
-
-3.  Create a cache.
-
-    ```
-    $ dnf makecache
+    ```shell
+    dnf clean all
     ```
 
-4.  Install the PostgreSQL server as the **root** user.
+3. Create a cache.
 
-    ```
-    #dnf install postgresql-server
-    ```
-
-5.  Check the installed RPM package.
-
-    ```
-    $ rpm -qa | grep postgresql
+    ```shell
+    dnf makecache
     ```
 
+4. Install the PostgreSQL server as the **root** user.
+
+    ```shell
+    dnf install postgresql-server
+    ```
+
+5. Check the installed RPM package.
+
+    ```shell
+    rpm -qa | grep postgresql
+    ```
 
 #### Running PostgreSQL
 
-
-
 ##### Initializing the Database
 
->![](./public_sys-resources/icon-notice.gif) **NOTICE:**   
+>![](./public_sys-resources/icon-notice.gif) **NOTICE:**
 >Perform this step as the postgres user.  
 
-1.  Switch to the created PostgreSQL user.
+1. Switch to the created PostgreSQL user.
 
-    ```
-    # su - postgres
-    ```
-
-2.  Initialize the database. In the command,  **/usr/bin**  is the directory where the  **initdb**  command is located.
-
-    ```
-    $ /usr/bin/initdb -D /data/
+    ```shell
+    su - postgres
     ```
 
+2. Initialize the database. In the command,  **/usr/bin**  is the directory where the  **initdb**  command is located.
+
+    ```shell
+    /usr/bin/initdb -D /data/
+    ```
 
 ##### Starting the Database
 
-1.  Enable the PostgreSQL database.
+1. Enable the PostgreSQL database.
 
-    ```
-    $ /usr/bin/pg_ctl -D /data/ -l /data/logfile start
+    ```shell
+    /usr/bin/pg_ctl -D /data/ -l /data/logfile start
     ```
 
-2.  Check whether the PostgreSQL database process is started properly.
+2. Check whether the PostgreSQL database process is started properly.
 
-    ```
-    $ ps -ef | grep postgres
+    ```shell
+    ps -ef | grep postgres
     ```
 
     If the following information is displayed, the PostgreSQL processes have been started.
 
     ![](./figures/postgres.png)
 
-
 ##### Logging In to the Database
 
-1.  Log in to the database.
+1. Log in to the database.
 
-    ```
-    $ /usr/bin/psql -U postgres
+    ```shell
+    /usr/bin/psql -U postgres
     ```
 
     ![](./figures/login.png)
 
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**   
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
     >You do not need to enter a password when logging in to the database for the first time.  
-
 
 ##### Configuring the Database Accounts and Passwords
 
-1.  After login, set the postgres user password.
+1. After login, set the postgres user password.
 
-    ```
+    ```pgsql
     postgres=#alter user postgres with password '123456';
     ```
 
     ![](./figures/en-us_image_0230050789.png)
 
-
 ##### Exiting the Database
 
-1.  Run  **\\q**  to exit from the database.
+1. Run  **\\q**  to exit from the database.
 
-    ```
+    ```pgsql
     postgres=# \q
     ```
 
-
 ##### Stopping the Database
 
-1.  Stop the PostgreSQL database.
+1. Stop the PostgreSQL database.
 
+    ```shell
+    /usr/bin/pg_ctl -D /data/ -l /data/logfile stop
     ```
-    $/usr/bin/pg_ctl -D /data/ -l /data/logfile stop
-    ```
-
 
 #### Uninstalling PostgreSQL
 
-1.  Stop the database as the postgres user.
+1. Stop the database as the postgres user.
 
-    ```
-    $ /usr/bin/pg_ctl -D /data/ -l /data/logfile stop
-    ```
-
-2.  Run the  **dnf remove postgresql-server**  command as the user  **root**  to uninstall the PostgreSQL database.
-
-    ```
-    # dnf remove postgresql-server
+    ```shell
+    /usr/bin/pg_ctl -D /data/ -l /data/logfile stop
     ```
 
+2. Run the  **dnf remove postgresql-server**  command as the user  **root**  to uninstall the PostgreSQL database.
+
+    ```shell
+    dnf remove postgresql-server
+    ```
 
 ### Managing Database Roles
-
-
 
 #### Creating a Role
 
 You can use the  **CREATE ROLE**  statement or  **createuser**  command to create a role. The  **createuser**  command encapsulates the  **CREATE ROLE**  statement and needs to be executed on the shell GUI instead of the database GUI.
 
-```
+```pgsql
 CREATE ROLE rolename [ [ WITH ] option [ ... ] ];
 ```
 
-```
+```shell
 createuser rolename
 ```
 
 In the preceding information:
 
--   **rolename**: indicates a role name.
--   Parameters of the  _option_  are as follows:
-    -   **SUPERUSER | NOSUPERUSER**: determines whether a new role is a superuser. If this parameter is not specified, the default value **NOSUPERUSER**  is used, indicating that the role is not a superuser.
-    -   **CREATEDB | NOCREATEDB**: specifies whether a role can create a database. If this parameter is not specified, the default value  **NOCREATEDB**  is used, indicating that the role cannot create a database.
-    -   **CREATEROLE | NOCREATEROLE**: determines whether a role can create roles. If this parameter is not specified, the default value  **NOCREATEROLE**  is used, indicating that the role cannot create roles.
-    -   **INHERIT | NOINHERIT**: determines whether a role inherits the other roles' permissions in the group to which the role belongs. A role with the INHERIT attribute can automatically use any permissions that have been assigned to its direct or indirect group. If this parameter is not specified, the default value  **INHERIT**  is used.
-    -   **LOGIN | NOLOGIN**: determines whether a role can log in. A role with the LOGIN attribute can be considered as a user. A role without this attribute can be used to manage database permissions but is not a user. If this attribute is not specified, the default value  **NOLOGIN**  is used. However, if  **CREATE USER**  instead of  **CREATE ROLE**  is used to create a role, the LOGIN attribute is used by default.
-    -   **\[ENCRYPTED | UNENCRYPTED\] PASSWORD'password'**: password of a role. The password is valid only for roles with the LOGIN attribute.  **ENCRYPTED | UNENCRYPTED**: determines whether to encrypt the password. If this parameter is not specified, the value  **ENCRYPTED**  is used, that is, the password is encrypted.
-    -   **VALID UNTIL'timestamp'**: specifies the timestamp when the password of a role expires. If this parameter is not specified, the password is permanently valid.
-    -   **IN ROLE rolename1**: lists one or more existing roles. The new role  _rolename_  will be added to and become a member of  **rolename1**.
-    -   **ROLE rolename2**: lists one or more existing roles. These roles will be automatically added as members of the new role  _rolename_. That is, the new role is a user group.
-
+- **rolename**: indicates a role name.
+- Parameters of the  _option_  are as follows:
+    - **SUPERUSER | NOSUPERUSER**: determines whether a new role is a superuser. If this parameter is not specified, the default value **NOSUPERUSER**  is used, indicating that the role is not a superuser.
+    - **CREATEDB | NOCREATEDB**: specifies whether a role can create a database. If this parameter is not specified, the default value  **NOCREATEDB**  is used, indicating that the role cannot create a database.
+    - **CREATEROLE | NOCREATEROLE**: determines whether a role can create roles. If this parameter is not specified, the default value  **NOCREATEROLE**  is used, indicating that the role cannot create roles.
+    - **INHERIT | NOINHERIT**: determines whether a role inherits the other roles' permissions in the group to which the role belongs. A role with the INHERIT attribute can automatically use any permissions that have been assigned to its direct or indirect group. If this parameter is not specified, the default value  **INHERIT**  is used.
+    - **LOGIN | NOLOGIN**: determines whether a role can log in. A role with the LOGIN attribute can be considered as a user. A role without this attribute can be used to manage database permissions but is not a user. If this attribute is not specified, the default value  **NOLOGIN**  is used. However, if  **CREATE USER**  instead of  **CREATE ROLE**  is used to create a role, the LOGIN attribute is used by default.
+    - **\[ENCRYPTED | UNENCRYPTED\] PASSWORD'password'**: password of a role. The password is valid only for roles with the LOGIN attribute.  **ENCRYPTED | UNENCRYPTED**: determines whether to encrypt the password. If this parameter is not specified, the value  **ENCRYPTED**  is used, that is, the password is encrypted.
+    - **VALID UNTIL'timestamp'**: specifies the timestamp when the password of a role expires. If this parameter is not specified, the password is permanently valid.
+    - **IN ROLE rolename1**: lists one or more existing roles. The new role  _rolename_  will be added to and become a member of  **rolename1**.
+    - **ROLE rolename2**: lists one or more existing roles. These roles will be automatically added as members of the new role  _rolename_. That is, the new role is a user group.
 
 To run this command, you must have the CREATEROLE permission or is the database superuser.
 
 ##### Example
-\#Create a role  **roleexample1**  who can log in.
 
-```
+\# Create a role  **roleexample1**  who can log in.
+
+```pgsql
 postgres=# CREATE ROLE roleexample1 LOGIN;
 ```
 
-\#Create a role  **roleexample2**  with the password  **123456**.
+\# Create a role  **roleexample2**  with the password  **123456**.
 
-```
+```pgsql
 postgres=# CREATE ROLE roleexample2 WITH LOGIN PASSWORD '123456';
 ```
 
-\#Create a role named  **roleexample3**.
+\# Create a role named  **roleexample3**.
 
-```
+```shell
 [postgres@localhost ~]$ createuser roleexample3
 ```
 
@@ -387,66 +366,71 @@ postgres=# CREATE ROLE roleexample2 WITH LOGIN PASSWORD '123456';
 
 You can run the  **SELECT**  statement or the PostgreSQL meta-command  **\\du**  to view the role.
 
-```
+```pgsql
 SELECT rolename FROM pg_roles;
 ```
 
-```
+```pgsql
 \du
 ```
 
 In the preceding command,  _rolename_  indicates the role name.
 
 ##### Example
-\#View the  **roleexample1**  role.
 
-```
+\# View the  **roleexample1**  role.
+
+```pgsql
 postgres=# SELECT roleexample1 from pg_roles;
 ```
 
-\#View the existing roles.
+\# View the existing roles.
 
-```
+```pgsql
 postgres=# \du
 ```
 
 #### Modifying a Role
 
 ##### Modifying a Username
+
 Use the  **ALTER ROLE**  statement to modify an existing role name.
 
-```
+```pgsql
 ALTER ROLE oldrolername RENAME TO newrolename;
 ```
 
 In the preceding information:
 
--   _oldrolername_: original role name.
--   _newrolename_: new role name.
+- _oldrolername_: original role name.
+- _newrolename_: new role name.
 
 ##### Example of Modifying a User
-\#Change the role name  **roleexample1**  to  **roleexapme2**.
 
-```
+\# Change the role name  **roleexample1**  to  **roleexapme2**.
+
+```pgsql
 postgres=# ALTER ROLE roleexample1 RENAME TO roleexample2;
 ```
 
 ##### Modifying a User Password
+
 Use the  **ALTER ROLE**  statement to modify the login password of a role.
 
-```
+```pgsql
 ALTER ROLE rolename PASSWORD 'password'
 ```
 
 In the preceding information:
 
--   _rolename_: indicates a role name.
--   _password_: password.
+- _rolename_: indicates a role name.
+- _password_: password.
 
 ##### Example of Modifying the Password of a Role
-\#Modify the password of  **roleexample1**  to  **456789**.
 
-```
+\# Modify the password of  **roleexample1**  to  **456789**.
+
+```pgsql
 postgres=# ALTER ROLE roleexample1 WITH PASSWORD '456789';
 ```
 
@@ -454,26 +438,27 @@ postgres=# ALTER ROLE roleexample1 WITH PASSWORD '456789';
 
 You can use the  **DROP ROLE**  statement or  **dropuser**  command to delete a role. The  **dropuser**  command encapsulates the  **DROP ROLE**  statement and needs to be executed on the shell GUI instead of the database GUI.
 
-```
+```pgsql
 DROP ROLE rolename;
 ```
 
-```
+```pgsql
 dropuser rolename
 ```
 
 In the preceding command,  _rolename_  indicates the role name.
 
 ##### Example
-\#Delete the  **userexample1**  role.
 
-```
+\# Delete the  **userexample1**  role.
+
+```pgsql
 postgres=# DROP ROLE userexample1;
 ```
 
-\#Delete the  **userexample2**  role.
+\# Delete the  **userexample2**  role.
 
-```
+```shell
 [postgres@localhost ~]$ dropuser userexample2
 ```
 
@@ -483,80 +468,81 @@ You can use the  **GRANT**  statement to grant permissions to a role.
 
 Grant the table operation permission to a role.
 
-```
+```pgsql
 GRANT { { SELECT | INSERT | UPDATE | DELETE | REFERENCES | TRIGGER } [,...] | ALL [ PRIVILEGES ] } ON [ TABLE ] tablename [, ...] TO { rolename | GROUP groupname | PUBLIC } [, ...] [ WITH GRANT OPTION ]
 ```
 
 Grant the sequence operation permission to a role.
 
-```
+```pgsql
 GRANT { { USAGE | SELECT | UPDATE } [,...] | ALL [ PRIVILEGES ] } ON SEQUENCE sequencename [, ...] TO { rolename | GROUP groupname | PUBLIC } [, ...] [ WITH GRANT OPTION ] 
 ```
 
 Grant the database operation permission to a role.
 
-```
+```pgsql
 GRANT { { CREATE | CONNECT | TEMPORARY | TEMP } [,...] | ALL [ PRIVILEGES ] } ON DATABASE databasename [, ...] TO { rolename | GROUP groupname | PUBLIC } [, ...] [ WITH GRANT OPTION ]  
 ```
 
 Grant the function operation permission to a role.
 
-```
+```pgsql
 GRANT { EXECUTE | ALL [ PRIVILEGES ] } ON FUNCTION funcname ( [ [ argmode ] [ argname ] argtype [, ...] ] ) [, ...] TO { rolename | GROUP groupname | PUBLIC } [, ...] [ WITH GRANT OPTION ]  
 ```
 
 Grant the operation permission of the procedural language to a role.
 
-```
+```pgsql
 GRANT { USAGE | ALL [ PRIVILEGES ] } ON LANGUAGE langname [, ...] TO { rolename | GROUP groupname | PUBLIC } [, ...] [ WITH GRANT OPTION ]  
 ```
 
 Grant the schema operation permission to a role.
 
-```
+```pgsql
 GRANT { { CREATE | USAGE } [,...] | ALL [ PRIVILEGES ] } ON SCHEMA schemaname [, ...] TO { rolename | GROUP groupname | PUBLIC } [, ...] [ WITH GRANT OPTION ]  
 ```
 
 Grant the tablespace operation permission to a role.
 
-```
+```pgsql
 GRANT { CREATE | ALL [ PRIVILEGES ] } ON TABLESPACE tablespacename [, ...] TO { rolename | GROUP groupname | PUBLIC } [, ...] [ WITH GRANT OPTION ] 
 ```
 
 Assign the member relationship of rolename1 to rolename2.
 
-```
+```pgsql
 GRANT rolename1 [, ...] TO rolename2 [, ...] [ WITH ADMIN OPTION ]
 ```
 
 In the preceding information:
 
--   **SELECT**,  **INSERT**,  **UPDATE**,  **DELETE**,  **REFERENCES**,  **TRIGGER**,  **USAGE**,  **CREATE**,  **CONNECT**,  **TEMPORARY**,  **TEMP**,  **EXECUTE**, and  **ALL \[**_PRIVILEGES_**\]**  indicate user operation permissions.  **ALL \[**_PRIVILEGES_**\]**  indicates all permissions, the  _PRIVILEGES_  keyword is optional in PostgreSQL, but it is required in strict SQL statements.
--   **ON**  clause: specifies the object on which the permission is granted.
--   **tablename**: table name.
--   **TO**  clause: specifies the role to which the permission is granted.
--   **rolename**,  **rolename1**, and  **rolename2**: role names.
--   **groupname**: name of a role group.
--   **PUBLIC**: indicates that the permission is granted to all roles, including users who may be created later.
--   **WITH GRANT OPTION**: indicates that the recipient of a permission can grant the permission to others. This option cannot be assigned to PUBLIC.
--   **sequencename**: sequence name.
--   **databasename**: database name.
--   **funcname \(\[\[argmode\] \[argname\] argtype \[, ...\]\]\)**: function name and its parameters.
--   **langname**: procedural language name.
--   **schemaname**: schema name.
--   **tablespacename**: tablespace name.
--   **WITH ADMIN OPTION**: A member can assign the member relationship of a role to other roles and cancel the member relationship of other roles.
+- **SELECT**,  **INSERT**,  **UPDATE**,  **DELETE**,  **REFERENCES**,  **TRIGGER**,  **USAGE**,  **CREATE**,  **CONNECT**,  **TEMPORARY**,  **TEMP**,  **EXECUTE**, and  **ALL \[**_PRIVILEGES_**\]**  indicate user operation permissions.  **ALL \[**_PRIVILEGES_**\]**  indicates all permissions, the  _PRIVILEGES_  keyword is optional in PostgreSQL, but it is required in strict SQL statements.
+- **ON**  clause: specifies the object on which the permission is granted.
+- **tablename**: table name.
+- **TO**  clause: specifies the role to which the permission is granted.
+- **rolename**,  **rolename1**, and  **rolename2**: role names.
+- **groupname**: name of a role group.
+- **PUBLIC**: indicates that the permission is granted to all roles, including users who may be created later.
+- **WITH GRANT OPTION**: indicates that the recipient of a permission can grant the permission to others. This option cannot be assigned to PUBLIC.
+- **sequencename**: sequence name.
+- **databasename**: database name.
+- **funcname \(\[\[argmode\] \[argname\] argtype \[, ...\]\]\)**: function name and its parameters.
+- **langname**: procedural language name.
+- **schemaname**: schema name.
+- **tablespacename**: tablespace name.
+- **WITH ADMIN OPTION**: A member can assign the member relationship of a role to other roles and cancel the member relationship of other roles.
 
 ##### Example
-\#Grant the CREATE permission on database1 to userexample.
 
-```
+\# Grant the CREATE permission on database1 to userexample.
+
+```pgsql
 postgres=# GRANT CREATE ON DATABASE database1 TO userexample; 
 ```
 
-\#Grant all permissions on table1 to all users.
+\# Grant all permissions on table1 to all users.
 
-```
+```pgsql
 postgres=# GRANT ALL PRIVILEGES ON TABLE table1 TO PUBLIC; 
 ```
 
@@ -566,98 +552,97 @@ You can use the  **REVOKE**  statement to revoke the permissions previously gran
 
 Revoke the table operation permission from a role.
 
-```
+```pgsql
 REVOKE [ GRANT OPTION FOR ] { { SELECT | INSERT | UPDATE | DELETE | REFERENCES | TRIGGER } [,...] | ALL [ PRIVILEGES ] } ON [ TABLE ] tablename [, ...] FROM { rolename | GROUP groupname | PUBLIC } [, ...]
 ```
 
 Revoke the sequence operation permission from a role.
 
-```
+```pgsql
 REVOKE [ GRANT OPTION FOR ] { { USAGE | SELECT | UPDATE } [,...] | ALL [ PRIVILEGES ] } ON SEQUENCE sequencename [, ...] FROM { rolename | GROUP groupname | PUBLIC } [, ...] [ CASCADE | RESTRICT ]  
 ```
 
 Revoke the database operation permission from a role.
 
-```
+```pgsql
 REVOKE [ GRANT OPTION FOR ] { { CREATE | CONNECT | TEMPORARY | TEMP } [,...] | ALL [ PRIVILEGES ] } ON DATABASE databasename [, ...] FROM { rolename | GROUP groupname | PUBLIC } [, ...] [ CASCADE | RESTRICT ] 
 ```
 
 Revoke the function operation permission from a role.
 
-```
+```pgsql
 REVOKE [ GRANT OPTION FOR ] { EXECUTE | ALL [ PRIVILEGES ] } ON FUNCTION funcname ( [ [ argmode ] [ argname ] argtype [, ...] ] ) [, ...] FROM { rolename | GROUP groupname | PUBLIC } [, ...] [ CASCADE | RESTRICT ] 
 ```
 
 Revoke the procedural language operation permission from a role.
 
-```
+```pgsql
 REVOKE [ GRANT OPTION FOR ] { USAGE | ALL [ PRIVILEGES ] } ON LANGUAGE langname [, ...] FROM { rolename | GROUP groupname | PUBLIC } [, ...] [ CASCADE | RESTRICT ] 
 ```
 
 Revoke the schema operation permission from a role.
 
-```
+```pgsql
 REVOKE [ GRANT OPTION FOR ] { { CREATE | USAGE } [,...] | ALL [ PRIVILEGES ] } ON SCHEMA schemaname [, ...] FROM { rolename | GROUP groupname | PUBLIC } [, ...] [ CASCADE | RESTRICT ]  
 ```
 
 Revoke the tablespace operation permission from a role.
 
-```
+```pgsql
 REVOKE [ GRANT OPTION FOR ] { CREATE | ALL [ PRIVILEGES ] } ON TABLESPACE tablespacename [, ...] FROM { rolename | GROUP groupname | PUBLIC } [, ...] [ CASCADE | RESTRICT ] 
 ```
 
 Revoke the member relationship of rolename1 from rolename2.
 
-```
+```pgsql
 REVOKE [ ADMIN OPTION FOR ] rolename1 [, ...] FROM rolename2 [, ...] [ CASCADE | RESTRICT ]
 ```
 
 In the preceding information:
 
--   **GRANT OPTION FOR**: The permission cannot be granted to others, but permission itself is not revoked.
--   **SELECT**,  **INSERT**,  **UPDATE**,  **DELETE**,  **REFERENCES**,  **TRIGGER**,  **USAGE**,  **CREATE**,  **CONNECT**,  **TEMPORARY**,  **TEMP**,  **EXECUTE**, and  **ALL \[**_PRIVILEGES_**\]**  indicate user operation permissions.  **ALL \[**_PRIVILEGES_**\]**  indicates all permissions, the  _PRIVILEGES_  keyword is optional in PostgreSQL, but it is required in strict SQL statements.
--   **ON**  clause: specifies the object on which the permission is revoked.
--   _tablename_: table name.
--   **FROM**  clause: specifies the role whose permission is revoked.
--   _rolename_,  _rolename1_, and  _rolename2_: role names.
--   _groupname_: name of a role group.
--   **PUBLIC**: revokes the implicitly defined groups that have all roles. However, this does not mean that all roles lose the permissions. The permissions directly obtained and the permissions obtained through a group are still valid.
--   _sequencename_: sequence name.
--   **CASCADE**: revokes all dependent permissions.
--   **RESTRICT**: does not revoke all dependent permissions.
--   _databasename_: database name.
--   **funcname \(**_\[\[argmode\] \[argname\] argtype \[, ...\]\]_**\)**: function name and its parameters.
--   _langname_: procedural language name.
--   _schemaname_: schema name.
--   _tablespacename_: tablespace name.
--   **ADMIN OPTION FOR**: The transferred authorization is not automatically revoked.
+- **GRANT OPTION FOR**: The permission cannot be granted to others, but permission itself is not revoked.
+- **SELECT**,  **INSERT**,  **UPDATE**,  **DELETE**,  **REFERENCES**,  **TRIGGER**,  **USAGE**,  **CREATE**,  **CONNECT**,  **TEMPORARY**,  **TEMP**,  **EXECUTE**, and  **ALL \[**_PRIVILEGES_**\]**  indicate user operation permissions.  **ALL \[**_PRIVILEGES_**\]**  indicates all permissions, the  _PRIVILEGES_  keyword is optional in PostgreSQL, but it is required in strict SQL statements.
+- **ON**  clause: specifies the object on which the permission is revoked.
+- _tablename_: table name.
+- **FROM**  clause: specifies the role whose permission is revoked.
+- _rolename_,  _rolename1_, and  _rolename2_: role names.
+- _groupname_: name of a role group.
+- **PUBLIC**: revokes the implicitly defined groups that have all roles. However, this does not mean that all roles lose the permissions. The permissions directly obtained and the permissions obtained through a group are still valid.
+- _sequencename_: sequence name.
+- **CASCADE**: revokes all dependent permissions.
+- **RESTRICT**: does not revoke all dependent permissions.
+- _databasename_: database name.
+- **funcname \(**_\[\[argmode\] \[argname\] argtype \[, ...\]\]_**\)**: function name and its parameters.
+- _langname_: procedural language name.
+- _schemaname_: schema name.
+- _tablespacename_: tablespace name.
+- **ADMIN OPTION FOR**: The transferred authorization is not automatically revoked.
 
 ##### Example
-\#Grant the CREATE permission on database1 to userexample.
 
-```
+\# Grant the CREATE permission on database1 to userexample.
+
+```pgsql
 postgres=# GRANT CREATE ON DATABASE database1 TO userexample; 
 ```
 
-\#Grant all permissions on table1 to all users.
+\# Grant all permissions on table1 to all users.
 
-```
+```pgsql
 postgres=# GRANT ALL PRIVILEGES ON TABLE table1 TO PUBLIC; 
 ```
 
 ### Managing Databases
 
-
-
 #### Creating a Database
 
-You can use the  **CREATE DATABASE**  statement or the  **createdb**  command to create a role. The  **createdb**  command encapsulates the  **CREATE DATABASE**  statement and needs to be executed on the shell GUI instead of the database GUI.
+You can use the  **CREATE DATABASE**  statement or the  **createdb**  command to create a database. The  **createdb**  command encapsulates the  **CREATE DATABASE**  statement and needs to be executed on the shell GUI instead of the database GUI.
 
-```
+```pgsql
 CREATE DATABASE databasename;
 ```
 
-```
+```shell
 createdb databasename
 ```
 
@@ -666,9 +651,10 @@ In the preceding command,  **databasename**  indicates the database name.
 To use this command, you must have the CREATEDB permission.
 
 ##### Example
+
 \# Create a database named  **database1**.
 
-```
+```pgsql
 postgres=# CREATE DATABASE database1;
 ```
 
@@ -676,16 +662,17 @@ postgres=# CREATE DATABASE database1;
 
 Use the  **\\c**  statement to select a database.
 
-```
+```pgsql
 \c databasename;
 ```
 
 In the preceding command,  **databasename**  indicates the database name.
 
 ##### Example
-\#Select the  **databaseexample**  database.
 
-```
+\# Select the  **databaseexample**  database.
+
+```pgsql
 postgres=# \c databaseexample;
 ```
 
@@ -693,14 +680,15 @@ postgres=# \c databaseexample;
 
 Use the  **\\l**  statement to view the database.
 
-```
+```pgsql
 \l;
 ```
 
 ##### Example
-\#View all databases.
 
-```
+\# View all databases.
+
+```pgsql
 postgres=# \l;
 ```
 
@@ -708,14 +696,14 @@ postgres=# \l;
 
 You can run the  **DROP DATABASE**  statement or  **dropdb**  command to delete a database. The  **dropdb**  command encapsulates the  **DROP DATABASE**  statement and needs to be executed on the shell GUI instead of the database GUI.
 
->![](./public_sys-resources/icon-caution.gif) **CAUTION:**   
+>![](./public_sys-resources/icon-caution.gif) **CAUTION:**
 >Exercise caution when deleting a database. Once a database is deleted, all tables and data in the database will be deleted.  
 
-```
+```pgsql
 DROP DATABASE databasename;
 ```
 
-```
+```shell
 dropdb databasename
 ```
 
@@ -726,9 +714,10 @@ The  **DROP DATABASE**  statement deletes the system directory items of the data
 **DROP DATABASE**  can be executed only by the super administrator or database owner.
 
 ##### Example
-\#Delete the  **databaseexample**  database.
 
-```
+\# Delete the  **databaseexample**  database.
+
+```pgsql
 postgres=# DROP DATABASE databaseexample;
 ```
 
@@ -736,27 +725,27 @@ postgres=# DROP DATABASE databaseexample;
 
 Run the  **pg\_dump**  command to back up the database and dump the database to a script file or another archive file.
 
-```
+```shell
 pg_dump [option]... [databasename] > outfile
 ```
 
 In the preceding information:
 
--   _databasename_: database name. If this parameter is not specified, the environment variable  **PGDATABASE**  is used. If that environment variable is not specified, use the username that initiates the connection.
--   _outfile_: database backup file.
--   _option_: parameter option of the  **pg\_dump**  command. Multiple parameters can be separated by spaces. The common parameters of the  **pg\_dump**  command are as follows:
-    -   **-f, \-\-file**= _filename_: specified output file. If this parameter is ignored, the standard output is used.
-    -   **-d, \-\-dbname**= _databasename_: database to be dumped.
-    -   **-h, \-\-host**= _hostname_: specifies the hostname.
-    -   **-p, \-\-port**= _portnumber_: port number.
-    -   **-U, \-\-username**= _username_: username of the connection.
-    -   **-W, \-\-password**: forces PostgreSQL to prompt for a password before connecting to a database.
-
+- _databasename_: database name. If this parameter is not specified, the environment variable  **PGDATABASE**  is used. If that environment variable is not specified, use the username that initiates the connection.
+- _outfile_: database backup file.
+- _option_: parameter option of the  **pg\_dump**  command. Multiple parameters can be separated by spaces. The common parameters of the  **pg\_dump**  command are as follows:
+    - **-f, \-\-file**= _filename_: specified output file. If this parameter is ignored, the standard output is used.
+    - **-d, \-\-dbname**= _databasename_: database to be dumped.
+    - **-h, \-\-host**= _hostname_: specifies the hostname.
+    - **-p, \-\-port**= _portnumber_: port number.
+    - **-U, \-\-username**= _username_: username of the connection.
+    - **-W, \-\-password**: forces PostgreSQL to prompt for a password before connecting to a database.
 
 ##### Example
-\#Back up the database1 database of user  **postgres**  on port  **3306**  of the host whose IP address is  **192.168.202.144**  to the  **db1.sql**  file.
 
-```
+\# Back up the database1 database of user  **postgres**  on port  **3306**  of the host whose IP address is  **192.168.202.144**  to the  **db1.sql**  file.
+
+```shell
 [postgres@localhost ~]$ pg_dump -h 192.168.202.144 -p 3306 -U postgres -W database1 > db1.sql
 ```
 
@@ -764,36 +753,35 @@ In the preceding information:
 
 Run the  **psql**  command to restore the database.
 
-```
+```shell
 psql [option]... [databasename [username]] < infile
 ```
 
 In the preceding information:
 
--   _databasename_: database name. If this parameter is not specified, the environment variable  **PGDATABASE**  is used. If that environment variable is not specified, use the username that initiates the connection.
--   _username_: name of a user.
--   _infile_:  **outfile**  parameter in the  **pg\_dump**  command.
--   _option_: parameter option of the  **psql**  command. Multiple parameters can be separated by spaces. The common parameters of the  **psql**  command are as follows:
-    -   **-f, \-\-file**= _filename_: specified output file. If this parameter is ignored, the standard output is used.
-    -   **-d, \-\-dbname**= _databasename_: database to be dumped.
-    -   **-h, \-\-host**= _hostname_: specifies the hostname.
-    -   **-p, \-\-port**= _portnumber_: port number.
-    -   **-U, \-\-username**= _username_: username of the connection.
-    -   **-W, \-\-password**: forces PostgreSQL to prompt for a password before connecting to a database.
-
+- _databasename_: database name. If this parameter is not specified, the environment variable  **PGDATABASE**  is used. If that environment variable is not specified, use the username that initiates the connection.
+- _username_: name of a user.
+- _infile_:  **outfile**  parameter in the  **pg\_dump**  command.
+- _option_: parameter option of the  **psql**  command. Multiple parameters can be separated by spaces. The common parameters of the  **psql**  command are as follows:
+    - **-f, \-\-file**= _filename_: specified output file. If this parameter is ignored, the standard output is used.
+    - **-d, \-\-dbname**= _databasename_: database to be dumped.
+    - **-h, \-\-host**= _hostname_: specifies the hostname.
+    - **-p, \-\-port**= _portnumber_: port number.
+    - **-U, \-\-username**= _username_: username of the connection.
+    - **-W, \-\-password**: forces PostgreSQL to prompt for a password before connecting to a database.
 
 The  **psql**  command cannot be used to automatically create the  **databasename**  database. Therefore, you need to create the  **databasename**  database before running the  **psql**  command to restore the database.
 
 ##### Example
-\#Import the  **db1.sql**  script file to the newdb database of the postgres user on the host  **192.168.202.144**  through port  **3306**.
 
-```
+\# Import the  **db1.sql**  script file to the newdb database of the postgres user on the host  **192.168.202.144**  through port  **3306**.
+
+```shell
 [postgres@localhost ~]$ createdb newdb
 [postgres@localhost ~]$ psql -h 192.168.202.144 -p 3306 -U postgres -W -d newdb < db1.sql
 ```
 
 ## MariaDB Server
-
 
 ### Software Description
 
@@ -806,117 +794,114 @@ The MariaDB database management system is a branch of MySQL and is maintained by
 
 When MariaDB receives a SQL statement, the execution process is as follows:
 
-1.  When a client connects to MariaDB, the hostname, username, and password of the client are authenticated. The authentication function can be implemented as a plug-in.
-2.  If the login is successful, the client sends SQL commands to the server. The parser parses the SQL statements.
-3.  The server checks whether the client has the permission to obtain the required resources.
-4.  If the query has been stored in the query cache, the result is returned immediately.
-5.  The optimizer will find the fastest execution policy or plan. That is, the optimizer can determine which tables will be read, which indexes will be accessed, and which temporary tables will be used. A good policy can reduce a large number of disk access and sorting operations.
-6.  Storage engines read and write data and index files. Caches are used to accelerate these operations. Other features such as transactions and foreign keys are processed at the storage engine layer.
+1. When a client connects to MariaDB, the hostname, username, and password of the client are authenticated. The authentication function can be implemented as a plug-in.
+2. If the login is successful, the client sends SQL commands to the server. The parser parses the SQL statements.
+3. The server checks whether the client has the permission to obtain the required resources.
+4. If the query has been stored in the query cache, the result is returned immediately.
+5. The optimizer will find the fastest execution policy or plan. That is, the optimizer can determine which tables will be read, which indexes will be accessed, and which temporary tables will be used. A good policy can reduce a large number of disk access and sorting operations.
+6. Storage engines read and write data and index files. Caches are used to accelerate these operations. Other features such as transactions and foreign keys are processed at the storage engine layer.
 
 Storage engines manage and control data at the physical layer. They manage data files, data, indexes, and caches, making data management and reading more efficient. Each table has a .frm file that contains table definitions.
 
 Each storage engine manages and stores data in different ways, and supports different features and performance. For example:
 
--   MyISAM: suitable for environments with more reads and fewer writes. It does not support transactions and supports full-text indexes.
--   noDB: supports transactions, row locks, and foreign keys.
--   MEMORY: stores data in the memory.
--   CSV: stores data in CSV format.
+- MyISAM: suitable for environments with more reads and fewer writes. It does not support transactions and supports full-text indexes.
+- noDB: supports transactions, row locks, and foreign keys.
+- MEMORY: stores data in the memory.
+- CSV: stores data in CSV format.
 
 ### Configuring the Environment
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >The following environment configuration is for reference only. Configure the environment based on the site requirements.  
-
-
 
 #### Disabling the Firewall and Automatic Startup
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >It is recommended that firewall be disabled in the test environment to prevent network impact. Configure the firewall based on actual requirements.  
 
-1.  Stop the firewall service as the **root** user.
+1. Stop the firewall service as the **root** user.
 
-    ```
-    # systemctl stop firewalld
-    ```
-
-2.  Disable the firewall service as the **root** user.
-
-    ```
-    # systemctl disable firewalld
+    ```shell
+    systemctl stop firewalld
     ```
 
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**   
+2. Disable the firewall service as the **root** user.
+
+    ```shell
+    systemctl disable firewalld
+    ```
+
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
     >The automatic startup is automatically disabled as the firewall is disabled.  
-
 
 #### Disabling SELinux
 
-1.  Modify the configuration file as the **root** user.
+1. Modify the configuration file as the **root** user.
 
+    ```shell
+    sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
     ```
-    # sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
-    ```
-
 
 #### Creating a User Group and a User
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >In the server environment, independent users are assigned to each process to implement permission isolation for security purposes. The user group and user are created for the OS, not for the database.  
 
-1.  Create a MySQL user or user group as the **root** user.
+1. Create a MySQL user or user group as the **root** user.
 
-    ```
-    # groupadd mysql
-    ```
-
-    ```
-    # useradd -g mysql mysql
+    ```shell
+    groupadd mysql
     ```
 
-2.  Set the user password as the **root** user.
-
+    ```shell
+    useradd -g mysql mysql
     ```
-    # passwd mysql
+
+2. Set the user password as the **root** user.
+
+    ```shell
+    passwd mysql
     ```
 
     Enter the password twice for confirmation.
 
-
 #### Creating Data Drives
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
->-   If a performance test needs to be performed, an independent drive is required for the data directory. You need to format and mount the drive. For details, see Method 1 or Method 2.  
->-   In a non-performance test, run the following command as the **root** user to create a data directory. Then skip this section.  
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
+>
+>- If a performance test needs to be performed, an independent drive is required for the data directory. You need to format and mount the drive. For details, see Method 1 or Method 2.  
+>- In a non-performance test, run the following command as the **root** user to create a data directory. Then skip this section.  
 >    \# mkdir /data  
 
 ##### Method 1: Using fdisk for Drive Management as the **root** user
-1.  Create a partition, for example,  **/dev/sdb**.
 
-    ```
-    # fdisk /dev/sdb
-    ```
+1. Create a partition, for example,  **/dev/sdb**.
 
-2.  Enter  **n**  and press  **Enter**.
-3.  Enter  **p**  and press  **Enter**.
-4.  Enter  **1**  and press  **Enter**.
-5.  Retain the default settings and press  **Enter**.
-6.  Retain the default settings and press  **Enter**.
-7.  Enter  **w**  and press  **Enter**.
-8.  Create a file system, for example,  **xfs**.
-
-    ```
-    # mkfs.xfs /dev/sdb1
+    ```shell
+    fdisk /dev/sdb
     ```
 
-9.  Mount the partition to  **/data**  for the OS.
+2. Enter  **n**  and press  **Enter**.
+3. Enter  **p**  and press  **Enter**.
+4. Enter  **1**  and press  **Enter**.
+5. Retain the default settings and press  **Enter**.
+6. Retain the default settings and press  **Enter**.
+7. Enter  **w**  and press  **Enter**.
+8. Create a file system, for example,  **xfs**.
 
-    ```
-    # mkdir /data
+    ```shell
+    mkfs.xfs /dev/sdb1
     ```
 
+9. Mount the partition to  **/data**  for the OS.
+
+    ```shell
+    mkdir /data
     ```
-    # mount /dev/sdb1 /data
+
+    ```shell
+    mount /dev/sdb1 /data
     ```
 
 10. Run the  **vi /etc/fstab**  command and edit the  **/etc/fstab**  file to enable the data drive to be automatically mounted after the system is restarted. For example, add the content in the last line, as shown in the following figure.
@@ -925,158 +910,151 @@ Each storage engine manages and stores data in different ways, and supports diff
 
     ![](./figures/Creating_DataDisk.png)
 
-
 ##### Method 2: Using LVM for Drive Management as the **root** user
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >Install the LVM2 package in the image as follows:  
->1.  Configure the local yum source. For details, see  [Configuring the Repo Server](./configuring-the-repo-server.html). If the repository has been configured, skip this step.  
->2.  Install LVM2.  
+>
+>1. Configure the local yum source. For details, see  [Configuring the Repo Server](./configuring-the-repo-server.md). If the repository has been configured, skip this step.  
+>2. Install LVM2.  
 >    **\# yum install lvm2**  
 
-1.  Create a physical volume, for example,  **sdb**.
+1. Create a physical volume, for example,  **sdb**.
 
-    ```
-    # pvcreate /dev/sdb
-    ```
-
-2.  Create a physical volume group, for example,  **datavg**.
-
-    ```
-    # vgcreate datavg  /dev/sdb
+    ```shell
+    pvcreate /dev/sdb
     ```
 
-3.  Create a logical volume, for example,  **datalv**  of 600 GB.
+2. Create a physical volume group, for example,  **datavg**.
 
-    ```
-    # lvcreate -L 600G -n datalv datavg
-    ```
-
-4.  Create a file system.
-
-    ```
-    # mkfs.xfs /dev/datavg/datalv
+    ```shell
+    vgcreate datavg  /dev/sdb
     ```
 
-5.  Create a data directory and mount it.
+3. Create a logical volume, for example,  **datalv**  of 600 GB.
 
-    ```
-    # mkdir /data
-    ```
-
-    ```
-    # mount /dev/datavg/datalv /data
+    ```shell
+    lvcreate -L 600G -n datalv datavg
     ```
 
-6.  Run the  **vi /etc/fstab**  command and edit the  **/etc/fstab**  file to enable the data drive to be automatically mounted after the system is restarted. For example, add the content in the last line, as shown in the following figure.
+4. Create a file system.
+
+    ```shell
+    mkfs.xfs /dev/datavg/datalv
+    ```
+
+5. Create a data directory and mount it.
+
+    ```shell
+    mkdir /data
+    ```
+
+    ```shell
+    mount /dev/datavg/datalv /data
+    ```
+
+6. Run the  **vi /etc/fstab**  command and edit the  **/etc/fstab**  file to enable the data drive to be automatically mounted after the system is restarted. For example, add the content in the last line, as shown in the following figure.
 
     In the last line,  **/dev/datavg/datalv**  is only an example.
 
     ![](./figures/d1376b2a-d036-41c4-b852-e8368f363b5e.png)
 
-
 #### Creating a Database Directory and Granting Permissions
 
-1.  In the created data directory  **/data**, create directories for processes and grant permissions to the MySQL group or user created as the **root** user.
+1. In the created data directory  **/data**, create directories for processes and grant permissions to the MySQL group or user created as the **root** user.
 
+    ```shell
+    mkdir -p /data/mariadb
+    cd /data/mariadb
+    mkdir data tmp run log
+    chown -R mysql:mysql /data
     ```
-    # mkdir -p /data/mariadb
-    # cd /data/mariadb
-    # mkdir data tmp run log
-    # chown -R mysql:mysql /data
-    ```
-
 
 ### Installing, Running, and Uninstalling MariaDB Server
 
-
 #### Installing MariaDB
 
-1.  Configure the local yum source. For details, see  [Configuring the Repo Server](./configuring-the-repo-server.html).
-2.  Clear the cache.
+1. Configure the local yum source. For details, see  [Configuring the Repo Server](./configuring-the-repo-server.md).
+2. Clear the cache.
 
-    ```
-    $ dnf clean all
-    ```
-
-3.  Create a cache.
-
-    ```
-    $ dnf makecache
+    ```shell
+    dnf clean all
     ```
 
-4.  Install the MariaDB server.
+3. Create a cache.
 
-    ```
-    # dnf install mariadb-server
-    ```
-
-5.  Check the installed RPM package.
-
-    ```
-    $ rpm -qa | grep mariadb
+    ```shell
+    dnf makecache
     ```
 
+4. Install the MariaDB server.
+
+    ```shell
+    dnf install mariadb-server
+    ```
+
+5. Check the installed RPM package.
+
+    ```shell
+    rpm -qa | grep mariadb
+    ```
 
 #### Running MariaDB Server
 
-1.  Start the MariaDB server as the **root** user.
+1. Start the MariaDB server as the **root** user.
 
-    ```
-    # systemctl start mariadb
+    ```shell
+    systemctl start mariadb
     ```
 
-2.  <a name="li197143190587"></a>Initialize the database as the **root** user.
+2. <a name="li197143190587"></a>Initialize the database as the **root** user.
 
-    ```
-    # /usr/bin/mysql_secure_installation
+    ```shell
+    /usr/bin/mysql_secure_installation
     ```
 
     During the command execution, you need to enter the password of the database user  **root**. If no password is set, press  **Enter**. Then, set the password as prompted.
 
-3.  Log in to the database.
+3. Log in to the database.
 
-    ```
-    $ mysql -u root -p
+    ```shell
+    mysql -u root -p
     ```
 
     After the command is executed, the system prompts you to enter the password. The password is the one set in  [2](#li197143190587).
 
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**   
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
     >Run the  **\\q**  or  **exit**  command to exit the database.  
-
 
 #### Uninstalling MariaDB
 
-1.  Stop the database process as the **root** user.
+1. Stop the database process as the **root** user.
 
-    ```
-    # systemctl stop mariadb
-    ```
-    
-2.  Run the  **dnf remove mariadb-server**  command as the **root** user to uninstall MariaDB.
-
-    ```
-    # dnf remove mariadb-server
+    ```shell
+    systemctl stop mariadb
     ```
 
+2. Run the  **dnf remove mariadb-server**  command as the **root** user to uninstall MariaDB.
+
+    ```shell
+    dnf remove mariadb-server
+    ```
 
 ### Managing Database Users
-
-
 
 #### Creating Users
 
 Run the  **CREATE USER**  statement to create one or more users and set corresponding passwords.
 
-```
+```pgsql
 CREATE USER 'username'@'hostname' IDENTIFIED BY 'password';
 ```
 
 In the preceding information:
 
--   _username_: name of a user.
--   _host_: hostname, that is, the name of the host where the user connects to the database. As a local user, you can set the parameter to  **localhost**. If the host name is not specified during user creation, the host name is  **%**  by default, indicating a group of hosts.
--   _password_: password for logging in to the server. The password can be null. If the password is null, the user can log in to the server without entering the password. This method, however, is not recommended because it provides low security.
+- _username_: name of a user.
+- _host_: hostname, that is, the name of the host where the user connects to the database. As a local user, you can set the parameter to  **localhost**. If the host name is not specified during user creation, the host name is  **%**  by default, indicating a group of hosts.
+- _password_: password for logging in to the server. The password can be null. If the password is null, the user can log in to the server without entering the password. This method, however, is not recommended because it provides low security.
 
 To use the  **CREATE USER**  statement, you must have the INSERT permission on the database or the global CREATE USER permission.
 
@@ -1085,15 +1063,16 @@ After a user account is created using the  **CREATE USER**  statement, a record 
 A new user has few permissions and can perform only operations that do not require permissions. For example, a user can run the  **SHOW**  statement to query the list of all storage engines and character sets.
 
 ##### Example
-\#Create a local user whose password is 123456 and username is userexample1.
 
-```
+\# Create a local user whose password is 123456 and username is userexample1.
+
+```pgsql
 > CREATE USER 'userexample1'@'localhost' IDENTIFIED BY '123456';
 ```
 
-\#Create a user whose password is 123456, username is userexample2, and hostname is 192.168.1.100.
+\# Create a user whose password is 123456, username is userexample2, and hostname is 192.168.1.100.
 
-```
+```pgsql
 > CREATE USER 'userexample2'@'192.168.1.100' IDENTIFIED BY '123456';
 ```
 
@@ -1103,77 +1082,81 @@ Run the  **SHOW GRANTS**  or  **SELECT**  statement to view one or more users.
 
 View a specific user:
 
-```
+```pgsql
 SHOW GRANTS [FOR 'username'@'hostname'];
 ```
 
-```
+```pgsql
 SELECT USER,HOST,PASSWORD FROM mysql.user WHERE USER='username';
 ```
 
 View all users:
 
-```
+```pgsql
 SELECT USER,HOST,PASSWORD FROM mysql.user;
 ```
 
 In the preceding information:
 
--   _username_: name of a user.
--   _hostname_: host name.
+- _username_: name of a user.
+- _hostname_: host name.
 
 ##### Example
-\#View the user userexample1.
 
-```
+\# View the user userexample1.
+
+```pgsql
 > SHOW GRANTS FOR 'userexample1'@'localhost';
 ```
 
-\#View all users in the MySQL database.
+\# View all users in the MySQL database.
 
-```
+```pgsql
 > SELECT USER,HOST,PASSWORD FROM mysql.user;
 ```
 
 #### Modifying Users
 
 ##### Modifying a Username
+
 Run the  **RENAME USER**  statement to change one or more existing usernames.
 
-```
+```pgsql
 RENAME USER 'oldusername'@'hostname' TO 'newusername'@'hostname';
 ```
 
 In the preceding information:
 
--   _oldusername_: original username.
--   _newusername_: new username.
--   _hostname_: host name.
+- _oldusername_: original username.
+- _newusername_: new username.
+- _hostname_: host name.
 
 The  **RENAME USER**  statement is used to rename an existing account. If the original account does not exist in the system or the new account exists, an error will occur when the statement is executed.
 
 To use the  **RENAME USER**  statement, you must have the UPDATE permission on the database or the global CREATE USER permission.
 
 ##### Example of Modifying a User
+
 \# Change the username  **userexample1**  to  **userexample2**  and change the hostname to  **locahost**.
 
-```
+```pgsql
 > RENAME USER 'userexample1'@'localhost' TO 'userexample2'@'localhost';
 ```
 
 ##### Modifying a User Password
+
 Use the  **SET PASSWORD**  statement to modify the login password of a user.
 
-```
+```pgsql
 SET PASSWORD FOR 'username'@'hostname' = PASSWORD('newpassword');
 ```
 
 In the preceding information:
 
--   **FOR 'username'@'hostname'**: specifies the username and hostname whose password is to be changed. This parameter is optional.
--   **PASSWORD\('newpassword'\)**: indicates that the  **PASSWORD\(\)**  function is used to set a new password. That is, the new password must be transferred to the  **PASSWORD\(\)**  function for encryption.
+- **FOR 'username'@'hostname'**: specifies the username and hostname whose password is to be changed. This parameter is optional.
+- **PASSWORD\('newpassword'\)**: indicates that the  **PASSWORD\(\)**  function is used to set a new password. That is, the new password must be transferred to the  **PASSWORD\(\)**  function for encryption.
 
->![](./public_sys-resources/icon-caution.gif) **CAUTION:**   
+>![](./public_sys-resources/icon-caution.gif) **CAUTION:**
 >The  **PASSWORD\(\)**  function is a unidirectional encryption function. Once encrypted, the original plaintext cannot be decrypted.  
 
 If the  **FOR**  clause is not added to the  **SET PASSWORD**  statement, the password of the current user is changed.
@@ -1183,9 +1166,10 @@ The  **FOR**  clause must be given in the format of  **'**_username_**'@'**_host
 The account whose password is to be changed must exist in the system. Otherwise, an error occurs when the statement is executed.
 
 ##### Example of Changing a User Password
-\#Change the password of user  **userexample**  whose hostname is  **locahost**  to  **0123456**.
 
-```
+\# Change the password of user  **userexample**  whose hostname is  **locahost**  to  **0123456**.
+
+```pgsql
 > SET PASSWORD FOR 'userexample'@'localhost' = PASSWORD('0123456') ;
 ```
 
@@ -1193,11 +1177,11 @@ The account whose password is to be changed must exist in the system. Otherwise,
 
 Use the  **DROP USER**  statement to delete one or more user accounts and related permissions.
 
-```
+```pgsql
 DROP USER 'username1'@'hostname1' [,'username2'@'hostname2']...;
 ```
 
->![](./public_sys-resources/icon-caution.gif) **CAUTION:**   
+>![](./public_sys-resources/icon-caution.gif) **CAUTION:**
 >The deletion of users does not affect the tables, indexes, or other database objects that they have created, because the database does not record the accounts that have created these objects.  
 
 The  **DROP USER**  statement can be used to delete one or more database accounts and their original permissions.
@@ -1207,9 +1191,10 @@ To use the  **DROP USER**  statement, you must have the DELETE permission on the
 In the  **DROP USER**  statement, if the hostname of an account is not specified, the hostname is  **%**  by default.
 
 ##### Example
-\#Delete the local user  **userexample**.
 
-```
+\# Delete the local user  **userexample**.
+
+```pgsql
 > DROP USER 'userexample'@'localhost';
 ```
 
@@ -1217,19 +1202,19 @@ In the  **DROP USER**  statement, if the hostname of an account is not specified
 
 Run the  **GRANT**  statement to grant permissions to a new user.
 
-```
+```pgsql
 GRANT privileges ON databasename.tablename TO 'username'@'hostname';
 ```
 
 In the preceding information:
 
--   **ON**  clause: specifies the object and its level on which the permission is granted.
--   **privileges**: indicates the operation permissions of a user, such as  **SELECT**, INSERT, and  **UPDATE**. To grant all permissions to a user, use  **ALL**.
--   _databasename_: database name.
--   _tablename_: table name.
--   **TO**  clause: sets the user password and specifies the user to whom the permission is granted.
--   _username_: name of a user.
--   _hostname_: host name.
+- **ON**  clause: specifies the object and its level on which the permission is granted.
+- **privileges**: indicates the operation permissions of a user, such as  **SELECT**, INSERT, and  **UPDATE**. To grant all permissions to a user, use  **ALL**.
+- _databasename_: database name.
+- _tablename_: table name.
+- **TO**  clause: sets the user password and specifies the user to whom the permission is granted.
+- _username_: name of a user.
+- _hostname_: host name.
 
 To grant the user the permission to operate all databases and tables, use asterisks \(\*\), for example,  **\*.\***.
 
@@ -1238,9 +1223,10 @@ If you specify a password for an existing user in the  **TO**  clause, the new p
 If the permission is granted to a non-existent user, a  **CREATE USER**  statement is automatically executed to create the user, but the password must be specified for the user.
 
 ##### Example
-\#Grant the SELECT and INSERT permissions to local user userexample.
 
-```
+\# Grant the SELECT and INSERT permissions to local user userexample.
+
+```pgsql
 > GRANT SELECT,INSERT ON *.* TO 'userexample'@'localhost'; 
 ```
 
@@ -1248,7 +1234,7 @@ If the permission is granted to a non-existent user, a  **CREATE USER**  stateme
 
 Run the  **REVOKE**  statement to delete the permissions of a user, but the user will not be deleted.
 
-```
+```pgsql
 REVOKE privilege ON databasename.tablename FROM 'username'@'hostname';
 ```
 
@@ -1257,30 +1243,30 @@ The parameters in the  **REVOKE**  statement are the same as those in the  **GRA
 To use the  **REVOKE**  statement, you must have the global CREATE USER or UPDATE permission for the database.
 
 ##### Example
-\#Delete the INSERT permission of local user userexample.
 
-```
+\# Delete the INSERT permission of local user userexample.
+
+```pgsql
 > REVOKE INSERT ON *.* FROM 'userexample'@'localhost';
 ```
 
 ### Managing Databases
 
-
-
 #### Creating a Database
 
 Run the  **CREATE DATABASE**  statement to create a database.
 
-```
+```pgsql
 CREATE DATABASE databasename;
 ```
 
 In the preceding command,  _databasename_  can be replaced with the database name, which is case insensitive.
 
 ##### Example
-\#Create a database named  **databaseexample**.
 
-```
+\# Create a database named  **databaseexample**.
+
+```pgsql
 > CREATE DATABASE databaseexample;
 ```
 
@@ -1288,14 +1274,15 @@ In the preceding command,  _databasename_  can be replaced with the database nam
 
 Run the  **SHOW DATABASES**  statement to view a database.
 
-```
+```pgsql
 SHOW DATABASES;
 ```
 
 ##### Example
-\#View all databases.
 
-```
+\# View all databases.
+
+```pgsql
 > SHOW DATABASES;
 ```
 
@@ -1303,16 +1290,17 @@ SHOW DATABASES;
 
 Generally, you need to select a target database before creating or querying a table. Use the  **USE**  statement to select a database.
 
-```
+```pgsql
 USE databasename;
 ```
 
 In the preceding command,  **databasename**  indicates the database name.
 
 ##### Example
-\#Select the  **databaseexample**  database.
 
-```
+\# Select the  **databaseexample**  database.
+
+```pgsql
 > USE databaseexample;
 ```
 
@@ -1320,10 +1308,10 @@ In the preceding command,  **databasename**  indicates the database name.
 
 You can run the  **DROP DATABASE**  statement to delete a database.
 
->![](./public_sys-resources/icon-caution.gif) **CAUTION:**   
+>![](./public_sys-resources/icon-caution.gif) **CAUTION:**
 >Exercise caution when deleting a database. Once a database is deleted, all tables and data in the database will be deleted.  
 
-```
+```pgsql
 DROP DATABASE databasename;
 ```
 
@@ -1336,9 +1324,10 @@ To use  **DROP DATABASE**, you need the  **DROP**  permission on the database.
 **DROP SCHEMA**  is a synonym of  **DROP DATABASE**.
 
 ##### Example
-\#Delete the  **databaseexample**  database.
 
-```
+\# Delete the  **databaseexample**  database.
+
+```pgsql
 > DROP DATABASE databaseexample;
 ```
 
@@ -1348,66 +1337,66 @@ Run the  **mysqldump**  command as the **root** user to back up the database.
 
 Back up one or more tables.
 
-```
+```shell
 mysqldump [options] databasename [tablename ...] > outfile
 ```
 
 Back up one or more databases:
 
-```
+```shell
 mysqldump [options] -databases databasename ... > outfile
 ```
 
 Back up all databases:
 
-```
+```shell
 mysqldump [options] -all-databases > outputfile
 ```
 
 In the preceding information:
 
--   _databasename_: database name.
--   _tablename_: name of a data table.
--   _outfile_: database backup file.
--   _options_: parameter option of the  **mysqldump**  command. Multiple parameters can be separated by spaces. The common parameters of the  **mysqldump**  command are as follows:
-    -   **-u, \-\-user**= _username_: specifies the username.
-    -   **-p, \-\-password**\[= _password_\]: specifies the password.
-    -   **-P, \-\-port**= _portnumber_: specifies the port number.
-    -   **-h, \-\-host**= _hostname_: specifies the hostname.
-    -   **-r, \-\-result-file**= _filename_: saves the export result to a specified file, which is equivalent to  **\>**.
-    -   **-t**: backs up data only.
-    -   **-d**: backs up the table structure only.
-
+- _databasename_: database name.
+- _tablename_: name of a data table.
+- _outfile_: database backup file.
+- _options_: parameter option of the  **mysqldump**  command. Multiple parameters can be separated by spaces. The common parameters of the  **mysqldump**  command are as follows:
+    - **-u, \-\-user**= _username_: specifies the username.
+    - **-p, \-\-password**\[= _password_\]: specifies the password.
+    - **-P, \-\-port**= _portnumber_: specifies the port number.
+    - **-h, \-\-host**= _hostname_: specifies the hostname.
+    - **-r, \-\-result-file**= _filename_: saves the export result to a specified file, which is equivalent to  **\>**.
+    - **-t**: backs up data only.
+    - **-d**: backs up the table structure only.
 
 ##### Example
-\#Back up all the databases of the user  **root**  on the host  **192.168.202.144**  through port  **3306**  to the  **alldb.sql**  file.
 
-```
-# mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 --all-databases > alldb.sql
-```
+\# Back up all the databases of the user  **root**  on the host  **192.168.202.144**  through port  **3306**  to the  **alldb.sql**  file.
 
-\#Back up the db1 database of the user  **root**  on the host  **192.168.202.144**  through port  **3306**  to the  **db1.sql**  file.
-
-```
-# mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 --databases db1 > db1.sql
+```shell
+mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 --all-databases > alldb.sql
 ```
 
-\#Back up the tb1 table of the db1 database of the user  **root**  on the host  **192.168.202.144**  through port  **3306** to the  **db1tb1.sql**  file.
+\# Back up the db1 database of the user  **root**  on the host  **192.168.202.144**  through port  **3306**  to the  **db1.sql**  file.
 
-```
-# mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 db1 tb1 > db1tb1.sql
-```
-
-\#Back up only the table structure of the db1 database of user  **root**  on port  **3306**  of the host whose IP address is  **192.168.202.144**  to the  **db1.sql**  file.
-
-```
-# mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 -d db1 > db1.sql
+```shell
+mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 --databases db1 > db1.sql
 ```
 
-\#Back up only the data of the db1 database of the user  **root**  on the host  **192.168.202.144**  through port  **3306** to the  **db1.sql**  file.
+\# Back up the tb1 table of the db1 database of the user  **root**  on the host  **192.168.202.144**  through port  **3306** to the  **db1tb1.sql**  file.
 
+```shell
+mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 db1 tb1 > db1tb1.sql
 ```
-# mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 -t db1 > db1.sql
+
+\# Back up only the table structure of the db1 database of user  **root**  on port  **3306**  of the host whose IP address is  **192.168.202.144**  to the  **db1.sql**  file.
+
+```shell
+mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 -d db1 > db1.sql
+```
+
+\# Back up only the data of the db1 database of the user  **root**  on the host  **192.168.202.144**  through port  **3306** to the  **db1.sql**  file.
+
+```shell
+mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 -t db1 > db1.sql
 ```
 
 #### Restoring a Database
@@ -1416,29 +1405,28 @@ Run the  **mysql**  command as the **root** user to restore the database.
 
 Restore one or more tables:
 
-```
+```shell
 mysql -h hostname -P portnumber -u username -ppassword databasename < infile
 ```
 
 In the preceding information:
 
--   _hostname_: host name.
--   _portnumber_: port number.
--   _username_: name of a user.
--   _password_: password.
--   _databasename_: database name.
--   _infile_:  **outfile**  parameter in the  **mysqldump** command.
+- _hostname_: host name.
+- _portnumber_: port number.
+- _username_: name of a user.
+- _password_: password.
+- _databasename_: database name.
+- _infile_:  **outfile**  parameter in the  **mysqldump** command.
 
 ##### Example
-\#Restore a database.
 
-```
-# mysql -h 192.168.202.144 -P 3306 -uroot -p123456 -t db1 < db1.sql
+\# Restore a database.
+
+```shell
+mysql -h 192.168.202.144 -P 3306 -uroot -p123456 -t db1 < db1.sql
 ```
 
 ## MySQL Server
-
-
 
 ### Software Description
 
@@ -1450,99 +1438,96 @@ The Structured Query Language \(SQL\) used by MySQL is the most common standard 
 
 ### Configuring the Environment
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >The following environment configuration is for reference only. Configure the environment based on the site requirements.  
-
-
 
 #### Disabling the Firewall and Automatic Startup
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >It is recommended that firewall be disabled in the test environment to prevent network impact. Configure the firewall based on actual requirements.  
 
-1.  Stop the firewall service as the **root** user.
+1. Stop the firewall service as the **root** user.
 
-    ```
-    # systemctl stop firewalld
-    ```
-
-2.  Disable the firewall service as the **root** user.
-
-    ```
-    # systemctl disable firewalld
+    ```shell
+    systemctl stop firewalld
     ```
 
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**   
+2. Disable the firewall service as the **root** user.
+
+    ```shell
+    systemctl disable firewalld
+    ```
+
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
     >The automatic startup is automatically disabled as the firewall is disabled.  
-
 
 #### Disabling SELinux
 
-1.  Modify the configuration file as the **root** user.
+1. Modify the configuration file as the **root** user.
 
+    ```shell
+    sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
     ```
-    # sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
-    ```
-
 
 #### Creating a User Group and a User
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >In the server environment, independent users are assigned to each process to implement permission isolation for security purposes. The user group and user are created for the OS, not for the database.  
 
-1.  Create a MySQL user or user group as the **root** user.
+1. Create a MySQL user or user group as the **root** user.
 
-    ```
-    # groupadd mysql
-    ```
-
-    ```
-    # useradd -g mysql mysql
+    ```shell
+    groupadd mysql
     ```
 
-2.  Set the user password as the **root** user.
-
+    ```shell
+    useradd -g mysql mysql
     ```
-    # passwd mysql
+
+2. Set the user password as the **root** user.
+
+    ```shell
+    passwd mysql
     ```
 
     Enter the password twice for confirmation.
 
-
 #### Creating Data Drives
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
->-   If a performance test needs to be performed, an independent drive is required for the data directory. You need to format and mount the drive. For details, see Method 1 or Method 2.  
->-   In a non-performance test, run the following command as the **root** user to create a data directory. Then skip this section.  
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
+>
+>- If a performance test needs to be performed, an independent drive is required for the data directory. You need to format and mount the drive. For details, see Method 1 or Method 2.  
+>- In a non-performance test, run the following command as the **root** user to create a data directory. Then skip this section.  
 >    \# mkdir /data  
 
 ##### Method 1: Using fdisk for Drive Management as the **root** user
-1.  Create a partition, for example,  **/dev/sdb**.
 
-    ```
-    # fdisk /dev/sdb
-    ```
+1. Create a partition, for example,  **/dev/sdb**.
 
-2.  Enter  **n**  and press  **Enter**.
-3.  Enter  **p**  and press  **Enter**.
-4.  Enter  **1**  and press  **Enter**.
-5.  Retain the default settings and press  **Enter**.
-6.  Retain the default settings and press  **Enter**.
-7.  Enter  **w**  and press  **Enter**.
-8.  Create a file system, for example,  **xfs**.
-
-    ```
-    # mkfs.xfs /dev/sdb1
+    ```shell
+    fdisk /dev/sdb
     ```
 
-9.  Mount the partition to  **/data**  for the OS.
+2. Enter  **n**  and press  **Enter**.
+3. Enter  **p**  and press  **Enter**.
+4. Enter  **1**  and press  **Enter**.
+5. Retain the default settings and press  **Enter**.
+6. Retain the default settings and press  **Enter**.
+7. Enter  **w**  and press  **Enter**.
+8. Create a file system, for example,  **xfs**.
 
-    ```
-    # mkdir /data
+    ```shell
+    mkfs.xfs /dev/sdb1
     ```
 
+9. Mount the partition to  **/data**  for the OS.
+
+    ```shell
+    mkdir /data
     ```
-    # mount /dev/sdb1 /data
+
+    ```shell
+    mount /dev/sdb1 /data
     ```
 
 10. Run the  **vi /etc/fstab**  command and edit the  **/etc/fstab**  file to enable the data drive to be automatically mounted after the system is restarted. For example, add the content in the last line, as shown in the following figure.
@@ -1551,124 +1536,123 @@ The Structured Query Language \(SQL\) used by MySQL is the most common standard 
 
     ![](./figures/Creating_DataDisk-0.png)
 
-
 ##### Method 2: Using LVM for Drive Management as the **root** user
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >Install the LVM2 package in the image as follows:  
->1.  Configure the local yum source. For details, see  [Configuring the Repo Server](./configuring-the-repo-server.html). If the repository has been configured, skip this step.  
->2.  Install LVM2.  
+>
+>1. Configure the local yum source. For details, see  [Configuring the Repo Server](./configuring-the-repo-server.md). If the repository has been configured, skip this step.  
+>2. Install LVM2.  
 >    **\# yum install lvm2**  
 
-1.  Create a PV, for example,  **sdb**.
+1. Create a PV, for example,  **sdb**.
 
-    ```
-    # pvcreate /dev/sdb
-    ```
-
-2.  Create a physical VG, for example,  **datavg**.
-
-    ```
-    # vgcreate  datavg  /dev/sdb
+    ```shell
+    pvcreate /dev/sdb
     ```
 
-3.  Create an LV, for example,  **datalv**  of 600 GB.
+2. Create a physical VG, for example,  **datavg**.
 
-    ```
-    # lvcreate -L 600G -n datalv datavg
-    ```
-
-4.  Create a file system.
-
-    ```
-    # mkfs.xfs /dev/datavg/datalv
+    ```shell
+    vgcreate  datavg  /dev/sdb
     ```
 
-5.  Create a data directory and mount it.
+3. Create an LV, for example,  **datalv**  of 600 GB.
 
-    ```
-    # mkdir /data
-    ```
-
-    ```
-    #mount /dev/datavg/datalv /data
+    ```shell
+    lvcreate -L 600G -n datalv datavg
     ```
 
-6.  Run the  **vi /etc/fstab**  command and edit the  **/etc/fstab**  file to enable the data drive to be automatically mounted after the system is restarted. For example, add the content in the last line, as shown in the following figure.
+4. Create a file system.
+
+    ```shell
+    mkfs.xfs /dev/datavg/datalv
+    ```
+
+5. Create a data directory and mount it.
+
+    ```shell
+    mkdir /data
+    ```
+
+    ```shell
+    mount /dev/datavg/datalv /data
+    ```
+
+6. Run the  **vi /etc/fstab**  command and edit the  **/etc/fstab**  file to enable the data drive to be automatically mounted after the system is restarted. For example, add the content in the last line, as shown in the following figure.
 
     In the last line,  **/dev/datavg/datalv**  is only an example.
 
     ![](./figures/d1376b2a-d036-41c4-b852-e8368f363b5e-1.png)
 
-
 #### Creating a Database Directory and Granting Permissions
 
-1.  In the created data directory  **/data**, create directories for processes and grant permissions to the MySQL group or user created as the **root** user.
+1. In the created data directory  **/data**, create directories for processes and grant permissions to the MySQL group or user created as the **root** user.
 
+    ```shell
+    mkdir -p /data/mysql
+    cd /data/mysql
+    mkdir data tmp run log
+    chown -R mysql:mysql /data
     ```
-    # mkdir -p /data/mysql
-    # cd /data/mysql
-    # mkdir data tmp run log
-    # chown -R mysql:mysql /data
-    ```
-
 
 ### Installing, Running, and Uninstalling MySQL
 
-
-
 #### Installing MySQL
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
-> For 20.03 LTS SP2, if you run the **rpm -Uvh XXX** command (XXX indicates the version, for example, mysql-8.0.21-1.oe1.aarch64.rpm) to upgrade mysql-8.0.17-3.oe1 to the latest version, the functions are unavailable after the upgrade. You can use either of the following methods to upgrade the version. The following uses the upgrade from mysql-8.0.17-3.oe1 to mysql-8.0.21-1.oe1 as an example:   
+>
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
+> For 20.03 LTS SP2, if you run the **rpm -Uvh XXX** command (XXX indicates the version, for example, mysql-8.0.21-1.oe1.aarch64.rpm) to upgrade mysql-8.0.17-3.oe1 to the latest version, the functions are unavailable after the upgrade. You can use either of the following methods to upgrade the version. The following uses the upgrade from mysql-8.0.17-3.oe1 to mysql-8.0.21-1.oe1 as an example:
 >  
->Method 1: Run the following upgrade command:   
-   ``` 
-   # rpm -Uvh mysql-8.0.21-1.oe1.aarch64.rpm --noscripts   
+>Method 1: Run the following upgrade command:
+
+   ```shell
+   rpm -Uvh mysql-8.0.21-1.oe1.aarch64.rpm --noscripts   
    ```
->    
+>
 >Method 2: Run the following commands to uninstall the MySQL of the earlier version and then install the MySQL of the new version:  
+
+   ```shell
+   rpm -e mysql-8.0.17-3.oe1         
+   rpm -ivh mysql-8.0.21-1.oe1.aarch64.rpm  
    ```
-   # rpm -e mysql-8.0.17-3.oe1         
-   # rpm -ivh mysql-8.0.21-1.oe1.aarch64.rpm  
-   ```
 
-1.  Configure the local yum source. For details, see  [Configuring the Repo Server](./configuring-the-repo-server.html).
-2.  Clear the cache.
+1. Configure the local yum source. For details, see  [Configuring the Repo Server](./configuring-the-repo-server.md).
+2. Clear the cache.
 
-    ```
-    $ dnf clean all
+    ```shell
+    dnf clean all
     ```
 
-3.  Create a cache.
+3. Create a cache.
 
-    ```
-    $ dnf makecache
-    ```
-
-4.  Install the MySQL server as the **root** user.
-
-    ```
-    # dnf install mysql-server
+    ```shell
+    dnf makecache
     ```
 
-5.  Check the installed RPM package.
+4. Install the MySQL server as the **root** user.
 
-    ```
-    $ rpm -qa | grep mysql-server
+    ```shell
+    dnf install mysql-server
     ```
 
+5. Check the installed RPM package.
+
+    ```shell
+    rpm -qa | grep mysql-server
+    ```
 
 #### Running MySQL
 
-1.  Modify the configuration file.
-    1.  Create the  **my.cnf**  file as the **root** user and change the file paths \(including the software installation path  **basedir**  and data path  **datadir**\) based on the actual situation.
+1. Modify the configuration file.
+    1. Create the  **my.cnf**  file as the **root** user and change the file paths \(including the software installation path  **basedir**  and data path  **datadir**\) based on the actual situation.
 
-        ```
-        # vi /etc/my.cnf
+        ```shell
+        vi /etc/my.cnf
         ```
 
         Edit the  **my.cnf**  file as follows:
 
-        ```
+        ```shell
         [mysqld_safe]
         log-error=/data/mysql/log/mysql.log
         pid-file=/data/mysql/run/mysqld.pid
@@ -1688,155 +1672,152 @@ The Structured Query Language \(SQL\) used by MySQL is the most common standard 
         user=mysql
         ```
 
-    2.  Ensure that the  **my.cnf**  file is correctly modified.
+    2. Ensure that the  **my.cnf**  file is correctly modified.
 
-        ```
-        $ cat /etc/my.cnf
+        ```shell
+        cat /etc/my.cnf
         ```
 
         ![](./figures/en-us_image_0231563132.png)
 
-        >![](./public_sys-resources/icon-caution.gif) **CAUTION:**   
+        >![](./public_sys-resources/icon-caution.gif) **CAUTION:**
         >In the configuration file,  **basedir**  specifies the software installation path. Change it based on actual situation.  
 
-    3.  Change the group and user of the  **/etc/my.cnf**  file to  **mysql:mysql** as the **root** user.
+    3. Change the group and user of the  **/etc/my.cnf**  file to  **mysql:mysql** as the **root** user.
 
-        ```
-        # chown mysql:mysql /etc/my.cnf
-        ```
-
-2.  Configure environment variables.
-    1.  Add the path of the MySQL binary files to the  **PATH**  parameter as the **root** user.
-
-        ```
-        # echo export  PATH=$PATH:/usr/local/mysql/bin  >> /etc/profile
+        ```shell
+        chown mysql:mysql /etc/my.cnf
         ```
 
-        >![](./public_sys-resources/icon-caution.gif) **CAUTION:**   
+2. Configure environment variables.
+    1. Add the path of the MySQL binary files to the  **PATH**  parameter as the **root** user.
+
+        ```shell
+        echo export  PATH=$PATH:/usr/local/mysql/bin  >> /etc/profile
+        ```
+
+        >![](./public_sys-resources/icon-caution.gif) **CAUTION:**
         >In the command,  **/usr/local/mysql/bin**  is the absolute path of the  **bin**  files in the MySQL software installation directory. Change it based on actual situation.  
 
-    2.  Run the following command as the **root** user to make the environment variables take effect:
+    2. Run the following command as the **root** user to make the environment variables take effect:
 
+        ```shell
+        source /etc/profile
         ```
-        # source /etc/profile
-        ```
 
-3.  <a name="li15634560582"></a>Initialize the database as the **root** user.
+3. <a name="li15634560582"></a>Initialize the database as the **root** user.
 
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**   
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
     >The second line from the bottom contains the initial password, which will be used when you log in to the database.  
 
-    ```
-    # mysqld --defaults-file=/etc/my.cnf --initialize
+    ```shell
+    $ mysqld --defaults-file=/etc/my.cnf --initialize
     2020-03-18T03:27:13.702385Z 0 [System] [MY-013169] [Server] /usr/local/mysql/bin/mysqld (mysqld 8.0.17) initializing of server in progress as process 34014
     2020-03-18T03:27:24.112453Z 5 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: iNat=)#V2tZu
     2020-03-18T03:27:28.576003Z 0 [System] [MY-013170] [Server] /usr/local/mysql/bin/mysqld (mysqld 8.0.17) initializing of server has completed
     ```
 
-    If the command output contains "initializing of server has completed", the database has been initialized. In the command output, "iNat=\)\#V2tZu" in "A temporary password is generated for root@localhost: iNat=\)\#V2tZu" is the initial password.
+    If the command output contains "initializing of server has completed", the database has been initialized. In the command output, "iNat=\)\# V2tZu" in "A temporary password is generated for root@localhost: iNat=\)\# V2tZu" is the initial password.
 
-4.  Start the database.
+4. Start the database.
 
-    >![](./public_sys-resources/icon-caution.gif) **CAUTION:**   
+    >![](./public_sys-resources/icon-caution.gif) **CAUTION:**
     >Start MySQL as user  **mysql**  if it is the first time to start the database service. If you start MySQL as user  **root**, a message will be displayed indicating that the  **mysql.log**  file is missing. If you start MySQL as user  **mysql**, the  **mysql.log**  file will be generated in the  **/data/mysql/log**  directory. No error will be displayed if you start the database as user  **root**  again.  
 
-    1.  Modify the file permission as the **root** user.
+    1. Modify the file permission as the **root** user.
 
-        ```
-        # chmod 777 /usr/local/mysql/support-files/mysql.server
+        ```shell
+        chmod 777 /usr/local/mysql/support-files/mysql.server
         ```
 
-    2.  Start MySQL as the **root** user.
+    2. Start MySQL as the **root** user.
 
-        ```
-        # cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
-        # chkconfig mysql on
+        ```shell
+        cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
+        chkconfig mysql on
         ```
 
         Start MySQL as user  **mysql**.
 
+        ```shell
+        su - mysql
+        service mysql start
         ```
-        # su - mysql
-        $ service mysql start
-        ```
 
-5.  Log in to the database.
+5. Log in to the database.
 
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**   
-    >-   Enter the initial password generated during database initialization \([3](#li15634560582)\).  
-    >-   If MySQL is installed by using an RPM package obtained from the official website, the  **mysqld**  file is located in the  **/usr/sbin**  directory. Ensure that the directory specified in the command is correct.  
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
+    >
+    >- Enter the initial password generated during database initialization \([3](#li15634560582)\).  
+    >- If MySQL is installed by using an RPM package obtained from the official website, the  **mysqld**  file is located in the  **/usr/sbin**  directory. Ensure that the directory specified in the command is correct.  
 
-    ```
-    $ /usr/local/mysql/bin/mysql -uroot -p  -S /data/mysql/run/mysql.sock
+    ```shell
+    /usr/local/mysql/bin/mysql -uroot -p  -S /data/mysql/run/mysql.sock
     ```
 
     ![](./figures/en-us_image_0231563134.png)
 
-6.  Configure the database accounts and passwords.
-    1.  After logging in to the database, change the password of user  **root**  for logging in to the database.
+6. Configure the database accounts and passwords.
+    1. After logging in to the database, change the password of user  **root**  for logging in to the database.
 
-        ```
+        ```sql
         mysql>alter user 'root'@'localhost' identified by "123456";
         ```
 
-    2.  Create a user  **root**  for all the other hosts in the domain.
+    2. Create a user  **root**  for all the other hosts in the domain.
 
-        ```
+        ```sql
         mysql>create user 'root'@'%' identified by '123456';
         ```
 
-    3.  Grant permissions to the user  **root**.
+    3. Grant permissions to the user  **root**.
 
-        ```
+        ```sql
         mysql>grant all privileges on *.* to 'root'@'%';
         mysql>flush privileges;
         ```
 
         ![](./figures/en-us_image_0231563135.png)
 
-7.  Exit the database.
+7. Exit the database.
 
     Run the  **\\q**  or  **exit**  command to exit the database.
 
-    ```
+    ```sql
     mysql>exit
     ```
 
     ![](./figures/en-us_image_0231563136.png)
 
-
 #### Uninstalling MySQL
 
-1.  Stop the database process as the **root** user.
+1. Stop the database process as the **root** user.
 
-    ```
-    # systemctl stop mysql
-    ```
-    
-2.  Run the  **dnf remove mysql**  command as the **root** user to uninstall MySQL.
-
-    ```
-    # dnf remove mysql
+    ```shell
+    systemctl stop mysql
     ```
 
+2. Run the  **dnf remove mysql**  command as the **root** user to uninstall MySQL.
+
+    ```shell
+    dnf remove mysql
+    ```
 
 ### Managing Database Users
-
-
 
 #### Creating Users
 
 Run the  **CREATE USER**  statement to create one or more users and set corresponding passwords.
 
-```
+```pgsql
 CREATE USER 'username'@'hostname' IDENTIFIED BY 'password';
 ```
 
 In the preceding information:
 
--   _username_: name of a user.
--   _host_: hostname, that is, the name of the host where the user connects to the database. As a local user, you can set the parameter to  **localhost**. If the host name is not specified during user creation, the host name is  **%**  by default, indicating a group of hosts.
--   _password_: password for logging in to the server. The password can be null. If the password is null, the user can log in to the server without entering the password. This method, however, is not recommended because it provides low security.
+- _username_: name of a user.
+- _host_: hostname, that is, the name of the host where the user connects to the database. As a local user, you can set the parameter to  **localhost**. If the host name is not specified during user creation, the host name is  **%**  by default, indicating a group of hosts.
+- _password_: password for logging in to the server. The password can be null. If the password is null, the user can log in to the server without entering the password. This method, however, is not recommended because it provides low security.
 
 To use the  **CREATE USER**  statement, you must have the  **INSERT**  permission on the database or the global  **CREATE USER**  permission.
 
@@ -1845,15 +1826,16 @@ After a user account is created using the  **CREATE USER**  statement, a record 
 A new user has few permissions and can perform only operations that do not require permissions. For example, a user can run the  **SHOW**  statement to query the list of all storage engines and character sets.
 
 ##### Example
-\#Create a local user whose password is  **123456**  and username is  **userexample1**.
 
-```
+\# Create a local user whose password is  **123456**  and username is  **userexample1**.
+
+```pgsql
 > CREATE USER 'userexample1'@'localhost' IDENTIFIED BY '123456';
 ```
 
-\#Create a user whose password is  **123456**, username is  **userexample2**, and hostname is  **192.168.1.100**.
+\# Create a user whose password is  **123456**, username is  **userexample2**, and hostname is  **192.168.1.100**.
 
-```
+```pgsql
 > CREATE USER 'userexample2'@'192.168.1.100' IDENTIFIED BY '123456';
 ```
 
@@ -1863,75 +1845,79 @@ Run the  **SHOW GRANTS**  or  **SELECT**  statement to view one or more users.
 
 View a specific user:
 
-```
+```pgsql
 SHOW GRANTS [FOR 'username'@'hostname'];
 ```
 
-```
+```pgsql
 SELECT USER,HOST,PASSWORD FROM mysql.user WHERE USER='username';
 ```
 
 View all users:
 
-```
+```pgsql
 SELECT USER,HOST FROM mysql.user;
 ```
 
 In the preceding information:
 
--   _username_: name of a user.
--   _hostname_: host name.
+- _username_: name of a user.
+- _hostname_: host name.
 
 ##### Example
-\#View the user  **userexample1**.
 
-```
+\# View the user  **userexample1**.
+
+```pgsql
 > SHOW GRANTS FOR 'userexample1'@'localhost';
 ```
 
-\#View all users in the MySQL database.
+\# View all users in the MySQL database.
 
-```
+```pgsql
 > SELECT USER,HOST FROM mysql.user;
 ```
 
 #### Modifying Users
 
 ##### Modifying a Username
+
 Run the  **RENAME USER**  statement to change one or more existing usernames.
 
-```
+```pgsql
 RENAME USER 'oldusername'@'hostname' TO 'newusername'@'hostname';
 ```
 
 In the preceding information:
 
--   _oldusername_: original username.
--   _newusername_: new username.
--   _hostname_: host name.
+- _oldusername_: original username.
+- _newusername_: new username.
+- _hostname_: host name.
 
 The  **RENAME USER**  statement is used to rename an existing account. If the original account does not exist in the system or the new account exists, an error will occur when the statement is executed.
 
 To use the  **RENAME USER**  statement, you must have the  **UPDATE**  permission on the database or the global  **CREATE USER**  permission.
 
 ##### Example of Modifying a User
+
 \# Change the username  **userexample1**  to  **userexample2**  and change the hostname to  **locahost**.
 
-```
+```pgsql
 > RENAME USER 'userexample1'@'localhost' TO 'userexample2'@'localhost';
 ```
 
 ##### Modifying a User Password
+
 Use the  **SET PASSWORD**  statement to modify the login password of a user.
 
-```
+```pgsql
 SET PASSWORD FOR 'username'@'hostname' = 'newpassword';
 ```
 
 In the preceding information:
 
--   **FOR'**_username_**'@'**_hostname_**'**: specifies the username and hostname whose password is to be changed. This parameter is optional.
--   _newpassword_: new password.
+- **FOR'**_username_**'@'**_hostname_**'**: specifies the username and hostname whose password is to be changed. This parameter is optional.
+- _newpassword_: new password.
 
 If the  **FOR**  clause is not added to the  **SET PASSWORD**  statement, the password of the current user is changed.
 
@@ -1940,9 +1926,10 @@ The  **FOR**  clause must be given in the format of  **'**_username_**'@'**_host
 The account whose password is to be changed must exist in the system. Otherwise, an error occurs when the statement is executed.
 
 ##### Example of Changing a User Password
-\#Change the password of user  **userexample**  whose hostname is  **locahost**  to  **0123456**.
 
-```
+\# Change the password of user  **userexample**  whose hostname is  **locahost**  to  **0123456**.
+
+```pgsql
 > SET PASSWORD FOR 'userexample'@'localhost' = '0123456';
 ```
 
@@ -1950,11 +1937,11 @@ The account whose password is to be changed must exist in the system. Otherwise,
 
 Use the  **DROP USER**  statement to delete one or more user accounts and related permissions.
 
-```
+```pgsql
 DROP USER 'username1'@'hostname1' [,'username2'@'hostname2']...;
 ```
 
->![](./public_sys-resources/icon-caution.gif) **CAUTION:**   
+>![](./public_sys-resources/icon-caution.gif) **CAUTION:**
 >The deletion of users does not affect the tables, indexes, or other database objects that they have created, because the database does not record the accounts that have created these objects.  
 
 The  **DROP USER**  statement can be used to delete one or more database accounts and their original permissions.
@@ -1964,9 +1951,10 @@ To use the  **DROP USER**  statement, you must have the  **DELETE**  permission 
 In the  **DROP USER**  statement, if the hostname of an account is not specified, the hostname is  **%**  by default.
 
 ##### Example
-\#Delete the local user  **userexample**.
 
-```
+\# Delete the local user  **userexample**.
+
+```pgsql
 > DROP USER 'userexample'@'localhost';
 ```
 
@@ -1974,19 +1962,19 @@ In the  **DROP USER**  statement, if the hostname of an account is not specified
 
 Run the  **GRANT**  statement to grant permissions to a new user.
 
-```
+```pgsql
 GRANT privileges ON databasename.tablename TO 'username'@'hostname';
 ```
 
 In the preceding information:
 
--   **ON**  clause: specifies the object and level on which the permission is granted.
--   _privileges_: indicates the operation permissions of a user, such as  **SELECT**, INSERT, and  **UPDATE**. To grant all permissions to a user, use  **ALL**.
--   _databasename_: database name.
--   _tablename_: table name.
--   **TO**  clause: sets the user password and specifies the user to whom the permission is granted.
--   _username_: name of a user.
--   _hostname_: host name.
+- **ON**  clause: specifies the object and level on which the permission is granted.
+- _privileges_: indicates the operation permissions of a user, such as  **SELECT**, INSERT, and  **UPDATE**. To grant all permissions to a user, use  **ALL**.
+- _databasename_: database name.
+- _tablename_: table name.
+- **TO**  clause: sets the user password and specifies the user to whom the permission is granted.
+- _username_: name of a user.
+- _hostname_: host name.
 
 To grant the user the permission to operate all databases and tables, use asterisks \(\*\), for example,  **\*.\***.
 
@@ -1995,9 +1983,10 @@ If you specify a password for an existing user in the  **TO**  clause, the new p
 If the permission is granted to a non-existent user, a  **CREATE USER**  statement is automatically executed to create the user, but the password must be specified for the user.
 
 ##### Example
-\#Grant the  **SELECT**  and  **INSERT**  permissions to local user  **userexample**.
 
-```
+\# Grant the  **SELECT**  and  **INSERT**  permissions to local user  **userexample**.
+
+```pgsql
 > GRANT SELECT,INSERT ON *.* TO 'userexample'@'localhost'; 
 ```
 
@@ -2005,7 +1994,7 @@ If the permission is granted to a non-existent user, a  **CREATE USER**  stateme
 
 Run the  **REVOKE**  statement to delete the permissions of a user, but the user will not be deleted.
 
-```
+```pgsql
 REVOKE privilege ON databasename.tablename FROM 'username'@'hostname';
 ```
 
@@ -2014,29 +2003,30 @@ The parameters in the  **REVOKE**  statement are the same as those in the  **GRA
 To use the  **REVOKE**  statement, you must have the global  **CREATE USER**  or  **UPDATE**  permission for the database.
 
 ##### Example
-\#Delete the  **INSERT**  permission of local user  **userexample**.
 
-```
+\# Delete the  **INSERT**  permission of local user  **userexample**.
+
+```pgsql
 > REVOKE INSERT ON *.* FROM 'userexample'@'localhost';
 ```
 
 ### Managing Databases
 
-
 #### Creating a Database
 
 Run the  **CREATE DATABASE**  statement to create a database.
 
-```
+```pgsql
 CREATE DATABASE databasename;
 ```
 
 In the preceding command,  _databasename_  can be replaced with the database name, which is case insensitive.
 
 ##### Example
-\#Create a database named  **databaseexample**.
 
-```
+\# Create a database named  **databaseexample**.
+
+```pgsql
 > CREATE DATABASE databaseexample;
 ```
 
@@ -2044,14 +2034,15 @@ In the preceding command,  _databasename_  can be replaced with the database nam
 
 Run the  **SHOW DATABASES**  statement to view a database.
 
-```
+```pgsql
 SHOW DATABASES;
 ```
 
 ##### Example
-\#View all databases.
 
-```
+\# View all databases.
+
+```pgsql
 > SHOW DATABASES;
 ```
 
@@ -2059,16 +2050,17 @@ SHOW DATABASES;
 
 Generally, you need to select a target database before creating or querying a table. Use the  **USE**  statement to select a database.
 
-```
+```pgsql
 USE databasename;
 ```
 
 In the preceding command,  _databasename_  indicates the database name.
 
 ##### Example
-\#Select the  **databaseexample**  database.
 
-```
+\# Select the  **databaseexample**  database.
+
+```pgsql
 > USE databaseexample;
 ```
 
@@ -2076,10 +2068,10 @@ In the preceding command,  _databasename_  indicates the database name.
 
 Run the  **DROP DATABASE**  statement to delete a database.
 
->![](./public_sys-resources/icon-caution.gif) **CAUTION:**   
+>![](./public_sys-resources/icon-caution.gif) **CAUTION:**
 >Exercise caution when deleting a database. Once a database is deleted, all tables and data in the database will be deleted.  
 
-```
+```pgsql
 DROP DATABASE databasename;
 ```
 
@@ -2092,9 +2084,10 @@ To use  **DROP DATABASE**, you need the  **DROP**  permission on the database.
 **DROP SCHEMA**  is a synonym of  **DROP DATABASE**.
 
 ##### Example
-\#Delete the  **databaseexample**  database.
 
-```
+\# Delete the  **databaseexample**  database.
+
+```pgsql
 > DROP DATABASE databaseexample;
 ```
 
@@ -2104,66 +2097,66 @@ Run the  **mysqldump**  command as the **root** user to back up the database.
 
 Back up one or more tables:
 
-```
+```shell
 mysqldump [options] databasename [tablename ...] > outfile
 ```
 
 Back up one or more databases:
 
-```
+```shell
 mysqldump [options] -databases databasename ... > outfile
 ```
 
 Back up all databases:
 
-```
+```shell
 mysqldump [options] -all-databases > outputfile
 ```
 
 In the preceding information:
 
--   _databasename_: database name.
--   _tablename_: name of a data table.
--   _outfile_: database backup file.
--   _options_: parameter option of the  **mysqldump**  command. Multiple parameters can be separated by spaces. The common parameters of the  **mysqldump**  command are as follows:
-    -   **-u, \-\-user**= _username_: specifies the username.
-    -   **-p, \-\-password**\[= _password_\]: specifies the password.
-    -   **-P, \-\-port**= _portnumber_: specifies the port number.
-    -   **-h, \-\-host**= _hostname_: specifies the hostname.
-    -   **-r, \-\-result-file**= _filename_: saves the export result to a specified file, which is equivalent to  **\>**.
-    -   **-t**: backs up data only.
-    -   **-d**: backs up the table structure only.
-
+- _databasename_: database name.
+- _tablename_: name of a data table.
+- _outfile_: database backup file.
+- _options_: parameter option of the  **mysqldump**  command. Multiple parameters can be separated by spaces. The common parameters of the  **mysqldump**  command are as follows:
+    - **-u, \-\-user**= _username_: specifies the username.
+    - **-p, \-\-password**\[= _password_\]: specifies the password.
+    - **-P, \-\-port**= _portnumber_: specifies the port number.
+    - **-h, \-\-host**= _hostname_: specifies the hostname.
+    - **-r, \-\-result-file**= _filename_: saves the export result to a specified file, which is equivalent to  **\>**.
+    - **-t**: backs up data only.
+    - **-d**: backs up the table structure only.
 
 ##### Example
-\#Back up all the databases of user  **root**  on port  **3306**  of the host whose IP address is  **192.168.202.144**  to the  **alldb.sql**  file.
 
-```
-# mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 --all-databases > alldb.sql
-```
+\# Back up all the databases of user  **root**  on port  **3306**  of the host whose IP address is  **192.168.202.144**  to the  **alldb.sql**  file.
 
-\#Back up the db1 database of user  **root**  on port  **3306**  of the host whose IP address is  **192.168.202.144**  to the  **db1.sql**  file.
-
-```
-# mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 --databases db1 > db1.sql
+```shell
+mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 --all-databases > alldb.sql
 ```
 
-\#Back up the tb1 table of the db1 database of user  **root**  on port  **3306**  of the host whose IP address is  **192.168.202.144**  to the  **db1tb1.sql**  file.
+\# Back up the db1 database of user  **root**  on port  **3306**  of the host whose IP address is  **192.168.202.144**  to the  **db1.sql**  file.
 
-```
-# mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 db1 tb1 > db1tb1.sql
-```
-
-\#Back up only the table structure of the db1 database of user  **root**  on port  **3306**  of the host whose IP address is  **192.168.202.144**  to the  **db1.sql**  file.
-
-```
-# mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 -d db1 > db1.sql
+```shell
+mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 --databases db1 > db1.sql
 ```
 
-\#Back up only the table structure of the db1 database of user  **root**  on port  **3306**  of the host whose IP address is  **192.168.202.144**  to the  **db1.sql**  file.
+\# Back up the tb1 table of the db1 database of user  **root**  on port  **3306**  of the host whose IP address is  **192.168.202.144**  to the  **db1tb1.sql**  file.
 
+```shell
+mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 db1 tb1 > db1tb1.sql
 ```
-# mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 -t db1 > db1.sql
+
+\# Back up only the table structure of the db1 database of user  **root**  on port  **3306**  of the host whose IP address is  **192.168.202.144**  to the  **db1.sql**  file.
+
+```shell
+mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 -d db1 > db1.sql
+```
+
+\# Back up only the table structure of the db1 database of user  **root**  on port  **3306**  of the host whose IP address is  **192.168.202.144**  to the  **db1.sql**  file.
+
+```shell
+mysqldump -h 192.168.202.144 -P 3306 -uroot -p123456 -t db1 > db1.sql
 ```
 
 #### Restoring a Database
@@ -2172,22 +2165,23 @@ Run the  **mysql**  command as the **root** user to restore the database.
 
 Restore one or more tables:
 
-```
+```shell
 mysql -h hostname -P portnumber -u username -ppassword databasename < infile
 ```
 
 In the preceding information:
 
--   _hostname_: host name.
--   _portnumber_: port number.
--   _username_: name of a user.
--   _password_: password.
--   _databasename_: database name.
--   _infile_:  **outfile**  parameter in the  **mysqldump** command.
+- _hostname_: host name.
+- _portnumber_: port number.
+- _username_: name of a user.
+- _password_: password.
+- _databasename_: database name.
+- _infile_:  **outfile**  parameter in the  **mysqldump** command.
 
 ##### Example
-\#Restore a database.
 
-```
-# mysql -h 192.168.202.144 -P 3306 -uroot -p123456 -t db1 < db1.sql
+\# Restore a database.
+
+```shell
+mysql -h 192.168.202.144 -P 3306 -uroot -p123456 -t db1 < db1.sql
 ```

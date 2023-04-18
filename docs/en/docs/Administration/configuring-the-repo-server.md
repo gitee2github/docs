@@ -1,8 +1,8 @@
 # Configuring the Repo Server
 
->![](./public_sys-resources/icon-note.gif) **NOTE:** 
-> openEuler provides multiple repo sources for users online. For details about the repo sources, see [System Installation](./../Releasenotes/installing-the-os.html). If you cannot obtain the openEuler repo source online, you can use the ISO release package provided by openEuler to create a local openEuler repo source. This section uses the  **openEuler-20.03-LTS-SP2-aarch64-dvd.iso**  file as an example. Modify the ISO file as required.
- 
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
+> openEuler provides multiple repo sources for users online. For details about the repo sources, see [System Installation](./../Releasenotes/installing-the-os.md). If you cannot obtain the openEuler repo source online, you can use the ISO release package provided by openEuler to create a local openEuler repo source. This section uses the  **openEuler-20.03-LTS-SP2-aarch64-dvd.iso**  file as an example. Modify the ISO file as required.
+
 <!-- TOC -->
 
 - [Configuring the Repo Server](#configuring-the-repo-server)
@@ -42,13 +42,13 @@ Run the mount command as the **root** user to mount the ISO file.
 
 The following is an example:
 
-```
-# mount /home/openEuler/openEuler-20.03-LTS-SP2-aarch64-dvd.iso /mnt/
+```shell
+mount /home/openEuler/openEuler-20.03-LTS-SP2-aarch64-dvd.iso /mnt/
 ```
 
 The mounted mnt directory is as follows:
 
-```
+```console
 .
 │── boot.catalog
 │── docs
@@ -66,17 +66,17 @@ In the preceding command,  **Packages**  indicates the directory where the RPM p
 
 You can copy related files in the ISO file to a local directory to create a local repo source. The following is an example:
 
-```
-# mount /home/openEuler/openEuler-20.03-LTS-SP2-aarch64-dvd.iso /mnt/
-$ mkdir -p ~/srv/repo/
-$ cp -r /mnt/Packages ~/srv/repo/
-$ cp -r /mnt/repodata ~/srv/repo/
-$ cp -r /mnt/RPM-GPG-KEY-openEuler ~/srv/repo/
+```shell
+mount /home/openEuler/openEuler-20.03-LTS-SP2-aarch64-dvd.iso /mnt/
+mkdir -p ~/srv/repo/
+cp -r /mnt/Packages ~/srv/repo/
+cp -r /mnt/repodata ~/srv/repo/
+cp -r /mnt/RPM-GPG-KEY-openEuler ~/srv/repo/
 ```
 
 The local repo directory is as follows:
 
-```
+```console
 .
 │── Packages
 │── repodata
@@ -93,8 +93,8 @@ You can update the repo source in either of the following ways:
 
 - Add rpm packages to the Packages directory of the repo source and run the createrepo command to update the repo source.
   
-  ```
-  $ createrepo --update --workers=10 ~/srv/repo
+  ```shell
+  createrepo --update --workers=10 ~/srv/repo
   ```
 
 In this command, --update indicates the update, and --workers indicates the number of threads, which can be customized.
@@ -111,11 +111,11 @@ Install openEuler OS and deploy the repo source using Nginx on openEuler OS.
 1. Download the Nginx tool and install it as the **root** user.
 
 2. After installing Nginx, configure /etc/nginx/nginx.conf as the **root** user.
-   
+
    > ![](./public_sys-resources/icon-note.gif) **NOTE:**  
 The configuration content in this document is for reference only. You can configure the content based on the site requirements (for example, security hardening requirements).
-   
-   ```
+
+   ```text
    user  nginx;
    worker_processes auto;                             # You are advised to set this parameter to core-1.
    error_log /var/log/nginx/error.log warn;            # log storage location
@@ -139,12 +139,12 @@ The configuration content in this document is for reference only. You can config
    
        server {
            listen       80;
-   		server_name localhost;                         #Server name (URL)
+     server_name localhost;                         #Server name (URL)
            client_max_body_size 4G;
-   		root /usr/share/nginx/repo;                 #Default service directory
+     root /usr/share/nginx/repo;                 #Default service directory
    
            location / {
-   			autoindex on;	# Enable the access to lower-layer files in the directory.
+      autoindex on; # Enable the access to lower-layer files in the directory.
                autoindex_exact_size on;
                autoindex_localtime  on; 
            }
@@ -157,100 +157,100 @@ The configuration content in this document is for reference only. You can config
 ### Starting Nginx
 
 1. Run the systemd command as the **root** user to start the Nginx service.
-   
-   ```
-   # systemctl enable nginx
-   # systemctl start nginx
+
+   ```shell
+   systemctl enable nginx
+   systemctl start nginx
    ```
 
 2. You can run the following command to check whether the Nginx is started successfully:
-   
+
+   ```shell
+   systemctl status nginx
    ```
-   $ systemctl status nginx
-   ```
-   
+
    - [Figure 1](#en-us_topic_0151920971_fd25e3f1d664b4087ae26631719990a71)  indicates that the Nginx service is started successfully.
-     
+
      **Figure  1**  The Nginx service is successfully started.<a name="en-us_topic_0151920971_fd25e3f1d664b4087ae26631719990a71"></a>  
 ![](./figures/the-nginx-service-is-successfully-started.png "the-nginx-service-is-successfully-started")
-   
+
    - If the Nginx service fails to be started, view the error information.
-   
+
+   ```shell
+   systemctl status nginx.service --full
    ```
-   $ systemctl status nginx.service --full
-   ```
-   
+
     **Figure  2**  Nginx startup failure<a name="en-us_topic_0151920971_f1f9f3d086e454b9cba29a7cae96a4c54"></a>  
        ![](./figures/nginx-startup-failure.png "nginx-startup-failure")
-   
+
    As shown in  [Figure 2](#en-us_topic_0151920971_f1f9f3d086e454b9cba29a7cae96a4c54), the Nginx service fails to be created because the /var/spool/nginx/tmp/client\_body directory fails to be created. You need to manually create the directory as the **root** user. Similar problems are solved as follows:
-   
-   ```
-   # mkdir -p /var/spool/nginx/tmp/client_body
-   # mkdir -p /var/spool/nginx/tmp/proxy
-   # mkdir -p /var/spool/nginx/tmp/fastcgi
-   # mkdir -p /usr/share/nginx/uwsgi_temp
-   # mkdir -p /usr/share/nginx/scgi_temp
+
+   ```shell
+   mkdir -p /var/spool/nginx/tmp/client_body
+   mkdir -p /var/spool/nginx/tmp/proxy
+   mkdir -p /var/spool/nginx/tmp/fastcgi
+   mkdir -p /usr/share/nginx/uwsgi_temp
+   mkdir -p /usr/share/nginx/scgi_temp
    ```
 
 ### Deploying the Repo Source
 
 1. Run the following command as the **root** user to create the /usr/share/nginx/repo directory specified in the Nginx configuration file /etc/nginx/nginx.conf:
-   
-   ```
-   # mkdir -p /usr/share/nginx/repo
+
+   ```shell
+   mkdir -p /usr/share/nginx/repo
    ```
 
 2. Run the followding command as the **root** user to modify the /usr/share/nginx/repo directory permission:
-   
-   ```
-   # chmod -R 755 /usr/share/nginx/repo
+
+   ```shell
+   chmod -R 755 /usr/share/nginx/repo
    ```
 
 3. Configure firewall rules as the **root** user to enable the port (port 80) configured for Nginx.
-   
+
+   ```shell
+   firewall-cmd --add-port=80/tcp --permanent
+   firewall-cmd --reload
    ```
-   # firewall-cmd --add-port=80/tcp --permanent
-   # firewall-cmd --reload
-   ```
-   
+
    Check whether port 80 is enabled as the **root** user. If the output is **yes**, port 80 is enabled.
-   
+
+   ```shell
+   firewall-cmd --query-port=80/tcp
    ```
-   # firewall-cmd --query-port=80/tcp
-   ```
-   
+
    You can also enable port 80 using iptables as the **root** user.
-   
-   ```
-   # iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+
+   ```shell
+   iptables -I INPUT -p tcp --dport 80 -j ACCEPT
    ```
 
 4. After the Nginx service is configured, you can use the IP address to access the web page, as shown in  [Figure 3](#en-us_topic_0151921017_fig1880404110396).
-   
+
    **Figure  3**  Nginx deployment succeeded<a name="en-us_topic_0151921017_fig1880404110396"></a>  
 ![](./figures/nginx-deployment-succeeded.png "nginx-deployment-succeeded")
 
 5. Use either of the following methods to add the repo source to the /usr/share/nginx/repo directory:
-   
+
    - Copy related files in the image to the /usr/share/nginx/repo directory as the **root** user.
-     
+
+     ```shell
+     mount /home/openEuler/openEuler-20.03-LTS-SP2-aarch64-dvd.iso  /mnt/
+     cp -r /mnt/Packages /usr/share/nginx/repo/
+     cp -r /mnt/repodata /usr/share/nginx/repo/
+     cp -r /mnt/RPM-GPG-KEY-openEuler /usr/share/nginx/repo/
+     chmod -R 755 /usr/share/nginx/repo
      ```
-     # mount /home/openEuler/openEuler-20.03-LTS-SP2-aarch64-dvd.iso  /mnt/
-     # cp -r /mnt/Packages /usr/share/nginx/repo/
-     # cp -r /mnt/repodata /usr/share/nginx/repo/
-     # cp -r /mnt/RPM-GPG-KEY-openEuler /usr/share/nginx/repo/
-     # chmod -R 755 /usr/share/nginx/repo
-     ```
-     
+
      The  **openEuler-20.03-LTS-SP2-aarch64-dvd.iso**  file is stored in the  **/home/openEuler**  directory.
-   
+
    - Create a soft link for the repo source in the /usr/share/nginx/repo directory as the **root** user.
-     
+
+     ```shell
+     ln -s /mnt /usr/share/nginx/repo/os
      ```
-     # ln -s /mnt /usr/share/nginx/repo/os
-     ```
-     
+
      /mnt is the created repo source, and /usr/share/nginx/repo/os points to /mnt.
 
 ## Using the repo Source
@@ -265,7 +265,7 @@ You can configure the built repo as the yum source and create the \*\*\*.repo co
   
   Create the  **openEuler.repo**  file in the  **/etc/yum.repos.d**  directory and use the local repository as the yum source. The content of the  **openEuler.repo**  file is as follows:
   
-  ```
+  ```conf
   [base]
   name=base
   baseurl=file:///home/openEuler/srv/repo
@@ -275,7 +275,7 @@ You can configure the built repo as the yum source and create the \*\*\*.repo co
   ```
   
   > ![](./public_sys-resources/icon-note.gif) **NOTE:**
-  > 
+  >
   > - The repoid in \[repoid\] indicates the ID of the software repository. Repoids in all .repo configuration files must be unique. In the example, repoid is set to **base**.
   > - **name** indicates the string that the software repository describes.
   > - **baseurl** indicates the address of the software repository.
@@ -287,9 +287,9 @@ You can configure the built repo as the yum source and create the \*\*\*.repo co
   
   Create the **openEuler.repo** file in the **/etc/yum.repos.d** directory.
   
-  - If the repo source of the HTTP server deployed by the user is used as the yum source, the content of **openEuler.repo** is as follows:
-    
-    ```
+    - If the repo source of the HTTP server deployed by the user is used as the yum source, the content of **openEuler.repo** is as follows:
+
+    ```conf
     [base]
     name=base
     baseurl=http://192.168.139.209/
@@ -297,13 +297,13 @@ You can configure the built repo as the yum source and create the \*\*\*.repo co
     gpgcheck=1
     gpgkey=http://192.168.139.209/RPM-GPG-KEY-openEuler
     ```
-    
+
     > ![](./public_sys-resources/icon-note.gif) **NOTE:**  
     > 192.168.139.209 is an example. Replace it with the actual IP address.
   
-  - If the openEuler repo source provided by openEuler is used as the yum source, the content of **openEuler.repo** is as follows (the aarch64-based OS repo source is used as an example):
-    
-    ```
+    - If the openEuler repo source provided by openEuler is used as the yum source, the content of **openEuler.repo** is as follows (the aarch64-based OS repo source is used as an example):
+
+    ```conf
     [base]
     name=base
     baseurl=http://repo.openeuler.org/openEuler-20.03-LTS-SP2/OS/aarch64/
@@ -316,7 +316,7 @@ You can configure the built repo as the yum source and create the \*\*\*.repo co
 
 If there are multiple repo sources, you can set the repo priority in the .repo file. If the priority is not set, the default priority is 99. If the same RPM package exists in the sources with the same priority, the latest version is installed.  **1**  indicates the highest priority and  **99**  indicates the lowest priority. For example, set the priority of  **openEuler.repo**  to  **2**.
 
-```
+```conf
 [base]
 name=base
 baseurl=http://192.168.139.209/
@@ -330,7 +330,7 @@ gpgkey=http://192.168.139.209/RPM-GPG-KEY-openEuler
 
 The dnf command can automatically parse the dependency between packages during installation and upgrade. The common usage method is as follows:
 
-```
+```shell
 dnf <command> <packages name>
 ```
 
@@ -340,68 +340,68 @@ Common commands are as follows:
   
   Run the following command as the **root** user.
   
-  ```
-  # dnf install <packages name>
+  ```shell
+  dnf install <packages name>
   ```
 
 - Upgrade
   
   Run the following command as the **root** user.
   
-  ```
-  # dnf update <packages name>
+  ```shell
+  dnf update <packages name>
   ```
 
 - Rollback
   
   Run the following command as the **root** user.
   
-  ```
-  # dnf downgrade <packages name>
+  ```shell
+  dnf downgrade <packages name>
   ```
 
 - Checking for update
   
-  ```
-  $ dnf check-update
+  ```shell
+  dnf check-update
   ```
 
 - Uninstallation
   
   Run the following command as the **root** user.
   
-  ```
-  # dnf remove <packages name>
+  ```shell
+  dnf remove <packages name>
   ```
 
 - Query
   
-  ```
-  $ dnf search <packages name>
+  ```shell
+  dnf search <packages name>
   ```
 
 - Local installation
   
   Run the following command as the **root** user.
   
-  ```
-  # dnf localinstall <absolute path to package name>
+  ```shell
+  dnf localinstall <absolute path to package name>
   ```
 
 - Viewing historical records
   
-  ```
-  $ dnf history
+  ```shell
+  dnf history
   ```
 
 - Clearing cache records
   
-  ```
-  $ dnf clean all
+  ```shell
+  dnf clean all
   ```
 
 - Updating cache
   
-  ```
-  $ dnf makecache
+  ```shell
+  dnf makecache
   ```

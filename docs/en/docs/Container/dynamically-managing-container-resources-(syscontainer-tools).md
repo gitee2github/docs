@@ -1,20 +1,23 @@
 # Dynamically Managing Container Resources \(syscontainer-tools\)
 
-- [Dynamically Managing Container Resources \(syscontainer-tools\)](#dynamically-managing-container-resources-(syscontainer-tools))
+- [Dynamically Managing Container Resources (syscontainer-tools)](#dynamically-managing-container-resources-syscontainer-tools)
     - [Device Management](#device-management)
     - [NIC Management](#nic-management)
     - [Route Management](#route-management)
     - [Volume Mounting Management](#volume-mounting-management)
-
+        - [Function Description](#function-description-3)
+        - [Command Format](#command-format-3)
+        - [API Description](#api-description-1)
+        - [Constraints](#constraints-3)
+        - [Example](#example-3)
 
 Resources in common containers cannot be managed. For example, a block device cannot be added to a common container, and a physical or virtual NIC cannot be inserted to a common container. In the system container scenario, the syscontainer-tools can be used to dynamically mount or unmount block devices, network devices, routes, and volumes for containers.
 
 To use this function, you need to install the syscontainer-tools first.
 
-```
+```console
 [root@localhost ~]# yum install syscontainer-tools
 ```
-
 
 ## Device Management
 
@@ -24,7 +27,7 @@ isulad-tools allows you to add block devices \(such as disks and logical volume 
 
 ### Command Format
 
-```
+```shell
 isulad-tools [COMMADN][OPTIONS] <container_id> [ARG...]
 ```
 
@@ -39,7 +42,6 @@ In the preceding format:
 **ARG**: parameter corresponding to the command.
 
 ### Parameter Description
-
 
 <table><thead align="left"><tr id="en-us_topic_0182200846_row1569373816419"><th class="cellrowborder" valign="top" width="14.57%" id="mcps1.1.5.1.1"><p id="en-us_topic_0182200846_p106936387415"><a name="en-us_topic_0182200846_p106936387415"></a><a name="en-us_topic_0182200846_p106936387415"></a><strong id="b84235270693550"><a name="b84235270693550"></a><a name="b84235270693550"></a>Command</strong></p>
 </th>
@@ -103,25 +105,24 @@ In the preceding format:
 
 ### Constraints
 
--   You can add or delete devices when container instances are not running. After the operation is complete, you can start the container to view the device status. You can also dynamically add a device when the container is running.
--   Do not concurrently run the  **fdisk**  command to format disks in a container and on the host. Otherwise, the container disk usage will be affected.
--   When you run the  **add-device**  command to add a disk to a specific directory of a container, if the parent directory in the container is a multi-level directory \(for example,  **/dev/a/b/c/d/e**\) and the directory level does not exist, isulad-tools will automatically create the corresponding directory in the container. When the disk is deleted, the created parent directory is not deleted. If you run the  **add-device**  command to add a device to this parent directory again, a message is displayed, indicating that a device already exists and cannot be added.
--   When you run the** add-device**  command to add a disk or update disk parameters, you need to configure the disk QoS. Do not set the write or read rate limit for the block device \(I/O/s or byte/s\) to a small value. If the value is too small, the disk may be unreadable \(the actual reason is the speed is too slow\), affecting service functions.
--   When you run the  **--blkio-weight-device**  command to limit the weight of a specified block device, if the block device supports only the BFQ mode, an error may be reported, prompting you to check whether the current OS environment supports setting the weight of the BFQ block device.
+- You can add or delete devices when container instances are not running. After the operation is complete, you can start the container to view the device status. You can also dynamically add a device when the container is running.
+- Do not concurrently run the  **fdisk**  command to format disks in a container and on the host. Otherwise, the container disk usage will be affected.
+- When you run the  **add-device**  command to add a disk to a specific directory of a container, if the parent directory in the container is a multi-level directory \(for example,  **/dev/a/b/c/d/e**\) and the directory level does not exist, isulad-tools will automatically create the corresponding directory in the container. When the disk is deleted, the created parent directory is not deleted. If you run the  **add-device**  command to add a device to this parent directory again, a message is displayed, indicating that a device already exists and cannot be added.
+- When you run the**add-device**  command to add a disk or update disk parameters, you need to configure the disk QoS. Do not set the write or read rate limit for the block device \(I/O/s or byte/s\) to a small value. If the value is too small, the disk may be unreadable \(the actual reason is the speed is too slow\), affecting service functions.
+- When you run the  **--blkio-weight-device**  command to limit the weight of a specified block device, if the block device supports only the BFQ mode, an error may be reported, prompting you to check whether the current OS environment supports setting the weight of the BFQ block device.
 
 ### Example
 
--   Start a system container, and set  **hook spec**  to the isulad hook execution script.
+- Start a system container, and set  **hook spec**  to the isulad hook execution script.
 
-    ```
+    ```console
     [root@localhost ~]# isula run -tid --hook-spec /etc/isulad-tools/hookspec.json --system-container --external-rootfs /root/root-fs none init
     eed1096c8c7a0eca6d92b1b3bc3dd59a2a2adf4ce44f18f5372408ced88f8350
     ```
 
+- Add a block device to a container.
 
--   Add a block device to a container.
-
-    ```
+    ```console
     [root@localhost ~]# isulad-tools add-device ee /dev/sdb:/dev/sdb123
     Add device (/dev/sdb) to container(ee,/dev/sdb123) done.
     [root@localhost ~]# isula exec ee fdisk -l /dev/sdb123
@@ -137,21 +138,20 @@ In the preceding format:
     /dev/sdb123p5       4096 104857599 104853504  50G 83 Linux
     ```
 
--   Update the device information.
+- Update the device information.
 
-    ```
+    ```console
     [root@localhost ~]# isulad-tools update-device --device-read-bps /dev/sdb:10m ee
     Update read bps for device (/dev/sdb,10485760) done.
     ```
 
--   Delete a device.
+- Delete a device.
 
-    ```
+    ```console
     [root@localhost ~]# isulad-tools remove-device ee /dev/sdb:/dev/sdb123
     Remove device (/dev/sdb) from container(ee,/dev/sdb123) done.
     Remove read bps for device (/dev/sdb) done.
     ```
-
 
 ## NIC Management
 
@@ -161,7 +161,7 @@ isulad-tools allows you to insert physical or virtual NICs on the host to a cont
 
 ### Command Format
 
-```
+```shell
 isulad-tools [COMMADN][OPTIONS] <container_id>
 ```
 
@@ -174,7 +174,6 @@ In the preceding format:
 **container\_id**: container ID.
 
 ### Parameter Description
-
 
 <table><thead align="left"><tr id="en-us_topic_0182200847_row1569373816419"><th class="cellrowborder" valign="top" width="23.98%" id="mcps1.1.4.1.1"><p id="en-us_topic_0182200847_p106936387415"><a name="en-us_topic_0182200847_p106936387415"></a><a name="en-us_topic_0182200847_p106936387415"></a><strong id="b84235270693550"><a name="b84235270693550"></a><a name="b84235270693550"></a>Command</strong></p>
 </th>
@@ -221,42 +220,40 @@ In the preceding format:
 
 ### Constraints
 
--   Physical NICs \(eth\) and virtual NICs \(veth\) can be added.
--   When adding a NIC, you can also configure the NIC. The configuration parameters include  **--ip**,  **--mac**,  **--bridge**,  **--mtu**,  **--qlen**.
--   A maximum of eight physical NICs can be added to a container.
--   If you run the  **isulad-tools add-nic**  command to add an eth NIC to a container and do not add a hook, you must manually delete the NIC before the container exits. Otherwise, the name of the eth NIC on the host will be changed to the name of that in the container.
--   For a physical NIC \(except 1822 VF NIC\), use the original MAC address when running the  **add-nic**  command. Do not change the MAC address in the container, or when running the  **update-nic**  command.
--   When using the  **isulad-tools add-nic**  command, set the MTU value. The value range depends on the NIC model.
--   When using isulad-tools to add NICs and routes to containers, you are advised to run the  **add-nic**  command to add NICs and then run the  **add-route**  command to add routes. When using isulad-tools to delete NICs and routes from a container, you are advised to run the  **remove-route**  command to delete routes and then run the  **remove-nic**  command to delete NICs.
--   When using isulad-tools to add NICs, add a NIC to only one container.
+- Physical NICs \(eth\) and virtual NICs \(veth\) can be added.
+- When adding a NIC, you can also configure the NIC. The configuration parameters include  **--ip**,  **--mac**,  **--bridge**,  **--mtu**,  **--qlen**.
+- A maximum of eight physical NICs can be added to a container.
+- If you run the  **isulad-tools add-nic**  command to add an eth NIC to a container and do not add a hook, you must manually delete the NIC before the container exits. Otherwise, the name of the eth NIC on the host will be changed to the name of that in the container.
+- For a physical NIC \(except 1822 VF NIC\), use the original MAC address when running the  **add-nic**  command. Do not change the MAC address in the container, or when running the  **update-nic**  command.
+- When using the  **isulad-tools add-nic**  command, set the MTU value. The value range depends on the NIC model.
+- When using isulad-tools to add NICs and routes to containers, you are advised to run the  **add-nic**  command to add NICs and then run the  **add-route**  command to add routes. When using isulad-tools to delete NICs and routes from a container, you are advised to run the  **remove-route**  command to delete routes and then run the  **remove-nic**  command to delete NICs.
+- When using isulad-tools to add NICs, add a NIC to only one container.
 
 ### Example
 
--   Start a system container, and set  **hook spec**  to the isulad hook execution script.
+- Start a system container, and set  **hook spec**  to the isulad hook execution script.
 
-    ```
+    ```console
     [root@localhost ~]# isula run -tid --hook-spec /etc/isulad-tools/hookspec.json --system-container --external-rootfs /root/root-fs none init
     2aaca5c1af7c872798dac1a468528a2ccbaf20b39b73fc0201636936a3c32aa8
     ```
 
+- Add a virtual NIC to a container.
 
--   Add a virtual NIC to a container.
-
-    ```
+    ```console
     [root@localhost ~]# isulad-tools add-nic --type "veth" --name abc2:bcd2 --ip 172.17.28.5/24 --mac 00:ff:48:13:xx:xx --bridge docker0 2aaca5c1af7c
     Add network interface to container 2aaca5c1af7c (bcd2,abc2) done  
     ```
 
--   Add a physical NIC to a container.
+- Add a physical NIC to a container.
 
-    ```
+    ```console
     [root@localhost ~]# isulad-tools add-nic --type "eth" --name eth3:eth1 --ip 172.17.28.6/24  --mtu 1300  --qlen 2100 2aaca5c1af7c
     Add network interface to container 2aaca5c1af7c (eth3,eth1) done
     ```
 
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**   
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
     >When adding a virtual or physical NIC, ensure that the NIC is in the idle state. Adding a NIC in use will disconnect the system network.  
-
 
 ## Route Management
 
@@ -266,7 +263,7 @@ isulad-tools can be used to dynamically add or delete routing tables for system 
 
 ### Command Format
 
-```
+```shell
 isulad-tools [COMMADN][OPTIONS] <container_id> [ARG...]
 ```
 
@@ -281,7 +278,6 @@ In the preceding format:
 **ARG**: parameter corresponding to the command.
 
 ### API Description
-
 
 <table><thead align="left"><tr id="en-us_topic_0182200848_row1569373816419"><th class="cellrowborder" valign="top" width="16.028397160283973%" id="mcps1.1.5.1.1"><p id="en-us_topic_0182200848_p106936387415"><a name="en-us_topic_0182200848_p106936387415"></a><a name="en-us_topic_0182200848_p106936387415"></a><strong id="b84235270693550"><a name="b84235270693550"></a><a name="b84235270693550"></a>Command</strong></p>
 </th>
@@ -334,44 +330,41 @@ In the preceding format:
 
 ### Constraints
 
--   When using isulad-tools to add NICs and routes to containers, you are advised to run the  **add-nic**  command to add NICs and then run the  **add-route**  command to add routes. When using isulad-tools to delete NICs and routes from a container, you are advised to run the  **remove-route**  command to delete routes and then run the  **remove-nic**  command to delete NICs.
--   When adding a routing rule to a container, ensure that the added routing rule does not conflict with existing routing rules in the container.
+- When using isulad-tools to add NICs and routes to containers, you are advised to run the  **add-nic**  command to add NICs and then run the  **add-route**  command to add routes. When using isulad-tools to delete NICs and routes from a container, you are advised to run the  **remove-route**  command to delete routes and then run the  **remove-nic**  command to delete NICs.
+- When adding a routing rule to a container, ensure that the added routing rule does not conflict with existing routing rules in the container.
 
 ### Example
 
--   Start a system container, and set  **hook spec**  to the isulad hook execution script.
+- Start a system container, and set  **hook spec**  to the isulad hook execution script.
 
-    ```
+    ```console
     [root@localhost ~]# isula run -tid --hook-spec /etc/isulad-tools/hookspec.json --system-container --external-rootfs /root/root-fs none init
     0d2d68b45aa0c1b8eaf890c06ab2d008eb8c5d91e78b1f8fe4d37b86fd2c190b
     ```
 
+- Use isulad-tools to add a physical NIC to the system container.
 
--   Use isulad-tools to add a physical NIC to the system container.
-
-    ```
+    ```console
     [root@localhost ~]# isulad-tools add-nic --type "eth" --name enp4s0:eth123 --ip 172.17.28.6/24  --mtu 1300  --qlen 2100 0d2d68b45aa0
     Add network interface (enp4s0) to container (0d2d68b45aa0,eth123) done
     ```
 
+- isulad-tools adds a routing rule to the system container. Format example:  **\[\{"dest":"default", "gw":"192.168.10.1"\},\{"dest":"192.168.0.0/16","dev":"eth0","src":"192.168.1.2"\}\]**. If  **dest**  is left blank, its value will be  **default**.
 
--   isulad-tools adds a routing rule to the system container. Format example:  **\[\{"dest":"default", "gw":"192.168.10.1"\},\{"dest":"192.168.0.0/16","dev":"eth0","src":"192.168.1.2"\}\]**. If  **dest**  is left blank, its value will be  **default**.
-
-    ```
+    ```console
     [root@localhost ~]# isulad-tools add-route 0d2d68b45aa0 '[{"dest":"172.17.28.0/32", "gw":"172.17.28.5","dev":"eth123"}]'
     Add route to container 0d2d68b45aa0, route: {dest:172.17.28.0/32,src:,gw:172.17.28.5,dev:eth123} done
     ```
 
--   Check whether a routing rule is added in the container.
+- Check whether a routing rule is added in the container.
 
-    ```
+    ```console
     [root@localhost ~]# isula exec -it 0d2d68b45aa0 route
     Kernel IP routing table
     Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
     172.17.28.0     172.17.28.5     255.255.255.255 UGH   0      0        0 eth123
     172.17.28.0     0.0.0.0         255.255.255.0   U     0      0        0 eth123
     ```
-
 
 ## Volume Mounting Management
 
@@ -381,7 +374,7 @@ In a common container, you can set the  **--volume**  parameter during container
 
 ### Command Format
 
-```
+```shell
 isulad-tools [COMMADN][OPTIONS] <container_id> [ARG...]
 ```
 
@@ -397,7 +390,7 @@ In the preceding format:
 
 ### API Description
 
-**Table  1**    
+**Table  1**
 
 <a name="en-us_topic_0182200849_table1869210387418"></a>
 <table><thead align="left"><tr id="en-us_topic_0182200849_row1569373816419"><th class="cellrowborder" valign="top" width="16.150000000000002%" id="mcps1.2.5.1.1"><p id="en-us_topic_0182200849_p106936387415"><a name="en-us_topic_0182200849_p106936387415"></a><a name="en-us_topic_0182200849_p106936387415"></a><strong id="b84235270693550"><a name="b84235270693550"></a><a name="b84235270693550"></a>Command</strong></p>
@@ -451,45 +444,42 @@ In the preceding format:
 
 ### Constraints
 
--   When running the  **add-path**  command, specify an absolute path as the mount path.
--   The mount point /.sharedpath is generated on the host after the mount path is specified by running the  **add-path**  command.
--   A maximum of 128 volumes can be added to a container.
--   Do not overwrite the root directory \(/\) in a container with the host directory by running the  **add-path**  command. Otherwise, the function is affected.
+- When running the  **add-path**  command, specify an absolute path as the mount path.
+- The mount point /.sharedpath is generated on the host after the mount path is specified by running the  **add-path**  command.
+- A maximum of 128 volumes can be added to a container.
+- Do not overwrite the root directory \(/\) in a container with the host directory by running the  **add-path**  command. Otherwise, the function is affected.
 
 ### Example
 
--   Start a system container, and set  **hook spec**  to the isulad hook execution script.
+- Start a system container, and set  **hook spec**  to the isulad hook execution script.
 
-    ```
+    ```console
     [root@localhost ~]# isula run -tid --hook-spec /etc/isulad-tools/hookspec.json --system-container --external-rootfs /root/root-fs none init
     e45970a522d1ea0e9cfe382c2b868d92e7b6a55be1dd239947dda1ee55f3c7f7
     ```
 
+- Use isulad-tools to mount a directory on the host to a container, implementing resource sharing.
 
--   Use isulad-tools to mount a directory on the host to a container, implementing resource sharing.
-
-    ```
+    ```console
     [root@localhost ~]# isulad-tools add-path e45970a522d1 /home/test123:/home/test123
     Add path (/home/test123) to container(e45970a522d1,/home/test123) done.
     ```
 
--   Create a file in the  **/home/test123**  directory on the host and check whether the file can be accessed in the container.
+- Create a file in the  **/home/test123**  directory on the host and check whether the file can be accessed in the container.
 
-    ```
+    ```console
     [root@localhost ~]# echo "hello world" > /home/test123/helloworld
     [root@localhost ~]# isula exec e45970a522d1 bash
     [root@localhost /]# cat /home/test123/helloworld
     hello world
     ```
 
--   Use isulad-tools to delete the mount directory from the container.
+- Use isulad-tools to delete the mount directory from the container.
 
-    ```
+    ```console
     [root@localhost ~]# isulad-tools remove-path e45970a522d1 /home/test123:/home/test123
     Remove path (/home/test123) from container(e45970a522d1,/home/test123) done
     [root@localhost ~]# isula exec e45970a522d1 bash
     [root@localhost /]# ls /home/test123/helloworld
     ls: cannot access '/home/test123/helloworld': No such file or directory
     ```
-
-
