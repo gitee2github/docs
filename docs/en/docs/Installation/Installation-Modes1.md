@@ -1,25 +1,25 @@
 # Installation Modes
 
 > ![](./public_sys-resources/icon-notice.gif) **NOTE:**
-> 
+>
 > - The hardware supports only Raspberry Pi 3B/3B+/4B.
 > - The installation is performed by writing images to the SD card. This section describes how to write images using Windows, Linux, and Mac.
-> - The image used in this section is the Raspberry Pi image of openEuler. For details about how to obtain the image, see [Installation Preparations](./安装准备-1.html).
+> - The image used in this section is the Raspberry Pi image of openEuler. For details about how to obtain the image, see [Installation Preparations](./Installation-Preparations1.md).
 
 <!-- TOC -->
 
-- [Installation Modes](./Installation Modes)
-  - [Writing Images Using Windows](./Writing Images Using Windows)
-    - [Formatting the SD Card](./Formatting the SD Card)
-    - [Writing Images to the SD Card](./Writing Images to the SD Card)
-  - [Writing Images Using Linux](./Writing Images Using Linux)
-    - [Checking Drive Partition Information](./Checking Drive Partition Information)
-    - [Unmouting the SD Card](./Unmouting the SD Card)
-    - [Writing Images to the SD Card](./Writing Images to the SD Card)
-  - [Writing Images Using the Mac OS](./Writing Images Using the Mac OS)
-    - [Checking Drive Partition Information](./Checking Drive Partition Information)
-    - [Unmouting the SD Card](./Unmouting the SD Card)
-    - [Writing Images to the SD Card](./Writing Images to the SD Card)
+- [Installation Modes](#installation-modes)
+    - [Writing Images Using Windows](#writing-images-using-windows)
+        - [Formatting the SD Card](#formatting-the-sd-card)
+        - [Writing Images to the SD Card](#writing-images-to-the-sd-card)
+    - [Writing Images Using Linux](#writing-images-using-linux)
+        - [Checking Drive Partition Information](#checking-drive-partition-information)
+        - [Unmouting the SD Card](#unmouting-the-sd-card)
+        - [Writing Images to the SD Card](#writing-images-to-the-sd-card-1)
+    - [Writing Images Using the Mac OS](#writing-images-using-the-mac-os)
+        - [Checking Drive Partition Information](#checking-drive-partition-information-1)
+        - [Unmouting the SD Card](#unmouting-the-sd-card-1)
+        - [Writing Images to the SD Card](#writing-images-to-the-sd-card-2)
 
 <!-- /TOC -->
 ## Writing Images Using Windows
@@ -33,11 +33,11 @@ To format the SD card, perform the following procedure:
 1. Download and install the tool for SD card formatting. The following operations use the SD Card Formatter as an example.
 
 2. Start the SD Card Formatter. In **Select card**, select the drive letter of the SD card to be formatted.
-   
+
    If no image has been installed in the SD card, only one drive letter exists. In **Select card**, select the drive letter of the SD card to be formatted.
-   
+
    If an image has been installed in the SD card, one or more drive letters exist. In **Select card**, select the drive letter E of the boot partition corresponding to the SD card to be formatted. The SD card corresponds to three drive letters: E, G, and H, as shown in the following figure:
-   
+
    Figure 1 Drive letter<a name="zh-cn_topic_0151920806_f6ff7658b349942ea87f4521c0256c311"></a>  
 ![](./figures/Drive letter)
 
@@ -49,7 +49,7 @@ To format the SD card, perform the following procedure:
 
 ### Writing Images to the SD Card
 
-> ![](./public_sys-resources/icon-notice.gif) **NOTE:**   
+> ![](./public_sys-resources/icon-notice.gif) **NOTE:**
 If the compressed image file **openEuler-20.03-LTS-SP2-raspi-aarch64.img.xz** is obtained, decompress the file to obtain the **openEuler-20.03-LTS-SP2-raspi-aarch64.img** image file.
 
 To write the **openEuler-20.03-LTS-SP2-raspi-aarch64.img** image file to the SD card, perform the following procedure:
@@ -74,9 +74,9 @@ Run the `fdisk -l` command as the root user to obtain the information of the SD 
 1. Run the `df -lh` command to check the mounted volumes.
 
 2. If the partitions corresponding to the SD card are not mounted, skip this step. If the partitions corresponding to the SD card are mounted, for example, /dev/sdb1 and /dev/sdb3, run the following commands as the root user to unmount the partitions:
-   
+
    `umount /dev/sdb1`
-   
+
    `umount /dev/sdb3`
 
 ### Writing Images to the SD Card
@@ -84,9 +84,9 @@ Run the `fdisk -l` command as the root user to obtain the information of the SD 
 1. If the image obtained is compressed, run the `xz -d openEuler-20.03-LTS-SP2-raspi-aarch64.img.xz` command to decompress the compressed file to obtain the **openEuler-20.03-LTS-SP2-raspi-aarch64.img** image file. Otherwise, skip this step.
 
 2. Run the following command as the root user to write the `openEuler-20.03-LTS-SP2-raspi-aarch64.img` image to the SD card:
-   
+
    `dd bs=4M if=openEuler-20.03-LTS-SP2-raspi-aarch64.img of=/dev/sdb`
-   
+
    > ![](./public_sys-resources/icon-note.gif) **NOTE:** Generally, the block size is set to 4 MB. If the write operation fails or the written image cannot be used, you can set the block size to 1 MB and try again. However, the write operation is time-consuming when the block size is set to 1 MB.
 
 ## Writing Images Using the Mac OS
@@ -102,9 +102,9 @@ Run the `diskutil list` command as user root to obtain the information of SD car
 1. Run the `df -lh` command to check the mounted volumes.
 
 2. If the partitions corresponding to the SD card are not mounted, skip this step. If the partitions corresponding to the SD card are mounted, for example, dev/disk3s1 and /dev/disk3s3, run the following commands as the root user to unmount the partitions:
-   
+
    `diskutil umount /dev/disk3s1`
-   
+
    `diskutil umount /dev/disk3s3`
 
 ### Writing Images to the SD Card
@@ -112,10 +112,9 @@ Run the `diskutil list` command as user root to obtain the information of SD car
 1. If the image obtained is compressed, run the `xz -d openEuler-20.03-LTS-SP2-raspi-aarch64.img.xz` command to decompress the compressed file to obtain the **openEuler-20.03-LTS-SP2-raspi-aarch64.img** image file. Otherwise, skip this step.
 
 2. Run the following command as the root user to write the image `openEuler-20.03-LTS-SP2-raspi-aarch64.img` to the SD card:
-   
+
    `dd bs=4m if=openEuler-20.03-LTS-SP2-raspi-aarch64.img of=/dev/sdb`
-   
+
    > ![](./public_sys-resources/icon-note.gif) **NOTE:**
    >
    > Generally, the block size is set to 4 MB. If the write operation fails or the written image cannot be used, you can set the block size to 1 MB and try again. However, the write operation is time-consuming when the block size is set to 1 MB.
-
