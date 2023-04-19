@@ -18,19 +18,19 @@ This section describes how to build an RPM software package on a local PC or usi
 
 <!-- /TOC -->
 
-
 ## Packaging Description
 
 ### Principles
-During RPM packaging, the source code needs to be compiled. The compiled configuration files and binary command files need to be placed in proper positions. The RPM packages need to be tested as required. A workspace is required for these operations. The  **rpmbuild**  command uses a set of standard workspaces.
 
-```
-$ rpmdev-setuptree
+During RPM packaging, the source code needs to be compiled. The compiled configuration files and binary command files need to be placed in proper positions. The RPM packages need to be tested as required. A workspace is required for these operations. The  `rpmbuild`  command uses a set of standard workspaces.
+
+```shell
+rpmdev-setuptree
 ```
 
-The  **rpmdev-setuptree**  command is used to install rpmdevtools. After the command is executed, the  **rpmbuild**  folder is generated in the  **/root**  directory \(or the  **/home/**_username_  directory for non-root users\). The directory structure is as follows:
+The  `rpmdev-setuptree`  command is provided by rpmdevtools. After the command is executed, the  **rpmbuild**  folder is generated in the  **/root**  directory (or the  **/home/**_username_  directory for non-root users). The directory structure is as follows:
 
-```
+```shell
 $ tree rpmbuild
 rpmbuild
 ├── BUILD
@@ -101,17 +101,18 @@ The content is described as follows:
 </tbody>
 </table>
 
-The  **\~/rpmbuild/SPECS**  directory contains the configuration file of the RPM package, which is the drawing of the RPM package. This file tells the  **rpmbuild**  command how to build the RPM package. The  **Macro Code**  column contains the corresponding directories in the .spec file, which is similar to the macro or global variable in the programming language.
+The  **\~/rpmbuild/SPECS**  directory contains the configuration file of the RPM package, which tells the  `rpmbuild`  command how to build the RPM package. The  **Macro Code**  column contains the corresponding directories in the .spec file, which is similar to the macros in the programming languages or global variables.
 
 ### Packaging Process
+
 The packaging process is as follows:
 
-1.  Place the source code in  **%\_sourcedir**.
-2.  Compile the source code in  **%\_builddir**. Generally, the source code is compressed and needs to be decompressed first.
-3.  Install the RPM package. The installation is similar to pre-assembling the software package. Copy the contents \(such as binary files, configuration files, and man files\) that should be contained in the software package to  **%\_buildrootdir**  and assemble the contents based on the actual directory structure after installation. For example, if binary commands are stored in  **/usr/bin**, copy the directory structure to  **%\_buildrootdir**.
-4.  Perform necessary configurations, such as preparations before installation and cleanup after installation. These are configured in the SPEC file to tell the  **rpmbuild**  command how to build.
-5.  Check whether the software is running properly.
-6.  The generated RPM package is stored in  **%\_rpmdir**, and the source code package is stored in  **%\_srpmdir**.
+1. Place the source code in  **%\_sourcedir**.
+2. Compile the source code in  **%\_builddir**. Generally, the source code is compressed and needs to be decompressed first.
+3. Install the RPM package. The installation is similar to pre-assembling the software package. Copy the contents (such as binary files, configuration files, and man files) that should be contained in the software package to  **%\_buildrootdir**  and assemble the contents based on the actual directory structure after installation. For example, if binary commands are stored in  **/usr/bin**, copy the directory structure to  **%\_buildrootdir**.
+4. Perform necessary configurations, such as preparations before installation and cleanup after installation. These are configured in the SPEC file.
+5. Check whether the software runs properly.
+6. The generated RPM package is stored in  **%\_rpmdir**, and the source code package is stored in  **%\_srcrpmdir**.
 
 In the SPEC file, each phase is described as follows:
 
@@ -132,7 +133,7 @@ In the SPEC file, each phase is described as follows:
 </td>
 <td class="cellrowborder" valign="top" width="10.391039103910392%" headers="mcps1.1.5.1.3 "><p id="en-us_topic_0184337290_p71609207547"><a name="en-us_topic_0184337290_p71609207547"></a><a name="en-us_topic_0184337290_p71609207547"></a>%_builddir</p>
 </td>
-<td class="cellrowborder" valign="top" width="67.92679267926793%" headers="mcps1.1.5.1.4 "><p id="en-us_topic_0184337290_p1716017206546"><a name="en-us_topic_0184337290_p1716017206546"></a><a name="en-us_topic_0184337290_p1716017206546"></a>Read the source code and patch in the <strong id="b14368918157"><a name="b14368918157"></a><a name="b14368918157"></a>%_sourcedir</strong> directory. Then, decompress the source code to the <strong id="b189165137154"><a name="b189165137154"></a><a name="b189165137154"></a>%_builddir</strong> subdirectory and apply all patches.</p>
+<td class="cellrowborder" valign="top" width="67.92679267926793%" headers="mcps1.1.5.1.4 "><p id="en-us_topic_0184337290_p1716017206546"><a name="en-us_topic_0184337290_p1716017206546"></a><a name="en-us_topic_0184337290_p1716017206546"></a>Read the source code and patches in the <strong id="b14368918157"><a name="b14368918157"></a><a name="b14368918157"></a>%_sourcedir</strong> directory. Then, decompress the source code to the <strong id="b189165137154"><a name="b189165137154"></a><a name="b189165137154"></a>%_builddir</strong> subdirectory and apply all patches.</p>
 </td>
 </tr>
 <tr id="en-us_topic_0184337290_row14161122015418"><td class="cellrowborder" valign="top" width="7.75077507750775%" headers="mcps1.1.5.1.1 "><p id="en-us_topic_0184337290_p13161172012545"><a name="en-us_topic_0184337290_p13161172012545"></a><a name="en-us_topic_0184337290_p13161172012545"></a>%build</p>
@@ -159,7 +160,7 @@ In the SPEC file, each phase is described as follows:
 </td>
 <td class="cellrowborder" valign="top" width="10.391039103910392%" headers="mcps1.1.5.1.3 "><p id="en-us_topic_0184337290_p18161202019544"><a name="en-us_topic_0184337290_p18161202019544"></a><a name="en-us_topic_0184337290_p18161202019544"></a>%_builddir</p>
 </td>
-<td class="cellrowborder" valign="top" width="67.92679267926793%" headers="mcps1.1.5.1.4 "><p id="en-us_topic_0184337290_p15161152013541"><a name="en-us_topic_0184337290_p15161152013541"></a><a name="en-us_topic_0184337290_p15161152013541"></a>Check whether the software is running properly. Run a command similar to <strong id="b13199125581517"><a name="b13199125581517"></a><a name="b13199125581517"></a>make test</strong>.</p>
+<td class="cellrowborder" valign="top" width="67.92679267926793%" headers="mcps1.1.5.1.4 "><p id="en-us_topic_0184337290_p15161152013541"><a name="en-us_topic_0184337290_p15161152013541"></a><a name="en-us_topic_0184337290_p15161152013541"></a>Check whether the software runs properly. Run a command similar to <strong id="b13199125581517"><a name="b13199125581517"></a><a name="b13199125581517"></a>make test</strong>.</p>
 </td>
 </tr>
 <tr id="en-us_topic_0184337290_row19161202035419"><td class="cellrowborder" valign="top" width="7.75077507750775%" headers="mcps1.1.5.1.1 "><p id="en-us_topic_0184337290_p111617208547"><a name="en-us_topic_0184337290_p111617208547"></a><a name="en-us_topic_0184337290_p111617208547"></a>bin</p>
@@ -185,16 +186,16 @@ In the SPEC file, each phase is described as follows:
 
 ### Packaging Options
 
-Run the  **rpmbuild**  command to build the software package. The  **rpmbuild**  command can be used to build software packages by building .spec, .tar, and source files.
+Run the  `rpmbuild`  command to build the software package. The  `rpmbuild`  command can be used to build software packages by building .spec, .tar, and source files.
 
-The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
+The format of the  `rpmbuild`  command is `rpmbuild [option...]`
 
 [Table 1](#table1342946175212)  describes the common rpmbuild packaging options.
 
 **Table  1**  rpmbuild Packaging Options
 
 <a name="table1342946175212"></a>
-<table><thead align="left"><tr id="row1242184611523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p1142134616527"><a name="p1142134616527"></a><a name="p1142134616527"></a><em id="i196115187577"><a name="i196115187577"></a><a name="i196115187577"></a>option</em> Value</p>
+<table><thead align="left"><tr id="row1242184611523"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="p1142134616527"><a name="p1142134616527"></a><a name="p1142134616527"></a><strong id="i196115187577"><a name="i196115187577"></a><a name="i196115187577"></a>Option</strong> Value</p>
 </th>
 <th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.2"><p id="p174244605210"><a name="p174244605210"></a><a name="p174244605210"></a>Description</p>
 </th>
@@ -202,22 +203,23 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 </thead>
 <tbody><tr id="row1642124685214"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p44294645211"><a name="p44294645211"></a><a name="p44294645211"></a>-bp <em id="i142674211316"><a name="i142674211316"></a><a name="i142674211316"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p5504192417282"><a name="p5504192417282"></a><a name="p5504192417282"></a>Starts build from the <strong id="b15909724197"><a name="b15909724197"></a><a name="b15909724197"></a>%prep</strong> phase of the <em id="i276214508223"><a name="i276214508223"></a><a name="i276214508223"></a>specfile</em> (decompress the source code package and install the patch).</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p5504192417282"><a name="p5504192417282"></a><a name="p5504192417282"></a>Execute only the <strong id="b15909724197"><a name="b15909724197"></a><a name="b15909724197"></a>%prep</strong> section of the <em id="i276214508223"><a name="i276214508223"></a><a name="i276214508223"></a>specfile</em> (decompress the source package and install the patch).</p>
 </td>
 </tr>
 <tr id="row375616513198"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p663152652313"><a name="p663152652313"></a><a name="p663152652313"></a>-bc <em id="i17281843152313"><a name="i17281843152313"></a><a name="i17281843152313"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1475675181912"><a name="p1475675181912"></a><a name="p1475675181912"></a>Starts build from the <strong id="b52483117197"><a name="b52483117197"></a><a name="b52483117197"></a>%build</strong> phase of the <em id="i11191112514"><a name="i11191112514"></a><a name="i11191112514"></a>specfile</em>.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1475675181912"><a name="p1475675181912"></a><a name="p1475675181912"></a>Execute <strong id="b15909724197"><a name="b15909724197"></a><a name="b15909724197"></a>%prep</strong> and <strong id="b52483117197"><a name="b52483117197"></a><a name="b52483117197"></a>%build</strong> sections of the <em id="i11191112514"><a name="i11191112514"></a><a name="i11191112514"></a>specfile</em> (prepare and compile).</p>
 </td>
 </tr>
 <tr id="row3421646125214"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p143521654132516"><a name="p143521654132516"></a><a name="p143521654132516"></a>-bi <em id="i1312330192911"><a name="i1312330192911"></a><a name="i1312330192911"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p134949360269"><a name="p134949360269"></a><a name="p134949360269"></a>Starts build from the <strong id="b879710551192"><a name="b879710551192"></a><a name="b879710551192"></a>%install</strong> phase of the <em id="i37971555111910"><a name="i37971555111910"></a><a name="i37971555111910"></a>specfile</em>.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p134949360269"><a name="p134949360269"></a><a name="p134949360269"></a>Execute  <strong id="b15909724197"><a name="b15909724197"></a><a name="b15909724197"></a>%prep</strong>,<strong id="b52483117197"><a name="b52483117197"></a><a name
+="b52483117197"></a>%build</strong> and <strong id="b879710551192"><a name="b879710551192"></a><a name="b879710551192"></a>%install</strong> sections of the <em id="i37971555111910"><a name="i37971555111910"></a><a name="i37971555111910"></a>specfile</em> (prepare,compile and install).</p>
 </td>
 </tr>
 <tr id="row642846145211"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1342746115211"><a name="p1342746115211"></a><a name="p1342746115211"></a>-bl <em id="i1654526296"><a name="i1654526296"></a><a name="i1654526296"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p14710104517231"><a name="p14710104517231"></a><a name="p14710104517231"></a>Starts check from the <strong id="b15640104316205"><a name="b15640104316205"></a><a name="b15640104316205"></a>%file</strong> phase of the <em id="i5641104316208"><a name="i5641104316208"></a><a name="i5641104316208"></a>specfile</em>.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p14710104517231"><a name="p14710104517231"></a><a name="p14710104517231"></a>Check the <strong id="b15640104316205"><a name="b15640104316205"></a><a name="b15640104316205"></a>%files</strong> section of the <em id="i5641104316208"><a name="i5641104316208"></a><a name="i5641104316208"></a>specfile</em> (Check whether the files are complete).</p>
 </td>
 </tr>
 <tr id="row2428463528"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p56839482271"><a name="p56839482271"></a><a name="p56839482271"></a>-ba <em id="i182405318294"><a name="i182405318294"></a><a name="i182405318294"></a>specfile</em></p>
@@ -237,7 +239,7 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 </tr>
 <tr id="row1399650113119"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p6756203383111"><a name="p6756203383111"></a><a name="p6756203383111"></a>-rp <em id="i18757173312312"><a name="i18757173312312"></a><a name="i18757173312312"></a>sourcefile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p11757183311317"><a name="p11757183311317"></a><a name="p11757183311317"></a>Starts build from the <strong id="b4301319235"><a name="b4301319235"></a><a name="b4301319235"></a>%prep</strong> phase of the <em id="i197751147153619"><a name="i197751147153619"></a><a name="i197751147153619"></a>sourcefile</em> (decompress the source code package and install the patch).</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p11757183311317"><a name="p11757183311317"></a><a name="p11757183311317"></a>Starts build from the <strong id="b4301319235"><a name="b4301319235"></a><a name="b4301319235"></a>%prep</strong> phase of the <em id="i197751147153619"><a name="i197751147153619"></a><a name="i197751147153619"></a>sourcefile</em> (decompresses the source code package and installs the patches).</p>
 </td>
 </tr>
 <tr id="row114161423119"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p2757183312313"><a name="p2757183312313"></a><a name="p2757183312313"></a>-rc <em id="i7716153183620"><a name="i7716153183620"></a><a name="i7716153183620"></a>sourcefile</em></p>
@@ -252,7 +254,7 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 </tr>
 <tr id="row0937171213317"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p167579334315"><a name="p167579334315"></a><a name="p167579334315"></a>-rl <em id="i1483914353366"><a name="i1483914353366"></a><a name="i1483914353366"></a>sourcefile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p12757933103117"><a name="p12757933103117"></a><a name="p12757933103117"></a>Starts build from the <strong id="b19752559112316"><a name="b19752559112316"></a><a name="b19752559112316"></a>%file</strong> phase of the <em id="i375265952316"><a name="i375265952316"></a><a name="i375265952316"></a>sourcefile</em>.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p12757933103117"><a name="p12757933103117"></a><a name="p12757933103117"></a>Starts build from the <strong id="b19752559112316"><a name="b19752559112316"></a><a name="b19752559112316"></a>%files</strong> phase of the <em id="i375265952316"><a name="i375265952316"></a><a name="i375265952316"></a>sourcefile</em>.</p>
 </td>
 </tr>
 <tr id="row15609181543116"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p167572332315"><a name="p167572332315"></a><a name="p167572332315"></a>-ra <em id="i195041839133617"><a name="i195041839133617"></a><a name="i195041839133617"></a>sourcefile</em></p>
@@ -272,7 +274,7 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 </tr>
 <tr id="row24008816315"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1864848133917"><a name="p1864848133917"></a><a name="p1864848133917"></a>-tp <em id="i1164815843917"><a name="i1164815843917"></a><a name="i1164815843917"></a>tarfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1664812814397"><a name="p1664812814397"></a><a name="p1664812814397"></a>Starts build from the <strong id="b882495422416"><a name="b882495422416"></a><a name="b882495422416"></a>%prep</strong> phase of the <em id="i10204153654013"><a name="i10204153654013"></a><a name="i10204153654013"></a>tarfile</em> (decompress the source code package and install the patch).</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1664812814397"><a name="p1664812814397"></a><a name="p1664812814397"></a>Starts build from the <strong id="b882495422416"><a name="b882495422416"></a><a name="b882495422416"></a>%prep</strong> phase of the <em id="i10204153654013"><a name="i10204153654013"></a><a name="i10204153654013"></a>tarfile</em> (decompresses the source code package and installs the patches).</p>
 </td>
 </tr>
 <tr id="row73977115386"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p7648168153911"><a name="p7648168153911"></a><a name="p7648168153911"></a>-tc <em id="i352342324018"><a name="i352342324018"></a><a name="i352342324018"></a>tarfile</em></p>
@@ -300,58 +302,58 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 <td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p56490810392"><a name="p56490810392"></a><a name="p56490810392"></a>Uses the <em id="i17708658122817"><a name="i17708658122817"></a><a name="i17708658122817"></a>tarfile</em> to build the source code package.</p>
 </td>
 </tr>
-<tr id="row2443719144118"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p7444191984111"><a name="p7444191984111"></a><a name="p7444191984111"></a>\-\-buildroot=<em id="i39711271427"><a name="i39711271427"></a><a name="i39711271427"></a>DIRECTORY</em></p>
+<tr id="row2443719144118"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p7444191984111"><a name="p7444191984111"></a><a name="p7444191984111"></a>--buildroot=<em id="i39711271427"><a name="i39711271427"></a><a name="i39711271427"></a>DIRECTORY</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p553719220506"><a name="p553719220506"></a><a name="p553719220506"></a>During the build, uses <em id="i95820263299"><a name="i95820263299"></a><a name="i95820263299"></a>DIRECTORY</em> to overwrite the default <strong id="b183143742910"><a name="b183143742910"></a><a name="b183143742910"></a>/root</strong> directory.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p553719220506"><a name="p553719220506"></a><a name="p553719220506"></a>During the build, uses <em id="i95820263299"><a name="i95820263299"></a><a name="i95820263299"></a>DIRECTORY</em> instead of the default <strong id="b183143742910"><a name="b183143742910"></a><a name="b183143742910"></a>/root</strong> directory.</p>
 </td>
 </tr>
-<tr id="row1794104355716"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p5941184375717"><a name="p5941184375717"></a><a name="p5941184375717"></a>\-\-clean</p>
+<tr id="row1794104355716"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p5941184375717"><a name="p5941184375717"></a><a name="p5941184375717"></a>--clean</p>
 </td>
 <td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1094144315577"><a name="p1094144315577"></a><a name="p1094144315577"></a>Deletes the files in the <strong id="b442979133416"><a name="b442979133416"></a><a name="b442979133416"></a>BUILD</strong> directory.</p>
 </td>
 </tr>
-<tr id="row12405112795814"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p440562735814"><a name="p440562735814"></a><a name="p440562735814"></a>\-\-nobuild</p>
+<tr id="row12405112795814"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p440562735814"><a name="p440562735814"></a><a name="p440562735814"></a>--nobuild</p>
 </td>
 <td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p0405182714588"><a name="p0405182714588"></a><a name="p0405182714588"></a>No actual build steps are performed. It can be used to test the .spec file.</p>
 </td>
 </tr>
-<tr id="row10784164615815"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1784154655815"><a name="p1784154655815"></a><a name="p1784154655815"></a>\-\-noclean</p>
+<tr id="row10784164615815"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1784154655815"><a name="p1784154655815"></a><a name="p1784154655815"></a>--noclean</p>
 </td>
 <td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p57851946185814"><a name="p57851946185814"></a><a name="p57851946185814"></a>Skips the <strong id="b5564141903518"><a name="b5564141903518"></a><a name="b5564141903518"></a>%clean</strong> phase of the .spec file (even if it does exist).</p>
 </td>
 </tr>
-<tr id="row5585102605911"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p10585132665911"><a name="p10585132665911"></a><a name="p10585132665911"></a>\-\-nocheck</p>
+<tr id="row5585102605911"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p10585132665911"><a name="p10585132665911"></a><a name="p10585132665911"></a>--nocheck</p>
 </td>
 <td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p85851226135913"><a name="p85851226135913"></a><a name="p85851226135913"></a>Skips the <strong id="b9680113853510"><a name="b9680113853510"></a><a name="b9680113853510"></a>%check</strong> phase of the .spec file (even if it does exist).</p>
 </td>
 </tr>
-<tr id="row6577145616591"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p7577165625910"><a name="p7577165625910"></a><a name="p7577165625910"></a>\-\-dbpath <em id="i20573371107"><a name="i20573371107"></a><a name="i20573371107"></a>DIRECTORY</em></p>
+<tr id="row6577145616591"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p7577165625910"><a name="p7577165625910"></a><a name="p7577165625910"></a>--dbpath <em id="i20573371107"><a name="i20573371107"></a><a name="i20573371107"></a>DIRECTORY</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p16578456185911"><a name="p16578456185911"></a><a name="p16578456185911"></a>Uses the database in <strong id="b1870295115357"><a name="b1870295115357"></a><a name="b1870295115357"></a>DIRECTORY</strong> instead of the default directory <strong id="b7245811362"><a name="b7245811362"></a><a name="b7245811362"></a>/var/lib/rpm</strong>.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p16578456185911"><a name="p16578456185911"></a><a name="p16578456185911"></a>Uses the database in <em id="b1870295115357"><a name="b1870295115357"></a><a name="b1870295115357"></a>DIRECTORY</em> instead of the default directory <strong id="b7245811362"><a name="b7245811362"></a><a name="b7245811362"></a>/var/lib/rpm</strong>.</p>
 </td>
 </tr>
-<tr id="row1424515812017"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p132451184010"><a name="p132451184010"></a><a name="p132451184010"></a>\-\-root <em id="i1163110211911"><a name="i1163110211911"></a><a name="i1163110211911"></a>DIRECTORY</em></p>
+<tr id="row1424515812017"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p132451184010"><a name="p132451184010"></a><a name="p132451184010"></a>--root <em id="i1163110211911"><a name="i1163110211911"></a><a name="i1163110211911"></a>DIRECTORY</em></p>
 </td>
 <td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1424548908"><a name="p1424548908"></a><a name="p1424548908"></a>Sets <em id="i193371924103614"><a name="i193371924103614"></a><a name="i193371924103614"></a>DIRECTORY</em> to the highest level. The default value is <strong id="b2093817253715"><a name="b2093817253715"></a><a name="b2093817253715"></a>/</strong>, indicating the highest level.</p>
 </td>
 </tr>
-<tr id="row2477041403"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1247744907"><a name="p1247744907"></a><a name="p1247744907"></a>\-\-rebuild <em id="i45014485219"><a name="i45014485219"></a><a name="i45014485219"></a>sourcefile</em></p>
+<tr id="row2477041403"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1247744907"><a name="p1247744907"></a><a name="p1247744907"></a>--rebuild <em id="i45014485219"><a name="i45014485219"></a><a name="i45014485219"></a>sourcefile</em></p>
 </td>
 <td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p2477747013"><a name="p2477747013"></a><a name="p2477747013"></a>Installs the specified source code package <em id="i5781916123714"><a name="i5781916123714"></a><a name="i5781916123714"></a>sourcefile</em>, that is, start preparation, compilation, and installation of the source code package.</p>
 </td>
 </tr>
-<tr id="row15893211013"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p168931212018"><a name="p168931212018"></a><a name="p168931212018"></a>\-\-recompile <em id="i182834913220"><a name="i182834913220"></a><a name="i182834913220"></a>sourcefile</em></p>
+<tr id="row15893211013"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p168931212018"><a name="p168931212018"></a><a name="p168931212018"></a>--recompile <em id="i182834913220"><a name="i182834913220"></a><a name="i182834913220"></a>sourcefile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p113161298620"><a name="p113161298620"></a><a name="p113161298620"></a>Builds a new binary package based on <strong id="b2299155103715"><a name="b2299155103715"></a><a name="b2299155103715"></a>\-\-recompile</strong>. When the build is complete, the build directory, source code, and .spec file are deleted.</p>
-<p id="p39465919516"><a name="p39465919516"></a><a name="p39465919516"></a>The deletion effect is the same as that of <strong id="b6487112214399"><a name="b6487112214399"></a><a name="b6487112214399"></a>\-\-clean</strong>.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p113161298620"><a name="p113161298620"></a><a name="p113161298620"></a>Builds a new binary package based on <strong id="b2299155103715"><a name="b2299155103715"></a><a name="b2299155103715"></a>--recompile</strong>. When the build is complete, the build directory, source code, and .spec file are deleted.</p>
+<p id="p39465919516"><a name="p39465919516"></a><a name="p39465919516"></a>The deletion effect is the same as that of <strong id="b6487112214399"><a name="b6487112214399"></a><a name="b6487112214399"></a>--clean</strong>.</p>
 </td>
 </tr>
-<tr id="row1783829436"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p198332910318"><a name="p198332910318"></a><a name="p198332910318"></a>-?, \-\-help</p>
+<tr id="row1783829436"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p198332910318"><a name="p198332910318"></a><a name="p198332910318"></a>-?, --help</p>
 </td>
 <td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p108312912320"><a name="p108312912320"></a><a name="p108312912320"></a>Displays detailed help information.</p>
 </td>
 </tr>
-<tr id="row1123916251135"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1023913255315"><a name="p1023913255315"></a><a name="p1023913255315"></a>\-\-version</p>
+<tr id="row1123916251135"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1023913255315"><a name="p1023913255315"></a><a name="p1023913255315"></a>--version</p>
 </td>
 <td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p1923952518312"><a name="p1923952518312"></a><a name="p1923952518312"></a>Displays detailed version information.</p>
 </td>
@@ -363,47 +365,45 @@ The format of the  **rpmbuild**  command is rpmbuild \[_option_...\]
 
 This section uses an example to describe how to build an RPM software package locally.
 
-
-
 ### Setting Up the Development Environment
 
 #### Prerequisites
+
 You have obtained the  **root**  permission, and have configured a repo source for openEuler.
 
 #### Procedure
-You can use the DNF tool to install rpmdevtools, including the  **rpm-build**  command and related dependencies \(such as make and gdb\). Run the following command:
 
-```
-# dnf install rpmdevtools*
+You can use the DNF tool to install rpmdevtools, including the  `rpm-build`  command and related dependencies (such as make and gdb). Run the following command:
+
+```shell
+dnf install rpmdevtools*
 ```
 
 ### Creating a Hello World RPM Package
 
-The following uses the packaging process of the GNU Hello World project as an example. The package contains the most common peripheral components related to the typical Free and Open Source Software \(FOSS\) project, including the configuration, compilation, and installation environments, documents, and internationalization \(i18n\) information.
-
-
+The following uses the packaging process of the GNU Hello World project as an example. The package contains the most common peripheral components related to the typical Free and Open Source Software (FOSS) project, including the configuration, compilation, and installation environments, documents, and internationalization (i18n) information.
 
 #### Obtaining the Source Code
 
 Run the following command to download the source code of the official example:
 
-```
-$ cd ~/rpmbuild/SOURCES
-$ wget http://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz
+```shell
+cd ~/rpmbuild/SOURCES
+wget http://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz
 ```
 
 #### Editing the SPEC File
 
 Run the following command to create the .spec file in the **~/rpmbuild/SPECS** directory:
 
-```
-$ cd ~/rpmbuild/SPECS
-$ vi hello.spec 
+```shell
+cd ~/rpmbuild/SPECS
+vi hello.spec 
 ```
 
 Write the corresponding content to the file and save the file. The following is an example of the file content. Modify the corresponding fields based on the actual requirements.
 
-```
+```text
 Name:     hello
 Version:  2.10
 Release:  1%{?dist}
@@ -458,25 +458,25 @@ fi
 - Update to 2.9
 ```
 
--   The  **Name**  tag indicates the software name, the  **Version**  tag indicates the version number, and the  **Release**  tag indicates the release number.
--   The  **Summary**  tag is a brief description. The first letter of the tag must be capitalized to prevent the rpmlint tool \(packaging check tool\) from generating alarms.
--   The  **License**  tag describes the protocol version of the software package. The packager is responsible for checking the license status of the software, which can be implemented by checking the source code or license file or communicating with the author.
--   The  **Group**  tag is used to classify software packages by  **/usr/share/doc/rpm-/GROUPS**. Currently, this tag has been discarded. However, the VIM template still has this tag. You can delete it. However, adding this tag does not affect the system. The  **%changelog**  tag should contain the log of changes made for each release, especially the description of the upstream security/vulnerability patches. The  **%changelog**  tag should contain the version string to avoid the rpmlint tool from generating alarms.
--   If multiple lines are involved, such as %changelog or %description, start from the next line of the instruction and end with a blank line.
--   Some unnecessary lines \(such as BuildRequires and Requires\) can be commented out with a number sign \(\#\) at the beginning of the lines.
--   The default values of  **%prep**,  **%build**,  **%install**, and  **%file**  are retained.
+- The  **Name**  tag indicates the software name, the  **Version**  tag indicates the version number, and the  **Release**  tag indicates the release number.
+- The  **Summary**  tag is a brief description. The first letter of the tag must be capitalized to prevent the rpmlint tool (packaging check tool) from generating alarms.
+- The  **License**  tag describes the protocol version of the software package. The packager is responsible for checking the license status of the software, which can be implemented by checking the source code or license file or communicating with the author.
+- The  **Group**  tag is used to classify software packages by  **/usr/share/doc/rpm-/GROUPS**. Currently, this tag has been discarded. However, the VIM template still has this tag. You can delete it. However, adding this tag does not affect the system. The  **%changelog**  tag should contain the log of changes made for each release, especially the description of the upstream security/vulnerability patches. The  **%changelog**  tag should contain the version string to avoid the rpmlint tool from generating alarms.
+- If multiple lines are involved, such as %changelog or %description, start from the next line of the instruction and end with a blank line.
+- Some unnecessary lines (such as **BuildRequires** and **Requires**) can be commented out with a number sign (\#) at the beginning of the lines.
+- The default values of  **%prep**,  **%build**,  **%install**, and  **%files**  are retained.
 
 #### Building an RPM Package
 
 Run the following command in the directory where the .spec file is located to build the source code, binary files, and software packages that contain debugging information:
 
-```
-$ rpmbuild -ba hello.spec 
+```shell
+rpmbuild -ba hello.spec 
 ```
 
 Run the following command to view the execution result:
 
-```
+```shell
 $ tree ~/rpmbuild/*RPMS
 
 /home/testUser/rpmbuild/RPMS
@@ -492,160 +492,154 @@ $ tree ~/rpmbuild/*RPMS
 
 This section describes how to build RPM software packages using the OBS on the web page or with OSC. There are two methods:
 
--   Modifying an existing software package: Modify the source code of an existing software package and build the modified source code into an RPM software package.
--   Adding a software package: A new software source file is developed from scratch, and the newly developed source file is used to build an RPM software package.
-
-
+- Modifying an existing software package: Modify the source code of an existing software package and build the modified source code into an RPM software package.
+- Creating a software package: Developing a new software source file  from scratch, and then build the newly developed source file into an RPM software package.
 
 ### OBS Overview
 
-OBS is a general compilation framework based on the openSUSE distribution. It is used to build source code packages into RPM software packages or Linux images. OBS uses the automatic distributed compilation mode and supports the compilation of images and installation packages of multiple Linux OS distributions \(such as openEuler, SUSE, and Debian\) on multiple architecture platforms \(such as x86 and ARM64\).
+OBS is a generic compilation framework based on the openSUSE distribution. It is used to build source code packages into RPM software packages or Linux images. OBS uses the automatic distributed compilation mode and supports the compilation of images and installation packages of multiple Linux OS distributions (such as openEuler, SUSE, and Debian) on multiple architecture platforms (such as x86 and ARM64).
 
-OBS consists of the backend and frontend. The backend implements all core functions. The frontend provides web applications and APIs for interaction with the backend. In addition, OBS provides an API command line client OSC, which is developed in an independent repository.
+OBS consists of the backend and frontend. The backend implements core functions. The frontend provides web applications and APIs for interaction with the backend. In addition, OBS provides an API command line client OSC, which is developed in an independent repository.
 
-OBS uses the project organization software package. Basic permission control, related repository, and build targets \(OS and architecture\) can be defined in the project. A project can contain multiple subprojects. Each subproject can be configured independently to complete a task.
+OBS organizes the software packages as projects. Basic permission control, related repositories, and build targets (OS and architecture) can be defined in the project. A project can contain multiple subprojects. Each subproject can be configured independently to complete a task.
 
 ### Building an RPM Software Package Online
 
-This section describes how to build an RPM software package online on OBS.
-
-
+This section describes how to build an RPM software package online using the OBS web client.
 
 #### Building an Existing Software Package
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
->-   If you use OBS for the first time, register an individual account on the OBS web page.  
->-   With this method, you must copy the modified code and commit it to the code directory before performing the following operations. The code directory is specified in the  **\_service**  file.  
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
+>
+>- If you use OBS for the first time, register an individual account on the OBS web page.  
+>- This method requires the modified code. You must submit the code to a correct code path before performing the following operations. The code path is specified in the  **\_service**  file.  
 
 To modify the source code of the existing software and build the modified source file into an RPM software package on the OBS web client, perform the following steps:
 
-1.  Log in to OBS at  [https://build.openeuler.org/](https://build.openeuler.org/).
-2.  Click  **All Projects**. The  **All Projects**  page is displayed.
-3.  Click the project to be modified. The project details page is displayed. For example, click  **openEuler:Mainline**.
-4.  On the project details page, search for the software package to be modified and click the software package name. The software package details page is displayed.
-5.  Click  **Branch package**. In the displayed dialog box, click  **Accept**, as shown in  [Figure 1](#fig77646143214).
+1. Log in to OBS at  [https://build.openeuler.org/](https://build.openeuler.org/).
+2. Click  **All Projects**. The  **All Projects**  page is displayed.
+3. Click the project to be modified. The project details page is displayed. For example, click  **openEuler:Mainline**.
+4. On the project details page, search for the software package to be modified and click the software package name. The software package details page is displayed.
+5. Click  **Branch package**. In the displayed dialog box, click  **Accept**, as shown in  [Figure 1](#fig77646143214).
 
-    **Figure  1** **Branch Confirmation**  page<a name="fig77646143214"></a>  
+    **Figure  1** Branch Confirmation page
     ![](./figures/branch-confirmation-page.png "branch-confirmation-page")
 
-6.  Click the  **\_service**  file to go to the editing page, modify the file content, and click  **Save**. An example of the  **\_service**  file content is as follows.  _userCodeURL_  and  _userCommitID_  indicate the user code path and commission version number or branch, respectively.
+6. Click the  **\_service**  file to go to the editing page, modify the file content, and then click  **Save**. An example of the  **\_service**  file content is as follows.  _userCodeURL_  and  _userCommitID_  indicate the user code path and commit version or branch, respectively.
 
-    ```
+    ```xml
     <services>
         <service name="tar_scm_kernel">
             <param name="scm">git</param>
             <param name="url">userCodeURL</param>
-    	<param name="revision">userCommitID</param>
+     <param name="revision">userCommitID</param>
         </service>
         <service name="recompress">
-    	<param name="compression">bz2</param>
-    	<param name="file">*.tar</param>
+     <param name="compression">bz2</param>
+     <param name="file">*.tar</param>
          </service>
     </services>
     ```
 
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**   
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
     >Click  **Save**  to save the  **\_service**  file. OBS downloads the source code from the specified URL to the software directory of the corresponding OBS project based on the  **\_service**  file description and replaces the original file. For example, the  **kernel**  directory of the  **openEuler:Mainline**  project in the preceding example.  
 
-7.  After the files are copied and replaced, OBS automatically starts to build the RPM software package. Wait until the build is complete and view the build status in the status bar on the right.
-    -   **succeeded**: The build is successful. You can click  **succeeded**  to view the build logs, as shown in  [Figure 2](#fig10319114217337).
+7. After the files are copied and replaced, OBS automatically starts to build the RPM software package. Wait until the build is complete and view the build status in the status bar on the right.
+    - **succeeded**: The build is successful. You can click  **succeeded**  to view the build logs, as shown in  [Figure 2](#fig10319114217337).
 
         **Figure  2** **Succeeded**  page<a name="fig10319114217337"></a>  
         ![](./figures/succeeded-page.png "succeeded-page")
 
-    -   **failed**: The build failed. Click  **failed**  to view error logs, locate the fault, and rebuild again.
-    -   **unresolvable**: The build is not performed. The possible cause is that the dependency is missing.
-    -   **disabled**: The build is manually closed or is queuing for build.
-    -   **excluded**: The build is prohibited. The possible cause is that the .spec file is missing or the compilation of the target architecture is prohibited in the .spec file.
+    - **failed**: The build failed. Click  **failed**  to view error logs, locate the fault, and rebuild again.
+    - **unresolvable**: The build is not performed. A possible cause is missing dependencies.
+    - **disabled**: The build is manually closed or is queuing for build.
+    - **excluded**: The build is prohibited. The possible cause is that the .spec file is missing or the compilation of the target architecture is prohibited in the .spec file.
 
+#### Creating a Software Package
 
-#### Adding a Software Package
+To create a new software package on the OBS web page, perform the following steps:
 
-To add a new software package on the OBS web page, perform the following steps:
-
-1.  Log in to the OBS console.
-2.  Select a project based on the dependency of the new software package. That is, click  **All Projects**  and select the corresponding project, for example,  **openEuler:Mainline**.
-3.  Click a software package in the project. The software package details page is displayed.
-4.  Click  **Branch package**. On the confirmation page that is displayed, click  **Accept**.
-5.  Click  **Delete package**  to delete the software package in the new subproject, as shown in  [Figure 3](#fig18306181103615).
+1. Log in to the OBS console.
+2. Select a project based on the dependency of the new software package. That is, click  **All Projects**  and select the corresponding project, for example,  **openEuler:Mainline**.
+3. Click a software package in the project. The software package details page is displayed.
+4. Click  **Branch package**. On the confirmation page that is displayed, click  **Accept**.
+5. Click  **Delete package**  to delete the software package in the new subproject, as shown in  [Figure 3](#fig18306181103615).
 
     **Figure  3**  Deleting a software package from a subproject<a name="fig18306181103615"></a>  
     ![](./figures/deleting-a-software-package-from-a-subproject.png "deleting-a-software-package-from-a-subproject")
 
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**   
-    >The purpose of creating a project by using existing software is to inherit the dependency such as the environment. Therefore, you need to delete these files.  
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
+    >The purpose of creating a project by using existing software is to inherit the dependencies, such as the environment. Therefore, you need to delete these files.  
 
-6.  Click  **Create Package**. On the page that is displayed, enter the software package name, title, and description, and click  **Create**  to create a software package, as shown in  [Figure 4](#fig6762111693811)  and  [Figure 5](#fig18351153518389).
+6. Click  **Create Package**. On the page that is displayed, enter the software package name, title, and description, and click  **Create**  to create a software package, as shown in  [Figure 4](#fig6762111693811)  and  [Figure 5](#fig18351153518389).
 
-    **Figure  4** **Create Package**  page<a name="fig6762111693811"></a>  
+    **Figure  4** Create Package  page<a name="fig6762111693811"></a>  
     ![](./figures/create-package-page.png "create-package-page")
 
     **Figure  5**  Creating a software package<a name="fig18351153518389"></a>  
     ![](./figures/creating-a-software-package.png "creating-a-software-package")
 
-7.  Click  **Add file**  to upload the .spec file and the file to be compiled \(specified in the .spec file\), as shown in  [Figure 6](#fig1475845284011).
+7. Click  **Add file**  to upload the .spec file and the file to be compiled (specified in the .spec file), as shown in  [Figure 6](#fig1475845284011).
 
     **Figure  6** **Add file**  page<a name="fig1475845284011"></a>  
     ![](./figures/add-file-page.png "add-file-page")
 
-8.  After the file is uploaded, OBS automatically starts to build the RPM software package. Wait until the build is complete and view the build status in the status bar on the right.
-    -   **succeeded**: The build is successful. You can click  **succeeded**  to view the build logs.
-    -   **failed**: The build failed. Click  **failed**  to view error logs, locate the fault, and rebuild again.
-    -   **unresolvable**: The build is not performed. The possible cause is that the dependency is missing.
-    -   **disabled**: The build is manually closed or is queuing for build.
-    -   **excluded**: The build is prohibited. The possible cause is that the .spec file is missing or the compilation of the target architecture is prohibited in the .spec file.
-
+8. After the file is uploaded, OBS automatically starts to build the RPM software package. Wait until the build is complete and view the build status in the status bar on the right.
+    - **succeeded**: The build is successful. You can click  **succeeded**  to view the build logs.
+    - **failed**: The build failed. Click  **failed**  to view error logs, locate the fault, and rebuild again.
+    - **unresolvable**: The build is not performed. A possible cause is missing dependencies.
+    - **disabled**: The build is manually closed or is queuing for build.
+    - **excluded**: The build is prohibited. The possible cause is that the .spec file is missing or the compilation of the target architecture is prohibited in the .spec file.
 
 #### Obtaining the Software Package
 
 After the RPM software package is built, perform the following operations to obtain the RPM software package on the web page:
 
-1.  Log in to the OBS console.
-2.  Click  **All Projects**  and find the project corresponding to the required software package, for example,  **openEuler:Mainline**.
-3.  Click the name of the required software package in the project. The software package details page is displayed, for example, the  **kernel**  page in the preceding example.
+1. Log in to the OBS console.
+2. Click  **All Projects**  and find the project corresponding to the required software package, for example,  **openEuler:Mainline**.
+3. Click the name of the required software package in the project. The software package details page is displayed, for example, the  **kernel**  page in the preceding example.
 
-1.  Click the  **Repositories**  tab. On the software repository management page that is displayed, click  **Enable**  in  **Publish Flag**  to enable the RPM software package download function \(the status changes from  ![](./figures/en-us_image_0229243704.png)  to  ![](./figures/en-us_image_0229243702.png)\), as shown in  [Figure 7](#fig17480830144217).
+4. Click the  **Repositories**  tab. On the software repository management page that is displayed, click  **Enable**  in  **Publish Flag**  to enable the RPM software package download function (the status changes from  ![](./figures/en-us_image_0229243704.png)  to  ![](./figures/en-us_image_0229243702.png)), as shown in  [Figure 7](#fig17480830144217).
 
-    **Figure  7** **Repositories**  page<a name="fig17480830144217"></a>  
+    **Figure  7** Repositories  page<a name="fig17480830144217"></a>  
     ![](./figures/repositories-page.png "repositories-page")
 
-2.  Click the project name in the  **Repository**  column. On the RPM software package download page that is displayed, click  **Download**  on the right of the RPM software package to download the RPM software package, as shown in  [Figure 8](#fig12152145615438).
+5. Click the project name in the  **Repository**  column. On the RPM software package download page that is displayed, click  **Download**  on the right of the RPM software package to download the RPM software package, as shown in  [Figure 8](#fig12152145615438).
 
     **Figure  8**  RPM software package download page<a name="fig12152145615438"></a>  
     ![](./figures/rpm-software-package-download-page.png "rpm-software-package-download-page")
-
 
 ### Building a Software Package Using OSC
 
 This section describes how to use the OBS command line tool OSC to create a project and build an RPM software package.
 
-
-
 #### Installing and Configuring the OSC
 
 ##### Prerequisites
-You have obtained the  **root**  permission, and have configured a repo source for openEuler.
+
+You have obtained the  **root**  permissions, and have configured an openEuler repo source.
 
 ##### Procedure
-1.  Install the OSC command line tool and its dependency as the  **root**  user.
 
-    ```
-    # dnf install osc build
+1. Install the OSC command line tool and its dependency as the  **root**  user.
+
+    ```shell
+    dnf install osc build
     ```
 
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**   
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
     >The compilation of RPM software packages depends on build.  
 
-2.  Configure the OSC.
-    1.  Run the following command to open the  **\~/.oscrc**  file:
+2. Configure the OSC.
+    1. Run the following command to open the  **\~/.oscrc**  file:
 
-        ```
-        $ vi ~/.oscrc
+        ```shell
+        vi ~/.oscrc
         ```
 
-    2.  Add the  **user**  and  **pass**  fields to  **\~/.oscrc**. The values of  _userName_  and  _passWord_  are the account and password registered on the OBS website \([https://build.openeuler.org/](https://build.openeuler.org/)\).
+    2. Add the  **user**  and  **pass**  fields to  **\~/.oscrc**. The values of  _userName_  and  _passWord_  are the account and password registered on the OBS website ([https://build.openeuler.org/](https://build.openeuler.org/)).
 
-        ```
+        ```conf
         [general]
         apiurl = https://build.openeuler.org/
         [https://build.openeuler.org/]
@@ -653,48 +647,47 @@ You have obtained the  **root**  permission, and have configured a repo source f
         pass=passWord
         ```
 
-
 #### Building an Existing Software Package
 
-**Creating a Project**
+##### Creating a Project
 
-1.  You can copy an existing project to create a subproject of your own. For example, to copy the  **zlib**  software package in the  **openEuler:Mainline**  project to the new branch, run the following command:
+1. You can copy an existing project to create a subproject of your own. For example, to copy the  **zlib**  software package in the  **openEuler:Mainline**  project to the new branch, run the following command:
 
-    ```
-    $ osc branch openEuler:Mainline zlib
+    ```shell
+    osc branch openEuler:Mainline zlib
     ```
 
     If the following information is displayed, a new branch project  **home:testUser:branches:openEuler:Mainline**  is created for user  **testUser**.
 
-    ```
+    ```console
     A working copy of the branched package can be checked out with:
     osc co home:testUser:branches:openEuler:Mainline/zlib
     ```
 
-2.  Download the configuration file \(for example,  **\_service**\) of the software package to be modified to the local directory. In the preceding command,  _testUser_  indicates the account name configured in the  **\~/.oscrc**  configuration file. Change it based on the actual requirements.
+2. Download the configuration file (for example,  **\_service**) of the software package to be modified to the local directory. In the preceding command,  _testUser_  indicates the account name configured in the  **\~/.oscrc**  configuration file. Change it based on the actual requirements.
 
-    ```
-    $ osc co home:testUser:branches:openEuler:Mainline/zlib
+    ```shell
+    osc co home:testUser:branches:openEuler:Mainline/zlib
     ```
 
     Information similar to the following is displayed:
 
-    ```
+    ```console
     A    home:testUser:branches:openEuler:Mainline
     A    home:testUser:branches:openEuler:Mainline/zlib
     A    home:testUser:branches:openEuler:Mainline/zlib/_service
     ```
 
-3.  Go to the local subproject directory and synchronize the remote code of the software package to the local host.
+3. Go to the local subproject directory and synchronize the remote code of the software package to the local host.
 
-    ```
-    $ cd home:testUser:branches:openEuler:Mainline/zlib
-    $ osc up -S
+    ```shell
+    cd home:testUser:branches:openEuler:Mainline/zlib
+    osc up -S
     ```
 
     Information similar to the following is displayed:
 
-    ```
+    ```console
     A    _service:tar_scm_kernel_repo:0001-Neon-Optimized-hash-chain-rebase.patch
     A    _service:tar_scm_kernel_repo:0002-Porting-optimized-longest_match.patch
     A    _service:tar_scm_kernel_repo:0003-arm64-specific-build-patch.patch
@@ -704,115 +697,110 @@ You have obtained the  **root**  permission, and have configured a repo source f
     A    _service:tar_scm_kernel_repo:zlib.spec
     ```
 
+##### Building an RPM Package
 
-**Building an RPM Package**
+1. Rename the source file and add the renamed source file to the temporary storage of OBS.
 
-1.  Rename the source file and add the renamed source file to the temporary storage of OBS.
-
-    ```
-    $ rm -f _service;for file in `ls | grep -v .osc`;do new_file=${file##*:};mv $file $new_file;done
-    $ osc addremove *
-    ```
-
-2.  Modify the source code and .spec file, and run the following command to update the file.
-
-    ```
-    $ osc up
+    ```shell
+    rm -f _service;for file in `ls | grep -v .osc`;do new_file=${file##*:};mv $file $new_file;done
+    osc addremove *
     ```
 
-3.  Synchronize all modifications of the corresponding software package to the OBS server. The following is an example of command. The information after the **-m** parameter indicates the submmission record.
+2. Modify the source code and .spec file, and run the following command to update the file.
 
-    ```
-    $ osc ci -m "commit log"
-    ```
-
-4.  Run the following command to obtain the repository name and architecture of the current project:
-
-    ```
-    $ osc repos home:testUser:branches:openEuler:Mainline
+    ```shell
+    osc up
     ```
 
-5.  After the modification is committed, OBS automatically compiles the software package. You can run the following command to view the compilation logs of the corresponding repository. In the command, *standard\_aarch64*  and  _aarch64_  indicate the repository name and architecture obtained in the command output.
+3. Synchronize all modifications of the corresponding software package to the OBS server. The following is an example command. The information after the `-m` parameter is the commit log.
 
-    ```
-    $ osc buildlog standard_aarch64  aarch64
+    ```shell
+    osc ci -m "commit log"
     ```
 
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**   
+4. Run the following command to obtain the repository name and architecture of the current project:
+
+    ```shell
+    osc repos home:testUser:branches:openEuler:Mainline
+    ```
+
+5. After the modification is committed, OBS automatically compiles the software package. You can run the following command to view the compilation logs of the corresponding repository. In the command, `standard\_aarch64`  and  `aarch64`  are the repository name and architecture obtained in the command output.
+
+    ```shell
+    osc buildlog standard_aarch64  aarch64
+    ```
+
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
     >You can also open the created project on the web client to view the build logs.  
 
+#### Creating a Software Package
 
-#### Adding a Software Package
+To use the OSC tool of OBS to create a new software package, perform the following steps:
 
-To use the OSC tool of OBS to add a new software package, perform the following steps:
+##### Creating a Project
 
-**Creating a Project**
+1. Create a project based on the dependency of the new software package and a proper project. For example, to create a project based on  **zlib**  of the  **openEuler:Mainline**  project, run the following command (**zlib**  is any software package in the project):
 
-1.  Create a project based on the dependency of the new software package and a proper project. For example, to create a project based on  **zlib**  of the  **openEuler:Mainline**  project, run the following command \(**zlib**  is any software package in the project\):
-
-    ```
-    $ osc branch openEuler:Mainline zlib
-    ```
-
-2.  Delete unnecessary software packages added during project creation. For example, to delete the  **zlib**  software package, run the following command:
-
-    ```
-    $ cd home:testUser:branches:openEuler:Mainline
-    $ osc rm zlib
-    $ osc commit -m "commit log"
+    ```shell
+    osc branch openEuler:Mainline zlib
     ```
 
-3.  Create a software package in your own project. For example, to add the  **my-first-obs-package**  software package, run the following command:
+2. Delete unwanted software packages added during project creation. For example, to delete the  **zlib**  software package, run the following command:
 
-    ```
-    $ mkdir my-first-obs-package 
-    $ cd my-first-obs-package
-    ```
-
-
-**Building an RPM Package**
-
-1.  Add the prepared source file and .spec file to the software package directory.
-2.  Modify the source code and .spec file, and upload all files of the corresponding software package to the OBS server. The following is a command example. The information after the  **-m**  parameter is the commission record.
-
-    ```
-    $ cd home:testUser:branches:openEuler:Mainline
-    $ osc add my-first-obs-package
-    $ osc ci -m "commit log"
+    ```shell
+    cd home:testUser:branches:openEuler:Mainline
+    osc rm zlib
+    osc commit -m "commit log"
     ```
 
-3.  Run the following command to obtain the repository name and architecture of the current project:
+3. Create a software package in your own project. For example, to create a  **my-first-obs-package**  software package, run the following command:
 
-    ```
-    $ osc repos home:testUser:branches:openEuler:Mainline
-    ```
-
-4.  After the modification is committed, OBS automatically compiles the software package. You can run the following command to view the compilation logs of the corresponding repository. In the command,  _standard\_aarch64_  and  _aarch64_  indicate the repository name and architecture obtained in the command output.
-
-    ```
-    $ cd home:testUser:branches:openEuler:Mainline/my-first-obs-package
-    $ osc buildlog standard_aarch64  aarch64
+    ```shell
+    mkdir my-first-obs-package 
+    cd my-first-obs-package
     ```
 
-    >![](./public_sys-resources/icon-note.gif) **NOTE:**   
+##### Building an RPM Package
+
+1. Add the prepared source file and .spec file to the software package directory.
+2. Modify the source code and .spec file, and upload all files of the corresponding software package to the OBS server. The following is a command example. The information after the  **-m**  parameter is the commit log.
+
+    ```shell
+    cd home:testUser:branches:openEuler:Mainline
+    osc add my-first-obs-package
+    osc ci -m "commit log"
+    ```
+
+3. Run the following command to obtain the repository name and architecture of the current project:
+
+    ```shell
+    osc repos home:testUser:branches:openEuler:Mainline
+    ```
+
+4. After the modification is committed, OBS automatically compiles the software package. You can run the following command to view the compilation logs of the corresponding repository. In the command, `standard\_aarch64`  and  `aarch64`  are the repository name and architecture obtained in the command output.
+
+    ```shell
+    cd home:testUser:branches:openEuler:Mainline/my-first-obs-package
+    osc buildlog standard_aarch64  aarch64
+    ```
+
+    >![](./public_sys-resources/icon-note.gif) **NOTE:**
     >You can also open the created project on the web client to view the build logs.  
-
 
 #### Obtaining the Software Package
 
-After the RPM software package is built, run the following command to obtain the RPM software package using the OSC:
+After the RPM software package is built, run the following command to obtain the RPM software package using OSC:
 
-```
-$ osc getbinaries home:testUser:branches:openEuler:Mainline my-first-obs-package standard_aarch64 aarch64
+```shell
+osc getbinaries home:testUser:branches:openEuler:Mainline my-first-obs-package standard_aarch64 aarch64
 ```
 
 The parameters in the command are described as follows. You can modify the parameters according to the actual situation.
 
--   _home:testUser:branches:openEuler:Mainline_: name of the project to which the software package belongs.
--   _my-first-obs-package_: name of the software package.
--   _standard\_aarch64_: repository name.
--   _aarch64_: repository architecture name.
+- `home:testUser:branches:openEuler:Mainline`: name of the project to which the software package belongs.
+- `my-first-obs-package`: name of the software package.
+- `standard\_aarch64`: repository name.
+- `aarch64`: repository architecture name.
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >You can also obtain the software package built using OSC from the web page. For details, see  [Obtaining the Software Package](#obtaining-the-software-package).  
-

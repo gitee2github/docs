@@ -440,7 +440,7 @@ Available Groups:
    Security Tools
    System Tools
 
-```shell
+```
 
 ### Displaying the Software Package Group Information
 
