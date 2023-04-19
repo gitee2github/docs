@@ -2,9 +2,9 @@
 
 ## Release Files
 
-The openEuler release files include [ISO release packages](http://repo.openeuler.org/openEuler-21.09/ISO/), [VM images](http://repo.openeuler.org/openEuler-21.09/virtual_machine_img/), [container images](http://repo.openeuler.org/openEuler-21.09/docker_img/), [edge images](http://repo.openeuler.org/openEuler-21.09/edge_img/), [embedded images](https://repo.openeuler.org/openEuler-21.09/edge_img/), and [repo sources](http://repo.openeuler.org/openEuler-21.09/). The following tables describe those files respectively.
+The openEuler release files include [ISO release packages](http://archives.openeuler.openatom.cn/openEuler-21.09/ISO/), [VM images](http://archives.openeuler.openatom.cn/openEuler-21.09/virtual_machine_img/), [container images](http://archives.openeuler.openatom.cn/openEuler-21.09/docker_img/), [edge images](http://archives.openeuler.openatom.cn/openEuler-21.09/edge_img/), [embedded images](https://archives.openeuler.openatom.cn/openEuler-21.09/edge_img/), and [repo sources](http://archives.openeuler.openatom.cn/openEuler-21.09/). The following tables describe those files respectively.
 
-Table 1 ISO release packages
+**Table 1** ISO release packages
 
 | Name                                       | Description                                                  |
 | ------------------------------------------ | ------------------------------------------------------------ |
@@ -16,30 +16,30 @@ Table 1 ISO release packages
 | openEuler-21.09-debuginfo-x86_64-dvd.iso   | ISO file for openEuler debugging in the x86_64 architecture, including the symbol table information required for debugging. |
 | openEuler-21.09-source-dvd.iso             | ISO file of the openEuler source code.                       |
 
-Table 2 VM images
+**Table 2** VM images
 
 | Name                             | Description                                        |
 | -------------------------------- | -------------------------------------------------- |
 | openEuler-21.09.aarch64.qcow2.xz | VM image of openEuler in the AArch64 architecture. |
 | openEuler-21.09.x86_64.qcow2.xz  | VM image of openEuler in the x86_64 architecture.  |
 
-Note: The default password of **root** user of the VM image is **openEuler12#$**. Change the password upon the first login. 
+Note: The default password of **root** user of the VM image is **openEuler12#$**. Change the password upon the first login.
 
-Table 3 Container images
+**Table 3** Container images
 
 | Name                            | Description                                               |
 | ------------------------------- | --------------------------------------------------------- |
 | openEuler-docker.aarch64.tar.xz | Container image of openEuler in the AArch64 architecture. |
 | openEuler-docker.x86_64.tar.xz  | Container image of openEuler in the x86_64 architecture.  |
 
-Table 4 Edge images
+**Table 4** Edge images
 
 | Name                                 | Description                                          |
 | ------------------------------------ | ---------------------------------------------------- |
 | openEuler-21.09-edge-aarch64-dvd.iso | Edge image of openEuler in the AArch64 architecture. |
 | openEuler-21.09-edge-x86_64-dvd.iso  | Edge image of openEuler in the x86_64 architecture.  |
 
-Table 5 Embedded images
+**Table 5** Embedded images
 
 | Name                     | Description                                                  |
 | ------------------------ | ------------------------------------------------------------ |
@@ -51,7 +51,7 @@ Table 5 Embedded images
 | qemu-arm/initrd          | File system that supports secure containers in the ARM architecture. |
 | source-list/manifest.xml | Source code list used in the new embedded versions.          |
 
-Table 6 Repo sources
+**Table 6** Repo sources
 
 | Name                | Description                               |
 | ------------------- | ----------------------------------------- |
@@ -68,13 +68,11 @@ Table 6 Repo sources
 | update              | Stores upgrade software package sources.  |
 | EPOL                | Stores extended openEuler packages.       |
 
-
-
 ## Minimum Hardware Specifications
 
 The following table lists the minimum hardware specifications for openEuler 21.03.
 
-Table 1 Minimum hardware requirements
+**Table 7** Minimum hardware requirements
 
 | Component  | Minimum Hardware Specification                      |
 | ---------- | --------------------------------------------------- |
@@ -86,7 +84,7 @@ Table 1 Minimum hardware requirements
 
 The following table lists the supported servers and configurations of openEuler.
 
-Table 1 Supported servers and configurations
+**Table 8** Supported servers and configurations
 
 <table><thead align="left"><tr id="zh-cn_topic_0227922427_row17270681"><th class="cellrowborder" valign="top" width="8.200820082008201%" id="mcps1.2.6.1.1"><p id="p1239010167198"><a name="p1239010167198"></a><a name="p1239010167198"></a>Vendor</p>
 </th>
@@ -113,7 +111,7 @@ Table 1 Supported servers and configurations
 </tr>
 <tr id="row127460329457"><td class="cellrowborder" valign="top" headers="mcps1.2.6.1.1 "><p id="p7326641174519"><a name="p7326641174519"></a><a name="p7326641174519"></a>Memory</p>
 </td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.6.1.2 "><p id="p4695124774516"><a name="p4695124774516"></a><a name="p4695124774516"></a>32G\*4 2933MHz</p>
+<td class="cellrowborder" valign="top" headers="mcps1.2.6.1.2 "><p id="p4695124774516"><a name="p4695124774516"></a><a name="p4695124774516"></a>4 x 32 GB 2933MHz</p>
 </td>
 </tr>
 <tr id="row3713103715458"><td class="cellrowborder" valign="top" headers="mcps1.2.6.1.1 "><p id="p13326114115457"><a name="p13326114115457"></a><a name="p13326114115457"></a>RAID card</p>
@@ -139,7 +137,7 @@ Table 1 Supported servers and configurations
 </tr>
 <tr id="row12326548454"><td class="cellrowborder" valign="top" headers="mcps1.2.6.1.1 "><p id="p1035012313461"><a name="p1035012313461"></a><a name="p1035012313461"></a>Memory</p>
 </td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.6.1.2 "><p id="p13893379461"><a name="p13893379461"></a><a name="p13893379461"></a>32*4 2400MHz</p>
+<td class="cellrowborder" valign="top" headers="mcps1.2.6.1.2 "><p id="p13893379461"><a name="p13893379461"></a><a name="p13893379461"></a>4 x 32 GB 2400MHz</p>
 </td>
 </tr>
 <tr id="row206435916456"><td class="cellrowborder" valign="top" headers="mcps1.2.6.1.1 "><p id="p23509319462"><a name="p23509319462"></a><a name="p23509319462"></a>RAID card</p>
@@ -154,4 +152,3 @@ Table 1 Supported servers and configurations
 </tr>
 </tbody>
 </table>
-
