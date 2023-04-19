@@ -1741,13 +1741,19 @@ pre {
 }
 
 .btn_pre_copy:hover {
-    background-image: url(/img/common/copyed.png);
+    background-image: url(/img/common/copied.png);
     background-repeat: no-repeat;
 }
 
 code {
+    padding: 0 4px;
+    background-color: var(--o-color-bg2);
+}
+
+code.hljs {
     padding: 30px !important;
 }
+
 #right-style{
     display: flex;
     flex-grow: 1;
