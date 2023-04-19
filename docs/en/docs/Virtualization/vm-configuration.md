@@ -25,7 +25,7 @@ The VM XML configuration file uses domain as the root element, which contains mu
 
 The basic format of the XML configuration file is as follows. In the format,  **label**  indicates the label name,  **attribute**  indicates the attribute, and  **value**  indicates the attribute value. Change them as required.
 
-```
+```xml
 <domain type='kvm'>
     <name>VMName</name>
     <memory attribute='value'>8</memory>
@@ -43,16 +43,16 @@ The basic format of the XML configuration file is as follows. In the format,  **
 
 ### Process
 
-1.  Create an XML configuration file with domain root element.
-2.  Use the name tag to specify a unique VM name based on the naming rule.
-3.  Configure system resources such as the virtual CPU \(vCPU\) and virtual memory.
-4.  Configure virtual devices.
-    1.  Configure storage devices.
-    2.  Configure network devices.
-    3.  Configure the external bus structure.
-    4.  Configure external devices such as the mouse.
+1. Create an XML configuration file with domain root element.
+2. Use the name tag to specify a unique VM name based on the naming rule.
+3. Configure system resources such as the virtual CPU \(vCPU\) and virtual memory.
+4. Configure virtual devices.
+    1. Configure storage devices.
+    2. Configure network devices.
+    3. Configure the external bus structure.
+    4. Configure external devices such as the mouse.
 
-5.  Save the XML configuration file.
+5. Save the XML configuration file.
 
 ## VM Description
 
@@ -62,20 +62,19 @@ This section describes how to configure the VM  **domain**  root element and VM 
 
 ### Elements
 
--   **domain**: Root element of a VM XML configuration file, which is used to configure the type of the hypervisor that runs the VM.
+- **domain**: Root element of a VM XML configuration file, which is used to configure the type of the hypervisor that runs the VM.
 
     **type**: Type of a domain in virtualization. In the openEuler virtualization, the attribute value is  **kvm**.
 
--   **name**: VM name.
+- **name**: VM name.
 
     The VM name is a unique character string on the same host. The VM name can contain only digits, letters, underscores \(\_\), hyphens \(-\), and colons \(:\), but cannot contain only digits. The VM name can contain a maximum of 64 characters.
-
 
 ### Configuration Example
 
 For example, if the VM name is  **openEuler**, the configuration is as follows:
 
-```
+```xml
 <domain type='kvm'>
     <name>openEuler</name>
     ...
@@ -90,47 +89,46 @@ This section describes how to configure the vCPU and virtual memory.
 
 ### Elements
 
--   **vcpu**: number of virtual processors.
--   **memory**: size of the virtual memory.
+- **vcpu**: number of virtual processors.
+- **memory**: size of the virtual memory.
 
     **unit**: memory unit. The value can be **KiB** \(2<sup>10</sup>  bytes\), **MiB** \(2<sup>20</sup>  bytes\), **GiB** \(2<sup>30</sup>  bytes\), or **TiB** \(2<sup>40</sup>  bytes\).
 
--   **cpu**: mode of the virtual processor.
+- **cpu**: mode of the virtual processor.
 
     **mode**: mode of the vCPU.
 
-    -   **host-passthrough**: indicates that the architecture and features of the virtual CPU are the same as those of the host.
+    - **host-passthrough**: indicates that the architecture and features of the virtual CPU are the same as those of the host.
 
-    -   **custom**: indicates that the architecture and features of the virtual CPU are configured by the **cpu** element.
+    - **custom**: indicates that the architecture and features of the virtual CPU are configured by the **cpu** element.
 
     Sub-element  **topology**: A sub-element of the element **cpu**, used to describe the topology structure of a vCPU mode.
 
-    -   The attributes  **socket**,  **cores**, and  **threads**  of the sub-element **topology** describe the number of CPU sockets of a VM, the number of processor cores included in each CPU socket, and the number of hyperthreads included in each processor core, respectively. The attribute value is a positive integer, and a product of the three values is equal to the number of of vCPUs.
+    - The attributes  **socket**,  **cores**, and  **threads**  of the sub-element **topology** describe the number of CPU sockets of a VM, the number of processor cores included in each CPU socket, and the number of hyperthreads included in each processor core, respectively. The attribute value is a positive integer, and a product of the three values is equal to the number of of vCPUs.
 
     Sub-element  **model**: A sub-element of the element **cpu**, used to describe the CPU model when **mode** is custom.
 
     Sub-element  **feature**: A sub-element of the element **cpu**, used to enable/disable a CPU feature when **mode** is custom.  The attribute **name** describes the name of the CPU feature.  And whether enable the CPU feature is controlled by the attribute **policy**:
 
-    -   **force**: forcibly enables the CPU feature regardless of whether it is supported by the host CPU.
+    - **force**: forcibly enables the CPU feature regardless of whether it is supported by the host CPU.
 
-    -   **require**: enables the CPU feature. If both the host CPU and hypervisor do not support this feature, the VM will fail to be created.
+    - **require**: enables the CPU feature. If both the host CPU and hypervisor do not support this feature, the VM will fail to be created.
 
-    -   **optional**: The CPU feature will be enabled if it is supported by the host CPU.
+    - **optional**: The CPU feature will be enabled if it is supported by the host CPU.
 
-    -   **disable**: disables the CPU feature.
+    - **disable**: disables the CPU feature.
 
-    -   **forbid**: disables the CPU feature. Guest creation will fail if the feature is supported by the host CPU.
+    - **forbid**: disables the CPU feature. Guest creation will fail if the feature is supported by the host CPU.
 
     >![](./public_sys-resources/icon-note.gif) **NOTE:**
     >
     >The display of user-mode CPU features in VM (e.g. the 'Flags' field of the 'lscpu' command) needs the support of the VM kernel.  If you use old kernel in VM, some CPU features may not be displayed.
 
-
 ### Configuration Example
 
 For example, if the number of vCPUs is 4, the processing mode is host-passthrough, the virtual memory is 8 GiB, the four CPUs are distributed in two CPU sockets, and hyperthreading  is not supported, the configuration is as follows:
 
-```
+```xml
 <domain type='kvm'>
     ...
     <vcpu>4</vcpu>
@@ -144,7 +142,7 @@ For example, if the number of vCPUs is 4, the processing mode is host-passthroug
 
 If the virtual memory is 8 GiB, the number of vCPUs is 4, the processing mode is custom, the CPU model is Kunpeng-920, and pmull is disabled, the configuration is as follows:
 
-```
+```xml
 <domain type='kvm'>
     ...
     <vcpu>4</vcpu>
@@ -264,28 +262,28 @@ The XML configuration file uses the  **disk**  element to configure storage devi
 
 #### Configuration Example
 
-After the VM image is prepared according to  [Preparing a VM Image](#preparing-a-vm-image), you can use the following XML configuration file to configure the virtual disk for the VM.
+After the VM image is prepared according to  [Preparing a VM Image](./environment-preparation.md#preparing-a-vm-image), you can use the following XML configuration file to configure the virtual disk for the VM.
 
 In this example, two I/O threads, one block disk device and one CD, are configured for the VM, and the first I/O thread is allocated to the block disk device for use. The backend medium of the disk device is in qcow2 format and is used as the preferred boot disk.
 
-```
+```xml
 <domain type='kvm'>
     ...
     <iothreads>2</iothreads>
     <devices>
         <disk type='file' device='disk'>
-	    <driver name='qemu' type='qcow2' cache='none' io='native' iothread="1"/>
-	    <source file='/mnt/openEuler-image.qcow2'/>
-	    <target dev='vda' bus='virtio'/>
-	    <boot order='1'/>
-	</disk>
-	<disk type='file' device='cdrom'>
-	    <driver name='qemu' type='raw' cache='none' io='native'/>
-	    <source file='/mnt/openEuler-20.03-LTS-SP1-aarch64-dvd.iso'/>
-	    <target dev='sdb' bus='scsi'/>
-	    <readonly/>
-	    <boot order='2'/>
-	</disk>
+     <driver name='qemu' type='qcow2' cache='none' io='native' iothread="1"/>
+     <source file='/mnt/openEuler-image.qcow2'/>
+     <target dev='vda' bus='virtio'/>
+     <boot order='1'/>
+ </disk>
+ <disk type='file' device='cdrom'>
+     <driver name='qemu' type='raw' cache='none' io='native'/>
+     <source file='/mnt/openEuler-20.03-LTS-SP1-aarch64-dvd.iso'/>
+     <target dev='sdb' bus='scsi'/>
+     <readonly/>
+     <boot order='2'/>
+ </disk>
          ...
     </devices>
 </domain>
@@ -302,7 +300,6 @@ The XML configuration file can be used to configure virtual network devices, inc
 In the XML configuration file, the element  **interface**  is used, and its attribute  **type**  indicates the mode of the vNIC. The options are  **ethernet**,  **bridge**, and  **vhostuser**. The following uses the vNIC in bridge mode as an example to describe its sub-elements and attributes.
 
 **Table  1**  Common sub-elements of a vNIC in bridge mode
-
 
 <table><thead align="left"><tr id="row5867349175120"><th class="cellrowborder" valign="top" width="13.3%" id="mcps1.2.4.1.1"><p id="p1532019194524"><a name="p1532019194524"></a><a name="p1532019194524"></a>Sub-element</p>
 </th>
@@ -367,38 +364,37 @@ In the XML configuration file, the element  **interface**  is used, and its attr
 
 #### Configuration Example
 
--   After creating the Linux bridge br0 by referring to  [Preparing the VM Network](#preparing-the-vm-network), configure a vNIC of the VirtIO type bridged on the br0 bridge. The corresponding XML configuration is as follows:
+- After creating the Linux bridge br0 by referring to  [Preparing the VM Network](./environment-preparation.md#preparing-the-vm-network), configure a vNIC of the VirtIO type bridged on the br0 bridge. The corresponding XML configuration is as follows:
 
-    ```
+    ```xml
     <domain type='kvm'>
         ...
         <devices>
             <interface type='bridge'>
-    	    <source bridge='br0'/>
+         <source bridge='br0'/>
                 <model type='virtio'/>
-    	</interface>
+     </interface>
             ...
         </devices>
     </domain>
     ```
 
--   If an OVS network bridge is created according to  [Preparing the VM Network](#preparing-the-vm-network), configure a VirtIO vNIC device that uses the vhost driver and has four queues.
+- If an OVS network bridge is created according to  [Preparing the VM Network](./environment-preparation.md#preparing-the-vm-network), configure a VirtIO vNIC device that uses the vhost driver and has four queues.
 
-    ```
+    ```xml
     <domain type='kvm'>
         ...
         <devices>
             <interface type='bridge'>
-    	    <source bridge='br0'/>
+         <source bridge='br0'/>
                 <virtualport type='openvswitch'/> 
                 <model type='virtio'/>
                 <driver name='vhost' queues='4'/> 
-    	</interface>
+     </interface>
             ...
         </devices>
     </domain>
     ```
-
 
 ### Bus Configuration
 
@@ -408,7 +404,7 @@ The bus is a channel for information communication between components of a compu
 
 The PCIe bus is a typical tree structure and has good scalability. The buses are associated with each other by using a controller. The following uses the PCIe bus as an example to describe how to configure a bus topology for a VM.
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >The bus configuration is complex. If the device topology does not need to be precisely controlled, the default bus configuration automatically generated by libvirt can be used.  
 
 #### Elements
@@ -417,18 +413,16 @@ In the XML configuration of libvirt, each controller element \(**controller**\) 
 
 **controller**: controller element, which indicates a bus.
 
--   Attribute  **type**: bus type, which is mandatory for the controller. The common values are  **pci**,  **usb**,  **scsi**,  **virtio-serial**,  **fdc**, and  **ccid**.
--   Attribute  **index**: bus number of the controller \(the number starts from 0\), which is mandatory for the controller. This attribute can be used in the  **address**  element.
--   Attribute  **model**: specific model of the controller, which is mandatory for the controller. The available values are related to the value of  **type**. For details about the mapping and description, see  [Table 1](#table191911761111).
--   Sub-element  **address**: mount location of a device or controller on the bus network.
-    -   Attribute  **type**: device address type. The common values are  **pci**,  **usb**, or  **drive**. The attribute varies according to the  **type**  of the  **address**. For details about the common  **type**  attribute value and the corresponding  **address**  attribute, see  [Table 2](#table1200165711314).
+- Attribute  **type**: bus type, which is mandatory for the controller. The common values are  **pci**,  **usb**,  **scsi**,  **virtio-serial**,  **fdc**, and  **ccid**.
+- Attribute  **index**: bus number of the controller \(the number starts from 0\), which is mandatory for the controller. This attribute can be used in the  **address**  element.
+- Attribute  **model**: specific model of the controller, which is mandatory for the controller. The available values are related to the value of  **type**. For details about the mapping and description, see  [Table 1](#table191911761111).
+- Sub-element  **address**: mount location of a device or controller on the bus network.
+    - Attribute  **type**: device address type. The common values are  **pci**,  **usb**, or  **drive**. The attribute varies according to the  **type**  of the  **address**. For details about the common  **type**  attribute value and the corresponding  **address**  attribute, see  [Table 2](#table1200165711314).
 
--   Sub-element  **model**: name of a controller model.
-    -   Attribute  **name**: name of a controller model, which corresponds to the  **model**  attribute in the parent element controller.
-
+- Sub-element  **model**: name of a controller model.
+    - Attribute  **name**: name of a controller model, which corresponds to the  **model**  attribute in the parent element controller.
 
 **Table  1**  Mapping between the common values of  **type**  and  **model**  for the controller.
-
 
 <table><thead align="left"><tr id="row2208179119"><th class="cellrowborder" valign="top" width="15.690000000000001%" id="mcps1.2.4.1.1"><p id="p17201217141114"><a name="p17201217141114"></a><a name="p17201217141114"></a>Value of Type</p>
 </th>
@@ -486,7 +480,6 @@ In the XML configuration of libvirt, each controller element \(**controller**\) 
 
 **Table  2**  Attributes of the  **address**  element in different devices.
 
-
 <table><thead align="left"><tr id="row202004570319"><th class="cellrowborder" valign="top" width="15.370000000000001%" id="mcps1.2.4.1.1"><p id="p172015573318"><a name="p172015573318"></a><a name="p172015573318"></a>Value of Type</p>
 </th>
 <th class="cellrowborder" valign="top" width="23.52%" id="mcps1.2.4.1.2"><p id="p17202111511010"><a name="p17202111511010"></a><a name="p17202111511010"></a>Description</p>
@@ -531,35 +524,35 @@ In the XML configuration of libvirt, each controller element \(**controller**\) 
 
 This example shows the topology of a PCIe bus. Three PCIe-Root-Port controllers are mounted to the PCIe root node \(BUS 0\). The multifunction function is enabled for the first PCIe-Root-Port controller \(BUS 1\). A PCIe-to-PCI-bridge controller is mounted to the first PCIe-Root-Port controller to form a PCI bus \(BUS 3\). A virtio-serial device and a USB 2.0 controller are mounted to the PCI bus. A SCSI controller is mounted to the second PCIe-Root-Port controller \(BUS 2\). No device is mounted to the third PCIe-Root-Port controller \(BUS 0\). The configuration details are as follows:
 
-```
+```xml
 <domain type='kvm'>
     ...
     <devices>
         <controller type='pci' index='0' model='pcie-root'/>
-	<controller type='pci' index='1' model='pcie-root-port'>
-	    <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x0' multifunction='on'/>
-	</controller>
-	<controller type='pci' index='2' model='pcie-root-port'>
-	    <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x1'/>
-	</controller>
-	<controller type='pci' index='3' model='pcie-to-pci-bridge'>
-	    <model name='pcie-pci-bridge'/>
-	    <address type='pci' domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
-	</controller>
-	<controller type='pci' index='4' model='pcie-root-port'>
-	    <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x2'/>
-	</controller>
-	<controller type='scsi' index='0' model='virtio-scsi'>
-	    <address type='pci' domain='0x0000' bus='0x02' slot='0x00' function='0x0'/>
-	</controller>
-	<controller type='virtio-serial' index='0'>
-	    <address type='pci' domain='0x0000' bus='0x03' slot='0x02' function='0x0'/>
-	</controller>
-	<controller type='usb' index='0' model='ehci'>
-	    <address type='pci' domain='0x0000' bus='0x03' slot='0x01' function='0x0'/>
-	</controller>
-	...
-	</devices>
+ <controller type='pci' index='1' model='pcie-root-port'>
+     <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x0' multifunction='on'/>
+ </controller>
+ <controller type='pci' index='2' model='pcie-root-port'>
+     <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x1'/>
+ </controller>
+ <controller type='pci' index='3' model='pcie-to-pci-bridge'>
+     <model name='pcie-pci-bridge'/>
+     <address type='pci' domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
+ </controller>
+ <controller type='pci' index='4' model='pcie-root-port'>
+     <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x2'/>
+ </controller>
+ <controller type='scsi' index='0' model='virtio-scsi'>
+     <address type='pci' domain='0x0000' bus='0x02' slot='0x00' function='0x0'/>
+ </controller>
+ <controller type='virtio-serial' index='0'>
+     <address type='pci' domain='0x0000' bus='0x03' slot='0x02' function='0x0'/>
+ </controller>
+ <controller type='usb' index='0' model='ehci'>
+     <address type='pci' domain='0x0000' bus='0x03' slot='0x01' function='0x0'/>
+ </controller>
+ ...
+ </devices>
 </domain>
 ```
 
@@ -571,12 +564,11 @@ In addition to storage devices and network devices, some external devices need t
 
 #### Elements
 
--   **serial**: serial port device.
+- **serial**: serial port device.
 
     Attribute  **type**: serial port type. The common attribute values are  **pty**,  **tcp**,  **pipe**, and  **file**.
 
-
--   **video**: media device.
+- **video**: media device.
 
     Attribute **type**: media device type The common attribute value of the AArch architecture is  **virtio**, and that of the x86\_64 architecture is  **vga**  or  **cirrus**.
 
@@ -586,34 +578,33 @@ In addition to storage devices and network devices, some external devices need t
 
     For example, if a 16 MB VGA video card is configured for an x86\_64 VM, configuration in the XML file is as follows. In the example, the value of  **vram**  is the size of video RAM, in KB by default.
 
-    ```
+    ```xml
     <video>
         <model type='vga' vram='16384' heads='1' primary='yes'/>
     </video>
     ```
 
--   **input**: output device.
+- **input**: output device.
 
     Attribute **type**: type of the output device. The common attribute values are  **tabe**  and  **keyboard**, indicating that the output device is the tablet and keyboard respectively.
 
     **bus**: bus to be mounted. The common attribute value is  **USB**.
 
--   **emulator**: emulator application path.
--   **graphics**: graphics device.
+- **emulator**: emulator application path.
+- **graphics**: graphics device.
 
     Attribute **type**: type of a graphics device. The common attribute value is  **vnc**.
 
     Attribute **listen**: IP address to be listened to.
 
-
 #### Configuration Example
 
 For example, in the following example, the VM emulator path, pty serial port, VirtIO media device, USB tablet, USB keyboard, and VNC graphics device are configured.
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >When  **type**  of  **graphics**  is set to  **VNC**, you are advised to set the  **passwd**  attribute, that is, the password for logging in to the VM using VNC.  
 
-```
+```xml
 <domain type='kvm'>
     ...
     <devices>
@@ -625,8 +616,8 @@ For example, in the following example, the VM emulator path, pty serial port, Vi
         <input type='tablet' bus='usb'/>
         <input type='keyboard' bus='usb'/>
         <graphics type='vnc' listen='0.0.0.0' passwd='n8VfjbFK'/>
-	...
-	</devices>
+ ...
+ </devices>
 </domain>
 ```
 
@@ -638,7 +629,7 @@ The XML configuration file contain configurations related to the system architec
 
 ### Elements
 
--   **os**: defines VM startup parameters.
+- **os**: defines VM startup parameters.
 
     Sub-element  **type**: VM type. The attribute  **arch**  indicates the architecture type, for example, AArch64. The attribute  **machine**  indicates the type of VM chipset. Supported chipset type can be queried by running the  **qemu-kvm -machine ?**  command. For example, the AArch64 architecture supports the  **virt**  type.
 
@@ -646,14 +637,13 @@ The XML configuration file contain configurations related to the system architec
 
     Sub-element  **nvram**: path of the  **nvram**  file, which is used to store the UEFI startup configuration.
 
-
--   **features**: Hypervisor controls some VM CPU/machine features, such as the advanced configuration and power interface \(ACPI\) and the GICv3 interrupt controller specified by the ARM processor.
+- **features**: Hypervisor controls some VM CPU/machine features, such as the advanced configuration and power interface \(ACPI\) and the GICv3 interrupt controller specified by the ARM processor.
 
 ### Example for AArch64 Architecture
 
 The VM is of the  **aarch64**  type and uses  **virt**  chipset. The VM configuration started using UEFI is as follows:
 
-```
+```xml
 <domain type='kvm'>
     ...
     <os>
@@ -667,7 +657,7 @@ The VM is of the  **aarch64**  type and uses  **virt**  chipset. The VM configur
 
 Configure ACPI and GIC V3 interrupt controller features for the VM.
 
-```
+```xml
 <features>
     <acpi/>
     <gic version='3'/>
@@ -678,7 +668,7 @@ Configure ACPI and GIC V3 interrupt controller features for the VM.
 
 The x86\_64 architecture supports both BIOS and UEFI boot modes. If  **loader**  is not configured, the default BIOS boot mode is used. The following is a configuration example in which the UEFI boot mode and Q35 chipsets are used.
 
-```
+```xml
 <domain type='kvm'>
     ...
     <os>
@@ -697,45 +687,44 @@ In addition to system resources and virtual devices, other elements need to be c
 
 ### Elements
 
--   **iothreads**: number of  **iothread**, which can be used to accelerate storage device performance.
+- **iothreads**: number of  **iothread**, which can be used to accelerate storage device performance.
 
--   **on\_poweroff**: action taken when a VM is powered off.
--   **on\_reboot**: action taken when a VM is rebooted.
--   **on\_crash**: action taken when a VM is on crash.
--   **clock**: clock type.
+- **on\_poweroff**: action taken when a VM is powered off.
+- **on\_reboot**: action taken when a VM is rebooted.
+- **on\_crash**: action taken when a VM is on crash.
+- **clock**: clock type.
 
     Attribute **offset**: VM clock synchronization type. The value can be  **localtime**,  **utc**,  **timezone**, or  **variable**.
-
 
 ### Configuration Example
 
 Configure two  **iothread**  for the VM to accelerate storage device performance.
 
-```
+```xml
 <iothreads>2</iothreads>
 ```
 
 Destroy the VM when it is powered off.
 
-```
+```xml
 <on_poweroff>destroy</on_poweroff>
 ```
 
 Restart the VM.
 
-```
+```xml
 <on_reboot>restart</on_reboot>
 ```
 
 Restart the VM when it is crashed.
 
-```
+```xml
 <on_crash>restart</on_crash>
 ```
 
 The clock uses the  **utc**  synchronization mode.
 
-```
+```xml
 <clock offset='utc'/>
 ```
 
@@ -749,19 +738,19 @@ This section provides XML configuration files of a basic AArch64 VM and a x86\_6
 
 An XML configuration file of AArch64 VM, which contains basic elements. The following is a configuration example:
 
-```
+```xml
 <domain type='kvm'>
     <name>openEulerVM</name>
     <memory unit='GiB'>8</memory>
     <vcpu>4</vcpu>
     <os>
-	<type arch='aarch64' machine='virt'>hvm</type>
-	<loader readonly='yes' type='pflash'>/usr/share/edk2/aarch64/QEMU_EFI-pflash.raw</loader>
-	<nvram>/var/lib/libvirt/qemu/nvram/openEulerVM.fd</nvram>
+ <type arch='aarch64' machine='virt'>hvm</type>
+ <loader readonly='yes' type='pflash'>/usr/share/edk2/aarch64/QEMU_EFI-pflash.raw</loader>
+ <nvram>/var/lib/libvirt/qemu/nvram/openEulerVM.fd</nvram>
     </os>
     <features>
-	<acpi/>
-	<gic version='3'/>
+ <acpi/>
+ <gic version='3'/>
     </features>
     <cpu mode='host-passthrough'>
         <topology sockets='2' cores='2' threads='1'/>
@@ -772,33 +761,33 @@ An XML configuration file of AArch64 VM, which contains basic elements. The foll
     <on_reboot>restart</on_reboot>
     <on_crash>restart</on_crash>
     <devices>
-	<emulator>/usr/libexec/qemu-kvm</emulator>
-	<disk type='file' device='disk'>
-	    <driver name='qemu' type='qcow2' iothread="1"/>
-	    <source file='/mnt/openEuler-image.qcow2'/>
-	    <target dev='vda' bus='virtio'/>
-	    <boot order='1'/>
-	</disk>
-	<disk type='file' device='cdrom'>
-	    <driver name='qemu' type='raw'/>
-	    <source file='/mnt/openEuler-20.03-LTS-SP1-aarch64-dvd.iso'/>
-	    <readonly/>
-	    <target dev='sdb' bus='scsi'/>
-	    <boot order='2'/>
-	</disk>
-	<interface type='bridge'>
-	    <source bridge='br0'/>
-	    <model type='virtio'/>
-	</interface>
-	<console type='pty'/>
+ <emulator>/usr/libexec/qemu-kvm</emulator>
+ <disk type='file' device='disk'>
+     <driver name='qemu' type='qcow2' iothread="1"/>
+     <source file='/mnt/openEuler-image.qcow2'/>
+     <target dev='vda' bus='virtio'/>
+     <boot order='1'/>
+ </disk>
+ <disk type='file' device='cdrom'>
+     <driver name='qemu' type='raw'/>
+     <source file='/mnt/openEuler-20.03-LTS-SP1-aarch64-dvd.iso'/>
+     <readonly/>
+     <target dev='sdb' bus='scsi'/>
+     <boot order='2'/>
+ </disk>
+ <interface type='bridge'>
+     <source bridge='br0'/>
+     <model type='virtio'/>
+ </interface>
+ <console type='pty'/>
         <video>
            <model type='virtio'/>
         </video>
         <controller type='scsi' index='0' model='virtio-scsi'/>
-	<controller type='usb' model='ehci'/>
-	<input type='tablet' bus='usb'/>
-	<input type='keyboard' bus='usb'/>
-	<graphics type='vnc' listen='0.0.0.0' passwd='n8VfjbFK'/>
+ <controller type='usb' model='ehci'/>
+ <input type='tablet' bus='usb'/>
+ <input type='keyboard' bus='usb'/>
+ <graphics type='vnc' listen='0.0.0.0' passwd='n8VfjbFK'/>
     </devices>
     <seclabel type='dynamic' model='dac' relabel='yes'/>
 </domain>
@@ -808,7 +797,7 @@ An XML configuration file of AArch64 VM, which contains basic elements. The foll
 
 An XML configuration file of x86\_64 VM, which contains basic elements and bus elements. The following is a configuration example:
 
-```
+```xml
 <domain type='kvm'>
   <name>openEulerVM</name>
   <memory unit='KiB'>8388608</memory>
