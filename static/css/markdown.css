@@ -241,6 +241,12 @@
   padding-left: var(--o-spacing-h3);
   line-height: var(--o-line-height-text);
 }
+.markdown table tr pre {
+  white-space: pre-wrap;
+}
+.markdown table tr pre .btn_pre_copy{
+  display: none;
+}
 .markdown table tr td p,
 .markdown table tr th p {
   padding: 16px 0;
