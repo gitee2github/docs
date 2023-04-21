@@ -1747,11 +1747,15 @@ pre {
 
 code {
     padding: 0 4px;
-    background-color: var(--o-color-bg2);
 }
 
+code[class*="language-"] {
+    display: block;
+    overflow-x: auto;
+    padding: 30px ;
+}
 code.hljs {
-    padding: 30px !important;
+    padding: 30px;
 }
 
 #right-style{
