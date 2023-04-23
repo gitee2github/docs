@@ -193,7 +193,7 @@ x2openEuler工具提供web界面方式进行操作，以供使用者能够在图
 
 ### 部署方式
 
-单机部署，即将x2openEuler工具部署在用户的安装Cent OS 7.6或openEuler服务器上。
+单机部署，即将x2openEuler工具部署在用户的安装CentOS 7.6或openEuler服务器上。
 
 ### 访问和使用
 
