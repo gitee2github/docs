@@ -56,45 +56,37 @@
     **表 2**  最小硬件要求
 
     <a name="tff48b99c9bf24b84bb602c53229e2541"></a>
-    <table><thead align="left"><tr id="zh-cn_topic_0229291228_r36f08b63edea4973a8228200caa2a50b"><th class="cellrowborder" valign="top" width="11.19111911191119%" id="mcps1.2.4.1.1"><p id="zh-cn_topic_0229291228_aef3575d97cdf4dcfb65f8d0c8d2d4a76"><a name="zh-cn_topic_0229291228_aef3575d97cdf4dcfb65f8d0c8d2d4a76"></a><a name="zh-cn_topic_0229291228_aef3575d97cdf4dcfb65f8d0c8d2d4a76"></a><strong id="zh-cn_topic_0229291228_abf63bde6a66a4ce5b21d81948fcafe36"><a name="zh-cn_topic_0229291228_abf63bde6a66a4ce5b21d81948fcafe36"></a><a name="zh-cn_topic_0229291228_abf63bde6a66a4ce5b21d81948fcafe36"></a>部件名称</strong></p>
-    </th>
-    <th class="cellrowborder" valign="top" width="40.06400640064006%" id="mcps1.2.4.1.2"><p id="zh-cn_topic_0229291228_a919d3bb266c8432fb33c51fa8f3a4fc3"><a name="zh-cn_topic_0229291228_a919d3bb266c8432fb33c51fa8f3a4fc3"></a><a name="zh-cn_topic_0229291228_a919d3bb266c8432fb33c51fa8f3a4fc3"></a><strong id="zh-cn_topic_0229291228_a9386cf027c1e47d99651159bb62130e7"><a name="zh-cn_topic_0229291228_a9386cf027c1e47d99651159bb62130e7"></a><a name="zh-cn_topic_0229291228_a9386cf027c1e47d99651159bb62130e7"></a>最小硬件要求</strong></p>
-    </th>
-    <th class="cellrowborder" valign="top" width="48.74487448744874%" id="mcps1.2.4.1.3"><p id="zh-cn_topic_0229291228_a3ac7cf4867974c4990ee6deab716db5f"><a name="zh-cn_topic_0229291228_a3ac7cf4867974c4990ee6deab716db5f"></a><a name="zh-cn_topic_0229291228_a3ac7cf4867974c4990ee6deab716db5f"></a><strong id="zh-cn_topic_0229291228_a0206841e981640cf833dc2556a7def50"><a name="zh-cn_topic_0229291228_a0206841e981640cf833dc2556a7def50"></a><a name="zh-cn_topic_0229291228_a0206841e981640cf833dc2556a7def50"></a>说明</strong></p>
-    </th>
-    </tr>
-    </thead>
-    <tbody><tr id="zh-cn_topic_0229291228_r1a3ceb0cc79241c6ba8c5fb800c274e2"><td class="cellrowborder" valign="top" width="11.19111911191119%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0229291228_af37d7ef138ee45eca00898e0d34a03f4"><a name="zh-cn_topic_0229291228_af37d7ef138ee45eca00898e0d34a03f4"></a><a name="zh-cn_topic_0229291228_af37d7ef138ee45eca00898e0d34a03f4"></a>架构</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="40.06400640064006%" headers="mcps1.2.4.1.2 "><a name="zh-cn_topic_0229291228_ul262164044016"></a><a name="zh-cn_topic_0229291228_ul262164044016"></a><ul id="zh-cn_topic_0229291228_ul262164044016"><li>AArch64</li><li>x86_64</li></ul>
-    </td>
-    <td class="cellrowborder" valign="top" width="48.74487448744874%" headers="mcps1.2.4.1.3 "><a name="zh-cn_topic_0229291228_ul1830173916388"></a><a name="zh-cn_topic_0229291228_ul1830173916388"></a><ul id="zh-cn_topic_0229291228_ul1830173916388"><li>支持Arm的64位架构。</li><li>支持Intel的x86 64位架构。</li></ul>
-    </td>
-    </tr>
-    <tr id="zh-cn_topic_0229291228_ra68eff5c33a84bb2be6672a48a643d26"><td class="cellrowborder" valign="top" width="11.19111911191119%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0229291228_ac0a50d2069ab444cafff180647772df4"><a name="zh-cn_topic_0229291228_ac0a50d2069ab444cafff180647772df4"></a><a name="zh-cn_topic_0229291228_ac0a50d2069ab444cafff180647772df4"></a>CPU</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="40.06400640064006%" headers="mcps1.2.4.1.2 "><a name="zh-cn_topic_0229291228_ul97131912175915"></a><a name="zh-cn_topic_0229291228_ul97131912175915"></a><ul id="zh-cn_topic_0229291228_ul97131912175915"><li>华为鲲鹏920系列CPU</li><li>Intel<sup id="zh-cn_topic_0229291228_sup487664501416"><a name="zh-cn_topic_0229291228_sup487664501416"></a><a name="zh-cn_topic_0229291228_sup487664501416"></a>&reg;</sup> Xeon<sup id="zh-cn_topic_0229291228_sup10571950171416"><a name="zh-cn_topic_0229291228_sup10571950171416"></a><a name="zh-cn_topic_0229291228_sup10571950171416"></a>&reg;</sup>处理器</li></ul>
-    </td>
-    <td class="cellrowborder" valign="top" width="48.74487448744874%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0229291228_a2601e9eece5f4c7bb02881c9ac647a61"><a name="zh-cn_topic_0229291228_a2601e9eece5f4c7bb02881c9ac647a61"></a><a name="zh-cn_topic_0229291228_a2601e9eece5f4c7bb02881c9ac647a61"></a>-</p>
-    </td>
-    </tr>
-    <tr id="zh-cn_topic_0229291228_rf2a5d43b74894a0882b7c17bdfeb697f"><td class="cellrowborder" valign="top" width="11.19111911191119%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0229291228_ad00611ec129a41a9841fb579eece7804"><a name="zh-cn_topic_0229291228_ad00611ec129a41a9841fb579eece7804"></a><a name="zh-cn_topic_0229291228_ad00611ec129a41a9841fb579eece7804"></a>内存</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="40.06400640064006%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0229291228_a94efe642b8694e5a85747e123b951efc"><a name="zh-cn_topic_0229291228_a94efe642b8694e5a85747e123b951efc"></a><a name="zh-cn_topic_0229291228_a94efe642b8694e5a85747e123b951efc"></a>不小于4GB（为了获得更好的应用体验，建议不小于8GB）</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="48.74487448744874%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0229291228_abfb44d28dca741f68df94e4e276d2410"><a name="zh-cn_topic_0229291228_abfb44d28dca741f68df94e4e276d2410"></a><a name="zh-cn_topic_0229291228_abfb44d28dca741f68df94e4e276d2410"></a>-</p>
-    </td>
-    </tr>
-    <tr id="zh-cn_topic_0229291228_rd2c1ebd93ea64e85a5f3fc88dc5ba456"><td class="cellrowborder" valign="top" width="11.19111911191119%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0229291228_afd36954546334c1681b5a391bbc386ae"><a name="zh-cn_topic_0229291228_afd36954546334c1681b5a391bbc386ae"></a><a name="zh-cn_topic_0229291228_afd36954546334c1681b5a391bbc386ae"></a>硬盘</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="40.06400640064006%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0229291228_p1224172312719"><a name="zh-cn_topic_0229291228_p1224172312719"></a><a name="zh-cn_topic_0229291228_p1224172312719"></a>为了获得更好的应用体验，建议不小于120GB</p>
-    </td>
-    <td class="cellrowborder" valign="top" width="48.74487448744874%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0229291228_acc0affdd82e34f32966171e21855ef40"><a name="zh-cn_topic_0229291228_acc0affdd82e34f32966171e21855ef40"></a><a name="zh-cn_topic_0229291228_acc0affdd82e34f32966171e21855ef40"></a><ul id="zh-cn_topic_0229291228_acc0affdd82e34f32966171e21855ef40"><li>支持IDE、SATA、SAS等接口的硬盘。</li><li>不支持开启DIF功能的nvme盘。</li></ul></p>
-    </td>
-    </tr>
-    </tbody>
+    <table>
+        <thead align="left">
+            <tr>
+                <th width="12%"><p><strong>部件名称</strong></p></th>
+                <th width="40%"><p><strong>最小硬件要求</strong></p></th>
+                <th width="48%"><p><strong>说明</strong></p></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="12%"><p>架构</p></td>
+                <td width="40%"><ul><li>AArch64</li><li>x86_64</li></ul></td>
+                <td width="48%"><ul><li>支持Arm的64位架构。</li><li>支持Intel的x86 64位架构。</li></ul></td>
+            </tr>
+            <tr>
+                <td width="12%"><p>CPU</p></td>
+                <td width="40%"><ul><li>华为鲲鹏920系列CPU</li><li>Intel<sup>&reg;</sup> Xeon<sup>&reg;</sup>处理器</li></ul></td>
+                <td width="48%"><p>-</p></td>
+            </tr>
+            <tr>
+                <td width="12%"><p>内存</p></td>
+                <td width="40%"><p>不小于4GB（为了获得更好的应用体验，建议不小于8GB）</p></td>
+                <td width="48%"><p>-</p></td>
+            </tr>
+            <tr>
+                <td width="12%"><p>硬盘</p></td>
+                <td width="40%"><p>为了获得更好的应用体验，建议不小于120GB</p></td>
+                <td width="48%"><p><ul><li>支持IDE、SATA、SAS等接口的硬盘。</li><li>用DIF功能的NVME盘，需要对应驱动支持，如果无法使用，请联系硬件厂商。</li></ul></p></td>
+            </tr>
+        </tbody>
     </table>
-
 
 ## 获取安装源
 
