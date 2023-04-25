@@ -2344,7 +2344,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
     2.  在“hosts”文件中增加如下内容后保存并退出。
 
-        _服务器__IP__地址_  x2openEuler
+        _服务器IP地址_  x2openEuler
 
         例如：10.254.206.190 x2openEuler
 
