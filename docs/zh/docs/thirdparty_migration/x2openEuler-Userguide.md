@@ -2348,7 +2348,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
         例如：10.254.206.190 x2openEuler
 
-12. 打开本地PC机的浏览器，在地址栏输入**https://x2openEuler_:端口号_**（例如：https://x2openEuler:8084），按“Enter”。
+12. 打开本地PC机的浏览器，在地址栏输入**https://x2openEuler _:端口号_**（例如：https://x2openEuler:8084），按“Enter”。
 
 ### 关闭SELinux
 
