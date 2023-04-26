@@ -40,12 +40,12 @@ This topic describes how to manage your operating system and services using the 
 
 <!-- /TOC -->
 
-
 ## Introduction to systemd
 
 The systemd is a system and service manager for Linux operating systems. It is designed to be backward compatible with SysV and LSB init scripts, and provides a number of features such as Socket & D-Bus based activation of services, on-demand activation of daemons, system state snapshots, and mount & automount point management. With systemd, the service control logic and parallelization are refined.
 
 ### Systemd Units
+
 In systemd, the targets of most actions are units, which are resources systemd know how to manage. Units are categorized by the type of resources they represent and defined in unit configuration files. For example, the avahi.service unit represents the Avahi daemon and is defined in the  **avahi.service**  file.  [Table 1](#en-us_topic_0151921012_t2dcb6d973cc249ed9ccd56729751ca6b)  lists available types of systemd units.
 
 **Table  1**  Available types of systemd units
@@ -171,14 +171,16 @@ All available types of systemd units are located in one of the following directo
 ## Features
 
 ### Fast Activation
+
 The systemd provides more aggressive parallelization than UpStart. The use of Socket- and D-Bus based activation reduces the time required to boot the operating system.
 
 To accelerate system boot, systemd seeks to:
 
--   Activate only the necessary processes
--   Activate as many processes as possible in parallel
+- Activate only the necessary processes
+- Activate as many processes as possible in parallel
 
 ### On-Demand Activation
+
 During SysVinit initialization, it activates all the possible background service processes that might be used. Users can log in only after all these service processes are activated. The drawbacks in SysVinit are obvious: slow system boot and a waste of system resources.
 
 Some services may rarely or even never be used during system runtime. For example, CUPS, printing services are rarely used on most servers. SSHD is rarely accessed on many servers. It is unnecessary to spend time on starting these services and system resources.
@@ -186,13 +188,15 @@ Some services may rarely or even never be used during system runtime. For exampl
 systemd can only be activated when a service is requested. If the service request is over, systemd stops.
 
 ### Service Lifecycle Management by Cgroups
+
 An important role of an init system is to track and manage the lifecycle of services. It can start and stop a service. However, it is more difficult than you could ever imagine to encode an init system into stopping services.
 
-Service processes often run in background as daemons and sometimes fork twice. In UpStart, the expect stanza in the configuration file must be correctly configured. Otherwise, UpStart is unable to learn a daemon's PID by counting the number of forks. 
+Service processes often run in background as daemons and sometimes fork twice. In UpStart, the expect stanza in the configuration file must be correctly configured. Otherwise, UpStart is unable to learn a daemon's PID by counting the number of forks.
 
 Things are made simpler with Cgroups, which have long been used to manage system resource quotas. The ease of use comes largely from its file-system-like user interface. When a parent service creates a child service, the latter inherits all attributes of the Cgroup to which the parent service belongs. This means that all relevant services are put into the same Cgroup. The systemd can find the PIDs of all relevant services simply by traversing their control group and then stop them one by one.
 
 ### Mount and Automount Point Management
+
 In traditional Linux systems, users can use the  **/etc/fstab**  file to maintain fixed file system mount points. These mount points are automatically mounted during system startup. Once the startup is complete, these mount points are available. These mount points are file systems critical to system running, such as the  **HOME**  directory. Like SysVinit, systemd manages these mount points so that they can be automatically mounted at system startup. systemd is also compatible with the  **/etc/fstab**  file. You can continue to use this file to manage mount points.
 
 There are times when you need to mount or unmount on demand. For example, a temporary mounting point is required for you to access the DVD content, and the mounting point is canceled \(using the  **umount**  command\) if you no longer need to access the content, thereby saving resources. This is traditionally achieved using the autofs service.
@@ -200,14 +204,17 @@ There are times when you need to mount or unmount on demand. For example, a temp
 The systemd allows automatic mount without a need to install autofs.
 
 ### Transactional Dependency Management
+
 System boot involves a host of separate jobs, some of which may be dependent on each other. For example, a network file system \(NFS\) can be mounted only after network connectivity is activated. The systemd can run a large number of dependent jobs in parallel, but not all of them. Looking back to the NFS example, it is impossible to mount NFS and activate network at the same time. Before running a job, systemd calculates its dependencies, creates a temporary transaction, and verifies that this transaction is consistent \(all relevant services can be activated without any dependency on each other\).
 
 ### Compatibility with SysVinit Scripts
+
 Like UpStart, systemd introduces new configuration methods and has new requirements for application development. If you want to replace the currently running initialization system with systemd, systemd must be compatible with the existing program. It is difficult to modify all the service code in any Linux distribution in a short time for the purpose of using systemd.
 
 The systemd provides features compatible with SysVinit and LSB initscripts. You do not need to modify the existing services and processes in the system. This reduces the cost of migrating the system to systemd, making it possible for users to replace the existing initialization system with systemd.
 
 ### System State Snapshots and System Restoration
+
 The systemd can be started on demand. Therefore, the running status of the system changes dynamically, and you cannot know the specific services that are running in the system. systemd snapshots enable the current system running status to be saved and restored.
 
 For example, if services A and B are running in the system, you can run the  **systemd**  command to create a snapshot for the current system running status. Then stop process A or make any other change to the system, for example, starting process C. After these changes, run the snapshot restoration command of systemd to restore the system to the point at which the snapshot was taken. That is, only services A and B are running. A possible application scenario is debugging. For example, when an exception occurs on the server, a user saves the current status as a snapshot for debugging, and then perform any operation, for example, stopping the service. After the debugging is complete, restore the snapshot.
@@ -217,6 +224,7 @@ For example, if services A and B are running in the system, you can run the  **s
 The systemd provides the systemctl command to start, stop, restart, view, enable, and disable system services.
 
 ### Comparison Between SysVinit and systemd Commands
+
 The  **systemctl**  command from the  **systemd**  command has the functions similar to the  **SysVinit**  command. Note that the  **service**  and  **chkconfig**  commands are supported in this version. For details, see  [Table 3](#en-us_topic_0151920917_ta7039963b0c74b909b72c22cbc9f2e28). You are advised to manage system services by running the  **systemctl**  command.
 
 **Table  3**  Comparison between SysVinit and systemd commands
@@ -318,23 +326,24 @@ The  **systemctl**  command from the  **systemd**  command has the functions sim
 </table>
 
 ### Listing Services
+
 To list all currently loaded services, run the following command:
 
-```
+```shell
 systemctl list-units --type service
 ```
 
 To list all services regardless of whether they are loaded, run the following command \(with the all option\):
 
-```
+```shell
 systemctl list-units --type service --all
 ```
 
 Example list of all currently loaded services:
 
-```
+```shell
 $ systemctl list-units --type service
-UNIT                        LOAD   ACTIVE     SUB     JOB   DESCRIPTION  
+UNIT                        LOAD   ACTIVE     SUB           DESCRIPTION  
 atd.service                 loaded active     running       Deferred execution scheduler  
 auditd.service              loaded active     running       Security Auditing Service  
 avahi-daemon.service        loaded active     running       Avahi mDNS/DNS-SD Stack  
@@ -345,14 +354,14 @@ dracut-shutdown.service     loaded active     exited        Restore /run/initram
 firewalld.service           loaded active     running       firewalld - dynamic firewall daemon  
 getty@tty1.service          loaded active     running       Getty on tty1  
 gssproxy.service            loaded active     running       GSSAPI Proxy Daemon  
-irqbalance.service          loaded active     running       irqbalance daemon  
-iscsid.service              loaded activating start   start Open-iSCSI
+......
 ```
 
 ### Displaying Service Status
+
 To display the status of a service, run the following command:
 
-```
+```shell
 systemctl status name.service
 ```
 
@@ -392,7 +401,7 @@ systemctl status name.service
 
 To verify whether a particular service is running, run the following command:
 
-```
+```shell
 systemctl is-active name.service
 ```
 
@@ -432,7 +441,7 @@ The output of the  **is-active**  command is as follows:
 
 Similarly, to determine whether a particular service is enabled, run the following command:
 
-```
+```shell
 systemctl is-enabled name.service
 ```
 
@@ -512,8 +521,8 @@ The output of the  **is-enabled**  command is as follows:
 
 For example, to display the status of gdm.service, run the  **systemctl status gdm.service**  command.
 
-```
-# systemctl status gdm.service
+```shell
+$ systemctl status gdm.service
 gdm.service - GNOME Display Manager   Loaded: loaded (/usr/lib/systemd/system/gdm.service; enabled)   Active: active (running) since Thu 2013-10-17 17:31:23 CEST; 5min ago
  Main PID: 1029 (gdm)
    CGroup: /system.slice/gdm.service
@@ -523,35 +532,38 @@ gdm.service - GNOME Display Manager   Loaded: loaded (/usr/lib/systemd/system/gd
 ```
 
 ### Starting a Service
+
 To start a service, run the following command as the user  **root**:
 
-```
+```shell
 systemctl start name.service
 ```
 
 For example, to start the httpd service, run the following command:
 
-```
-# systemctl start httpd.service
+```shell
+systemctl start httpd.service
 ```
 
 ### Stopping a Service
+
 To stop a service, run the following command as the user  **root**:
 
-```
+```shell
 systemctl stop name.service
 ```
 
 For example, to stop the Bluetooth service, run the following command:
 
-```
-# systemctl stop bluetooth.service
+```shell
+systemctl stop bluetooth.service
 ```
 
 ### Restarting a Service
+
 To restart a service, run the following command as the user  **root**:
 
-```
+```shell
 systemctl restart name.service
 ```
 
@@ -559,35 +571,37 @@ This command stops the selected service in the current session and immediately s
 
 For example, to restart the Bluetooth service, run the following command:
 
-```
-# systemctl restart bluetooth.service
+```shell
+systemctl restart bluetooth.service
 ```
 
 ### Enabling a Service
+
 To configure a service to start automatically at system boot time, run the following command as the user  **root**:
 
-```
+```shell
 systemctl enable name.service
 ```
 
 For example, to configure the httpd service to start automatically at system boot time, run the following command:
 
-```
-# systemctl enable httpd.service
+```shell
+$ systemctl enable httpd.service
 ln -s '/usr/lib/systemd/system/httpd.service' '/etc/systemd/system/multi-user.target.wants/httpd.service'
 ```
 
 ### Disabling a Service
+
 To prevent a service from starting automatically at system boot time, run the following command as the user  **root**:
 
-```
+```shell
 systemctl disable name.service
 ```
 
 For example, to prevent the Bluetooth service from starting automatically at system boot time, run the following command:
 
-```
-# systemctl disable bluetooth.service
+```shell
+$ systemctl disable bluetooth.service
 Removed /etc/systemd/system/bluetooth.target.wants/bluetooth.service.
 Removed /etc/systemd/system/dbus-org.bluez.service.
 ```
@@ -595,6 +609,7 @@ Removed /etc/systemd/system/dbus-org.bluez.service.
 ## Changing a Runlevel
 
 ### Targets and Runlevels
+
 In systemd, the concept of runlevels has been replaced with systemd targets to improve flexibility. For example, you can inherit an existing target and turn it into your own target by adding other services.  [Table 7](#en-us_topic_0151920939_t9af92c282ad240ea9a79fb08d26e8181)  provides a complete list of runlevels and their corresponding systemd targets.
 
 **Table  7**  Mapping between runlevels and targets
@@ -661,72 +676,79 @@ In systemd, the concept of runlevels has been replaced with systemd targets to i
 </table>
 
 ### Viewing the Default Startup Target
+
 Run the following command to view the default startup target of the system:
 
-```
+```shell
 systemctl get-default
 ```
 
 ### Viewing All Startup Targets
+
 Run the following command to view all startup targets of the system:
 
-```
+```shell
 systemctl list-units --type=target
 ```
 
 ### Changing the Default Target
+
 To change the default target, run the following command as the user  **root**:
 
-```
+```shell
 systemctl set-default name.target
 ```
 
 ### Changing the Current Target
+
 To change the current target, run the following command as the user  **root**:
 
-```
+```shell
 systemctl isolate name.target
 ```
 
 ### Changing to Rescue Mode
+
 To change the operating system to rescue mode, run the following command as the user  **root**:
 
-```
+```shell
 systemctl rescue
 ```
 
 This command is similar to the  **systemctl isolate rescue.target**  command. After the command is executed, the following information is displayed on the serial port:
 
-```
+```console
 You are in rescue mode. After logging in, type "journalctl -xb" to viewsystem logs, "systemctl reboot" to reboot, "systemctl default" or "exit"to boot into default mode.
 Give root password for maintenance
 (or press Control-D to continue):
 ```
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >You need to restart the system to enter the normal working mode from the rescue mode.  
 
 ### Changing to Emergency Mode
+
 To change the operating system to emergency mode, run the following command as the user  **root**:
 
-```
+```shell
 systemctl emergency
 ```
 
 This command is similar to the  **systemctl isolate emergency.target**  command. After the command is executed, the following information is displayed on the serial port:
 
-```
+```console
 You are in emergency mode. After logging in, type "journalctl -xb" to viewsystem logs, "systemctl reboot" to reboot, "systemctl default" or "exit"to boot into default mode.
 Give root password for maintenance
 (or press Control-D to continue):
 ```
 
->![](./public_sys-resources/icon-note.gif) **NOTE:**   
+>![](./public_sys-resources/icon-note.gif) **NOTE:**
 >You need to restart the system to enter the normal working mode from the emergency mode.  
 
 ## Shutting Down, Suspending, and Hibernating the Operating System
 
 ### systemctl Command
+
 The systemd uses the systemctl command instead of old Linux system management commands to shut down, restart, suspend, and hibernate the operating system. Although previous Linux system management commands are still available in systemd for compatibility reasons, you are advised to use  **systemctl**  when possible. The mapping relationship is shown in  [Table 8](#en-us_topic_0151920964_t3daaaba6a03b4c36be9668efcdb61f3b).
 
 **Table  8**  Mapping between old Linux system management commands and systemctl
@@ -765,53 +787,57 @@ The systemd uses the systemctl command instead of old Linux system management co
 </table>
 
 ### Shutting Down the Operating System
+
 To shut down the system and power off the operating system, run the following command as the user  **root**:
 
-```
+```shell
 systemctl poweroff
 ```
 
 To shut down the operating system without powering it off, run the following command as the user  **root**:
 
-```
+```shell
 systemctl halt
 ```
 
 By default, running either of these commands causes systemd to send an informative message to all login users. To prevent systemd from sending this message, run this command with the  **\-\-no\-wall**  option. The command is as follows:
 
-```
+```shell
 systemctl --no-wall poweroff
 ```
 
 ### Restarting the Operating System
+
 To restart the operating system, run the following command as the user  **root**:
 
-```
+```shell
 systemctl reboot
 ```
 
 By default, running either of these commands causes systemd to send an informative message to all login users. To prevent systemd from sending this message, run this command with the  **\-\-no\-wall**  option. The command is as follows:
 
-```
+```shell
 systemctl --no-wall reboot
 ```
 
 ### Suspending the Operating System
+
 To suspend the operating system, run the following command as the user  **root**:
 
-```
+```shell
 systemctl suspend
 ```
 
 ### Hibernating the Operating System
+
 To hibernate the operating system, run the following command as the user  **root**:
 
-```
+```shell
 systemctl hibernate
 ```
 
 To suspend and hibernate the operating system, run the following command as the user  **root**:
 
-```
+```shell
 systemctl hybrid-sleep
 ```
