@@ -219,7 +219,7 @@ The format of the  `rpmbuild`  command is `rpmbuild [option...]`
 </tr>
 <tr id="row642846145211"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p1342746115211"><a name="p1342746115211"></a><a name="p1342746115211"></a>-bl <em id="i1654526296"><a name="i1654526296"></a><a name="i1654526296"></a>specfile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p14710104517231"><a name="p14710104517231"></a><a name="p14710104517231"></a>Check the <strong id="b15640104316205"><a name="b15640104316205"></a><a name="b15640104316205"></a>%file</strong> section of the <em id="i5641104316208"><a name="i5641104316208"></a><a name="i5641104316208"></a>specfile</em> (Check whether the files are complete).</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p14710104517231"><a name="p14710104517231"></a><a name="p14710104517231"></a>Check the <strong id="b15640104316205"><a name="b15640104316205"></a><a name="b15640104316205"></a>%files</strong> section of the <em id="i5641104316208"><a name="i5641104316208"></a><a name="i5641104316208"></a>specfile</em> (Check whether the files are complete).</p>
 </td>
 </tr>
 <tr id="row2428463528"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p56839482271"><a name="p56839482271"></a><a name="p56839482271"></a>-ba <em id="i182405318294"><a name="i182405318294"></a><a name="i182405318294"></a>specfile</em></p>
@@ -254,7 +254,7 @@ The format of the  `rpmbuild`  command is `rpmbuild [option...]`
 </tr>
 <tr id="row0937171213317"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p167579334315"><a name="p167579334315"></a><a name="p167579334315"></a>-rl <em id="i1483914353366"><a name="i1483914353366"></a><a name="i1483914353366"></a>sourcefile</em></p>
 </td>
-<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p12757933103117"><a name="p12757933103117"></a><a name="p12757933103117"></a>Starts build from the <strong id="b19752559112316"><a name="b19752559112316"></a><a name="b19752559112316"></a>%file</strong> phase of the <em id="i375265952316"><a name="i375265952316"></a><a name="i375265952316"></a>sourcefile</em>.</p>
+<td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.2 "><p id="p12757933103117"><a name="p12757933103117"></a><a name="p12757933103117"></a>Starts build from the <strong id="b19752559112316"><a name="b19752559112316"></a><a name="b19752559112316"></a>%files</strong> phase of the <em id="i375265952316"><a name="i375265952316"></a><a name="i375265952316"></a>sourcefile</em>.</p>
 </td>
 </tr>
 <tr id="row15609181543116"><td class="cellrowborder" valign="top" width="50%" headers="mcps1.2.3.1.1 "><p id="p167572332315"><a name="p167572332315"></a><a name="p167572332315"></a>-ra <em id="i195041839133617"><a name="i195041839133617"></a><a name="i195041839133617"></a>sourcefile</em></p>
@@ -464,7 +464,7 @@ fi
 - The  **Group**  tag is used to classify software packages by  **/usr/share/doc/rpm-/GROUPS**. Currently, this tag has been discarded. However, the VIM template still has this tag. You can delete it. However, adding this tag does not affect the system. The  **%changelog**  tag should contain the log of changes made for each release, especially the description of the upstream security/vulnerability patches. The  **%changelog**  tag should contain the version string to avoid the rpmlint tool from generating alarms.
 - If multiple lines are involved, such as %changelog or %description, start from the next line of the instruction and end with a blank line.
 - Some unnecessary lines (such as **BuildRequires** and **Requires**) can be commented out with a number sign (\#) at the beginning of the lines.
-- The default values of  **%prep**,  **%build**,  **%install**, and  **%file**  are retained.
+- The default values of  **%prep**,  **%build**,  **%install**, and  **%files**  are retained.
 
 #### Building an RPM Package
 
