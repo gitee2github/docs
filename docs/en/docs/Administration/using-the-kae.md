@@ -498,9 +498,9 @@ You do not need the accelerator engine software or you want to install new accel
 </tr>
 <tr id="row65705461"><td class="cellrowborder" valign="top" width="28.28282828282828%" headers="mcps1.2.4.1.1 "><p id="p20542144"><a name="p20542144"></a><a name="p20542144"></a>/var/log/</p>
 </td>
-<td class="cellrowborder" valign="top" width="27.27272727272727%" headers="mcps1.2.4.1.2 "><p id="p53300980"><a name="p53300980"></a><a name="p53300980"></a>message/syslog</p>
+<td class="cellrowborder" valign="top" width="27.27272727272727%" headers="mcps1.2.4.1.2 "><p id="p53300980"><a name="p53300980"></a><a name="p53300980"></a>messages/syslog</p>
 </td>
-<td class="cellrowborder" valign="top" width="44.44444444444445%" headers="mcps1.2.4.1.3 "><a name="ul22412087"></a><a name="ul22412087"></a><ul id="ul22412087"><li>Kernel logs are stored in the <strong id="b24957411319"><a name="b24957411319"></a><a name="b24957411319"></a>/var/log/message</strong> directory.</li></ul>
+<td class="cellrowborder" valign="top" width="44.44444444444445%" headers="mcps1.2.4.1.3 "><a name="ul22412087"></a><a name="ul22412087"></a><ul id="ul22412087"><li>Kernel logs are stored in the <strong id="b24957411319"><a name="b24957411319"></a><a name="b24957411319"></a>/var/log/messages</strong> directory.</li></ul>
 <div class="note" id="note30958167"><a name="note30958167"></a><a name="note30958167"></a><span class="notetitle"> NOTE: </span><div class="notebody"><p class="textintable" id="p10188049"><a name="p10188049"></a><a name="p10188049"></a>Alternatively, you can run the <strong id="b43486522218"><a name="b43486522218"></a><a name="b43486522218"></a>dmesg &gt; /var/log/dmesg.log</strong> command to collect driver and kernel logs.</p>
 </div></div>
 </td>
