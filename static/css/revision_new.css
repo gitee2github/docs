@@ -1049,21 +1049,16 @@
   height: 100%;
   background-color: var(--e-color-division1);
 }
-.book-toc #toc-list {
-  height: 150px;
-  overflow-y: scroll;
-}
+
 .book-toc #toc-list::-webkit-scrollbar {
   display: none;
 }
 .footer {
   margin-top: 0;
-  /* max-width: 1620px; */
 }
 .page-content {
   width: 100%;
   max-width: 1174px;
-  /* border-right: 1px solid var(--e-color-division1); */
 }
 .prev-next .version {
   display: none;
