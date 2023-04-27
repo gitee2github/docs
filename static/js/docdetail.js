@@ -2,6 +2,7 @@ $(function ($) {
   if (lang == "ru") {
     $("#title-evaluate").css("display", "none");
   }
+  moveTip();
   var isEvaluate = false;
   var urlArr = window.location.pathname.split("/");
   var isAdd1 = $("#markdown>ul").first().find("li").children().is("ul");
@@ -530,4 +531,64 @@ ${Problem}
 
 4. 【预期结果】
 - 请填写预期结果`;
+}
+
+function moveTip() {
+  // 获取要拖动的元素
+  let dragElement = document.getElementById('title-evaluate');
+
+  if (window.localStorage.getItem('tip-coordinate')) {
+    try {
+      const coordinate = JSON.parse(
+        window.localStorage.getItem('tip-coordinate')
+      );
+      dragElement.style.left = coordinate.x + 'px';
+      dragElement.style.top = coordinate.y + 'px';
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  dragElement.style.display = 'block';
+  // 当鼠标按下时，开始拖动
+  dragElement.onmousedown = function (event) {
+    // 防止默认行为
+    event.preventDefault();
+
+    // 记录鼠标位置
+    let startX = event.clientX;
+    let startY = event.clientY;
+
+    // 记录元素位置
+    let origX = dragElement.offsetLeft;
+    let origY = dragElement.offsetTop;
+
+    // 当鼠标移动时，更新元素位置
+    document.onmousemove = function (event) {
+      // 计算新位置
+      let newX = origX + event.clientX - startX;
+      let newY = origY + event.clientY - startY;
+
+      // 将元素位置限制在窗口内
+      if (newX < 0) newX = 0;
+      if (newY < 0) newY = 0;
+      if (newX > window.innerWidth - dragElement.offsetWidth)
+        newX = window.innerWidth - dragElement.offsetWidth;
+      if (newY > window.innerHeight - dragElement.offsetHeight)
+        newY = window.innerHeight - dragElement.offsetHeight;
+
+      // 更新元素位置
+      dragElement.style.left = newX + 'px';
+      dragElement.style.top = newY + 'px';
+      window.localStorage.setItem(
+        'tip-coordinate',
+        JSON.stringify({ x: newX, y: newY })
+      );
+    };
+
+    // 当鼠标松开时，停止拖动
+    document.onmouseup = function () {
+      document.onmousemove = null;
+      document.onmouseup = null;
+    };
+  };
 }

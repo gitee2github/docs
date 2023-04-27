@@ -577,6 +577,9 @@ background-color: var(--e-color-kleinblue7);
 
 #title-evaluate {
     position: fixed;
+    display: none;
+    width: 64px;
+    height: 192px;
     bottom: 326px;
     right: 10vw;
     max-height: calc(100vh - 157px);
@@ -1218,6 +1221,11 @@ background-color: var(--e-color-kleinblue7);
     background-repeat: no-repeat;
     background-color: var(--e-color-bg2);
 }
+
+.right-nav .nav-item:first-child {
+    cursor: move;
+}
+
 #title-evaluate .nav-item a {
     font-size: 14px;
     color: var(--e-color-text1);
