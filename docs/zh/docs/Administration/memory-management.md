@@ -21,6 +21,14 @@ etmem客户端通过socket通信机制与服务端进行交互，下发创建/�
 
 etmem的编译和运行依赖于libboundscheck组件。
 
+安装命令：
+```
+   yum install libboundscheck
+```
+通过rpm包进行确认是否安装：
+```
+   rpm -qa |grep libboundscheck
+```
 3. 编译
 ```
    # cd etmem
