@@ -576,15 +576,16 @@ background-color: var(--e-color-kleinblue7);
 /* 标题导航栏 */
 
 #title-evaluate {
-    position: fixed;
-    display: none;
+    position: relative;
+    z-index: 1002;
+    /* position: fixed;
     width: 64px;
     height: 192px;
     bottom: 326px;
     right: 10vw;
     max-height: calc(100vh - 157px);
     z-index: 1002;
-    box-shadow: var(--e-shadow-l4);
+    box-shadow: var(--e-shadow-l4); */
 }
 @media screen and (max-width:1480px){
     #title-evaluate{
@@ -1204,6 +1205,17 @@ background-color: var(--e-color-kleinblue7);
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.3);
+}
+
+#title-evaluate .right-nav {
+    position: fixed;
+    display: none;
+    width: 64px;
+    height: 192px;
+    bottom: 326px;
+    right: 10vw;
+    max-height: calc(100vh - 157px);
+    box-shadow: var(--e-shadow-l4);
 }
 
 .right-nav .nav-item {

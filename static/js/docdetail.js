@@ -535,8 +535,7 @@ ${Problem}
 
 function moveTip() {
   // 获取要拖动的元素
-  let dragElement = document.getElementById('title-evaluate');
-
+  let dragElement = document.querySelector('#title-evaluate .right-nav');
   if (window.localStorage.getItem('tip-coordinate')) {
     try {
       const coordinate = JSON.parse(
