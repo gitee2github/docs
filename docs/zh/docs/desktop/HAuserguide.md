@@ -202,7 +202,7 @@ nodelist {
 
 ![](./figures/HA-existing-nodes.png)
 
-节点管理里面包含了启动，停止，重启，挂起，修复，配置fencing功能。可以看到该节点开启的服务，正在运行的资源，对节点进行管理。
+节点管理里面包含了启动，停止，重启，挂起，修复和配置fencing功能。可以看到该节点开启的服务，正在运行的资源，对节点进行管理。
 
 ![](./figures/HA-node-setting1.png)
 ![](./figures/HA-node-setting2.png)
