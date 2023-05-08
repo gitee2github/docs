@@ -30,8 +30,8 @@ $(function ($) {
     "/" +
     sourceLast;
   $("#source").attr("href", sourceHref);
-  $("#version-select .option span,#h5-menu-top .option a").each(function () {
-    if ($(this).html() === versionStr) {
+  $("#version-select .option li,#h5-menu-top .option a").each(function () {
+    if ($(this).text() === versionStr) {
       $(this).addClass("active");
     }
   });

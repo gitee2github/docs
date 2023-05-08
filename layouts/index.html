@@ -11,25 +11,7 @@
             <div class="left">
                 <img src="\img\common\logo-pc.png" alt=""/>
             </div>
-            <ul>
-                <li><i class="icon-tick" ></i>{{i18n "version_selection"}}</li>
-                {{ if ne .Site.LanguageCode "ru"}}
-                <li><a href="{{ i18n "know_88_1"}}">23.03</a></li>
-                <li><a href="{{ i18n "know_89_1"}}">22.03 LTS SP1</a></li>
-                <li><a href="{{ i18n "know_90_1"}}">22.09</a></li>
-                <li><a href="{{ i18n "know_91_1"}}">22.03 LTS</a></li>
-                <li><a href="{{ i18n "know_92_1"}}">20.03 LTS SP3</a></li>
-                {{ end }}
-                <li><a href="{{ i18n "know_93_1"}}">21.09</a></li>
-                {{ if ne .Site.LanguageCode "ru"}}
-                <li><a href="{{ i18n "know_94_1"}}">20.03 LTS SP2</a></li>
-                <li><a href="{{i18n "know_96_1"}}">20.03 LTS SP1</a></li>
-                {{ end }}
-                <li><a href="{{i18n "know_98_1"}}">20.03 LTS</a> </li>
-                {{ if ne .Site.LanguageCode "ru"}}
-                <li><a href="{{i18n "know_95_1"}}">21.03</a></li>
-                {{ end }}
-                <li><a href="{{i18n "know_97_1"}}">20.09</a> </li>
+            <ul class="version-list">
             </ul>
         </div>
         <div id="right">
@@ -192,22 +174,8 @@
                   <p>{{i18n "version_selection"}}</p>
                   <i class="icon-servision"></i>
                 </div>
-                <div class="option">
-                    <a href="{{ i18n "know_88_1"}}">{{ .Site.Params.version_88 }}</a>
-                    <a href="{{ i18n "know_89_1"}}">{{ .Site.Params.version_89 }}</a>
-                    <a href="{{ i18n "know_90_1"}}">{{ .Site.Params.version_90 }}</a>
-                    <a href="{{ i18n "know_91_1"}}">{{ .Site.Params.version_91 }}</a>
-                    <a href="{{ i18n "know_92_1"}}">{{ .Site.Params.version_92 }}</a>
-                    <a href="{{ i18n "know_93_1"}}">{{ .Site.Params.version_93 }}</a>
-                    {{ if ne .Site.LanguageCode "ru"}}
-                    <a href="{{ i18n "know_94_1"}}">{{ .Site.Params.version_94 }}</a>
-                    <a href="{{ i18n "know_95_1"}}">{{ .Site.Params.version_95 }}</a>
-                    <a href="{{ i18n "know_96_1"}}">{{ .Site.Params.version_96 }}</a>
-                    {{ end }}
-                    <a href="{{ i18n "know_97_1"}}">{{ .Site.Params.version_97 }}</a>
-                    <a href="{{ i18n "know_98_1"}}">{{ .Site.Params.version_98 }}</a>
-                    <div class="angle"></div>
-                  </div>
+                <ul class="option">
+                </ul>
               </div>
             <div class="h5-theme-lang">
                 <div class="lang">
@@ -245,47 +213,8 @@
             </div>
             <div class="h5_versions">
                 <span>{{ i18n "version_text" }}</span>
-                <div id="h5_versions">
-                    <div>
-                        <a href="{{i18n "know_98_1"}}">20.03 LTS</a>
-                    </div>
-                    <div>
-                        <a href="{{i18n "know_97_1"}}">20.09</a>
-                    </div>
-                    {{ if ne .Site.LanguageCode "ru"}}
-                    <div>
-                        <a href="{{i18n "know_96_1"}}">20.03 LTS SP1</a>
-                    </div>
-                    {{ end }}
-                    {{ if ne .Site.LanguageCode "ru"}}
-                    <div>
-                        <a href="{{i18n "know_95_1"}}">21.03</a>
-                    </div>
-                    <div>
-                        <a href="{{i18n "know_94_1"}}">20.03 LTS SP2</a>
-                    </div>
-                    {{ end }}
-                    <div>
-                        <a href="{{ i18n "know_93_1"}}">21.09</a>
-                    </div>
-                    {{ if ne .Site.LanguageCode "ru"}}
-                    <div>
-                        <a href="{{ i18n "know_92_1"}}">20.03 LTS SP3</a>
-                    </div>
-                    <div>
-                        <a href="{{ i18n "know_91_1"}}">22.03 LTS</a>
-                    </div>
-                    <div>
-                        <a href="{{ i18n "know_90_1"}}">22.09</a>
-                    </div>
-                    <div>
-                        <a href="{{ i18n "know_89_1"}}">22.03 LTS SP1</a>
-                    </div>
-                    <div>
-                        <a href="{{ i18n "know_88_1"}}">23.03</a>
-                    </div>
-                    {{ end }}
-                </div>
+                <ul id="h5_versions">
+                </ul>
             </div>
             {{ if eq .Site.LanguageCode "zh"}}
                  {{ partial "doc_map.html" . }}

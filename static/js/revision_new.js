@@ -159,10 +159,6 @@ $(function ($) {
         window.open($(this).attr("href"), "_self");
       }
     );
-    // 版本跳转
-    $("#version-select .option>span").click(function () {
-      window.open($(this).attr("href"), "_self");
-    });
     // 给较长的导航栏文字增加title start
     function addNavTitle() {
       $(".jstree-anchor").mouseenter(function () {

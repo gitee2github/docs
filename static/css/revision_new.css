@@ -194,6 +194,7 @@
   cursor: pointer;
   position: relative;
   background-color: var(--theme-title);
+  mask-size: cover;
   -webkit-mask-size: cover;
 }
 
@@ -203,6 +204,7 @@
   background-size: 100% 100%;
 }
 .theme-change i.dark {
+  mask-image: url(../img/common/sun.svg);
   -webkit-mask-image: url(../img/common/sun.svg);
   background-color: #ffffff;
   /* background-image: url(../img/common/sun.svg); */
@@ -365,7 +367,7 @@
     position: relative;
     right: 42px;
   }
-  #h5-menu-top .select-box .version-tip{
+  #h5-menu-top .select-box .version-tip {
     position: absolute;
     width: auto;
     white-space: nowrap;
@@ -381,13 +383,13 @@
     transition: transform 0.2s;
     transform: scale(0);
   }
-  #h5-menu-top .select-box .version-tip.ru{
+  #h5-menu-top .select-box .version-tip.ru {
     display: none;
   }
-  #h5-menu-top .select-box:hover .version-tip{
+  #h5-menu-top .select-box:hover .version-tip {
     transform: scale(1);
   }
-  #h5-menu-top .select-box .version-tip::after{
+  #h5-menu-top .select-box .version-tip::after {
     content: "";
     display: block;
     border-left: 6px solid transparent;
@@ -398,7 +400,7 @@
     left: 10px;
     top: 20px;
   }
-  #h5-menu-top .select-box .version-tip::before{
+  #h5-menu-top .select-box .version-tip::before {
     content: "";
     display: block;
     border-left: 6px solid transparent;
@@ -431,7 +433,7 @@
   #h5-menu-top .option-ru .option-ru-a {
     display: block;
   }
-  #h5-menu-top .option a:nth-last-of-type(1) {
+  #h5-menu-top .option li:nth-last-of-type(1) a {
     padding-bottom: 16px;
   }
   #h5-menu-top .option {
@@ -533,6 +535,7 @@
   background-image: url(../img/common/moon.svg);
 }
 .theme-change i.dark {
+  mask-image: url(../img/common/sun.svg);
   -webkit-mask-image: url(../img/common/sun.svg);
   background-color: #ffffff;
 }
@@ -1011,10 +1014,10 @@
   transition: transform 0.2s;
   transform: scale(0);
 }
-#menu-box #version-select .version-tip.ru{
+#menu-box #version-select .version-tip.ru {
   display: none;
 }
-#menu-box #version-select .version-tip::after{
+#menu-box #version-select .version-tip::after {
   content: "";
   display: block;
   border-left: 8px solid var(--e-color-kleinblue5);
@@ -1025,7 +1028,7 @@
   left: 10px;
   top: 32px;
 }
-#menu-box #version-select:hover .version-tip{
+#menu-box #version-select:hover .version-tip {
   transform: scale(1);
 }
 /* #menu-box .open-option::after {

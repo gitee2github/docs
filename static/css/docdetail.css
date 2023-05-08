@@ -116,7 +116,7 @@ background-color: var(--e-color-kleinblue7);
 #version-select .option-ru-active{
     height: 72px;
 }
-#version-select .option span {
+#version-select .option li {
     font-size: 16px;
     padding-left: 8px;
     padding-top: 8px;
@@ -128,10 +128,13 @@ background-color: var(--e-color-kleinblue7);
     position: relative;
     z-index: 3;
 }
-#version-select .option .active{
+#version-select .option li a{
+    color: #ffffff;
+}
+#version-select .option .active a{
     color:#feb32a;
 }
-#version-select .option span:nth-last-of-type(1){
+#version-select .option li:nth-last-of-type(1){
     padding-bottom: 8px;
 }
 /* #version-select .option-ru span,#version-select .option-ru a{
@@ -141,7 +144,7 @@ background-color: var(--e-color-kleinblue7);
     display: block;
 }
 
-#version-select .option span:hover {
+#version-select .option li:hover a {
     color: #feb32a;
 }
 
