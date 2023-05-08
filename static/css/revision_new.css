@@ -427,12 +427,7 @@
     margin-left: 16px;
     padding-top: 16px;
   }
-  #h5-menu-top .option-ru a {
-    display: none;
-  }
-  #h5-menu-top .option-ru .option-ru-a {
-    display: block;
-  }
+
   #h5-menu-top .option li:nth-last-of-type(1) a {
     padding-bottom: 16px;
   }

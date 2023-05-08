@@ -113,9 +113,6 @@ background-color: var(--e-color-kleinblue7);
     background-color: #406FE7;
 }
 
-#version-select .option-ru-active{
-    height: 72px;
-}
 #version-select .option li {
     font-size: 16px;
     padding-left: 8px;
@@ -136,12 +133,6 @@ background-color: var(--e-color-kleinblue7);
 }
 #version-select .option li:nth-last-of-type(1){
     padding-bottom: 8px;
-}
-/* #version-select .option-ru span,#version-select .option-ru a{
-    display: none;
-} */
-#version-select .option-ru .option-ru-a{
-    display: block;
 }
 
 #version-select .option li:hover a {
