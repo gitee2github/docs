@@ -28,58 +28,32 @@
   height: 35px;
 }
 
-#app > #left > ul {
+#app > #left > ul,#app > #left > .version-title {
   margin-left: 40px;
   margin-right: 40px;
-  margin-top: 53px;
+  margin-top: 24px;
+}
+#app > #left > .version-title{
+margin-top: 53px;
+font-size: 18px;
+color: #fff;
+display: flex;
+align-items: center;
 }
 
 #app > #left > ul a {
   color: #ffffff;
 }
-#app > #left > ul li ~ li {
+#app > #left > ul li {
   line-height: 56px;
 }
-#app > #left > ul li ~ li::after {
+#app > #left > ul li::after {
   content: "";
   display: block;
   width: 100%;
   height: 1px;
   background-color: #fff;
   opacity: 0.1;
-}
-
-#app > #left > ul li:nth-child(1) {
-  font-size: 18px;
-  margin-bottom: 24px;
-}
-
-#app > #left > ul li:nth-child(2) {
-  font-size: 16px;
-}
-
-#app > #left > ul li:nth-child(3) {
-  font-size: 16px;
-}
-
-#app > #left > ul li:nth-child(4) {
-  font-size: 16px;
-}
-
-#app > #left > ul li:nth-child(5) {
-  font-size: 16px;
-}
-
-#app > #left > ul li:nth-child(6) {
-  font-size: 16px;
-}
-
-#app > #left > ul li:nth-child(7) {
-  font-size: 16px;
-}
-
-#app > #left > ul li:nth-child(8) {
-  font-size: 16px;
 }
 
 #app > #right {
