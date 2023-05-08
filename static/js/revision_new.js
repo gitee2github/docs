@@ -134,9 +134,7 @@ $(function ($) {
       $(".mask-mobile").css("display", "none");
     });
     // 根据语言控制版本选择的显示
-    $("#version-select .option a[href^='/ru/']").addClass("option-ru-a");
     $("#h5-menu-top .option").addClass(`option-${lang}`);
-    $("#h5-menu-top .option a[href^='/ru/']").addClass("option-ru-a");
     // 让markdown里面的目录隐藏
     // $(function ($) {
     //   $(".markdown ul li>a[href^='#']").parent().hide();

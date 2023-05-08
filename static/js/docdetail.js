@@ -1,7 +1,4 @@
 $(function ($) {
-  if (lang == "ru") {
-    $("#title-evaluate").css("display", "none");
-  }
   moveTip();
   var isEvaluate = false;
   var urlArr = window.location.pathname.split("/");
@@ -47,37 +44,21 @@ $(function ($) {
     );
   }
 
-  // $("#h5-menu-top .select-box").find("span").text(versionStr);
-  if (location.href.includes("/ru/")) {
-    $("#version-select .option").addClass("option-ru");
-  }
   $("#version-select").click(function (e) {
     $(this).children(".option").toggleClass("option-active");
-    $(this).children(".option-ru").toggleClass("option-ru-active");
     $(this).toggleClass("open-option");
     $(document).one("click", function () {
       $("#version-select .option").removeClass("option-active");
-      $("#version-select .option-ru").toggleClass("option-ru-active");
     });
     e.stopPropagation();
   });
   $(".h5_nav_left").click(function (e) {
     $("#app>.left").addClass("show-left");
     $(".h5-mask").show();
-    // $("#content .docscontainer").css("height", "0");
-    // $("#page").hide();
   });
-
-  // $("#h5-menu .h5-menu").click(function (e) {
-  //     $("#menu-box").show();
-  //     $("#content .docscontainer").css("height", "0");
-  //     $("#page").hide();
-  // });
   $("#h5-menu-top .icon-close,.h5-mask").click(function (e) {
     $("#app>.left").removeClass("show-left");
     $(".h5-mask").hide();
-    // $("#content .docscontainer").css("height", "auto");
-    // $("#page").show();
   });
   $("#h5-menu-top .h5-search")
     .find(".search-btn")
@@ -459,7 +440,6 @@ function tipShow(value, index) {
 }
 // 选中文字出现捉虫图标
 window.onload = function () {
-  if (lang !== "ru") {
     function selectText() {
       if (document.selection) {
         return document.selection.createRange().text;
@@ -509,7 +489,6 @@ window.onload = function () {
       $(".question").click();
     };
   }
-};
 
 function issueTemplate(data) {
   let Problem = "";
