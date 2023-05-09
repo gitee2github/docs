@@ -3229,11 +3229,11 @@ x2openEuler -v
             <td> 源操作系统升级至目标操作系统的数据库支持包。 </td>
         </tr>
         <tr>
-            <td> x2openEuler-database-centos7.3-2.0.0.630-1.noarch </td>
+            <td> x2openEuler-database-centos7.3-2.0.0.630-1.noarch.rpm </td>
             <td> 源操作系统数据库支持包。 </td>
         </tr>
         <tr>
-            <td> x2openEuler-database-openEuler22.03-LTS-2.0.0.630-1.noarch </td>
+            <td> x2openEuler-database-openEuler22.03-LTS-2.0.0.630-1.noarch.rpm </td>
             <td> 目标操作系统数据库支持包。 </td>
         </tr>
         </table>
