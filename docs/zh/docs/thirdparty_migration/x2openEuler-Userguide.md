@@ -3212,9 +3212,7 @@ x2openEuler -v
         ```
 
         >![](public_sys-resources/icon-note.gif) **说明：** 
-        >其中，
-        >-   openEuler-22.03-LTS为升级目标操作系统。
-        >-   noarch为操作系统架构,可根据硬件环境平台选择aarch或x86_64目录。
+        >其中openEuler-22.03-LTS为升级目标操作系统。
 
     2.  获取以下操作系统包。
         **表 33** 操作系统包列表
