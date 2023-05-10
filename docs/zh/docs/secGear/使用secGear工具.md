@@ -34,13 +34,9 @@ EDL 文件语法为类 C 语言语法，这里主要描述与 C 语言的差异�
 
 codegen 的命令格式如下：
 
-- x86_64 架构：
 
-**codegen_x86_64** < --trustzone | --sgx > [--trusted-dir <path> | **--untrusted-dir** <path>| --trusted | --untrusted ]  edlfile
+**codegen** < --trustzone | --sgx > [--trusted-dir <path> | **--untrusted-dir** <path>| --trusted | --untrusted ]  edlfile
 
-ARM 架构：
-
-**codegen_arm64** < --trustzone | --sgx > [--trusted-dir <path> | **--untrusted-dir** <path>| --trusted | --untrusted ]  edlfile
 
 #### **参数说明**
 
@@ -65,25 +61,25 @@ ARM 架构：
 - 转译 *helloworld.edl* ，在 *enclave-directory* 下生成安全侧辅助代码，*host-directory* 下生成非安全辅助代码的命令示例如下：
 
 ```shell
-$ codegen_x86_64 --sgx --trusted-dir enclave-directory --untrusted-dir host-directory helloworld.edl
+$ codegen --sgx --trusted-dir enclave-directory --untrusted-dir host-directory helloworld.edl
 ```
 
 - 转译 *helloworld.edl* ，在当前目录生成安全侧辅助代码，不生成非安全辅助代码的命令示例如下：
 
 ```shell
-$ codegen_x86_64 --sgx --trusted helloworld.edl
+$ codegen --sgx --trusted helloworld.edl
 ```
 
 - 转译 *helloworld.edl* ，在当前目录生成非安全侧辅助代码，不生成安全辅助代码的命令示例如下：
 
 ```shell
-$ codegen_x86_64 --sgx --untrusted  helloworld.edl
+$ codegen --sgx --untrusted  helloworld.edl
 ```
 
 - 转译 *helloworld.edl* ，在 当前目录生成安全侧和非安全侧辅助代码的命令示例如下：
 
 ```shell
-$ codegen_x86_64 --sgx helloworld.edl
+$ codegen --sgx helloworld.edl
 ```
 
 
