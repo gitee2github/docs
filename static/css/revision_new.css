@@ -824,6 +824,16 @@
   gap: 16px;
   margin-bottom: 16px;
 }
+[lang="zh"] .footer .footer-right .isen{
+  display: none;
+}
+[lang="en"] .footer .footer-right .code-box,[lang="en"] .footer .footer-right .iszh{
+  display: none;
+}
+[lang="en"] .footer .footer-right .isen{
+  display: flex;
+}
+
 .footer .footer-right .code-box .code-pop {
   position: relative;
   height: 20px;
