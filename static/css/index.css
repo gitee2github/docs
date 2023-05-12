@@ -43,6 +43,9 @@ align-items: center;
 
 #app > #left > ul a {
   color: #ffffff;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 #app > #left > ul li {
   line-height: 56px;

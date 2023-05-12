@@ -115,8 +115,6 @@ background-color: var(--e-color-kleinblue7);
 
 #version-select .option li {
     font-size: 16px;
-    padding-left: 8px;
-    padding-top: 8px;
     display: block;
     cursor: pointer;
     color: #ffffff;
@@ -126,6 +124,9 @@ background-color: var(--e-color-kleinblue7);
     z-index: 3;
 }
 #version-select .option li a{
+    display: block;
+    padding-left: 8px;
+    padding-top: 8px;
     color: #ffffff;
 }
 #version-select .option .active a{
