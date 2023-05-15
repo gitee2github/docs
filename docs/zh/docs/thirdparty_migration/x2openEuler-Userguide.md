@@ -2471,7 +2471,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 #### 操作步骤
 
 1.  使用SSH工具远程登录x2openEuler部署环境，进入Linux操作系统命令行界面。
-2.  执行以下命令进行工具服务启动/停止/重启操作。
+2.  执行以下命令进行工具服务启动/停止/重启/查看状态操作。
 
     ```
     systemctl start/stop/restart/status nginx_x2openEuler.service
