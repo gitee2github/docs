@@ -95,14 +95,9 @@
 
 1.  登录[openEuler社区](https://openeuler.org)网站。
 2.  单击“下载”。
-3.  单击“获取ISO：”后面的“Link”，显示版本列表。
+3.  单击“社区发行版”，显示版本列表。
 4.  单击“openEuler-20.03-LTS-SP1”，进入openEuler 20.03-LTS-SP1版本下载列表。
-5.  单击“ISO”，进入ISO下载列表。
-    -   aarch64：AArch64架构的ISO。
-    -   x86\_64：x86\_64架构的ISO。
-    -   source：openEuler源码ISO。
-
-6.  根据实际待安装环境的架构选择需要下载的openEuler的发布包和校验文件。
+5.  根据实际待安装环境的架构选择需要下载的openEuler的发布包和校验文件。
     -   若为AArch64架构。
         1.  单击“aarch64”。
         2.  单击“openEuler-20.03-LTS-SP1-aarch64-dvd.iso”，将openEuler发布包下载到本地。
