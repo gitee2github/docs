@@ -137,7 +137,7 @@ StratoVirt 对接 iSula 安全容器即 StratoVirt 对接 iSula 安全容器中�
 4. 使用 **isula ps** 确认安全容器 test 正常运行，然后通过以下命令进入 test 容器。
 
    ```
-   # isula exec –ti test sh
+   # isula exec -ti test sh
    ```
 
    ​
