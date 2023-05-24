@@ -207,7 +207,7 @@ x2openEuler工具提供命令行或者web使用方式，用户在安装完成后
 
 ##### 界面分区
 
-x2openEuler工具首页界面主要由如所示的区域组成，各个区域的作用如[图1](#pic1)所示。
+x2openEuler工具首页界面主要由如图1所示的区域组成，各个区域的作用如[图1](#pic1)所示。
 
 **图 1**  x2openEuler工具首页界面<a id="pic1"></a>  
 ![](figures-x2openEuler930/x2openEuler工具首页界面.png "x2openEuler工具首页界面")
