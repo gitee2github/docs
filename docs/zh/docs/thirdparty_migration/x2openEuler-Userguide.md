@@ -3472,7 +3472,7 @@ yum install qemu
 Process exited prior to exec:libvirt:QEMU Driver error:Unable to get devmapper targets for /data1/var/lib/scevm/instance/xxxxxxx/disk.qcow2:Success
 ```
 #### 处理步骤
-由于主机没有加载dm_mod.ko导致，可以通过modprobedm_mod来解决该异常，执行如下命令:
+由于主机没有加载dm_mod.ko导致，可以通过modprobe dm_mod来解决该异常，执行如下命令:
 ```
 modprobe dm_mod
 ```
