@@ -136,6 +136,12 @@ other = "openEuler 是由开放原子开源基金会（OpenAtom Foundation）孵
 [copy_right]
 other = "版权所有 © 2023 openEuler 保留一切权利"
 
+[licensed_1]
+other = "遵循"
+
+[licensed_2]
+other = "木兰宽松许可证第2版（MulanPSL2）"
+
 [attention]
 other = "扫码关注公众号"
 

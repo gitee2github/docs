@@ -710,12 +710,12 @@
   }
 }
 .footer .atom-logo {
-  height: 40px;
+  height: 48px;
   margin-top: 16px;
 }
 @media (max-width: 1100px) {
   .footer .atom-logo {
-    height: 30px;
+    height: 38px;
   }
 }
 .footer-content {
@@ -789,6 +789,14 @@
     line-height: var(--o-line-height-tip);
     margin-top: var(--o-spacing-h8);
   }
+}
+.footer .license {
+    font-size: var(--o-font-size-text);
+    color: #fff;
+    margin-top: var(--o-spacing-h5);
+}
+.footer .license span {
+  color: var(--e-color-text4);
 }
 .footer .footer-option {
   text-align: center;

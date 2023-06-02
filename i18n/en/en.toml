@@ -318,6 +318,12 @@ other = "Privacy Statement."
 [btn_submit]
 other = "Submit"
 
+[licensed_1]
+other = "Licensed under"
+
+[licensed_2]
+other = "the MulanPSL2"
+
 [back]
 other = "Back to Top"
 
