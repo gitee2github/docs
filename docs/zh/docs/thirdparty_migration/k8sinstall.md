@@ -336,7 +336,7 @@ Master 和 Worker 节点通过 Docker 下载其他组件，下载镜像时需要
     $ docker pull calico/kube-controllers:v3.14.2-amd64
 	$ docker pull calico/pod2daemon-flexvol:v3.14.2-amd64
     ```
-2. 分别在 Master 和 Worker 节点上执行如下命令，修改已下载的镜像标签
+2. 分别在 Master 和 Worker 节点上执行如下命令，修改已下载的镜像标签。
     * aarch64架构
     ```
     $ docker tag calico/cni:v3.14.2-arm64 calico/cni:v3.14.2
