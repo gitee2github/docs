@@ -193,7 +193,7 @@ Spring Boot 是 Spring 的一套快速配置方案，可以用来快速开发单
     
     ```
 
-3. 执行以下命令，编译 eureka-0.0.1-SNAPSHOT 工程
+3. 执行以下命令，编译 eureka-0.0.1-SNAPSHOT 工程。
 
     ```
     # cd /home
