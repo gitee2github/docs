@@ -359,7 +359,7 @@ Master 和 Worker 节点通过 Docker 下载其他组件，下载镜像时需要
    ```
     ![](./figures/calicotag.png)
 
-4. 分别在 Master 和 Worker 节点上执行如下命令，删除旧镜像
+4. 分别在 Master 和 Worker 节点上执行如下命令，删除旧镜像。
     * aarch64架构
     ```
     $ docker rmi calico/cni:v3.14.2-arm64
