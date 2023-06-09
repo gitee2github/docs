@@ -413,7 +413,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 >-   为保证系统的安全性，初次登录时，请及时修改初始密码，并定期更新。
 >-   默认允许10个普通用户同时登录使用，管理员用户不受此限制。管理员用户可在x2openEuler工具首页中的![](figures-x2openEuler930/zh-cn_image_0000001459605209.png)菜单选项中选择“系统配置”，手动配置“最大在线普通用户数”，可配置范围为1\~20。
 >-   单个用户只允许1个活跃会话，如果当前用户已经在登录使用，重复登录会挤掉前面的登录。
->-   用户首次登录时会弹出免责声明弹窗，用户仔细阅读后，勾选“我已阅读以上内容“，点击“确认“后才能使用本工具，如点击“取消“将会退出工具。
+>-   用户首次登录时会弹出免责声明弹窗，用户仔细阅读后，勾选“我已阅读以上内容”，点击“确认”后才能使用本工具，如点击“取消”将会退出工具。
 
 1.  打开本地PC机的浏览器，在地址栏输入**https://_部署服务器的ip_ _:端口号_**（例如：https://10.254.206.190:18082），按“Enter”。
 
@@ -499,7 +499,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
     </tbody>
     </table>
 
-4.  输入用户名和密码，单击“登录“。
+4.  输入用户名和密码，单击“登录”。
 
     首次登录web的普通用户，系统提示修改默认密码。请按提示修改密码，密码需要满足如下复杂度要求：
 
@@ -537,8 +537,8 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
 ###### 操作步骤
 
-1.  单击页面右上角![](figures-x2openEuler930/zh-cn_image_0000001470049897.png)，在下拉菜单中选择“用户管理“，打开用户管理界面。
-2.  单击“创建“，打开“创建”界面，如[图5](#pic5)所示，需配置的参数如[表6](#table6)所示。
+1.  单击页面右上角![](figures-x2openEuler930/zh-cn_image_0000001470049897.png)，在下拉菜单中选择“用户管理”，打开用户管理界面。
+2.  单击“创建”，打开“创建”界面，如[图5](#pic5)所示，需配置的参数如[表6](#table6)所示。
 
     **图 5**  创建用户<a id="pic6"></a>  
     ![](figures-x2openEuler930/创建用户.png "创建用户")
@@ -596,7 +596,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
 ###### 操作步骤<a name="section139131865517"></a>
 
-1.  单击页面右上角![](figures-x2openEuler930/zh-cn_image_0000001419813812.png)，在下拉菜单中选择“系统配置“，打开系统配置界面。
+1.  单击页面右上角![](figures-x2openEuler930/zh-cn_image_0000001419813812.png)，在下拉菜单中选择“系统配置”，打开系统配置界面。
 2.  系统配置界面如图所示，单击“修改”，对配置项进行修改，需配置的参数如[图6](#pic6)所示。
 
     **图 6**  系统配置<a id="pic6"></a>  
@@ -989,7 +989,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >-   当用户执行卸载命令时，如果有正在运行的任务，用户需要先终止或等待运行的任务结束。若用户仍选择卸载，当前运行的任务会直接中断。
     >-   当用户执行卸载命令时，需要确保当前用户所在客户端为唯一操作远端服务器x2openEuler工具的客户端，否则可能会因删除用户失败而导致工具卸载失败。
-    >-   卸载完成后，x2openEuler用户、“/home/x2openEuler“和“/var/spool/mail/x2openEuler“相关文件目录会被自动移除，以保证系统环境安全。
+    >-   卸载完成后，x2openEuler用户、“/home/x2openEuler”和“/var/spool/mail/x2openEuler”相关文件目录会被自动移除，以保证系统环境安全。
 
 
 ## 特性指南
@@ -2302,7 +2302,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
 本指南以Chrome 105.0为例介绍为x2openEuler工具导入根证书的操作步骤。
 
-1.  登录x2openEuler工具，在页面右上方选择“![](figures-x2openEuler930/zh-cn_image_0000001409485102.png)  \> web服务端证书”，单击“下载根证书“下载根证书。
+1.  登录x2openEuler工具，在页面右上方选择“![](figures-x2openEuler930/zh-cn_image_0000001409485102.png)  \> web服务端证书”，单击“下载根证书”下载根证书。
 2.  打开浏览器，依次选择“设置 \> 隐私设置和安全性 \> 安全\>管理证书”。
 3.  在弹出“证书”的对话框中，选择“受信任的根证书颁发机构”页签，单击“导入”，如[图42](#pic42)所示。
 
@@ -2362,9 +2362,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
         sestatus
         ```
 
-        “Current mode“显示“enforcing“表示SELinux已开启强制模式。
+        “Current mode”显示“enforcing”表示SELinux已开启强制模式。
 
-    2.  执行如下命令将SELinux模式设置为“permissive“。
+    2.  执行如下命令将SELinux模式设置为“permissive”。
 
         ```
         setenforce 0
@@ -2372,7 +2372,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
     3.  再次查询SELinux状态。
 
-        “Current mode“显示“permissive“表示SELinux已临时关闭强制模式。
+        “Current mode”显示“permissive”表示SELinux已临时关闭强制模式。
 
     >![](public_sys-resources-x2openEuler930/icon-notice.gif) **须知：** 
     >服务器重启后失效，工具使用过程中可能会出现服务异常。
@@ -2384,15 +2384,15 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
         sestatus
         ```
 
-        “SELinux status“显示“enabled“表示SELinux已开启。
+        “SELinux status”显示“enabled”表示SELinux已开启。
 
-    2.  执行如下命令修改“/etc/selinux/config“文件。
+    2.  执行如下命令修改“/etc/selinux/config”文件。
 
         ```
         vi /etc/selinux/config
         ```
 
-    3.  按“i”进入编辑模式，将“SELINUX=enforcing“改为“SELINUX=disabled“。
+    3.  按“i”进入编辑模式，将“SELINUX=enforcing”改为“SELINUX=disabled”。
     4.  按“ESC”，输入“:wq”，按“Enter”保存并退出。
     5.  执行以下命令重启服务器。
 
@@ -2402,7 +2402,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
     6.  再次查询SELinux状态。
 
-        “SELinux status“显示“disabled“表示SELinux已关闭。
+        “SELinux status”显示“disabled”表示SELinux已关闭。
 
 
 
@@ -2621,9 +2621,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
 ##### 操作步骤
 
-1.  在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001459724873.png)下拉菜单中，选择“日志“。
+1.  在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001459724873.png)下拉菜单中，选择“日志”。
 
-    打开“日志“界面，选择“操作日志“，如[图47](#pic47)所示。
+    打开“日志”界面，选择“操作日志”，如[图47](#pic47)所示。
 
     **图 47**  操作日志<a id="pic47"></a>  
     ![](figures-x2openEuler930/操作日志.png "操作日志")
@@ -2641,13 +2641,13 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
 >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
 >-   只有管理员（**x2openEulerAdmin**）可以查看，下载运行日志和修改运行日志级别。
->-   管理员可以在工具首页![](figures-x2openEuler930/zh-cn_image_0000001409165266.png)下拉菜单的“系统配置“，手动设置“日志级别“，工具只会记录配置的级别及以上级别的日志。
+>-   管理员可以在工具首页![](figures-x2openEuler930/zh-cn_image_0000001409165266.png)下拉菜单的“系统配置”，手动设置“日志级别”，工具只会记录配置的级别及以上级别的日志。
 
 ##### 操作步骤
 
-1.  在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001459844845.png)下拉菜单中，选择“日志“。
+1.  在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001459844845.png)下拉菜单中，选择“日志”。
 
-    打开“日志“界面，选择“运行日志“，如[图48](#pic48)所示。
+    打开“日志”界面，选择“运行日志”，如[图48](#pic48)所示。
 
     **图 48**  运行日志<a id="pic48"></a>  
     ![](figures-x2openEuler930/运行日志.png "运行日志")
@@ -2685,7 +2685,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
 ##### 操作步骤
 
-1.  在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001459605233.png)下拉菜单中，选择“用户管理“。
+1.  在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001459605233.png)下拉菜单中，选择“用户管理”。
 
     打开用户管理界面。
 
@@ -2747,7 +2747,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
 ##### 操作步骤
 
-1.  在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001459844865.png)下拉菜单中，选择“用户管理“。
+1.  在页面右上角![](figures-x2openEuler930/zh-cn_image_0000001459844865.png)下拉菜单中，选择“用户管理”。
 
     打开用户管理界面。
 
@@ -2769,7 +2769,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
 ##### 操作步骤
 
-1.  在页面右上角登录用户的下拉菜单中，选择“修改密码“。
+1.  在页面右上角登录用户的下拉菜单中，选择“修改密码”。
 
     打开用户修改密码界面，如[图50](#pic50)所示，需配置的参数如[表29](#table29)所示。
 
@@ -2831,8 +2831,8 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
 #### 操作步骤
 
-1.  在![](figures-x2openEuler930/zh-cn_image_0000001459285021.png)菜单选项中选择“弱口令字典“。
-2.  单击“添加“，弹出对话框，如[图51](#pic51)所示。
+1.  在![](figures-x2openEuler930/zh-cn_image_0000001459285021.png)菜单选项中选择“弱口令字典”。
+2.  单击“添加”，弹出对话框，如[图51](#pic51)所示。
 
     **图 51**  添加弱口令<a id="pic51"></a>  
     ![](figures-x2openEuler930/添加弱口令.png "添加弱口令")
@@ -2970,22 +2970,22 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
     </tbody>
     </table>
 
-2.  单击“确认“生成CSR文件。
+2.  单击“确认”生成CSR文件。
 3.  将导出的CSR文件发往SSL证书颁发机构，并申请SSL证书。获取到正式的证书后，保存到本地。
 
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >用户也可以使用其根证书进行自签名获取正式的证书。
 
-4.  单击“导入web服务端证书“。弹出“导入web服务端证书“对话框。
-5.  单击![](figures-x2openEuler930/快照234.png)，选择需要导入证书文件，单击“导入“。
+4.  单击“导入web服务端证书”。弹出“导入web服务端证书”对话框。
+5.  单击![](figures-x2openEuler930/快照234.png)，选择需要导入证书文件，单击“导入”。
 
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >-   导入的证书文件不得大于1MB，支持的格式为\*.crt、\*.cer、\*.pem。
     >-   [1](#zh-cn_topic_0000001278745013_zh-cn_topic_0254527453_zh-cn_topic_0251823105_li681951883619)中生成的CSR文件与向CA机构申请的服务器证书是一一对应的，在导入服务器证书之前请不要再次生成新的CSR文件，否则需要向CA机构重新申请服务器证书。
     >-   导入的SSL证书如果不是从正式的证书颁发机构获取，而是用户自己使用工具生成，在导入该SSL证书后，还需要确认客户端浏览器中是否已存在对应的根证书。
 
-6.  单击“确认“导入web服务端证书。
-7.  单击“更多  \>  重启服务“使证书生效。
+6.  单击“确认”导入web服务端证书。
+7.  单击“更多  \>  重启服务”使证书生效。
 
     >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
     >用户手动在服务器上重启Nginx服务，证书不会生效，必须在web上进行重启操作。
@@ -2996,12 +2996,12 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
 工作密钥用于加密启动Nginx服务的口令。为提高系统安全性，建议定期更新。
 
 1.  在页面右上方![](figures-x2openEuler930/zh-cn_image_0000001459844861.png)选项中选择“web服务端证书”。
-2.  单击“更多  \>  更新工作密钥“，如[图54](#pic54)所示。
+2.  单击“更多  \>  更新工作密钥”，如[图54](#pic54)所示。
 
     **图 54**  更新工作密钥<a id="pic54"></a>  
     ![](figures-x2openEuler930/更新工作密钥.png "更新工作密钥")
 
-3.  单击“更多  \>  重启服务“使工作密钥生效。
+3.  单击“更多  \>  重启服务”使工作密钥生效。
 
 ### 查询工具发布信息
 
@@ -3046,7 +3046,7 @@ x2openEuler -v
 ```
 
 >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
->“/usr/local/x2openEuler“为工具安装目录，请根据实际情况替换。
+>“/usr/local/x2openEuler”为工具安装目录，请根据实际情况替换。
 
 #### 使用实例
 
