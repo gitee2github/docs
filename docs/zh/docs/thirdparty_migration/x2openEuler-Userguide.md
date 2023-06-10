@@ -814,9 +814,9 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
 
 使用软件包安装/升级之前，也需要按上述过程先验证软件包的数字签名，确保软件包未被篡改。
 
-运营商客户请访问：[PGP Verfy](https://support.huawei.com/carrier/navi?coltype=software#col=software&detailId=PBI1-253374093&path=PBI1-253383977/PBI1-23710112/PBI1-21431666/PBI1-253386765/PBI1-22562161)
+运营商客户请访问：[PGP Verify](https://support.huawei.com/carrier/navi?coltype=software#col=software&detailId=PBI1-253374093&path=PBI1-253383977/PBI1-23710112/PBI1-21431666/PBI1-253386765/PBI1-22562161)
 
-企业客户请访问：[PGP Verfy](https://support.huawei.com/enterprise/zh/tool/pgp-verify-TL1000000054)
+企业客户请访问：[PGP Verify](https://support.huawei.com/enterprise/zh/tool/pgp-verify-TL1000000054)
 
 ### 安装
 
