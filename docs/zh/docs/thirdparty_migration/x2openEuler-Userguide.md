@@ -2860,7 +2860,7 @@ web服务端证书用于客户端浏览器和web服务器之间的通讯，实�
 已成功登录x2openEuler工具。
 
 >![](public_sys-resources-x2openEuler930/icon-note.gif) **说明：** 
->只有管理员（**x2openEulerAdmin**）可以执行生成CSR文件、导入web服务器证书、下载根证书，重启和更换工作密钥的操作。
+>只有管理员（**x2openEulerAdmin**）可以执行生成CSR文件、导入web服务器证书、下载根证书、重启和更换工作密钥的操作。
 
 #### 查看当前web端服务证书
 
