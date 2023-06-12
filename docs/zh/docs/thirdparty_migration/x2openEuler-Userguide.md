@@ -3433,7 +3433,7 @@ x2openEuler -v
 
 #### 处理步骤
 
-若升级的目标系统为“openEuler-20.03-LTS-SP1”,需要挂载update源。
+若升级的目标系统为“openEuler-20.03-LTS-SP1”，需要挂载update源。
 
 ### 升级前检查报错
 
