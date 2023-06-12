@@ -1,1 +1,12 @@
-# Installing the Kubernetes Software Package```bash$ dnf install -y docker conntrack-tools socat```In versions later than EPOL, K8S can be directly installed through DNF.```bash$ rpm -ivh kubernetes*.rpm```
+# Installing the Kubernetes Software Package
+
+
+```bash
+$ dnf install -y docker conntrack-tools socat
+```
+
+In versions later than EPOL, K8S can be directly installed through DNF.
+
+```bash
+$ rpm -ivh kubernetes*.rpm
+```
