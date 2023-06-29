@@ -15,7 +15,7 @@
         {{ $sections := split (trim .File.Dir "/") "/" }}
         {{ $title = index ($sections | last 1) 0 | title }}
     {{ else if and .IsPage .File }}
-        {{ $title = .File.BaseFileName | title }}
+        {{ $title = .File.BaseFileName }}
     {{ end }}
     {{ if $version}}
     <title>{{ $title }} | {{ .Site.Title }} | v{{ $version }}</title>
