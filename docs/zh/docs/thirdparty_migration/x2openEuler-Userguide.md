@@ -1041,7 +1041,7 @@ x2openEuler工具中出现的图标/按钮及其说明如[表2](#table2)所示�
         </thead>
         <tbody><tr id="row12631193391220"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p2631163381215"><a name="p2631163381215"></a><a name="p2631163381215"></a>SSH传输须知</p>
         </td>
-        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p132162015650"><a name="p132162015650"></a><a name="p132162015650"></a>节点管理使用服务器默认的SSH传输通道，为了保护数据的安全完整，建议使用安全的ssh服务，如使用安全的ssh版本，配置使用安全的加密算法等。</p>
+        <td class="cellrowborder" valign="top" width="78.67%" headers="mcps1.2.3.1.2 "><p id="p132162015650"><a name="p132162015650"></a><a name="p132162015650"></a>节点管理使用服务器默认的SSH传输通道，为了保护数据的安全完整，建议使用安全的SSH服务，如使用安全的SSH版本，配置使用安全的加密算法等。</p>
         </td>
         </tr>
         <tr id="row1363193314129"><td class="cellrowborder" valign="top" width="21.33%" headers="mcps1.2.3.1.1 "><p id="p15595154141714"><a name="p15595154141714"></a><a name="p15595154141714"></a>待升级节点IP</p>
