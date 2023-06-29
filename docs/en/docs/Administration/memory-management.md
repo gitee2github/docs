@@ -19,7 +19,16 @@ The etmem client interacts with the server through the socket communication mech
 ```
 2. Install the compilation and running dependency.
 
-The compilation and running of etmem depend on the libboundscheck component.
+   The compilation and running of etmem depend on the libboundscheck component.
+
+   Install the libboundscheck component.
+   ```
+   yum install libboundscheck
+   ```
+   Confirm whether it is installed through the rpm package.
+   ```
+   rpm -qa |grep libboundscheck
+   ```
 
 3. Build source code.
 ```
