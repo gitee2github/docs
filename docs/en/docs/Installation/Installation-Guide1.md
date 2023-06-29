@@ -85,7 +85,7 @@ To expand the root directory partition capacity, perform the following procedure
    
    7. Enter the start sector number of the new partition. That is, the start sector number recorded in Step `1`. In the example, the start sector number is `1593344`.
       
-      > ![](./public_sys-resources/icon-notice.gif) **NOTE:**   
+      > ![](./public_sys-resources/icon-notice.gif) **NOTICE:**   
 Do not press **Enter** or use the default parameters.
    
    8. Press `Enter` to use the last sector number by default as the end sector number of the new partition.
@@ -118,7 +118,7 @@ Do not press **Enter** or use the default parameters.
 
 5. Run the `df -lh` command to check the drive space information and ensure that the root directory partition has been expanded.
    
-   > ![](./public_sys-resources/icon-notice.gif) **NOTE:**   
+   > ![](./public_sys-resources/icon-notice.gif) **NOTICE:**   
 If the root directory partition is not expanded, run the `reboot` command to restart the Raspberry Pi and then run the `resize2fs /dev/mmcblk0p3` command as the root user.
 
 ### Connecting to the Wi-Fi Network
